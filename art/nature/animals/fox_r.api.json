@@ -1,0 +1,86 @@
+{
+  "1": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {
+      "ckpt_name": "sd_xl_base_1.0.safetensors"
+    }
+  },
+  "2": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "Original naturalistic pixel painting for an early 1990s strategy game. one red fox, small slender rusty red body, pointed ears and muzzle, large bushy tail with pale cream tip. Single whole animal, standing still, all feet visible. Facing right, head on the right side of the image. Elevated three quarter side view, viewed slightly from above, warm earthy colors, small clear silhouette, light from upper RIGHT regardless of facing, left side shaded, isolated on a plain pale ivory background. Full body centered with wide empty margins. Restrained hand painted texture, realistic animal anatomy, no background scenery.",
+      "clip": [
+        "1",
+        1
+      ]
+    }
+  },
+  "3": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "cute, cartoon, big eyes, smile, anthropomorphic, clothes, collar, person, forest, plants, ground, platform, many animals, herd, collage, sprite sheet, text, letters, black outline, photorealistic, 3d render, extra legs, cropped body",
+      "clip": [
+        "1",
+        1
+      ]
+    }
+  },
+  "4": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "width": 768,
+      "height": 768,
+      "batch_size": 1
+    }
+  },
+  "5": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "positive": [
+        "2",
+        0
+      ],
+      "negative": [
+        "3",
+        0
+      ],
+      "latent_image": [
+        "4",
+        0
+      ],
+      "seed": 2026101905,
+      "steps": 24,
+      "cfg": 6.5,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "karras",
+      "denoise": 1.0
+    }
+  },
+  "6": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "5",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    }
+  },
+  "7": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "6",
+        0
+      ],
+      "filename_prefix": "nature_in_a_glass/animals/fox_r"
+    }
+  }
+}

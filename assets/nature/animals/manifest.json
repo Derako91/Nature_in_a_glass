@@ -1,0 +1,2112 @@
+{
+  "version": 1,
+  "status": "animation_review",
+  "base_tile": {
+    "width": 64,
+    "height": 32
+  },
+  "missing": [
+    "carcasses",
+    "tracks"
+  ],
+  "frame_aliases": {
+    "deer_0_run_l_f0.png": "deer_0_walk_l_f0.png",
+    "deer_0_run_l_f2.png": "deer_0_walk_l_f2.png",
+    "deer_0_run_r_f0.png": "deer_0_walk_r_f0.png",
+    "deer_0_run_r_f2.png": "deer_0_walk_r_f2.png",
+    "deer_1_run_l_f0.png": "deer_1_walk_l_f0.png",
+    "deer_1_run_l_f2.png": "deer_1_walk_l_f2.png",
+    "deer_1_run_r_f0.png": "deer_1_walk_r_f0.png",
+    "deer_1_run_r_f2.png": "deer_1_walk_r_f2.png",
+    "deer_young_0_run_l_f0.png": "deer_young_0_walk_l_f0.png",
+    "deer_young_0_run_l_f2.png": "deer_young_0_walk_l_f2.png",
+    "deer_young_0_run_l_f3.png": "deer_young_0_walk_l_f3.png",
+    "deer_young_0_run_r_f0.png": "deer_young_0_walk_r_f0.png",
+    "deer_young_0_run_r_f1.png": "deer_young_0_walk_r_f3.png",
+    "deer_young_0_run_r_f2.png": "deer_young_0_walk_r_f2.png",
+    "deer_young_1_run_l_f0.png": "deer_young_1_walk_l_f0.png",
+    "deer_young_1_run_l_f2.png": "deer_young_1_walk_l_f2.png",
+    "deer_young_1_run_l_f3.png": "deer_young_1_walk_l_f3.png",
+    "deer_young_1_run_r_f0.png": "deer_young_1_walk_r_f0.png",
+    "deer_young_1_run_r_f1.png": "deer_young_1_walk_r_f3.png",
+    "deer_young_1_run_r_f2.png": "deer_young_1_walk_r_f2.png",
+    "wolf_0_run_l_f0.png": "wolf_0_walk_l_f0.png",
+    "wolf_0_run_l_f2.png": "wolf_0_walk_l_f2.png",
+    "wolf_0_run_r_f0.png": "wolf_0_walk_r_f0.png",
+    "wolf_0_run_r_f2.png": "wolf_0_walk_r_f2.png",
+    "wolf_1_run_l_f0.png": "wolf_1_walk_l_f0.png",
+    "wolf_1_run_l_f2.png": "wolf_1_walk_l_f2.png",
+    "wolf_1_run_r_f0.png": "wolf_1_walk_r_f0.png",
+    "wolf_1_run_r_f2.png": "wolf_1_walk_r_f2.png",
+    "fox_0_walk_l_f0.png": "fox_0_graze_l_f0.png",
+    "fox_0_walk_r_f0.png": "fox_0_graze_r_f0.png",
+    "fox_1_walk_l_f0.png": "fox_1_graze_l_f0.png",
+    "fox_1_walk_r_f0.png": "fox_1_graze_r_f0.png",
+    "fox_0_run_l_f0.png": "fox_0_graze_l_f0.png",
+    "fox_0_run_l_f2.png": "fox_0_walk_l_f2.png",
+    "fox_0_run_r_f0.png": "fox_0_graze_r_f0.png",
+    "fox_0_run_r_f2.png": "fox_0_walk_r_f2.png",
+    "fox_1_run_l_f0.png": "fox_1_graze_l_f0.png",
+    "fox_1_run_l_f2.png": "fox_1_walk_l_f2.png",
+    "fox_1_run_r_f0.png": "fox_1_graze_r_f0.png",
+    "fox_1_run_r_f2.png": "fox_1_walk_r_f2.png",
+    "rabbit_0_walk_l_f0.png": "rabbit_0_graze_l_f0.png",
+    "rabbit_0_walk_l_f3.png": "rabbit_0_graze_l_f1.png",
+    "rabbit_0_walk_r_f0.png": "rabbit_0_graze_r_f0.png",
+    "rabbit_0_walk_r_f3.png": "rabbit_0_graze_r_f1.png",
+    "rabbit_1_walk_l_f0.png": "rabbit_1_graze_l_f0.png",
+    "rabbit_1_walk_l_f3.png": "rabbit_1_graze_l_f1.png",
+    "rabbit_1_walk_r_f0.png": "rabbit_1_graze_r_f0.png",
+    "rabbit_1_walk_r_f3.png": "rabbit_1_graze_r_f1.png",
+    "rabbit_0_run_l_f0.png": "rabbit_0_graze_l_f0.png",
+    "rabbit_0_run_l_f2.png": "rabbit_0_walk_l_f2.png",
+    "rabbit_0_run_r_f0.png": "rabbit_0_graze_r_f0.png",
+    "rabbit_0_run_r_f2.png": "rabbit_0_walk_r_f2.png",
+    "rabbit_1_run_l_f0.png": "rabbit_1_graze_l_f0.png",
+    "rabbit_1_run_l_f2.png": "rabbit_1_walk_l_f2.png",
+    "rabbit_1_run_r_f0.png": "rabbit_1_graze_r_f0.png",
+    "rabbit_1_run_r_f2.png": "rabbit_1_walk_r_f2.png"
+  },
+  "assets": [
+    {
+      "id": "deer",
+      "group": "animals",
+      "size": [
+        9,
+        8
+      ],
+      "anchor": [
+        4,
+        7
+      ],
+      "variants": 2,
+      "state": "graze",
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 2,
+      "frame_ms": 600,
+      "status": "animation_review",
+      "files": [
+        "deer_0_graze_l_f0.png",
+        "deer_0_graze_l_f1.png",
+        "deer_0_graze_r_f0.png",
+        "deer_0_graze_r_f1.png",
+        "deer_1_graze_l_f0.png",
+        "deer_1_graze_l_f1.png",
+        "deer_1_graze_r_f0.png",
+        "deer_1_graze_r_f1.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "deer_0_graze_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "deer_0_graze_l_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "deer_0_graze_r_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "deer_0_graze_r_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "deer_1_graze_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "deer_1_graze_l_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "deer_1_graze_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "deer_1_graze_r_f1.png"
+        }
+      ]
+    },
+    {
+      "id": "deer",
+      "group": "animals",
+      "size": [
+        9,
+        8
+      ],
+      "anchor": [
+        4,
+        7
+      ],
+      "variants": 2,
+      "state": "walk",
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 4,
+      "frame_ms": 200,
+      "status": "animation_review",
+      "files": [
+        "deer_0_walk_l_f0.png",
+        "deer_0_walk_l_f1.png",
+        "deer_0_walk_l_f2.png",
+        "deer_0_walk_l_f3.png",
+        "deer_0_walk_r_f0.png",
+        "deer_0_walk_r_f1.png",
+        "deer_0_walk_r_f2.png",
+        "deer_0_walk_r_f3.png",
+        "deer_1_walk_l_f0.png",
+        "deer_1_walk_l_f1.png",
+        "deer_1_walk_l_f2.png",
+        "deer_1_walk_l_f3.png",
+        "deer_1_walk_r_f0.png",
+        "deer_1_walk_r_f1.png",
+        "deer_1_walk_r_f2.png",
+        "deer_1_walk_r_f3.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "deer_0_walk_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "deer_0_walk_l_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "deer_0_walk_l_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "deer_0_walk_l_f3.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "deer_0_walk_r_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "deer_0_walk_r_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "deer_0_walk_r_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "deer_0_walk_r_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "deer_1_walk_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "deer_1_walk_l_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "deer_1_walk_l_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "deer_1_walk_l_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "deer_1_walk_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "deer_1_walk_r_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "deer_1_walk_r_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "deer_1_walk_r_f3.png"
+        }
+      ]
+    },
+    {
+      "id": "deer",
+      "group": "animals",
+      "size": [
+        9,
+        8
+      ],
+      "anchor": [
+        4,
+        7
+      ],
+      "variants": 2,
+      "state": "run",
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 4,
+      "frame_ms": 100,
+      "status": "animation_review",
+      "files": [
+        "deer_0_walk_l_f0.png",
+        "deer_0_run_l_f1.png",
+        "deer_0_walk_l_f2.png",
+        "deer_0_run_l_f3.png",
+        "deer_0_walk_r_f0.png",
+        "deer_0_run_r_f1.png",
+        "deer_0_walk_r_f2.png",
+        "deer_0_run_r_f3.png",
+        "deer_1_walk_l_f0.png",
+        "deer_1_run_l_f1.png",
+        "deer_1_walk_l_f2.png",
+        "deer_1_run_l_f3.png",
+        "deer_1_walk_r_f0.png",
+        "deer_1_run_r_f1.png",
+        "deer_1_walk_r_f2.png",
+        "deer_1_run_r_f3.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "deer_0_walk_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "deer_0_run_l_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "deer_0_walk_l_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "deer_0_run_l_f3.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "deer_0_walk_r_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "deer_0_run_r_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "deer_0_walk_r_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "deer_0_run_r_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "deer_1_walk_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "deer_1_run_l_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "deer_1_walk_l_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "deer_1_run_l_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "deer_1_walk_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "deer_1_run_r_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "deer_1_walk_r_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "deer_1_run_r_f3.png"
+        }
+      ]
+    },
+    {
+      "id": "deer",
+      "group": "animals",
+      "size": [
+        9,
+        8
+      ],
+      "anchor": [
+        4,
+        7
+      ],
+      "variants": 2,
+      "state": "rest",
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 1,
+      "frame_ms": null,
+      "status": "animation_review",
+      "files": [
+        "deer_0_rest_l_f0.png",
+        "deer_0_rest_r_f0.png",
+        "deer_1_rest_l_f0.png",
+        "deer_1_rest_r_f0.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "deer_0_rest_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "deer_0_rest_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "deer_1_rest_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "deer_1_rest_r_f0.png"
+        }
+      ]
+    },
+    {
+      "id": "deer_young",
+      "group": "animals",
+      "size": [
+        6,
+        6
+      ],
+      "anchor": [
+        3,
+        5
+      ],
+      "variants": 2,
+      "state": "graze",
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 2,
+      "frame_ms": 600,
+      "status": "animation_review",
+      "files": [
+        "deer_young_0_graze_l_f0.png",
+        "deer_young_0_graze_l_f1.png",
+        "deer_young_0_graze_r_f0.png",
+        "deer_young_0_graze_r_f1.png",
+        "deer_young_1_graze_l_f0.png",
+        "deer_young_1_graze_l_f1.png",
+        "deer_young_1_graze_r_f0.png",
+        "deer_young_1_graze_r_f1.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "deer_young_0_graze_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "deer_young_0_graze_l_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "deer_young_0_graze_r_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "deer_young_0_graze_r_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "deer_young_1_graze_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "deer_young_1_graze_l_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "deer_young_1_graze_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "deer_young_1_graze_r_f1.png"
+        }
+      ]
+    },
+    {
+      "id": "deer_young",
+      "group": "animals",
+      "size": [
+        6,
+        6
+      ],
+      "anchor": [
+        3,
+        5
+      ],
+      "variants": 2,
+      "state": "walk",
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 4,
+      "frame_ms": 200,
+      "status": "animation_review",
+      "files": [
+        "deer_young_0_walk_l_f0.png",
+        "deer_young_0_walk_l_f1.png",
+        "deer_young_0_walk_l_f2.png",
+        "deer_young_0_walk_l_f3.png",
+        "deer_young_0_walk_r_f0.png",
+        "deer_young_0_walk_r_f1.png",
+        "deer_young_0_walk_r_f2.png",
+        "deer_young_0_walk_r_f3.png",
+        "deer_young_1_walk_l_f0.png",
+        "deer_young_1_walk_l_f1.png",
+        "deer_young_1_walk_l_f2.png",
+        "deer_young_1_walk_l_f3.png",
+        "deer_young_1_walk_r_f0.png",
+        "deer_young_1_walk_r_f1.png",
+        "deer_young_1_walk_r_f2.png",
+        "deer_young_1_walk_r_f3.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "deer_young_0_walk_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "deer_young_0_walk_l_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "deer_young_0_walk_l_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "deer_young_0_walk_l_f3.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "deer_young_0_walk_r_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "deer_young_0_walk_r_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "deer_young_0_walk_r_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "deer_young_0_walk_r_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "deer_young_1_walk_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "deer_young_1_walk_l_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "deer_young_1_walk_l_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "deer_young_1_walk_l_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "deer_young_1_walk_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "deer_young_1_walk_r_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "deer_young_1_walk_r_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "deer_young_1_walk_r_f3.png"
+        }
+      ]
+    },
+    {
+      "id": "deer_young",
+      "group": "animals",
+      "size": [
+        6,
+        6
+      ],
+      "anchor": [
+        3,
+        5
+      ],
+      "variants": 2,
+      "state": "run",
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 4,
+      "frame_ms": 100,
+      "status": "animation_review",
+      "files": [
+        "deer_young_0_walk_l_f0.png",
+        "deer_young_0_run_l_f1.png",
+        "deer_young_0_walk_l_f2.png",
+        "deer_young_0_walk_l_f3.png",
+        "deer_young_0_walk_r_f0.png",
+        "deer_young_0_walk_r_f3.png",
+        "deer_young_0_walk_r_f2.png",
+        "deer_young_0_run_r_f3.png",
+        "deer_young_1_walk_l_f0.png",
+        "deer_young_1_run_l_f1.png",
+        "deer_young_1_walk_l_f2.png",
+        "deer_young_1_walk_l_f3.png",
+        "deer_young_1_walk_r_f0.png",
+        "deer_young_1_walk_r_f3.png",
+        "deer_young_1_walk_r_f2.png",
+        "deer_young_1_run_r_f3.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "deer_young_0_walk_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "deer_young_0_run_l_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "deer_young_0_walk_l_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "deer_young_0_walk_l_f3.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "deer_young_0_walk_r_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "deer_young_0_walk_r_f3.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "deer_young_0_walk_r_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "deer_young_0_run_r_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "deer_young_1_walk_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "deer_young_1_run_l_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "deer_young_1_walk_l_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "deer_young_1_walk_l_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "deer_young_1_walk_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "deer_young_1_walk_r_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "deer_young_1_walk_r_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "deer_young_1_run_r_f3.png"
+        }
+      ]
+    },
+    {
+      "id": "deer_young",
+      "group": "animals",
+      "size": [
+        6,
+        6
+      ],
+      "anchor": [
+        3,
+        5
+      ],
+      "variants": 2,
+      "state": "rest",
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 1,
+      "frame_ms": null,
+      "status": "animation_review",
+      "files": [
+        "deer_young_0_rest_l_f0.png",
+        "deer_young_0_rest_r_f0.png",
+        "deer_young_1_rest_l_f0.png",
+        "deer_young_1_rest_r_f0.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "deer_young_0_rest_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "deer_young_0_rest_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "deer_young_1_rest_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "deer_young_1_rest_r_f0.png"
+        }
+      ]
+    },
+    {
+      "id": "wolf",
+      "group": "animals",
+      "size": [
+        8,
+        5
+      ],
+      "anchor": [
+        4,
+        4
+      ],
+      "variants": 2,
+      "state": "graze",
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 2,
+      "frame_ms": 600,
+      "status": "animation_review",
+      "files": [
+        "wolf_0_graze_l_f0.png",
+        "wolf_0_graze_l_f1.png",
+        "wolf_0_graze_r_f0.png",
+        "wolf_0_graze_r_f1.png",
+        "wolf_1_graze_l_f0.png",
+        "wolf_1_graze_l_f1.png",
+        "wolf_1_graze_r_f0.png",
+        "wolf_1_graze_r_f1.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "wolf_0_graze_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "wolf_0_graze_l_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "wolf_0_graze_r_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "wolf_0_graze_r_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "wolf_1_graze_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "wolf_1_graze_l_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "wolf_1_graze_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "wolf_1_graze_r_f1.png"
+        }
+      ]
+    },
+    {
+      "id": "wolf",
+      "group": "animals",
+      "size": [
+        8,
+        5
+      ],
+      "anchor": [
+        4,
+        4
+      ],
+      "variants": 2,
+      "state": "walk",
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 4,
+      "frame_ms": 200,
+      "status": "animation_review",
+      "files": [
+        "wolf_0_walk_l_f0.png",
+        "wolf_0_walk_l_f1.png",
+        "wolf_0_walk_l_f2.png",
+        "wolf_0_walk_l_f3.png",
+        "wolf_0_walk_r_f0.png",
+        "wolf_0_walk_r_f1.png",
+        "wolf_0_walk_r_f2.png",
+        "wolf_0_walk_r_f3.png",
+        "wolf_1_walk_l_f0.png",
+        "wolf_1_walk_l_f1.png",
+        "wolf_1_walk_l_f2.png",
+        "wolf_1_walk_l_f3.png",
+        "wolf_1_walk_r_f0.png",
+        "wolf_1_walk_r_f1.png",
+        "wolf_1_walk_r_f2.png",
+        "wolf_1_walk_r_f3.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "wolf_0_walk_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "wolf_0_walk_l_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "wolf_0_walk_l_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "wolf_0_walk_l_f3.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "wolf_0_walk_r_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "wolf_0_walk_r_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "wolf_0_walk_r_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "wolf_0_walk_r_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "wolf_1_walk_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "wolf_1_walk_l_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "wolf_1_walk_l_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "wolf_1_walk_l_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "wolf_1_walk_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "wolf_1_walk_r_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "wolf_1_walk_r_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "wolf_1_walk_r_f3.png"
+        }
+      ]
+    },
+    {
+      "id": "wolf",
+      "group": "animals",
+      "size": [
+        8,
+        5
+      ],
+      "anchor": [
+        4,
+        4
+      ],
+      "variants": 2,
+      "state": "run",
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 4,
+      "frame_ms": 100,
+      "status": "animation_review",
+      "files": [
+        "wolf_0_walk_l_f0.png",
+        "wolf_0_run_l_f1.png",
+        "wolf_0_walk_l_f2.png",
+        "wolf_0_run_l_f3.png",
+        "wolf_0_walk_r_f0.png",
+        "wolf_0_run_r_f1.png",
+        "wolf_0_walk_r_f2.png",
+        "wolf_0_run_r_f3.png",
+        "wolf_1_walk_l_f0.png",
+        "wolf_1_run_l_f1.png",
+        "wolf_1_walk_l_f2.png",
+        "wolf_1_run_l_f3.png",
+        "wolf_1_walk_r_f0.png",
+        "wolf_1_run_r_f1.png",
+        "wolf_1_walk_r_f2.png",
+        "wolf_1_run_r_f3.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "wolf_0_walk_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "wolf_0_run_l_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "wolf_0_walk_l_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "wolf_0_run_l_f3.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "wolf_0_walk_r_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "wolf_0_run_r_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "wolf_0_walk_r_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "wolf_0_run_r_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "wolf_1_walk_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "wolf_1_run_l_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "wolf_1_walk_l_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "wolf_1_run_l_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "wolf_1_walk_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "wolf_1_run_r_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "wolf_1_walk_r_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "wolf_1_run_r_f3.png"
+        }
+      ]
+    },
+    {
+      "id": "wolf",
+      "group": "animals",
+      "size": [
+        8,
+        5
+      ],
+      "anchor": [
+        4,
+        4
+      ],
+      "variants": 2,
+      "state": "rest",
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 1,
+      "frame_ms": null,
+      "status": "animation_review",
+      "files": [
+        "wolf_0_rest_l_f0.png",
+        "wolf_0_rest_r_f0.png",
+        "wolf_1_rest_l_f0.png",
+        "wolf_1_rest_r_f0.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "wolf_0_rest_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "wolf_0_rest_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "wolf_1_rest_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "wolf_1_rest_r_f0.png"
+        }
+      ]
+    },
+    {
+      "id": "fox",
+      "group": "animals",
+      "size": [
+        6,
+        4
+      ],
+      "anchor": [
+        3,
+        3
+      ],
+      "variants": 2,
+      "state": "graze",
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 2,
+      "frame_ms": 600,
+      "status": "animation_review",
+      "files": [
+        "fox_0_graze_l_f0.png",
+        "fox_0_graze_l_f1.png",
+        "fox_0_graze_r_f0.png",
+        "fox_0_graze_r_f1.png",
+        "fox_1_graze_l_f0.png",
+        "fox_1_graze_l_f1.png",
+        "fox_1_graze_r_f0.png",
+        "fox_1_graze_r_f1.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "fox_0_graze_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "fox_0_graze_l_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "fox_0_graze_r_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "fox_0_graze_r_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "fox_1_graze_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "fox_1_graze_l_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "fox_1_graze_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "fox_1_graze_r_f1.png"
+        }
+      ]
+    },
+    {
+      "id": "fox",
+      "group": "animals",
+      "size": [
+        6,
+        4
+      ],
+      "anchor": [
+        3,
+        3
+      ],
+      "variants": 2,
+      "state": "walk",
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 4,
+      "frame_ms": 200,
+      "status": "animation_review",
+      "files": [
+        "fox_0_graze_l_f0.png",
+        "fox_0_walk_l_f1.png",
+        "fox_0_walk_l_f2.png",
+        "fox_0_walk_l_f3.png",
+        "fox_0_graze_r_f0.png",
+        "fox_0_walk_r_f1.png",
+        "fox_0_walk_r_f2.png",
+        "fox_0_walk_r_f3.png",
+        "fox_1_graze_l_f0.png",
+        "fox_1_walk_l_f1.png",
+        "fox_1_walk_l_f2.png",
+        "fox_1_walk_l_f3.png",
+        "fox_1_graze_r_f0.png",
+        "fox_1_walk_r_f1.png",
+        "fox_1_walk_r_f2.png",
+        "fox_1_walk_r_f3.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "fox_0_graze_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "fox_0_walk_l_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "fox_0_walk_l_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "fox_0_walk_l_f3.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "fox_0_graze_r_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "fox_0_walk_r_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "fox_0_walk_r_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "fox_0_walk_r_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "fox_1_graze_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "fox_1_walk_l_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "fox_1_walk_l_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "fox_1_walk_l_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "fox_1_graze_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "fox_1_walk_r_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "fox_1_walk_r_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "fox_1_walk_r_f3.png"
+        }
+      ]
+    },
+    {
+      "id": "fox",
+      "group": "animals",
+      "size": [
+        6,
+        4
+      ],
+      "anchor": [
+        3,
+        3
+      ],
+      "variants": 2,
+      "state": "run",
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 4,
+      "frame_ms": 100,
+      "status": "animation_review",
+      "files": [
+        "fox_0_graze_l_f0.png",
+        "fox_0_run_l_f1.png",
+        "fox_0_walk_l_f2.png",
+        "fox_0_run_l_f3.png",
+        "fox_0_graze_r_f0.png",
+        "fox_0_run_r_f1.png",
+        "fox_0_walk_r_f2.png",
+        "fox_0_run_r_f3.png",
+        "fox_1_graze_l_f0.png",
+        "fox_1_run_l_f1.png",
+        "fox_1_walk_l_f2.png",
+        "fox_1_run_l_f3.png",
+        "fox_1_graze_r_f0.png",
+        "fox_1_run_r_f1.png",
+        "fox_1_walk_r_f2.png",
+        "fox_1_run_r_f3.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "fox_0_graze_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "fox_0_run_l_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "fox_0_walk_l_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "fox_0_run_l_f3.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "fox_0_graze_r_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "fox_0_run_r_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "fox_0_walk_r_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "fox_0_run_r_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "fox_1_graze_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "fox_1_run_l_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "fox_1_walk_l_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "fox_1_run_l_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "fox_1_graze_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "fox_1_run_r_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "fox_1_walk_r_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "fox_1_run_r_f3.png"
+        }
+      ]
+    },
+    {
+      "id": "fox",
+      "group": "animals",
+      "size": [
+        6,
+        4
+      ],
+      "anchor": [
+        3,
+        3
+      ],
+      "variants": 2,
+      "state": "rest",
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 1,
+      "frame_ms": null,
+      "status": "animation_review",
+      "files": [
+        "fox_0_rest_l_f0.png",
+        "fox_0_rest_r_f0.png",
+        "fox_1_rest_l_f0.png",
+        "fox_1_rest_r_f0.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "fox_0_rest_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "fox_0_rest_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "fox_1_rest_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "fox_1_rest_r_f0.png"
+        }
+      ]
+    },
+    {
+      "id": "rabbit",
+      "group": "animals",
+      "size": [
+        3,
+        3
+      ],
+      "anchor": [
+        1,
+        2
+      ],
+      "variants": 2,
+      "state": "graze",
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 2,
+      "frame_ms": 600,
+      "status": "animation_review",
+      "files": [
+        "rabbit_0_graze_l_f0.png",
+        "rabbit_0_graze_l_f1.png",
+        "rabbit_0_graze_r_f0.png",
+        "rabbit_0_graze_r_f1.png",
+        "rabbit_1_graze_l_f0.png",
+        "rabbit_1_graze_l_f1.png",
+        "rabbit_1_graze_r_f0.png",
+        "rabbit_1_graze_r_f1.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "rabbit_0_graze_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "rabbit_0_graze_l_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "rabbit_0_graze_r_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "rabbit_0_graze_r_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "rabbit_1_graze_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "rabbit_1_graze_l_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "rabbit_1_graze_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "rabbit_1_graze_r_f1.png"
+        }
+      ]
+    },
+    {
+      "id": "rabbit",
+      "group": "animals",
+      "size": [
+        3,
+        3
+      ],
+      "anchor": [
+        1,
+        2
+      ],
+      "variants": 2,
+      "state": "walk",
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 4,
+      "frame_ms": 200,
+      "status": "animation_review",
+      "files": [
+        "rabbit_0_graze_l_f0.png",
+        "rabbit_0_walk_l_f1.png",
+        "rabbit_0_walk_l_f2.png",
+        "rabbit_0_graze_l_f1.png",
+        "rabbit_0_graze_r_f0.png",
+        "rabbit_0_walk_r_f1.png",
+        "rabbit_0_walk_r_f2.png",
+        "rabbit_0_graze_r_f1.png",
+        "rabbit_1_graze_l_f0.png",
+        "rabbit_1_walk_l_f1.png",
+        "rabbit_1_walk_l_f2.png",
+        "rabbit_1_graze_l_f1.png",
+        "rabbit_1_graze_r_f0.png",
+        "rabbit_1_walk_r_f1.png",
+        "rabbit_1_walk_r_f2.png",
+        "rabbit_1_graze_r_f1.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "rabbit_0_graze_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "rabbit_0_walk_l_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "rabbit_0_walk_l_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "rabbit_0_graze_l_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "rabbit_0_graze_r_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "rabbit_0_walk_r_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "rabbit_0_walk_r_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "rabbit_0_graze_r_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "rabbit_1_graze_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "rabbit_1_walk_l_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "rabbit_1_walk_l_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "rabbit_1_graze_l_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "rabbit_1_graze_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "rabbit_1_walk_r_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "rabbit_1_walk_r_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "rabbit_1_graze_r_f1.png"
+        }
+      ]
+    },
+    {
+      "id": "rabbit",
+      "group": "animals",
+      "size": [
+        3,
+        3
+      ],
+      "anchor": [
+        1,
+        2
+      ],
+      "variants": 2,
+      "state": "run",
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 4,
+      "frame_ms": 100,
+      "status": "animation_review",
+      "files": [
+        "rabbit_0_graze_l_f0.png",
+        "rabbit_0_run_l_f1.png",
+        "rabbit_0_walk_l_f2.png",
+        "rabbit_0_run_l_f3.png",
+        "rabbit_0_graze_r_f0.png",
+        "rabbit_0_run_r_f1.png",
+        "rabbit_0_walk_r_f2.png",
+        "rabbit_0_run_r_f3.png",
+        "rabbit_1_graze_l_f0.png",
+        "rabbit_1_run_l_f1.png",
+        "rabbit_1_walk_l_f2.png",
+        "rabbit_1_run_l_f3.png",
+        "rabbit_1_graze_r_f0.png",
+        "rabbit_1_run_r_f1.png",
+        "rabbit_1_walk_r_f2.png",
+        "rabbit_1_run_r_f3.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "rabbit_0_graze_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "rabbit_0_run_l_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "rabbit_0_walk_l_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "rabbit_0_run_l_f3.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "rabbit_0_graze_r_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "rabbit_0_run_r_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "rabbit_0_walk_r_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "rabbit_0_run_r_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "rabbit_1_graze_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "rabbit_1_run_l_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "rabbit_1_walk_l_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "rabbit_1_run_l_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "rabbit_1_graze_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "rabbit_1_run_r_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "rabbit_1_walk_r_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "rabbit_1_run_r_f3.png"
+        }
+      ]
+    },
+    {
+      "id": "rabbit",
+      "group": "animals",
+      "size": [
+        3,
+        3
+      ],
+      "anchor": [
+        1,
+        2
+      ],
+      "variants": 2,
+      "state": "rest",
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 1,
+      "frame_ms": null,
+      "status": "animation_review",
+      "files": [
+        "rabbit_0_rest_l_f0.png",
+        "rabbit_0_rest_r_f0.png",
+        "rabbit_1_rest_l_f0.png",
+        "rabbit_1_rest_r_f0.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "rabbit_0_rest_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "rabbit_0_rest_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "rabbit_1_rest_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "rabbit_1_rest_r_f0.png"
+        }
+      ]
+    }
+  ]
+}

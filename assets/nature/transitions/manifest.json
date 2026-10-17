@@ -1,0 +1,194 @@
+{
+  "version": 1,
+  "status": "design_prototype",
+  "seed": 20261017,
+  "base_tile": [
+    64,
+    32
+  ],
+  "masks": [
+    {
+      "file": "edge_n_0.png",
+      "size": [
+        64,
+        32
+      ],
+      "anchor": [
+        32,
+        16
+      ],
+      "role": "coverage_mask",
+      "edge": "n",
+      "variant": 0,
+      "colors": 1
+    },
+    {
+      "file": "edge_n_1.png",
+      "size": [
+        64,
+        32
+      ],
+      "anchor": [
+        32,
+        16
+      ],
+      "role": "coverage_mask",
+      "edge": "n",
+      "variant": 1,
+      "colors": 1
+    },
+    {
+      "file": "edge_n_2.png",
+      "size": [
+        64,
+        32
+      ],
+      "anchor": [
+        32,
+        16
+      ],
+      "role": "coverage_mask",
+      "edge": "n",
+      "variant": 2,
+      "colors": 1
+    },
+    {
+      "file": "edge_e_0.png",
+      "size": [
+        64,
+        32
+      ],
+      "anchor": [
+        32,
+        16
+      ],
+      "role": "coverage_mask",
+      "edge": "e",
+      "variant": 0,
+      "colors": 1
+    },
+    {
+      "file": "edge_e_1.png",
+      "size": [
+        64,
+        32
+      ],
+      "anchor": [
+        32,
+        16
+      ],
+      "role": "coverage_mask",
+      "edge": "e",
+      "variant": 1,
+      "colors": 1
+    },
+    {
+      "file": "edge_e_2.png",
+      "size": [
+        64,
+        32
+      ],
+      "anchor": [
+        32,
+        16
+      ],
+      "role": "coverage_mask",
+      "edge": "e",
+      "variant": 2,
+      "colors": 1
+    },
+    {
+      "file": "edge_s_0.png",
+      "size": [
+        64,
+        32
+      ],
+      "anchor": [
+        32,
+        16
+      ],
+      "role": "coverage_mask",
+      "edge": "s",
+      "variant": 0,
+      "colors": 1
+    },
+    {
+      "file": "edge_s_1.png",
+      "size": [
+        64,
+        32
+      ],
+      "anchor": [
+        32,
+        16
+      ],
+      "role": "coverage_mask",
+      "edge": "s",
+      "variant": 1,
+      "colors": 1
+    },
+    {
+      "file": "edge_s_2.png",
+      "size": [
+        64,
+        32
+      ],
+      "anchor": [
+        32,
+        16
+      ],
+      "role": "coverage_mask",
+      "edge": "s",
+      "variant": 2,
+      "colors": 1
+    },
+    {
+      "file": "edge_w_0.png",
+      "size": [
+        64,
+        32
+      ],
+      "anchor": [
+        32,
+        16
+      ],
+      "role": "coverage_mask",
+      "edge": "w",
+      "variant": 0,
+      "colors": 1
+    },
+    {
+      "file": "edge_w_1.png",
+      "size": [
+        64,
+        32
+      ],
+      "anchor": [
+        32,
+        16
+      ],
+      "role": "coverage_mask",
+      "edge": "w",
+      "variant": 1,
+      "colors": 1
+    },
+    {
+      "file": "edge_w_2.png",
+      "size": [
+        64,
+        32
+      ],
+      "anchor": [
+        32,
+        16
+      ],
+      "role": "coverage_mask",
+      "edge": "w",
+      "variant": 2,
+      "colors": 1
+    }
+  ],
+  "sources": "Vorhandene lokale ComfyUI-Materialvorlagen; keine neuen Rohbildkopien",
+  "sampling": "Weltkoordinaten, nachbarabhängige Bodenanteile, feste räumliche Pixelmasken",
+  "water_rule": "Wasserpixel nur auf Feldern mit surface_water > 150; Bachpixel nur bei flow >= 60"
+}

@@ -1,15 +1,41 @@
 # Naturgestaltung – Prüfblatt 01
 
-**Aktuell ist Prüfblatt 02:** siehe `REVISION-02.md`. Die folgende Beschreibung
+**Aktuell ist Runde 05:** ausgearbeitete Biome und Übergänge, siehe `ROUND-05.md`.
+Tieranimationen und zweite Fellvariante stehen in `ROUND-04.md`.
+Die Naturkorrekturen der vorigen Runde stehen in `ROUND-03.md`.
+Die zweite Stilrunde ist in `REVISION-02.md` dokumentiert. Die folgende Beschreibung
 dokumentiert die erste Runde; deren Bilder sind unter `proof-01/` gesichert.
 Manifest und Testbelegung der ersten Runde sind mit `assets/nature/` identisch
 und liegen deshalb nur dort.
 
 ## Aktuelle Entwürfe
 
+### Biome und Übergänge – Runde 05
+
+![Zusammenhängende Landschaft](../../assets/nature/_biome-transitions.png)
+
+[Sechs ausgearbeitete Biome](../../assets/nature/_biomes-refined.png)
+· [Herstellung und Grenzen](ROUND-05.md)
+
+### Tierbewegung – Runde 04
+
+![Bewegung auf Gras](../../assets/nature/_animals-motion-grass.gif)
+
+[Auf Buschboden](../../assets/nature/_animals-motion-shrub.gif)
+· [Auf Waldboden](../../assets/nature/_animals-motion-forest.gif)
+· [Phasenvergleich](../../assets/nature/_animals-frames.png)
+· [Herstellung und Prüfung](ROUND-04.md)
+
+### Tiere und Naturkorrekturen – Runde 03
+
+![Tierprüfblatt](../../assets/nature/_animals-testsheet.png)
+
+[Fressbilder als Animation](../../assets/nature/_animals-graze.gif)
+· [Umfang, Herstellung und offene Prüfpunkte](ROUND-03.md)
+
 ### Stilrichtung 2 – Siedler I & II
 
-![Prüfblatt 02](../../assets/nature/_testsheet.png)
+![Aktuelles Naturprüfblatt](../../assets/nature/_testsheet.png)
 
 [Vergleich mit der ersten Fassung](../../assets/nature/_comparison-v2.png)
 · [Herstellung und Prüfung](REVISION-02.md)
