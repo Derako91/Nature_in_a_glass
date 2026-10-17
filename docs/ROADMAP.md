@@ -79,6 +79,12 @@ Umsetzungshinweise:
 - [ ] Keine automatisch garantierte Stabilität und kein künstliches Wiedererscheinen ausgestorbener Populationen.
 - [ ] Tierverhalten ohne LLM ausführbar.
 
+Entschieden (17.10.2026, Dennis):
+- **Erst Erosion (v0.3) abschließen**, dann Tiere.
+- **Vier Arten:** Hirsche und Kaninchen (Pflanzenfresser), Wölfe und Füchse (Räuber). Hirsche fressen Gras, Busch und junge Bäume und bremsen damit den Wald; Kaninchen fressen vor allem Gras; Wölfe jagen vor allem Hirsche, Füchse vor allem Kaninchen.
+- **Ankunft nur durch den Beobachter:** Eingriff „Tiere aussetzen“ (wie beim Samen), steht in der Chronik. Eine neue Insel ist tierfrei. Ausgestorbene Arten kehren nicht von selbst zurück.
+- Anlass: Dennis' Dauerlauf (36.000 Jahre) bleibt stabil bei etwa 85 % Wald – ohne Pflanzenfresser hat der Wald kaum Gegenspieler außer Dürre und Feuer.
+
 ## v0.5 – Darstellungsqualität
 
 - [ ] Erkennbare Alters- und Wachstumsstadien der Vegetation.
