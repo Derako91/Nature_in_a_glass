@@ -7,7 +7,27 @@ mod view;
 use std::path::PathBuf;
 
 use eframe::egui::{self, Color32, RichText};
-use nig_core::sim::{HOURS_PER_DAY, RILL_FLOW, STREAM_FLOW};
+use nig_core::hydro::{CourseKind, M3_PER_TILE_MM, liters_per_second, watercourse};
+use nig_core::sim::{HOURS_PER_DAY, STREAM_FLOW};
+
+/// Zahl mit deutschem Dezimalkomma.
+fn de(v: f32, decimals: usize) -> String {
+    format!("{v:.decimals$}").replace('.', ",")
+}
+
+/// Ganze Zahl mit Tausenderpunkten.
+fn thousands(v: f32) -> String {
+    let n = v.round().max(0.0) as u64;
+    let s = n.to_string();
+    let mut out = String::new();
+    for (k, c) in s.chars().enumerate() {
+        if k > 0 && (s.len() - k).is_multiple_of(3) {
+            out.push('.');
+        }
+        out.push(c);
+    }
+    out
+}
 use nig_core::world::POND_MM;
 use nig_core::{EventKind, Intervention, SeedKind, Simulation, Terrain};
 use view::{Camera, Layer, ViewMode};
@@ -354,7 +374,8 @@ impl App {
                 .response
                 .on_hover_text(
                     "Wichtig sind: Brand, Dürre, Waldsterben, letzter Baum, \
-                     Rückkehr der Bäume, Keimung eines Samens, versiegte Quelle.",
+                     Rückkehr der Bäume, Keimung eines Samens, versiegte Quelle, \
+                     Grundwasser-Tiefstand.",
                 );
             ui.separator();
             if ui.button("Speichern").clicked() {
@@ -422,9 +443,10 @@ impl App {
             .striped(true)
             .show(ui, |ui| {
                 let row = |ui: &mut egui::Ui, k: &str, v: String| {
-                    ui.label(k);
-                    ui.label(v);
+                    let r = ui.label(k);
+                    ui.add(egui::Label::new(v).truncate());
                     ui.end_row();
+                    r
                 };
                 let weather = if wx.storm {
                     format!("Starkregen, {:.0} mm", wx.rain_mm)
@@ -462,14 +484,42 @@ impl App {
                 );
                 row(
                     ui,
-                    "Bäche / Rinnsale",
-                    format!("{} / {} Felder", snap.stream_tiles, snap.rill_tiles),
+                    "Bäche dauernd / zeitw. / Regen",
+                    format!(
+                        "{} / {} / {} Felder",
+                        snap.permanent_tiles,
+                        snap.seasonal_tiles + snap.seasonal_dry_tiles,
+                        snap.rain_channel_tiles
+                    ),
+                )
+                .on_hover_text(
+                    "Felder mit Wasserlauf. Dauerhaft: fließt fast das ganze Jahr. \
+                     Zeitweise: fließt einen Teil des Jahres, sonst trockenes Bett. \
+                     Regen: Rinne, die nur nach Regen Wasser führt.",
+                );
+                row(
+                    ui,
+                    "Abfluss ins Meer",
+                    format!(
+                        "{} m³ heute",
+                        thousands(self.sim.last_water.to_sea * M3_PER_TILE_MM)
+                    ),
                 );
                 row(ui, "Teich-/Seefelder", snap.pond_tiles.to_string());
                 row(
                     ui,
                     "Grundwasser",
-                    format!("{:.0} %", self.sim.aquifer / self.sim.aquifer_ref * 100.0),
+                    format!(
+                        "{:.0} % · {} Mio. m³",
+                        self.sim.groundwater_level() * 100.0,
+                        de(self.sim.groundwater_m3() / 1_000_000.0, 2)
+                    ),
+                )
+                .on_hover_text(
+                    "Füllstand des Grundwasserkörpers der Insel. Er füllt sich durch \
+                     Sickerwasser und speist die Quellen. Unter 5 % liegt das Wasser \
+                     unter den Quellaustritten – die Quellen versiegen. Ist er voll, \
+                     fließt weiteres Sickerwasser unterirdisch ins Meer.",
                 );
                 row(
                     ui,
@@ -545,13 +595,15 @@ impl App {
                     t.deep_capacity()
                 );
                 rows[6].1 = format!("{:.0} mm", t.surface_water);
-                rows[7].1 = if t.flow >= STREAM_FLOW {
-                    format!("{:.0} mm/Tag (Bach)", t.flow)
-                } else if t.flow >= RILL_FLOW {
-                    format!("{:.0} mm/Tag (Rinnsal)", t.flow)
-                } else {
-                    format!("{:.0} mm/Tag", t.flow)
+                let wc = watercourse(t);
+                let kind = match (wc.kind, wc.flowing) {
+                    (CourseKind::Permanent, _) => " · dauerhafter Bach",
+                    (CourseKind::Seasonal, true) => " · zeitweiser Bach",
+                    (CourseKind::Seasonal, false) => " · trockenes Bachbett",
+                    (CourseKind::RainChannel, _) => " · Regenrinne",
+                    _ => "",
                 };
+                rows[7].1 = format!("{} L/s{kind}", de(liters_per_second(t.flow), 1));
                 rows[8].1 = format!(
                     "{:.0} % / {:.0} % / {:.0} %",
                     t.grass * 100.0,
@@ -624,7 +676,11 @@ impl App {
             let label = if s.dry {
                 format!("Quelle {} · versiegt", k + 1)
             } else {
-                format!("Quelle {} · {:>3.0} mm/Tag", k + 1, s.current)
+                format!(
+                    "Quelle {} · {:>4} L/s",
+                    k + 1,
+                    de(liters_per_second(s.current), 1)
+                )
             };
             let mut pct = self.pending_springs[k] * 100.0;
             let r = ui
@@ -780,6 +836,8 @@ impl App {
                             Color32::from_rgb(140, 220, 120)
                         }
                         EventKind::SeedFailed => Color32::from_rgb(150, 150, 150),
+                        EventKind::GroundwaterLow => Color32::from_rgb(220, 150, 80),
+                        EventKind::GroundwaterRecovered => Color32::from_rgb(120, 200, 120),
                         EventKind::HeavyRain => Color32::from_rgb(120, 170, 240),
                         EventKind::Intervention => Color32::from_rgb(230, 200, 90),
                         EventKind::DroughtEnd | EventKind::SpringFlowing => {

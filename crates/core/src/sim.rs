@@ -15,10 +15,19 @@ pub const DAYS_PER_YEAR: u64 = 365;
 pub const HOURS_PER_YEAR: u64 = HOURS_PER_DAY * DAYS_PER_YEAR;
 
 /// Version des Spielstand-Formats. Erhöhen, wenn sich die Struktur ändert.
-pub const SAVE_FORMAT_VERSION: u32 = 2;
+pub const SAVE_FORMAT_VERSION: u32 = 4;
 pub const ENGINE_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 pub const DEFAULT_SIZE: u32 = 64;
+
+/// Unter diesem Füllstand meldet die Chronik einen Grundwasser-Tiefstand.
+pub const GROUNDWATER_LOW: f32 = 0.15;
+/// Ab diesem Füllstand gilt das Grundwasser wieder als erholt.
+pub const GROUNDWATER_RECOVERED: f32 = 0.3;
+
+/// Fassungsvermögen des Grundwasserkörpers als Vielfaches des alten
+/// Bezugswerts (300 Tage Grundschüttung). Beim Start ist er zu zwei Dritteln voll.
+pub const AQUIFER_CAPACITY_FACTOR: f32 = 1.5;
 
 /// Ab diesem Durchfluss (mm/Tag) zählt eine Kachel als Bach.
 pub const STREAM_FLOW: f32 = 60.0;
@@ -52,6 +61,12 @@ pub struct YearStats {
     pub fires: u32,
     #[serde(default)]
     pub burned_tiles: u32,
+    // seit v0.3
+    #[serde(default)]
+    pub permanent_stream_tiles: u32,
+    /// Abfluss ins Meer im ganzen Jahr (m³).
+    #[serde(default)]
+    pub discharge_m3: f32,
 }
 
 /// Momentaufnahme der ganzen Insel.
@@ -68,6 +83,11 @@ pub struct Snapshot {
     pub rill_tiles: u32,
     pub burning_tiles: u32,
     pub tree_tiles: u32,
+    /// Wasserläufe nach Art (Felder).
+    pub permanent_tiles: u32,
+    pub seasonal_tiles: u32,
+    pub seasonal_dry_tiles: u32,
+    pub rain_channel_tiles: u32,
 }
 
 /// Welche Art von Samen der Beobachter ausstreut.
@@ -128,6 +148,8 @@ struct YearAccumulator {
     fires: u32,
     #[serde(default)]
     burned: u32,
+    #[serde(default)]
+    discharge_m3: f32,
 }
 
 /// Verfolgt einen laufenden Brand (mehrere Brandherde zählen zusammen).
@@ -171,7 +193,11 @@ pub struct Simulation {
     pub time_hours: u64,
     /// Grundwasser der Quellen (Summe mm über Kacheln).
     pub aquifer: f32,
+    /// Bezugswert aus v0.1/v0.2 (300 Tage Grundschüttung); bleibt für alte Spielstände.
     pub aquifer_ref: f32,
+    /// Fassungsvermögen des Grundwasserkörpers (mm-Summe über Felder), seit Format 4.
+    #[serde(default)]
+    pub aquifer_capacity: f32,
     pub journal: Journal,
     pub history: Vec<YearStats>,
     rng_weather: Rng,
@@ -189,6 +215,9 @@ pub struct Simulation {
     fire_tracker: FireTracker,
     #[serde(default)]
     forest_tracker: ForestTracker,
+    /// Ob das Grundwasser gerade als Tiefstand gemeldet ist.
+    #[serde(default)]
+    groundwater_low: bool,
 
     /// Wasserbilanz des letzten Tages (für Auswertung und Tests).
     #[serde(skip)]
@@ -223,6 +252,7 @@ impl Simulation {
             time_hours: 0,
             aquifer: aquifer_ref,
             aquifer_ref: aquifer_ref.max(1.0),
+            aquifer_capacity: (aquifer_ref * AQUIFER_CAPACITY_FACTOR).max(1.0),
             journal: Journal::default(),
             history: Vec::new(),
             rng_weather: Rng::stream(seed, "wetter"),
@@ -238,6 +268,7 @@ impl Simulation {
             seeds: Vec::new(),
             fire_tracker: FireTracker::default(),
             forest_tracker: ForestTracker::default(),
+            groundwater_low: false,
             last_water: HydroDay::default(),
             scratch_through: Vec::new(),
             scratch_vegetation: vegetation::Scratch::default(),
@@ -322,7 +353,7 @@ impl Simulation {
             &mut self.world,
             &self.weather,
             &mut self.aquifer,
-            self.aquifer_ref,
+            self.aquifer_capacity,
             &mut self.scratch_through,
         );
         self.last_water = day;
@@ -341,6 +372,7 @@ impl Simulation {
         self.step_seeds();
 
         self.year.rain_mm += day.rain_mm;
+        self.year.discharge_m3 += day.to_sea * hydro::M3_PER_TILE_MM;
         self.detect_events(day.rain_mm);
         self.detect_fire_events(&fire_day);
         self.detect_forest_events();
@@ -651,8 +683,43 @@ impl Simulation {
             );
         }
 
+        // Grundwasser
+        let level = self.groundwater_level();
+        if !self.groundwater_low && level < GROUNDWATER_LOW {
+            self.groundwater_low = true;
+            let rain_year: f32 = self.drought.recent_rain.iter().sum::<f32>() * 365.0 / 60.0;
+            self.journal.push(
+                now,
+                EventKind::GroundwaterLow,
+                None,
+                format!(
+                    "Das Grundwasser der Insel ist auf {:.0} % gesunken.",
+                    level * 100.0
+                ),
+                vec![
+                    format!("Niederschlag zuletzt hochgerechnet etwa {rain_year:.0} mm im Jahr"),
+                    format!(
+                        "Wald bedeckt {:.0} % der Insel und verbraucht viel Wasser",
+                        self.forest_tracker_pct()
+                    ),
+                ],
+            );
+        } else if self.groundwater_low && level > GROUNDWATER_RECOVERED {
+            self.groundwater_low = false;
+            self.journal.push(
+                now,
+                EventKind::GroundwaterRecovered,
+                None,
+                format!(
+                    "Das Grundwasser hat sich auf {:.0} % erholt.",
+                    level * 100.0
+                ),
+                Vec::new(),
+            );
+        }
+
         // Quellen
-        let fill = self.aquifer / self.aquifer_ref;
+        let fill = level;
         for k in 0..self.world.springs.len() {
             let s = &mut self.world.springs[k];
             let ratio = if s.base_rate > 0.0 {
@@ -700,13 +767,15 @@ impl Simulation {
             moisture_pct: snap.moisture_pct,
             pond_tiles: snap.pond_tiles,
             stream_tiles: snap.stream_tiles,
-            aquifer_pct: self.aquifer / self.aquifer_ref * 100.0,
+            aquifer_pct: self.groundwater_level() * 100.0,
             storms: self.year.storms,
             drought_days: self.year.drought_days,
             shrub_pct: snap.shrub_pct,
             deadwood_pct: snap.deadwood_pct,
             fires: self.year.fires,
             burned_tiles: self.year.burned,
+            permanent_stream_tiles: snap.permanent_tiles,
+            discharge_m3: self.year.discharge_m3,
         };
         let prev_forest = self.history.last().map(|s| s.forest_pct);
         let trend = match prev_forest {
@@ -751,6 +820,27 @@ impl Simulation {
         if n == 0 { 0.0 } else { sum / n as f32 }
     }
 
+    fn forest_tracker_pct(&self) -> f32 {
+        let (mut sum, mut n) = (0.0, 0u32);
+        for t in &self.world.tiles {
+            if !t.is_ocean() {
+                sum += t.forest;
+                n += 1;
+            }
+        }
+        sum / n.max(1) as f32 * 100.0
+    }
+
+    /// Füllstand des Grundwasserkörpers (0 = leer, 1 = voll).
+    pub fn groundwater_level(&self) -> f32 {
+        (self.aquifer / self.aquifer_capacity.max(1.0)).clamp(0.0, 1.0)
+    }
+
+    /// Grundwasser in m³.
+    pub fn groundwater_m3(&self) -> f32 {
+        self.aquifer * hydro::M3_PER_TILE_MM
+    }
+
     pub fn snapshot(&self) -> Snapshot {
         let mut s = Snapshot::default();
         let mut n = 0u32;
@@ -770,6 +860,14 @@ impl Simulation {
             }
             if t.forest > 0.0 {
                 s.tree_tiles += 1;
+            }
+            let wc = hydro::watercourse(t);
+            match (wc.kind, wc.flowing) {
+                (hydro::CourseKind::Permanent, _) => s.permanent_tiles += 1,
+                (hydro::CourseKind::Seasonal, true) => s.seasonal_tiles += 1,
+                (hydro::CourseKind::Seasonal, false) => s.seasonal_dry_tiles += 1,
+                (hydro::CourseKind::RainChannel, _) => s.rain_channel_tiles += 1,
+                _ => {}
             }
             if t.surface_water > POND_MM {
                 s.pond_tiles += 1;
@@ -811,6 +909,9 @@ impl Simulation {
             feed(t.deadwood.to_bits() as u64);
             feed(t.deep_moisture.to_bits() as u64);
             feed(t.fire.to_bits() as u64);
+            feed(t.flow_year.to_bits() as u64);
+            feed(t.flow_permanence.to_bits() as u64);
+            feed(t.moisture_year.to_bits() as u64);
         }
         feed(self.seeds.len() as u64);
         feed(self.journal.events.len() as u64);
@@ -935,15 +1036,41 @@ impl Simulation {
         let mut sim = file.simulation;
         match file.format_version {
             SAVE_FORMAT_VERSION => {}
-            1 => sim.migrate_from_v1(),
+            1 => {
+                sim.migrate_from_v1();
+                sim.migrate_from_v2();
+                sim.migrate_from_v3();
+            }
+            2 => {
+                sim.migrate_from_v2();
+                sim.migrate_from_v3();
+            }
+            3 => sim.migrate_from_v3(),
             other => {
                 return Err(format!(
-                    "Spielstand-Format {other} wird nicht unterstützt (erwartet 1 oder {SAVE_FORMAT_VERSION})."
+                    "Spielstand-Format {other} wird nicht unterstützt (erwartet 1 bis {SAVE_FORMAT_VERSION})."
                 ));
             }
         }
         sim.world.rebuild_drainage();
         Ok(sim)
+    }
+
+    /// Spielstände aus Format 3 übernehmen: Das Grundwasser bekommt ein
+    /// Fassungsvermögen; was darüber liegt, ist sofort übergelaufen.
+    fn migrate_from_v3(&mut self) {
+        self.aquifer_capacity = (self.aquifer_ref * AQUIFER_CAPACITY_FACTOR).max(1.0);
+        self.aquifer = self.aquifer.min(self.aquifer_capacity);
+    }
+
+    /// Spielstände aus v0.2 übernehmen: Das Jahresgedächtnis der Wasserläufe
+    /// wird aus dem heutigen Zustand geschätzt und füllt sich im ersten Jahr.
+    fn migrate_from_v2(&mut self) {
+        for t in self.world.tiles.iter_mut() {
+            t.flow_year = t.flow;
+            t.flow_permanence = if t.flow >= RILL_FLOW { 1.0 } else { 0.0 };
+            t.moisture_year = t.moisture_fraction();
+        }
     }
 
     /// Spielstände aus v0.1 übernehmen: Buschland, Totholz und Brände gibt

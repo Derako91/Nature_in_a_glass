@@ -23,6 +23,56 @@ const DEEP_DRAIN: f32 = 0.001;
 const DEEP_UPTAKE: f32 = 0.03;
 const SQRT2: f32 = std::f32::consts::SQRT_2;
 
+/// 1 mm Wasser auf einem Feld (50 × 50 m) sind 2,5 m³.
+pub const M3_PER_TILE_MM: f32 = crate::world::TILE_SIZE_M * crate::world::TILE_SIZE_M / 1000.0;
+
+/// Durchfluss in Litern pro Sekunde aus mm/Tag auf einem Feld.
+pub fn liters_per_second(mm_per_day: f32) -> f32 {
+    mm_per_day * M3_PER_TILE_MM * 1000.0 / 86_400.0
+}
+
+/// Art eines Wasserlaufs, aus dem Jahresgedächtnis des Feldes.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum CourseKind {
+    /// Hier fließt kaum je Wasser.
+    None,
+    /// Fließt nur nach Regen, sonst trocken (unter einem Viertel der Tage).
+    RainChannel,
+    /// Fließt einen Teil des Jahres (ein Viertel bis gut vier Fünftel der Tage).
+    Seasonal,
+    /// Fließt fast das ganze Jahr.
+    Permanent,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct Watercourse {
+    pub kind: CourseKind,
+    /// Fließt gerade Wasser? (Ein zeitweiser Bach kann auch ein trockenes Bett sein.)
+    pub flowing: bool,
+}
+
+/// Ab diesem Anteil fließender Tage gilt ein Lauf als dauerhaft.
+pub const PERMANENT_SHARE: f32 = 0.85;
+/// Ab diesem Anteil als zeitweise.
+pub const SEASONAL_SHARE: f32 = 0.25;
+
+pub fn watercourse(t: &crate::world::Tile) -> Watercourse {
+    let flowing = t.flow >= crate::sim::RILL_FLOW;
+    let p = t.flow_permanence;
+    let kind = if t.is_ocean() {
+        CourseKind::None
+    } else if p >= PERMANENT_SHARE {
+        CourseKind::Permanent
+    } else if p >= SEASONAL_SHARE {
+        CourseKind::Seasonal
+    } else if flowing {
+        CourseKind::RainChannel
+    } else {
+        CourseKind::None
+    };
+    Watercourse { kind, flowing }
+}
+
 /// Wasserspiegel eines Feldes in Metern: Gelände plus stehendes Wasser.
 pub fn head(t: &crate::world::Tile) -> f32 {
     t.elevation + t.surface_water * 0.001
@@ -42,8 +92,11 @@ pub struct HydroDay {
     pub transpiration: f32,
     /// Versickerung in unerreichbare Tiefe.
     pub deep_loss: f32,
-    /// Abfluss des Grundwassers unterirdisch ins Meer.
+    /// Abfluss des Grundwassers unterirdisch ins Meer (einschließlich Überlauf,
+    /// wenn der Grundwasserkörper voll ist).
     pub aquifer_leak: f32,
+    /// Davon: Überlauf bei vollem Grundwasserkörper.
+    pub aquifer_overflow: f32,
     /// Neubildung des Grundwassers.
     pub recharge: f32,
 }
@@ -54,11 +107,24 @@ pub fn forest_demand_factor(forest: f32, age: f32) -> f32 {
     0.8 * forest * (0.6 + 0.4 * clamp01(age / 60.0))
 }
 
+/// Unter diesem Füllstand liegt das Grundwasser unter den Quellaustritten:
+/// Die Quellen versiegen, bevor der Grundwasserkörper leer ist.
+pub const SPRING_MIN_LEVEL: f32 = 0.05;
+/// Schüttung bei vollem Grundwasser relativ zur Grundschüttung.
+pub const SPRING_FULL_GAIN: f32 = 1.5;
+
+/// Schüttungsfaktor einer Quelle beim Füllstand `level` (0..1).
+pub fn spring_pressure(level: f32) -> f32 {
+    SPRING_FULL_GAIN * ((level - SPRING_MIN_LEVEL) / (1.0 - SPRING_MIN_LEVEL)).max(0.0)
+}
+
+/// `aquifer`: Grundwasser der Insel (mm-Summe über Felder),
+/// `capacity`: Fassungsvermögen des Grundwasserkörpers (gleiche Einheit).
 pub fn step_day(
     world: &mut World,
     weather: &Weather,
     aquifer: &mut f32,
-    aquifer_ref: f32,
+    capacity: f32,
     through: &mut [f32],
 ) -> HydroDay {
     let mut day = HydroDay::default();
@@ -82,9 +148,9 @@ pub fn step_day(
     }
 
     // 2. Quellen speisen sich aus dem Grundwasser
-    let fill = (*aquifer / aquifer_ref).clamp(0.0, 1.5);
+    let pressure = spring_pressure((*aquifer / capacity).clamp(0.0, 1.0));
     for s in world.springs.iter_mut() {
-        let out = (s.base_rate * s.factor * fill).min(*aquifer).max(0.0);
+        let out = (s.base_rate * s.factor * pressure).min(*aquifer).max(0.0);
         *aquifer -= out;
         s.current = out;
         let i = (s.y * w + s.x) as usize;
@@ -187,6 +253,16 @@ pub fn step_day(
             continue;
         }
         t.flow = t.flow * 0.85 + passed * 0.15;
+        // Jahresgedächtnis: wie viel und wie beständig fließt hier Wasser?
+        let k = crate::world::YEAR_WEIGHT;
+        t.flow_year += (passed - t.flow_year) * k;
+        let flowing = if passed >= crate::sim::RILL_FLOW {
+            1.0
+        } else {
+            0.0
+        };
+        t.flow_permanence += (flowing - t.flow_permanence) * k;
+        t.moisture_year += (t.moisture_fraction() - t.moisture_year) * k;
         let pet = potential_evaporation(weather.temp_at(t.elevation));
         let evap = t.surface_water.min(pet * 1.1);
         t.surface_water -= evap;
@@ -235,8 +311,16 @@ pub fn step_day(
         recharge += drain;
     }
     *aquifer += recharge;
-    let leak = *aquifer * AQUIFER_LEAK;
+    let mut leak = *aquifer * AQUIFER_LEAK;
     *aquifer -= leak;
+    // Voller Grundwasserkörper nimmt nichts mehr auf: Überlauf fließt
+    // unterirdisch zum Meer.
+    if *aquifer > capacity {
+        let overflow = *aquifer - capacity;
+        *aquifer = capacity;
+        leak += overflow;
+        day.aquifer_overflow = overflow;
+    }
     day.aquifer_leak = leak;
     day.recharge = recharge;
     day

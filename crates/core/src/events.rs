@@ -20,6 +20,9 @@ pub enum EventKind {
     TreesReturn,
     Germination,
     SeedFailed,
+    // seit v0.3
+    GroundwaterLow,
+    GroundwaterRecovered,
 }
 
 impl EventKind {
@@ -40,6 +43,8 @@ impl EventKind {
             EventKind::TreesReturn => "Wald",
             EventKind::Germination => "Keimung",
             EventKind::SeedFailed => "Samen",
+            EventKind::GroundwaterLow => "Grundwasser",
+            EventKind::GroundwaterRecovered => "Grundwasser",
         }
     }
 
@@ -54,6 +59,7 @@ impl EventKind {
                 | EventKind::LastTree
                 | EventKind::TreesReturn
                 | EventKind::Germination
+                | EventKind::GroundwaterLow
         )
     }
 }
