@@ -32,7 +32,7 @@ Diese Szenarien sind Anfangszustände derselben Simulation, nicht drei separate 
 
 ## Erste spielbare Version (MVP)
 
-Eine deterministisch testbare kleine Insel (z. B. 64 × 64 Rasterfelder) mit gespeichertem Weltzustand, Zeit, Wasser, Bodenfeuchte, Pflanzenwachstum und einer Beobachtungsoberfläche. Danach fünf Bewohner mit Hunger, Durst, Müdigkeit, einfachen Aktionen und einem Ereignisprotokoll. **Kein KI-Modell und keine vollständige Zivilisation im ersten Meilenstein.**
+Eine deterministisch testbare kleine Insel (z. B. 64 × 64 Rasterfelder) mit gespeichertem Weltzustand, Zeit, Wasser, Bodenfeuchte, Pflanzenwachstum und einer Beobachtungsoberfläche. Danach wird die Natur ausgebaut (Buschland, Feuer, Erosion, Tiere), bevor in v0.6 fünf Bewohner mit Hunger, Durst, Müdigkeit und einfachen Aktionen hinzukommen – siehe [Roadmap](docs/ROADMAP.md). **Kein KI-Modell und keine vollständige Zivilisation im ersten Meilenstein.**
 
 ## Dokumente
 
