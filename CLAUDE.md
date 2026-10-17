@@ -38,4 +38,4 @@ Visuelle Änderungen am Beobachter prüfen: `xvfb-run -s "-screen 0 1440x900x24"
 
 ## Release
 
-Version in `Cargo.toml` (`workspace.package.version`) anheben, committen, Tag `vX.Y.Z` pushen. `.github/workflows/release.yml` baut Windows/macOS/Linux und hängt die ZIPs an das Release.
+Version in `Cargo.toml` (`workspace.package.version`) anheben und auf `main` pushen. `.github/workflows/release.yml` erkennt die neue Version, baut Windows/macOS/Linux und legt Release samt Tag `vX.Y.Z` selbst an. Tags nicht manuell pushen (der Git-Proxy der Cloud-Sitzungen lässt Tag-Pushes nicht durch).
