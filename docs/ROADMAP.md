@@ -55,6 +55,15 @@ Umsetzungshinweise:
 - [ ] Bodenabtrag und Sedimentablagerung durch Regen und fließendes Wasser.
 - [ ] Gelände verändert sich über lange Zeiträume, ohne die Reproduzierbarkeit zu verlieren.
 
+- [ ] **Quellwasser und Oberflächenabfluss sichtbar machen:** prüfen, ob das Wasser physikalisch nachvollziehbar verteilt wird und ob 2D-Wasserkarte und isometrische Ansicht denselben Wasserzustand korrekt anzeigen. Bestehende Wasserläufe sollen abhängig von ihrer Wassermenge sichtbar anschwellen oder austrocknen.
+
+Befund aus Dennis' Quellen-Test (v0.1.1, nachgeprüft mit `tests/springs.rs`):
+- Der Kern ist korrekt: Quellwasser geht in die Wasserbilanz ein, fließt bergab, der Bach trocknet bei 0 % aus und kehrt bei 100 % zurück; die Schüttung folgt dem Regler.
+- **Statistik sättigt:** „Bachfelder“ zählt nur Felder über 60 mm/Tag. Unter beiden Quellen liegen zusammen nur 21 Felder bis zum Meer – sind die voll, bringt 300 % kein einziges Feld dazu. Im Winter überdeckt Regen die Quellen völlig. → Statt Felder zählen: Wassermenge anzeigen (z. B. Abfluss ins Meer, Schüttung je Quelle), Rinnsale getrennt von Bächen.
+- **300 % hält nicht an:** Der Regler verändert, wie leicht das Grundwasser austritt, nicht, wie viel Wasser nachkommt. Bei 300 % leert sich das Grundwasser der Insel in wenigen Monaten, danach fällt die Schüttung fast auf den alten Wert zurück. Physikalisch ehrlich, aber für den Spieler nicht erkennbar. → Entscheidung nötig: Regler als *Austritt* (wie jetzt, mit Erklärung) oder als *Zufuhr von außerhalb der Insel* (dauerhaft, in der Wasserbilanz ausgewiesen).
+- **Darstellung zu schwach:** Wasserläufe unter etwa 30 mm/Tag sind unsichtbar, darüber wird nur die Feldfarbe leicht getönt. → Wasserläufe als Linien von Feld zu Feld, Dicke nach Wassermenge.
+- **Einzelne Abflussbahn:** Jedes Feld gibt sein Wasser an genau ein Nachbarfeld ab. Wasser kann sich deshalb nicht verbreitern, nicht über eine Wiese ausufern und keinen neuen Weg suchen. → Abfluss nach Wasserspiegel statt fester Richtung (Voraussetzung für Überschwemmung und für Dämme, siehe unten).
+
 Umsetzungshinweise:
 - Die Grundwasser-Anzeige ist in v0.1 ein Verhältnis zu einem Bezugswert (etwa 300 Tage volle Quellschüttung) und kann über 100 % steigen. Sie soll zu einem echten Füllstand mit Ober- und Untergrenze werden.
 - Erosion ändert Höhen → Abflussnetz muss in größeren Abständen neu berechnet werden (z. B. jährlich), nicht täglich.
@@ -85,6 +94,24 @@ Hinweis: Damit Jung- und Altwald unterscheidbar sind, braucht der Kern ab v0.2 e
 
 ---
 
+## Langfristig: Interaktive Hydrologie und Landschaftsgestaltung
+
+Der Spaß, mit den Naturgesetzen einer kleinen Welt zu spielen – wie als Kind ein Damm im Bach. Der Beobachter bestimmt nicht, wohin das Wasser fließt; er verändert nur ein Hindernis und schaut, was passiert.
+
+- Ein Hindernis in einen Bach legen: Das Wasser staut sich oder fließt darum herum.
+- Ein Hindernis entfernen: Das Wasser nimmt möglicherweise einen neuen Weg.
+- Einen Durchbruch zwischen zwei Senken öffnen: Ein kleiner See läuft langsam ab.
+- Starkregen lässt einen Bach anschwellen und eine Wiese überschwemmen.
+- Nach Jahrzehnten hat das Wasser den Boden abgetragen und den Bachlauf dauerhaft verändert (Erosion, v0.3).
+
+Wasser folgt dabei tatsächlich Gelände und physikalischen Regeln, keine Textur entlang einer vorberechneten Linie.
+
+Technische Voraussetzungen:
+- Abfluss nach Wasserspiegel (Gelände + Wasserstand) statt fester Fließrichtung; Fließrichtungen neu berechnen, sobald sich Gelände ändert.
+- Gelände-Eingriffe als neue Art von `Intervention` (Damm, Durchbruch, Hindernis) – sie verändern Bedingungen und landen in der Chronik.
+- Feinere räumliche Auflösung: Bei 50 × 50 m pro Feld verschwindet ein einzelner Stein. Kleine Dämme und Geländeänderungen gehen schon früher, für Steine braucht es z. B. ein feineres Detailraster dort, wo der Beobachter hinschaut.
+- Wasserbilanz bleibt bei jedem Eingriff geschlossen (Regressionstest 4).
+
 ## Wichtige Regressionstests
 
 | # | Test | Stand |
@@ -96,6 +123,7 @@ Hinweis: Damit Jung- und Altwald unterscheidbar sind, braucht der Kern ab v0.2 e
 | 5 | Feuer kann ausbleiben, sich begrenzt ausbreiten oder größere Flächen zerstören – abhängig von Bedingungen. | v0.2 |
 | 6 | Die Simulation bleibt bei jahrhundertelangem Zeitraffer stabil. | 100 Jahre ✅, auf 500 Jahre erweitern |
 | 7 | Ein identischer Seed mit identischen Eingriffen liefert auf unterstützten Plattformen identische Ergebnisse. | ✅ (Referenz-Prüfsumme auf Windows, macOS, Linux) |
+| 8 | Quellen aus- und wieder einschalten: Schüttung folgt dem Regler, Bach trocknet aus und kehrt zurück, reproduzierbar. | ✅ `tests/springs.rs` (ohne Regen gemessen) |
 
 Die offenen Tests 1, 2, 4 und 6 betreffen v0.1 und werden zu Beginn von v0.2 ergänzt.
 
