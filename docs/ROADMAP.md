@@ -41,6 +41,11 @@ Ausführlich: [PRINCIPLES.md](PRINCIPLES.md).
 Umsetzungshinweise:
 - Samen-Eingriff: Die Chronik vermerkt den Eingriff, aber **nicht den Ort**. Gelingt die Keimung, erscheint später ein natürliches Ereignis („Ein junger Gehölzbestand ist entstanden bei …“) – der Ort wird also erst durch Beobachtung bekannt.
 - Wind wird eine neue Wettergröße (Richtung, Stärke) und ist zunächst nur für Feuer relevant.
+- **Wasserreserven der Bäume** (aus Dennis' Austrocknungs-Experiment): Erreichbare Wassertiefe wächst mit dem Bestandsalter, ist aber durch die Bodentiefe begrenzt. Der Wasserbedarf wächst mit der Bestandsdichte. Alte Bestände sind also nicht grundsätzlich dürrefester – auf tiefem Boden halten sie länger durch, auf dünnem Boden am Hang nicht. Bestandsalter ist eine erste Näherung; Baumarten mit eigenem Wasserbedarf folgen später.
+- **Totholz:** Abgestorbener Wald bleibt als stehendes Totholz erhalten, ist sichtbar, zerfällt über Jahre und ist besonders gutes Brennmaterial. Ereigniskette ohne Garantie: Dürre → Totholz → vielleicht Brand → Neubesiedlung durch Gras, Busch, vielleicht Wald.
+- **Chronik für Vegetation:** Waldsterben (z. B. Halbierung des Bestands), „letzter Baum der Insel“, erste Neubesiedlung.
+- **Bei wichtigen Ereignissen anhalten:** Schalter im Beobachter; Zeit stoppt, Kamera springt zum Ort. Sonst verpasst man bei 10 Jahren/s ganze Baumgenerationen.
+- Fester Test „Paradies, dann alles aus“ (150 Jahre üppig, dann kein Regen, keine Quellen): Wald stirbt langsamer als in v0.1 (dort 50 % nach 7 Monaten, 0 % nach 4 Jahren), hinterlässt Totholz und meldet es in der Chronik.
 - Spielstand-Format steigt auf 2; Spielstände aus v0.1 werden beim Laden übernommen (kein Buschland, keine Brände, Wind ruhig). Die Migration wird in den Release-Notizen genannt.
 
 ## v0.3 – Hydrologie und Erosion
