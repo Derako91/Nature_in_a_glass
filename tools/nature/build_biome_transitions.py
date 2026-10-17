@@ -171,7 +171,7 @@ def stream_overlay(t,x,y):
     overlay.putalpha(Image.fromarray(alpha))
     return overlay
 
-def render(fields,materials):
+def render(fields,materials,stream_draw=None,fall_draw=None):
     n=len(fields);canvas=Image.new('RGBA',(n*64+48,n*32+100));d=ImageDraw.Draw(canvas)
     origin=canvas.width//2
     for s in range(2*n-1):
@@ -186,7 +186,8 @@ def render(fields,materials):
             if height>right:d.polygon([(cx,cy+16),(cx+32,cy),(cx+32,cy+height-right),(cx,cy+16+height-right)],fill=tuple(round(c*.72) for c in wall))
             canvas.alpha_composite(tile(fields,x,y,materials),(cx-32,cy-16))
             if t['flow']>=60 and t['surface_water']<=150:
-                canvas.alpha_composite(stream_overlay(t,x,y),(cx-32,cy-16))
+                canvas.alpha_composite((stream_draw or stream_overlay)(t,x,y),(cx-32,cy-16))
+                if fall_draw:fall_draw(canvas,fields,t,x,y,cx,cy)
             if t['surface_water']>150:continue
             spots=positions(x,y);sprites=[]
             stage='young' if t['forest_age']<15 else 'mid' if t['forest_age']<60 else 'old'

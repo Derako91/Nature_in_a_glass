@@ -1,0 +1,62 @@
+[
+  {
+    "files": [
+      "waterfall_stream_left_f0.png",
+      "waterfall_stream_left_f1.png",
+      "waterfall_stream_left_f2.png",
+      "waterfall_stream_left_f3.png"
+    ],
+    "max_pixel_luminance_variation": 0.1122960490948316,
+    "constant_silhouette": true,
+    "frames": 4,
+    "frame_ms": 400
+  },
+  {
+    "files": [
+      "waterfall_stream_right_f0.png",
+      "waterfall_stream_right_f1.png",
+      "waterfall_stream_right_f2.png",
+      "waterfall_stream_right_f3.png"
+    ],
+    "max_pixel_luminance_variation": 0.10211370376763365,
+    "constant_silhouette": true,
+    "frames": 4,
+    "frame_ms": 400
+  },
+  {
+    "files": [
+      "waterfall_river_left_f0.png",
+      "waterfall_river_left_f1.png",
+      "waterfall_river_left_f2.png",
+      "waterfall_river_left_f3.png"
+    ],
+    "max_pixel_luminance_variation": 0.1122960490948316,
+    "constant_silhouette": true,
+    "frames": 4,
+    "frame_ms": 400
+  },
+  {
+    "files": [
+      "waterfall_river_right_f0.png",
+      "waterfall_river_right_f1.png",
+      "waterfall_river_right_f2.png",
+      "waterfall_river_right_f3.png"
+    ],
+    "max_pixel_luminance_variation": 0.10211370376763365,
+    "constant_silhouette": true,
+    "frames": 4,
+    "frame_ms": 400
+  },
+  {
+    "files": [
+      "water_stream_f0.png",
+      "water_stream_f1.png",
+      "water_stream_f2.png",
+      "water_stream_f3.png"
+    ],
+    "max_pixel_luminance_variation": 0.10211370376763365,
+    "constant_silhouette": true,
+    "frames": 4,
+    "frame_ms": 400
+  }
+]

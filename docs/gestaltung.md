@@ -211,9 +211,19 @@ Rechteckige Streifen, **32 × 32 px**, vertikal nahtlos kachelbar (der Renderer 
 | `water_coast` | Raute 64 × 32 | Brandungssaum an Landkanten, je Kantenrichtung (N, O, S, W) | 4 Richtungen × 4 Frames |
 | `water_pond` | Raute 64 × 32 | Teich/See, ruhiger, dunkler als Meer | 2 Frames, Schleife 4 s |
 | `water_stream` | Streifen 16 × 32, längs kachelbar | Wasserlauf von Feldmitte zu Feldmitte; der Renderer verbreitert ihn nach Durchfluss | 4 Frames, Schleife 1,6 s |
+| `waterfall_stream_left/right` | Streifen 16 × 32 | schmaler Fall an den beiden sichtbaren Hangseiten, Licht rechts oben | je 4 Frames, Schleife 1,6 s |
+| `waterfall_river_left/right` | Streifen 16 × 32 | breiter Fall mit ruhigem Aufprallsaum | je 4 Frames, Schleife 1,6 s |
 | `marker_spring` | 12 × 12 | Quelle: kleiner Quelltopf, sprudelnd | 3 Frames + 1 Bild „versiegt“ |
 
 Wasser-Animationen: höchstens 15 % Helligkeitsunterschied zwischen Frames (Ruhe-Regel).
+
+Gebirgsgewässer: Ein Wasserfall verbindet einen durchflossenen Abschnitt nur mit
+einem tiefer liegenden, durchflossenen Nachbarn. Breite folgt dem Durchfluss,
+Fallhöhe der sichtbaren Höhendifferenz; kein dekorativer Wasserfall ohne diese
+Grundlage. Felsufer gehen mit dem Bodenmaterial in feuchte Erd- und Grasränder
+über, während das Wasser verbunden bleibt. Referenz und Zusatzmanifest:
+`art/nature/ROUND-08.md`, `assets/nature/mountain-water/manifest.json`.
+Die dortigen Breiten/Höhen sind Darstellungsprüfwerte, keine neuen Kernschwellen.
 
 ### Gruppe D – Vegetation (Sprites)
 

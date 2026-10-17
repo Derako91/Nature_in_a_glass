@@ -1,6 +1,7 @@
 # Naturgestaltung – Prüfblatt 01
 
-**Aktuell ist Runde 07:** bestätigte Biomrichtung, weichere Bachkurven und
+**Aktuell ist Runde 08:** Gebirgsgewässer, Wasserfälle und Materialübergänge,
+siehe `ROUND-08.md`. Runde 07 enthält die bestätigte Biomrichtung, weichere Bachkurven und
 versetzte Felsstufen, siehe `ROUND-07.md`. Kadaver und Spuren stehen in `ROUND-06.md`.
 Ausgearbeitete Biome und Übergänge stehen in `ROUND-05.md`.
 Tieranimationen und zweite Fellvariante stehen in `ROUND-04.md`.
@@ -11,6 +12,13 @@ Manifest und Testbelegung der ersten Runde sind mit `assets/nature/` identisch
 und liegen deshalb nur dort.
 
 ## Aktuelle Entwürfe
+
+### Gebirgsgewässer – Runde 08
+
+![Animierte Gebirgsgewässer](../../assets/nature/_mountain-water.gif)
+
+[Standbild](../../assets/nature/_mountain-water.png)
+· [Herstellung, Prüfung und Einbindung](ROUND-08.md)
 
 ### Kadaver und Spuren – Runde 06
 

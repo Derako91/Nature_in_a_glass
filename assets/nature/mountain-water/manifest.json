@@ -1,0 +1,118 @@
+{
+  "version": 1,
+  "status": "design_review",
+  "assets": [
+    {
+      "id": "waterfall_stream_left",
+      "size": [
+        16,
+        32
+      ],
+      "anchor": [
+        8,
+        0
+      ],
+      "files": [
+        "waterfall_stream_left_f0.png",
+        "waterfall_stream_left_f1.png",
+        "waterfall_stream_left_f2.png",
+        "waterfall_stream_left_f3.png"
+      ],
+      "frames": 4,
+      "frame_ms": 400,
+      "role": "vertical_drop",
+      "nominal_drop_px": 28
+    },
+    {
+      "id": "waterfall_stream_right",
+      "size": [
+        16,
+        32
+      ],
+      "anchor": [
+        8,
+        0
+      ],
+      "files": [
+        "waterfall_stream_right_f0.png",
+        "waterfall_stream_right_f1.png",
+        "waterfall_stream_right_f2.png",
+        "waterfall_stream_right_f3.png"
+      ],
+      "frames": 4,
+      "frame_ms": 400,
+      "role": "vertical_drop",
+      "nominal_drop_px": 28
+    },
+    {
+      "id": "waterfall_river_left",
+      "size": [
+        16,
+        32
+      ],
+      "anchor": [
+        8,
+        0
+      ],
+      "files": [
+        "waterfall_river_left_f0.png",
+        "waterfall_river_left_f1.png",
+        "waterfall_river_left_f2.png",
+        "waterfall_river_left_f3.png"
+      ],
+      "frames": 4,
+      "frame_ms": 400,
+      "role": "vertical_drop",
+      "nominal_drop_px": 28
+    },
+    {
+      "id": "waterfall_river_right",
+      "size": [
+        16,
+        32
+      ],
+      "anchor": [
+        8,
+        0
+      ],
+      "files": [
+        "waterfall_river_right_f0.png",
+        "waterfall_river_right_f1.png",
+        "waterfall_river_right_f2.png",
+        "waterfall_river_right_f3.png"
+      ],
+      "frames": 4,
+      "frame_ms": 400,
+      "role": "vertical_drop",
+      "nominal_drop_px": 28
+    },
+    {
+      "id": "water_stream",
+      "size": [
+        16,
+        32
+      ],
+      "anchor": [
+        8,
+        16
+      ],
+      "frames": 4,
+      "frame_ms": 400,
+      "files": [
+        "water_stream_f0.png",
+        "water_stream_f1.png",
+        "water_stream_f2.png",
+        "water_stream_f3.png"
+      ],
+      "longitudinal_repeat_px": 8
+    }
+  ],
+  "fixtures": [
+    "stream",
+    "river",
+    "forest",
+    "wetland"
+  ],
+  "rules": "Wasser nur auf durchflossenen Testfeldern; Fall nur zum durchflossenen, tieferen Nachbarn.",
+  "integration": "visual_width und height_px sind Prüfwerte, keine neuen Simulationsschwellen; Höhen und Breite später vom Renderer ableiten."
+}
