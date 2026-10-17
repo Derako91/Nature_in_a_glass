@@ -1,18 +1,19 @@
 # Roadmap – schrittweise, nicht als starre Fertigstellungstermine
 
 ## M0 – Projektfundament
-- [ ] Eigenständiges Repository anlegen; unabhängig von AI Town.
+- [x] Eigenständiges Repository anlegen; unabhängig von AI Town.
 - [x] Projektvision und unverhandelbare Spielprinzipien dokumentieren.
 - [x] Grobe modulare Architektur entwerfen.
-- [ ] Laufzeit, Sprache, Rendering und Speichermodell entscheiden.
-- [ ] Automatische Tests und CI einrichten.
+- [x] Laufzeit, Sprache, Rendering und Speichermodell entscheiden ([ADR 0002](../decisions/0002-runtime-and-rendering.md)).
+- [x] Automatische Tests und CI einrichten (Windows, macOS, Linux).
 
 ## M1 – Die Insel lebt ohne Menschen
-- [ ] Welt mit Seed generieren und rendern (MVP: z. B. 64×64).
-- [ ] Simulation anhalten, beschleunigen, speichern, laden.
-- [ ] Einfacher Regen-/Wasservorrats-/Bodenfeuchte-Kreislauf.
-- [ ] Pflanzenwachstum und -verfall.
-- [ ] Reproduzierbarer Test über 100 simulierte Jahre; Zustands- und Ereignisverlauf auswerten.
+- [x] Welt mit Seed generieren und rendern (64×64, isometrisch und 2D).
+- [x] Simulation anhalten, beschleunigen, speichern, laden.
+- [x] Einfacher Regen-/Wasservorrats-/Bodenfeuchte-Kreislauf (mit Bächen, Seen, Quellen, Grundwasser).
+- [x] Pflanzenwachstum und -verfall (Gras, Wald, Samenausbreitung, Dürreschäden).
+- [x] Reproduzierbarer Test über 100 simulierte Jahre; Zustands- und Ereignisverlauf auswerten.
+- [ ] Offen in M1: Tiere (Pflanzenfresser), Feuer durch Blitzschlag, feinere Wetterdarstellung, Feinschliff durch Beobachten.
 
 ## M2 – Fünf Bewohner
 - [ ] Bedürfnisse: Hunger, Durst, Müdigkeit, Schutz.

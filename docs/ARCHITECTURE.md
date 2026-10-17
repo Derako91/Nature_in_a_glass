@@ -62,6 +62,22 @@ Pflanzen  Aktionen
 - Tests mit deaktivierter KI müssen vollständige Simulationszyklen ermöglichen.
 - Vor KI-Integration: Profiling und Benchmarks für 5/50/200 Bewohner, ohne diese Größen bereits als unterstützt zu behaupten.
 
+## Umsetzung in Version 0.1
+
+Entschieden in [ADR 0002](../decisions/0002-runtime-and-rendering.md): Rust-Workspace mit grafikfreiem Kern.
+
+| Modul (Entwurf oben) | Umgesetzt in |
+| --- | --- |
+| `core` | `crates/core/src/sim.rs` (Uhr, Scheduler, Eingriffe, Speichern), `rng.rs`, `math.rs` |
+| `world` | `world.rs` (Insel, Boden, Abflussnetz), `climate.rs`, `hydro.rs`, `vegetation.rs` |
+| `history` | `events.rs` (Chronik mit Ursachen) |
+| `godmode` | `Intervention` in `sim.rs` – nur Klima und Quellen |
+| `frontend` | `crates/app` (egui), `crates/cli` |
+
+Ablauf eines Tages: Wetter würfeln → Regen und Quellen → Versickern und Abfluss bergab → Verdunstung, Pflanzenwasser, Grundwasserneubildung → Gras und Wald → Ereignisse erkennen. Jahreswechsel: Jahresbilanz in Chronik und Verlauf.
+
+Eine Kachel ist 50 × 50 m, die Insel damit gut 3 × 3 km. Wassermengen werden in Millimetern auf einer Kachel gerechnet.
+
 ## Offen
 
-Sprache/Runtime, Game-Renderer, genaue Datenspeicherung, Grad der deterministischen Reproduzierbarkeit mit LLM sowie die Tiefe des Material- und Geologiemodells werden separat entschieden.
+Grad der deterministischen Reproduzierbarkeit mit LLM sowie die Tiefe des Material- und Geologiemodells werden separat entschieden.

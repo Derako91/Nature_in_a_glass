@@ -7,7 +7,7 @@ use crate::events::{EventKind, Journal};
 use crate::hydro;
 use crate::rng::Rng;
 use crate::vegetation;
-use crate::world::{World, POND_MM};
+use crate::world::{POND_MM, World};
 
 pub const HOURS_PER_DAY: u64 = 24;
 pub const DAYS_PER_YEAR: u64 = 365;
@@ -266,7 +266,10 @@ impl Simulation {
                 now,
                 EventKind::DroughtStart,
                 None,
-                format!("Dürre: Die Böden sind ausgetrocknet ({:.0} % Feuchte).", d.smoothed * 100.0),
+                format!(
+                    "Dürre: Die Böden sind ausgetrocknet ({:.0} % Feuchte).",
+                    d.smoothed * 100.0
+                ),
                 vec![
                     format!(
                         "Niederschlag der letzten 60 Tage: {:.0} mm (üblich etwa {:.0} mm)",
@@ -283,7 +286,10 @@ impl Simulation {
                 EventKind::DroughtEnd,
                 None,
                 format!("Die Dürre endet nach {} Tagen.", days),
-                vec![format!("Niederschlag der letzten 60 Tage: {:.0} mm", rain60)],
+                vec![format!(
+                    "Niederschlag der letzten 60 Tage: {:.0} mm",
+                    rain60
+                )],
             );
         }
 
@@ -291,7 +297,11 @@ impl Simulation {
         let fill = self.aquifer / self.aquifer_ref;
         for k in 0..self.world.springs.len() {
             let s = &mut self.world.springs[k];
-            let ratio = if s.base_rate > 0.0 { s.current / s.base_rate } else { 0.0 };
+            let ratio = if s.base_rate > 0.0 {
+                s.current / s.base_rate
+            } else {
+                0.0
+            };
             if !s.dry && ratio < 0.1 {
                 s.dry = true;
                 let cause = if s.factor < 0.15 {
@@ -347,7 +357,12 @@ impl Simulation {
             None,
             format!(
                 "Jahr {}: {:.0} mm Regen, Wald {:.1} %{}, Gras {:.0} %, {} Bachfelder.",
-                finished, stats.rain_mm, stats.forest_pct, trend, stats.grass_pct, stats.stream_tiles
+                finished,
+                stats.rain_mm,
+                stats.forest_pct,
+                trend,
+                stats.grass_pct,
+                stats.stream_tiles
             ),
             Vec::new(),
         );
@@ -365,11 +380,7 @@ impl Simulation {
                 n += 1;
             }
         }
-        if n == 0 {
-            0.0
-        } else {
-            sum / n as f32
-        }
+        if n == 0 { 0.0 } else { sum / n as f32 }
     }
 
     pub fn snapshot(&self) -> Snapshot {
@@ -464,8 +475,13 @@ impl Simulation {
                 )
             }
         };
-        self.journal
-            .push(now, EventKind::Intervention, loc, msg, vec!["Eingriff des Beobachters".into()]);
+        self.journal.push(
+            now,
+            EventKind::Intervention,
+            loc,
+            msg,
+            vec!["Eingriff des Beobachters".into()],
+        );
     }
 
     // ---------- Speichern / Laden ----------

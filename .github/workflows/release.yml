@@ -1,0 +1,65 @@
+name: Release
+
+# Ein Tag wie v0.1.0 erzeugt fertige Programme unter "Releases".
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build ${{ matrix.name }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: windows
+            os: windows-latest
+            exe: .exe
+          - name: macos
+            os: macos-latest
+            exe: ""
+          - name: linux
+            os: ubuntu-latest
+            exe: ""
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: Bauen
+        run: cargo build --release -p nature-in-a-glass -p nig-sim
+      - name: Paket schnüren
+        shell: bash
+        run: |
+          DIR=nature-in-a-glass-${{ matrix.name }}
+          mkdir "$DIR"
+          cp target/release/nature-in-a-glass${{ matrix.exe }} "$DIR/"
+          cp target/release/nig-sim${{ matrix.exe }} "$DIR/"
+          cp docs/STARTEN.md "$DIR/LIESMICH.md"
+          if [ "${{ matrix.name }}" = "windows" ]; then
+            7z a "$DIR.zip" "$DIR"
+          else
+            zip -r "$DIR.zip" "$DIR"
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nature-in-a-glass-${{ matrix.name }}
+          path: nature-in-a-glass-${{ matrix.name }}.zip
+
+  publish:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.zip
+          generate_release_notes: true

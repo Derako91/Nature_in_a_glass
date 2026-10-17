@@ -46,7 +46,10 @@ fn save_and_load_continue_identically() {
 
 #[test]
 fn rejects_unknown_save_format() {
-    let json = Simulation::new(1).to_json().replacen("\"format_version\":1", "\"format_version\":999", 1);
+    let json =
+        Simulation::new(1)
+            .to_json()
+            .replacen("\"format_version\":1", "\"format_version\":999", 1);
     assert!(Simulation::from_json(&json).is_err());
 }
 
@@ -64,10 +67,18 @@ fn hundred_years_stay_plausible() {
         assert!((0.0..=1.0).contains(&t.forest));
     }
     for y in &sim.history {
-        assert!(y.rain_mm > 300.0 && y.rain_mm < 2500.0, "Jahr {}: {} mm", y.year, y.rain_mm);
+        assert!(
+            y.rain_mm > 300.0 && y.rain_mm < 2500.0,
+            "Jahr {}: {} mm",
+            y.year,
+            y.rain_mm
+        );
     }
     let avg_rain: f32 = sim.history.iter().map(|y| y.rain_mm).sum::<f32>() / 100.0;
-    assert!((800.0..1100.0).contains(&avg_rain), "Mittlerer Regen {avg_rain}");
+    assert!(
+        (800.0..1100.0).contains(&avg_rain),
+        "Mittlerer Regen {avg_rain}"
+    );
 
     // Die Insel lebt: Vegetation verschwindet nicht und Bäche existieren.
     let last = sim.history.last().unwrap();
@@ -81,20 +92,31 @@ fn no_rain_turns_island_brown() {
     let mut sim = Simulation::new(5);
     sim.apply(Intervention::SetAnnualRain { mm: 0.0 });
     for k in 0..sim.world.springs.len() {
-        sim.apply(Intervention::SetSpringFactor { spring: k, factor: 0.0 });
+        sim.apply(Intervention::SetSpringFactor {
+            spring: k,
+            factor: 0.0,
+        });
     }
     let before = sim.snapshot();
     sim.advance_years(3);
     let after = sim.snapshot();
     assert!(after.grass_pct < before.grass_pct * 0.5);
-    assert!(sim.journal.events.iter().any(|e| e.kind == EventKind::DroughtStart));
+    assert!(
+        sim.journal
+            .events
+            .iter()
+            .any(|e| e.kind == EventKind::DroughtStart)
+    );
 }
 
 #[test]
 fn closing_a_spring_is_recorded_with_cause() {
     let mut sim = Simulation::new(9);
     assert!(!sim.world.springs.is_empty());
-    sim.apply(Intervention::SetSpringFactor { spring: 0, factor: 0.0 });
+    sim.apply(Intervention::SetSpringFactor {
+        spring: 0,
+        factor: 0.0,
+    });
     sim.advance_days(2);
     let dry = sim
         .journal
@@ -103,7 +125,12 @@ fn closing_a_spring_is_recorded_with_cause() {
         .find(|e| e.kind == EventKind::SpringDry)
         .expect("Versiegen wird protokolliert");
     assert!(dry.causes.iter().any(|c| c.contains("Eingriff")));
-    assert!(sim.journal.events.iter().any(|e| e.kind == EventKind::Intervention));
+    assert!(
+        sim.journal
+            .events
+            .iter()
+            .any(|e| e.kind == EventKind::Intervention)
+    );
 }
 
 #[test]
@@ -115,4 +142,23 @@ fn cleared_forest_only_returns_from_edges() {
     }
     sim.advance_years(10);
     assert_eq!(sim.snapshot().forest_pct, 0.0);
+}
+
+/// Referenzwert: Seed 42 nach 20 Jahren. Die CI prüft diesen Test unter
+/// Windows, macOS und Linux – so fällt auf, wenn eine Plattform anders rechnet.
+///
+/// Ändert sich die Simulation absichtlich, muss dieser Wert neu gesetzt werden
+/// (`nig-sim --seed 42 --years 20` zeigt die neue Prüfsumme).
+const REFERENCE_HASH_SEED42_20Y: u64 = 0xa10e_29e9_2cc2_7dd8;
+
+#[test]
+fn cross_platform_reference_hash() {
+    let mut sim = Simulation::new(42);
+    sim.advance_years(20);
+    assert_eq!(
+        sim.state_hash(),
+        REFERENCE_HASH_SEED42_20Y,
+        "Prüfsumme {:016x} weicht vom Referenzwert ab",
+        sim.state_hash()
+    );
 }

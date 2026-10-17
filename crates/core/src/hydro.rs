@@ -1,7 +1,7 @@
 //! Wasserkreislauf: Regen, Quellen, Versickern, Abfluss, Seen, Verdunstung,
 //! Grundwasser. Ein Aufruf entspricht einem Tag.
 
-use crate::climate::{potential_evaporation, Weather};
+use crate::climate::{Weather, potential_evaporation};
 use crate::world::World;
 
 /// Höchstens so viel Wasser (mm) versickert pro Tag in einer Kachel.
@@ -91,12 +91,11 @@ pub fn step_day(
 
     // 4. Verdunstung, Pflanzen, Sickerwasser
     let mut recharge = 0.0;
-    for i in 0..world.tiles.len() {
-        let t = &mut world.tiles[i];
+    for (t, &passed) in world.tiles.iter_mut().zip(through.iter()) {
         if t.is_ocean() {
             continue;
         }
-        t.flow = t.flow * 0.85 + through[i] * 0.15;
+        t.flow = t.flow * 0.85 + passed * 0.15;
         let pet = potential_evaporation(weather.temp_at(t.elevation));
         let evap = t.surface_water.min(pet * 1.1);
         t.surface_water -= evap;

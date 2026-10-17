@@ -21,13 +21,28 @@ struct Args {
 }
 
 fn parse() -> Result<Args, String> {
-    let mut a = Args { seed: 42, years: 10, map: false, events: false, save: None, load: None };
+    let mut a = Args {
+        seed: 42,
+        years: 10,
+        map: false,
+        events: false,
+        save: None,
+        load: None,
+    };
     let mut it = std::env::args().skip(1);
     while let Some(arg) = it.next() {
         let mut val = |name: &str| it.next().ok_or(format!("{name} braucht einen Wert"));
         match arg.as_str() {
-            "--seed" => a.seed = val("--seed")?.parse().map_err(|_| "Seed muss eine Zahl sein")?,
-            "--years" => a.years = val("--years")?.parse().map_err(|_| "Jahre müssen eine Zahl sein")?,
+            "--seed" => {
+                a.seed = val("--seed")?
+                    .parse()
+                    .map_err(|_| "Seed muss eine Zahl sein")?
+            }
+            "--years" => {
+                a.years = val("--years")?
+                    .parse()
+                    .map_err(|_| "Jahre müssen eine Zahl sein")?
+            }
             "--map" => a.map = true,
             "--events" => a.events = true,
             "--save" => a.save = Some(val("--save")?),
@@ -138,7 +153,12 @@ fn main() -> ExitCode {
 
     if args.events {
         println!("\nChronik (ohne Jahresbilanzen):");
-        for e in sim.journal.events.iter().filter(|e| e.kind != nig_core::EventKind::YearSummary) {
+        for e in sim
+            .journal
+            .events
+            .iter()
+            .filter(|e| e.kind != nig_core::EventKind::YearSummary)
+        {
             let day = e.time_hours / 24;
             println!(
                 "  Jahr {:>4} Tag {:>3}  {}  [{}]",

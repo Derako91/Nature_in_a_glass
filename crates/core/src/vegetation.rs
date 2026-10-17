@@ -8,7 +8,7 @@
 use crate::climate::Weather;
 use crate::math::clamp01;
 use crate::rng::Rng;
-use crate::world::{World, POND_MM};
+use crate::world::{POND_MM, World};
 
 pub fn step_day(world: &mut World, weather: &Weather, rng: &mut Rng, forest_prev: &mut Vec<f32>) {
     forest_prev.clear();
