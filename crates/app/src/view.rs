@@ -131,9 +131,8 @@ pub fn tile_color(world: &World, i: usize, layer: Layer) -> Color32 {
 }
 
 /// Helligkeit nach Tageszeit (nur Darstellung).
-pub fn daylight(hour: u32) -> f32 {
-    let h = hour as f32;
-    let sun = ((h - 6.0) / 12.0 * std::f32::consts::PI).sin();
+pub fn daylight(hour: f32) -> f32 {
+    let sun = ((hour - 6.0) / 12.0 * std::f32::consts::PI).sin();
     0.6 + 0.4 * sun.clamp(0.0, 1.0).sqrt()
 }
 

@@ -51,6 +51,7 @@ Ideen zum Ausprobieren:
 - `--years N` – vor dem Öffnen N Jahre vorspulen
 - `--view karte` – mit der 2D-Karte starten
 - `--layer hoehe|feuchte|wasser` – Startebene
+- `--speed 0…5` – sofort mit Zeitraffer starten (0 = 1 Std/s, 5 = 10 Jahre/s)
 
 ## Ohne Fenster: `nig-sim`
 

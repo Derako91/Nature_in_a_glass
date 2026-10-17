@@ -39,6 +39,11 @@ fn main() -> eframe::Result {
     let years: u64 = arg("--years").and_then(|s| s.parse().ok()).unwrap_or(0);
     let view = arg("--view");
     let layer = arg("--layer");
+    let speed: Option<usize> = arg("--speed").and_then(|s| s.parse().ok());
+    let select: Option<(u32, u32)> = arg("--select").and_then(|s| {
+        let (x, y) = s.split_once(',')?;
+        Some((x.trim().parse().ok()?, y.trim().parse().ok()?))
+    });
     eframe::run_native(
         "Nature in a Glass",
         options,
@@ -55,6 +60,14 @@ fn main() -> eframe::Result {
                     "wasser" => Layer::Water,
                     _ => Layer::Nature,
                 };
+            }
+            if let Some((x, y)) = select {
+                let w = &app.sim.world;
+                app.selected = Some(w.idx(x.min(w.width - 1), y.min(w.height - 1)));
+            }
+            if let Some(k) = speed {
+                app.speed = k.min(SPEEDS.len() - 1);
+                app.running = true;
             }
             app.sync_pending();
             Ok(Box::new(app))
@@ -179,9 +192,10 @@ impl App {
         }
     }
 
+    /// Zeitanzeige mit fester Zeichenzahl, damit nichts daneben verrutscht.
     fn time_text(&self) -> String {
         format!(
-            "Jahr {} · Tag {} · {:02}:00 · {}",
+            "Jahr {:>5} · Tag {:>3} · {:02}:00 · {:<8}",
             self.sim.year(),
             self.sim.day_of_year() + 1,
             self.sim.hour_of_day(),
@@ -190,32 +204,46 @@ impl App {
     }
 
     fn top_bar(&mut self, ui: &mut egui::Ui) {
-        ui.horizontal_wrapped(|ui| {
-            ui.label(RichText::new("Nature in a Glass").strong().size(16.0));
+        // Zeile 1: Zeit und Zeitraffer
+        ui.horizontal(|ui| {
+            ui.add_sized(
+                [150.0, 24.0],
+                egui::Label::new(RichText::new("Nature in a Glass").strong().size(16.0)),
+            );
             ui.separator();
-            ui.label(RichText::new(self.time_text()).monospace().size(15.0));
+            ui.add_sized(
+                [390.0, 24.0],
+                egui::Label::new(RichText::new(self.time_text()).monospace().size(15.0)),
+            );
             ui.separator();
-            let play = if self.running {
-                "⏸ Pause"
-            } else {
-                "▶ Weiter"
-            };
-            if ui.button(play).on_hover_text("Leertaste").clicked() {
+            let play = if self.running { "Pause" } else { "▶ Weiter" };
+            if ui
+                .add_sized([90.0, 24.0], egui::Button::new(play))
+                .on_hover_text("Leertaste")
+                .clicked()
+            {
                 self.running = !self.running;
             }
             for (k, (label, _)) in SPEEDS.iter().enumerate() {
-                if ui.selectable_label(self.speed == k, *label).clicked() {
+                let b = egui::Button::selectable(self.speed == k, *label);
+                if ui.add_sized([82.0, 24.0], b).clicked() {
                     self.speed = k;
                     self.running = true;
                 }
             }
-            if ui.button("+1 Tag").clicked() {
+            if ui
+                .add_sized([70.0, 24.0], egui::Button::new("+1 Tag"))
+                .clicked()
+            {
                 self.sim.advance_hours(HOURS_PER_DAY);
             }
-            ui.separator();
+        });
+        // Zeile 2: Ansicht, Spielstand, neue Insel
+        ui.horizontal(|ui| {
             ui.selectable_value(&mut self.mode, ViewMode::Iso, "Isometrisch");
             ui.selectable_value(&mut self.mode, ViewMode::Map, "Karte");
             egui::ComboBox::from_id_salt("layer")
+                .width(130.0)
                 .selected_text(self.layer.label())
                 .show_ui(ui, |ui| {
                     for l in Layer::ALL {
@@ -249,25 +277,32 @@ impl App {
                     .unwrap_or(1);
                 self.seed_text = (t % 1_000_000).to_string();
             }
-            if !self.status.is_empty() {
-                ui.separator();
-                ui.label(RichText::new(&self.status).weak());
-            }
         });
     }
 
-    fn side_panel(&mut self, ui: &mut egui::Ui) {
-        egui::ScrollArea::vertical().show(ui, |ui| {
-            self.island_section(ui);
-            ui.separator();
-            self.tile_section(ui);
-            ui.separator();
-            self.intervention_section(ui);
-            ui.separator();
-            self.history_section(ui);
-            ui.separator();
-            self.journal_section(ui);
+    /// Statuszeile am unteren Rand – immer gleich hoch, auch wenn leer.
+    fn status_bar(&mut self, ui: &mut egui::Ui) {
+        ui.horizontal(|ui| {
+            ui.set_height(20.0);
+            let text = if self.status.is_empty() {
+                "Ziehen = Karte verschieben · Mausrad = Zoom · Klick = Feld untersuchen · Leertaste = Pause"
+            } else {
+                self.status.as_str()
+            };
+            ui.add(egui::Label::new(RichText::new(text).weak()).truncate());
         });
+    }
+
+    /// Rechte Spalte: alle Abschnitte haben eine feste Höhe, nur die
+    /// Chronik darunter scrollt in ihrem eigenen Bereich.
+    fn side_panel(&mut self, ui: &mut egui::Ui) {
+        self.island_section(ui);
+        ui.separator();
+        self.intervention_section(ui);
+        ui.separator();
+        self.history_section(ui);
+        ui.separator();
+        self.journal_section(ui);
     }
 
     fn island_section(&mut self, ui: &mut egui::Ui) {
@@ -276,6 +311,7 @@ impl App {
         ui.heading("Insel");
         egui::Grid::new("island")
             .num_columns(2)
+            .min_col_width(170.0)
             .striped(true)
             .show(ui, |ui| {
                 let row = |ui: &mut egui::Ui, k: &str, v: String| {
@@ -305,72 +341,68 @@ impl App {
             });
     }
 
+    /// Feld-Infos: immer dieselben Zeilen, damit die Spalte nicht springt.
     fn tile_section(&mut self, ui: &mut egui::Ui) {
-        ui.heading("Feld");
-        let Some(i) = self.selected else {
-            ui.label(RichText::new("Klicke auf die Karte, um ein Feld zu untersuchen.").weak());
-            return;
-        };
-        let world = &self.sim.world;
-        let t = &world.tiles[i];
-        let (x, y) = world.xy(i);
-        let terrain = match world.terrain(i) {
-            Terrain::DeepOcean => "Tiefsee",
-            Terrain::ShallowOcean => "Flachwasser",
-            Terrain::Beach => "Strand",
-            Terrain::Lowland => "Niederung",
-            Terrain::Hills => "Hügelland",
-            Terrain::Mountain => "Bergland",
-        };
-        let mut kind = terrain.to_string();
-        if !t.is_ocean() {
-            if t.surface_water > POND_MM {
-                kind.push_str(", Teich/See");
-            } else if t.flow > STREAM_FLOW {
-                kind.push_str(", Bach");
+        let dash = || "–".to_string();
+        let mut rows: Vec<(&str, String)> = vec![
+            ("Position", dash()),
+            ("Gelände", dash()),
+            ("Höhe", dash()),
+            ("Temperatur", dash()),
+            ("Bodenfeuchte", dash()),
+            ("Oberflächenwasser", dash()),
+            ("Durchfluss", dash()),
+            ("Gras / Wald", dash()),
+            ("Trockentage", dash()),
+        ];
+        if let Some(i) = self.selected {
+            let world = &self.sim.world;
+            let t = &world.tiles[i];
+            let (x, y) = world.xy(i);
+            let mut kind = match world.terrain(i) {
+                Terrain::DeepOcean => "Tiefsee",
+                Terrain::ShallowOcean => "Flachwasser",
+                Terrain::Beach => "Strand",
+                Terrain::Lowland => "Niederung",
+                Terrain::Hills => "Hügelland",
+                Terrain::Mountain => "Bergland",
             }
-            if world.springs.iter().any(|s| s.x == x && s.y == y) {
-                kind.push_str(", Quelle");
+            .to_string();
+            if !t.is_ocean() {
+                if t.surface_water > POND_MM {
+                    kind.push_str(", Teich/See");
+                } else if t.flow > STREAM_FLOW {
+                    kind.push_str(", Bach");
+                }
+                if world.springs.iter().any(|s| s.x == x && s.y == y) {
+                    kind.push_str(", Quelle");
+                }
+            }
+            rows[0].1 = format!("{x}, {y}");
+            rows[1].1 = kind;
+            rows[2].1 = format!("{:.0} m", t.elevation);
+            if !t.is_ocean() {
+                rows[3].1 = format!("{:.1} °C", self.sim.weather.temp_at(t.elevation));
+                rows[4].1 = format!(
+                    "{:.0} % von {:.0} mm",
+                    t.moisture_fraction() * 100.0,
+                    t.soil_capacity
+                );
+                rows[5].1 = format!("{:.0} mm", t.surface_water);
+                rows[6].1 = format!("{:.0} mm/Tag", t.flow);
+                rows[7].1 = format!("{:.0} % / {:.0} %", t.grass * 100.0, t.forest * 100.0);
+                rows[8].1 = t.drought_days.to_string();
             }
         }
         egui::Grid::new("tile")
             .num_columns(2)
+            .min_col_width(130.0)
             .striped(true)
             .show(ui, |ui| {
-                let row = |ui: &mut egui::Ui, k: &str, v: String| {
+                for (k, v) in rows {
                     ui.label(k);
-                    ui.label(v);
+                    ui.add(egui::Label::new(v).truncate());
                     ui.end_row();
-                };
-                row(ui, "Position", format!("{x}, {y}"));
-                row(ui, "Gelände", kind);
-                row(ui, "Höhe", format!("{:.0} m", t.elevation));
-                if !t.is_ocean() {
-                    row(
-                        ui,
-                        "Temperatur",
-                        format!("{:.1} °C", self.sim.weather.temp_at(t.elevation)),
-                    );
-                    row(
-                        ui,
-                        "Bodenfeuchte",
-                        format!(
-                            "{:.0} % von {:.0} mm",
-                            t.moisture_fraction() * 100.0,
-                            t.soil_capacity
-                        ),
-                    );
-                    row(
-                        ui,
-                        "Oberflächenwasser",
-                        format!("{:.0} mm", t.surface_water),
-                    );
-                    row(ui, "Durchfluss", format!("{:.0} mm/Tag", t.flow));
-                    row(ui, "Gras", format!("{:.0} %", t.grass * 100.0));
-                    row(ui, "Wald", format!("{:.0} %", t.forest * 100.0));
-                    if t.drought_days > 0 {
-                        row(ui, "Trockentage", t.drought_days.to_string());
-                    }
                 }
             });
     }
@@ -404,14 +436,11 @@ impl App {
         self.pending_springs.resize(n, 1.0);
         for k in 0..n {
             let s = &self.sim.world.springs[k];
-            let label = format!(
-                "Quelle {} ({}, {}) – {:.0} mm/Tag{}",
-                k + 1,
-                s.x,
-                s.y,
-                s.current,
-                if s.dry { ", versiegt" } else { "" }
-            );
+            let label = if s.dry {
+                format!("Quelle {} · versiegt", k + 1)
+            } else {
+                format!("Quelle {} · {:>3.0} mm/Tag", k + 1, s.current)
+            };
             let mut pct = self.pending_springs[k] * 100.0;
             let r = ui.add(
                 egui::Slider::new(&mut pct, 0.0..=300.0)
@@ -431,22 +460,33 @@ impl App {
     fn history_section(&mut self, ui: &mut egui::Ui) {
         ui.heading("Verlauf");
         let hist = &self.sim.history;
-        if hist.len() < 2 {
-            ui.label(RichText::new("Nach zwei Jahren erscheint hier der Verlauf.").weak());
-            return;
-        }
         let width = ui.available_width();
         let (resp, painter) = ui.allocate_painter(egui::vec2(width, 110.0), egui::Sense::hover());
         let r = resp.rect.shrink2(egui::vec2(4.0, 6.0));
         painter.rect_filled(resp.rect, 4.0, ui.visuals().extreme_bg_color);
         let n = hist.len();
-        let x_at = |k: usize| r.left() + r.width() * k as f32 / (n - 1) as f32;
-        let y_at = |pct: f32| r.bottom() - r.height() * (pct / 100.0).clamp(0.0, 1.0);
         let series = [
             (Color32::from_rgb(60, 150, 70), "Wald"),
             (Color32::from_rgb(190, 180, 90), "Gras"),
             (Color32::from_rgb(80, 150, 230), "Grundwasser"),
         ];
+        if n < 2 {
+            painter.text(
+                resp.rect.center(),
+                egui::Align2::CENTER_CENTER,
+                "Nach zwei Jahren erscheint hier der Verlauf.",
+                egui::FontId::proportional(13.0),
+                ui.visuals().weak_text_color(),
+            );
+            ui.horizontal(|ui| {
+                for (col, name) in series {
+                    ui.label(RichText::new(format!("■ {name}")).color(col));
+                }
+            });
+            return;
+        }
+        let x_at = |k: usize| r.left() + r.width() * k as f32 / (n - 1) as f32;
+        let y_at = |pct: f32| r.bottom() - r.height() * (pct / 100.0).clamp(0.0, 1.0);
         for (si, (col, _)) in series.iter().enumerate() {
             let pts: Vec<egui::Pos2> = hist
                 .iter()
@@ -477,44 +517,49 @@ impl App {
         });
         let mut jump = None;
         let mut shown = 0;
-        for e in self.sim.journal.events.iter().rev() {
-            if e.kind == EventKind::YearSummary && !self.show_year_summaries {
-                continue;
-            }
-            shown += 1;
-            if shown > 300 {
-                break;
-            }
-            let day = e.time_hours / HOURS_PER_DAY;
-            let color = match e.kind {
-                EventKind::DroughtStart | EventKind::SpringDry => Color32::from_rgb(220, 150, 80),
-                EventKind::HeavyRain => Color32::from_rgb(120, 170, 240),
-                EventKind::Intervention => Color32::from_rgb(230, 200, 90),
-                EventKind::DroughtEnd | EventKind::SpringFlowing => {
-                    Color32::from_rgb(120, 200, 120)
+        let events = &self.sim.journal.events;
+        let world = &self.sim.world;
+        egui::ScrollArea::vertical()
+            .auto_shrink([false, false])
+            .show(ui, |ui| {
+                for e in events.iter().rev() {
+                    if e.kind == EventKind::YearSummary && !self.show_year_summaries {
+                        continue;
+                    }
+                    shown += 1;
+                    if shown > 300 {
+                        break;
+                    }
+                    let day = e.time_hours / HOURS_PER_DAY;
+                    let color = match e.kind {
+                        EventKind::DroughtStart | EventKind::SpringDry => {
+                            Color32::from_rgb(220, 150, 80)
+                        }
+                        EventKind::HeavyRain => Color32::from_rgb(120, 170, 240),
+                        EventKind::Intervention => Color32::from_rgb(230, 200, 90),
+                        EventKind::DroughtEnd | EventKind::SpringFlowing => {
+                            Color32::from_rgb(120, 200, 120)
+                        }
+                        _ => ui.visuals().text_color(),
+                    };
+                    let text = format!("J{} T{} · {}", day / 365 + 1, day % 365 + 1, e.message);
+                    let mut r = ui.add(
+                        egui::Label::new(RichText::new(text).color(color).size(12.5))
+                            .sense(egui::Sense::click()),
+                    );
+                    if !e.causes.is_empty() {
+                        r = r.on_hover_text(format!("Ursachen:\n• {}", e.causes.join("\n• ")));
+                    }
+                    if r.clicked()
+                        && let Some((x, y)) = e.location
+                    {
+                        jump = Some(world.idx(x.min(world.width - 1), y.min(world.height - 1)));
+                    }
                 }
-                _ => ui.visuals().text_color(),
-            };
-            let text = format!("J{} T{} · {}", day / 365 + 1, day % 365 + 1, e.message);
-            let mut r = ui.add(
-                egui::Label::new(RichText::new(text).color(color).size(12.5))
-                    .sense(egui::Sense::click()),
-            );
-            if !e.causes.is_empty() {
-                r = r.on_hover_text(format!("Ursachen:\n• {}", e.causes.join("\n• ")));
-            }
-            if r.clicked()
-                && let Some((x, y)) = e.location
-            {
-                jump = Some(self.sim.world.idx(
-                    x.min(self.sim.world.width - 1),
-                    y.min(self.sim.world.height - 1),
-                ));
-            }
-        }
-        if shown == 0 {
-            ui.label(RichText::new("Noch nichts geschehen.").weak());
-        }
+                if shown == 0 {
+                    ui.label(RichText::new("Noch nichts geschehen.").weak());
+                }
+            });
         if let Some(i) = jump {
             self.selected = Some(i);
         }
@@ -530,20 +575,28 @@ impl eframe::App for App {
         }
         self.advance(dt.min(0.25));
 
-        egui::Panel::top("top").show(ui, |ui| {
-            ui.add_space(4.0);
-            self.top_bar(ui);
-            ui.add_space(4.0);
-        });
+        egui::Panel::top("top")
+            .resizable(false)
+            .exact_size(66.0)
+            .show(ui, |ui| {
+                ui.add_space(4.0);
+                self.top_bar(ui);
+            });
+        egui::Panel::bottom("status")
+            .resizable(false)
+            .exact_size(26.0)
+            .show(ui, |ui| self.status_bar(ui));
         egui::Panel::right("side")
-            .resizable(true)
-            .default_size(380.0)
-            .min_size(300.0)
+            .resizable(false)
+            .exact_size(400.0)
             .show(ui, |ui| self.side_panel(ui));
         egui::CentralPanel::no_frame().show(ui, |ui| {
-            // Tag und Nacht nur bei langsamer Zeit, sonst würde das Bild flackern
-            let light = if SPEEDS[self.speed].1 <= 24.0 || !self.running {
-                view::daylight(self.sim.hour_of_day())
+            // Tag und Nacht nur bei 1 Std/s oder Pause – schneller würde es
+            // flackern. Die Helligkeit gleitet stufenlos zwischen den Stunden.
+            let slow = !self.running || self.speed == 0;
+            let light = if slow {
+                let hour = self.sim.hour_of_day() as f32 + self.owed_hours as f32;
+                view::daylight(hour)
             } else {
                 1.0
             };
@@ -558,6 +611,31 @@ impl eframe::App for App {
             );
             if resp.clicked() {
                 self.selected = result.hovered;
+            }
+            // Feld-Infos als fester Kasten unten links über der Karte
+            if self.selected.is_some() {
+                let pos = resp.rect.left_bottom() + egui::vec2(12.0, -12.0);
+                egui::Area::new(egui::Id::unique("tile_info"))
+                    .fixed_pos(pos)
+                    .pivot(egui::Align2::LEFT_BOTTOM)
+                    .order(egui::Order::Foreground)
+                    .show(ui.ctx(), |ui| {
+                        egui::Frame::popup(ui.style()).show(ui, |ui| {
+                            ui.set_width(300.0);
+                            ui.horizontal(|ui| {
+                                ui.heading("Feld");
+                                ui.with_layout(
+                                    egui::Layout::right_to_left(egui::Align::Center),
+                                    |ui| {
+                                        if ui.button("✕").on_hover_text("Schließen").clicked() {
+                                            self.selected = None;
+                                        }
+                                    },
+                                );
+                            });
+                            self.tile_section(ui);
+                        });
+                    });
             }
         });
 

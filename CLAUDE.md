@@ -34,7 +34,9 @@ cargo clippy --release --all-targets -- -D warnings
 cargo test --release --workspace
 ```
 
-Visuelle Änderungen am Beobachter prüfen: `xvfb-run -s "-screen 0 1440x900x24"` + `import -window root` (ImageMagick); Startoptionen `--seed`, `--years`, `--view karte`, `--layer` helfen dabei.
+Oberfläche: Dennis möchte ein ruhiges Fenster – nichts darf beim Laufen der Zeit verrutschen. Leisten und Spalte haben feste Größen, Abschnitte immer dieselbe Zeilenzahl, wechselnde Zahlen mit fester Breite, nur die Chronik scrollt. Tag/Nacht nur bei 1 Std/s.
+
+Visuelle Änderungen am Beobachter prüfen: `xvfb-run -s "-screen 0 1440x900x24"` + `import -window root` (ImageMagick); Startoptionen `--seed`, `--years`, `--view karte`, `--layer`, `--speed`, `--select x,y` helfen dabei; Stabilität mit `compare -metric AE -crop …` zwischen zwei Bildern prüfen.
 
 ## Release
 

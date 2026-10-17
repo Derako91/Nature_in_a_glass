@@ -22,6 +22,9 @@ pub const DEFAULT_SIZE: u32 = 64;
 /// Ab diesem Durchfluss (mm/Tag) zählt eine Kachel als Bach.
 pub const STREAM_FLOW: f32 = 60.0;
 
+/// Ab diesem Inselmittel (mm an einem Tag) gilt Regen als Starkregen.
+pub const HEAVY_RAIN_MM: f32 = 40.0;
+
 /// Kennzahlen eines vollständigen Jahres.
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq)]
 pub struct YearStats {
@@ -229,7 +232,8 @@ impl Simulation {
     fn detect_events(&mut self, rain_today: f32) {
         let now = self.time_hours;
 
-        if self.weather.storm {
+        // Nur wirklich heftige Unwetter kommen in die Chronik.
+        if self.weather.storm && rain_today >= HEAVY_RAIN_MM {
             self.year.storms += 1;
             self.journal.push(
                 now,
