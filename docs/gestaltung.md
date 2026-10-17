@@ -111,6 +111,8 @@ Regeln:
 
 Jedes Asset wird durch Werte aus dem Simulationskern ausgewählt (`Tile` in `crates/core/src/world.rs`). Diese Tabelle ist die Schnittstelle zwischen Simulation und Grafik.
 
+**Umgesetzt in `crates/core/src/appearance.rs`** (ohne Grafik, getestet): `ground()`, `overlays()`, `sprites()`, `stream()`, `tree_count()`, `shrub_count()`, `TreeStage::from_age()` und `positions()` für feste Fußpunkte. Ein Renderer fragt diese Funktionen pro Feld ab und muss die Regeln nicht selbst nachbauen. Ändern sich Schwellenwerte, dann dort und in dieser Tabelle gemeinsam.
+
 ### 7.1 Zuordnung
 
 | Simulationswert | Bereich | Visuelle Wirkung |
