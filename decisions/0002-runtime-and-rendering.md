@@ -1,6 +1,6 @@
 # ADR 0002 – Laufzeit, Simulationskern und Darstellung
 
-**Status:** Entwurf zur Diskussion (noch nicht entschieden)
+**Status:** angenommen (2026-10-17)
 
 ## Kontext
 
@@ -11,56 +11,55 @@ Die Engine muss zwei Dinge gleichzeitig können, die sich normalerweise widerspr
 
 Weitere Anforderungen aus ADR 0001 und den Prinzipien: headless lauffähig (Tests, TheCave), deterministisch mit festem Seed, Speichern/Laden mit Versionierung, KI nur über Adapter, Darstellung strikt getrennt.
 
-## Kernidee unabhängig von der Sprache: Zeit in mehreren Auflösungen
+Rahmenbedingungen des Projekts:
 
-Keine einheitliche Tick-Rate für alles. Jedes System bekommt seinen eigenen Takt:
+- Dennis programmiert nicht selbst. Der Code wird mit Claude geschrieben; Dennis beobachtet, testet und entscheidet über das Spieldesign. Es muss daher **ohne Entwicklungsumgebung startbar** sein: herunterladen, doppelklicken.
+- Zuerst eine **Desktop-Anwendung**, später optional im Browser.
+- Darstellung: **isometrische Ansicht plus 2D-Rasterkarte**, im Stil alter Strategiespiele. Keine 3D-Engine nötig.
 
-| System | Takt (Vorschlag) |
+## Entscheidung
+
+- **Sprache: Rust.** Ein Kern für Desktop, Kommandozeile/Server und später WebAssembly. Ergebnis ist eine einzelne ausführbare Datei ohne Laufzeitinstallation. Die Lernkurve spielt keine Rolle, weil Dennis den Code nicht selbst schreibt; der strenge Compiler fängt dafür viele Fehler ab, bevor sie im Spiel landen.
+- **Aufbau als Cargo-Workspace:**
+  - `crates/core` – die Simulation. Keine Grafik, kein Netzwerk, keine KI.
+  - `crates/cli` – Kommandozeilenprogramm `nig-sim` für Zeitraffer-Läufe, Auswertungen und Benchmarks (z. B. auf TheCave).
+  - `crates/app` – Desktop-Beobachter `nature-in-a-glass`.
+- **Darstellung: egui/eframe.** Fenster, Bedienelemente und die Kartenzeichnung (Isometrie und Raster) aus einer Bibliothek; läuft unter Windows, macOS, Linux und später auch im Browser. Reicht für M1–M3. Wird später mehr Grafik nötig (Sprites, Animationen), kann die Darstellung ausgetauscht werden, ohne den Kern anzufassen.
+- **Fertige Programme über GitHub Actions:** Bei jeder Version werden Downloads für Windows, macOS und Linux unter *Releases* erstellt.
+
+## Zeit in mehreren Auflösungen
+
+Keine einheitliche Tick-Rate. Jedes System hat seinen eigenen Takt; ein Scheduler ruft sie nach Simulationszeit auf.
+
+| System | Takt in M1 |
 | --- | --- |
-| Bewegung/Handlung eines Bewohners | Minuten |
-| Bedürfnisse | ~10 Minuten |
-| Wetter, Niederschlag | Stunden |
-| Bodenfeuchte, Wasserabfluss | Stunden bis Tage |
-| Vegetation | Tage |
-| Geologie, Klima | Jahre |
+| Uhr, Tageslicht | Stunde (nur Anzeige) |
+| Wetter, Niederschlag, Temperatur | Tag |
+| Oberflächenwasser, Abfluss, Bodenfeuchte, Quellen | Tag |
+| Vegetation (Gras, Wald) | Tag |
+| Jahresbilanz / Chronik | Jahr |
 
-Ohne Bewohner (M1) fällt die feinste Stufe weg – deshalb ist der Zeitraffer über 100 Jahre billig. Später werden Bereiche ohne Beobachter und ohne Bewohner grob weitergerechnet (*Level of Detail für Zeit*), beobachtete Bereiche fein. Ein Scheduler (Prioritätswarteschlange nach Simulationszeit) ruft die Systeme auf; „vorspulen“ heißt einfach, bis zum nächsten relevanten Zeitpunkt zu springen.
+Später kommen feinere Takte für Bewohner (Minuten) hinzu, und Bereiche ohne Beobachter werden gröber weitergerechnet.
 
-## Optionen
+## Determinismus
 
-### A) Rust-Kern + Web-Oberfläche (WASM)
-- Kern als Rust-Bibliothek, dazu ein CLI-Runner für headless Läufe und Benchmarks.
-- Derselbe Kern nach WebAssembly kompiliert, Darstellung im Browser (TypeScript + Canvas/PixiJS).
-- **Pro:** sehr schnell, Determinismus gut kontrollierbar, ein Kern für Browser, Desktop und Server, kein Spiele-Engine-Lock-in.
-- **Contra:** steilste Lernkurve, langsamere Iteration am Anfang.
+- Eigener Zufallsgenerator (SplitMix64) mit getrennten Strömen pro System.
+- Im Kern nur Grundrechenarten (+ − × ÷, Wurzel); keine Winkelfunktionen oder Exponentialfunktionen der Plattform, da diese sich zwischen Betriebssystemen minimal unterscheiden können.
+- Feste Iterationsreihenfolge; Prüfsumme über den Weltzustand. Ein Test stellt sicher, dass gleicher Seed → gleiche Prüfsumme.
 
-### B) TypeScript durchgängig
-- Kern in TypeScript, headless unter Node, UI im Browser.
-- **Pro:** schnellster Start, eine Sprache, sofort sichtbare Ergebnisse.
-- **Contra:** Performance-Decke bei Tausenden Jahren × großer Karte × vielen Bewohnern; Gleitkomma-Determinismus über Plattformen schwerer abzusichern.
+## Speichern
 
-### C) Godot (C# oder GDScript)
-- **Pro:** Rendering, Kamera, UI und Szenen fertig; angenehm für ein „Glas“ zum Anschauen.
-- **Contra:** Simulation rückt nah an die Engine; headless-Betrieb und reine Kerntests sind umständlicher; widerspricht ein Stück weit der Trennung Engine/Darstellung.
+Spielstand als versioniertes JSON (`format_version`, Engine-Version, Seed, Zustand, Chronik). Lesbar und für den kleinen MVP schnell genug. Ein Binärformat oder SQLite folgt, wenn Welten oder Chroniken groß werden.
 
-### D) Python-Prototyp
-- **Pro:** ideal zum Ausprobieren von Ökologie-Formeln (NumPy), Plots für Auswertungen.
-- **Contra:** Agentenlogik wird früh zu langsam; später Neuschreiben wahrscheinlich.
+## Verworfene Optionen
 
-## Empfehlung (Vorschlag)
+- **TypeScript durchgängig:** schneller Start, aber Performance-Decke beim Zeitraffer und schwerer abzusichernder Determinismus.
+- **Godot:** fertiger Renderer, aber Simulation rückt nah an die Engine; headless-Betrieb und Kerntests umständlicher.
+- **Python:** gut für Auswertungen, als Engine zu langsam für viele Bewohner. Kann weiter als Analysewerkzeug für exportierte Läufe dienen.
+- **Bevy:** mächtig, aber für M1 schwergewichtig und mit häufigen API-Brüchen. Bleibt Kandidat für eine spätere grafischere Darstellung.
 
-**Option A**, mit pragmatischem Einstieg:
+## Konsequenzen
 
-- Rust-Kern (`core`, `world`) + CLI-Runner ab M1. Die Insel kann damit schon im Terminal 100 Jahre laufen und Kennzahlen ausgeben, bevor es eine Grafik gibt.
-- Erste Darstellung als einfache Browser-Seite über WASM, die den Zustand liest und die Zeit steuert.
-- Determinismus: eigener Seed-RNG (z. B. PCG) mit getrennten Strömen pro System, Weltzustand möglichst in Ganzzahlen/Festkomma, feste Iterationsreihenfolge.
-- Speichern: Snapshot als versioniertes Binärformat (z. B. MessagePack) plus Ereignisjournal; SQLite erst, wenn Abfragen auf die Chronik nötig werden.
-- Python darf parallel als Auswertungswerkzeug für Läufe dienen, nicht als Engine.
-
-Falls schneller Fortschritt wichtiger ist als Langlebigkeit: **Option B**, mit klar gekapseltem Kern, damit ein späterer Umstieg auf Rust Modul für Modul möglich bleibt.
-
-## Offene Fragen an Dennis
-
-1. Wie wichtig ist dir, selbst im Code mitzuarbeiten, und in welcher Sprache fühlst du dich am wohlsten?
-2. Soll das Glas im Browser laufen (auch von TheCave ausgeliefert) oder als Desktop-Anwendung?
-3. Pixel-/Rasteroptik in 2D genügt für M1–M3, oder schwebt dir früh eine 3D-Darstellung vor?
+- Jede Änderung wird über automatische Tests und CI abgesichert, da Dennis Code nicht selbst prüfen kann.
+- Spielbare Stände kommen als Downloads, nicht als Quellcode-Anleitung.
+- Der Kern bleibt grafikfrei; eine Browser-Version ist ein weiteres Frontend, kein Neubau.
