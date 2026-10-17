@@ -1,0 +1,22 @@
+# Build-Artefakte
+/target/
+/dist/
+/build/
+node_modules/
+*.wasm
+
+# Lokale Spielstände und Läufe (nicht versionieren)
+/saves/
+/runs/
+*.sqlite
+*.db
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Lokale Konfiguration (z. B. Ollama-Endpunkte)
+.env
+*.local.toml
