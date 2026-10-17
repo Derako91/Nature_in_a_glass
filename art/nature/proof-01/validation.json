@@ -1,0 +1,303 @@
+[
+  {
+    "file": "ground/ground_soil_0.png",
+    "size": [
+      64,
+      32
+    ],
+    "rgba": true,
+    "colors": 6,
+    "palette_ok": true,
+    "srgb": true,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "ground/ground_sand_0.png",
+    "size": [
+      64,
+      32
+    ],
+    "rgba": true,
+    "colors": 6,
+    "palette_ok": true,
+    "srgb": true,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "ground/ground_rock_0.png",
+    "size": [
+      64,
+      32
+    ],
+    "rgba": true,
+    "colors": 6,
+    "palette_ok": true,
+    "srgb": true,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "ground/ground_grass_wet_0.png",
+    "size": [
+      64,
+      32
+    ],
+    "rgba": true,
+    "colors": 6,
+    "palette_ok": true,
+    "srgb": true,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "ground/ground_grass_dry_0.png",
+    "size": [
+      64,
+      32
+    ],
+    "rgba": true,
+    "colors": 6,
+    "palette_ok": true,
+    "srgb": true,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "ground/ground_burnt_0.png",
+    "size": [
+      64,
+      32
+    ],
+    "rgba": true,
+    "colors": 5,
+    "palette_ok": true,
+    "srgb": true,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "ground/ground_shrub_floor_0.png",
+    "size": [
+      64,
+      32
+    ],
+    "rgba": true,
+    "colors": 6,
+    "palette_ok": true,
+    "srgb": true,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "ground/ground_forest_floor_0.png",
+    "size": [
+      64,
+      32
+    ],
+    "rgba": true,
+    "colors": 6,
+    "palette_ok": true,
+    "srgb": true,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "walls/wall_soil_0.png",
+    "size": [
+      32,
+      32
+    ],
+    "rgba": true,
+    "colors": 6,
+    "palette_ok": true,
+    "srgb": true,
+    "alpha_values": [
+      255
+    ]
+  },
+  {
+    "file": "walls/wall_sand_0.png",
+    "size": [
+      32,
+      32
+    ],
+    "rgba": true,
+    "colors": 6,
+    "palette_ok": true,
+    "srgb": true,
+    "alpha_values": [
+      255
+    ]
+  },
+  {
+    "file": "walls/wall_rock_0.png",
+    "size": [
+      32,
+      32
+    ],
+    "rgba": true,
+    "colors": 6,
+    "palette_ok": true,
+    "srgb": true,
+    "alpha_values": [
+      255
+    ]
+  },
+  {
+    "file": "water/water_shallow_0.png",
+    "size": [
+      64,
+      32
+    ],
+    "rgba": true,
+    "colors": 6,
+    "palette_ok": true,
+    "srgb": true,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "water/water_deep_0.png",
+    "size": [
+      64,
+      32
+    ],
+    "rgba": true,
+    "colors": 6,
+    "palette_ok": true,
+    "srgb": true,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "water/water_pond_0.png",
+    "size": [
+      64,
+      32
+    ],
+    "rgba": true,
+    "colors": 6,
+    "palette_ok": true,
+    "srgb": true,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "water/water_stream_0.png",
+    "size": [
+      16,
+      32
+    ],
+    "rgba": true,
+    "colors": 6,
+    "palette_ok": true,
+    "srgb": true,
+    "alpha_values": [
+      255
+    ]
+  },
+  {
+    "file": "vegetation/tree_young_0_normal.png",
+    "size": [
+      10,
+      14
+    ],
+    "rgba": true,
+    "colors": 6,
+    "palette_ok": true,
+    "srgb": true,
+    "alpha_values": [
+      0,
+      77,
+      255
+    ]
+  },
+  {
+    "file": "vegetation/tree_mid_0_normal.png",
+    "size": [
+      14,
+      22
+    ],
+    "rgba": true,
+    "colors": 6,
+    "palette_ok": true,
+    "srgb": true,
+    "alpha_values": [
+      0,
+      77,
+      255
+    ]
+  },
+  {
+    "file": "vegetation/tree_old_0_normal.png",
+    "size": [
+      18,
+      30
+    ],
+    "rgba": true,
+    "colors": 6,
+    "palette_ok": true,
+    "srgb": true,
+    "alpha_values": [
+      0,
+      77,
+      255
+    ]
+  },
+  {
+    "file": "vegetation/shrub_0_normal.png",
+    "size": [
+      10,
+      8
+    ],
+    "rgba": true,
+    "colors": 6,
+    "palette_ok": true,
+    "srgb": true,
+    "alpha_values": [
+      0,
+      77,
+      255
+    ]
+  },
+  {
+    "file": "vegetation/snag_standing_0_normal.png",
+    "size": [
+      6,
+      22
+    ],
+    "rgba": true,
+    "colors": 4,
+    "palette_ok": true,
+    "srgb": true,
+    "alpha_values": [
+      0,
+      77,
+      255
+    ]
+  }
+]

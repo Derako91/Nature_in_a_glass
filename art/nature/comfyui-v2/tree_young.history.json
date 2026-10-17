@@ -1,0 +1,164 @@
+{
+  "prompt": [
+    18,
+    "ddd7a46b-973c-430d-aeb3-5b723901b109",
+    {
+      "1": {
+        "class_type": "CheckpointLoaderSimple",
+        "inputs": {
+          "ckpt_name": "sd_xl_base_1.0.safetensors"
+        }
+      },
+      "2": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "text": "A pixel art painting of one small young sapling, slim pointed light green crown, thin short trunk. Entire full tree including woody trunk and many leaves fully visible, centered on a plain ivory background. Detailed hand painted pixel art for an early 1990s DOS village simulation. Naturalistic miniature, hundreds of tiny irregular leaf clusters, rich stippled leafy texture, dithered leaf highlights, warm earthy greens, yellow olive highlights upper right, deep green shadows lower left, subtle volume, fine pixel texture, original artwork, simple compact silhouette, elevated three quarter view. Preserve the single object composition and its placement from the reference.",
+          "clip": [
+            "1",
+            1
+          ]
+        }
+      },
+      "3": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "text": "single leaf, leaf closeup, macro, multiple trees, sprite sheet, grid, collage, forest, landscape, ground, base, platform, grass, flowers, text, border, glossy, 3d render, black outlines, cartoon, geometric, flat color, abstract, flat illustration, logo, icon, smooth vector",
+          "clip": [
+            "1",
+            1
+          ]
+        }
+      },
+      "4": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "nig_v2_tree_young.png"
+        }
+      },
+      "8": {
+        "class_type": "VAEEncode",
+        "inputs": {
+          "pixels": [
+            "4",
+            0
+          ],
+          "vae": [
+            "1",
+            2
+          ]
+        }
+      },
+      "5": {
+        "class_type": "KSampler",
+        "inputs": {
+          "model": [
+            "1",
+            0
+          ],
+          "positive": [
+            "2",
+            0
+          ],
+          "negative": [
+            "3",
+            0
+          ],
+          "latent_image": [
+            "8",
+            0
+          ],
+          "seed": 2026101800,
+          "steps": 32,
+          "cfg": 7.0,
+          "sampler_name": "dpmpp_2m",
+          "scheduler": "karras",
+          "denoise": 0.52
+        }
+      },
+      "6": {
+        "class_type": "VAEDecode",
+        "inputs": {
+          "samples": [
+            "5",
+            0
+          ],
+          "vae": [
+            "1",
+            2
+          ]
+        }
+      },
+      "7": {
+        "class_type": "SaveImage",
+        "inputs": {
+          "images": [
+            "6",
+            0
+          ],
+          "filename_prefix": "nature_in_a_glass/v2/tree_young"
+        }
+      }
+    },
+    {
+      "client_id": "nature-proof-v2",
+      "create_time": 1792252312734
+    },
+    [
+      "7"
+    ]
+  ],
+  "outputs": {
+    "7": {
+      "images": [
+        {
+          "filename": "tree_young_00003_.png",
+          "subfolder": "nature_in_a_glass\\v2",
+          "type": "output",
+          "metadata": {
+            "kind": "image",
+            "width": 512,
+            "height": 768
+          }
+        }
+      ]
+    }
+  },
+  "status": {
+    "status_str": "success",
+    "completed": true,
+    "messages": [
+      [
+        "execution_start",
+        {
+          "prompt_id": "ddd7a46b-973c-430d-aeb3-5b723901b109",
+          "timestamp": 1792252312736
+        }
+      ],
+      [
+        "execution_cached",
+        {
+          "nodes": [
+            "1"
+          ],
+          "prompt_id": "ddd7a46b-973c-430d-aeb3-5b723901b109",
+          "timestamp": 1792252312750
+        }
+      ],
+      [
+        "execution_success",
+        {
+          "prompt_id": "ddd7a46b-973c-430d-aeb3-5b723901b109",
+          "timestamp": 1792252323927
+        }
+      ]
+    ]
+  },
+  "meta": {
+    "7": {
+      "node_id": "7",
+      "display_node": "7",
+      "parent_node": null,
+      "real_node_id": "7"
+    }
+  }
+}

@@ -14,6 +14,20 @@ Dieses Dokument ist die verbindliche Vorlage für Texturen, Sprites und Tiles. E
 - Nicht fotorealistisch, nicht verspielt-comichaft. Ruhig, natürlich, leicht stilisiert.
 - Die Welt erzählt ihre Geschichte über Spuren: Brandflächen, Totholz, alte und junge Wälder, ausgetrocknete Bachbetten.
 
+### 1.1 Konkretisierte Stilrichtung (17.10.2026)
+
+Auf Wunsch des Projektinhabers orientiert sich der erste Stiltest stärker an
+der Atmosphäre von **Die Siedler I und II**: warme, fein strukturierte Pixelgrafik,
+erdige Grüntöne mit olivgelben Lichtern, kompakte Baumkronen und gut lesbare
+kleine Landschaften. Die Referenz beschreibt die Anmutung; Motive und Assets
+werden eigenständig erstellt.
+
+- Kronen wirken organisch und leicht unregelmäßig, mit kleinen Blattgruppen.
+- Flächen erhalten feine Materialstruktur; große glatte Farbflächen vermeiden.
+- Alte Bäume wirken voller und gedrungener, junge Bäume bleiben schmal und hell.
+- Die Dateimaße, Anker, Farbobergrenze und Simulationszuordnung unten gelten weiter.
+- Prüfblatt 02 erprobt diese Richtung; es ist noch keine Freigabe der Asset-Serie.
+
 ## 2. Prioritäten (in dieser Reihenfolge)
 
 1. **Wahrheit vor Schönheit.** Jedes Bild zeigt nur, was die Simulation tatsächlich berechnet. Kein Baum ohne Waldwert, kein Wasser ohne Durchfluss. Dekoration ohne Simulationsgrundlage ist nicht erlaubt.
@@ -305,3 +319,41 @@ Namensschema: `<id>_<variante>[_<zustand>][_f<frame>].png`, alles klein, Unterst
 - Erosion und neue Bachläufe (v0.3) – erfordert Assets für Ufer, Kies und Abbruchkanten.
 - Tiere (v0.4) und Bewohner (v0.6) in eigenen Abschnitten.
 - Technische Einbindung: Der Renderer zeichnet heute Flächenfarben ohne Texturen. Für diese Assets braucht er einen Textur-Atlas mit Manifest-Loader; das wird als eigenes ADR entschieden, sobald die ersten Assets abgenommen sind.
+
+## 14. Unterschiedliche Biome – erste Gestaltungsentwürfe
+
+Auf Wunsch des Projektinhabers kommen unterschiedliche Biome zur Stilrichtung
+Siedler I & II hinzu. Das erste Vergleichsblatt steht unter
+`assets/nature/_biomes-testsheet.png`.
+
+Die sechs Entwürfe sind zunächst **Landschaftsbilder aus vorhandenen Zuständen**,
+keine neuen simulierten Ökosysteme oder feste Biome-IDs. Der Kern unterscheidet
+derzeit Gras, Busch und Wald, aber keine Baumarten. Daher werden dieselben
+Naturmotive über Dichte, Bestandsalter, Material, Feuchte und Gelände variiert.
+
+| Entwurf | Bildsprache | Grundlage für die spätere Zuordnung |
+| --- | --- | --- |
+| Feuchter Wald | dunkler Boden, dicht geschlossene Kronen, wenig Gras | hohe `forest`- und Feuchtewerte, `forest_age` |
+| Wiesenland | offene grüne Flächen, lockere Baumgruppen | viel `grass`, mäßig `forest`, gute Bodenfeuchte |
+| Trockenes Buschland | niedrige olivgrüne Büsche, warmer offener Boden | viel `shrub`, wenig `forest`, geringe Bodenfeuchte |
+| Steppe | strohfarbenes Gras, Lücken, kaum Bäume | trockene Grasdecke, sehr wenig `forest` |
+| Feuchtgebiet | dunkle Ufer, Wasserflächen, Bewuchs am Rand | hohe Feuchte, `surface_water > 150` für offenes Wasser |
+| Felsiges Bergland | graue Schichtung, Höhenstufen, spärlicher Bewuchs | relative Höhe ab 70 %, geringe `soil_capacity`, tatsächlicher Bewuchs |
+
+Regeln für die Weiterarbeit:
+
+- Ein Biomename erzeugt niemals zusätzliche Bäume, Wasser oder Dekoration.
+- Übergänge sollen aus den Feldwerten entstehen; keine zufällig wechselnden Biome.
+- Farben allein reichen nicht: Dichte, Freiflächen, Wasseranteil und Höhenprofil
+  müssen die Landschaften auch ohne Beschriftung unterscheiden.
+- Ein langfristiges Klimabiom darf nicht aus einem einzigen trockenen Tag
+  abgeleitet werden. Verbindliche Zuordnungsregeln und zeitliche Glättung werden
+  erst bei der späteren technischen Einbindung festgelegt.
+- Regenwald, Wüste, Taiga und Schneegebiete sind mögliche weitere Richtungen.
+  Eigene Arten, Sandböden im Binnenland und Schnee brauchen zusätzliche
+  Simulationsgrundlagen; sie sind in diesem ersten Blatt nicht vorgetäuscht.
+
+Die gezeigten Felder verwenden dokumentierte Testwerte und keine laufende
+Simulation. Neue Bodenprototypen sind weiterhin 64×32 px, RGBA/sRGB, transparent
+außerhalb der Raute und auf höchstens sechs Töne begrenzt. Ihre Farben sind
+warme beziehungsweise dunkle Ableitungen des Bodenankers und des Felsankers.

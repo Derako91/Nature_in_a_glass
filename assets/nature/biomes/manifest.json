@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "status": "biome_concept_pending_review",
+  "base_tile": [
+    64,
+    32
+  ],
+  "materials": [
+    {
+      "file": "dry_soil_0.png",
+      "size": [
+        64,
+        32
+      ],
+      "colors": 6,
+      "srgb": true,
+      "rgba": true
+    },
+    {
+      "file": "wet_soil_0.png",
+      "size": [
+        64,
+        32
+      ],
+      "colors": 6,
+      "srgb": true,
+      "rgba": true
+    },
+    {
+      "file": "highland_rock_0.png",
+      "size": [
+        64,
+        32
+      ],
+      "colors": 6,
+      "srgb": true,
+      "rgba": true
+    }
+  ],
+  "profiles": [
+    {
+      "id": "forest",
+      "title": "01  Feuchter Wald",
+      "values": {
+        "moisture": 0.85,
+        "grass": 0.25,
+        "shrub": 0.2,
+        "forest": 0.88,
+        "age": 75,
+        "elevation": 35
+      }
+    },
+    {
+      "id": "meadow",
+      "title": "02  Wiesenland",
+      "values": {
+        "moisture": 0.6,
+        "grass": 0.9,
+        "shrub": 0.1,
+        "forest": 0.13,
+        "age": 35,
+        "elevation": 20
+      }
+    },
+    {
+      "id": "scrub",
+      "title": "03  Trockenes Buschland",
+      "values": {
+        "moisture": 0.25,
+        "grass": 0.3,
+        "shrub": 0.82,
+        "forest": 0.07,
+        "age": 25,
+        "elevation": 45
+      }
+    },
+    {
+      "id": "steppe",
+      "title": "04  Steppe",
+      "values": {
+        "moisture": 0.12,
+        "grass": 0.62,
+        "shrub": 0.15,
+        "forest": 0,
+        "age": 0,
+        "elevation": 25
+      }
+    },
+    {
+      "id": "wetland",
+      "title": "05  Feuchtgebiet",
+      "values": {
+        "moisture": 0.96,
+        "grass": 0.72,
+        "shrub": 0.28,
+        "forest": 0.28,
+        "age": 45,
+        "elevation": 8
+      }
+    },
+    {
+      "id": "highland",
+      "title": "06  Felsiges Bergland",
+      "values": {
+        "moisture": 0.32,
+        "grass": 0.15,
+        "shrub": 0.08,
+        "forest": 0,
+        "age": 0,
+        "elevation": 250
+      }
+    }
+  ]
+}

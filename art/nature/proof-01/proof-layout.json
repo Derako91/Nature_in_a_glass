@@ -1,0 +1,450 @@
+[
+  {
+    "x": 0,
+    "y": 0,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 1,
+    "y": 0,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 0,
+    "y": 1,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 2,
+    "y": 0,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 1,
+    "y": 1,
+    "tile": "sand",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 0,
+    "y": 2,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 3,
+    "y": 0,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 2,
+    "y": 1,
+    "tile": "rock",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 1,
+    "y": 2,
+    "tile": "sand",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 0,
+    "y": 3,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 4,
+    "y": 0,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 3,
+    "y": 1,
+    "tile": "rock",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 2,
+    "y": 2,
+    "tile": "grass_wet",
+    "trees": 1,
+    "age": "young"
+  },
+  {
+    "x": 1,
+    "y": 3,
+    "tile": "sand",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 0,
+    "y": 4,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 5,
+    "y": 0,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 4,
+    "y": 1,
+    "tile": "rock",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 3,
+    "y": 2,
+    "tile": "grass_wet",
+    "trees": 3,
+    "age": "young"
+  },
+  {
+    "x": 2,
+    "y": 3,
+    "tile": "grass_wet",
+    "trees": 1,
+    "age": "mid"
+  },
+  {
+    "x": 1,
+    "y": 4,
+    "tile": "sand",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 0,
+    "y": 5,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 6,
+    "y": 0,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 5,
+    "y": 1,
+    "tile": "grass_wet",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 4,
+    "y": 2,
+    "tile": "grass_wet",
+    "trees": 6,
+    "age": "young"
+  },
+  {
+    "x": 3,
+    "y": 3,
+    "tile": "grass_wet",
+    "trees": 3,
+    "age": "mid"
+  },
+  {
+    "x": 2,
+    "y": 4,
+    "tile": "grass_wet",
+    "trees": 1,
+    "age": "old"
+  },
+  {
+    "x": 1,
+    "y": 5,
+    "tile": "sand",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 0,
+    "y": 6,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 7,
+    "y": 0,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 6,
+    "y": 1,
+    "tile": "grass_wet",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 5,
+    "y": 2,
+    "tile": "grass_wet",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 4,
+    "y": 3,
+    "tile": "grass_wet",
+    "trees": 6,
+    "age": "mid"
+  },
+  {
+    "x": 3,
+    "y": 4,
+    "tile": "grass_wet",
+    "trees": 3,
+    "age": "old"
+  },
+  {
+    "x": 2,
+    "y": 5,
+    "tile": "grass_wet",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 1,
+    "y": 6,
+    "tile": "sand",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 0,
+    "y": 7,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 7,
+    "y": 1,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 6,
+    "y": 2,
+    "tile": "grass_dry",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 5,
+    "y": 3,
+    "tile": "grass_wet",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 4,
+    "y": 4,
+    "tile": "grass_wet",
+    "trees": 6,
+    "age": "old"
+  },
+  {
+    "x": 3,
+    "y": 5,
+    "tile": "grass_wet",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 2,
+    "y": 6,
+    "tile": "sand",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 1,
+    "y": 7,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 7,
+    "y": 2,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 6,
+    "y": 3,
+    "tile": "grass_dry",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 5,
+    "y": 4,
+    "tile": "grass_wet",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 4,
+    "y": 5,
+    "tile": "grass_wet",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 3,
+    "y": 6,
+    "tile": "sand",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 2,
+    "y": 7,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 7,
+    "y": 3,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 6,
+    "y": 4,
+    "tile": "burnt",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 5,
+    "y": 5,
+    "tile": "pond",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 4,
+    "y": 6,
+    "tile": "sand",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 3,
+    "y": 7,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 7,
+    "y": 4,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 6,
+    "y": 5,
+    "tile": "soil",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 5,
+    "y": 6,
+    "tile": "pond",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 4,
+    "y": 7,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 7,
+    "y": 5,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 6,
+    "y": 6,
+    "tile": "sand",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 5,
+    "y": 7,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 7,
+    "y": 6,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 6,
+    "y": 7,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  },
+  {
+    "x": 7,
+    "y": 7,
+    "tile": "shallow",
+    "trees": 0,
+    "age": null
+  }
+]

@@ -20,3 +20,14 @@ Thumbs.db
 # Lokale Konfiguration (z. B. Ollama-Endpunkte)
 .env
 *.local.toml
+
+# Lokale Zwischenstände der Gestaltung
+__pycache__/
+*.pyc
+/art/nature/comfyui-v2-flat-rejected/
+/art/nature/comfyui-v2-leaf-rejected/
+/art/nature/old-check.png
+/art/nature/sprite-check.png
+/art/nature/comfyui/system-stats.json
+/art/nature/comfyui/sources-preview.jpg
+/art/nature/comfyui-v2/preview.jpg
