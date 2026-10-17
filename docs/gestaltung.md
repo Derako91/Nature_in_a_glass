@@ -312,6 +312,8 @@ git ls-files -s | awk '{print $2}' | sort | uniq -d
 
 Gibt der Befehl etwas aus, liegt mindestens eine Datei doppelt vor.
 
+**Rust-Prüfungen:** Wer nur Assets, Prüfblätter, Skripte unter `tools/` oder Dokumente ändert, braucht lokal kein Rust (`cargo`). Die Prüfungen laufen nach dem Hochladen automatisch auf GitHub für Windows, macOS und Linux; ihr Ergebnis steht am Pull Request. Nur wer Code unter `crates/` ändert, sollte vorher selbst prüfen (Rust über https://rustup.rs installieren).
+
 ## 10. Arbeitsreihenfolge für die Asset-Erstellung
 
 1. **Prüfblatt** `assets/nature/_testsheet.png`: eine 8 × 8-Felder-Insel in Isometrie mit allen Bodenarten, je einem Feld mit 1, 3 und 6 Bäumen jeder Altersstufe, Busch, Totholz, Brandfläche, Bach und Teich. Dient als Referenz für alle weiteren Schritte und wird zuerst abgenommen.
