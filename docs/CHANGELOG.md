@@ -1,5 +1,15 @@
 # Änderungen
 
+## 0.4.2 – Wölfe halten länger durch
+
+**Geändert**
+- **Ein Rudel bleibt ein Rudel:** Ab 8 Wölfen (mit Jungtieren) gibt es keine Welpen mehr. Vorher wuchs das Rudel auf über 20 Tiere, jagte die Hirsche fast aus und verhungerte dann.
+- **Seltene Hirsche sind schwerer zu finden:** Wenn es nur noch wenige gibt, misslingen mehr Jagden. So erholen sich die Hirsche eher.
+- **Hungrige Wölfe jagen Kaninchen:** Sehr hungrige Wölfe suchen gezielt Felder mit vielen Kaninchen auf, nicht nur zufällig.
+
+**Beobachtet:** Setzt man Wölfe zu über 200 Hirschen, halten sie sich jetzt meist 10–35 Jahre; Hirsche und Wölfe pendeln dabei miteinander. Mit Kaninchen auf der Insel können Wölfe sogar überleben, wenn die Hirsche verschwunden sind.
+
+
 ## 0.4.1 – Die Zeit läuft weiter, Tiere besser abgestimmt
 
 **Behoben**

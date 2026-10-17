@@ -273,11 +273,13 @@ const FOX_SIDE_FOOD: f32 = 0.025;
 
 // --- Wölfe ---
 /// Bei so vielen Hirschen auf der Insel gelingt nur noch die Hälfte der Jagden.
-const PREY_HALF: f32 = 40.0;
+const PREY_HALF: f32 = 60.0;
 /// Reviere: So viele Würfe im Jahr bietet die kleine Insel Platz – ein
 /// Wolfsrudel, einige Fuchsfamilien. Weitere Paare bekommen keine Jungen.
 pub const WOLF_LITTERS_PER_YEAR: u32 = 1;
 pub const FOX_LITTERS_PER_YEAR: u32 = 3;
+/// Ab dieser Rudelgröße (mit Jungtieren) gibt es keine Welpen mehr.
+pub const WOLF_PACK_MAX: u32 = 8;
 /// So viel Vorrat fressen sich Wölfe am Riss an (über die volle Reserve 1 hinaus).
 const WOLF_GORGE: f32 = 1.6;
 /// Erst unter dieser Energie gehen Wölfe auf die Jagd.
@@ -844,7 +846,12 @@ fn step_individuals(a: &mut Animals, world: &mut World, weather: &Weather, rng: 
                         }
                     } else if hungry {
                         // Nächsten Hirsch auf dem Landweg suchen (um Seen herum)
-                        let target = path_to(world, tile, WOLF_SEARCH as u32, |j| deer_on[j] > 0);
+                        // Sehr hungrig nehmen sie auch Felder voller Kaninchen.
+                        let starving = energy < 0.45;
+                        let rabbits = &a.rabbits;
+                        let target = path_to(world, tile, WOLF_SEARCH as u32, |j| {
+                            deer_on[j] > 0 || (starving && rabbits[j] >= 4.0)
+                        });
                         if let Some((s1, s2, d)) = target {
                             // Aus der Ferne anschleichen, aus der Nähe hetzen
                             let chase = d <= 4;
@@ -1112,6 +1119,7 @@ fn births(a: &mut Animals, world: &World, doy: u32, rng: &mut Rng) {
         Species::Rabbit => u32::MAX,
     };
     let mut newborn = Vec::new();
+    let wolves_total = a.list.iter().filter(|x| x.species == Species::Wolf).count() as u32;
     for s in [Species::Deer, Species::Wolf, Species::Fox] {
         if doy != season(s) {
             continue;
@@ -1150,7 +1158,7 @@ fn births(a: &mut Animals, world: &World, doy: u32, rng: &mut Rng) {
                 Species::Fox => FOX_LITTERS_PER_YEAR,
                 _ => u32::MAX,
             };
-            if litters >= max_litters {
+            if litters >= max_litters || (s == Species::Wolf && wolves_total >= WOLF_PACK_MAX) {
                 continue;
             }
             let (min_energy, litter) = match s {
