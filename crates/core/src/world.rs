@@ -30,11 +30,60 @@ pub struct Tile {
     pub grass: f32,
     /// Waldbedeckung 0..1.
     pub forest: f32,
-    /// Aufeinanderfolgende Trockentage (für Dürreschäden am Wald).
+    /// Aufeinanderfolgende Tage mit Wassermangel der Bäume.
     pub drought_days: u16,
+
+    // --- seit Spielstand-Format 2 (v0.2) ---
+    /// Buschland 0..1.
+    #[serde(default)]
+    pub shrub: f32,
+    /// Alter des Baumbestands in Jahren (0 ohne Wald).
+    #[serde(default)]
+    pub forest_age: f32,
+    /// Stehendes und liegendes Totholz 0..1.5 (in Einheiten von „voller Wald“).
+    #[serde(default)]
+    pub deadwood: f32,
+    /// Wasser im tieferen Boden, erreichbar nur für tiefe Wurzeln (mm).
+    #[serde(default)]
+    pub deep_moisture: f32,
+    /// Wie gut die Bäume heute mit Wasser versorgt sind (0..1).
+    #[serde(default = "one")]
+    pub tree_supply: f32,
+    /// Brandintensität heute (0 = kein Feuer).
+    #[serde(default)]
+    pub fire: f32,
+    /// Sichtbare Brandspur, verblasst über Jahre (0..1).
+    #[serde(default)]
+    pub burn_scar: f32,
 }
 
+fn one() -> f32 {
+    1.0
+}
+
+/// Tiefer Boden hält etwa doppelt so viel Wasser wie der Wurzelraum darüber –
+/// wo der Boden dünn ist, gibt es also auch kaum Tiefenwasser.
+pub const DEEP_FACTOR: f32 = 2.0;
+
 impl Tile {
+    pub fn deep_capacity(&self) -> f32 {
+        self.soil_capacity * DEEP_FACTOR
+    }
+
+    pub fn deep_fraction(&self) -> f32 {
+        let c = self.deep_capacity();
+        if c <= 0.0 {
+            0.0
+        } else {
+            self.deep_moisture / c
+        }
+    }
+
+    /// Wie weit die Wurzeln in die Tiefe reichen (0,2 junger Wald … 1,0 Altwald).
+    pub fn root_reach(&self) -> f32 {
+        0.2 + 0.8 * clamp01(self.forest_age / 60.0)
+    }
+
     pub fn is_ocean(&self) -> bool {
         self.elevation <= 0.0
     }
@@ -187,6 +236,13 @@ impl World {
                     grass: 0.0,
                     forest: 0.0,
                     drought_days: 0,
+                    shrub: 0.0,
+                    forest_age: 0.0,
+                    deadwood: 0.0,
+                    deep_moisture: 0.0,
+                    tree_supply: 1.0,
+                    fire: 0.0,
+                    burn_scar: 0.0,
                 });
             }
         }
@@ -232,6 +288,19 @@ impl World {
             } else {
                 0.0
             };
+            // Ältere Bestände im Kern der Waldinseln, jüngere am Rand
+            t.forest_age = if t.forest > 0.0 {
+                10.0 + t.forest * 50.0
+            } else {
+                0.0
+            };
+            // Buschland an den Waldrändern
+            t.shrub = if e >= 3.0 && (0.45..0.62).contains(&v) {
+                0.35
+            } else {
+                0.0
+            };
+            t.deep_moisture = t.deep_capacity() * 0.6;
         }
 
         world.rebuild_drainage();

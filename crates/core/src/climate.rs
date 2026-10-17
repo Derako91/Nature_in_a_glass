@@ -42,6 +42,68 @@ pub struct Weather {
     pub temp_c: f32,
     /// Ob es gestern geregnet hat (Wetterlagen halten oft an).
     pub rained_yesterday: bool,
+
+    // --- seit Spielstand-Format 2 (v0.2) ---
+    /// Windrichtung als Index in [`WIND_DIRS`] (wohin der Wind weht).
+    #[serde(default)]
+    pub wind_dir: u8,
+    /// Windstärke 0 (Flaute) … 1 (Sturm).
+    #[serde(default)]
+    pub wind_speed: f32,
+    /// Gewitter heute.
+    #[serde(default)]
+    pub thunder: bool,
+    /// Blitzeinschläge auf der Insel heute.
+    #[serde(default)]
+    pub lightning_strikes: u8,
+    /// Trockenes Gewitter: Blitze, aber kaum Regen.
+    #[serde(default)]
+    pub dry_thunder: bool,
+}
+
+/// Acht Windrichtungen (dx, dy), in derselben Reihenfolge wie die Namen.
+pub const WIND_DIRS: [(i32, i32); 8] = [
+    (1, 0),
+    (1, 1),
+    (0, 1),
+    (-1, 1),
+    (-1, 0),
+    (-1, -1),
+    (0, -1),
+    (1, -1),
+];
+
+/// Woher der Wind kommt (Kartenoben = Norden).
+pub const WIND_FROM: [&str; 8] = [
+    "West", "Nordwest", "Nord", "Nordost", "Ost", "Südost", "Süd", "Südwest",
+];
+
+impl Weather {
+    /// Einheitsvektor der Windrichtung.
+    pub fn wind_vector(&self) -> (f32, f32) {
+        let (dx, dy) = WIND_DIRS[(self.wind_dir % 8) as usize];
+        let len = ((dx * dx + dy * dy) as f32).sqrt();
+        (dx as f32 / len, dy as f32 / len)
+    }
+
+    pub fn wind_text(&self) -> String {
+        let strength = match self.wind_speed {
+            s if s < 0.15 => "still",
+            s if s < 0.4 => "schwach",
+            s if s < 0.7 => "mäßig",
+            s if s < 0.9 => "stark",
+            _ => "Sturm",
+        };
+        if self.wind_speed < 0.15 {
+            strength.to_string()
+        } else {
+            format!(
+                "{} aus {}",
+                strength,
+                WIND_FROM[(self.wind_dir % 8) as usize]
+            )
+        }
+    }
 }
 
 impl Default for Weather {
@@ -53,6 +115,11 @@ impl Default for Weather {
             center_y: 0.0,
             temp_c: 10.0,
             rained_yesterday: false,
+            wind_dir: 0,
+            wind_speed: 0.3,
+            thunder: false,
+            lightning_strikes: 0,
+            dry_thunder: false,
         }
     }
 }
@@ -71,7 +138,8 @@ impl Weather {
         }
         // Mittlere Regenmenge pro Regentag so, dass die Jahressumme passt.
         let mean_per_rain_day = climate.annual_rain_mm / (BASE_RAIN_CHANCE * 365.0 * 0.88);
-        let rains = rng.chance(p.clamp(0.0, 0.95));
+        // Ohne Niederschlag im Klima gibt es auch keine Regenwolken und Gewitter.
+        let rains = rng.chance(p.clamp(0.0, 0.95)) && climate.annual_rain_mm > 0.0;
         let (u1, u2) = (rng.next_f32(), rng.next_f32());
         self.storm = rains && rng.chance(0.012);
         self.rain_mm = if rains {
@@ -90,6 +158,32 @@ impl Weather {
         let noise = (rng.next_f32() + rng.next_f32() - 1.0) * 3.0;
         let cloud_cooling = if rains { -1.5 } else { 0.0 };
         self.temp_c = climate.mean_temp_c + climate.temp_amplitude_c * s + noise + cloud_cooling;
+
+        // Wind: meist aus Westen, Wetterlagen halten ein paar Tage an.
+        let (u_change, u_dir, u_speed) = (rng.next_f32(), rng.next_f32(), rng.next_f32());
+        if u_change < 0.3 {
+            self.wind_dir = if u_dir < 0.6 {
+                // vorherrschend: aus West, Nordwest oder Südwest (weht nach Ost)
+                [0u8, 1, 7][(u_dir / 0.2) as usize % 3]
+            } else {
+                ((u_dir - 0.6) / 0.4 * 8.0) as u8 % 8
+            };
+        }
+        self.wind_speed = (0.1 + 0.6 * u_speed + if self.storm { 0.35 } else { 0.0 }).min(1.0);
+
+        // Gewitter: an warmen Regentagen, im Sommer häufiger.
+        let (u_thunder, u_dry, u_strikes) = (rng.next_f32(), rng.next_f32(), rng.next_f32());
+        let heat = ((self.temp_c - 16.0) / 10.0).clamp(0.0, 1.0);
+        self.thunder = rains && (self.storm || u_thunder < 0.35 * heat);
+        self.dry_thunder = self.thunder && !self.storm && u_dry < 0.3;
+        if self.dry_thunder {
+            self.rain_mm *= 0.1;
+        }
+        self.lightning_strikes = if self.thunder {
+            1 + (u_strikes * 3.0) as u8
+        } else {
+            0
+        };
     }
 
     /// Niederschlag an einer bestimmten Kachel.

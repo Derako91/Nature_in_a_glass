@@ -69,12 +69,14 @@ Entschieden in [ADR 0002](../decisions/0002-runtime-and-rendering.md): Rust-Work
 | Modul (Entwurf oben) | Umgesetzt in |
 | --- | --- |
 | `core` | `crates/core/src/sim.rs` (Uhr, Scheduler, Eingriffe, Speichern), `rng.rs`, `math.rs` |
-| `world` | `world.rs` (Insel, Boden, Abflussnetz), `climate.rs`, `hydro.rs`, `vegetation.rs` |
+| `world` | `world.rs` (Insel, Boden, Abflussnetz), `climate.rs`, `hydro.rs`, `vegetation.rs`, `fire.rs` |
 | `history` | `events.rs` (Chronik mit Ursachen) |
-| `godmode` | `Intervention` in `sim.rs` – nur Klima und Quellen |
+| `godmode` | `Intervention` in `sim.rs` – Klima, Quellaustritt, einzelne Samen |
 | `frontend` | `crates/app` (egui), `crates/cli` |
 
-Ablauf eines Tages: Wetter würfeln → Regen und Quellen → Versickern und Abfluss bergab → Verdunstung, Pflanzenwasser, Grundwasserneubildung → Gras und Wald → Ereignisse erkennen. Jahreswechsel: Jahresbilanz in Chronik und Verlauf.
+Ablauf eines Tages (v0.2): Wetter würfeln (Regen, Temperatur, Wind, Gewitter) → Regen und Quellen → Versickern und Abfluss bergab → Verdunstung, Pflanzenwasser (Bäume auch aus dem tiefen Boden), Sickerwasser in den tiefen Boden und ins Grundwasser → Gras, Busch, Wald, Totholz (`vegetation.rs`) → Blitzschlag und Feuer (`fire.rs`) → ausgestreute Samen → Ereignisse erkennen. Jahreswechsel: Jahresbilanz in Chronik und Verlauf.
+
+Wasserspeicher je Feld: Oberfläche → Wurzelraum (Bodenfeuchte) → tiefer Boden (doppelt so groß wie der Wurzelraum, nur für tiefe Wurzeln erreichbar) → gemeinsames Grundwasser der Quellen. Die Wasserbilanz ist geschlossen und wird getestet (`tests/ecology.rs`).
 
 Eine Kachel ist 50 × 50 m, die Insel damit gut 3 × 3 km. Wassermengen werden in Millimetern auf einer Kachel gerechnet.
 

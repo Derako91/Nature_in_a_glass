@@ -25,7 +25,8 @@ Das Programm ist (noch) nicht signiert. Beim ersten Start fragt das Betriebssyst
 | Zoomen | Mausrad |
 | Feld untersuchen | Auf ein Feld klicken → rechts unter *Feld* |
 | Ansicht wechseln | **Isometrisch** oder **Karte** |
-| Ebene wechseln | Natur, Höhe, Bodenfeuchte, Wasser |
+| Ebene wechseln | Natur, Höhe, Bodenfeuchte, Wasser, Brandgefahr |
+| Wichtige Ereignisse | *Nur Chronik*, *Anhalten* oder *Anhalten und hinfahren* (Brand, Dürre, Waldsterben, Keimung …) |
 | Ereignisort finden | Eintrag in der *Chronik* anklicken |
 | Ursachen eines Ereignisses | Maus über den Chronik-Eintrag halten |
 | Neue Insel | Seed eintragen (oder 🎲) → **Neue Insel** |
@@ -35,13 +36,20 @@ Tag und Nacht sind nur bei langsamem Zeitraffer sichtbar, sonst würde das Bild 
 
 ## Eingriffe
 
-Rechts unter *Eingriffe* veränderst du **Bedingungen**: Jahresregen, Jahresmitteltemperatur und die Schüttung der Quellen. Was daraus folgt – Dürre, versiegende Bäche, sterbender oder wachsender Wald – entscheidet die Simulation. Jeder Eingriff steht in der Chronik.
+Rechts unter *Eingriffe* veränderst du **Bedingungen**: Jahresregen, Jahresmitteltemperatur, wie leicht das Grundwasser an den Quellen austritt, und du kannst einzelne Baum- oder Buschsamen fallen lassen. Was daraus folgt – Dürre, versiegende Bäche, sterbender oder wachsender Wald – entscheidet die Simulation. Jeder Eingriff steht in der Chronik.
+
+Zum Quellregler: Das Wasser der Quellen stammt aus dem Grundwasser der Insel. Ein hoher Wert lässt es leichter austreten – aber mehr, als nachsickert, kommt auf Dauer nicht heraus. Bei 300 % leert sich das Grundwasser, und die Quelle wird wieder schwächer.
+
+Zu den Samen: Ein Samen landet an einem zufälligen Ort, den niemand kennt. Keimt er, steht in der Chronik, wo. Etwa drei Jahre bleibt er keimfähig.
 
 Ideen zum Ausprobieren:
 
 - Eine Quelle auf 0 % stellen und beobachten, wie der Bach darunter austrocknet.
 - Den Jahresregen auf 300 mm senken und 20 Jahre laufen lassen. Danach wieder auf 950 mm stellen: Der Wald kehrt nur langsam und nur von seinen Rändern zurück.
 - Zwei Inseln mit demselben Seed nebeneinander laufen lassen – sie entwickeln sich exakt gleich.
+- „Paradies, dann alles aus“: Regen hoch, 150 Jahre warten, dann Regen und Quellen auf 0. Der Wald stirbt über Monate, Totholz bleibt stehen – und wenn danach ein Gewitter kommt, brennt es.
+- Den Wald aussterben lassen, dann einen Baumsamen fallen lassen und warten, ob irgendwo ein neuer Wald entsteht.
+- *Wichtige Ereignisse: Anhalten und hinfahren* einstellen und mit 10 Jahren/s laufen lassen – der Beobachter hält beim nächsten Brand an.
 
 ## Startoptionen (für Fortgeschrittene)
 
@@ -52,6 +60,9 @@ Ideen zum Ausprobieren:
 - `--view karte` – mit der 2D-Karte starten
 - `--layer hoehe|feuchte|wasser` – Startebene
 - `--speed 0…5` – sofort mit Zeitraffer starten (0 = 1 Std/s, 5 = 10 Jahre/s)
+- `--days N` – zusätzlich N Tage vorspulen
+- `--reaction 0|1|2` – bei wichtigen Ereignissen: nur Chronik, anhalten, anhalten und hinfahren
+- `--select x,y` – ein Feld vorauswählen
 
 ## Ohne Fenster: `nig-sim`
 

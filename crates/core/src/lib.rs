@@ -6,6 +6,7 @@
 
 pub mod climate;
 pub mod events;
+pub mod fire;
 pub mod hydro;
 pub mod math;
 pub mod rng;
@@ -14,5 +15,5 @@ pub mod vegetation;
 pub mod world;
 
 pub use events::{Event, EventKind};
-pub use sim::{Intervention, Simulation, Snapshot, YearStats};
+pub use sim::{Intervention, SeedKind, Simulation, Snapshot, YearStats};
 pub use world::{Terrain, Tile, World};

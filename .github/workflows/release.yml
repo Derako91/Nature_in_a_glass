@@ -68,6 +68,7 @@ jobs:
           cp target/release/nature-in-a-glass${{ matrix.exe }} "$DIR/"
           cp target/release/nig-sim${{ matrix.exe }} "$DIR/"
           cp docs/STARTEN.md "$DIR/LIESMICH.md"
+          cp docs/CHANGELOG.md "$DIR/AENDERUNGEN.md"
           if [ "${{ matrix.name }}" = "windows" ]; then
             7z a "$DIR.zip" "$DIR"
           else
@@ -95,6 +96,7 @@ jobs:
           generate_release_notes: true
           body: |
             Fertige Programme zum Herunterladen – Anleitung in LIESMICH.md im Paket bzw. docs/STARTEN.md.
+            Was neu ist: AENDERUNGEN.md im Paket bzw. docs/CHANGELOG.md.
 
             - **Windows:** nature-in-a-glass-windows.zip
             - **macOS:** nature-in-a-glass-macos.zip
