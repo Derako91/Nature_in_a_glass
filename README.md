@@ -1,4 +1,3 @@
-# Nature_in_a_glass
 # Nature in a Glass
 
 **Eine Welt erschaffen. Den ersten Impuls geben. Beobachten, was entsteht.**
