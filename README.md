@@ -4,7 +4,7 @@
 
 *Nature in a Glass* ist ein geplantes, langfristiges Open-Source-Projekt: eine eigenständige, beobachtbare Welt- und Gesellschaftssimulation ohne Siegbedingung, Quests oder direkte Steuerung ihrer Bewohner. Der Spieler definiert die Ausgangslage und kann die **Umwelt** beeinflussen – die Bewohner handeln eigenständig und tragen die Konsequenzen. Tonal ein Cozy-Beobachtungsspiel, dessen simulierte Welt durchaus harte Folgen haben kann.
 
-> **Status:** Version 0.1 – *Die Insel lebt ohne Menschen.* Eine Insel mit Wetter, Jahreszeiten, Wasserkreislauf, Bächen, Seen, Gras und Wald läuft als Desktop-Programm (isometrisch und als 2D-Karte) und im Zeitraffer über Jahrhunderte. Noch keine Bewohner.
+> **Status:** Version 0.2 – *Samen, Buschland und Feuer.* Eine Insel mit Wetter, Wind, Gewittern, Wasserkreislauf, Bächen, Seen, Gras, Buschland, Wald, Totholz und Waldbränden läuft als Desktop-Programm (isometrisch und als 2D-Karte) und im Zeitraffer über Jahrhunderte. Noch keine Bewohner. Was neu ist: [Änderungen](docs/CHANGELOG.md).
 
 **Loslegen:** fertige Programme für Windows, macOS und Linux unter [Releases](../../releases). Anleitung: [docs/STARTEN.md](docs/STARTEN.md).
 
@@ -40,14 +40,16 @@ Eine deterministisch testbare kleine Insel (z. B. 64 × 64 Rasterfelder) mit ges
 - [Technische Architektur](docs/ARCHITECTURE.md)
 - [Roadmap](docs/ROADMAP.md)
 - [Starten und Bedienung](docs/STARTEN.md)
+- [Änderungen je Version](docs/CHANGELOG.md)
 - [Entscheidung: Simulation unabhängig von KI](decisions/0001-independent-simulation.md)
 - [Entscheidung: Rust, egui, Zeit in mehreren Auflösungen](decisions/0002-runtime-and-rendering.md)
+- [Entscheidung: Quellregler steuert den Austritt](decisions/0003-spring-control-is-outflow.md)
 
 ## Aufbau des Codes
 
 | Ordner | Inhalt |
 | --- | --- |
-| `crates/core` | Die Simulation (Insel, Wetter, Wasser, Vegetation, Chronik, Speichern). Keine Grafik, keine KI. |
+| `crates/core` | Die Simulation (Insel, Wetter, Wasser, Vegetation, Feuer, Chronik, Speichern). Keine Grafik, keine KI. |
 | `crates/app` | Desktop-Beobachter `nature-in-a-glass` |
 | `crates/cli` | Kommandozeile `nig-sim` für Zeitraffer-Läufe ohne Fenster |
 

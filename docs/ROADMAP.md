@@ -29,14 +29,14 @@ Ausführlich: [PRINCIPLES.md](PRINCIPLES.md).
 - [x] Chronik mit Ursachen; Eingriffe in Klima und Quellen.
 - [x] v0.1.1: ruhiges Fenster ohne verrutschende Elemente.
 
-## v0.2 – Samen, Buschland und Feuer
+## ✅ v0.2 – Samen, Buschland und Feuer (veröffentlicht)
 
-- [ ] Ein Umwelt-Eingriff kann einen einzelnen Samen an einem zufälligen, nicht angezeigten Ort eintragen.
-- [ ] Keimung, Wachstum und Vermehrung folgen natürlichen Bedingungen; kein garantierter Erfolg.
-- [ ] Buschland als weitere Vegetationsstufe mit eigener Trockenheits- und Brandempfindlichkeit.
-- [ ] Gewitter können bei passenden Bedingungen Brände auslösen.
-- [ ] Wind, Feuchtigkeit, Brennmaterial und Gelände beeinflussen die Brandausbreitung.
-- [ ] Brände hinterlassen dauerhafte, natürlich regenerierende Spuren.
+- [x] Ein Umwelt-Eingriff kann einen einzelnen Samen an einem zufälligen, nicht angezeigten Ort eintragen.
+- [x] Keimung, Wachstum und Vermehrung folgen natürlichen Bedingungen; kein garantierter Erfolg.
+- [x] Buschland als weitere Vegetationsstufe mit eigener Trockenheits- und Brandempfindlichkeit.
+- [x] Gewitter können bei passenden Bedingungen Brände auslösen.
+- [x] Wind, Feuchtigkeit, Brennmaterial und Gelände beeinflussen die Brandausbreitung.
+- [x] Brände hinterlassen dauerhafte, natürlich regenerierende Spuren.
 
 Umsetzungshinweise:
 - Samen-Eingriff: Die Chronik vermerkt den Eingriff, aber **nicht den Ort**. Gelingt die Keimung, erscheint später ein natürliches Ereignis („Ein junger Gehölzbestand ist entstanden bei …“) – der Ort wird also erst durch Beobachtung bekannt.
@@ -55,12 +55,12 @@ Umsetzungshinweise:
 - [ ] Bodenabtrag und Sedimentablagerung durch Regen und fließendes Wasser.
 - [ ] Gelände verändert sich über lange Zeiträume, ohne die Reproduzierbarkeit zu verlieren.
 
-- [ ] **Quellwasser und Oberflächenabfluss sichtbar machen:** prüfen, ob das Wasser physikalisch nachvollziehbar verteilt wird und ob 2D-Wasserkarte und isometrische Ansicht denselben Wasserzustand korrekt anzeigen. Bestehende Wasserläufe sollen abhängig von ihrer Wassermenge sichtbar anschwellen oder austrocknen.
+- [ ] **Quellwasser und Oberflächenabfluss sichtbar machen** (Darstellung als Linien und Rinnsal-Statistik schon in v0.2; offen: Abfluss nach Wasserspiegel, Mengenanzeige): prüfen, ob das Wasser physikalisch nachvollziehbar verteilt wird und ob 2D-Wasserkarte und isometrische Ansicht denselben Wasserzustand korrekt anzeigen. Bestehende Wasserläufe sollen abhängig von ihrer Wassermenge sichtbar anschwellen oder austrocknen.
 
 Befund aus Dennis' Quellen-Test (v0.1.1, nachgeprüft mit `tests/springs.rs`):
 - Der Kern ist korrekt: Quellwasser geht in die Wasserbilanz ein, fließt bergab, der Bach trocknet bei 0 % aus und kehrt bei 100 % zurück; die Schüttung folgt dem Regler.
 - **Statistik sättigt:** „Bachfelder“ zählt nur Felder über 60 mm/Tag. Unter beiden Quellen liegen zusammen nur 21 Felder bis zum Meer – sind die voll, bringt 300 % kein einziges Feld dazu. Im Winter überdeckt Regen die Quellen völlig. → Statt Felder zählen: Wassermenge anzeigen (z. B. Abfluss ins Meer, Schüttung je Quelle), Rinnsale getrennt von Bächen.
-- **300 % hält nicht an:** Der Regler verändert, wie leicht das Grundwasser austritt, nicht, wie viel Wasser nachkommt. Bei 300 % leert sich das Grundwasser der Insel in wenigen Monaten, danach fällt die Schüttung fast auf den alten Wert zurück. Physikalisch ehrlich, aber für den Spieler nicht erkennbar. → Entscheidung nötig: Regler als *Austritt* (wie jetzt, mit Erklärung) oder als *Zufuhr von außerhalb der Insel* (dauerhaft, in der Wasserbilanz ausgewiesen).
+- **300 % hält nicht an:** Der Regler verändert, wie leicht das Grundwasser austritt, nicht, wie viel Wasser nachkommt. Bei 300 % leert sich das Grundwasser der Insel in wenigen Monaten, danach fällt die Schüttung fast auf den alten Wert zurück. Physikalisch ehrlich, aber für den Spieler nicht erkennbar. → **Entschieden:** Regler bleibt *Austritt* – die Geologie bestimmt, woher das Wasser kommt ([ADR 0003](../decisions/0003-spring-control-is-outflow.md)). Der Regler erklärt sich in der Oberfläche.
 - **Darstellung zu schwach:** Wasserläufe unter etwa 30 mm/Tag sind unsichtbar, darüber wird nur die Feldfarbe leicht getönt. → Wasserläufe als Linien von Feld zu Feld, Dicke nach Wassermenge.
 - **Einzelne Abflussbahn:** Jedes Feld gibt sein Wasser an genau ein Nachbarfeld ab. Wasser kann sich deshalb nicht verbreitern, nicht über eine Wiese ausufern und keinen neuen Weg suchen. → Abfluss nach Wasserspiegel statt fester Richtung (Voraussetzung für Überschwemmung und für Dämme, siehe unten).
 
@@ -116,16 +116,17 @@ Technische Voraussetzungen:
 
 | # | Test | Stand |
 | --- | --- | --- |
-| 1 | Wald wächst über Jahrhunderte, stirbt bei extremer Dürre und kommt ohne Samenquelle nicht automatisch zurück. | teilweise: „ohne Samenquelle keine Rückkehr“ ✅, Dürre-Absterben fehlt |
-| 2 | Gras kann nach Rückkehr des Regens wieder wachsen. | offen |
-| 3 | Ein zufälliger Samen kann bei geeigneten Bedingungen eine neue Waldpopulation begründen. | v0.2 |
-| 4 | Starkregen erzeugt nachvollziehbaren Oberflächenabfluss und keine unbegrenzte Wasservermehrung. | offen (Wasserbilanz-Test) |
-| 5 | Feuer kann ausbleiben, sich begrenzt ausbreiten oder größere Flächen zerstören – abhängig von Bedingungen. | v0.2 |
-| 6 | Die Simulation bleibt bei jahrhundertelangem Zeitraffer stabil. | 100 Jahre ✅, auf 500 Jahre erweitern |
+| 1 | Wald wächst über Jahrhunderte, stirbt bei extremer Dürre und kommt ohne Samenquelle nicht automatisch zurück. | ✅ `ecology.rs` |
+| 2 | Gras kann nach Rückkehr des Regens wieder wachsen. | ✅ `ecology.rs` |
+| 3 | Ein zufälliger Samen kann bei geeigneten Bedingungen eine neue Waldpopulation begründen. | ✅ `ecology.rs` (inkl. Gegenprobe Wüste) |
+| 4 | Starkregen erzeugt nachvollziehbaren Oberflächenabfluss und keine unbegrenzte Wasservermehrung. | ✅ `ecology.rs` (Wasserbilanz bei 2500 mm) |
+| 5 | Feuer kann ausbleiben, sich begrenzt ausbreiten oder größere Flächen zerstören – abhängig von Bedingungen. | ✅ `ecology.rs` |
+| 6 | Die Simulation bleibt bei jahrhundertelangem Zeitraffer stabil. | ✅ 500 Jahre |
 | 7 | Ein identischer Seed mit identischen Eingriffen liefert auf unterstützten Plattformen identische Ergebnisse. | ✅ (Referenz-Prüfsumme auf Windows, macOS, Linux) |
 | 8 | Quellen aus- und wieder einschalten: Schüttung folgt dem Regler, Bach trocknet aus und kehrt zurück, reproduzierbar. | ✅ `tests/springs.rs` (ohne Regen gemessen) |
+| 9 | Spielstände aus v0.1 lassen sich laden und weiterrechnen. | ✅ `ecology.rs` |
 
-Die offenen Tests 1, 2, 4 und 6 betreffen v0.1 und werden zu Beginn von v0.2 ergänzt.
+Alle Tests liegen in `crates/core/tests/` und laufen bei jeder Änderung auf Windows, macOS und Linux.
 
 ---
 

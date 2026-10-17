@@ -4,4 +4,4 @@ version.workspace = true
 edition = "2024"
 
 [dependencies]
-nig-core = { version = "0.1.0", path = "../core" }
+nig-core = { path = "../core" }
