@@ -314,6 +314,16 @@ Gibt der Befehl etwas aus, liegt mindestens eine Datei doppelt vor.
 
 **Rust-Prüfungen:** Wer nur Assets, Prüfblätter, Skripte unter `tools/` oder Dokumente ändert, braucht lokal kein Rust (`cargo`). Die Prüfungen laufen nach dem Hochladen automatisch auf GitHub für Windows, macOS und Linux; ihr Ergebnis steht am Pull Request. Nur wer Code unter `crates/` ändert, sollte vorher selbst prüfen (Rust über https://rustup.rs installieren).
 
+### Bestätigte Biomrichtung (17.10.2026)
+
+Die gezeigten Biomübergänge sind vom Projektinhaber als Gestaltungsrichtung
+bestätigt: lockere Waldsäume und Lichtungen, unregelmäßige Ufer sowie sanfte
+Wechsel zwischen grünen und trockenen Bodenflächen. Bachkurven werden weich
+geführt, Felsstufen in kürzeren, versetzten Abschnitten ausgearbeitet. Referenzen:
+`assets/nature/_biomes-refined.png`, `assets/nature/_biome-transitions.png` und
+`art/nature/ROUND-07.md`. Die Referenzen sind Prüfentwürfe; Spielintegration und
+Abnahme bei tatsächlichem Zoom stehen weiterhin aus.
+
 ## 10. Arbeitsreihenfolge für die Asset-Erstellung
 
 1. **Prüfblatt** `assets/nature/_testsheet.png`: eine 8 × 8-Felder-Insel in Isometrie mit allen Bodenarten, je einem Feld mit 1, 3 und 6 Bäumen jeder Altersstufe, Busch, Totholz, Brandfläche, Bach und Teich. Dient als Referenz für alle weiteren Schritte und wird zuerst abgenommen.

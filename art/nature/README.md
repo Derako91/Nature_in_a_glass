@@ -1,6 +1,7 @@
 # Naturgestaltung – Prüfblatt 01
 
-**Aktuell ist Runde 06:** Kadaver und Spuren, siehe `ROUND-06.md`.
+**Aktuell ist Runde 07:** bestätigte Biomrichtung, weichere Bachkurven und
+versetzte Felsstufen, siehe `ROUND-07.md`. Kadaver und Spuren stehen in `ROUND-06.md`.
 Ausgearbeitete Biome und Übergänge stehen in `ROUND-05.md`.
 Tieranimationen und zweite Fellvariante stehen in `ROUND-04.md`.
 Die Naturkorrekturen der vorigen Runde stehen in `ROUND-03.md`.
