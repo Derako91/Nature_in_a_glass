@@ -18,15 +18,17 @@ pub enum Layer {
     Moisture,
     Water,
     FireRisk,
+    Soil,
 }
 
 impl Layer {
-    pub const ALL: [Layer; 5] = [
+    pub const ALL: [Layer; 6] = [
         Layer::Nature,
         Layer::Height,
         Layer::Moisture,
         Layer::Water,
         Layer::FireRisk,
+        Layer::Soil,
     ];
     pub fn label(self) -> &'static str {
         match self {
@@ -35,6 +37,7 @@ impl Layer {
             Layer::Moisture => "Bodenfeuchte",
             Layer::Water => "Wasser",
             Layer::FireRisk => "Brandgefahr",
+            Layer::Soil => "Boden/Abtrag",
         }
     }
 }
@@ -151,6 +154,26 @@ pub fn tile_color(world: &World, i: usize, layer: Layer) -> Color32 {
             } else {
                 // leichte Tönung durch Bodenfeuchte, Wasserläufe als Linien darüber
                 mix(dry, Color32::from_rgb(70, 82, 96), t.moisture_fraction())
+            }
+        }
+        Layer::Soil => {
+            // Grundton nach Bodendicke: heller Fels … dunkle, tiefe Erde.
+            let depth = ((t.soil_depth + t.soil_change) / 1.2).clamp(0.0, 1.0);
+            let base = mix(
+                Color32::from_rgb(170, 166, 156),
+                Color32::from_rgb(92, 64, 40),
+                depth,
+            );
+            // Darüber: Abtrag rot, Ablagerung blaugrün (ab 2 mm pro Jahr kräftig).
+            let rate = t.erosion_rate / 0.002;
+            if rate < 0.0 {
+                mix(
+                    base,
+                    Color32::from_rgb(214, 74, 42),
+                    (-rate).min(1.0) * 0.85,
+                )
+            } else {
+                mix(base, Color32::from_rgb(52, 150, 156), rate.min(1.0) * 0.85)
             }
         }
         Layer::FireRisk => {

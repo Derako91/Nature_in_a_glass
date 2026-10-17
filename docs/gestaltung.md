@@ -147,6 +147,9 @@ Jedes Asset wird durch Werte aus dem Simulationskern ausgewählt (`Tile` in `cra
 | `flow` ≥ 15 mm/Tag | Rinnsal | Wasserlauf-Linie, schmal, blass |
 | `flow` ≥ 60 mm/Tag | Bach | Wasserlauf-Linie, breiter, satt |
 | Quelle | `springs` | Quell-Marker (fließend/versiegt) |
+| `soil_depth` < 0,05 m | abgespült bis aufs Gestein | Fels-Tile, auch im Tief- und Hügelland (ab v0.3) |
+| `erosion_rate` > 0 | Ablagerung (m/Jahr) | Deckkraft von `ground_silt`, volle Deckung ab 2 mm/Jahr, unter Wald ausgeblendet |
+| aufgetauchtes Schwemmland | früheres Meeresfeld, jetzt Land unter 3 m | wie Strand: `ground_sand` |
 
 ### 7.2 Anzahl der Sprites pro Feld
 
@@ -185,6 +188,7 @@ Rautenförmig, 64 × 32 px, außerhalb der Raute transparent. Kacheln müssen na
 | `ground_burnt` | verkohlter Boden mit Ascheflecken (Überlagerung) | 3 |
 | `ground_shrub_floor` | Laub und Zweige unter Buschland (Überlagerung) | 2 |
 | `ground_forest_floor` | Waldboden mit Nadeln und Laub (Überlagerung) | 2 |
+| `ground_silt` | frisch angeschwemmter, feiner grau-brauner Schlamm mit Rinnenmuster (Überlagerung, ab v0.3) | 3 |
 
 Überlagerungen werden vom Renderer mit Deckkraft nach Simulationswert (Abschnitt 7.1) über den Grundboden gelegt.
 
@@ -340,7 +344,7 @@ Gibt der Befehl etwas aus, liegt mindestens eine Datei doppelt vor.
 
 - Jahreszeiten (Herbstfärbung, Schnee) – die Simulation kennt Temperatur, aber noch keinen Schnee.
 - Baumarten mit eigener Silhouette, sobald die Simulation sie unterscheidet.
-- Erosion und neue Bachläufe (v0.3) – erfordert Assets für Ufer, Kies und Abbruchkanten.
+- Erosion (v0.3) ist simuliert; erste Zuordnung siehe 7.1 (`ground_silt`, Fels bei abgespültem Boden). Offen: Ufer, Kies und Abbruchkanten an tief eingeschnittenen Bächen.
 - Tiere (v0.4): siehe Abschnitt 15. Bewohner (v0.6) folgen in einem eigenen Abschnitt.
 - Technische Einbindung: Der Renderer zeichnet heute Flächenfarben ohne Texturen. Für diese Assets braucht er einen Textur-Atlas mit Manifest-Loader; das wird als eigenes ADR entschieden, sobald die ersten Assets abgenommen sind.
 

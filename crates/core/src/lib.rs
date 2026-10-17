@@ -6,9 +6,11 @@
 
 pub mod appearance;
 pub mod climate;
+pub mod erosion;
 pub mod events;
 pub mod fire;
 pub mod hydro;
+pub mod lakes;
 pub mod math;
 pub mod rng;
 pub mod sim;

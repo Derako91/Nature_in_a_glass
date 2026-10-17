@@ -48,18 +48,18 @@ Umsetzungshinweise:
 - Fester Test „Paradies, dann alles aus“ (150 Jahre üppig, dann kein Regen, keine Quellen): Wald stirbt langsamer als in v0.1 (dort 50 % nach 7 Monaten, 0 % nach 4 Jahren), hinterlässt Totholz und meldet es in der Chronik.
 - Spielstand-Format steigt auf 2; Spielstände aus v0.1 werden beim Laden übernommen (kein Buschland, keine Brände, Wind ruhig). Die Migration wird in den Release-Notizen genannt.
 
-## v0.3 – Hydrologie und Erosion
+## ✅ v0.3 – Hydrologie und Erosion (veröffentlicht als 0.2.2–0.3.0)
 
-- [ ] Wasserbilanz und Bedeutung der Grundwasser-Prozentanzeige überprüfen.
+- [x] Wasserbilanz und Bedeutung der Grundwasser-Prozentanzeige überprüfen (v0.2.4).
 - [x] **Abfluss nach Wasserspiegel** statt fester Fließrichtung – Stau, Überlauf, Überschwemmung (v0.2.2).
 - [x] **Damm und Durchbruch** als Geländeeingriff (v0.2.2).
 - [x] Permanente Bäche, zeitweise Bäche und Starkregenabfluss unterscheiden; Mengen in m³ und L/s (v0.2.3).
 - [x] Grundwasser als echter Füllstand mit Überlauf und Quellschwelle (v0.2.4).
-- [ ] Seen eigens benennen.
-- [ ] Bodenabtrag und Sedimentablagerung durch Regen und fließendes Wasser.
-- [ ] Gelände verändert sich über lange Zeiträume, ohne die Reproduzierbarkeit zu verlieren.
+- [x] Seen eigens benennen; Verlanden und Verschwinden in der Chronik (v0.3.0).
+- [x] Bodenabtrag und Sedimentablagerung durch Regen und fließendes Wasser; Bodenbildung aus Gestein; Schwemmland an Mündungen (v0.3.0).
+- [x] Gelände verändert sich über lange Zeiträume, ohne die Reproduzierbarkeit zu verlieren (v0.3.0, Referenz-Prüfsumme auf allen Plattformen).
 
-- [ ] **Quellwasser und Oberflächenabfluss sichtbar machen** (Darstellung als Linien und Rinnsal-Statistik schon in v0.2; offen: Abfluss nach Wasserspiegel, Mengenanzeige): prüfen, ob das Wasser physikalisch nachvollziehbar verteilt wird und ob 2D-Wasserkarte und isometrische Ansicht denselben Wasserzustand korrekt anzeigen. Bestehende Wasserläufe sollen abhängig von ihrer Wassermenge sichtbar anschwellen oder austrocknen.
+- [x] **Quellwasser und Oberflächenabfluss sichtbar machen** (Darstellung als Linien und Rinnsal-Statistik schon in v0.2; offen: Abfluss nach Wasserspiegel, Mengenanzeige): prüfen, ob das Wasser physikalisch nachvollziehbar verteilt wird und ob 2D-Wasserkarte und isometrische Ansicht denselben Wasserzustand korrekt anzeigen. Bestehende Wasserläufe sollen abhängig von ihrer Wassermenge sichtbar anschwellen oder austrocknen.
 
 Befund aus Dennis' Quellen-Test (v0.1.1, nachgeprüft mit `tests/springs.rs`):
 - Der Kern ist korrekt: Quellwasser geht in die Wasserbilanz ein, fließt bergab, der Bach trocknet bei 0 % aus und kehrt bei 100 % zurück; die Schüttung folgt dem Regler.
@@ -70,7 +70,7 @@ Befund aus Dennis' Quellen-Test (v0.1.1, nachgeprüft mit `tests/springs.rs`):
 
 Umsetzungshinweise:
 - ~~Die Grundwasser-Anzeige ist ein Verhältnis zu einem Bezugswert und kann über 100 % steigen.~~ Erledigt in v0.2.4: echter Füllstand.
-- Erosion ändert Höhen → Abflussnetz muss in größeren Abständen neu berechnet werden (z. B. jährlich), nicht täglich.
+- ~~Erosion ändert Höhen → Abflussnetz muss in größeren Abständen neu berechnet werden.~~ Nicht nötig: Der Abfluss richtet sich ohnehin täglich nach dem Wasserspiegel; Höhen ändern sich in Schritten ab 1 mm.
 
 ## v0.4 – Erste Tiere
 

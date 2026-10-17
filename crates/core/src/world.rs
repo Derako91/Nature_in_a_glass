@@ -66,6 +66,27 @@ pub struct Tile {
     /// Mittlere Bodenfeuchte über etwa ein Jahr (0..1), z. B. für Biome.
     #[serde(default)]
     pub moisture_year: f32,
+
+    // --- seit Spielstand-Format 5 (v0.3.0) ---
+    /// Dicke der beweglichen Bodenschicht über dem Gestein (m).
+    #[serde(default)]
+    pub soil_depth: f32,
+    /// Noch nicht ins Gelände übernommene Änderung der Bodenschicht (m,
+    /// positiv = Ablagerung). Kleine tägliche Beträge werden hier gesammelt,
+    /// bis sie groß genug sind, um die Höhe genau zu verändern.
+    #[serde(default)]
+    pub soil_change: f32,
+    /// Noch nicht übernommener Abtrag des Gesteins (m, ≤ 0).
+    #[serde(default)]
+    pub rock_change: f32,
+    /// Geglättete Höhenänderung durch Abtrag und Ablagerung (m pro Jahr).
+    #[serde(default)]
+    pub erosion_rate: f32,
+}
+
+/// Wasser, das ein Meter Boden halten kann (mm): Sand an der Küste hält wenig.
+pub fn water_per_soil_meter(elevation: f32) -> f32 {
+    if elevation < 3.0 { 70.0 } else { 180.0 }
 }
 
 /// Gedächtnis der Jahresmittel: Gewicht des heutigen Tages (≈ 1/365).
@@ -223,6 +244,40 @@ impl World {
         }
     }
 
+    /// Setzt winzige Restwerte auf 0. Werte, die Tag für Tag schrumpfen
+    /// (z. B. Gras auf nacktem Fels), bleiben sonst im Bereich „subnormaler“
+    /// Gleitkommazahlen hängen – das Ergebnis ändert sich dadurch nicht
+    /// sichtbar, aber jede Rechnung damit ist auf manchen Prozessoren
+    /// vielfach langsamer.
+    pub fn flush_tiny(&mut self) {
+        const TINY: f32 = 1e-30;
+        let f = |v: &mut f32| {
+            if v.abs() < TINY {
+                *v = 0.0;
+            }
+        };
+        for t in self.tiles.iter_mut() {
+            f(&mut t.surface_water);
+            f(&mut t.soil_moisture);
+            f(&mut t.flow);
+            f(&mut t.grass);
+            f(&mut t.forest);
+            f(&mut t.shrub);
+            f(&mut t.forest_age);
+            f(&mut t.deadwood);
+            f(&mut t.deep_moisture);
+            f(&mut t.tree_supply);
+            f(&mut t.fire);
+            f(&mut t.burn_scar);
+            f(&mut t.flow_year);
+            f(&mut t.flow_permanence);
+            f(&mut t.moisture_year);
+            f(&mut t.soil_change);
+            f(&mut t.rock_change);
+            f(&mut t.erosion_rate);
+        }
+    }
+
     pub fn land_count(&self) -> usize {
         self.tiles.iter().filter(|t| !t.is_ocean()).count()
     }
@@ -272,6 +327,10 @@ impl World {
                     flow_year: 0.0,
                     flow_permanence: 0.0,
                     moisture_year: 0.5,
+                    soil_depth: 0.0,
+                    soil_change: 0.0,
+                    rock_change: 0.0,
+                    erosion_rate: 0.0,
                 });
             }
         }
@@ -305,9 +364,9 @@ impl World {
             let var = fbm(x as f32 / 6.0, y as f32 / 6.0, soil_seed, 3);
             let rel = e / max_elevation;
             let depth = clamp01(1.3 - slope * 3.0 - rel * 0.8 + (var - 0.5) * 0.6) * 1.5 + 0.1;
-            let per_m = if e < 3.0 { 70.0 } else { 180.0 };
             let t = &mut world.tiles[i];
-            t.soil_capacity = depth * per_m;
+            t.soil_depth = depth;
+            t.soil_capacity = depth * water_per_soil_meter(e);
             t.soil_moisture = t.soil_capacity * 0.5;
             // Startvegetation: Grasland fast überall, Waldinseln in feuchten Lagen
             let v = fbm(x as f32 / 8.0, y as f32 / 8.0, veg_seed, 4);

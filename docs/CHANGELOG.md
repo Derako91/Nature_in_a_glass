@@ -1,5 +1,44 @@
 # Änderungen
 
+## 0.3.0 – Erosion: Die Insel formt sich selbst
+
+Letzter Schritt von v0.3 (Hydrologie und Erosion). Damit ist die Hydrologie abgeschlossen.
+
+**Neu in der Natur**
+- **Jedes Feld hat eine Bodenschicht** mit eigener Dicke. Dünner Boden hält weniger Wasser, dort wächst weniger.
+- **Abspülung:** Regen und abfließendes Wasser tragen Boden ab – je steiler und je kahler, desto mehr. Bewuchs schützt stark, Brandflächen kaum: Ein Starkregen kurz nach einem Brand reißt am Hang viel Boden mit.
+- **Bäche graben sich ein**, auf nacktem Fels viel langsamer als im Boden.
+- **Ablagerung:** Wo das Wasser langsamer wird – in Senken, flachen Niederungen und Seen –, setzt sich der Boden ab. **Seen verlanden** über Jahrhunderte.
+- **Schwemmland:** Was das Meer erreicht, lagert sich vor der Mündung ab. Wächst die Sandbank über den Meeresspiegel, taucht neues Land auf.
+- **Bodenbildung:** Aus dem Gestein entsteht langsam neuer Boden, unter Wald schneller.
+- **Seen bekommen Namen** (z. B. Erlensee, Rohrweiher), sobald sie drei Jahre bestehen, und behalten sie.
+
+**Neu im Beobachter**
+- Ebene **Boden/Abtrag**: Rot verliert Boden, Blaugrün sammelt ihn; heller Grundton ist nackter Fels, dunkelbraun tiefe Erde.
+- Insel-Ansicht: **Seen** (benannte Seen und Wasserfelder) und **Boden** (mittlere Dicke, Abtrag im letzten Jahr).
+- Feld-Kasten: **Bodendicke** und wie viel das Feld je 100 Jahre verliert oder gewinnt; der Name des Sees.
+- Chronik: **Abspülung** nach starkem Regen (mit Hinweis auf Brandflächen), **ein See hat sich gebildet**, **See verlandet**, **See verschwunden**, **mit anderem See zusammengewachsen**, **neues Land**. Ein verschwundener oder verlandeter See zählt zu den wichtigen Ereignissen.
+- Kommandozeile: Spalten für Abtrag und Bodendicke.
+
+**Behoben**
+- Sehr lange Läufe wurden mit der Zeit langsamer: Winzige Restwerte (z. B. letzte Grashalme auf nacktem Fels) blieben in einem Zahlenbereich hängen, mit dem der Prozessor nur sehr langsam rechnet. Sie werden jetzt regelmäßig auf null gesetzt; die Simulation läuft über Jahrtausende gleich schnell.
+
+**Beobachtet (Insel 42)**
+- Unter Wald geht kaum Boden verloren; auf Brandflächen am Hang verliert der Boden bei Starkregen im ersten Jahr mehrere Millimeter, bis das Gras zurück ist.
+- Die Insel verliert im Jahr einige hundert m³ Boden, etwa zwei Drittel davon gelangen ins Meer.
+- Der 28 m tiefe Erlensee füllt sich langsam (einige Zentimeter je Jahrhundert). Über 3000 Jahre nimmt die Zahl der Wasserfelder in Senken von gut 40 auf etwa 25 ab, weil flache Tümpel verlanden.
+- Etwa alle hundert Jahre taucht an einer Bachmündung ein Stück Schwemmland auf.
+- Bäche schneiden sich ein: Die Zahl der dauerhaft fließenden Bachfelder steigt über 3000 Jahre von etwa 40 auf 60. Der Wald bleibt bei 70–85 %.
+
+**Getestet**
+- Kahler Hang verliert bei Regen viel mehr Boden als ein bewachsener; die Chronik meldet die Abspülung.
+- Bodenbilanz geschlossen: Was oben fehlt, liegt unten oder im Meer.
+- 300 Jahre: Land wird nicht zu Meer, Wasserhaltevermögen folgt der Bodendicke, Seeböden heben sich.
+- Seen haben eindeutige, bleibende Namen; gleicher Seed, gleiche Namen; ein ausgetrockneter See wird gemeldet.
+
+**Spielstände:** Format 5. Spielstände aus allen früheren Versionen werden übernommen: Die Bodendicke ergibt sich aus dem bisherigen Wasserhaltevermögen, bestehende Seen werden beim Laden erkannt und nach drei Jahren benannt. Gleiche Inseln entwickeln sich wegen der Erosion anders als in 0.2.
+
+
 ## 0.2.5 – Chronik bleibt auch nach Jahrtausenden lebendig
 
 **Behoben**

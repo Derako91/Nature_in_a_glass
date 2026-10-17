@@ -126,6 +126,7 @@ pub fn step_day(
     aquifer: &mut f32,
     capacity: f32,
     through: &mut [f32],
+    order: &mut Vec<u32>,
 ) -> HydroDay {
     let mut day = HydroDay::default();
     let (w, max_e) = (world.width, world.max_elevation);
@@ -178,9 +179,10 @@ pub fn step_day(
         .map(|(i, t)| (head(t), i as u32))
         .collect();
     keyed.sort_unstable_by(|a, b| b.0.total_cmp(&a.0).then(a.1.cmp(&b.1)));
-    let order: Vec<u32> = keyed.into_iter().map(|(_, i)| i).collect();
+    order.clear();
+    order.extend(keyed.into_iter().map(|(_, i)| i));
     let mut receivers: Vec<(usize, f32, f32)> = Vec::with_capacity(8);
-    for &i in &order {
+    for &i in order.iter() {
         let i = i as usize;
         {
             let t = &mut world.tiles[i];

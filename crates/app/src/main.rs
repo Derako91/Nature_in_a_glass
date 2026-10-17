@@ -111,6 +111,8 @@ fn main() -> eframe::Result {
                     "hoehe" => Layer::Height,
                     "feuchte" => Layer::Moisture,
                     "wasser" => Layer::Water,
+                    "brand" => Layer::FireRisk,
+                    "boden" => Layer::Soil,
                     _ => Layer::Nature,
                 };
             }
@@ -505,7 +507,40 @@ impl App {
                         thousands(self.sim.last_water.to_sea * M3_PER_TILE_MM)
                     ),
                 );
-                row(ui, "Teich-/Seefelder", snap.pond_tiles.to_string());
+                row(
+                    ui,
+                    "Seen",
+                    format!(
+                        "{} benannt · {} Wasserfelder",
+                        self.sim.lakes.current().count(),
+                        snap.pond_tiles
+                    ),
+                )
+                .on_hover_text(
+                    "Zusammenhängende stehende Gewässer ab drei Feldern bekommen einen \
+                     Namen. Wasserfelder zählt auch kleine Tümpel.",
+                );
+                let (soil_m3, soil_depth) = self
+                    .sim
+                    .history
+                    .last()
+                    .map(|y| (y.eroded_m3, y.soil_depth_m))
+                    .unwrap_or((0.0, self.sim.mean_soil_depth()));
+                row(
+                    ui,
+                    "Boden",
+                    format!(
+                        "Ø {} m · Abtrag {} m³/J.",
+                        de(soil_depth, 2),
+                        thousands(soil_m3)
+                    ),
+                )
+                .on_hover_text(
+                    "Mittlere Dicke der Bodenschicht und wie viel Boden das Wasser im \
+                     letzten Jahr gelöst hat (m³ pro Jahr). Pflanzen schützen den Boden, Brandflächen \
+                     kaum. Was abgetragen wird, lagert sich in Senken, Seen und vor der \
+                     Küste wieder ab.",
+                );
                 row(
                     ui,
                     "Grundwasser",
@@ -555,6 +590,7 @@ impl App {
             ("Totholz", dash()),
             ("Feuer", dash()),
             ("Trockentage", dash()),
+            ("Boden", dash()),
         ];
         if let Some(i) = self.selected {
             let world = &self.sim.world;
@@ -570,8 +606,11 @@ impl App {
             }
             .to_string();
             if !t.is_ocean() {
-                if t.surface_water > POND_MM {
-                    kind.push_str(", Teich/See");
+                if let Some(name) = self.sim.lakes.name_at(i as u32) {
+                    kind.push_str(", ");
+                    kind.push_str(name);
+                } else if t.surface_water > POND_MM {
+                    kind.push_str(", Teich");
                 } else if t.flow > STREAM_FLOW {
                     kind.push_str(", Bach");
                 }
@@ -629,6 +668,16 @@ impl App {
                     dash()
                 };
                 rows[13].1 = t.drought_days.to_string();
+                // Höhenänderung je Jahrhundert, gerundet auf ganze Millimeter
+                let per_century = t.erosion_rate * 100_000.0;
+                let trend = if per_century <= -1.0 {
+                    format!(" · −{:.0} mm/100 J.", -per_century)
+                } else if per_century >= 1.0 {
+                    format!(" · +{:.0} mm/100 J.", per_century)
+                } else {
+                    " · stabil".to_string()
+                };
+                rows[14].1 = format!("{} m{trend}", de(t.soil_depth + t.soil_change, 2));
             }
         }
         egui::Grid::new("tile")

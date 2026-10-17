@@ -131,7 +131,7 @@ fn main() -> ExitCode {
         sim.year()
     );
     println!(
-        "{:>5} {:>6} {:>6} {:>6} {:>6} {:>6} {:>7} {:>5} {:>5} {:>7} {:>5} {:>6} {:>6}",
+        "{:>5} {:>6} {:>6} {:>6} {:>6} {:>6} {:>7} {:>5} {:>5} {:>7} {:>5} {:>6} {:>6} {:>7} {:>6}",
         "Jahr",
         "Regen",
         "Wald%",
@@ -144,7 +144,9 @@ fn main() -> ExitCode {
         "Grundw%",
         "Brand",
         "Felder",
-        "Dürre"
+        "Dürre",
+        "Abtr.m³",
+        "Boden"
     );
 
     let start = Instant::now();
@@ -154,7 +156,7 @@ fn main() -> ExitCode {
 
     for s in &sim.history[first..] {
         println!(
-            "{:>5} {:>6.0} {:>6.1} {:>6.1} {:>6.1} {:>6.1} {:>7.1} {:>5} {:>5} {:>7.0} {:>5} {:>6} {:>6}",
+            "{:>5} {:>6.0} {:>6.1} {:>6.1} {:>6.1} {:>6.1} {:>7.1} {:>5} {:>5} {:>7.0} {:>5} {:>6} {:>6} {:>7.0} {:>5.2}m",
             s.year,
             s.rain_mm,
             s.forest_pct,
@@ -167,7 +169,9 @@ fn main() -> ExitCode {
             s.aquifer_pct,
             s.fires,
             s.burned_tiles,
-            s.drought_days
+            s.drought_days,
+            s.eroded_m3,
+            s.soil_depth_m
         );
     }
 

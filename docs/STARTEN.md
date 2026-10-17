@@ -26,7 +26,7 @@ Das Programm ist (noch) nicht signiert. Beim ersten Start fragt das Betriebssyst
 | Feld untersuchen | Auf ein Feld klicken → Kasten unten links |
 | Damm / Durchbruch | Im Feld-Kasten: *Damm +2 m* oder *Durchbruch −2 m* |
 | Ansicht wechseln | **Isometrisch** oder **Karte** |
-| Ebene wechseln | Natur, Höhe, Bodenfeuchte, Wasser, Brandgefahr |
+| Ebene wechseln | Natur, Höhe, Bodenfeuchte, Wasser, Brandgefahr, Boden/Abtrag |
 | Wichtige Ereignisse | *Nur Chronik*, *Anhalten* oder *Anhalten und hinfahren* (Brand, Dürre, Waldsterben, Keimung …) |
 | Ereignisort finden | Eintrag in der *Chronik* anklicken |
 | Ursachen eines Ereignisses | Maus über den Chronik-Eintrag halten |
@@ -51,6 +51,8 @@ Ideen zum Ausprobieren:
 - Zwei Inseln mit demselben Seed nebeneinander laufen lassen – sie entwickeln sich exakt gleich.
 - „Paradies, dann alles aus“: Regen hoch, 150 Jahre warten, dann Regen und Quellen auf 0. Der Wald stirbt über Monate, Totholz bleibt stehen – und wenn danach ein Gewitter kommt, brennt es.
 - Den Wald aussterben lassen, dann einen Baumsamen fallen lassen und warten, ob irgendwo ein neuer Wald entsteht.
+- Ebene *Boden/Abtrag*: Rot verliert Boden, Blaugrün sammelt ihn, hell ist nackter Fels, dunkelbraun tiefe Erde. Einen Waldbrand abwarten und dann beim nächsten Starkregen hinschauen: Auf der Brandfläche spült es den Boden ab, bis das Gras zurück ist.
+- Mit 10 Jahren/s über Jahrtausende laufen lassen: Seen verlanden langsam, an Bachmündungen taucht Schwemmland aus dem Meer auf. Jeder See hat einen Namen – er steht im Feld-Kasten und in der Chronik.
 - *Wichtige Ereignisse: Anhalten und hinfahren* einstellen und mit 10 Jahren/s laufen lassen – der Beobachter hält beim nächsten Brand an.
 
 ## Startoptionen (für Fortgeschrittene)
@@ -60,7 +62,7 @@ Ideen zum Ausprobieren:
 - `--seed N` – welche Insel
 - `--years N` – vor dem Öffnen N Jahre vorspulen
 - `--view karte` – mit der 2D-Karte starten
-- `--layer hoehe|feuchte|wasser` – Startebene
+- `--layer hoehe|feuchte|wasser|brand|boden` – Startebene
 - `--speed 0…5` – sofort mit Zeitraffer starten (0 = 1 Std/s, 5 = 10 Jahre/s)
 - `--days N` – zusätzlich N Tage vorspulen
 - `--reaction 0|1|2` – bei wichtigen Ereignissen: nur Chronik, anhalten, anhalten und hinfahren

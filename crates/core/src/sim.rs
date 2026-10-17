@@ -3,9 +3,11 @@
 use serde::{Deserialize, Serialize};
 
 use crate::climate::{Climate, Weather};
+use crate::erosion::{self, ErosionDay};
 use crate::events::{EventKind, Journal};
 use crate::fire;
 use crate::hydro::{self, HydroDay};
+use crate::lakes::{LakeChange, Lakes};
 use crate::rng::Rng;
 use crate::vegetation;
 use crate::world::{POND_MM, World};
@@ -15,7 +17,7 @@ pub const DAYS_PER_YEAR: u64 = 365;
 pub const HOURS_PER_YEAR: u64 = HOURS_PER_DAY * DAYS_PER_YEAR;
 
 /// Version des Spielstand-Formats. Erhöhen, wenn sich die Struktur ändert.
-pub const SAVE_FORMAT_VERSION: u32 = 4;
+pub const SAVE_FORMAT_VERSION: u32 = 5;
 pub const ENGINE_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 pub const DEFAULT_SIZE: u32 = 64;
@@ -38,6 +40,10 @@ pub const RILL_FLOW: f32 = 15.0;
 
 /// Ab diesem Inselmittel (mm an einem Tag) gilt Regen als Starkregen.
 pub const HEAVY_RAIN_MM: f32 = 40.0;
+
+/// Ab so vielen Feldern mit über 2 mm Bodenverlust an einem Tag meldet die
+/// Chronik eine Abspülung.
+pub const EROSION_EVENT_TILES: u32 = 8;
 
 /// Kennzahlen eines vollständigen Jahres.
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq)]
@@ -67,6 +73,16 @@ pub struct YearStats {
     /// Abfluss ins Meer im ganzen Jahr (m³).
     #[serde(default)]
     pub discharge_m3: f32,
+    // seit v0.3.0
+    /// Im Jahr abgetragener Boden (m³).
+    #[serde(default)]
+    pub eroded_m3: f32,
+    /// Davon ins Meer getragen (m³).
+    #[serde(default)]
+    pub sediment_to_sea_m3: f32,
+    /// Mittlere Bodendicke der Insel (m).
+    #[serde(default)]
+    pub soil_depth_m: f32,
 }
 
 /// Momentaufnahme der ganzen Insel.
@@ -150,6 +166,11 @@ struct YearAccumulator {
     burned: u32,
     #[serde(default)]
     discharge_m3: f32,
+    /// Seit Format 5: abgetragener Boden und Bodenfracht ins Meer (m³).
+    #[serde(default)]
+    eroded_m3: f32,
+    #[serde(default)]
+    sediment_to_sea_m3: f32,
 }
 
 /// Verfolgt einen laufenden Brand (mehrere Brandherde zählen zusammen).
@@ -218,12 +239,25 @@ pub struct Simulation {
     /// Ob das Grundwasser gerade als Tiefstand gemeldet ist.
     #[serde(default)]
     groundwater_low: bool,
+    /// Höhenänderung je Feld im laufenden Jahr (m), seit Format 5.
+    #[serde(default)]
+    erosion_year: Vec<f32>,
+    /// Benannte Seen, seit Format 5.
+    #[serde(default)]
+    pub lakes: Lakes,
 
     /// Wasserbilanz des letzten Tages (für Auswertung und Tests).
     #[serde(skip)]
     pub last_water: HydroDay,
+    /// Abtrag des letzten Tages.
+    #[serde(skip)]
+    pub last_erosion: ErosionDay,
     #[serde(skip)]
     scratch_through: Vec<f32>,
+    #[serde(skip)]
+    scratch_order: Vec<u32>,
+    #[serde(skip)]
+    scratch_erosion: erosion::Scratch,
     #[serde(skip)]
     scratch_vegetation: vegetation::Scratch,
     #[serde(skip)]
@@ -269,8 +303,13 @@ impl Simulation {
             fire_tracker: FireTracker::default(),
             forest_tracker: ForestTracker::default(),
             groundwater_low: false,
+            erosion_year: Vec::new(),
+            lakes: Lakes::default(),
             last_water: HydroDay::default(),
+            last_erosion: ErosionDay::default(),
             scratch_through: Vec::new(),
+            scratch_order: Vec::new(),
+            scratch_erosion: erosion::Scratch::default(),
             scratch_vegetation: vegetation::Scratch::default(),
             scratch_fire: fire::Scratch::default(),
         };
@@ -355,8 +394,23 @@ impl Simulation {
             &mut self.aquifer,
             self.aquifer_capacity,
             &mut self.scratch_through,
+            &mut self.scratch_order,
         );
         self.last_water = day;
+        if self.erosion_year.len() != n {
+            self.erosion_year = vec![0.0; n];
+        }
+        let soil_day = erosion::step_day(
+            &mut self.world,
+            &self.weather,
+            &self.scratch_through,
+            &self.scratch_order,
+            &mut self.erosion_year,
+            &mut self.scratch_erosion,
+        );
+        self.last_erosion = soil_day;
+        self.year.eroded_m3 += soil_day.eroded * erosion::M3_PER_TILE_M;
+        self.year.sediment_to_sea_m3 += soil_day.to_sea * erosion::M3_PER_TILE_M;
         vegetation::step_day(
             &mut self.world,
             &self.weather,
@@ -370,10 +424,14 @@ impl Simulation {
             &mut self.scratch_fire,
         );
         self.step_seeds();
+        if self.day_of_year().is_multiple_of(30) {
+            self.world.flush_tiny();
+        }
 
         self.year.rain_mm += day.rain_mm;
         self.year.discharge_m3 += day.to_sea * hydro::M3_PER_TILE_MM;
         self.detect_events(day.rain_mm);
+        self.detect_erosion_events(&soil_day, day.rain_mm);
         self.detect_fire_events(&fire_day);
         self.detect_forest_events();
     }
@@ -757,8 +815,16 @@ impl Simulation {
     }
 
     fn close_year(&mut self) {
-        let snap = self.snapshot();
+        let n = self.world.tiles.len();
+        if self.erosion_year.len() != n {
+            self.erosion_year = vec![0.0; n];
+        }
+        let new_land = erosion::apply_year(&mut self.world, &mut self.erosion_year);
+        self.report_new_land(&new_land);
         let finished = self.year() - 1;
+        let changes = self.lakes.update(&self.world, finished);
+        self.report_lakes(changes);
+        let snap = self.snapshot();
         let stats = YearStats {
             year: finished,
             rain_mm: self.year.rain_mm,
@@ -776,6 +842,9 @@ impl Simulation {
             burned_tiles: self.year.burned,
             permanent_stream_tiles: snap.permanent_tiles,
             discharge_m3: self.year.discharge_m3,
+            eroded_m3: self.year.eroded_m3,
+            sediment_to_sea_m3: self.year.sediment_to_sea_m3,
+            soil_depth_m: self.mean_soil_depth(),
         };
         let prev_forest = self.history.last().map(|s| s.forest_pct);
         let trend = match prev_forest {
@@ -808,6 +877,113 @@ impl Simulation {
     }
 
     // ---------- Auswertung ----------
+
+    /// Mittlere Dicke der Bodenschicht über alle Landfelder (m).
+    pub fn mean_soil_depth(&self) -> f32 {
+        let (mut sum, mut n) = (0.0, 0u32);
+        for t in &self.world.tiles {
+            if !t.is_ocean() {
+                sum += t.soil_depth + t.soil_change;
+                n += 1;
+            }
+        }
+        sum / n.max(1) as f32
+    }
+
+    /// Starker Bodenabtrag an einem Tag kommt in die Chronik.
+    fn detect_erosion_events(&mut self, d: &ErosionDay, rain_today: f32) {
+        if d.heavy_tiles < EROSION_EVENT_TILES {
+            return;
+        }
+        let m3 = (d.eroded - d.deposited).max(0.0) * erosion::M3_PER_TILE_M;
+        let mut causes = vec![format!("Regen heute im Mittel {rain_today:.0} mm")];
+        if d.heavy_burned_tiles > 0 {
+            causes.push(format!(
+                "{} der Felder sind Brandflächen ohne schützenden Bewuchs",
+                d.heavy_burned_tiles
+            ));
+        } else {
+            causes.push("Kahler oder spärlich bewachsener Boden".into());
+        }
+        let loc = d.worst_tile.map(|i| self.world.xy(i as usize));
+        self.journal.push(
+            self.time_hours,
+            EventKind::SoilErosion,
+            loc,
+            format!(
+                "Abspülung: Das Wasser trägt auf {} Feldern Boden ab, zusammen etwa {:.0} m³.",
+                d.heavy_tiles, m3
+            ),
+            causes,
+        );
+    }
+
+    fn report_lakes(&mut self, changes: Vec<LakeChange>) {
+        let now = self.time_hours;
+        for c in changes {
+            let (kind, lake, msg, causes) = match c {
+                LakeChange::Formed { lake } => {
+                    let (x, y) = self.world.xy(lake.anchor() as usize);
+                    let msg = format!(
+                        "Bei ({x}, {y}) liegt ein See: der {} ({} Felder, bis zu {:.1} m tief).",
+                        lake.name,
+                        lake.tiles.len(),
+                        lake.max_depth_m
+                    );
+                    (
+                        EventKind::LakeFormed,
+                        lake,
+                        msg,
+                        vec!["Wasser sammelt sich in einer Senke".into()],
+                    )
+                }
+                LakeChange::Silted { lake, years } => {
+                    let msg = format!(
+                        "Der {} ist verlandet: Abgelagerter Boden hat ihn nach {years} Jahren aufgefüllt.",
+                        lake.name
+                    );
+                    (
+                        EventKind::LakeGone,
+                        lake,
+                        msg,
+                        vec!["Bäche tragen Boden in den See".into()],
+                    )
+                }
+                LakeChange::DriedUp { lake, years } => {
+                    let msg = format!("Der {} ist nach {years} Jahren verschwunden.", lake.name);
+                    let causes = vec![
+                        "Seit drei Jahren kein stehendes Wasser mehr".into(),
+                        format!("Grundwasser bei {:.0} %", self.groundwater_level() * 100.0),
+                    ];
+                    (EventKind::LakeGone, lake, msg, causes)
+                }
+                LakeChange::Merged { lake, into } => {
+                    let msg = format!("Der {} ist im {into} aufgegangen.", lake.name);
+                    (
+                        EventKind::LakeGone,
+                        lake,
+                        msg,
+                        vec!["Die Wasserflächen sind zusammengewachsen".into()],
+                    )
+                }
+            };
+            let loc = self.world.xy(lake.anchor() as usize);
+            self.journal.push(now, kind, Some(loc), msg, causes);
+        }
+    }
+
+    fn report_new_land(&mut self, tiles: &[u32]) {
+        for &i in tiles {
+            let (x, y) = self.world.xy(i as usize);
+            self.journal.push(
+                self.time_hours,
+                EventKind::NewLand,
+                Some((x, y)),
+                format!("Bei ({x}, {y}) ist aus abgelagertem Boden neues Land aufgetaucht."),
+                vec!["Bäche tragen seit langer Zeit Boden ins Meer".into()],
+            );
+        }
+    }
 
     fn island_moisture(&self) -> f32 {
         let (mut sum, mut n) = (0.0, 0u32);
@@ -912,6 +1088,10 @@ impl Simulation {
             feed(t.flow_year.to_bits() as u64);
             feed(t.flow_permanence.to_bits() as u64);
             feed(t.moisture_year.to_bits() as u64);
+            feed(t.elevation.to_bits() as u64);
+            feed(t.soil_depth.to_bits() as u64);
+            feed(t.soil_change.to_bits() as u64);
+            feed(t.rock_change.to_bits() as u64);
         }
         feed(self.seeds.len() as u64);
         feed(self.journal.events.len() as u64);
@@ -1040,12 +1220,18 @@ impl Simulation {
                 sim.migrate_from_v1();
                 sim.migrate_from_v2();
                 sim.migrate_from_v3();
+                sim.migrate_from_v4();
             }
             2 => {
                 sim.migrate_from_v2();
                 sim.migrate_from_v3();
+                sim.migrate_from_v4();
             }
-            3 => sim.migrate_from_v3(),
+            3 => {
+                sim.migrate_from_v3();
+                sim.migrate_from_v4();
+            }
+            4 => sim.migrate_from_v4(),
             other => {
                 return Err(format!(
                     "Spielstand-Format {other} wird nicht unterstützt (erwartet 1 bis {SAVE_FORMAT_VERSION})."
@@ -1053,9 +1239,31 @@ impl Simulation {
             }
         }
         sim.world.rebuild_drainage();
+        if file.format_version < 5 {
+            // Bestehende Seen bekommen sofort ihre Namen.
+            let year = sim.year().saturating_sub(1);
+            let changes = sim.lakes.update(&sim.world, year);
+            sim.report_lakes(changes);
+        }
         // Spielstände aus sehr langen Läufen bis 0.2.4 haben eine übervolle Chronik.
         sim.journal.trim();
         Ok(sim)
+    }
+
+    /// Spielstände aus Format 4 übernehmen: Die Bodendicke ergibt sich aus
+    /// dem bisherigen Wasserhaltevermögen.
+    fn migrate_from_v4(&mut self) {
+        for t in self.world.tiles.iter_mut() {
+            t.soil_depth = if t.is_ocean() {
+                0.0
+            } else {
+                t.soil_capacity / crate::world::water_per_soil_meter(t.elevation)
+            };
+            t.soil_change = 0.0;
+            t.rock_change = 0.0;
+            t.erosion_rate = 0.0;
+        }
+        self.erosion_year = vec![0.0; self.world.tiles.len()];
     }
 
     /// Spielstände aus Format 3 übernehmen: Das Grundwasser bekommt ein

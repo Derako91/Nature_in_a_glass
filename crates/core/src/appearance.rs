@@ -157,9 +157,16 @@ pub fn ground(world: &World, i: usize) -> Ground {
         _ if t.surface_water > POND_MM => Ground::Pond,
         Terrain::Beach => Ground::Sand,
         Terrain::Mountain => Ground::Rock,
+        // Abgespült bis aufs Gestein: nackter Fels auch im Tiefland
+        _ if t.soil_depth + t.soil_change < BARE_ROCK_SOIL_M => Ground::Rock,
         _ => Ground::Soil,
     }
 }
+
+/// Unter dieser Bodendicke (m) zeigt ein Feld nackten Fels.
+pub const BARE_ROCK_SOIL_M: f32 = 0.05;
+/// Ab dieser Ablagerungsrate (m pro Jahr) ist frisch angeschwemmter Boden voll sichtbar.
+pub const SILT_FULL_RATE: f32 = 0.002;
 
 /// Überlagerungen in Zeichenreihenfolge.
 pub fn overlays(t: &Tile) -> Vec<Overlay> {
@@ -181,6 +188,11 @@ pub fn overlays(t: &Tile) -> Vec<Overlay> {
     push("ground_shrub_floor", t.shrub * 0.8);
     push("ground_forest_floor", t.forest * 0.9);
     push("ground_burnt", t.burn_scar * (1.0 - t.grass));
+    // Frisch angeschwemmter Boden (Bachufer, Schwemmfächer, verlandende Seeränder)
+    push(
+        "ground_silt",
+        clamp01(t.erosion_rate / SILT_FULL_RATE) * (1.0 - t.forest),
+    );
     out
 }
 
@@ -342,6 +354,23 @@ mod tests {
             }
         }
         assert!(close * 20 < total, "{close} von {total} Paaren zu nah");
+    }
+
+    #[test]
+    fn stripped_soil_shows_rock_and_fresh_silt_shows() {
+        let mut w = World::generate(42, 64, 64);
+        let i = (0..w.tiles.len())
+            .find(|&i| matches!(w.terrain(i), Terrain::Lowland | Terrain::Hills))
+            .unwrap();
+        w.tiles[i].surface_water = 0.0;
+        w.tiles[i].soil_depth = 0.01;
+        w.tiles[i].soil_change = 0.0;
+        assert_eq!(ground(&w, i), Ground::Rock);
+        w.tiles[i].soil_depth = 0.5;
+        assert_eq!(ground(&w, i), Ground::Soil);
+        w.tiles[i].forest = 0.0;
+        w.tiles[i].erosion_rate = SILT_FULL_RATE;
+        assert!(overlays(&w.tiles[i]).iter().any(|o| o.id == "ground_silt"));
     }
 
     #[test]
