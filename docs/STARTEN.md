@@ -52,6 +52,9 @@ Ideen zum Ausprobieren:
 - `--view karte` – mit der 2D-Karte starten
 - `--layer hoehe|feuchte|wasser` – Startebene
 - `--speed 0…5` – sofort mit Zeitraffer starten (0 = 1 Std/s, 5 = 10 Jahre/s)
+- `--days N` – zusätzlich N Tage vorspulen
+- `--reaction 0|1|2` – bei wichtigen Ereignissen: nur Chronik, anhalten, anhalten und hinfahren
+- `--select x,y` – ein Feld vorauswählen
 
 ## Ohne Fenster: `nig-sim`
 

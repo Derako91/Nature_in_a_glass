@@ -23,6 +23,10 @@ pub const DEFAULT_SIZE: u32 = 64;
 /// Ab diesem Durchfluss (mm/Tag) zählt eine Kachel als Bach.
 pub const STREAM_FLOW: f32 = 60.0;
 
+/// Ab diesem Durchfluss (mm/Tag) fließt auf einem Feld ein sichtbares Rinnsal.
+/// Darunter ist es flächiger Abfluss, wie er nach Regen überall vorkommt.
+pub const RILL_FLOW: f32 = 15.0;
+
 /// Ab diesem Inselmittel (mm an einem Tag) gilt Regen als Starkregen.
 pub const HEAVY_RAIN_MM: f32 = 40.0;
 
@@ -61,6 +65,7 @@ pub struct Snapshot {
     pub deep_moisture_pct: f32,
     pub pond_tiles: u32,
     pub stream_tiles: u32,
+    pub rill_tiles: u32,
     pub burning_tiles: u32,
     pub tree_tiles: u32,
 }
@@ -471,9 +476,13 @@ impl Simulation {
                     EventKind::FireEnd,
                     Some(ft.origin),
                     format!(
-                        "{size} erloschen nach {days} {}: {} Felder verbrannt.",
+                        "{size} erloschen nach {days} {}: {} verbrannt.",
                         if days == 1 { "Tag" } else { "Tagen" },
-                        ft.burned
+                        if ft.burned == 1 {
+                            "1 Feld".to_string()
+                        } else {
+                            format!("{} Felder", ft.burned)
+                        }
                     ),
                     vec![reason.to_string()],
                 );
@@ -759,6 +768,8 @@ impl Simulation {
             }
             if t.flow > STREAM_FLOW {
                 s.stream_tiles += 1;
+            } else if t.flow >= RILL_FLOW {
+                s.rill_tiles += 1;
             }
         }
         let k = 100.0 / n.max(1) as f32;

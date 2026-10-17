@@ -1,7 +1,7 @@
 //! Kartenzeichnung: isometrische Ansicht und 2D-Raster, Farben, Auswahl.
 
 use eframe::egui::{self, Color32, Mesh, Pos2, Rect, Shape, Stroke, Vec2};
-use nig_core::sim::STREAM_FLOW;
+use nig_core::sim::{RILL_FLOW, STREAM_FLOW};
 use nig_core::world::POND_MM;
 use nig_core::{Simulation, Terrain, World};
 
@@ -206,12 +206,26 @@ fn iso_center(x: u32, y: u32, w: u32, h: u32, zoom: f32) -> Pos2 {
     )
 }
 
+/// Kameraversatz, der ein Feld in die Bildmitte rückt.
+pub fn focus_pan(world: &World, i: usize, mode: ViewMode, zoom: f32) -> Vec2 {
+    let (x, y) = world.xy(i);
+    match mode {
+        ViewMode::Iso => {
+            let c = iso_center(x, y, world.width, world.height, zoom);
+            -(c.to_vec2() - Vec2::new(0.0, iso_lift(world.tiles[i].elevation, zoom)))
+        }
+        ViewMode::Map => {
+            let cell = MAP_CELL * zoom;
+            let fx = x as f32 + 0.5 - world.width as f32 * 0.5;
+            let fy = y as f32 + 0.5 - world.height as f32 * 0.5;
+            -Vec2::new(fx, fy) * cell
+        }
+    }
+}
+
 fn iso_lift(elevation: f32, zoom: f32) -> f32 {
     elevation.max(0.0) * ISO_HEIGHT_PX_PER_M * zoom
 }
-
-/// Ab diesem Durchfluss (mm/Tag) wird ein Rinnsal gezeichnet.
-pub const RILL_FLOW: f32 = 3.0;
 
 /// Breite eines Wasserlaufs in Bildpunkten, wächst mit der Wassermenge.
 fn stream_width(flow: f32, zoom: f32) -> f32 {
@@ -219,7 +233,8 @@ fn stream_width(flow: f32, zoom: f32) -> f32 {
 }
 
 fn stream_color(flow: f32, light: f32) -> Color32 {
-    let a = 0.5 + 0.5 * (flow / STREAM_FLOW).clamp(0.0, 1.0);
+    // schwache Rinnsale blass, kräftige Bäche satt
+    let a = 0.3 + 0.7 * ((flow - RILL_FLOW) / (2.0 * STREAM_FLOW)).clamp(0.0, 1.0);
     let c = night_tint(Color32::from_rgb(78, 150, 230), light);
     Color32::from_rgba_unmultiplied(c.r(), c.g(), c.b(), (a * 255.0) as u8)
 }

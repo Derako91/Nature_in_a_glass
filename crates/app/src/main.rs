@@ -7,9 +7,9 @@ mod view;
 use std::path::PathBuf;
 
 use eframe::egui::{self, Color32, RichText};
-use nig_core::sim::{HOURS_PER_DAY, STREAM_FLOW};
+use nig_core::sim::{HOURS_PER_DAY, RILL_FLOW, STREAM_FLOW};
 use nig_core::world::POND_MM;
-use nig_core::{EventKind, Intervention, Simulation, Terrain};
+use nig_core::{EventKind, Intervention, SeedKind, Simulation, Terrain};
 use view::{Camera, Layer, ViewMode};
 
 /// Zeitraffer-Stufen: (Bezeichnung, Simulationsstunden pro echter Sekunde)
@@ -21,6 +21,32 @@ const SPEEDS: [(&str, f64); 6] = [
     ("1 Jahr/s", 8760.0),
     ("10 Jahre/s", 87600.0),
 ];
+
+/// Wie der Beobachter auf wichtige Ereignisse reagiert.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum EventReaction {
+    /// Die Welt läuft ungestört weiter, Ereignisse stehen nur in der Chronik.
+    ChronicleOnly,
+    /// Die Zeit hält an, eine Meldung erscheint.
+    Pause,
+    /// Die Zeit hält an und die Kamera fährt zum Ort.
+    PauseAndFocus,
+}
+
+impl EventReaction {
+    const ALL: [EventReaction; 3] = [
+        EventReaction::ChronicleOnly,
+        EventReaction::Pause,
+        EventReaction::PauseAndFocus,
+    ];
+    fn label(self) -> &'static str {
+        match self {
+            EventReaction::ChronicleOnly => "Nur Chronik",
+            EventReaction::Pause => "Anhalten",
+            EventReaction::PauseAndFocus => "Anhalten und hinfahren",
+        }
+    }
+}
 
 /// Höchstens so viel Simulationszeit pro Bild, damit das Fenster reagiert.
 const MAX_HOURS_PER_FRAME: f64 = 24.0 * 365.0;
@@ -40,6 +66,8 @@ fn main() -> eframe::Result {
     let view = arg("--view");
     let layer = arg("--layer");
     let speed: Option<usize> = arg("--speed").and_then(|s| s.parse().ok());
+    let days: u64 = arg("--days").and_then(|s| s.parse().ok()).unwrap_or(0);
+    let reaction: Option<usize> = arg("--reaction").and_then(|s| s.parse().ok());
     let select: Option<(u32, u32)> = arg("--select").and_then(|s| {
         let (x, y) = s.split_once(',')?;
         Some((x.trim().parse().ok()?, y.trim().parse().ok()?))
@@ -50,6 +78,11 @@ fn main() -> eframe::Result {
         Box::new(move |_cc| {
             let mut app = App::new(seed);
             app.sim.advance_years(years);
+            app.sim.advance_days(days);
+            app.seen_event = app.last_event_id();
+            if let Some(r) = reaction {
+                app.reaction = EventReaction::ALL[r.min(2)];
+            }
             if view.as_deref() == Some("karte") {
                 app.mode = ViewMode::Map;
             }
@@ -87,6 +120,9 @@ struct App {
     seed_text: String,
     show_year_summaries: bool,
     status: String,
+    reaction: EventReaction,
+    /// Höchste Ereignis-ID, die der Beobachter schon geprüft hat.
+    seen_event: u64,
     // Eingriffe: Werte während des Ziehens, angewendet beim Loslassen
     pending_rain: f32,
     pending_temp: f32,
@@ -107,12 +143,15 @@ impl App {
             seed_text: seed.to_string(),
             show_year_summaries: false,
             status: String::new(),
+            reaction: EventReaction::ChronicleOnly,
+            seen_event: 0,
             pending_rain: 0.0,
             pending_temp: 0.0,
             pending_springs: Vec::new(),
             sim,
         };
         app.sync_pending();
+        app.seen_event = app.sim.journal.events.last().map(|e| e.id).unwrap_or(0);
         app
     }
 
@@ -131,6 +170,7 @@ impl App {
     }
 
     fn replace_sim(&mut self, sim: Simulation) {
+        self.seen_event = sim.journal.events.last().map(|e| e.id).unwrap_or(0);
         self.sim = sim;
         self.selected = None;
         self.owed_hours = 0.0;
@@ -177,10 +217,61 @@ impl App {
         self.owed_hours += SPEEDS[self.speed].1 * dt;
         self.owed_hours = self.owed_hours.min(MAX_HOURS_PER_FRAME);
         let whole = self.owed_hours.floor();
-        if whole >= 1.0 {
-            self.sim.advance_hours(whole as u64);
-            self.owed_hours -= whole;
+        if whole < 1.0 {
+            return;
         }
+        self.owed_hours -= whole;
+        if self.reaction == EventReaction::ChronicleOnly {
+            self.sim.advance_hours(whole as u64);
+            self.seen_event = self.last_event_id();
+            return;
+        }
+        // Tageweise vorrücken, damit wir genau beim Ereignis anhalten
+        let mut left = whole as u64;
+        while left > 0 {
+            let to_next_day = HOURS_PER_DAY - self.sim.time_hours % HOURS_PER_DAY;
+            let step = left.min(to_next_day);
+            self.sim.advance_hours(step);
+            left -= step;
+            if self.check_important_events() {
+                self.owed_hours = 0.0;
+                break;
+            }
+        }
+    }
+
+    fn last_event_id(&self) -> u64 {
+        self.sim.journal.events.last().map(|e| e.id).unwrap_or(0)
+    }
+
+    /// Prüft neue Ereignisse; hält bei wichtigen an. Gibt `true` zurück, wenn angehalten.
+    fn check_important_events(&mut self) -> bool {
+        let seen = self.seen_event;
+        self.seen_event = self.last_event_id();
+        let found = self
+            .sim
+            .journal
+            .events
+            .iter()
+            .rev()
+            .take_while(|e| e.id > seen)
+            .filter(|e| e.kind.is_important())
+            .last()
+            .cloned();
+        let Some(e) = found else {
+            return false;
+        };
+        self.running = false;
+        self.status = format!("Angehalten: {}", e.message);
+        if self.reaction == EventReaction::PauseAndFocus
+            && let Some((x, y)) = e.location
+        {
+            let w = &self.sim.world;
+            let i = w.idx(x.min(w.width - 1), y.min(w.height - 1));
+            self.selected = Some(i);
+            self.camera.pan = view::focus_pan(w, i, self.mode, self.camera.zoom);
+        }
+        true
     }
 
     fn season_name(&self) -> &'static str {
@@ -251,6 +342,21 @@ impl App {
                     }
                 });
             ui.separator();
+            ui.label("Wichtige Ereignisse:");
+            egui::ComboBox::from_id_salt("reaction")
+                .width(170.0)
+                .selected_text(self.reaction.label())
+                .show_ui(ui, |ui| {
+                    for r in EventReaction::ALL {
+                        ui.selectable_value(&mut self.reaction, r, r.label());
+                    }
+                })
+                .response
+                .on_hover_text(
+                    "Wichtig sind: Brand, Dürre, Waldsterben, letzter Baum, \
+                     Rückkehr der Bäume, Keimung eines Samens, versiegte Quelle.",
+                );
+            ui.separator();
             if ui.button("Speichern").clicked() {
                 self.save();
             }
@@ -299,6 +405,7 @@ impl App {
         self.island_section(ui);
         ui.separator();
         self.intervention_section(ui);
+        self.seed_row(ui);
         ui.separator();
         self.history_section(ui);
         ui.separator();
@@ -326,17 +433,56 @@ impl App {
                 } else {
                     "trocken".into()
                 };
+                let weather = if wx.dry_thunder {
+                    "trockenes Gewitter".to_string()
+                } else if wx.thunder {
+                    format!("{weather}, Gewitter")
+                } else {
+                    weather
+                };
                 row(ui, "Wetter heute", weather);
+                row(ui, "Wind", wx.wind_text());
                 row(ui, "Temperatur (Küste)", format!("{:.1} °C", wx.temp_c));
-                row(ui, "Wald", format!("{:.1} %", snap.forest_pct));
-                row(ui, "Gras", format!("{:.1} %", snap.grass_pct));
-                row(ui, "Bodenfeuchte", format!("{:.0} %", snap.moisture_pct));
-                row(ui, "Bachfelder", snap.stream_tiles.to_string());
+                row(
+                    ui,
+                    "Wald / Busch / Gras",
+                    format!(
+                        "{:.0} % / {:.0} % / {:.0} %",
+                        snap.forest_pct, snap.shrub_pct, snap.grass_pct
+                    ),
+                );
+                row(ui, "Totholz", format!("{:.1} %", snap.deadwood_pct));
+                row(
+                    ui,
+                    "Boden- / Tiefenfeuchte",
+                    format!(
+                        "{:.0} % / {:.0} %",
+                        snap.moisture_pct, snap.deep_moisture_pct
+                    ),
+                );
+                row(
+                    ui,
+                    "Bäche / Rinnsale",
+                    format!("{} / {} Felder", snap.stream_tiles, snap.rill_tiles),
+                );
                 row(ui, "Teich-/Seefelder", snap.pond_tiles.to_string());
                 row(
                     ui,
                     "Grundwasser",
                     format!("{:.0} %", self.sim.aquifer / self.sim.aquifer_ref * 100.0),
+                );
+                row(
+                    ui,
+                    "Feuer",
+                    if snap.burning_tiles > 0 {
+                        if snap.burning_tiles == 1 {
+                            "1 Feld brennt".to_string()
+                        } else {
+                            format!("{} Felder brennen", snap.burning_tiles)
+                        }
+                    } else {
+                        "–".into()
+                    },
                 );
             });
     }
@@ -350,9 +496,14 @@ impl App {
             ("Höhe", dash()),
             ("Temperatur", dash()),
             ("Bodenfeuchte", dash()),
+            ("Tiefenwasser", dash()),
             ("Oberflächenwasser", dash()),
             ("Durchfluss", dash()),
-            ("Gras / Wald", dash()),
+            ("Gras / Busch / Wald", dash()),
+            ("Waldalter", dash()),
+            ("Wasser für Bäume", dash()),
+            ("Totholz", dash()),
+            ("Feuer", dash()),
             ("Trockentage", dash()),
         ];
         if let Some(i) = self.selected {
@@ -388,10 +539,44 @@ impl App {
                     t.moisture_fraction() * 100.0,
                     t.soil_capacity
                 );
-                rows[5].1 = format!("{:.0} mm", t.surface_water);
-                rows[6].1 = format!("{:.0} mm/Tag", t.flow);
-                rows[7].1 = format!("{:.0} % / {:.0} %", t.grass * 100.0, t.forest * 100.0);
-                rows[8].1 = t.drought_days.to_string();
+                rows[5].1 = format!(
+                    "{:.0} % von {:.0} mm",
+                    t.deep_fraction() * 100.0,
+                    t.deep_capacity()
+                );
+                rows[6].1 = format!("{:.0} mm", t.surface_water);
+                rows[7].1 = if t.flow >= STREAM_FLOW {
+                    format!("{:.0} mm/Tag (Bach)", t.flow)
+                } else if t.flow >= RILL_FLOW {
+                    format!("{:.0} mm/Tag (Rinnsal)", t.flow)
+                } else {
+                    format!("{:.0} mm/Tag", t.flow)
+                };
+                rows[8].1 = format!(
+                    "{:.0} % / {:.0} % / {:.0} %",
+                    t.grass * 100.0,
+                    t.shrub * 100.0,
+                    t.forest * 100.0
+                );
+                rows[9].1 = if t.forest > 0.0 {
+                    format!("{:.0} Jahre", t.forest_age)
+                } else {
+                    dash()
+                };
+                rows[10].1 = if t.forest > 0.0 {
+                    format!("{:.0} %", t.tree_supply * 100.0)
+                } else {
+                    dash()
+                };
+                rows[11].1 = format!("{:.0} %", t.deadwood * 100.0);
+                rows[12].1 = if t.fire > 0.0 {
+                    "brennt".into()
+                } else if t.burn_scar > 0.05 {
+                    format!("Brandspur {:.0} %", t.burn_scar * 100.0)
+                } else {
+                    dash()
+                };
+                rows[13].1 = t.drought_days.to_string();
             }
         }
         egui::Grid::new("tile")
@@ -442,11 +627,18 @@ impl App {
                 format!("Quelle {} · {:>3.0} mm/Tag", k + 1, s.current)
             };
             let mut pct = self.pending_springs[k] * 100.0;
-            let r = ui.add(
-                egui::Slider::new(&mut pct, 0.0..=300.0)
-                    .text(label)
-                    .suffix(" %"),
-            );
+            let r = ui
+                .add(
+                    egui::Slider::new(&mut pct, 0.0..=300.0)
+                        .text(label)
+                        .suffix(" %"),
+                )
+                .on_hover_text(
+                    "Wie leicht das Grundwasser hier austritt. Das Wasser selbst stammt \
+                     aus dem Grundwasser der Insel: Mehr, als dort nachsickert, kann auf \
+                     Dauer nicht herauskommen. Bei hohem Wert leert sich das Grundwasser, \
+                     und die Quelle wird wieder schwächer.",
+                );
             self.pending_springs[k] = pct / 100.0;
             if commit(&r) && self.pending_springs[k] != self.sim.world.springs[k].factor {
                 self.sim.apply(Intervention::SetSpringFactor {
@@ -455,6 +647,25 @@ impl App {
                 });
             }
         }
+    }
+
+    fn seed_row(&mut self, ui: &mut egui::Ui) {
+        ui.horizontal(|ui| {
+            ui.label("Samen fallen lassen:");
+            for kind in [SeedKind::Tree, SeedKind::Shrub] {
+                if ui
+                    .button(kind.label())
+                    .on_hover_text(
+                        "Ein einzelner Samen landet an einem zufälligen Ort. Wo, verrät \
+                         erst eine Keimung in der Chronik – falls die Bedingungen passen.",
+                    )
+                    .clicked()
+                {
+                    self.sim.apply(Intervention::ScatterSeed { kind });
+                }
+            }
+            ui.label(RichText::new(format!("im Boden: {:>2}", self.sim.seeds.len())).weak());
+        });
     }
 
     fn history_section(&mut self, ui: &mut egui::Ui) {
@@ -467,6 +678,7 @@ impl App {
         let n = hist.len();
         let series = [
             (Color32::from_rgb(60, 150, 70), "Wald"),
+            (Color32::from_rgb(140, 150, 70), "Busch"),
             (Color32::from_rgb(190, 180, 90), "Gras"),
             (Color32::from_rgb(80, 150, 230), "Grundwasser"),
         ];
@@ -494,7 +706,8 @@ impl App {
                 .map(|(k, y)| {
                     let v = match si {
                         0 => y.forest_pct,
-                        1 => y.grass_pct,
+                        1 => y.shrub_pct,
+                        2 => y.grass_pct,
                         _ => y.aquifer_pct.min(100.0),
                     };
                     egui::pos2(x_at(k), y_at(v))
@@ -535,6 +748,16 @@ impl App {
                         EventKind::DroughtStart | EventKind::SpringDry => {
                             Color32::from_rgb(220, 150, 80)
                         }
+                        EventKind::FireStart | EventKind::FireEnd => {
+                            Color32::from_rgb(240, 120, 60)
+                        }
+                        EventKind::ForestDieback | EventKind::LastTree => {
+                            Color32::from_rgb(200, 160, 120)
+                        }
+                        EventKind::Germination | EventKind::TreesReturn => {
+                            Color32::from_rgb(140, 220, 120)
+                        }
+                        EventKind::SeedFailed => Color32::from_rgb(150, 150, 150),
                         EventKind::HeavyRain => Color32::from_rgb(120, 170, 240),
                         EventKind::Intervention => Color32::from_rgb(230, 200, 90),
                         EventKind::DroughtEnd | EventKind::SpringFlowing => {
@@ -593,7 +816,9 @@ impl eframe::App for App {
         egui::CentralPanel::no_frame().show(ui, |ui| {
             // Tag und Nacht nur bei 1 Std/s oder Pause – schneller würde es
             // flackern. Die Helligkeit gleitet stufenlos zwischen den Stunden.
-            let slow = !self.running || self.speed == 0;
+            // (Ereignisse geschehen um Mitternacht – ein Anhalten danach soll
+            // das Bild nicht verdunkeln, deshalb zählt nur die Stufe 1 Std/s.)
+            let slow = self.speed == 0;
             let light = if slow {
                 let hour = self.sim.hour_of_day() as f32 + self.owed_hours as f32;
                 view::daylight(hour)
