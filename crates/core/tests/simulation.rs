@@ -149,7 +149,7 @@ fn cleared_forest_only_returns_from_edges() {
 ///
 /// Ändert sich die Simulation absichtlich, muss dieser Wert neu gesetzt werden
 /// (`nig-sim --seed 42 --years 20` zeigt die neue Prüfsumme).
-const REFERENCE_HASH_SEED42_20Y: u64 = 0x7e01_e484_2f02_b62d;
+const REFERENCE_HASH_SEED42_20Y: u64 = 0xc97b_8caf_1db3_8217;
 
 #[test]
 fn cross_platform_reference_hash() {

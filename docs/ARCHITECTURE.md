@@ -74,7 +74,7 @@ Entschieden in [ADR 0002](../decisions/0002-runtime-and-rendering.md): Rust-Work
 | `godmode` | `Intervention` in `sim.rs` – Klima, Quellaustritt, einzelne Samen |
 | `frontend` | `crates/app` (egui), `crates/cli` |
 
-Ablauf eines Tages (v0.2): Wetter würfeln (Regen, Temperatur, Wind, Gewitter) → Regen und Quellen → Versickern und Abfluss bergab → Verdunstung, Pflanzenwasser (Bäume auch aus dem tiefen Boden), Sickerwasser in den tiefen Boden und ins Grundwasser → Gras, Busch, Wald, Totholz (`vegetation.rs`) → Blitzschlag und Feuer (`fire.rs`) → ausgestreute Samen → Ereignisse erkennen. Jahreswechsel: Jahresbilanz in Chronik und Verlauf.
+Ablauf eines Tages (v0.2): Wetter würfeln (Regen, Temperatur, Wind, Gewitter) → Regen und Quellen → Versickern und Abfluss nach Wasserspiegel (Felder vom höchsten zum tiefsten Wasserspiegel; jedes gibt Überschuss an alle tieferen Nachbarn ab, gewichtet nach Gefälle³, begrenzt auf den halben Höhenunterschied; ohne tieferen Nachbarn staut es sich) → Verdunstung, Pflanzenwasser (Bäume auch aus dem tiefen Boden), Sickerwasser in den tiefen Boden und ins Grundwasser → Gras, Busch, Wald, Totholz (`vegetation.rs`) → Blitzschlag und Feuer (`fire.rs`) → ausgestreute Samen → Ereignisse erkennen. Jahreswechsel: Jahresbilanz in Chronik und Verlauf.
 
 Wasserspeicher je Feld: Oberfläche → Wurzelraum (Bodenfeuchte) → tiefer Boden (doppelt so groß wie der Wurzelraum, nur für tiefe Wurzeln erreichbar) → gemeinsames Grundwasser der Quellen. Die Wasserbilanz ist geschlossen und wird getestet (`tests/ecology.rs`).
 

@@ -174,56 +174,69 @@ fn water_balance_is_closed() {
     assert!(max_runoff > 0.0, "Kein Abfluss ins Meer");
 }
 
-/// Nr. 5: Feuer hängt von den Bedingungen ab – nasse Vegetation brennt nicht,
-/// trockene mit Totholz brennt großflächig.
+/// Nr. 5: Feuer hängt von den Bedingungen ab – derselbe Wald brennt nass
+/// kaum, ausgedörrt mit Totholz großflächig. Die Bedingungen werden gezielt
+/// hergestellt, damit der Test die Feuerregeln prüft und nicht die Vorgeschichte.
 #[test]
 fn fire_depends_on_conditions() {
     let mut base = Simulation::new(42);
-    base.advance_years(40);
-
-    // Ausgangsfeld: mitten im dichtesten Waldstück (Wald im Feld und ringsum)
+    base.advance_years(1);
+    base.apply(Intervention::SetAnnualRain { mm: 0.0 }); // kein Regen löscht
+    for t in base.world.tiles.iter_mut().filter(|t| !t.is_ocean()) {
+        t.forest = 0.8;
+        t.forest_age = 80.0;
+        t.deadwood = 0.5;
+        t.surface_water = 0.0;
+    }
     let w = &base.world;
     let start = (0..w.tiles.len())
         .filter(|&i| !w.tiles[i].is_ocean())
-        .max_by(|&a, &b| {
-            let dense = |i: usize| {
-                w.neighbors(i).map(|n| w.tiles[n].forest).sum::<f32>() + w.tiles[i].forest
-            };
-            dense(a).total_cmp(&dense(b))
+        .min_by_key(|&i| {
+            let (x, y) = w.xy(i);
+            (x as i32 - 32).abs() + (y as i32 - 32).abs()
         })
-        .expect("kein Wald für den Test");
+        .unwrap();
 
-    let burned = |mut sim: Simulation| {
+    let burned = |mut sim: Simulation, moisture: f32| {
+        for t in sim.world.tiles.iter_mut() {
+            t.soil_moisture = t.soil_capacity * moisture;
+        }
         ignite_for_test(&mut sim.world, start);
-        sim.advance_days(40);
-        sim.world.tiles.iter().filter(|t| t.burn_scar > 0.9).count()
+        sim.advance_days(1);
+        let first_day = flammability(&sim.world.tiles[start]);
+        sim.advance_days(30);
+        (
+            sim.world.tiles.iter().filter(|t| t.burn_scar > 0.9).count(),
+            first_day,
+        )
     };
 
-    // Nass: Regenzeit mit viel Niederschlag
-    let mut wet = base.clone();
-    wet.apply(Intervention::SetAnnualRain { mm: 3000.0 });
-    wet.advance_days(60);
+    let (wet_burned, wet_flamm) = burned(base.clone(), 1.0);
+    let (dry_burned, _) = burned(base.clone(), 0.0);
+
     assert!(
-        flammability(&wet.world.tiles[start]) <= 0.5,
-        "Nasser Wald ist zu brennbar"
+        wet_flamm < 0.2,
+        "Nasser Wald ist zu brennbar: {wet_flamm:.2}"
     );
-    let wet_burned = burned(wet);
-
-    // Trocken: ein Jahr ohne Regen, Bäume sterben, Totholz entsteht
-    let mut dry = base.clone();
-    dry.apply(Intervention::SetAnnualRain { mm: 0.0 });
-    set_springs(&mut dry, 0.0);
-    dry.advance_days(400);
-    let dry_burned = burned(dry);
-
     assert!(
         wet_burned <= 5,
         "Nasser Wald brennt großflächig: {wet_burned} Felder"
     );
     assert!(
-        dry_burned >= 20,
+        dry_burned >= 100,
         "Trockener Wald brennt kaum: {dry_burned} Felder"
     );
+}
+
+/// Nr. 5 (Gegenprobe): Ein Blitz in feuchter Vegetation zündet nicht.
+#[test]
+fn wet_vegetation_does_not_ignite() {
+    let mut sim = Simulation::new(42);
+    sim.advance_years(1);
+    for t in sim.world.tiles.iter_mut().filter(|t| !t.is_ocean()) {
+        t.soil_moisture = t.soil_capacity * 0.6;
+        assert_eq!(flammability(t), 0.0);
+    }
 }
 
 /// Nr. 6: Jahrhundertelanger Zeitraffer bleibt stabil.

@@ -5,14 +5,18 @@
 
 use nig_core::{Intervention, Simulation};
 
-/// Felder von der Quelle bergab bis zum Meer.
+/// Felder von der Quelle bergab, entlang der Hauptfließrichtung, bis Meer,
+/// Senke oder ein schon besuchtes Feld (Wasser pendelt in flachen Mulden).
 fn path_of(sim: &Simulation, spring: usize) -> Vec<usize> {
     let s = &sim.world.springs[spring];
     let mut i = sim.world.idx(s.x, s.y);
     let mut path = vec![];
-    while !sim.world.tiles[i].is_ocean() {
+    while !sim.world.tiles[i].is_ocean() && !path.contains(&i) {
         path.push(i);
-        i = sim.world.downstream[i].expect("Landfeld ohne Abfluss") as usize;
+        match sim.world.downstream[i] {
+            Some(d) => i = d as usize,
+            None => break,
+        }
     }
     path
 }

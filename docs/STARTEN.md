@@ -23,7 +23,8 @@ Das Programm ist (noch) nicht signiert. Beim ersten Start fragt das Betriebssyst
 | Einen Tag weiter | **+1 Tag** |
 | Karte verschieben | Mit gedrückter Maustaste ziehen |
 | Zoomen | Mausrad |
-| Feld untersuchen | Auf ein Feld klicken → rechts unter *Feld* |
+| Feld untersuchen | Auf ein Feld klicken → Kasten unten links |
+| Damm / Durchbruch | Im Feld-Kasten: *Damm +2 m* oder *Durchbruch −2 m* |
 | Ansicht wechseln | **Isometrisch** oder **Karte** |
 | Ebene wechseln | Natur, Höhe, Bodenfeuchte, Wasser, Brandgefahr |
 | Wichtige Ereignisse | *Nur Chronik*, *Anhalten* oder *Anhalten und hinfahren* (Brand, Dürre, Waldsterben, Keimung …) |
@@ -45,6 +46,7 @@ Zu den Samen: Ein Samen landet an einem zufälligen Ort, den niemand kennt. Keim
 Ideen zum Ausprobieren:
 
 - Eine Quelle auf 0 % stellen und beobachten, wie der Bach darunter austrocknet.
+- Einen Bach mit ein paar Klicks auf *Damm +2 m* aufstauen und zusehen, wie sich das Wasser einen anderen Weg sucht – dann mit *Durchbruch* den Stau ablaufen lassen. Am besten auf der Ebene *Wasser*.
 - Den Jahresregen auf 300 mm senken und 20 Jahre laufen lassen. Danach wieder auf 950 mm stellen: Der Wald kehrt nur langsam und nur von seinen Rändern zurück.
 - Zwei Inseln mit demselben Seed nebeneinander laufen lassen – sie entwickeln sich exakt gleich.
 - „Paradies, dann alles aus“: Regen hoch, 150 Jahre warten, dann Regen und Quellen auf 0. Der Wald stirbt über Monate, Totholz bleibt stehen – und wenn danach ein Gewitter kommt, brennt es.

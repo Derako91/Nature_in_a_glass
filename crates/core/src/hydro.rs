@@ -21,6 +21,12 @@ const AQUIFER_LEAK: f32 = 0.0006;
 const DEEP_DRAIN: f32 = 0.001;
 /// Wie viel des Tiefenwassers Wurzeln pro Tag höchstens erschließen.
 const DEEP_UPTAKE: f32 = 0.03;
+const SQRT2: f32 = std::f32::consts::SQRT_2;
+
+/// Wasserspiegel eines Feldes in Metern: Gelände plus stehendes Wasser.
+pub fn head(t: &crate::world::Tile) -> f32 {
+    t.elevation + t.surface_water * 0.001
+}
 
 /// Wasserbilanz eines Tages. Alle Mengen als Summe in mm über alle Felder.
 #[derive(Debug, Clone, Copy, Default)]
@@ -85,33 +91,93 @@ pub fn step_day(
         world.tiles[i].surface_water += out;
     }
 
-    // 3. Versickern und Abfluss bergab (oben → unten, ein Durchgang pro Tag)
+    // 3. Versickern und Abfluss nach Wasserspiegel.
+    //
+    // Die Felder werden vom höchsten zum tiefsten Wasserspiegel (Gelände +
+    // Wasserstand) durchgegangen. Jedes Feld gibt sein überschüssiges Wasser an
+    // alle tieferen Nachbarn ab – steilere bekommen deutlich mehr. Höchstens so
+    // viel, dass der Nachbar nicht über das eigene Niveau steigt; der Rest
+    // staut sich. Ohne tieferen Nachbarn bleibt das Wasser stehen (Teich, See,
+    // Überschwemmung), bis es überläuft. So folgt Wasser Gelände UND Wasserstand:
+    // Dämme stauen, Durchbrüche lassen Seen auslaufen, Starkregen tritt über Ufer.
     for v in through.iter_mut() {
         *v = 0.0;
     }
-    for k in 0..world.drain_order.len() {
-        let i = world.drain_order[k] as usize;
-        if world.tiles[i].is_ocean() {
+    // Sortierschlüssel einmal berechnen; Gleichstand nach Index → reproduzierbar
+    let mut keyed: Vec<(f32, u32)> = world
+        .tiles
+        .iter()
+        .enumerate()
+        .filter(|(_, t)| !t.is_ocean())
+        .map(|(i, t)| (head(t), i as u32))
+        .collect();
+    keyed.sort_unstable_by(|a, b| b.0.total_cmp(&a.0).then(a.1.cmp(&b.1)));
+    let order: Vec<u32> = keyed.into_iter().map(|(_, i)| i).collect();
+    let mut receivers: Vec<(usize, f32, f32)> = Vec::with_capacity(8);
+    for &i in &order {
+        let i = i as usize;
+        {
+            let t = &mut world.tiles[i];
+            let room = (t.soil_capacity - t.soil_moisture).max(0.0);
+            let inf = t.surface_water.min(INFILTRATION_MM).min(room);
+            t.surface_water -= inf;
+            t.soil_moisture += inf;
+        }
+        let t = &world.tiles[i];
+        let excess = t.surface_water - FILM_MM;
+        if excess <= 0.0 {
+            world.downstream[i] = None;
             continue;
         }
-        let basin = world.basin_capacity[i];
-        let t = &mut world.tiles[i];
-        let room = (t.soil_capacity - t.soil_moisture).max(0.0);
-        let inf = t.surface_water.min(INFILTRATION_MM).min(room);
-        t.surface_water -= inf;
-        t.soil_moisture += inf;
-
-        let excess = t.surface_water - basin - FILM_MM;
-        if excess > 0.0 {
-            t.surface_water -= excess;
-            through[i] = excess;
-            match world.downstream[i] {
-                Some(d) if !world.tiles[d as usize].is_ocean() => {
-                    world.tiles[d as usize].surface_water += excess;
-                }
-                _ => day.to_sea += excess,
+        let h_i = head(t);
+        let (x, y) = world.xy(i);
+        receivers.clear();
+        let mut total_weight = 0.0;
+        let mut best = None;
+        let mut best_weight = 0.0;
+        for nb in world.neighbors(i) {
+            let tn = &world.tiles[nb];
+            let h_n = if tn.is_ocean() { 0.0 } else { head(tn) };
+            if h_n >= h_i {
+                continue;
+            }
+            let (nx, ny) = world.xy(nb);
+            let diagonal = nx != x && ny != y;
+            let drop = h_i - h_n;
+            let slope = if diagonal { drop / SQRT2 } else { drop };
+            let weight = slope * slope * slope; // stark bündelnd: Wasser sammelt sich in Rinnen
+            // Höchstens die Hälfte des Höhenunterschieds herüberschieben (mm)
+            let cap = if tn.is_ocean() {
+                f32::INFINITY
+            } else {
+                drop * 500.0
+            };
+            receivers.push((nb, weight, cap));
+            total_weight += weight;
+            if weight > best_weight {
+                best_weight = weight;
+                best = Some(nb as u32);
             }
         }
+        world.downstream[i] = best;
+        if receivers.is_empty() || total_weight <= 0.0 {
+            continue; // Senke: Wasser staut sich
+        }
+        let mut sent = 0.0;
+        for &(nb, weight, cap) in &receivers {
+            let share = (excess * weight / total_weight).min(cap);
+            if share <= 0.0 {
+                continue;
+            }
+            sent += share;
+            if world.tiles[nb].is_ocean() {
+                day.to_sea += share;
+            } else {
+                world.tiles[nb].surface_water += share;
+            }
+        }
+        world.tiles[i].surface_water -= sent;
+        through[i] = sent;
     }
 
     // 4. Verdunstung, Pflanzenwasser, Sickerwasser

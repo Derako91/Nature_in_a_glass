@@ -51,6 +51,8 @@ Umsetzungshinweise:
 ## v0.3 – Hydrologie und Erosion
 
 - [ ] Wasserbilanz und Bedeutung der Grundwasser-Prozentanzeige überprüfen.
+- [x] **Abfluss nach Wasserspiegel** statt fester Fließrichtung – Stau, Überlauf, Überschwemmung (v0.2.2).
+- [x] **Damm und Durchbruch** als Geländeeingriff (v0.2.2).
 - [ ] Grundwasser, Seen, permanente Bäche und temporären Starkregenabfluss unterscheiden.
 - [ ] Bodenabtrag und Sedimentablagerung durch Regen und fließendes Wasser.
 - [ ] Gelände verändert sich über lange Zeiträume, ohne die Reproduzierbarkeit zu verlieren.

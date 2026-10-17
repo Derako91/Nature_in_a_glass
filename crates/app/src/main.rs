@@ -649,6 +649,28 @@ impl App {
         }
     }
 
+    /// Gelände am gewählten Feld verändern: Damm aufschütten oder Durchbruch graben.
+    fn terrain_buttons(&mut self, ui: &mut egui::Ui) {
+        let Some(i) = self.selected else { return };
+        let land = !self.sim.world.tiles[i].is_ocean();
+        let (x, y) = self.sim.world.xy(i);
+        ui.add_space(4.0);
+        ui.horizontal(|ui| {
+            ui.add_enabled_ui(land, |ui| {
+                let hint = "Verändert nur das Gelände. Wohin das Wasser dann fließt, \
+                            entscheidet die Insel.";
+                if ui.button("Damm +2 m").on_hover_text(hint).clicked() {
+                    self.sim
+                        .apply(Intervention::ChangeTerrain { x, y, meters: 2.0 });
+                }
+                if ui.button("Durchbruch −2 m").on_hover_text(hint).clicked() {
+                    self.sim
+                        .apply(Intervention::ChangeTerrain { x, y, meters: -2.0 });
+                }
+            });
+        });
+    }
+
     fn seed_row(&mut self, ui: &mut egui::Ui) {
         ui.horizontal(|ui| {
             ui.label("Samen fallen lassen:");
@@ -859,6 +881,7 @@ impl eframe::App for App {
                                 );
                             });
                             self.tile_section(ui);
+                            self.terrain_buttons(ui);
                         });
                     });
             }

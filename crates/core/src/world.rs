@@ -131,15 +131,15 @@ pub struct World {
     pub springs: Vec<Spring>,
 
     // Abgeleitete Daten, werden nach dem Laden neu berechnet.
-    /// Abflussziel jeder Kachel (Index), `None` für Meer.
+    /// Hauptfließrichtung jeder Kachel (Index des Nachbarn, der am meisten
+    /// Wasser bekommt). Wird jeden Tag aus dem Wasserspiegel neu bestimmt;
+    /// `None` für Meer und für Senken, in denen sich Wasser staut.
     #[serde(skip)]
     pub downstream: Vec<Option<u32>>,
-    /// Kacheln in Reihenfolge von oben nach unten (bergab).
+    /// Nachbarn jedes Feldes (bis zu 8), einmal berechnet. Reihenfolge wie
+    /// [`NEIGHBORS`], damit Zufallszüge reproduzierbar bleiben.
     #[serde(skip)]
-    pub drain_order: Vec<u32>,
-    /// Wie viel Wasser (mm) eine Senke halten kann, bevor sie überläuft.
-    #[serde(skip)]
-    pub basin_capacity: Vec<f32>,
+    neighbor_table: Vec<([u32; 8], u8)>,
 }
 
 pub const NEIGHBORS: [(i32, i32); 8] = [
@@ -167,16 +167,28 @@ impl World {
     }
 
     pub fn neighbors(&self, i: usize) -> impl Iterator<Item = usize> + '_ {
-        let (x, y) = self.xy(i);
-        NEIGHBORS.iter().filter_map(move |(dx, dy)| {
-            let nx = x as i32 + dx;
-            let ny = y as i32 + dy;
-            if nx >= 0 && ny >= 0 && (nx as u32) < self.width && (ny as u32) < self.height {
-                Some((ny as u32 * self.width + nx as u32) as usize)
-            } else {
-                None
-            }
-        })
+        let (list, n) = &self.neighbor_table[i];
+        list[..*n as usize].iter().map(|&j| j as usize)
+    }
+
+    fn build_neighbor_table(&mut self) {
+        let (w, h) = (self.width, self.height);
+        self.neighbor_table = (0..self.tiles.len())
+            .map(|i| {
+                let (x, y) = (i as u32 % w, i as u32 / w);
+                let mut list = [0u32; 8];
+                let mut n = 0u8;
+                for (dx, dy) in NEIGHBORS {
+                    let nx = x as i32 + dx;
+                    let ny = y as i32 + dy;
+                    if nx >= 0 && ny >= 0 && (nx as u32) < w && (ny as u32) < h {
+                        list[n as usize] = ny as u32 * w + nx as u32;
+                        n += 1;
+                    }
+                }
+                (list, n)
+            })
+            .collect();
     }
 
     pub fn terrain(&self, i: usize) -> Terrain {
@@ -256,9 +268,9 @@ impl World {
             tiles,
             springs: Vec::new(),
             downstream: Vec::new(),
-            drain_order: Vec::new(),
-            basin_capacity: Vec::new(),
+            neighbor_table: Vec::new(),
         };
+        world.build_neighbor_table();
 
         // Boden: tief in flachen Niederungen, dünn an steilen Hängen und Gipfeln,
         // sandig an der Küste.
@@ -339,30 +351,30 @@ impl World {
         }
     }
 
-    /// Berechnet Fließrichtungen und Senken (Priority-Flood).
+    /// Anfängliche Fließrichtungen aus dem Gelände (Priority-Flood).
     ///
-    /// Vom Meer aus wird das Gelände „geflutet“. Jede Landkachel fließt zu der
-    /// Kachel, von der aus sie erreicht wurde. Senken werden dabei bis zu ihrem
-    /// Überlauf aufgefüllt – dort können sich Seen bilden.
+    /// Vom Meer aus wird das Gelände „geflutet“; jede Landkachel zeigt zu der
+    /// Kachel, von der aus sie erreicht wurde – so führt von überall ein Weg
+    /// zum Meer, auch aus Senken. Ab dem ersten Tag bestimmt der Wasserkreislauf
+    /// die Richtungen neu aus dem Wasserspiegel (`hydro.rs`).
     pub fn rebuild_drainage(&mut self) {
+        if self.neighbor_table.len() != self.tiles.len() {
+            self.build_neighbor_table();
+        }
         let n = self.tiles.len();
-        let mut filled = vec![f32::INFINITY; n];
         let mut downstream = vec![None; n];
         let mut visited = vec![false; n];
-        let mut pop_order = Vec::with_capacity(n);
         let mut heap = BinaryHeap::new();
         let mut counter: u64 = 0;
 
-        for i in 0..n {
-            if self.tiles[i].is_ocean() {
-                filled[i] = self.tiles[i].elevation;
+        for (i, t) in self.tiles.iter().enumerate() {
+            if t.is_ocean() {
                 visited[i] = true;
-                heap.push(Reverse(Entry(filled[i], counter, i)));
+                heap.push(Reverse(Entry(t.elevation, counter, i)));
                 counter += 1;
             }
         }
         while let Some(Reverse(Entry(level, _, i))) = heap.pop() {
-            pop_order.push(i as u32);
             let ns: Vec<usize> = self.neighbors(i).collect();
             for nb in ns {
                 if visited[nb] {
@@ -370,25 +382,11 @@ impl World {
                 }
                 visited[nb] = true;
                 let fl = self.tiles[nb].elevation.max(level + 0.001);
-                filled[nb] = fl;
                 downstream[nb] = Some(i as u32);
                 heap.push(Reverse(Entry(fl, counter, nb)));
                 counter += 1;
             }
         }
-
-        self.basin_capacity = (0..n)
-            .map(|i| {
-                let depth_m = filled[i] - self.tiles[i].elevation;
-                if depth_m > 0.02 {
-                    depth_m * 1000.0
-                } else {
-                    0.0
-                }
-            })
-            .collect();
-        pop_order.reverse();
-        self.drain_order = pop_order;
         self.downstream = downstream;
     }
 }

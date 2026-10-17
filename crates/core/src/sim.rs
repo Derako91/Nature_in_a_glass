@@ -109,7 +109,15 @@ pub enum Intervention {
     SetMeanTemp { celsius: f32 },
     /// Einen einzelnen Samen an einem zufälligen, nicht angezeigten Ort fallen lassen.
     ScatterSeed { kind: SeedKind },
+    /// Gelände eines Landfeldes anheben (Damm, positiv) oder absenken
+    /// (Graben/Durchbruch, negativ), in Metern. Das Feld bleibt Land.
+    ChangeTerrain { x: u32, y: u32, meters: f32 },
 }
+
+/// Höchste Änderung je Eingriff (m).
+pub const MAX_TERRAIN_STEP: f32 = 20.0;
+/// Land sinkt durch Eingriffe nicht unter diese Höhe (kein neues Meer).
+pub const MIN_LAND_ELEVATION: f32 = 0.5;
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq)]
 struct YearAccumulator {
@@ -852,6 +860,30 @@ impl Simulation {
                         "Der Beobachter verändert das Klima: Jahresmittel {:.1} → {:.1} °C.",
                         old, self.climate.mean_temp_c
                     ),
+                )
+            }
+            Intervention::ChangeTerrain { x, y, meters } => {
+                if *x >= self.world.width || *y >= self.world.height {
+                    return;
+                }
+                let i = self.world.idx(*x, *y);
+                let t = &mut self.world.tiles[i];
+                if t.is_ocean() {
+                    return;
+                }
+                let step = meters.clamp(-MAX_TERRAIN_STEP, MAX_TERRAIN_STEP);
+                let old = t.elevation;
+                t.elevation = (old + step).max(MIN_LAND_ELEVATION);
+                let new = t.elevation;
+                self.world.max_elevation = self.world.max_elevation.max(new);
+                let what = if new >= old {
+                    "schüttet einen Damm auf"
+                } else {
+                    "gräbt einen Durchbruch"
+                };
+                (
+                    Some((*x, *y)),
+                    format!("Der Beobachter {what} bei ({x}, {y}): {old:.1} m → {new:.1} m."),
                 )
             }
             Intervention::ScatterSeed { kind } => {

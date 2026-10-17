@@ -1,5 +1,26 @@
 # Änderungen
 
+## 0.2.2 – Wasser folgt dem Wasserspiegel
+
+Erster Schritt von v0.3 (Hydrologie).
+
+**Neu**
+- **Abfluss nach Wasserspiegel:** Wasser fließt nicht mehr auf festen Bahnen, sondern jeden Tag dorthin, wo Gelände *und* Wasserstand tiefer liegen – aufgeteilt auf alle tieferen Nachbarn, steilere bekommen mehr. Wasser staut sich in Senken, bis es überläuft, tritt bei Starkregen in flachem Gelände über die Ufer und läuft danach wieder ab.
+- **Damm und Durchbruch:** Im Feld-Kasten lässt sich das Gelände eines Landfeldes um 2 m anheben oder absenken. Ein Damm staut einen Bach, ein Durchbruch lässt einen Stau oder See auslaufen. Wohin das Wasser dann fließt, entscheidet die Insel. Jeder Eingriff steht in der Chronik. Meer lässt sich nicht aufschütten, Land nicht zu Meer graben.
+- Simulation gut 20 % schneller trotz aufwändigerem Abfluss.
+
+**Beobachtet**
+- Senken füllen sich jetzt vollständig: Unter Quelle 1 von Insel 42 liegt ein bis zu 28 m tiefer See.
+
+**Getestet**
+- Damm hält einen Bach auf, Wasser staut sich oder sucht einen Umweg, Durchbruch stellt den Bach wieder her; Wasserbilanz bleibt dabei geschlossen.
+- Durchbruch lässt einen Stau ablaufen.
+- Starkregen überschwemmt flache Felder und die Überschwemmung läuft wieder ab.
+- Geländeeingriffe sind begrenzt und erzeugen kein Meer.
+
+**Spielstände** bleiben unverändert kompatibel (Format 2). Gleiche Inseln entwickeln sich wegen des neuen Abflusses anders als in 0.2.0.
+
+
 ## 0.2.0 – Samen, Buschland und Feuer
 
 **Neu in der Natur**
