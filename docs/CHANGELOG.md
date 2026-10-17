@@ -1,5 +1,14 @@
 # Änderungen
 
+## 0.2.5 – Chronik bleibt auch nach Jahrtausenden lebendig
+
+**Behoben**
+- Nach etwa 20.000 Jahren kamen **keine neuen Einträge mehr in die Chronik**. Die Jahresbilanzen hatten den ganzen Platz belegt, und jedes neue Ereignis wurde sofort wieder gelöscht. Jetzt haben Ereignisse (bis 20.000) und Jahresbilanzen (bis 5.000) getrennte Plätze; es fallen jeweils die ältesten heraus. Eingriffe und die Entstehung der Insel bleiben immer stehen.
+- Spielstände aus sehr langen Läufen werden beim Laden aufgeräumt und zeigen danach wieder neue Ereignisse.
+
+**Spielstände** bleiben kompatibel (Format 4). Die Natur rechnet unverändert.
+
+
 ## 0.2.4 – Grundwasser als echter Füllstand
 
 Dritter Schritt von v0.3 (Hydrologie).

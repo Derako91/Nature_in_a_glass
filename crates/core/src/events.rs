@@ -81,11 +81,54 @@ pub struct Journal {
     next_id: u64,
 }
 
-/// Obergrenze, damit sehr lange Läufe nicht unbegrenzt Speicher belegen.
-/// Jahresbilanzen und Eingriffe bleiben immer erhalten.
-const MAX_EVENTS: usize = 20_000;
+/// Obergrenzen, damit sehr lange Läufe nicht unbegrenzt Speicher belegen.
+/// Ereignisse und Jahresbilanzen haben getrennte Grenzen: Sonst füllen die
+/// Jahresbilanzen nach 20.000 Jahren den ganzen Platz, und jedes neue
+/// Ereignis würde sofort wieder gelöscht. Eingriffe und die Entstehung der
+/// Insel bleiben immer erhalten. Es fallen jeweils die ältesten heraus.
+pub const MAX_EVENTS: usize = 20_000;
+pub const MAX_YEAR_SUMMARIES: usize = 5_000;
+
+/// In welche Grenze ein Eintrag fällt; `None` = bleibt immer.
+fn limit_class(kind: EventKind) -> Option<bool> {
+    match kind {
+        EventKind::Intervention | EventKind::WorldCreated => None,
+        EventKind::YearSummary => Some(true),
+        _ => Some(false),
+    }
+}
 
 impl Journal {
+    /// Hält beide Obergrenzen ein, indem die ältesten Einträge der jeweiligen
+    /// Art entfallen. Bringt auch übervolle Chroniken aus alten Spielständen
+    /// auf einmal in Ordnung.
+    pub fn trim(&mut self) {
+        let (mut summaries, mut regular) = (0usize, 0usize);
+        for e in &self.events {
+            match limit_class(e.kind) {
+                Some(true) => summaries += 1,
+                Some(false) => regular += 1,
+                None => {}
+            }
+        }
+        let mut drop_summaries = summaries.saturating_sub(MAX_YEAR_SUMMARIES);
+        let mut drop_regular = regular.saturating_sub(MAX_EVENTS);
+        if drop_summaries == 0 && drop_regular == 0 {
+            return;
+        }
+        self.events.retain(|e| match limit_class(e.kind) {
+            Some(true) if drop_summaries > 0 => {
+                drop_summaries -= 1;
+                false
+            }
+            Some(false) if drop_regular > 0 => {
+                drop_regular -= 1;
+                false
+            }
+            _ => true,
+        });
+    }
+
     pub fn push(
         &mut self,
         time_hours: u64,
@@ -103,16 +146,8 @@ impl Journal {
             causes,
         });
         self.next_id += 1;
-        if self.events.len() > MAX_EVENTS {
-            let keep = |e: &Event| {
-                matches!(
-                    e.kind,
-                    EventKind::YearSummary | EventKind::Intervention | EventKind::WorldCreated
-                )
-            };
-            if let Some(pos) = self.events.iter().position(|e| !keep(e)) {
-                self.events.remove(pos);
-            }
+        if self.events.len() > MAX_EVENTS.min(MAX_YEAR_SUMMARIES) {
+            self.trim();
         }
     }
 }

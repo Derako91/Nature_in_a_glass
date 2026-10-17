@@ -1053,6 +1053,8 @@ impl Simulation {
             }
         }
         sim.world.rebuild_drainage();
+        // Spielstände aus sehr langen Läufen bis 0.2.4 haben eine übervolle Chronik.
+        sim.journal.trim();
         Ok(sim)
     }
 
