@@ -173,5 +173,7 @@ def main():
         feed.append(im)
     feed[0].save(b.ROOT/'assets/nature/_animals-graze.gif',save_all=True,append_images=feed[1:],duration=600,loop=0,disposal=2)
     print(len(checks),'Bildzuordnungen aus',len(unique),'eindeutigen PNGs,',len(cycles),'Vierbild-Zyklen und drei animierte Bodenprüfungen erstellt.')
+    import build_animal_remains
+    build_animal_remains.main()
 
 if __name__=='__main__':main()

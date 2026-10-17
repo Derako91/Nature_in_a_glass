@@ -1,6 +1,7 @@
 # Naturgestaltung – Prüfblatt 01
 
-**Aktuell ist Runde 05:** ausgearbeitete Biome und Übergänge, siehe `ROUND-05.md`.
+**Aktuell ist Runde 06:** Kadaver und Spuren, siehe `ROUND-06.md`.
+Ausgearbeitete Biome und Übergänge stehen in `ROUND-05.md`.
 Tieranimationen und zweite Fellvariante stehen in `ROUND-04.md`.
 Die Naturkorrekturen der vorigen Runde stehen in `ROUND-03.md`.
 Die zweite Stilrunde ist in `REVISION-02.md` dokumentiert. Die folgende Beschreibung
@@ -9,6 +10,12 @@ Manifest und Testbelegung der ersten Runde sind mit `assets/nature/` identisch
 und liegen deshalb nur dort.
 
 ## Aktuelle Entwürfe
+
+### Kadaver und Spuren – Runde 06
+
+![Kadaver und Spuren auf drei Böden](../../assets/nature/_animals-remains.png)
+
+[Umfang, Prüfung und Einbindung](ROUND-06.md)
 
 ### Biome und Übergänge – Runde 05
 
