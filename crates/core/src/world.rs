@@ -55,7 +55,21 @@ pub struct Tile {
     /// Sichtbare Brandspur, verblasst über Jahre (0..1).
     #[serde(default)]
     pub burn_scar: f32,
+
+    // --- seit Spielstand-Format 3 (v0.3) ---
+    /// Mittlerer Durchfluss über etwa ein Jahr (mm/Tag).
+    #[serde(default)]
+    pub flow_year: f32,
+    /// Anteil der Tage im letzten Jahr, an denen ein Rinnsal floss (0..1).
+    #[serde(default)]
+    pub flow_permanence: f32,
+    /// Mittlere Bodenfeuchte über etwa ein Jahr (0..1), z. B. für Biome.
+    #[serde(default)]
+    pub moisture_year: f32,
 }
+
+/// Gedächtnis der Jahresmittel: Gewicht des heutigen Tages (≈ 1/365).
+pub const YEAR_WEIGHT: f32 = 1.0 / 365.0;
 
 fn one() -> f32 {
     1.0
@@ -255,6 +269,9 @@ impl World {
                     tree_supply: 1.0,
                     fire: 0.0,
                     burn_scar: 0.0,
+                    flow_year: 0.0,
+                    flow_permanence: 0.0,
+                    moisture_year: 0.5,
                 });
             }
         }

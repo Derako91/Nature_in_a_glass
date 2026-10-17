@@ -49,7 +49,7 @@ fn rejects_unknown_save_format() {
     let json =
         Simulation::new(1)
             .to_json()
-            .replacen("\"format_version\":2", "\"format_version\":999", 1);
+            .replacen("\"format_version\":3", "\"format_version\":999", 1);
     assert!(Simulation::from_json(&json).is_err());
 }
 
@@ -149,7 +149,7 @@ fn cleared_forest_only_returns_from_edges() {
 ///
 /// Ändert sich die Simulation absichtlich, muss dieser Wert neu gesetzt werden
 /// (`nig-sim --seed 42 --years 20` zeigt die neue Prüfsumme).
-const REFERENCE_HASH_SEED42_20Y: u64 = 0xc97b_8caf_1db3_8217;
+const REFERENCE_HASH_SEED42_20Y: u64 = 0x8595_a174_79b2_d5a0;
 
 #[test]
 fn cross_platform_reference_hash() {

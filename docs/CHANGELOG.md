@@ -1,5 +1,24 @@
 # Änderungen
 
+## 0.2.3 – Dauerhafte Bäche, zeitweise Bäche, Regenrinnen
+
+Zweiter Schritt von v0.3 (Hydrologie).
+
+**Neu**
+- Jedes Feld merkt sich ein Jahr lang, wie viel und wie beständig dort Wasser fließt. Daraus wird jeder Wasserlauf eingeteilt: **dauerhaft** (fließt fast das ganze Jahr, z. B. unter Quellen), **zeitweise** (fließt einen Teil des Jahres, sonst trockenes Bachbett), **Regenrinne** (nur nach Regen).
+- Insel-Ansicht: *Bäche dauernd / zeitw. / Regen* und **Abfluss ins Meer** in m³ statt Feldzählung.
+- Quellen in **Litern pro Sekunde**; der Feld-Kasten zeigt Durchfluss in L/s und die Art des Wasserlaufs.
+- Jahresbilanz: dauerhafte Bachfelder und Jahresabfluss ins Meer (m³).
+- Nebenbei: mehrjährige Bodenfeuchte je Feld als Grundlage für spätere Biome.
+
+**Beobachtet (Insel 42, Jahr 30)**
+- Etwa 40 Felder dauerhafter Bach, etwa 60 Felder Winterbach, der im Hochsommer trockenfällt.
+- Die beiden Quellen schütten zusammen 9–14 L/s.
+- Rund 910.000 m³ fließen im Jahr ins Meer – 23 % des Niederschlags.
+
+**Spielstände:** Format 3. Spielstände aus 0.1 und 0.2 werden übernommen; das Jahresgedächtnis wird aus dem aktuellen Zustand geschätzt und ist nach einem Jahr genau.
+
+
 ## 0.2.2 – Wasser folgt dem Wasserspiegel
 
 Erster Schritt von v0.3 (Hydrologie).

@@ -23,6 +23,56 @@ const DEEP_DRAIN: f32 = 0.001;
 const DEEP_UPTAKE: f32 = 0.03;
 const SQRT2: f32 = std::f32::consts::SQRT_2;
 
+/// 1 mm Wasser auf einem Feld (50 × 50 m) sind 2,5 m³.
+pub const M3_PER_TILE_MM: f32 = crate::world::TILE_SIZE_M * crate::world::TILE_SIZE_M / 1000.0;
+
+/// Durchfluss in Litern pro Sekunde aus mm/Tag auf einem Feld.
+pub fn liters_per_second(mm_per_day: f32) -> f32 {
+    mm_per_day * M3_PER_TILE_MM * 1000.0 / 86_400.0
+}
+
+/// Art eines Wasserlaufs, aus dem Jahresgedächtnis des Feldes.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum CourseKind {
+    /// Hier fließt kaum je Wasser.
+    None,
+    /// Fließt nur nach Regen, sonst trocken (unter einem Viertel der Tage).
+    RainChannel,
+    /// Fließt einen Teil des Jahres (ein Viertel bis gut vier Fünftel der Tage).
+    Seasonal,
+    /// Fließt fast das ganze Jahr.
+    Permanent,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct Watercourse {
+    pub kind: CourseKind,
+    /// Fließt gerade Wasser? (Ein zeitweiser Bach kann auch ein trockenes Bett sein.)
+    pub flowing: bool,
+}
+
+/// Ab diesem Anteil fließender Tage gilt ein Lauf als dauerhaft.
+pub const PERMANENT_SHARE: f32 = 0.85;
+/// Ab diesem Anteil als zeitweise.
+pub const SEASONAL_SHARE: f32 = 0.25;
+
+pub fn watercourse(t: &crate::world::Tile) -> Watercourse {
+    let flowing = t.flow >= crate::sim::RILL_FLOW;
+    let p = t.flow_permanence;
+    let kind = if t.is_ocean() {
+        CourseKind::None
+    } else if p >= PERMANENT_SHARE {
+        CourseKind::Permanent
+    } else if p >= SEASONAL_SHARE {
+        CourseKind::Seasonal
+    } else if flowing {
+        CourseKind::RainChannel
+    } else {
+        CourseKind::None
+    };
+    Watercourse { kind, flowing }
+}
+
 /// Wasserspiegel eines Feldes in Metern: Gelände plus stehendes Wasser.
 pub fn head(t: &crate::world::Tile) -> f32 {
     t.elevation + t.surface_water * 0.001
@@ -187,6 +237,16 @@ pub fn step_day(
             continue;
         }
         t.flow = t.flow * 0.85 + passed * 0.15;
+        // Jahresgedächtnis: wie viel und wie beständig fließt hier Wasser?
+        let k = crate::world::YEAR_WEIGHT;
+        t.flow_year += (passed - t.flow_year) * k;
+        let flowing = if passed >= crate::sim::RILL_FLOW {
+            1.0
+        } else {
+            0.0
+        };
+        t.flow_permanence += (flowing - t.flow_permanence) * k;
+        t.moisture_year += (t.moisture_fraction() - t.moisture_year) * k;
         let pet = potential_evaporation(weather.temp_at(t.elevation));
         let evap = t.surface_water.min(pet * 1.1);
         t.surface_water -= evap;

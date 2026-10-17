@@ -15,7 +15,7 @@ pub const DAYS_PER_YEAR: u64 = 365;
 pub const HOURS_PER_YEAR: u64 = HOURS_PER_DAY * DAYS_PER_YEAR;
 
 /// Version des Spielstand-Formats. Erhöhen, wenn sich die Struktur ändert.
-pub const SAVE_FORMAT_VERSION: u32 = 2;
+pub const SAVE_FORMAT_VERSION: u32 = 3;
 pub const ENGINE_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 pub const DEFAULT_SIZE: u32 = 64;
@@ -52,6 +52,12 @@ pub struct YearStats {
     pub fires: u32,
     #[serde(default)]
     pub burned_tiles: u32,
+    // seit v0.3
+    #[serde(default)]
+    pub permanent_stream_tiles: u32,
+    /// Abfluss ins Meer im ganzen Jahr (m³).
+    #[serde(default)]
+    pub discharge_m3: f32,
 }
 
 /// Momentaufnahme der ganzen Insel.
@@ -68,6 +74,11 @@ pub struct Snapshot {
     pub rill_tiles: u32,
     pub burning_tiles: u32,
     pub tree_tiles: u32,
+    /// Wasserläufe nach Art (Felder).
+    pub permanent_tiles: u32,
+    pub seasonal_tiles: u32,
+    pub seasonal_dry_tiles: u32,
+    pub rain_channel_tiles: u32,
 }
 
 /// Welche Art von Samen der Beobachter ausstreut.
@@ -128,6 +139,8 @@ struct YearAccumulator {
     fires: u32,
     #[serde(default)]
     burned: u32,
+    #[serde(default)]
+    discharge_m3: f32,
 }
 
 /// Verfolgt einen laufenden Brand (mehrere Brandherde zählen zusammen).
@@ -341,6 +354,7 @@ impl Simulation {
         self.step_seeds();
 
         self.year.rain_mm += day.rain_mm;
+        self.year.discharge_m3 += day.to_sea * hydro::M3_PER_TILE_MM;
         self.detect_events(day.rain_mm);
         self.detect_fire_events(&fire_day);
         self.detect_forest_events();
@@ -707,6 +721,8 @@ impl Simulation {
             deadwood_pct: snap.deadwood_pct,
             fires: self.year.fires,
             burned_tiles: self.year.burned,
+            permanent_stream_tiles: snap.permanent_tiles,
+            discharge_m3: self.year.discharge_m3,
         };
         let prev_forest = self.history.last().map(|s| s.forest_pct);
         let trend = match prev_forest {
@@ -771,6 +787,14 @@ impl Simulation {
             if t.forest > 0.0 {
                 s.tree_tiles += 1;
             }
+            let wc = hydro::watercourse(t);
+            match (wc.kind, wc.flowing) {
+                (hydro::CourseKind::Permanent, _) => s.permanent_tiles += 1,
+                (hydro::CourseKind::Seasonal, true) => s.seasonal_tiles += 1,
+                (hydro::CourseKind::Seasonal, false) => s.seasonal_dry_tiles += 1,
+                (hydro::CourseKind::RainChannel, _) => s.rain_channel_tiles += 1,
+                _ => {}
+            }
             if t.surface_water > POND_MM {
                 s.pond_tiles += 1;
             }
@@ -811,6 +835,9 @@ impl Simulation {
             feed(t.deadwood.to_bits() as u64);
             feed(t.deep_moisture.to_bits() as u64);
             feed(t.fire.to_bits() as u64);
+            feed(t.flow_year.to_bits() as u64);
+            feed(t.flow_permanence.to_bits() as u64);
+            feed(t.moisture_year.to_bits() as u64);
         }
         feed(self.seeds.len() as u64);
         feed(self.journal.events.len() as u64);
@@ -935,15 +962,29 @@ impl Simulation {
         let mut sim = file.simulation;
         match file.format_version {
             SAVE_FORMAT_VERSION => {}
-            1 => sim.migrate_from_v1(),
+            1 => {
+                sim.migrate_from_v1();
+                sim.migrate_from_v2();
+            }
+            2 => sim.migrate_from_v2(),
             other => {
                 return Err(format!(
-                    "Spielstand-Format {other} wird nicht unterstützt (erwartet 1 oder {SAVE_FORMAT_VERSION})."
+                    "Spielstand-Format {other} wird nicht unterstützt (erwartet 1 bis {SAVE_FORMAT_VERSION})."
                 ));
             }
         }
         sim.world.rebuild_drainage();
         Ok(sim)
+    }
+
+    /// Spielstände aus v0.2 übernehmen: Das Jahresgedächtnis der Wasserläufe
+    /// wird aus dem heutigen Zustand geschätzt und füllt sich im ersten Jahr.
+    fn migrate_from_v2(&mut self) {
+        for t in self.world.tiles.iter_mut() {
+            t.flow_year = t.flow;
+            t.flow_permanence = if t.flow >= RILL_FLOW { 1.0 } else { 0.0 };
+            t.moisture_year = t.moisture_fraction();
+        }
     }
 
     /// Spielstände aus v0.1 übernehmen: Buschland, Totholz und Brände gibt

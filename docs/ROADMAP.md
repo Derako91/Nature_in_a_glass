@@ -53,7 +53,8 @@ Umsetzungshinweise:
 - [ ] Wasserbilanz und Bedeutung der Grundwasser-Prozentanzeige überprüfen.
 - [x] **Abfluss nach Wasserspiegel** statt fester Fließrichtung – Stau, Überlauf, Überschwemmung (v0.2.2).
 - [x] **Damm und Durchbruch** als Geländeeingriff (v0.2.2).
-- [ ] Grundwasser, Seen, permanente Bäche und temporären Starkregenabfluss unterscheiden.
+- [x] Permanente Bäche, zeitweise Bäche und Starkregenabfluss unterscheiden; Mengen in m³ und L/s (v0.2.3).
+- [ ] Grundwasser als echter Füllstand; Seen eigens benennen.
 - [ ] Bodenabtrag und Sedimentablagerung durch Regen und fließendes Wasser.
 - [ ] Gelände verändert sich über lange Zeiträume, ohne die Reproduzierbarkeit zu verlieren.
 
@@ -95,6 +96,15 @@ Hinweis: Damit Jung- und Altwald unterscheidbar sind, braucht der Kern ab v0.2 e
 - [ ] Individuelle Persönlichkeit, Erinnerungen, Beziehungen und Wissensweitergabe bleiben spätere Entwicklungsziele.
 
 ---
+
+## Später: Biome
+
+Entwurf von Codex: Feuchter Wald, Wiesenland, Trockenes Buschland, Steppe, Feuchtgebiet, Felsiges Bergland.
+
+- Ein Biom ist ein **Ergebnis**, keine Vorgabe: Es beschreibt, was die Simulation auf einem Feld hervorgebracht hat (Wald, Busch, Gras, Feuchte, Wasser, Gelände).
+- Zuordnung über **mehrjährige Durchschnittsfeuchte** (nicht die heutige), mit Trägheit an den Grenzen – sonst springt die Insel mit den Jahreszeiten zwischen Biomen.
+- Auf der kleinen Testinsel kommen bei normalem Klima vor allem Wald, Wiese, Busch, Fels und Feuchtgebiet vor; Steppe erst nach starken Klimaeingriffen oder auf größeren, trockeneren Welten.
+- Unabhängig vom Biom treten Zustände auf: Brandfläche, Totholz, Jungwald, Strand.
 
 ## Langfristig: Interaktive Hydrologie und Landschaftsgestaltung
 
