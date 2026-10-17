@@ -9,7 +9,12 @@ from PIL import Image, ImageDraw, ImageFont, ImageCms
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / 'art/nature/comfyui'
 OUT = ROOT / 'assets/nature'
-PROFILE = ImageCms.ImageCmsProfile(ImageCms.createProfile('sRGB')).tobytes()
+# Vorhandenes sRGB-Profil wiederverwenden: ein neu erzeugtes ICC-Profil trägt
+# einen Zeitstempel und würde sonst unveränderte PNGs bei jedem Build ändern.
+_profile_source = OUT / 'ground/ground_soil_0.png'
+PROFILE = (Image.open(_profile_source).info.get('icc_profile') if _profile_source.exists() else None)
+if not PROFILE:
+    PROFILE = ImageCms.ImageCmsProfile(ImageCms.createProfile('sRGB')).tobytes()
 ANCHORS = {'soil':'967E58','sand':'DED09A','rock':'8A847C','grass_wet':'68A444',
            'grass_dry':'BAAC5C','burnt':'302A26','shrub_floor':'76823C',
            'forest_floor':'7A6854','shallow':'4A96C4','deep':'122E68',

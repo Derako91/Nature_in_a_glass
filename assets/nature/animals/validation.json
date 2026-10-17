@@ -1,0 +1,4087 @@
+{
+  "images": [
+    {
+      "frame_id": "deer_0_graze_l_f0.png",
+      "file": "deer_0_graze_l_f0.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.177,
+        "shrub": 0.21,
+        "forest": 0.364
+      }
+    },
+    {
+      "frame_id": "deer_0_graze_l_f1.png",
+      "file": "deer_0_graze_l_f1.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.202,
+        "shrub": 0.234,
+        "forest": 0.365
+      }
+    },
+    {
+      "frame_id": "deer_0_graze_r_f0.png",
+      "file": "deer_0_graze_r_f0.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.184,
+        "shrub": 0.205,
+        "forest": 0.343
+      }
+    },
+    {
+      "frame_id": "deer_0_graze_r_f1.png",
+      "file": "deer_0_graze_r_f1.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.174,
+        "shrub": 0.153,
+        "forest": 0.268
+      }
+    },
+    {
+      "frame_id": "deer_1_graze_l_f0.png",
+      "file": "deer_1_graze_l_f0.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.273,
+        "shrub": 0.421,
+        "forest": 0.618
+      }
+    },
+    {
+      "frame_id": "deer_1_graze_l_f1.png",
+      "file": "deer_1_graze_l_f1.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.297,
+        "shrub": 0.425,
+        "forest": 0.595
+      }
+    },
+    {
+      "frame_id": "deer_1_graze_r_f0.png",
+      "file": "deer_1_graze_r_f0.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.275,
+        "shrub": 0.411,
+        "forest": 0.591
+      }
+    },
+    {
+      "frame_id": "deer_1_graze_r_f1.png",
+      "file": "deer_1_graze_r_f1.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.25,
+        "shrub": 0.37,
+        "forest": 0.528
+      }
+    },
+    {
+      "frame_id": "deer_0_walk_l_f0.png",
+      "file": "deer_0_walk_l_f0.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.177,
+        "shrub": 0.21,
+        "forest": 0.364
+      }
+    },
+    {
+      "frame_id": "deer_0_walk_l_f1.png",
+      "file": "deer_0_walk_l_f1.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.177,
+        "shrub": 0.21,
+        "forest": 0.364
+      }
+    },
+    {
+      "frame_id": "deer_0_walk_l_f2.png",
+      "file": "deer_0_walk_l_f2.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.177,
+        "shrub": 0.21,
+        "forest": 0.364
+      }
+    },
+    {
+      "frame_id": "deer_0_walk_l_f3.png",
+      "file": "deer_0_walk_l_f3.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.169,
+        "shrub": 0.207,
+        "forest": 0.373
+      }
+    },
+    {
+      "frame_id": "deer_0_walk_r_f0.png",
+      "file": "deer_0_walk_r_f0.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.184,
+        "shrub": 0.205,
+        "forest": 0.343
+      }
+    },
+    {
+      "frame_id": "deer_0_walk_r_f1.png",
+      "file": "deer_0_walk_r_f1.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.184,
+        "shrub": 0.205,
+        "forest": 0.343
+      }
+    },
+    {
+      "frame_id": "deer_0_walk_r_f2.png",
+      "file": "deer_0_walk_r_f2.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.184,
+        "shrub": 0.205,
+        "forest": 0.343
+      }
+    },
+    {
+      "frame_id": "deer_0_walk_r_f3.png",
+      "file": "deer_0_walk_r_f3.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.177,
+        "shrub": 0.202,
+        "forest": 0.352
+      }
+    },
+    {
+      "frame_id": "deer_1_walk_l_f0.png",
+      "file": "deer_1_walk_l_f0.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.273,
+        "shrub": 0.421,
+        "forest": 0.618
+      }
+    },
+    {
+      "frame_id": "deer_1_walk_l_f1.png",
+      "file": "deer_1_walk_l_f1.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.273,
+        "shrub": 0.421,
+        "forest": 0.618
+      }
+    },
+    {
+      "frame_id": "deer_1_walk_l_f2.png",
+      "file": "deer_1_walk_l_f2.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.273,
+        "shrub": 0.421,
+        "forest": 0.618
+      }
+    },
+    {
+      "frame_id": "deer_1_walk_l_f3.png",
+      "file": "deer_1_walk_l_f3.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.267,
+        "shrub": 0.425,
+        "forest": 0.635
+      }
+    },
+    {
+      "frame_id": "deer_1_walk_r_f0.png",
+      "file": "deer_1_walk_r_f0.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.275,
+        "shrub": 0.411,
+        "forest": 0.591
+      }
+    },
+    {
+      "frame_id": "deer_1_walk_r_f1.png",
+      "file": "deer_1_walk_r_f1.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.275,
+        "shrub": 0.411,
+        "forest": 0.591
+      }
+    },
+    {
+      "frame_id": "deer_1_walk_r_f2.png",
+      "file": "deer_1_walk_r_f2.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.275,
+        "shrub": 0.411,
+        "forest": 0.591
+      }
+    },
+    {
+      "frame_id": "deer_1_walk_r_f3.png",
+      "file": "deer_1_walk_r_f3.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.269,
+        "shrub": 0.415,
+        "forest": 0.607
+      }
+    },
+    {
+      "frame_id": "deer_0_run_l_f0.png",
+      "file": "deer_0_walk_l_f0.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.177,
+        "shrub": 0.21,
+        "forest": 0.364
+      }
+    },
+    {
+      "frame_id": "deer_0_run_l_f1.png",
+      "file": "deer_0_run_l_f1.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.177,
+        "shrub": 0.21,
+        "forest": 0.364
+      }
+    },
+    {
+      "frame_id": "deer_0_run_l_f2.png",
+      "file": "deer_0_walk_l_f2.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.177,
+        "shrub": 0.21,
+        "forest": 0.364
+      }
+    },
+    {
+      "frame_id": "deer_0_run_l_f3.png",
+      "file": "deer_0_run_l_f3.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.177,
+        "shrub": 0.21,
+        "forest": 0.364
+      }
+    },
+    {
+      "frame_id": "deer_0_run_r_f0.png",
+      "file": "deer_0_walk_r_f0.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.184,
+        "shrub": 0.205,
+        "forest": 0.343
+      }
+    },
+    {
+      "frame_id": "deer_0_run_r_f1.png",
+      "file": "deer_0_run_r_f1.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.184,
+        "shrub": 0.205,
+        "forest": 0.343
+      }
+    },
+    {
+      "frame_id": "deer_0_run_r_f2.png",
+      "file": "deer_0_walk_r_f2.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.184,
+        "shrub": 0.205,
+        "forest": 0.343
+      }
+    },
+    {
+      "frame_id": "deer_0_run_r_f3.png",
+      "file": "deer_0_run_r_f3.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.177,
+        "shrub": 0.202,
+        "forest": 0.352
+      }
+    },
+    {
+      "frame_id": "deer_1_run_l_f0.png",
+      "file": "deer_1_walk_l_f0.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.273,
+        "shrub": 0.421,
+        "forest": 0.618
+      }
+    },
+    {
+      "frame_id": "deer_1_run_l_f1.png",
+      "file": "deer_1_run_l_f1.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.273,
+        "shrub": 0.421,
+        "forest": 0.618
+      }
+    },
+    {
+      "frame_id": "deer_1_run_l_f2.png",
+      "file": "deer_1_walk_l_f2.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.273,
+        "shrub": 0.421,
+        "forest": 0.618
+      }
+    },
+    {
+      "frame_id": "deer_1_run_l_f3.png",
+      "file": "deer_1_run_l_f3.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.273,
+        "shrub": 0.421,
+        "forest": 0.618
+      }
+    },
+    {
+      "frame_id": "deer_1_run_r_f0.png",
+      "file": "deer_1_walk_r_f0.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.275,
+        "shrub": 0.411,
+        "forest": 0.591
+      }
+    },
+    {
+      "frame_id": "deer_1_run_r_f1.png",
+      "file": "deer_1_run_r_f1.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.275,
+        "shrub": 0.411,
+        "forest": 0.591
+      }
+    },
+    {
+      "frame_id": "deer_1_run_r_f2.png",
+      "file": "deer_1_walk_r_f2.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.275,
+        "shrub": 0.411,
+        "forest": 0.591
+      }
+    },
+    {
+      "frame_id": "deer_1_run_r_f3.png",
+      "file": "deer_1_run_r_f3.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.269,
+        "shrub": 0.415,
+        "forest": 0.607
+      }
+    },
+    {
+      "frame_id": "deer_0_rest_l_f0.png",
+      "file": "deer_0_rest_l_f0.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 2,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.198,
+        "shrub": 0.157,
+        "forest": 0.236
+      }
+    },
+    {
+      "frame_id": "deer_0_rest_r_f0.png",
+      "file": "deer_0_rest_r_f0.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 3,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.171,
+        "shrub": 0.16,
+        "forest": 0.285
+      }
+    },
+    {
+      "frame_id": "deer_1_rest_l_f0.png",
+      "file": "deer_1_rest_l_f0.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 2,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.267,
+        "shrub": 0.356,
+        "forest": 0.474
+      }
+    },
+    {
+      "frame_id": "deer_1_rest_r_f0.png",
+      "file": "deer_1_rest_r_f0.png",
+      "size": [
+        9,
+        8
+      ],
+      "colors": 3,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.251,
+        "shrub": 0.379,
+        "forest": 0.548
+      }
+    },
+    {
+      "frame_id": "deer_young_0_graze_l_f0.png",
+      "file": "deer_young_0_graze_l_f0.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.194,
+        "shrub": 0.325,
+        "forest": 0.512
+      }
+    },
+    {
+      "frame_id": "deer_young_0_graze_l_f1.png",
+      "file": "deer_young_0_graze_l_f1.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.227,
+        "shrub": 0.357,
+        "forest": 0.546
+      }
+    },
+    {
+      "frame_id": "deer_young_0_graze_r_f0.png",
+      "file": "deer_young_0_graze_r_f0.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.223,
+        "shrub": 0.358,
+        "forest": 0.551
+      }
+    },
+    {
+      "frame_id": "deer_young_0_graze_r_f1.png",
+      "file": "deer_young_0_graze_r_f1.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.183,
+        "shrub": 0.276,
+        "forest": 0.42
+      }
+    },
+    {
+      "frame_id": "deer_young_1_graze_l_f0.png",
+      "file": "deer_young_1_graze_l_f0.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.217,
+        "shrub": 0.351,
+        "forest": 0.528
+      }
+    },
+    {
+      "frame_id": "deer_young_1_graze_l_f1.png",
+      "file": "deer_young_1_graze_l_f1.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.249,
+        "shrub": 0.384,
+        "forest": 0.562
+      }
+    },
+    {
+      "frame_id": "deer_young_1_graze_r_f0.png",
+      "file": "deer_young_1_graze_r_f0.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.244,
+        "shrub": 0.383,
+        "forest": 0.567
+      }
+    },
+    {
+      "frame_id": "deer_young_1_graze_r_f1.png",
+      "file": "deer_young_1_graze_r_f1.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.212,
+        "shrub": 0.31,
+        "forest": 0.44
+      }
+    },
+    {
+      "frame_id": "deer_young_0_walk_l_f0.png",
+      "file": "deer_young_0_walk_l_f0.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.194,
+        "shrub": 0.325,
+        "forest": 0.512
+      }
+    },
+    {
+      "frame_id": "deer_young_0_walk_l_f1.png",
+      "file": "deer_young_0_walk_l_f1.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.194,
+        "shrub": 0.325,
+        "forest": 0.512
+      }
+    },
+    {
+      "frame_id": "deer_young_0_walk_l_f2.png",
+      "file": "deer_young_0_walk_l_f2.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.206,
+        "shrub": 0.317,
+        "forest": 0.482
+      }
+    },
+    {
+      "frame_id": "deer_young_0_walk_l_f3.png",
+      "file": "deer_young_0_walk_l_f3.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.19,
+        "shrub": 0.336,
+        "forest": 0.542
+      }
+    },
+    {
+      "frame_id": "deer_young_0_walk_r_f0.png",
+      "file": "deer_young_0_walk_r_f0.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.223,
+        "shrub": 0.358,
+        "forest": 0.551
+      }
+    },
+    {
+      "frame_id": "deer_young_0_walk_r_f1.png",
+      "file": "deer_young_0_walk_r_f1.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.223,
+        "shrub": 0.358,
+        "forest": 0.551
+      }
+    },
+    {
+      "frame_id": "deer_young_0_walk_r_f2.png",
+      "file": "deer_young_0_walk_r_f2.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.234,
+        "shrub": 0.35,
+        "forest": 0.522
+      }
+    },
+    {
+      "frame_id": "deer_young_0_walk_r_f3.png",
+      "file": "deer_young_0_walk_r_f3.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.219,
+        "shrub": 0.371,
+        "forest": 0.584
+      }
+    },
+    {
+      "frame_id": "deer_young_1_walk_l_f0.png",
+      "file": "deer_young_1_walk_l_f0.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.217,
+        "shrub": 0.351,
+        "forest": 0.528
+      }
+    },
+    {
+      "frame_id": "deer_young_1_walk_l_f1.png",
+      "file": "deer_young_1_walk_l_f1.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.217,
+        "shrub": 0.351,
+        "forest": 0.528
+      }
+    },
+    {
+      "frame_id": "deer_young_1_walk_l_f2.png",
+      "file": "deer_young_1_walk_l_f2.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.232,
+        "shrub": 0.348,
+        "forest": 0.501
+      }
+    },
+    {
+      "frame_id": "deer_young_1_walk_l_f3.png",
+      "file": "deer_young_1_walk_l_f3.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.209,
+        "shrub": 0.359,
+        "forest": 0.557
+      }
+    },
+    {
+      "frame_id": "deer_young_1_walk_r_f0.png",
+      "file": "deer_young_1_walk_r_f0.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.244,
+        "shrub": 0.383,
+        "forest": 0.567
+      }
+    },
+    {
+      "frame_id": "deer_young_1_walk_r_f1.png",
+      "file": "deer_young_1_walk_r_f1.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.244,
+        "shrub": 0.383,
+        "forest": 0.567
+      }
+    },
+    {
+      "frame_id": "deer_young_1_walk_r_f2.png",
+      "file": "deer_young_1_walk_r_f2.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.259,
+        "shrub": 0.38,
+        "forest": 0.539
+      }
+    },
+    {
+      "frame_id": "deer_young_1_walk_r_f3.png",
+      "file": "deer_young_1_walk_r_f3.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.238,
+        "shrub": 0.393,
+        "forest": 0.598
+      }
+    },
+    {
+      "frame_id": "deer_young_0_run_l_f0.png",
+      "file": "deer_young_0_walk_l_f0.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.194,
+        "shrub": 0.325,
+        "forest": 0.512
+      }
+    },
+    {
+      "frame_id": "deer_young_0_run_l_f1.png",
+      "file": "deer_young_0_run_l_f1.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.202,
+        "shrub": 0.328,
+        "forest": 0.511
+      }
+    },
+    {
+      "frame_id": "deer_young_0_run_l_f2.png",
+      "file": "deer_young_0_walk_l_f2.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.206,
+        "shrub": 0.317,
+        "forest": 0.482
+      }
+    },
+    {
+      "frame_id": "deer_young_0_run_l_f3.png",
+      "file": "deer_young_0_walk_l_f3.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.19,
+        "shrub": 0.336,
+        "forest": 0.542
+      }
+    },
+    {
+      "frame_id": "deer_young_0_run_r_f0.png",
+      "file": "deer_young_0_walk_r_f0.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.223,
+        "shrub": 0.358,
+        "forest": 0.551
+      }
+    },
+    {
+      "frame_id": "deer_young_0_run_r_f1.png",
+      "file": "deer_young_0_walk_r_f3.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.219,
+        "shrub": 0.371,
+        "forest": 0.584
+      }
+    },
+    {
+      "frame_id": "deer_young_0_run_r_f2.png",
+      "file": "deer_young_0_walk_r_f2.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.234,
+        "shrub": 0.35,
+        "forest": 0.522
+      }
+    },
+    {
+      "frame_id": "deer_young_0_run_r_f3.png",
+      "file": "deer_young_0_run_r_f3.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.231,
+        "shrub": 0.363,
+        "forest": 0.553
+      }
+    },
+    {
+      "frame_id": "deer_young_1_run_l_f0.png",
+      "file": "deer_young_1_walk_l_f0.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.217,
+        "shrub": 0.351,
+        "forest": 0.528
+      }
+    },
+    {
+      "frame_id": "deer_young_1_run_l_f1.png",
+      "file": "deer_young_1_run_l_f1.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.225,
+        "shrub": 0.355,
+        "forest": 0.527
+      }
+    },
+    {
+      "frame_id": "deer_young_1_run_l_f2.png",
+      "file": "deer_young_1_walk_l_f2.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.232,
+        "shrub": 0.348,
+        "forest": 0.501
+      }
+    },
+    {
+      "frame_id": "deer_young_1_run_l_f3.png",
+      "file": "deer_young_1_walk_l_f3.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.209,
+        "shrub": 0.359,
+        "forest": 0.557
+      }
+    },
+    {
+      "frame_id": "deer_young_1_run_r_f0.png",
+      "file": "deer_young_1_walk_r_f0.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.244,
+        "shrub": 0.383,
+        "forest": 0.567
+      }
+    },
+    {
+      "frame_id": "deer_young_1_run_r_f1.png",
+      "file": "deer_young_1_walk_r_f3.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.238,
+        "shrub": 0.393,
+        "forest": 0.598
+      }
+    },
+    {
+      "frame_id": "deer_young_1_run_r_f2.png",
+      "file": "deer_young_1_walk_r_f2.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.259,
+        "shrub": 0.38,
+        "forest": 0.539
+      }
+    },
+    {
+      "frame_id": "deer_young_1_run_r_f3.png",
+      "file": "deer_young_1_run_r_f3.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.254,
+        "shrub": 0.39,
+        "forest": 0.569
+      }
+    },
+    {
+      "frame_id": "deer_young_0_rest_l_f0.png",
+      "file": "deer_young_0_rest_l_f0.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 3,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.181,
+        "shrub": 0.258,
+        "forest": 0.385
+      }
+    },
+    {
+      "frame_id": "deer_young_0_rest_r_f0.png",
+      "file": "deer_young_0_rest_r_f0.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 3,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.172,
+        "shrub": 0.293,
+        "forest": 0.468
+      }
+    },
+    {
+      "frame_id": "deer_young_1_rest_l_f0.png",
+      "file": "deer_young_1_rest_l_f0.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 3,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.213,
+        "shrub": 0.296,
+        "forest": 0.406
+      }
+    },
+    {
+      "frame_id": "deer_young_1_rest_r_f0.png",
+      "file": "deer_young_1_rest_r_f0.png",
+      "size": [
+        6,
+        6
+      ],
+      "colors": 3,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.196,
+        "shrub": 0.321,
+        "forest": 0.486
+      }
+    },
+    {
+      "frame_id": "wolf_0_graze_l_f0.png",
+      "file": "wolf_0_graze_l_f0.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.276,
+        "shrub": 0.411,
+        "forest": 0.589
+      }
+    },
+    {
+      "frame_id": "wolf_0_graze_l_f1.png",
+      "file": "wolf_0_graze_l_f1.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.276,
+        "shrub": 0.411,
+        "forest": 0.589
+      }
+    },
+    {
+      "frame_id": "wolf_0_graze_r_f0.png",
+      "file": "wolf_0_graze_r_f0.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.276,
+        "shrub": 0.411,
+        "forest": 0.589
+      }
+    },
+    {
+      "frame_id": "wolf_0_graze_r_f1.png",
+      "file": "wolf_0_graze_r_f1.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.276,
+        "shrub": 0.411,
+        "forest": 0.589
+      }
+    },
+    {
+      "frame_id": "wolf_1_graze_l_f0.png",
+      "file": "wolf_1_graze_l_f0.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.313,
+        "shrub": 0.455,
+        "forest": 0.641
+      }
+    },
+    {
+      "frame_id": "wolf_1_graze_l_f1.png",
+      "file": "wolf_1_graze_l_f1.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.313,
+        "shrub": 0.455,
+        "forest": 0.641
+      }
+    },
+    {
+      "frame_id": "wolf_1_graze_r_f0.png",
+      "file": "wolf_1_graze_r_f0.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.313,
+        "shrub": 0.455,
+        "forest": 0.641
+      }
+    },
+    {
+      "frame_id": "wolf_1_graze_r_f1.png",
+      "file": "wolf_1_graze_r_f1.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.313,
+        "shrub": 0.455,
+        "forest": 0.641
+      }
+    },
+    {
+      "frame_id": "wolf_0_walk_l_f0.png",
+      "file": "wolf_0_walk_l_f0.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.276,
+        "shrub": 0.411,
+        "forest": 0.589
+      }
+    },
+    {
+      "frame_id": "wolf_0_walk_l_f1.png",
+      "file": "wolf_0_walk_l_f1.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.276,
+        "shrub": 0.411,
+        "forest": 0.589
+      }
+    },
+    {
+      "frame_id": "wolf_0_walk_l_f2.png",
+      "file": "wolf_0_walk_l_f2.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.276,
+        "shrub": 0.411,
+        "forest": 0.589
+      }
+    },
+    {
+      "frame_id": "wolf_0_walk_l_f3.png",
+      "file": "wolf_0_walk_l_f3.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.274,
+        "shrub": 0.423,
+        "forest": 0.62
+      }
+    },
+    {
+      "frame_id": "wolf_0_walk_r_f0.png",
+      "file": "wolf_0_walk_r_f0.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.276,
+        "shrub": 0.411,
+        "forest": 0.589
+      }
+    },
+    {
+      "frame_id": "wolf_0_walk_r_f1.png",
+      "file": "wolf_0_walk_r_f1.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.276,
+        "shrub": 0.411,
+        "forest": 0.589
+      }
+    },
+    {
+      "frame_id": "wolf_0_walk_r_f2.png",
+      "file": "wolf_0_walk_r_f2.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.276,
+        "shrub": 0.411,
+        "forest": 0.589
+      }
+    },
+    {
+      "frame_id": "wolf_0_walk_r_f3.png",
+      "file": "wolf_0_walk_r_f3.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.274,
+        "shrub": 0.423,
+        "forest": 0.62
+      }
+    },
+    {
+      "frame_id": "wolf_1_walk_l_f0.png",
+      "file": "wolf_1_walk_l_f0.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.313,
+        "shrub": 0.455,
+        "forest": 0.641
+      }
+    },
+    {
+      "frame_id": "wolf_1_walk_l_f1.png",
+      "file": "wolf_1_walk_l_f1.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.313,
+        "shrub": 0.455,
+        "forest": 0.641
+      }
+    },
+    {
+      "frame_id": "wolf_1_walk_l_f2.png",
+      "file": "wolf_1_walk_l_f2.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.313,
+        "shrub": 0.455,
+        "forest": 0.641
+      }
+    },
+    {
+      "frame_id": "wolf_1_walk_l_f3.png",
+      "file": "wolf_1_walk_l_f3.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.31,
+        "shrub": 0.465,
+        "forest": 0.671
+      }
+    },
+    {
+      "frame_id": "wolf_1_walk_r_f0.png",
+      "file": "wolf_1_walk_r_f0.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.313,
+        "shrub": 0.455,
+        "forest": 0.641
+      }
+    },
+    {
+      "frame_id": "wolf_1_walk_r_f1.png",
+      "file": "wolf_1_walk_r_f1.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.313,
+        "shrub": 0.455,
+        "forest": 0.641
+      }
+    },
+    {
+      "frame_id": "wolf_1_walk_r_f2.png",
+      "file": "wolf_1_walk_r_f2.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.313,
+        "shrub": 0.455,
+        "forest": 0.641
+      }
+    },
+    {
+      "frame_id": "wolf_1_walk_r_f3.png",
+      "file": "wolf_1_walk_r_f3.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.31,
+        "shrub": 0.465,
+        "forest": 0.671
+      }
+    },
+    {
+      "frame_id": "wolf_0_run_l_f0.png",
+      "file": "wolf_0_walk_l_f0.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.276,
+        "shrub": 0.411,
+        "forest": 0.589
+      }
+    },
+    {
+      "frame_id": "wolf_0_run_l_f1.png",
+      "file": "wolf_0_run_l_f1.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.276,
+        "shrub": 0.411,
+        "forest": 0.589
+      }
+    },
+    {
+      "frame_id": "wolf_0_run_l_f2.png",
+      "file": "wolf_0_walk_l_f2.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.276,
+        "shrub": 0.411,
+        "forest": 0.589
+      }
+    },
+    {
+      "frame_id": "wolf_0_run_l_f3.png",
+      "file": "wolf_0_run_l_f3.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.276,
+        "shrub": 0.411,
+        "forest": 0.589
+      }
+    },
+    {
+      "frame_id": "wolf_0_run_r_f0.png",
+      "file": "wolf_0_walk_r_f0.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.276,
+        "shrub": 0.411,
+        "forest": 0.589
+      }
+    },
+    {
+      "frame_id": "wolf_0_run_r_f1.png",
+      "file": "wolf_0_run_r_f1.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.276,
+        "shrub": 0.411,
+        "forest": 0.589
+      }
+    },
+    {
+      "frame_id": "wolf_0_run_r_f2.png",
+      "file": "wolf_0_walk_r_f2.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.276,
+        "shrub": 0.411,
+        "forest": 0.589
+      }
+    },
+    {
+      "frame_id": "wolf_0_run_r_f3.png",
+      "file": "wolf_0_run_r_f3.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.274,
+        "shrub": 0.423,
+        "forest": 0.62
+      }
+    },
+    {
+      "frame_id": "wolf_1_run_l_f0.png",
+      "file": "wolf_1_walk_l_f0.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.313,
+        "shrub": 0.455,
+        "forest": 0.641
+      }
+    },
+    {
+      "frame_id": "wolf_1_run_l_f1.png",
+      "file": "wolf_1_run_l_f1.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.313,
+        "shrub": 0.455,
+        "forest": 0.641
+      }
+    },
+    {
+      "frame_id": "wolf_1_run_l_f2.png",
+      "file": "wolf_1_walk_l_f2.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.313,
+        "shrub": 0.455,
+        "forest": 0.641
+      }
+    },
+    {
+      "frame_id": "wolf_1_run_l_f3.png",
+      "file": "wolf_1_run_l_f3.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.313,
+        "shrub": 0.455,
+        "forest": 0.641
+      }
+    },
+    {
+      "frame_id": "wolf_1_run_r_f0.png",
+      "file": "wolf_1_walk_r_f0.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.313,
+        "shrub": 0.455,
+        "forest": 0.641
+      }
+    },
+    {
+      "frame_id": "wolf_1_run_r_f1.png",
+      "file": "wolf_1_run_r_f1.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.313,
+        "shrub": 0.455,
+        "forest": 0.641
+      }
+    },
+    {
+      "frame_id": "wolf_1_run_r_f2.png",
+      "file": "wolf_1_walk_r_f2.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.313,
+        "shrub": 0.455,
+        "forest": 0.641
+      }
+    },
+    {
+      "frame_id": "wolf_1_run_r_f3.png",
+      "file": "wolf_1_run_r_f3.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.31,
+        "shrub": 0.465,
+        "forest": 0.671
+      }
+    },
+    {
+      "frame_id": "wolf_0_rest_l_f0.png",
+      "file": "wolf_0_rest_l_f0.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 2,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.206,
+        "shrub": 0.279,
+        "forest": 0.376
+      }
+    },
+    {
+      "frame_id": "wolf_0_rest_r_f0.png",
+      "file": "wolf_0_rest_r_f0.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 2,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.193,
+        "shrub": 0.288,
+        "forest": 0.413
+      }
+    },
+    {
+      "frame_id": "wolf_1_rest_l_f0.png",
+      "file": "wolf_1_rest_l_f0.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 2,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.248,
+        "shrub": 0.328,
+        "forest": 0.435
+      }
+    },
+    {
+      "frame_id": "wolf_1_rest_r_f0.png",
+      "file": "wolf_1_rest_r_f0.png",
+      "size": [
+        8,
+        5
+      ],
+      "colors": 2,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.233,
+        "shrub": 0.335,
+        "forest": 0.47
+      }
+    },
+    {
+      "frame_id": "fox_0_graze_l_f0.png",
+      "file": "fox_0_graze_l_f0.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.291,
+        "shrub": 0.33,
+        "forest": 0.483
+      }
+    },
+    {
+      "frame_id": "fox_0_graze_l_f1.png",
+      "file": "fox_0_graze_l_f1.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.291,
+        "shrub": 0.33,
+        "forest": 0.483
+      }
+    },
+    {
+      "frame_id": "fox_0_graze_r_f0.png",
+      "file": "fox_0_graze_r_f0.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.248,
+        "shrub": 0.309,
+        "forest": 0.515
+      }
+    },
+    {
+      "frame_id": "fox_0_graze_r_f1.png",
+      "file": "fox_0_graze_r_f1.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.248,
+        "shrub": 0.309,
+        "forest": 0.515
+      }
+    },
+    {
+      "frame_id": "fox_1_graze_l_f0.png",
+      "file": "fox_1_graze_l_f0.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.232,
+        "shrub": 0.297,
+        "forest": 0.444
+      }
+    },
+    {
+      "frame_id": "fox_1_graze_l_f1.png",
+      "file": "fox_1_graze_l_f1.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.232,
+        "shrub": 0.297,
+        "forest": 0.444
+      }
+    },
+    {
+      "frame_id": "fox_1_graze_r_f0.png",
+      "file": "fox_1_graze_r_f0.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.174,
+        "shrub": 0.266,
+        "forest": 0.464
+      }
+    },
+    {
+      "frame_id": "fox_1_graze_r_f1.png",
+      "file": "fox_1_graze_r_f1.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.174,
+        "shrub": 0.266,
+        "forest": 0.464
+      }
+    },
+    {
+      "frame_id": "fox_0_walk_l_f0.png",
+      "file": "fox_0_graze_l_f0.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.291,
+        "shrub": 0.33,
+        "forest": 0.483
+      }
+    },
+    {
+      "frame_id": "fox_0_walk_l_f1.png",
+      "file": "fox_0_walk_l_f1.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.291,
+        "shrub": 0.33,
+        "forest": 0.483
+      }
+    },
+    {
+      "frame_id": "fox_0_walk_l_f2.png",
+      "file": "fox_0_walk_l_f2.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.291,
+        "shrub": 0.33,
+        "forest": 0.483
+      }
+    },
+    {
+      "frame_id": "fox_0_walk_l_f3.png",
+      "file": "fox_0_walk_l_f3.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.276,
+        "shrub": 0.298,
+        "forest": 0.435
+      }
+    },
+    {
+      "frame_id": "fox_0_walk_r_f0.png",
+      "file": "fox_0_graze_r_f0.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.248,
+        "shrub": 0.309,
+        "forest": 0.515
+      }
+    },
+    {
+      "frame_id": "fox_0_walk_r_f1.png",
+      "file": "fox_0_walk_r_f1.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.248,
+        "shrub": 0.309,
+        "forest": 0.515
+      }
+    },
+    {
+      "frame_id": "fox_0_walk_r_f2.png",
+      "file": "fox_0_walk_r_f2.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.248,
+        "shrub": 0.309,
+        "forest": 0.515
+      }
+    },
+    {
+      "frame_id": "fox_0_walk_r_f3.png",
+      "file": "fox_0_walk_r_f3.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.23,
+        "shrub": 0.275,
+        "forest": 0.47
+      }
+    },
+    {
+      "frame_id": "fox_1_walk_l_f0.png",
+      "file": "fox_1_graze_l_f0.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.232,
+        "shrub": 0.297,
+        "forest": 0.444
+      }
+    },
+    {
+      "frame_id": "fox_1_walk_l_f1.png",
+      "file": "fox_1_walk_l_f1.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.232,
+        "shrub": 0.297,
+        "forest": 0.444
+      }
+    },
+    {
+      "frame_id": "fox_1_walk_l_f2.png",
+      "file": "fox_1_walk_l_f2.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.232,
+        "shrub": 0.297,
+        "forest": 0.444
+      }
+    },
+    {
+      "frame_id": "fox_1_walk_l_f3.png",
+      "file": "fox_1_walk_l_f3.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.219,
+        "shrub": 0.27,
+        "forest": 0.401
+      }
+    },
+    {
+      "frame_id": "fox_1_walk_r_f0.png",
+      "file": "fox_1_graze_r_f0.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.174,
+        "shrub": 0.266,
+        "forest": 0.464
+      }
+    },
+    {
+      "frame_id": "fox_1_walk_r_f1.png",
+      "file": "fox_1_walk_r_f1.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.174,
+        "shrub": 0.266,
+        "forest": 0.464
+      }
+    },
+    {
+      "frame_id": "fox_1_walk_r_f2.png",
+      "file": "fox_1_walk_r_f2.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.174,
+        "shrub": 0.266,
+        "forest": 0.464
+      }
+    },
+    {
+      "frame_id": "fox_1_walk_r_f3.png",
+      "file": "fox_1_walk_r_f3.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.156,
+        "shrub": 0.236,
+        "forest": 0.423
+      }
+    },
+    {
+      "frame_id": "fox_0_run_l_f0.png",
+      "file": "fox_0_graze_l_f0.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.291,
+        "shrub": 0.33,
+        "forest": 0.483
+      }
+    },
+    {
+      "frame_id": "fox_0_run_l_f1.png",
+      "file": "fox_0_run_l_f1.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.304,
+        "shrub": 0.358,
+        "forest": 0.524
+      }
+    },
+    {
+      "frame_id": "fox_0_run_l_f2.png",
+      "file": "fox_0_walk_l_f2.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.291,
+        "shrub": 0.33,
+        "forest": 0.483
+      }
+    },
+    {
+      "frame_id": "fox_0_run_l_f3.png",
+      "file": "fox_0_run_l_f3.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.291,
+        "shrub": 0.33,
+        "forest": 0.483
+      }
+    },
+    {
+      "frame_id": "fox_0_run_r_f0.png",
+      "file": "fox_0_graze_r_f0.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.248,
+        "shrub": 0.309,
+        "forest": 0.515
+      }
+    },
+    {
+      "frame_id": "fox_0_run_r_f1.png",
+      "file": "fox_0_run_r_f1.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.264,
+        "shrub": 0.339,
+        "forest": 0.554
+      }
+    },
+    {
+      "frame_id": "fox_0_run_r_f2.png",
+      "file": "fox_0_walk_r_f2.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.248,
+        "shrub": 0.309,
+        "forest": 0.515
+      }
+    },
+    {
+      "frame_id": "fox_0_run_r_f3.png",
+      "file": "fox_0_run_r_f3.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.248,
+        "shrub": 0.309,
+        "forest": 0.515
+      }
+    },
+    {
+      "frame_id": "fox_1_run_l_f0.png",
+      "file": "fox_1_graze_l_f0.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.232,
+        "shrub": 0.297,
+        "forest": 0.444
+      }
+    },
+    {
+      "frame_id": "fox_1_run_l_f1.png",
+      "file": "fox_1_run_l_f1.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.244,
+        "shrub": 0.321,
+        "forest": 0.48
+      }
+    },
+    {
+      "frame_id": "fox_1_run_l_f2.png",
+      "file": "fox_1_walk_l_f2.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.232,
+        "shrub": 0.297,
+        "forest": 0.444
+      }
+    },
+    {
+      "frame_id": "fox_1_run_l_f3.png",
+      "file": "fox_1_run_l_f3.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.232,
+        "shrub": 0.297,
+        "forest": 0.444
+      }
+    },
+    {
+      "frame_id": "fox_1_run_r_f0.png",
+      "file": "fox_1_graze_r_f0.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.174,
+        "shrub": 0.266,
+        "forest": 0.464
+      }
+    },
+    {
+      "frame_id": "fox_1_run_r_f1.png",
+      "file": "fox_1_run_r_f1.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.189,
+        "shrub": 0.292,
+        "forest": 0.499
+      }
+    },
+    {
+      "frame_id": "fox_1_run_r_f2.png",
+      "file": "fox_1_walk_r_f2.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.174,
+        "shrub": 0.266,
+        "forest": 0.464
+      }
+    },
+    {
+      "frame_id": "fox_1_run_r_f3.png",
+      "file": "fox_1_run_r_f3.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.174,
+        "shrub": 0.266,
+        "forest": 0.464
+      }
+    },
+    {
+      "frame_id": "fox_0_rest_l_f0.png",
+      "file": "fox_0_rest_l_f0.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.292,
+        "shrub": 0.279,
+        "forest": 0.391
+      }
+    },
+    {
+      "frame_id": "fox_0_rest_r_f0.png",
+      "file": "fox_0_rest_r_f0.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.238,
+        "shrub": 0.252,
+        "forest": 0.431
+      }
+    },
+    {
+      "frame_id": "fox_1_rest_l_f0.png",
+      "file": "fox_1_rest_l_f0.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.249,
+        "shrub": 0.274,
+        "forest": 0.385
+      }
+    },
+    {
+      "frame_id": "fox_1_rest_r_f0.png",
+      "file": "fox_1_rest_r_f0.png",
+      "size": [
+        6,
+        4
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.174,
+        "shrub": 0.235,
+        "forest": 0.41
+      }
+    },
+    {
+      "frame_id": "rabbit_0_graze_l_f0.png",
+      "file": "rabbit_0_graze_l_f0.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.209,
+        "shrub": 0.366,
+        "forest": 0.601
+      }
+    },
+    {
+      "frame_id": "rabbit_0_graze_l_f1.png",
+      "file": "rabbit_0_graze_l_f1.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.191,
+        "shrub": 0.354,
+        "forest": 0.592
+      }
+    },
+    {
+      "frame_id": "rabbit_0_graze_r_f0.png",
+      "file": "rabbit_0_graze_r_f0.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.209,
+        "shrub": 0.366,
+        "forest": 0.601
+      }
+    },
+    {
+      "frame_id": "rabbit_0_graze_r_f1.png",
+      "file": "rabbit_0_graze_r_f1.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.213,
+        "shrub": 0.328,
+        "forest": 0.526
+      }
+    },
+    {
+      "frame_id": "rabbit_1_graze_l_f0.png",
+      "file": "rabbit_1_graze_l_f0.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.182,
+        "shrub": 0.267,
+        "forest": 0.455
+      }
+    },
+    {
+      "frame_id": "rabbit_1_graze_l_f1.png",
+      "file": "rabbit_1_graze_l_f1.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.165,
+        "shrub": 0.245,
+        "forest": 0.438
+      }
+    },
+    {
+      "frame_id": "rabbit_1_graze_r_f0.png",
+      "file": "rabbit_1_graze_r_f0.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.182,
+        "shrub": 0.267,
+        "forest": 0.455
+      }
+    },
+    {
+      "frame_id": "rabbit_1_graze_r_f1.png",
+      "file": "rabbit_1_graze_r_f1.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.201,
+        "shrub": 0.256,
+        "forest": 0.394
+      }
+    },
+    {
+      "frame_id": "rabbit_0_walk_l_f0.png",
+      "file": "rabbit_0_graze_l_f0.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.209,
+        "shrub": 0.366,
+        "forest": 0.601
+      }
+    },
+    {
+      "frame_id": "rabbit_0_walk_l_f1.png",
+      "file": "rabbit_0_walk_l_f1.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.235,
+        "shrub": 0.303,
+        "forest": 0.461
+      }
+    },
+    {
+      "frame_id": "rabbit_0_walk_l_f2.png",
+      "file": "rabbit_0_walk_l_f2.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.213,
+        "shrub": 0.328,
+        "forest": 0.526
+      }
+    },
+    {
+      "frame_id": "rabbit_0_walk_l_f3.png",
+      "file": "rabbit_0_graze_l_f1.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.191,
+        "shrub": 0.354,
+        "forest": 0.592
+      }
+    },
+    {
+      "frame_id": "rabbit_0_walk_r_f0.png",
+      "file": "rabbit_0_graze_r_f0.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.209,
+        "shrub": 0.366,
+        "forest": 0.601
+      }
+    },
+    {
+      "frame_id": "rabbit_0_walk_r_f1.png",
+      "file": "rabbit_0_walk_r_f1.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.191,
+        "shrub": 0.354,
+        "forest": 0.592
+      }
+    },
+    {
+      "frame_id": "rabbit_0_walk_r_f2.png",
+      "file": "rabbit_0_walk_r_f2.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.191,
+        "shrub": 0.354,
+        "forest": 0.592
+      }
+    },
+    {
+      "frame_id": "rabbit_0_walk_r_f3.png",
+      "file": "rabbit_0_graze_r_f1.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.213,
+        "shrub": 0.328,
+        "forest": 0.526
+      }
+    },
+    {
+      "frame_id": "rabbit_1_walk_l_f0.png",
+      "file": "rabbit_1_graze_l_f0.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.182,
+        "shrub": 0.267,
+        "forest": 0.455
+      }
+    },
+    {
+      "frame_id": "rabbit_1_walk_l_f1.png",
+      "file": "rabbit_1_walk_l_f1.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.237,
+        "shrub": 0.267,
+        "forest": 0.349
+      }
+    },
+    {
+      "frame_id": "rabbit_1_walk_l_f2.png",
+      "file": "rabbit_1_walk_l_f2.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.201,
+        "shrub": 0.256,
+        "forest": 0.394
+      }
+    },
+    {
+      "frame_id": "rabbit_1_walk_l_f3.png",
+      "file": "rabbit_1_graze_l_f1.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.165,
+        "shrub": 0.245,
+        "forest": 0.438
+      }
+    },
+    {
+      "frame_id": "rabbit_1_walk_r_f0.png",
+      "file": "rabbit_1_graze_r_f0.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.182,
+        "shrub": 0.267,
+        "forest": 0.455
+      }
+    },
+    {
+      "frame_id": "rabbit_1_walk_r_f1.png",
+      "file": "rabbit_1_walk_r_f1.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.165,
+        "shrub": 0.245,
+        "forest": 0.438
+      }
+    },
+    {
+      "frame_id": "rabbit_1_walk_r_f2.png",
+      "file": "rabbit_1_walk_r_f2.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.165,
+        "shrub": 0.245,
+        "forest": 0.438
+      }
+    },
+    {
+      "frame_id": "rabbit_1_walk_r_f3.png",
+      "file": "rabbit_1_graze_r_f1.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.201,
+        "shrub": 0.256,
+        "forest": 0.394
+      }
+    },
+    {
+      "frame_id": "rabbit_0_run_l_f0.png",
+      "file": "rabbit_0_graze_l_f0.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.209,
+        "shrub": 0.366,
+        "forest": 0.601
+      }
+    },
+    {
+      "frame_id": "rabbit_0_run_l_f1.png",
+      "file": "rabbit_0_run_l_f1.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.234,
+        "shrub": 0.336,
+        "forest": 0.524
+      }
+    },
+    {
+      "frame_id": "rabbit_0_run_l_f2.png",
+      "file": "rabbit_0_walk_l_f2.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.213,
+        "shrub": 0.328,
+        "forest": 0.526
+      }
+    },
+    {
+      "frame_id": "rabbit_0_run_l_f3.png",
+      "file": "rabbit_0_run_l_f3.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.209,
+        "shrub": 0.366,
+        "forest": 0.601
+      }
+    },
+    {
+      "frame_id": "rabbit_0_run_r_f0.png",
+      "file": "rabbit_0_graze_r_f0.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.209,
+        "shrub": 0.366,
+        "forest": 0.601
+      }
+    },
+    {
+      "frame_id": "rabbit_0_run_r_f1.png",
+      "file": "rabbit_0_run_r_f1.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.209,
+        "shrub": 0.366,
+        "forest": 0.601
+      }
+    },
+    {
+      "frame_id": "rabbit_0_run_r_f2.png",
+      "file": "rabbit_0_walk_r_f2.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.191,
+        "shrub": 0.354,
+        "forest": 0.592
+      }
+    },
+    {
+      "frame_id": "rabbit_0_run_r_f3.png",
+      "file": "rabbit_0_run_r_f3.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.234,
+        "shrub": 0.336,
+        "forest": 0.524
+      }
+    },
+    {
+      "frame_id": "rabbit_1_run_l_f0.png",
+      "file": "rabbit_1_graze_l_f0.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.182,
+        "shrub": 0.267,
+        "forest": 0.455
+      }
+    },
+    {
+      "frame_id": "rabbit_1_run_l_f1.png",
+      "file": "rabbit_1_run_l_f1.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.225,
+        "shrub": 0.28,
+        "forest": 0.403
+      }
+    },
+    {
+      "frame_id": "rabbit_1_run_l_f2.png",
+      "file": "rabbit_1_walk_l_f2.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.201,
+        "shrub": 0.256,
+        "forest": 0.394
+      }
+    },
+    {
+      "frame_id": "rabbit_1_run_l_f3.png",
+      "file": "rabbit_1_run_l_f3.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.182,
+        "shrub": 0.267,
+        "forest": 0.455
+      }
+    },
+    {
+      "frame_id": "rabbit_1_run_r_f0.png",
+      "file": "rabbit_1_graze_r_f0.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 4,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.182,
+        "shrub": 0.267,
+        "forest": 0.455
+      }
+    },
+    {
+      "frame_id": "rabbit_1_run_r_f1.png",
+      "file": "rabbit_1_run_r_f1.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.182,
+        "shrub": 0.267,
+        "forest": 0.455
+      }
+    },
+    {
+      "frame_id": "rabbit_1_run_r_f2.png",
+      "file": "rabbit_1_walk_r_f2.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.165,
+        "shrub": 0.245,
+        "forest": 0.438
+      }
+    },
+    {
+      "frame_id": "rabbit_1_run_r_f3.png",
+      "file": "rabbit_1_run_r_f3.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 5,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.225,
+        "shrub": 0.28,
+        "forest": 0.403
+      }
+    },
+    {
+      "frame_id": "rabbit_0_rest_l_f0.png",
+      "file": "rabbit_0_rest_l_f0.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 3,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.188,
+        "shrub": 0.329,
+        "forest": 0.549
+      }
+    },
+    {
+      "frame_id": "rabbit_0_rest_r_f0.png",
+      "file": "rabbit_0_rest_r_f0.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 3,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.203,
+        "shrub": 0.419,
+        "forest": 0.705
+      }
+    },
+    {
+      "frame_id": "rabbit_1_rest_l_f0.png",
+      "file": "rabbit_1_rest_l_f0.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 3,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.176,
+        "shrub": 0.234,
+        "forest": 0.402
+      }
+    },
+    {
+      "frame_id": "rabbit_1_rest_r_f0.png",
+      "file": "rabbit_1_rest_r_f0.png",
+      "size": [
+        3,
+        3
+      ],
+      "colors": 3,
+      "alpha_ok": true,
+      "srgb": true,
+      "mean_absolute_luma_contrast": {
+        "grass": 0.157,
+        "shrub": 0.283,
+        "forest": 0.542
+      }
+    }
+  ],
+  "cycles": [
+    {
+      "id": "deer",
+      "state": "walk",
+      "direction": "l",
+      "variant": 0,
+      "distinct_frames": 4,
+      "loop_ms": 800,
+      "changed_silhouette_pixels": [
+        4,
+        4,
+        3,
+        3
+      ]
+    },
+    {
+      "id": "deer",
+      "state": "walk",
+      "direction": "r",
+      "variant": 0,
+      "distinct_frames": 4,
+      "loop_ms": 800,
+      "changed_silhouette_pixels": [
+        4,
+        4,
+        3,
+        3
+      ]
+    },
+    {
+      "id": "deer",
+      "state": "walk",
+      "direction": "l",
+      "variant": 1,
+      "distinct_frames": 4,
+      "loop_ms": 800,
+      "changed_silhouette_pixels": [
+        4,
+        4,
+        3,
+        3
+      ]
+    },
+    {
+      "id": "deer",
+      "state": "walk",
+      "direction": "r",
+      "variant": 1,
+      "distinct_frames": 4,
+      "loop_ms": 800,
+      "changed_silhouette_pixels": [
+        4,
+        4,
+        3,
+        3
+      ]
+    },
+    {
+      "id": "deer",
+      "state": "run",
+      "direction": "l",
+      "variant": 0,
+      "distinct_frames": 4,
+      "loop_ms": 400,
+      "changed_silhouette_pixels": [
+        4,
+        2,
+        4,
+        4
+      ]
+    },
+    {
+      "id": "deer",
+      "state": "run",
+      "direction": "r",
+      "variant": 0,
+      "distinct_frames": 4,
+      "loop_ms": 400,
+      "changed_silhouette_pixels": [
+        4,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "deer",
+      "state": "run",
+      "direction": "l",
+      "variant": 1,
+      "distinct_frames": 4,
+      "loop_ms": 400,
+      "changed_silhouette_pixels": [
+        4,
+        2,
+        4,
+        4
+      ]
+    },
+    {
+      "id": "deer",
+      "state": "run",
+      "direction": "r",
+      "variant": 1,
+      "distinct_frames": 4,
+      "loop_ms": 400,
+      "changed_silhouette_pixels": [
+        4,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "deer_young",
+      "state": "walk",
+      "direction": "l",
+      "variant": 0,
+      "distinct_frames": 4,
+      "loop_ms": 800,
+      "changed_silhouette_pixels": [
+        4,
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "deer_young",
+      "state": "walk",
+      "direction": "r",
+      "variant": 0,
+      "distinct_frames": 4,
+      "loop_ms": 800,
+      "changed_silhouette_pixels": [
+        4,
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "deer_young",
+      "state": "walk",
+      "direction": "l",
+      "variant": 1,
+      "distinct_frames": 4,
+      "loop_ms": 800,
+      "changed_silhouette_pixels": [
+        4,
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "deer_young",
+      "state": "walk",
+      "direction": "r",
+      "variant": 1,
+      "distinct_frames": 4,
+      "loop_ms": 800,
+      "changed_silhouette_pixels": [
+        4,
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "deer_young",
+      "state": "run",
+      "direction": "l",
+      "variant": 0,
+      "distinct_frames": 4,
+      "loop_ms": 400,
+      "changed_silhouette_pixels": [
+        3,
+        1,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "deer_young",
+      "state": "run",
+      "direction": "r",
+      "variant": 0,
+      "distinct_frames": 4,
+      "loop_ms": 400,
+      "changed_silhouette_pixels": [
+        3,
+        1,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "deer_young",
+      "state": "run",
+      "direction": "l",
+      "variant": 1,
+      "distinct_frames": 4,
+      "loop_ms": 400,
+      "changed_silhouette_pixels": [
+        3,
+        1,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "deer_young",
+      "state": "run",
+      "direction": "r",
+      "variant": 1,
+      "distinct_frames": 4,
+      "loop_ms": 400,
+      "changed_silhouette_pixels": [
+        3,
+        1,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "wolf",
+      "state": "walk",
+      "direction": "l",
+      "variant": 0,
+      "distinct_frames": 4,
+      "loop_ms": 800,
+      "changed_silhouette_pixels": [
+        4,
+        4,
+        3,
+        3
+      ]
+    },
+    {
+      "id": "wolf",
+      "state": "walk",
+      "direction": "r",
+      "variant": 0,
+      "distinct_frames": 4,
+      "loop_ms": 800,
+      "changed_silhouette_pixels": [
+        4,
+        4,
+        3,
+        3
+      ]
+    },
+    {
+      "id": "wolf",
+      "state": "walk",
+      "direction": "l",
+      "variant": 1,
+      "distinct_frames": 4,
+      "loop_ms": 800,
+      "changed_silhouette_pixels": [
+        4,
+        4,
+        3,
+        3
+      ]
+    },
+    {
+      "id": "wolf",
+      "state": "walk",
+      "direction": "r",
+      "variant": 1,
+      "distinct_frames": 4,
+      "loop_ms": 800,
+      "changed_silhouette_pixels": [
+        4,
+        4,
+        3,
+        3
+      ]
+    },
+    {
+      "id": "wolf",
+      "state": "run",
+      "direction": "l",
+      "variant": 0,
+      "distinct_frames": 4,
+      "loop_ms": 400,
+      "changed_silhouette_pixels": [
+        4,
+        2,
+        4,
+        4
+      ]
+    },
+    {
+      "id": "wolf",
+      "state": "run",
+      "direction": "r",
+      "variant": 0,
+      "distinct_frames": 4,
+      "loop_ms": 400,
+      "changed_silhouette_pixels": [
+        4,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "wolf",
+      "state": "run",
+      "direction": "l",
+      "variant": 1,
+      "distinct_frames": 4,
+      "loop_ms": 400,
+      "changed_silhouette_pixels": [
+        4,
+        2,
+        4,
+        4
+      ]
+    },
+    {
+      "id": "wolf",
+      "state": "run",
+      "direction": "r",
+      "variant": 1,
+      "distinct_frames": 4,
+      "loop_ms": 400,
+      "changed_silhouette_pixels": [
+        4,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "fox",
+      "state": "walk",
+      "direction": "l",
+      "variant": 0,
+      "distinct_frames": 4,
+      "loop_ms": 800,
+      "changed_silhouette_pixels": [
+        4,
+        6,
+        3,
+        5
+      ]
+    },
+    {
+      "id": "fox",
+      "state": "walk",
+      "direction": "r",
+      "variant": 0,
+      "distinct_frames": 4,
+      "loop_ms": 800,
+      "changed_silhouette_pixels": [
+        4,
+        6,
+        3,
+        5
+      ]
+    },
+    {
+      "id": "fox",
+      "state": "walk",
+      "direction": "l",
+      "variant": 1,
+      "distinct_frames": 4,
+      "loop_ms": 800,
+      "changed_silhouette_pixels": [
+        4,
+        6,
+        3,
+        5
+      ]
+    },
+    {
+      "id": "fox",
+      "state": "walk",
+      "direction": "r",
+      "variant": 1,
+      "distinct_frames": 4,
+      "loop_ms": 800,
+      "changed_silhouette_pixels": [
+        4,
+        6,
+        3,
+        5
+      ]
+    },
+    {
+      "id": "fox",
+      "state": "run",
+      "direction": "l",
+      "variant": 0,
+      "distinct_frames": 4,
+      "loop_ms": 400,
+      "changed_silhouette_pixels": [
+        5,
+        7,
+        4,
+        6
+      ]
+    },
+    {
+      "id": "fox",
+      "state": "run",
+      "direction": "r",
+      "variant": 0,
+      "distinct_frames": 4,
+      "loop_ms": 400,
+      "changed_silhouette_pixels": [
+        5,
+        7,
+        4,
+        6
+      ]
+    },
+    {
+      "id": "fox",
+      "state": "run",
+      "direction": "l",
+      "variant": 1,
+      "distinct_frames": 4,
+      "loop_ms": 400,
+      "changed_silhouette_pixels": [
+        5,
+        7,
+        4,
+        6
+      ]
+    },
+    {
+      "id": "fox",
+      "state": "run",
+      "direction": "r",
+      "variant": 1,
+      "distinct_frames": 4,
+      "loop_ms": 400,
+      "changed_silhouette_pixels": [
+        5,
+        7,
+        4,
+        6
+      ]
+    },
+    {
+      "id": "rabbit",
+      "state": "walk",
+      "direction": "l",
+      "variant": 0,
+      "distinct_frames": 4,
+      "loop_ms": 800,
+      "changed_silhouette_pixels": [
+        3,
+        4,
+        4,
+        1
+      ]
+    },
+    {
+      "id": "rabbit",
+      "state": "walk",
+      "direction": "r",
+      "variant": 0,
+      "distinct_frames": 4,
+      "loop_ms": 800,
+      "changed_silhouette_pixels": [
+        3,
+        4,
+        4,
+        1
+      ]
+    },
+    {
+      "id": "rabbit",
+      "state": "walk",
+      "direction": "l",
+      "variant": 1,
+      "distinct_frames": 4,
+      "loop_ms": 800,
+      "changed_silhouette_pixels": [
+        3,
+        4,
+        4,
+        1
+      ]
+    },
+    {
+      "id": "rabbit",
+      "state": "walk",
+      "direction": "r",
+      "variant": 1,
+      "distinct_frames": 4,
+      "loop_ms": 800,
+      "changed_silhouette_pixels": [
+        3,
+        4,
+        4,
+        1
+      ]
+    },
+    {
+      "id": "rabbit",
+      "state": "run",
+      "direction": "l",
+      "variant": 0,
+      "distinct_frames": 4,
+      "loop_ms": 400,
+      "changed_silhouette_pixels": [
+        2,
+        5,
+        5,
+        2
+      ]
+    },
+    {
+      "id": "rabbit",
+      "state": "run",
+      "direction": "r",
+      "variant": 0,
+      "distinct_frames": 4,
+      "loop_ms": 400,
+      "changed_silhouette_pixels": [
+        2,
+        5,
+        5,
+        2
+      ]
+    },
+    {
+      "id": "rabbit",
+      "state": "run",
+      "direction": "l",
+      "variant": 1,
+      "distinct_frames": 4,
+      "loop_ms": 400,
+      "changed_silhouette_pixels": [
+        2,
+        5,
+        5,
+        2
+      ]
+    },
+    {
+      "id": "rabbit",
+      "state": "run",
+      "direction": "r",
+      "variant": 1,
+      "distinct_frames": 4,
+      "loop_ms": 400,
+      "changed_silhouette_pixels": [
+        2,
+        5,
+        5,
+        2
+      ]
+    }
+  ],
+  "silhouette_50_percent": "Kleinformen verbessert; abschließende Erkennbarkeit im Spiel offen"
+}
