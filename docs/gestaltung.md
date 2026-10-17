@@ -1,6 +1,6 @@
 # Gestaltung – visuelle Richtung von Nature in a Glass
 
-Stand: v0.2 · Geltungsbereich: **Naturdarstellung** (Gelände, Wasser, Vegetation, Feuer). Bewohner, Gebäude und Oberfläche folgen später in eigenen Abschnitten.
+Stand: v0.3 · Geltungsbereich: **Naturdarstellung** (Gelände, Wasser, Vegetation, Feuer, Tiere ab Abschnitt 15). Bewohner, Gebäude und Oberfläche folgen später in eigenen Abschnitten.
 
 Dieses Dokument ist die verbindliche Vorlage für Texturen, Sprites und Tiles. Es ist so geschrieben, dass ein Werkzeug wie Codex daraus Schritt für Schritt Assets erzeugen kann: Jede Asset-Gruppe hat Maße, Dateinamen, Varianten, Zustände und Abnahmekriterien.
 
@@ -330,7 +330,7 @@ Gibt der Befehl etwas aus, liegt mindestens eine Datei doppelt vor.
 
 ## 12. Was ausdrücklich nicht gewünscht ist
 
-- Dekoration ohne Simulationsgrundlage (Blumen, Tiere, Pilze, Steine), solange die Simulation sie nicht kennt.
+- Dekoration ohne Simulationsgrundlage (Blumen, Pilze, Steine, Vögel), solange die Simulation sie nicht kennt. Tiere nur die vier Arten aus Abschnitt 15 und nur dort, wo die Simulation sie führt.
 - Zufällig wechselnde Varianten, Wackeln, Partikelregen, Linsenreflexe.
 - Eingebaute Tageszeit-Beleuchtung in Texturen.
 - Nachbildungen bekannter Spiele, Marken oder Figuren.
@@ -341,7 +341,7 @@ Gibt der Befehl etwas aus, liegt mindestens eine Datei doppelt vor.
 - Jahreszeiten (Herbstfärbung, Schnee) – die Simulation kennt Temperatur, aber noch keinen Schnee.
 - Baumarten mit eigener Silhouette, sobald die Simulation sie unterscheidet.
 - Erosion und neue Bachläufe (v0.3) – erfordert Assets für Ufer, Kies und Abbruchkanten.
-- Tiere (v0.4) und Bewohner (v0.6) in eigenen Abschnitten.
+- Tiere (v0.4): siehe Abschnitt 15. Bewohner (v0.6) folgen in einem eigenen Abschnitt.
 - Technische Einbindung: Der Renderer zeichnet heute Flächenfarben ohne Texturen. Für diese Assets braucht er einen Textur-Atlas mit Manifest-Loader; das wird als eigenes ADR entschieden, sobald die ersten Assets abgenommen sind.
 
 ## 14. Unterschiedliche Biome – erste Gestaltungsentwürfe
@@ -381,3 +381,99 @@ Die gezeigten Felder verwenden dokumentierte Testwerte und keine laufende
 Simulation. Neue Bodenprototypen sind weiterhin 64×32 px, RGBA/sRGB, transparent
 außerhalb der Raute und auf höchstens sechs Töne begrenzt. Ihre Farben sind
 warme beziehungsweise dunkle Ableitungen des Bodenankers und des Felsankers.
+
+## 15. Tiere (v0.4) – Vorgaben für die ersten vier Arten
+
+Stand 17.10.2026. Die Simulation der Tiere wird gerade geplant (`docs/ROADMAP.md`, v0.4). Dieser Abschnitt legt fest, **was der Kern liefern wird** und welche Assets dazu passen, damit Gestaltung und Simulation parallel arbeiten können. Ändert sich beim Bau der Simulation etwas an der Schnittstelle, wird dieser Abschnitt im selben Schritt angepasst.
+
+### 15.1 Grundsätze
+
+- **Nur echte Tiere.** Jedes gezeichnete Tier entspricht einem Tier oder einer Tiermenge im Kern. Keine Deko-Herden, keine Tiere auf einer tierfreien Insel. Eine neue Insel ist tierfrei; Tiere kommen nur durch den Eingriff „Tiere aussetzen“.
+- **Tote Tiere bleiben kurz sichtbar.** Ein Riss oder ein verendetes Tier liegt als Kadaver einige Tage auf dem Feld, dann verschwindet er (Prinzip „Spuren erzählen die Geschichte“).
+- **Natürlich, nicht niedlich.** Keine großen Augen, keine Comic-Proportionen, keine Gesichter. Tiere sind kleine, klar lesbare Silhouetten in Erdtönen – im Geist der Stilrichtung 1.1.
+- **Lesbar vor maßstäblich.** Echt maßstäblich wäre ein Hirsch bei 50 m pro Feld nur 1–2 px groß. Tiere sind deshalb – wie die Bäume – bewusst vergrößert, bleiben aber **deutlich kleiner als ein Jungbaum**, damit die Landschaft die Hauptsache bleibt.
+
+### 15.2 Arten und Darstellungsart
+
+| Art | ID | Rolle | Im Kern | Darstellung |
+| --- | --- | --- | --- | --- |
+| Hirsch | `deer` | frisst Gras, Busch, junge Bäume | einzelne Tiere, lebt in Rudeln | jedes Tier einzeln |
+| Wolf | `wolf` | jagt vor allem Hirsche | einzelne Tiere, lebt in Rudeln | jedes Tier einzeln |
+| Fuchs | `fox` | jagt vor allem Kaninchen | einzelne Tiere, meist allein | jedes Tier einzeln |
+| Kaninchen | `rabbit` | frisst vor allem Gras | **Bestand pro Feld** (zu viele für Einzeltiere) | 0–3 Sprites pro Feld nach Dichte |
+
+Kaninchen-Dichte → Sprites pro Feld (analog 7.2):
+
+| Kaninchen pro Feld | Sprites |
+| --- | --- |
+| < 1 | 0 |
+| 1–5 | 1 |
+| 5–15 | 2 |
+| ≥ 15 | 3 |
+
+### 15.3 Maße im Grundmaß (Raute 64 × 32 px)
+
+| ID | Breite × Höhe (px) | Fußpunkt | Bemerkung |
+| --- | --- | --- | --- |
+| `deer` | 9 × 8 | Mitte zwischen den Hufen | Geweih nur beim Altersstufe `adult`, schlicht, 2–3 px |
+| `deer_young` | 6 × 6 | wie oben | Kalb, heller, ohne Geweih |
+| `wolf` | 8 × 5 | Mitte unter dem Körper | grau, niedriger und gestreckter als der Hirsch |
+| `fox` | 6 × 4 | wie oben | rötlich, buschiger Schwanz als Erkennungsmerkmal |
+| `rabbit` | 3 × 3 | Mitte unten | graubraun, heller Fleck am Schwanz |
+| `carcass_large` | 9 × 4 | Mitte | liegender Hirsch- oder Wolfskörper, entsättigt |
+| `carcass_small` | 4 × 2 | Mitte | Fuchs oder Kaninchen |
+
+Schlagschatten wie bei der Vegetation: Teil des Sprites, links unten, 25–35 % Deckkraft, Farbe `#0C1A34`, höchstens 2 px versetzt.
+
+### 15.4 Zustände, Richtung, Animation
+
+Der Kern liefert je Tier einen **Zustand** und eine **Blickrichtung**. Der Renderer wählt daraus das Sprite.
+
+| Zustand | ID-Anhang | Bedeutung im Kern | Frames |
+| --- | --- | --- | --- |
+| stehen / fressen | `_graze` | Tier frisst auf seinem Feld | 2 (Kopf hoch / Kopf unten), 1,2 s |
+| gehen | `_walk` | wechselt gemächlich das Feld | 4, 0,8 s |
+| laufen | `_run` | Flucht oder Jagd | 4, 0,4 s |
+| ruhen | `_rest` | liegt (nachts, bei Hitze) | 1 |
+
+- **Richtungen:** zwei Blickrichtungen genügen, `_l` (nach links unten schauend) und `_r` (nach rechts unten). Tiere, die sich nach oben bewegen, nutzen dieselben Sprites. **Nicht spiegeln:** Das Licht kommt von rechts oben und würde sonst mitgespiegelt – beide Richtungen werden eigens gezeichnet.
+- **Altersstufen:** `young` und `adult`. Nur der Hirsch bekommt ein eigenes Jungtier-Sprite; bei Wolf und Fuchs wird das erwachsene Sprite auf 75 % verkleinert (vom Renderer).
+- **Zustand „geschwächt“** (Hunger, Alter) wird nicht eigens gezeichnet: Der Renderer entsättigt das Sprite um bis zu 25 %, wie bei gestressten Bäumen.
+- Dateischema wie in Abschnitt 9: `<id>_<variante>_<zustand>_<richtung>_f<frame>.png`, z. B. `deer_0_walk_r_f2.png`. Je Art **2 Varianten** (leicht andere Fellfarbe), fest pro Tier gewählt.
+
+### 15.5 Ruhe im Zeitraffer
+
+Tiere bewegen sich im Kern einmal pro Tag. Damit nichts zappelt, gilt für den Renderer:
+
+| Geschwindigkeit | Darstellung |
+| --- | --- |
+| 1 Std/s | Tiere gleiten zwischen Feldern, Animation läuft |
+| 1 Tag/s, 1 Woche/s | Tiere stehen in ihrem Zustand am aktuellen Platz, nur `_graze`/`_rest` ohne Laufanimation |
+| ab 1 Monat/s | keine einzelnen Tiere; stattdessen eine **dezente Dichteanzeige** pro Feld (z. B. kleine Spuren im Gras), damit man sieht, wo Tiere leben |
+
+Für die Dichteanzeige ab 1 Monat/s braucht es je Art ein Overlay `tracks_<art>` (Raute 64 × 32 px, Trittspuren bzw. Fraßspuren, höchstens 3 Töne, Deckkraft wird vom Renderer nach Dichte gesteuert).
+
+### 15.6 2D-Karte
+
+Die Karte bekommt eine Ebene **Tiere**: Hirsche, Wölfe und Füchse als einzelne Punkte (2 × 2 px bei Zoom 1), Kaninchen als Flächentönung nach Dichte. Feste Kartenfarben (neu in der Palette):
+
+| Rolle | Hex |
+| --- | --- |
+| Hirsch | `#B07A44` |
+| Wolf | `#9AA0A6` |
+| Fuchs | `#D2682C` |
+| Kaninchen (Tönung) | `#C8B898` |
+| Kadaver | `#5A3A30` |
+
+### 15.7 Schnittstelle (technisch, wird mit v0.4 gebaut)
+
+`crates/core/src/appearance.rs` bekommt eine Funktion, die für jedes sichtbare Tier liefert: Art, Altersstufe, Zustand, Blickrichtung, Variante, Fußpunkt innerhalb der Raute, Schwäche (0…1) – sowie pro Feld die Kaninchen-Spritezahl, Kadaver und die Dichte für die Spuren. Der Renderer muss keine Regeln selbst nachbauen.
+
+### 15.8 Arbeitsreihenfolge
+
+1. Prüfblatt `assets/nature/_animals-testsheet.png`: alle vier Arten in allen Zuständen und beiden Richtungen, nebeneinander auf Gras, Busch- und Waldboden, dazu ein Jungbaum als Größenvergleich.
+2. `_graze` und `_rest` (Standbilder), dann `_walk`, dann `_run`.
+3. Kadaver und Spuren-Overlays.
+
+Abnahme zusätzlich zu Abschnitt 11: Jede Art ist als Silhouette auf 50 % Größe von den anderen unterscheidbar; kein Tier ist auf Waldboden unsichtbar (mindestens 15 % Helligkeitsunterschied zum Untergrund).
+
