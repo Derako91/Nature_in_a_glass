@@ -70,11 +70,15 @@ fn print_map(sim: &Simulation) {
                 Terrain::DeepOcean => '~',
                 Terrain::ShallowOcean => '-',
                 _ if w.springs.iter().any(|s| s.x == x && s.y == y) => 'Q',
+                _ if t.fire > 0.0 => '*',
                 _ if t.surface_water > POND_MM => 'O',
                 _ if t.flow > nig_core::sim::STREAM_FLOW => '=',
                 Terrain::Beach => '.',
                 _ if t.forest > 0.5 => 'T',
                 _ if t.forest > 0.15 => 't',
+                _ if t.deadwood > 0.3 => '%',
+                _ if t.shrub > 0.3 => 'b',
+                _ if t.burn_scar > 0.5 && t.grass < 0.3 => 'x',
                 Terrain::Mountain => '^',
                 _ if t.grass > 0.5 => '"',
                 _ if t.grass > 0.15 => ',',
@@ -86,7 +90,8 @@ fn print_map(sim: &Simulation) {
         println!("{line}");
     }
     println!("Legende: ~ Tiefsee  - Flachwasser  . Strand  \" Gras  , lichtes Gras  : karg");
-    println!("         t lichter Wald  T Wald  ^ Fels  = Bach  O Teich/See  Q Quelle");
+    println!("         t lichter Wald  T Wald  b Busch  % Totholz  x Brandfläche  * Feuer");
+    println!("         ^ Fels  = Bach  O Teich/See  Q Quelle");
 }
 
 fn main() -> ExitCode {
@@ -126,8 +131,20 @@ fn main() -> ExitCode {
         sim.year()
     );
     println!(
-        "{:>5} {:>7} {:>7} {:>6} {:>7} {:>6} {:>5} {:>8} {:>6} {:>6}",
-        "Jahr", "Regen", "Wald%", "Gras%", "Feucht%", "Bäche", "Seen", "Grundw%", "Unwet", "Dürre"
+        "{:>5} {:>6} {:>6} {:>6} {:>6} {:>6} {:>7} {:>5} {:>5} {:>7} {:>5} {:>6} {:>6}",
+        "Jahr",
+        "Regen",
+        "Wald%",
+        "Busch%",
+        "Gras%",
+        "Toth%",
+        "Feucht%",
+        "Bäche",
+        "Seen",
+        "Grundw%",
+        "Brand",
+        "Felder",
+        "Dürre"
     );
 
     let start = Instant::now();
@@ -137,16 +154,19 @@ fn main() -> ExitCode {
 
     for s in &sim.history[first..] {
         println!(
-            "{:>5} {:>7.0} {:>7.1} {:>6.1} {:>7.1} {:>6} {:>5} {:>8.0} {:>6} {:>6}",
+            "{:>5} {:>6.0} {:>6.1} {:>6.1} {:>6.1} {:>6.1} {:>7.1} {:>5} {:>5} {:>7.0} {:>5} {:>6} {:>6}",
             s.year,
             s.rain_mm,
             s.forest_pct,
+            s.shrub_pct,
             s.grass_pct,
+            s.deadwood_pct,
             s.moisture_pct,
             s.stream_tiles,
             s.pond_tiles,
             s.aquifer_pct,
-            s.storms,
+            s.fires,
+            s.burned_tiles,
             s.drought_days
         );
     }

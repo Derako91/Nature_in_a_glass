@@ -20,7 +20,11 @@ fn path_of(sim: &Simulation, spring: usize) -> Vec<usize> {
 /// Mittlerer Durchfluss auf den ersten Feldern unterhalb der Quelle.
 fn creek_flow(sim: &Simulation, path: &[usize]) -> f32 {
     let n = path.len().min(5);
-    path[..n].iter().map(|&i| sim.world.tiles[i].flow).sum::<f32>() / n as f32
+    path[..n]
+        .iter()
+        .map(|&i| sim.world.tiles[i].flow)
+        .sum::<f32>()
+        / n as f32
 }
 
 fn set_springs(sim: &mut Simulation, factor: f32) {
@@ -46,7 +50,10 @@ fn spring_off_dries_creek_and_on_restores_it() {
 
     sim.advance_days(30);
     let on = creek_flow(&sim, &path);
-    assert!(on > 20.0, "Bach unter laufender Quelle fehlt: {on:.1} mm/Tag");
+    assert!(
+        on > 20.0,
+        "Bach unter laufender Quelle fehlt: {on:.1} mm/Tag"
+    );
 
     // Ausschalten: sofort keine Schüttung, Bach trocknet allmählich aus
     set_springs(&mut sim, 0.0);
@@ -54,16 +61,25 @@ fn spring_off_dries_creek_and_on_restores_it() {
     assert_eq!(sim.world.springs[0].current, 0.0);
     sim.advance_days(7);
     let after_week = creek_flow(&sim, &path);
-    assert!(after_week < on, "Bach wird nach dem Abschalten nicht schwächer");
+    assert!(
+        after_week < on,
+        "Bach wird nach dem Abschalten nicht schwächer"
+    );
     sim.advance_days(60);
     let off = creek_flow(&sim, &path);
-    assert!(off < on * 0.05, "Bach trocknet nicht aus: {off:.1} von {on:.1} mm/Tag");
+    assert!(
+        off < on * 0.05,
+        "Bach trocknet nicht aus: {off:.1} von {on:.1} mm/Tag"
+    );
 
     // Wieder einschalten: Bach kehrt zurück
     set_springs(&mut sim, 1.0);
     sim.advance_days(30);
     let again = creek_flow(&sim, &path);
-    assert!(again > on * 0.5, "Bach kehrt nicht zurück: {again:.1} von {on:.1} mm/Tag");
+    assert!(
+        again > on * 0.5,
+        "Bach kehrt nicht zurück: {again:.1} von {on:.1} mm/Tag"
+    );
 }
 
 #[test]
@@ -88,7 +104,10 @@ fn spring_output_scales_with_factor() {
         sim.advance_days(20);
         flows.push(creek_flow(&sim, &path_of(&sim, 0)));
     }
-    assert!(flows[0] < flows[1] && flows[1] < flows[2], "Bach folgt dem Regler nicht: {flows:?}");
+    assert!(
+        flows[0] < flows[1] && flows[1] < flows[2],
+        "Bach folgt dem Regler nicht: {flows:?}"
+    );
 }
 
 #[test]

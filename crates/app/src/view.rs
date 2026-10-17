@@ -17,16 +17,24 @@ pub enum Layer {
     Height,
     Moisture,
     Water,
+    FireRisk,
 }
 
 impl Layer {
-    pub const ALL: [Layer; 4] = [Layer::Nature, Layer::Height, Layer::Moisture, Layer::Water];
+    pub const ALL: [Layer; 5] = [
+        Layer::Nature,
+        Layer::Height,
+        Layer::Moisture,
+        Layer::Water,
+        Layer::FireRisk,
+    ];
     pub fn label(self) -> &'static str {
         match self {
             Layer::Nature => "Natur",
             Layer::Height => "Höhe",
             Layer::Moisture => "Bodenfeuchte",
             Layer::Water => "Wasser",
+            Layer::FireRisk => "Brandgefahr",
         }
     }
 }
@@ -88,12 +96,30 @@ pub fn tile_color(world: &World, i: usize, layer: Layer) -> Color32 {
                 w * 1.6,
             );
             let mut c = mix(base, grass, t.grass);
-            c = mix(c, Color32::from_rgb(38, 92, 46), t.forest * 0.95);
+            c = mix(c, Color32::from_rgb(118, 130, 60), t.shrub * 0.8);
+            // Jungwald heller, Altwald dunkel
+            let maturity = (t.forest_age / 60.0).clamp(0.0, 1.0);
+            let trees = mix(
+                Color32::from_rgb(70, 132, 58),
+                Color32::from_rgb(30, 80, 42),
+                maturity,
+            );
+            c = mix(c, trees, t.forest * 0.95);
+            c = mix(
+                c,
+                Color32::from_rgb(122, 104, 84),
+                t.deadwood.min(1.0) * 0.7,
+            );
+            c = mix(
+                c,
+                Color32::from_rgb(48, 42, 38),
+                t.burn_scar * (1.0 - t.grass) * 0.8,
+            );
             if t.surface_water > POND_MM {
                 c = mix(c, Color32::from_rgb(58, 118, 186), 0.85);
-            } else if t.flow > STREAM_FLOW * 0.5 {
-                let k = ((t.flow / STREAM_FLOW).sqrt() * 0.45).min(0.8);
-                c = mix(c, Color32::from_rgb(64, 130, 200), k);
+            }
+            if t.fire > 0.0 {
+                c = mix(c, Color32::from_rgb(245, 110, 30), 0.6 + 0.4 * t.fire);
             }
             c
         }
@@ -123,8 +149,27 @@ pub fn tile_color(world: &World, i: usize, layer: Layer) -> Color32 {
             if t.surface_water > POND_MM {
                 Color32::from_rgb(80, 160, 255)
             } else {
-                let k = (t.flow / (STREAM_FLOW * 4.0)).sqrt().min(1.0);
-                mix(dry, Color32::from_rgb(120, 200, 255), k)
+                // leichte Tönung durch Bodenfeuchte, Wasserläufe als Linien darüber
+                mix(dry, Color32::from_rgb(70, 82, 96), t.moisture_fraction())
+            }
+        }
+        Layer::FireRisk => {
+            if t.fire > 0.0 {
+                return Color32::from_rgb(255, 90, 20);
+            }
+            let f = (nig_core::fire::flammability(t) / 0.8).clamp(0.0, 1.0);
+            if f < 0.5 {
+                mix(
+                    Color32::from_rgb(60, 110, 70),
+                    Color32::from_rgb(220, 200, 80),
+                    f * 2.0,
+                )
+            } else {
+                mix(
+                    Color32::from_rgb(220, 200, 80),
+                    Color32::from_rgb(200, 50, 30),
+                    (f - 0.5) * 2.0,
+                )
             }
         }
     }
@@ -163,6 +208,30 @@ fn iso_center(x: u32, y: u32, w: u32, h: u32, zoom: f32) -> Pos2 {
 
 fn iso_lift(elevation: f32, zoom: f32) -> f32 {
     elevation.max(0.0) * ISO_HEIGHT_PX_PER_M * zoom
+}
+
+/// Ab diesem Durchfluss (mm/Tag) wird ein Rinnsal gezeichnet.
+pub const RILL_FLOW: f32 = 3.0;
+
+/// Breite eines Wasserlaufs in Bildpunkten, wächst mit der Wassermenge.
+fn stream_width(flow: f32, zoom: f32) -> f32 {
+    (flow.sqrt() * 0.32).clamp(0.8, 5.0) * zoom * 0.55
+}
+
+fn stream_color(flow: f32, light: f32) -> Color32 {
+    let a = 0.5 + 0.5 * (flow / STREAM_FLOW).clamp(0.0, 1.0);
+    let c = night_tint(Color32::from_rgb(78, 150, 230), light);
+    Color32::from_rgba_unmultiplied(c.r(), c.g(), c.b(), (a * 255.0) as u8)
+}
+
+fn segment(mesh: &mut Mesh, a: Pos2, b: Pos2, width: f32, c: Color32) {
+    let d = b - a;
+    let len = d.length();
+    if len < 0.01 {
+        return;
+    }
+    let n = Vec2::new(-d.y, d.x) / len * (width * 0.5);
+    quad(mesh, [a + n, b + n, b - n, a - n], c);
 }
 
 fn quad(mesh: &mut Mesh, p: [Pos2; 4], c: Color32) {
@@ -212,6 +281,7 @@ pub fn draw(
     let mut hovered = None;
     let (w, h) = (world.width, world.height);
     let mut mesh = Mesh::default();
+    let show_streams = matches!(layer, Layer::Nature | Layer::Water);
 
     match mode {
         ViewMode::Iso => {
@@ -268,6 +338,39 @@ pub fn draw(
                         );
                     }
                     quad(&mut mesh, [n, east, south, west], col);
+
+                    // Wasserlauf: halbe Strecke zum Abfluss und von jedem Zufluss
+                    if show_streams && !world.tiles[i].is_ocean() {
+                        let flat = iso_center(x, y, w, h, z);
+                        let t = &world.tiles[i];
+                        if t.flow >= RILL_FLOW
+                            && let Some(d) = world.downstream[i]
+                        {
+                            let (dx, dy) = world.xy(d as usize);
+                            let dir = iso_center(dx, dy, w, h, z) - flat;
+                            segment(
+                                &mut mesh,
+                                c,
+                                c + dir * 0.5,
+                                stream_width(t.flow, z),
+                                stream_color(t.flow, light),
+                            );
+                        }
+                        for nb in world.neighbors(i) {
+                            let up = &world.tiles[nb];
+                            if up.flow >= RILL_FLOW && world.downstream[nb] == Some(i as u32) {
+                                let (ux, uy) = world.xy(nb);
+                                let dir = iso_center(ux, uy, w, h, z) - flat;
+                                segment(
+                                    &mut mesh,
+                                    c + dir * 0.5,
+                                    c,
+                                    stream_width(up.flow, z),
+                                    stream_color(up.flow, light),
+                                );
+                            }
+                        }
+                    }
 
                     if let Some(m) = mouse {
                         let dx = (m.x - c.x).abs() / hw;
@@ -330,6 +433,27 @@ pub fn draw(
                         && r.contains(m)
                     {
                         hovered = Some(i);
+                    }
+                }
+            }
+            if show_streams {
+                let center = |i: usize| {
+                    let (x, y) = world.xy(i);
+                    top_left + Vec2::new(x as f32 + 0.5, y as f32 + 0.5) * cell
+                };
+                for i in 0..world.tiles.len() {
+                    let t = &world.tiles[i];
+                    if t.is_ocean() || t.flow < RILL_FLOW {
+                        continue;
+                    }
+                    if let Some(d) = world.downstream[i] {
+                        segment(
+                            &mut mesh,
+                            center(i),
+                            center(d as usize),
+                            stream_width(t.flow, cam.zoom) * 1.2,
+                            stream_color(t.flow, light),
+                        );
                     }
                 }
             }

@@ -12,6 +12,14 @@ pub enum EventKind {
     SpringFlowing,
     Intervention,
     YearSummary,
+    // seit v0.2
+    FireStart,
+    FireEnd,
+    ForestDieback,
+    LastTree,
+    TreesReturn,
+    Germination,
+    SeedFailed,
 }
 
 impl EventKind {
@@ -25,7 +33,28 @@ impl EventKind {
             EventKind::SpringFlowing => "Quelle",
             EventKind::Intervention => "Eingriff",
             EventKind::YearSummary => "Jahr",
+            EventKind::FireStart => "Feuer",
+            EventKind::FireEnd => "Feuer",
+            EventKind::ForestDieback => "Waldsterben",
+            EventKind::LastTree => "Wald",
+            EventKind::TreesReturn => "Wald",
+            EventKind::Germination => "Keimung",
+            EventKind::SeedFailed => "Samen",
         }
+    }
+
+    /// Ereignisse, bei denen der Beobachter auf Wunsch anhält.
+    pub fn is_important(self) -> bool {
+        matches!(
+            self,
+            EventKind::DroughtStart
+                | EventKind::SpringDry
+                | EventKind::FireStart
+                | EventKind::ForestDieback
+                | EventKind::LastTree
+                | EventKind::TreesReturn
+                | EventKind::Germination
+        )
     }
 }
 
