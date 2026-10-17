@@ -54,7 +54,8 @@ Umsetzungshinweise:
 - [x] **Abfluss nach Wasserspiegel** statt fester Fließrichtung – Stau, Überlauf, Überschwemmung (v0.2.2).
 - [x] **Damm und Durchbruch** als Geländeeingriff (v0.2.2).
 - [x] Permanente Bäche, zeitweise Bäche und Starkregenabfluss unterscheiden; Mengen in m³ und L/s (v0.2.3).
-- [ ] Grundwasser als echter Füllstand; Seen eigens benennen.
+- [x] Grundwasser als echter Füllstand mit Überlauf und Quellschwelle (v0.2.4).
+- [ ] Seen eigens benennen.
 - [ ] Bodenabtrag und Sedimentablagerung durch Regen und fließendes Wasser.
 - [ ] Gelände verändert sich über lange Zeiträume, ohne die Reproduzierbarkeit zu verlieren.
 
@@ -68,7 +69,7 @@ Befund aus Dennis' Quellen-Test (v0.1.1, nachgeprüft mit `tests/springs.rs`):
 - **Einzelne Abflussbahn:** Jedes Feld gibt sein Wasser an genau ein Nachbarfeld ab. Wasser kann sich deshalb nicht verbreitern, nicht über eine Wiese ausufern und keinen neuen Weg suchen. → Abfluss nach Wasserspiegel statt fester Richtung (Voraussetzung für Überschwemmung und für Dämme, siehe unten).
 
 Umsetzungshinweise:
-- Die Grundwasser-Anzeige ist in v0.1 ein Verhältnis zu einem Bezugswert (etwa 300 Tage volle Quellschüttung) und kann über 100 % steigen. Sie soll zu einem echten Füllstand mit Ober- und Untergrenze werden.
+- ~~Die Grundwasser-Anzeige ist ein Verhältnis zu einem Bezugswert und kann über 100 % steigen.~~ Erledigt in v0.2.4: echter Füllstand.
 - Erosion ändert Höhen → Abflussnetz muss in größeren Abständen neu berechnet werden (z. B. jährlich), nicht täglich.
 
 ## v0.4 – Erste Tiere

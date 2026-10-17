@@ -92,8 +92,11 @@ pub struct HydroDay {
     pub transpiration: f32,
     /// Versickerung in unerreichbare Tiefe.
     pub deep_loss: f32,
-    /// Abfluss des Grundwassers unterirdisch ins Meer.
+    /// Abfluss des Grundwassers unterirdisch ins Meer (einschließlich Überlauf,
+    /// wenn der Grundwasserkörper voll ist).
     pub aquifer_leak: f32,
+    /// Davon: Überlauf bei vollem Grundwasserkörper.
+    pub aquifer_overflow: f32,
     /// Neubildung des Grundwassers.
     pub recharge: f32,
 }
@@ -104,11 +107,24 @@ pub fn forest_demand_factor(forest: f32, age: f32) -> f32 {
     0.8 * forest * (0.6 + 0.4 * clamp01(age / 60.0))
 }
 
+/// Unter diesem Füllstand liegt das Grundwasser unter den Quellaustritten:
+/// Die Quellen versiegen, bevor der Grundwasserkörper leer ist.
+pub const SPRING_MIN_LEVEL: f32 = 0.05;
+/// Schüttung bei vollem Grundwasser relativ zur Grundschüttung.
+pub const SPRING_FULL_GAIN: f32 = 1.5;
+
+/// Schüttungsfaktor einer Quelle beim Füllstand `level` (0..1).
+pub fn spring_pressure(level: f32) -> f32 {
+    SPRING_FULL_GAIN * ((level - SPRING_MIN_LEVEL) / (1.0 - SPRING_MIN_LEVEL)).max(0.0)
+}
+
+/// `aquifer`: Grundwasser der Insel (mm-Summe über Felder),
+/// `capacity`: Fassungsvermögen des Grundwasserkörpers (gleiche Einheit).
 pub fn step_day(
     world: &mut World,
     weather: &Weather,
     aquifer: &mut f32,
-    aquifer_ref: f32,
+    capacity: f32,
     through: &mut [f32],
 ) -> HydroDay {
     let mut day = HydroDay::default();
@@ -132,9 +148,9 @@ pub fn step_day(
     }
 
     // 2. Quellen speisen sich aus dem Grundwasser
-    let fill = (*aquifer / aquifer_ref).clamp(0.0, 1.5);
+    let pressure = spring_pressure((*aquifer / capacity).clamp(0.0, 1.0));
     for s in world.springs.iter_mut() {
-        let out = (s.base_rate * s.factor * fill).min(*aquifer).max(0.0);
+        let out = (s.base_rate * s.factor * pressure).min(*aquifer).max(0.0);
         *aquifer -= out;
         s.current = out;
         let i = (s.y * w + s.x) as usize;
@@ -295,8 +311,16 @@ pub fn step_day(
         recharge += drain;
     }
     *aquifer += recharge;
-    let leak = *aquifer * AQUIFER_LEAK;
+    let mut leak = *aquifer * AQUIFER_LEAK;
     *aquifer -= leak;
+    // Voller Grundwasserkörper nimmt nichts mehr auf: Überlauf fließt
+    // unterirdisch zum Meer.
+    if *aquifer > capacity {
+        let overflow = *aquifer - capacity;
+        *aquifer = capacity;
+        leak += overflow;
+        day.aquifer_overflow = overflow;
+    }
     day.aquifer_leak = leak;
     day.recharge = recharge;
     day

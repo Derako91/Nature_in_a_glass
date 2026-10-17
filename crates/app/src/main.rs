@@ -374,7 +374,8 @@ impl App {
                 .response
                 .on_hover_text(
                     "Wichtig sind: Brand, Dürre, Waldsterben, letzter Baum, \
-                     Rückkehr der Bäume, Keimung eines Samens, versiegte Quelle.",
+                     Rückkehr der Bäume, Keimung eines Samens, versiegte Quelle, \
+                     Grundwasser-Tiefstand.",
                 );
             ui.separator();
             if ui.button("Speichern").clicked() {
@@ -508,7 +509,17 @@ impl App {
                 row(
                     ui,
                     "Grundwasser",
-                    format!("{:.0} %", self.sim.aquifer / self.sim.aquifer_ref * 100.0),
+                    format!(
+                        "{:.0} % · {} Mio. m³",
+                        self.sim.groundwater_level() * 100.0,
+                        de(self.sim.groundwater_m3() / 1_000_000.0, 2)
+                    ),
+                )
+                .on_hover_text(
+                    "Füllstand des Grundwasserkörpers der Insel. Er füllt sich durch \
+                     Sickerwasser und speist die Quellen. Unter 5 % liegt das Wasser \
+                     unter den Quellaustritten – die Quellen versiegen. Ist er voll, \
+                     fließt weiteres Sickerwasser unterirdisch ins Meer.",
                 );
                 row(
                     ui,
@@ -825,6 +836,8 @@ impl App {
                             Color32::from_rgb(140, 220, 120)
                         }
                         EventKind::SeedFailed => Color32::from_rgb(150, 150, 150),
+                        EventKind::GroundwaterLow => Color32::from_rgb(220, 150, 80),
+                        EventKind::GroundwaterRecovered => Color32::from_rgb(120, 200, 120),
                         EventKind::HeavyRain => Color32::from_rgb(120, 170, 240),
                         EventKind::Intervention => Color32::from_rgb(230, 200, 90),
                         EventKind::DroughtEnd | EventKind::SpringFlowing => {
