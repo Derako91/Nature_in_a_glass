@@ -503,7 +503,7 @@ impl Simulation {
             ft.reference_hours = now;
             ft.burned_since_reference = 0;
         }
-        if ft.reference_pct >= 2.0 && pct <= ft.reference_pct * 0.5 && pct > 0.0 {
+        if ft.reference_pct >= 5.0 && pct <= ft.reference_pct * 0.5 && pct > 0.0 {
             let since_year = ft.reference_hours / HOURS_PER_YEAR + 1;
             let mut causes = Vec::new();
             if ft.burned_since_reference > 0 {

@@ -150,7 +150,8 @@ pub fn step_day(
 
         // Abbrand
         let t = &mut world.tiles[i];
-        let c = 0.5 + 0.4 * dryness(t);
+        // Dicke Stämme und Totholz brennen über mehrere Tage
+        let c = 0.4 + 0.3 * dryness(t);
         t.deadwood -= t.deadwood * c;
         let forest_loss = t.forest * c * 0.8;
         t.forest -= forest_loss;
@@ -166,7 +167,7 @@ pub fn step_day(
         let next = if doused || remaining < 0.08 {
             0.0
         } else {
-            (remaining * 0.9).min(1.0)
+            (remaining * 1.1).min(1.0)
         };
         scratch.next[i] = scratch.next[i].max(next);
     }

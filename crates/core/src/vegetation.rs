@@ -96,10 +96,14 @@ pub fn step_day(
         let s_water = clamp01((w - 0.1) / 0.4);
         let s_max = ((1.0 - 0.85 * t.forest) * coast.max(0.5)).max(0.02);
         let mut s = t.shrub;
-        if s < 0.01 && shrub_seeds > 0.3 && s_water > 0.4 && !flooded && !burning {
-            if roll_shrub < 0.003 {
-                s = 0.02; // Samen von Nachbarbüschen oder Vögeln vom Waldrand
-            }
+        if s < 0.01
+            && shrub_seeds > 0.3
+            && s_water > 0.4
+            && !flooded
+            && !burning
+            && roll_shrub < 0.003
+        {
+            s = 0.02; // Samen von Nachbarbüschen oder Vögeln vom Waldrand
         }
         s += 0.004 * warmth * s_water * ash_bonus * s * (1.0 - s / s_max);
         let mut dead = 0.0;
@@ -139,7 +143,10 @@ pub fn step_day(
         }
         let mut loss = 0.0;
         if t.drought_days > TREE_STRESS_DAYS {
-            loss += 0.005 * f; // Bäume verdursten
+            // Bäume zehren zuerst von Reserven; je länger der Mangel dauert,
+            // desto schneller sterben sie (nach 90 Tagen 0,2 %/Tag, nach 270 Tagen 0,6 %/Tag).
+            let months = (t.drought_days - TREE_STRESS_DAYS) as f32 / 90.0;
+            loss += 0.002 * months.min(3.0) * f;
         }
         if flooded {
             loss += 0.01 * f; // Staunässe

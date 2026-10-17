@@ -138,7 +138,8 @@ impl Weather {
         }
         // Mittlere Regenmenge pro Regentag so, dass die Jahressumme passt.
         let mean_per_rain_day = climate.annual_rain_mm / (BASE_RAIN_CHANCE * 365.0 * 0.88);
-        let rains = rng.chance(p.clamp(0.0, 0.95));
+        // Ohne Niederschlag im Klima gibt es auch keine Regenwolken und Gewitter.
+        let rains = rng.chance(p.clamp(0.0, 0.95)) && climate.annual_rain_mm > 0.0;
         let (u1, u2) = (rng.next_f32(), rng.next_f32());
         self.storm = rains && rng.chance(0.012);
         self.rain_mm = if rains {

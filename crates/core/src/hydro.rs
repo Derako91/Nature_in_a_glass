@@ -16,7 +16,7 @@ const FILM_MM: f32 = 2.0;
 /// Quellen erreicht (der Rest versickert unerreichbar in die Tiefe).
 const RECHARGE_FRACTION: f32 = 0.8;
 /// Tägliche Entleerung des Grundwasserkörpers zum Meer hin.
-const AQUIFER_LEAK: f32 = 0.0015;
+const AQUIFER_LEAK: f32 = 0.0006;
 /// Tägliches Absickern aus dem tiefen Boden ins Grundwasser.
 const DEEP_DRAIN: f32 = 0.001;
 /// Wie viel des Tiefenwassers Wurzeln pro Tag höchstens erschließen.
