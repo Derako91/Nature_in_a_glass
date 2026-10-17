@@ -147,3 +147,16 @@ fn cannot_release_into_water() {
     assert_eq!(sim.animals.total(Species::Deer), 0);
     assert_eq!(sim.journal.events.len(), before);
 }
+
+/// Dennis' Beobachtung in 0.4.0: Auf einer alten, dicht bewaldeten Insel
+/// schrumpften ausgesetzte Kaninchen ohne Fressfeinde von 20 auf 4.
+#[test]
+fn rabbits_spread_on_a_forested_island() {
+    let mut sim = Simulation::new(42);
+    sim.advance_years(150);
+    assert!(sim.snapshot().forest_pct > 60.0);
+    release(&mut sim, Species::Rabbit);
+    sim.advance_years(8);
+    let n = sim.animals.total(Species::Rabbit);
+    assert!(n > 300, "nur {n} Kaninchen nach 8 Jahren");
+}

@@ -79,7 +79,7 @@ Umsetzungshinweise:
 - [x] Keine automatisch garantierte Stabilität und kein künstliches Wiedererscheinen ausgestorbener Populationen.
 - [x] Tierverhalten ohne LLM ausführbar.
 - [ ] Tier-Sprites von Codex einbinden (Schnittstelle steht, gestaltung.md 15.7); Kadaver und Spuren.
-- [ ] Abstimmung: Auf der kleinen Insel sterben Wölfe und Füchse meist nach einigen Jahren bis Jahrzehnten aus; Hirsche verdrängen ohne Wölfe die Kaninchen. Beobachten, ob das so bleiben soll.
+- [ ] Abstimmung (0.4.1 verbessert): Füchse halten sich oft Jahrzehnte, Wölfe meist nur einige Jahre – die Insel (gut 4 km²) ist für ein Rudel zu klein. Idee: größere Inseln wählbar machen.
 
 Entschieden (17.10.2026, Dennis):
 - **Erst Erosion (v0.3) abschließen**, dann Tiere.

@@ -78,7 +78,7 @@ impl Species {
         match self {
             Species::Deer => 0.02,
             Species::Wolf => 0.02,
-            Species::Fox => 0.04,
+            Species::Fox => 0.035,
             Species::Rabbit => 0.0,
         }
     }
@@ -246,7 +246,7 @@ pub struct AnimalDay {
 // --- Kaninchen ---
 /// Kaninchen je Feld bei vollem Gras ohne Wald.
 const RABBIT_K_GRASS: f32 = 12.0;
-const RABBIT_K_SHRUB: f32 = 3.0;
+const RABBIT_K_SHRUB: f32 = 4.0;
 /// Grasverbrauch je Kaninchen und Tag (Anteil voller Grasdecke).
 const RABBIT_EAT: f32 = 0.00008;
 const RABBIT_GROWTH: f32 = 0.015;
@@ -266,19 +266,24 @@ const DEER_SEARCH_HUNGRY: i32 = 10;
 
 // --- Füchse ---
 const FOX_SEARCH: i32 = 20;
-/// Nebenbei gefundene Nahrung je Tag (Mäuse, Insekten, Beeren), nur bei Wärme.
-const FOX_SIDE_FOOD: f32 = 0.02;
+/// Bei so vielen Kaninchen im Revier (Feld und Nachbarn) gelingt jede zweite Jagd.
+const FOX_CATCH_HALF: f32 = 16.0;
+/// Nebenbei gefundene Nahrung je Tag (Mäuse, Insekten, Beeren); im Winter die Hälfte.
+const FOX_SIDE_FOOD: f32 = 0.025;
 
 // --- Wölfe ---
 /// Bei so vielen Hirschen auf der Insel gelingt nur noch die Hälfte der Jagden.
 const PREY_HALF: f32 = 40.0;
-/// Mehr erwachsene Wölfe verträgt die kleine Insel nicht: Darüber bekommen
-/// sie keine Welpen.
-pub const WOLF_TERRITORY_LIMIT: u32 = 8;
+/// Reviere: So viele Würfe im Jahr bietet die kleine Insel Platz – ein
+/// Wolfsrudel, einige Fuchsfamilien. Weitere Paare bekommen keine Jungen.
+pub const WOLF_LITTERS_PER_YEAR: u32 = 1;
+pub const FOX_LITTERS_PER_YEAR: u32 = 3;
+/// So viel Vorrat fressen sich Wölfe am Riss an (über die volle Reserve 1 hinaus).
+const WOLF_GORGE: f32 = 1.6;
 /// Erst unter dieser Energie gehen Wölfe auf die Jagd.
 const WOLF_HUNGRY: f32 = 0.75;
 /// Fleisch eines gerissenen Hirsches (Energieeinheiten für Wölfe).
-const DEER_MEAT: f32 = 2.5;
+const DEER_MEAT: f32 = 4.0;
 /// So weit wittern Wölfe Beute (Felder).
 const WOLF_SEARCH: i32 = 40;
 
@@ -423,6 +428,49 @@ fn step_towards(world: &World, from: u32, to: u32) -> u32 {
     best
 }
 
+/// Kürzester Weg über gangbare Felder zum nächsten Feld, das `goal` erfüllt
+/// (Breitensuche, feste Nachbarreihenfolge). Gibt die ersten beiden Schritte
+/// und die Weglänge zurück.
+fn path_to(
+    world: &World,
+    from: u32,
+    max_steps: u32,
+    goal: impl Fn(usize) -> bool,
+) -> Option<(u32, u32, u32)> {
+    let n = world.tiles.len();
+    let mut parent = vec![u32::MAX; n];
+    let mut dist = vec![0u32; n];
+    let mut queue = std::collections::VecDeque::new();
+    parent[from as usize] = from;
+    queue.push_back(from as usize);
+    while let Some(i) = queue.pop_front() {
+        if i != from as usize && goal(i) {
+            // Weg zurückverfolgen
+            let mut path = vec![i as u32];
+            let mut c = i;
+            while parent[c] as usize != from as usize {
+                c = parent[c] as usize;
+                path.push(c as u32);
+            }
+            path.reverse();
+            let first = path[0];
+            let second = *path.get(1).unwrap_or(&first);
+            return Some((first, second, dist[i]));
+        }
+        if dist[i] >= max_steps {
+            continue;
+        }
+        for nb in world.neighbors(i) {
+            if parent[nb] == u32::MAX && walkable(world, nb) {
+                parent[nb] = i as u32;
+                dist[nb] = dist[i] + 1;
+                queue.push_back(nb);
+            }
+        }
+    }
+    None
+}
+
 /// Zufälliger Schritt auf ein gangbares Nachbarfeld.
 fn random_step(world: &World, from: u32, rng: &mut Rng) -> u32 {
     let nb: Vec<usize> = world
@@ -513,6 +561,15 @@ pub fn step_day(
     day
 }
 
+/// Wie viele Kaninchen ein Feld ernährt: viel auf Wiesen, etwas im Gebüsch,
+/// wenig im Wald (Waldränder, Lichtungen).
+pub fn rabbit_capacity(t: &crate::world::Tile) -> f32 {
+    if t.is_ocean() || t.surface_water > POND_MM {
+        return 0.0;
+    }
+    RABBIT_K_GRASS * t.grass * (1.0 - 0.4 * t.forest) + RABBIT_K_SHRUB * t.shrub + 0.5
+}
+
 fn step_rabbits(a: &mut Animals, world: &mut World, weather: &Weather, doy: u32) {
     if a.rabbits.iter().all(|&r| r <= 0.0) {
         return;
@@ -525,13 +582,22 @@ fn step_rabbits(a: &mut Animals, world: &mut World, weather: &Weather, doy: u32)
         if r <= 0.0 {
             continue;
         }
-        let t = &mut world.tiles[i];
-        if t.is_ocean() || t.surface_water > POND_MM {
-            // Überschwemmt: Die Kaninchen ertrinken oder fliehen nicht weit.
+        if !walkable(world, i) {
+            // Überschwemmt: Die meisten flüchten auf trockene Nachbarfelder.
+            let n_ok = world.neighbors(i).filter(|&j| walkable(world, j)).count();
+            if n_ok > 0 {
+                let share = r * 0.8 / n_ok as f32;
+                for j in world.neighbors(i) {
+                    if walkable(world, j) {
+                        moved[j] += share;
+                    }
+                }
+            }
             a.rabbits[i] = 0.0;
             continue;
         }
-        let cap = RABBIT_K_GRASS * t.grass * (1.0 - 0.6 * t.forest) + RABBIT_K_SHRUB * t.shrub;
+        let t = &mut world.tiles[i];
+        let cap = rabbit_capacity(t);
         let temp = weather.temp_at(t.elevation);
         let mut r2 = r;
         // Fressen
@@ -546,22 +612,30 @@ fn step_rabbits(a: &mut Animals, world: &mut World, weather: &Weather, doy: u32)
             r2 -= 0.002 * r;
         }
         if r > cap {
-            r2 -= 0.03 * (r - cap);
+            r2 -= 0.01 * (r - cap);
         }
         if t.fire > 0.0 {
             r2 *= 0.3;
         }
-        // Abwandern bei Gedränge
-        if r2 > 3.0 && r2 > 0.5 * cap {
-            let out = RABBIT_DISPERSAL * r2;
-            let n_ok = world.neighbors(i).filter(|&j| walkable(world, j)).count();
-            if n_ok > 0 {
-                let share = out / n_ok as f32;
-                for j in world.neighbors(i) {
-                    if walkable(world, j) {
-                        moved[j] += share;
-                    }
+        // Abwandern, sobald es eng wird – auch wenige Tiere besiedeln so
+        // nach und nach die ganze Insel
+        if r2 > 1.0 && r2 > 0.5 * cap {
+            // Junge Tiere ziehen zum Nachbarfeld mit dem meisten freien Platz.
+            let mut best: Option<(f32, usize)> = None;
+            for j in world.neighbors(i) {
+                if !walkable(world, j) {
+                    continue;
                 }
+                let room = rabbit_capacity(&world.tiles[j]) - a.rabbits[j] - moved[j];
+                if best.is_none_or(|(b, _)| room > b) {
+                    best = Some((room, j));
+                }
+            }
+            if let Some((room, j)) = best
+                && room > 0.0
+            {
+                let out = (RABBIT_DISPERSAL * r2).min(room);
+                moved[j] += out;
                 r2 -= out;
             }
         }
@@ -759,7 +833,7 @@ fn step_individuals(a: &mut Animals, world: &mut World, weather: &Weather, rng: 
                 if victim.is_none() {
                     // Kaninchen nebenbei, wenn hungrig
                     let r = a.rabbits[tile as usize];
-                    if energy < 0.6 && r >= 1.0 && rng.chance((r / 10.0).min(0.4)) {
+                    if energy < 0.7 && r >= 1.0 && rng.chance((r / 8.0).min(0.5)) {
                         a.rabbits[tile as usize] -= 1.0;
                         energy += 0.12;
                     }
@@ -769,28 +843,12 @@ fn step_individuals(a: &mut Animals, world: &mut World, weather: &Weather, rng: 
                             activity = Activity::Walk;
                         }
                     } else if hungry {
-                        // Nächsten Hirsch suchen
-                        let target = a
-                            .list
-                            .iter()
-                            .enumerate()
-                            .filter(|(j, x)| x.species == Species::Deer && dead[*j].is_none())
-                            .map(|(_, x)| (cheb(world, x.tile, tile), x.tile))
-                            .filter(|&(d, _)| d <= WOLF_SEARCH)
-                            .min();
-                        if let Some((d, t)) = target {
+                        // Nächsten Hirsch auf dem Landweg suchen (um Seen herum)
+                        let target = path_to(world, tile, WOLF_SEARCH as u32, |j| deer_on[j] > 0);
+                        if let Some((s1, s2, d)) = target {
                             // Aus der Ferne anschleichen, aus der Nähe hetzen
-                            let mut t1 = step_towards(world, tile, t);
-                            if t1 == tile {
-                                // Hindernis (Wasser): seitlich ausweichen
-                                t1 = random_step(world, tile, rng);
-                            }
                             let chase = d <= 4;
-                            tile = if chase || d > 10 {
-                                step_towards(world, t1, t)
-                            } else {
-                                t1
-                            };
+                            tile = if chase || d > 10 { s2 } else { s1 };
                             activity = if chase { Activity::Run } else { Activity::Walk };
                             victim = find_victim(&a.list, &dead, world, tile);
                         } else {
@@ -816,7 +874,7 @@ fn step_individuals(a: &mut Animals, world: &mut World, weather: &Weather, rng: 
                 if let Some((j, ve, young, vt)) = victim {
                     let pack = wolves.iter().filter(|&&w| cheb(world, w, vt) <= 1).count() as f32;
                     tile = vt;
-                    let p = (0.10
+                    let p = (0.15
                         + 0.3 * (1.0 - ve)
                         + if young { 0.2 } else { 0.0 }
                         + 0.08 * (pack - 1.0).clamp(0.0, 3.0))
@@ -841,13 +899,26 @@ fn step_individuals(a: &mut Animals, world: &mut World, weather: &Weather, rng: 
                 // Füchse fressen auch Mäuse, Insekten und Beeren – das reicht
                 // zum Überleben im Sommer, aber nicht für Junge im Winter.
                 let t = &world.tiles[tile as usize];
-                if weather.temp_at(t.elevation) > 8.0 {
-                    energy += FOX_SIDE_FOOD * clamp01(t.grass + t.shrub);
-                }
+                let warm = if weather.temp_at(t.elevation) > 8.0 {
+                    1.0
+                } else {
+                    0.6
+                };
+                energy += FOX_SIDE_FOOD * warm * clamp01(t.grass + t.shrub);
                 let r = a.rabbits[tile as usize];
-                let p = (r / 8.0).min(0.7);
-                if r >= 1.0 && energy < 0.9 && rng.chance(p) {
-                    a.rabbits[tile as usize] -= 1.0;
+                // Jagdrevier: das eigene Feld und die Nachbarfelder
+                let mut best_nb = (r, tile);
+                let mut around = r;
+                for j in world.neighbors(tile as usize) {
+                    around += a.rabbits[j];
+                    if a.rabbits[j] > best_nb.0 {
+                        best_nb = (a.rabbits[j], j as u32);
+                    }
+                }
+                let p = (around / FOX_CATCH_HALF).min(0.7);
+                if best_nb.0 >= 1.0 && energy < 0.9 && rng.chance(p) {
+                    a.rabbits[best_nb.1 as usize] -= 1.0;
+                    tile = best_nb.1;
                     energy += 0.3;
                     activity = Activity::Run;
                 } else if let Some(c) = a
@@ -867,11 +938,8 @@ fn step_individuals(a: &mut Animals, world: &mut World, weather: &Weather, rng: 
                 } else if energy < 0.9 {
                     // Zum Feld mit den meisten Kaninchen – in der Nähe oder,
                     // wenn hier keine sind, weiter weg
-                    let near: f32 = world
-                        .neighbors(tile as usize)
-                        .map(|j| a.rabbits[j])
-                        .fold(r, f32::max);
-                    if near < 1.0 {
+                    // Lohnt das Revier nicht mehr (wenig Beute), weiterziehen
+                    if around < 4.0 {
                         let (cx, cy) = world.xy(tile as usize);
                         let mut target = None;
                         let mut best_v = 1.0f32;
@@ -945,7 +1013,8 @@ fn step_individuals(a: &mut Animals, world: &mut World, weather: &Weather, rng: 
         x.facing_right = facing(world, x.tile, tile, x.facing_right);
         x.prev_tile = x.tile;
         x.tile = tile;
-        x.energy = energy.min(1.0);
+        // Wölfe schlingen am Riss mehr, als sie täglich brauchen (Vorrat).
+        x.energy = energy.min(if s == Species::Wolf { WOLF_GORGE } else { 1.0 });
         x.activity = activity;
         x.age_days += 1;
 
@@ -995,7 +1064,7 @@ fn step_individuals(a: &mut Animals, world: &mut World, weather: &Weather, rng: 
 fn wolves_feed(a: &mut Animals, world: &World) {
     let (list, carcasses) = (&mut a.list, &mut a.carcasses);
     for w in list.iter_mut().filter(|x| x.species == Species::Wolf) {
-        if w.energy >= 1.0 {
+        if w.energy >= WOLF_GORGE {
             continue;
         }
         // Welpen werden vom Rudel mitversorgt.
@@ -1008,7 +1077,7 @@ fn wolves_feed(a: &mut Animals, world: &World) {
             .iter_mut()
             .find(|c| c.meat > 0.0 && cheb(world, c.tile, w.tile) <= reach)
         {
-            let take = (1.0 - w.energy).min(0.5).min(c.meat);
+            let take = (WOLF_GORGE - w.energy).min(0.5).min(c.meat);
             c.meat -= take;
             w.energy += take;
         }
@@ -1043,11 +1112,6 @@ fn births(a: &mut Animals, world: &World, doy: u32, rng: &mut Rng) {
         Species::Rabbit => u32::MAX,
     };
     let mut newborn = Vec::new();
-    let wolf_count = a
-        .list
-        .iter()
-        .filter(|x| x.species == Species::Wolf && x.age_days >= Species::Wolf.adult_age())
-        .count() as u32;
     for s in [Species::Deer, Species::Wolf, Species::Fox] {
         if doy != season(s) {
             continue;
@@ -1057,6 +1121,7 @@ fn births(a: &mut Animals, world: &World, doy: u32, rng: &mut Rng) {
             Species::Wolf => 4,
             _ => 8,
         };
+        let mut litters = 0u32;
         let adults: Vec<&Animal> = a
             .list
             .iter()
@@ -1080,7 +1145,12 @@ fn births(a: &mut Animals, world: &World, doy: u32, rng: &mut Rng) {
             {
                 continue;
             }
-            if s == Species::Wolf && wolf_count >= WOLF_TERRITORY_LIMIT {
+            let max_litters = match s {
+                Species::Wolf => WOLF_LITTERS_PER_YEAR,
+                Species::Fox => FOX_LITTERS_PER_YEAR,
+                _ => u32::MAX,
+            };
+            if litters >= max_litters {
                 continue;
             }
             let (min_energy, litter) = match s {
@@ -1091,6 +1161,7 @@ fn births(a: &mut Animals, world: &World, doy: u32, rng: &mut Rng) {
             if mother.energy < min_energy || !rng.chance(0.85) {
                 continue;
             }
+            litters += 1;
             for _ in 0..litter {
                 newborn.push((s, mother.id, mother.tile, mother.variant));
             }

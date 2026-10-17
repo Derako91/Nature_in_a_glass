@@ -1,5 +1,28 @@
 # Änderungen
 
+## 0.4.1 – Die Zeit läuft weiter, Tiere besser abgestimmt
+
+**Behoben**
+- **Minimiertes Fenster hielt die Insel an.** Die Simulation läuft jetzt in einem eigenen Faden weiter, auch wenn das Fenster minimiert ist oder verdeckt wird.
+- **Kaninchen schrumpften ohne Fressfeinde** (z. B. von 20 auf 4), besonders auf alten, bewaldeten Inseln. Ursachen: Bei Überschwemmung ertranken alle Kaninchen eines Feldes, und beim Abwandern verteilten sie sich so dünn, dass die Reste verloren gingen. Jetzt flüchten sie vor Hochwasser, ziehen gezielt zum Nachbarfeld mit dem meisten Platz, und Waldränder und Lichtungen ernähren auch ein paar Kaninchen.
+- **Wölfe verhungerten neben vielen Hirschen,** wenn ein See dazwischen lag: Sie fanden keinen Weg um das Wasser. Jetzt suchen sie den Landweg.
+- **Füchse verhungerten im ersten Winter.** Sie jagen jetzt im ganzen Revier (Feld und Nachbarfelder), ziehen weiter, wenn es dort wenig gibt, und finden auch im Winter etwas Kleingetier.
+- Kaninchen und Hirsche werden auf einer dicht bewaldeten Insel an den offensten Stellen ausgesetzt.
+
+**Neu**
+- **Verlauf umschaltbar:** *Pflanzen* oder *Tiere*. Bei den Tieren ist jede Linie auf ihren eigenen Höchstwert bezogen, damit man vier Wölfe neben tausenden Kaninchen sieht. Mit der Maus über den Verlauf fahren zeigt die Zahlen des Jahres.
+
+**Geändert**
+- Wölfe fressen sich am Riss einen Vorrat an und müssen seltener jagen; ein Hirsch gibt mehr her. Füchse brauchen etwas weniger.
+- Reviere: Auf der Insel ist Platz für **einen Wolfswurf** und **drei Fuchswürfe** im Jahr. Vorher wurde die Zahl der erwachsenen Tiere begrenzt – dann bekam ein gealtertes Rudel nie mehr Junge und starb geschlossen aus.
+
+**Beobachtet**
+- Füchse halten sich mit tausenden Kaninchen jetzt oft Jahrzehnte; es gibt richtige Räuber-Beute-Wellen.
+- Wölfe halten sich meist einige Jahre bis etwa ein Jahrzehnt. Die Insel ist für ein Wolfsrudel eigentlich zu klein (echte Rudel brauchen viele Quadratkilometer). Eine größere Insel ist der natürliche nächste Schritt.
+
+**Getestet:** Kaninchen breiten sich auf einer alten, zu über 60 % bewaldeten Insel ohne Fressfeinde auf mehrere hundert aus.
+
+
 ## 0.4.0 – Erste Tiere
 
 **Neu in der Natur**

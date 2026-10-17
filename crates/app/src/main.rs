@@ -5,6 +5,8 @@
 mod view;
 
 use std::path::PathBuf;
+use std::sync::{Arc, Mutex};
+use std::time::{Duration, Instant};
 
 use eframe::egui::{self, Color32, RichText};
 use nig_core::animals::Species;
@@ -153,7 +155,108 @@ fn main() -> eframe::Result {
     )
 }
 
+/// Zeitgeber: lässt die Simulation in einem eigenen Faden laufen – auch wenn
+/// das Fenster minimiert ist und keine Bilder gezeichnet werden. Während ein
+/// Bild gezeichnet wird, leiht sich die Oberfläche die Simulation aus.
+struct Clock {
+    sim: Simulation,
+    running: bool,
+    speed: usize,
+    reaction: EventReaction,
+    owed_hours: f64,
+    seen_event: u64,
+    /// Die Oberfläche hält gerade die Simulation.
+    ui_busy: bool,
+    stop_message: Option<String>,
+    focus: Option<usize>,
+}
+
+impl Clock {
+    fn last_event_id(&self) -> u64 {
+        self.sim.journal.events.last().map(|e| e.id).unwrap_or(0)
+    }
+
+    fn advance(&mut self, dt: f64) {
+        if !self.running {
+            return;
+        }
+        self.owed_hours += SPEEDS[self.speed].1 * dt;
+        self.owed_hours = self.owed_hours.min(MAX_HOURS_PER_FRAME);
+        let whole = self.owed_hours.floor();
+        if whole < 1.0 {
+            return;
+        }
+        self.owed_hours -= whole;
+        if self.reaction == EventReaction::ChronicleOnly {
+            self.sim.advance_hours(whole as u64);
+            self.seen_event = self.last_event_id();
+            return;
+        }
+        // Tageweise vorrücken, damit wir genau beim Ereignis anhalten
+        let mut left = whole as u64;
+        while left > 0 {
+            let to_next_day = HOURS_PER_DAY - self.sim.time_hours % HOURS_PER_DAY;
+            let step = left.min(to_next_day);
+            self.sim.advance_hours(step);
+            left -= step;
+            if self.check_important_events() {
+                self.owed_hours = 0.0;
+                break;
+            }
+        }
+    }
+
+    /// Prüft neue Ereignisse; hält bei wichtigen an. Gibt `true` zurück, wenn angehalten.
+    fn check_important_events(&mut self) -> bool {
+        let seen = self.seen_event;
+        self.seen_event = self.last_event_id();
+        let found = self
+            .sim
+            .journal
+            .events
+            .iter()
+            .rev()
+            .take_while(|e| e.id > seen)
+            .filter(|e| e.kind.is_important())
+            .last()
+            .cloned();
+        let Some(e) = found else {
+            return false;
+        };
+        self.running = false;
+        self.stop_message = Some(format!("Angehalten: {}", e.message));
+        if self.reaction == EventReaction::PauseAndFocus
+            && let Some((x, y)) = e.location
+        {
+            let w = &self.sim.world;
+            self.focus = Some(w.idx(x.min(w.width - 1), y.min(w.height - 1)));
+        }
+        true
+    }
+}
+
+/// Startet den Faden des Zeitgebers.
+fn spawn_clock(clock: Arc<Mutex<Clock>>) {
+    std::thread::spawn(move || {
+        let mut last = Instant::now();
+        loop {
+            std::thread::sleep(Duration::from_millis(4));
+            let mut c = clock.lock().unwrap_or_else(|e| e.into_inner());
+            let now = Instant::now();
+            if c.ui_busy {
+                continue; // Zeit läuft weiter und wird gleich nachgeholt
+            }
+            let dt = (now - last).as_secs_f64().min(0.25);
+            last = now;
+            c.advance(dt);
+        }
+    });
+}
+
 struct App {
+    clock: Arc<Mutex<Clock>>,
+    /// Ob die Oberfläche gerade die echte Simulation hält.
+    holds_sim: bool,
     sim: Simulation,
     running: bool,
     speed: usize,
@@ -164,6 +267,8 @@ struct App {
     selected: Option<usize>,
     seed_text: String,
     show_year_summaries: bool,
+    /// Verlauf: Tierbestände statt Pflanzen.
+    history_animals: bool,
     status: String,
     reaction: EventReaction,
     /// Höchste Ereignis-ID, die der Beobachter schon geprüft hat.
@@ -177,7 +282,24 @@ struct App {
 impl App {
     fn new(seed: u64) -> Self {
         let sim = Self::fresh(seed);
+        // Platzhalter, den der Zeitgeber hält, solange die Oberfläche die
+        // echte Simulation hat (winzige Insel, kostet nichts).
+        let placeholder = Simulation::with_size(seed, 8, 8);
+        let clock = Arc::new(Mutex::new(Clock {
+            sim: placeholder,
+            running: false,
+            speed: 1,
+            reaction: EventReaction::ChronicleOnly,
+            owed_hours: 0.0,
+            seen_event: 0,
+            ui_busy: true,
+            stop_message: None,
+            focus: None,
+        }));
+        spawn_clock(clock.clone());
         let mut app = Self {
+            clock,
+            holds_sim: true,
             running: false,
             speed: 1,
             owed_hours: 0.0,
@@ -187,6 +309,7 @@ impl App {
             selected: None,
             seed_text: seed.to_string(),
             show_year_summaries: false,
+            history_animals: false,
             status: String::new(),
             reaction: EventReaction::ChronicleOnly,
             seen_event: 0,
@@ -255,68 +378,42 @@ impl App {
         }
     }
 
-    fn advance(&mut self, dt: f64) {
-        if !self.running {
-            return;
-        }
-        self.owed_hours += SPEEDS[self.speed].1 * dt;
-        self.owed_hours = self.owed_hours.min(MAX_HOURS_PER_FRAME);
-        let whole = self.owed_hours.floor();
-        if whole < 1.0 {
-            return;
-        }
-        self.owed_hours -= whole;
-        if self.reaction == EventReaction::ChronicleOnly {
-            self.sim.advance_hours(whole as u64);
-            self.seen_event = self.last_event_id();
-            return;
-        }
-        // Tageweise vorrücken, damit wir genau beim Ereignis anhalten
-        let mut left = whole as u64;
-        while left > 0 {
-            let to_next_day = HOURS_PER_DAY - self.sim.time_hours % HOURS_PER_DAY;
-            let step = left.min(to_next_day);
-            self.sim.advance_hours(step);
-            left -= step;
-            if self.check_important_events() {
-                self.owed_hours = 0.0;
-                break;
-            }
-        }
-    }
-
     fn last_event_id(&self) -> u64 {
         self.sim.journal.events.last().map(|e| e.id).unwrap_or(0)
     }
 
-    /// Prüft neue Ereignisse; hält bei wichtigen an. Gibt `true` zurück, wenn angehalten.
-    fn check_important_events(&mut self) -> bool {
-        let seen = self.seen_event;
-        self.seen_event = self.last_event_id();
-        let found = self
-            .sim
-            .journal
-            .events
-            .iter()
-            .rev()
-            .take_while(|e| e.id > seen)
-            .filter(|e| e.kind.is_important())
-            .last()
-            .cloned();
-        let Some(e) = found else {
-            return false;
-        };
-        self.running = false;
-        self.status = format!("Angehalten: {}", e.message);
-        if self.reaction == EventReaction::PauseAndFocus
-            && let Some((x, y)) = e.location
-        {
-            let w = &self.sim.world;
-            let i = w.idx(x.min(w.width - 1), y.min(w.height - 1));
-            self.selected = Some(i);
-            self.camera.pan = view::focus_pan(w, i, self.mode, self.camera.zoom);
+    /// Übernimmt die Simulation vom Zeitgeber für die Dauer eines Bildes.
+    fn take_from_clock(&mut self) {
+        let mut c = self.clock.lock().unwrap_or_else(|e| e.into_inner());
+        if self.holds_sim {
+            return;
         }
-        true
+        std::mem::swap(&mut self.sim, &mut c.sim);
+        self.holds_sim = true;
+        c.ui_busy = true;
+        self.running = c.running;
+        self.owed_hours = c.owed_hours;
+        self.seen_event = c.seen_event;
+        if let Some(msg) = c.stop_message.take() {
+            self.status = msg;
+        }
+        if let Some(i) = c.focus.take() {
+            self.selected = Some(i);
+            self.camera.pan = view::focus_pan(&self.sim.world, i, self.mode, self.camera.zoom);
+        }
+    }
+
+    /// Gibt die Simulation an den Zeitgeber zurück, samt Einstellungen.
+    fn give_to_clock(&mut self) {
+        let mut c = self.clock.lock().unwrap_or_else(|e| e.into_inner());
+        std::mem::swap(&mut self.sim, &mut c.sim);
+        self.holds_sim = false;
+        c.running = self.running;
+        c.speed = self.speed;
+        c.reaction = self.reaction;
+        c.owed_hours = self.owed_hours;
+        c.seen_event = self.seen_event;
+        c.ui_busy = false;
     }
 
     fn season_name(&self) -> &'static str {
@@ -883,19 +980,55 @@ impl App {
     }
 
     fn history_section(&mut self, ui: &mut egui::Ui) {
-        ui.heading("Verlauf");
+        ui.horizontal(|ui| {
+            ui.heading("Verlauf");
+            ui.add_space(8.0);
+            ui.selectable_value(&mut self.history_animals, false, "Pflanzen");
+            ui.selectable_value(&mut self.history_animals, true, "Tiere")
+                .on_hover_text(
+                    "Bestände zum Jahresende. Jede Linie ist auf ihren eigenen \
+                     Höchstwert bezogen – so sieht man auch die wenigen Wölfe \
+                     neben tausenden Kaninchen. Fahr mit der Maus über den Verlauf.",
+                );
+        });
         let hist = &self.sim.history;
         let width = ui.available_width();
         let (resp, painter) = ui.allocate_painter(egui::vec2(width, 110.0), egui::Sense::hover());
         let r = resp.rect.shrink2(egui::vec2(4.0, 6.0));
         painter.rect_filled(resp.rect, 4.0, ui.visuals().extreme_bg_color);
         let n = hist.len();
-        let series = [
-            (Color32::from_rgb(60, 150, 70), "Wald"),
-            (Color32::from_rgb(140, 150, 70), "Busch"),
-            (Color32::from_rgb(190, 180, 90), "Gras"),
-            (Color32::from_rgb(80, 150, 230), "Grundwasser"),
-        ];
+        let series: [(Color32, &str); 4] = if self.history_animals {
+            [
+                (Color32::from_rgb(176, 122, 68), "Hirsche"),
+                (Color32::from_rgb(200, 184, 152), "Kaninchen"),
+                (Color32::from_rgb(154, 160, 166), "Wölfe"),
+                (Color32::from_rgb(210, 104, 44), "Füchse"),
+            ]
+        } else {
+            [
+                (Color32::from_rgb(60, 150, 70), "Wald"),
+                (Color32::from_rgb(140, 150, 70), "Busch"),
+                (Color32::from_rgb(190, 180, 90), "Gras"),
+                (Color32::from_rgb(80, 150, 230), "Grundwasser"),
+            ]
+        };
+        let value = |y: &nig_core::YearStats, si: usize| -> f32 {
+            if self.history_animals {
+                match si {
+                    0 => y.deer as f32,
+                    1 => y.rabbits as f32,
+                    2 => y.wolves as f32,
+                    _ => y.foxes as f32,
+                }
+            } else {
+                match si {
+                    0 => y.forest_pct,
+                    1 => y.shrub_pct,
+                    2 => y.grass_pct,
+                    _ => y.aquifer_pct.min(100.0),
+                }
+            }
+        };
         if n < 2 {
             painter.text(
                 resp.rect.center(),
@@ -912,22 +1045,54 @@ impl App {
             return;
         }
         let x_at = |k: usize| r.left() + r.width() * k as f32 / (n - 1) as f32;
-        let y_at = |pct: f32| r.bottom() - r.height() * (pct / 100.0).clamp(0.0, 1.0);
+        // Pflanzen in Prozent, Tiere je Linie auf ihren Höchstwert bezogen
+        let scale: Vec<f32> = (0..4)
+            .map(|si| {
+                if self.history_animals {
+                    hist.iter().map(|y| value(y, si)).fold(1.0f32, f32::max)
+                } else {
+                    100.0
+                }
+            })
+            .collect();
         for (si, (col, _)) in series.iter().enumerate() {
             let pts: Vec<egui::Pos2> = hist
                 .iter()
                 .enumerate()
                 .map(|(k, y)| {
-                    let v = match si {
-                        0 => y.forest_pct,
-                        1 => y.shrub_pct,
-                        2 => y.grass_pct,
-                        _ => y.aquifer_pct.min(100.0),
-                    };
-                    egui::pos2(x_at(k), y_at(v))
+                    let f = (value(y, si) / scale[si]).clamp(0.0, 1.0);
+                    egui::pos2(x_at(k), r.bottom() - r.height() * f)
                 })
                 .collect();
             painter.add(egui::Shape::line(pts, egui::Stroke::new(1.5, *col)));
+        }
+        // Werte des Jahres unter dem Mauszeiger
+        if let Some(m) = resp.hover_pos() {
+            let k = (((m.x - r.left()) / r.width()) * (n - 1) as f32)
+                .round()
+                .clamp(0.0, (n - 1) as f32) as usize;
+            let y = &hist[k];
+            painter.vline(
+                x_at(k),
+                r.y_range(),
+                egui::Stroke::new(1.0, Color32::from_white_alpha(60)),
+            );
+            let text = if self.history_animals {
+                format!(
+                    "Jahr {}: {} Hirsche, {} Kaninchen, {} Wölfe, {} Füchse",
+                    y.year,
+                    y.deer,
+                    thousands(y.rabbits as f32),
+                    y.wolves,
+                    y.foxes
+                )
+            } else {
+                format!(
+                    "Jahr {}: Wald {:.0} %, Busch {:.0} %, Gras {:.0} %, Grundwasser {:.0} %",
+                    y.year, y.forest_pct, y.shrub_pct, y.grass_pct, y.aquifer_pct
+                )
+            };
+            resp.on_hover_text_at_pointer(text);
         }
         ui.horizontal(|ui| {
             for (col, name) in series {
@@ -1007,12 +1172,12 @@ impl App {
 
 impl eframe::App for App {
     fn ui(&mut self, ui: &mut egui::Ui, _frame: &mut eframe::Frame) {
-        let (dt, space) = ui.input(|i| (i.stable_dt as f64, i.key_pressed(egui::Key::Space)));
+        self.take_from_clock();
+        let space = ui.input(|i| i.key_pressed(egui::Key::Space));
         let typing = ui.ctx().memory(|m| m.focused().is_some());
         if space && !typing {
             self.running = !self.running;
         }
-        self.advance(dt.min(0.25));
 
         egui::Panel::top("top")
             .resizable(false)
@@ -1085,5 +1250,6 @@ impl eframe::App for App {
         if self.running {
             ui.ctx().request_repaint();
         }
+        self.give_to_clock();
     }
 }

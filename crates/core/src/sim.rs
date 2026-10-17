@@ -1357,7 +1357,17 @@ impl Simulation {
                         };
                         let mut land = pick(0.5, 0.3);
                         if land.is_empty() {
-                            land = pick(0.2, 1.1);
+                            // Dicht bewaldete Insel: die offensten Stellen
+                            let mut all = pick(0.0, 1.1);
+                            all.sort_by(|&a, &b| {
+                                let open = |i: u32| {
+                                    let t = &self.world.tiles[i as usize];
+                                    t.grass + t.shrub - t.forest
+                                };
+                                open(b).total_cmp(&open(a)).then(a.cmp(&b))
+                            });
+                            all.truncate((all.len() / 10).max(1));
+                            land = all;
                         }
                         if land.is_empty() {
                             return;
