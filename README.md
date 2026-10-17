@@ -41,6 +41,7 @@ Eine deterministisch testbare kleine Insel (z. B. 64 × 64 Rasterfelder) mit ges
 - [Roadmap](docs/ROADMAP.md)
 - [Starten und Bedienung](docs/STARTEN.md)
 - [Änderungen je Version](docs/CHANGELOG.md)
+- [Gestaltung: visuelle Richtung und Asset-Vorgaben](docs/gestaltung.md)
 - [Entscheidung: Simulation unabhängig von KI](decisions/0001-independent-simulation.md)
 - [Entscheidung: Rust, egui, Zeit in mehreren Auflösungen](decisions/0002-runtime-and-rendering.md)
 - [Entscheidung: Quellregler steuert den Austritt](decisions/0003-spring-control-is-outflow.md)
