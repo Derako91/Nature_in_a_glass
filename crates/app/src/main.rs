@@ -7,6 +7,7 @@ mod view;
 use std::path::PathBuf;
 
 use eframe::egui::{self, Color32, RichText};
+use nig_core::animals::Species;
 use nig_core::hydro::{CourseKind, M3_PER_TILE_MM, liters_per_second, watercourse};
 use nig_core::sim::{HOURS_PER_DAY, STREAM_FLOW};
 
@@ -88,6 +89,22 @@ fn main() -> eframe::Result {
     let speed: Option<usize> = arg("--speed").and_then(|s| s.parse().ok());
     let days: u64 = arg("--days").and_then(|s| s.parse().ok()).unwrap_or(0);
     let reaction: Option<usize> = arg("--reaction").and_then(|s| s.parse().ok());
+    // `--tiere hirsche,kaninchen,woelfe,fuechse` setzt nach `--years` Jahren Tiere
+    // aus; `--danach N` lässt sie anschließend N Jahre leben.
+    let release: Vec<Species> = arg("--tiere")
+        .map(|s| {
+            s.split(',')
+                .filter_map(|t| match t.trim() {
+                    "hirsche" => Some(Species::Deer),
+                    "kaninchen" => Some(Species::Rabbit),
+                    "woelfe" => Some(Species::Wolf),
+                    "fuechse" => Some(Species::Fox),
+                    _ => None,
+                })
+                .collect()
+        })
+        .unwrap_or_default();
+    let after: u64 = arg("--danach").and_then(|s| s.parse().ok()).unwrap_or(0);
     let select: Option<(u32, u32)> = arg("--select").and_then(|s| {
         let (x, y) = s.split_once(',')?;
         Some((x.trim().parse().ok()?, y.trim().parse().ok()?))
@@ -98,6 +115,11 @@ fn main() -> eframe::Result {
         Box::new(move |_cc| {
             let mut app = App::new(seed);
             app.sim.advance_years(years);
+            for &species in &release {
+                app.sim
+                    .apply(Intervention::ReleaseAnimals { species, at: None });
+            }
+            app.sim.advance_years(after);
             app.sim.advance_days(days);
             app.seen_event = app.last_event_id();
             if let Some(r) = reaction {
@@ -113,6 +135,7 @@ fn main() -> eframe::Result {
                     "wasser" => Layer::Water,
                     "brand" => Layer::FireRisk,
                     "boden" => Layer::Soil,
+                    "tiere" => Layer::Animals,
                     _ => Layer::Nature,
                 };
             }
@@ -429,6 +452,7 @@ impl App {
         ui.separator();
         self.intervention_section(ui);
         self.seed_row(ui);
+        self.animal_row(ui);
         ui.separator();
         self.history_section(ui);
         ui.separator();
@@ -556,6 +580,21 @@ impl App {
                      unter den Quellaustritten – die Quellen versiegen. Ist er voll, \
                      fließt weiteres Sickerwasser unterirdisch ins Meer.",
                 );
+                let an = &self.sim.animals;
+                row(
+                    ui,
+                    "Hirsche / Kaninchen",
+                    format!(
+                        "{} / {}",
+                        an.total(Species::Deer),
+                        thousands(an.total(Species::Rabbit) as f32)
+                    ),
+                );
+                row(
+                    ui,
+                    "Wölfe / Füchse",
+                    format!("{} / {}", an.total(Species::Wolf), an.total(Species::Fox)),
+                );
                 row(
                     ui,
                     "Feuer",
@@ -591,6 +630,7 @@ impl App {
             ("Feuer", dash()),
             ("Trockentage", dash()),
             ("Boden", dash()),
+            ("Tiere", dash()),
         ];
         if let Some(i) = self.selected {
             let world = &self.sim.world;
@@ -678,6 +718,18 @@ impl App {
                     " · stabil".to_string()
                 };
                 rows[14].1 = format!("{} m{trend}", de(t.soil_depth + t.soil_change, 2));
+                let an = &self.sim.animals;
+                let mut parts = Vec::new();
+                for sp in [Species::Deer, Species::Rabbit, Species::Wolf, Species::Fox] {
+                    let n = an.count_at(i as u32, sp);
+                    if n > 0 {
+                        let (one, many) = sp.names();
+                        parts.push(format!("{n} {}", if n == 1 { one } else { many }));
+                    }
+                }
+                if !parts.is_empty() {
+                    rows[15].1 = parts.join(" · ");
+                }
             }
         }
         egui::Grid::new("tile")
@@ -792,6 +844,41 @@ impl App {
                 }
             }
             ui.label(RichText::new(format!("im Boden: {:>2}", self.sim.seeds.len())).weak());
+        });
+    }
+
+    fn animal_row(&mut self, ui: &mut egui::Ui) {
+        ui.horizontal(|ui| {
+            ui.label("Tiere aussetzen:");
+            let at = self.selected.and_then(|i| {
+                let t = &self.sim.world.tiles[i];
+                (!t.is_ocean() && t.surface_water <= POND_MM).then(|| self.sim.world.xy(i))
+            });
+            for sp in [Species::Deer, Species::Rabbit, Species::Wolf, Species::Fox] {
+                let hint = match sp {
+                    Species::Deer => "6 Hirsche (2 männlich, 4 weiblich).",
+                    Species::Rabbit => "20 Kaninchen.",
+                    Species::Wolf => "Ein Rudel aus 4 Wölfen. Sie brauchen viele Hirsche.",
+                    Species::Fox => "4 Füchse. Sie brauchen Kaninchen.",
+                };
+                let place = if at.is_some() {
+                    "Sie kommen auf das gewählte Feld."
+                } else {
+                    "Ohne gewähltes Feld landen sie an einer zufälligen Stelle – \
+                     Räuber dort, wo es Beute gibt."
+                };
+                if ui
+                    .small_button(sp.names().1)
+                    .on_hover_text(format!(
+                        "{hint} {place} Was danach geschieht, entscheidet die Insel. \
+                         Ausgestorbene Arten kommen nur zurück, wenn du neue aussetzt."
+                    ))
+                    .clicked()
+                {
+                    self.sim
+                        .apply(Intervention::ReleaseAnimals { species: sp, at });
+                }
+            }
         });
     }
 
@@ -962,6 +1049,7 @@ impl eframe::App for App {
                 &mut self.camera,
                 self.selected,
                 light,
+                self.speed <= 2,
             );
             if resp.clicked() {
                 self.selected = result.hovered;

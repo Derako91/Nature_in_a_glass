@@ -19,16 +19,18 @@ pub enum Layer {
     Water,
     FireRisk,
     Soil,
+    Animals,
 }
 
 impl Layer {
-    pub const ALL: [Layer; 6] = [
+    pub const ALL: [Layer; 7] = [
         Layer::Nature,
         Layer::Height,
         Layer::Moisture,
         Layer::Water,
         Layer::FireRisk,
         Layer::Soil,
+        Layer::Animals,
     ];
     pub fn label(self) -> &'static str {
         match self {
@@ -38,6 +40,7 @@ impl Layer {
             Layer::Water => "Wasser",
             Layer::FireRisk => "Brandgefahr",
             Layer::Soil => "Boden/Abtrag",
+            Layer::Animals => "Tiere",
         }
     }
 }
@@ -156,6 +159,8 @@ pub fn tile_color(world: &World, i: usize, layer: Layer) -> Color32 {
                 mix(dry, Color32::from_rgb(70, 82, 96), t.moisture_fraction())
             }
         }
+        // Tiere: gedämpfte Landschaft, Kaninchen als Tönung, Tiere als Punkte darüber
+        Layer::Animals => Color32::from_rgb(70, 76, 66),
         Layer::Soil => {
             // Grundton nach Bodendicke: heller Fels … dunkle, tiefe Erde.
             let depth = ((t.soil_depth + t.soil_change) / 1.2).clamp(0.0, 1.0);
@@ -281,6 +286,28 @@ fn quad(mesh: &mut Mesh, p: [Pos2; 4], c: Color32) {
     mesh.add_triangle(i, i + 2, i + 3);
 }
 
+/// Kartenfarben der Tiere (gestaltung.md 15.6). Platzhalter, bis die
+/// Tier-Sprites eingebunden sind.
+fn animal_color(id: &str) -> Color32 {
+    match id {
+        "deer" | "deer_young" => Color32::from_rgb(176, 122, 68),
+        "wolf" => Color32::from_rgb(154, 160, 166),
+        "fox" => Color32::from_rgb(210, 104, 44),
+        _ => Color32::from_rgb(200, 184, 152),
+    }
+}
+
+fn animal_radius(id: &str, scale: f32) -> f32 {
+    scale
+        * match id {
+            "deer" => 1.0,
+            "deer_young" | "wolf" => 0.8,
+            "fox" => 0.65,
+            _ => 0.45,
+        }
+}
+
+#[allow(clippy::too_many_arguments)]
 pub fn draw(
     ui: &mut egui::Ui,
     sim: &Simulation,
@@ -289,6 +316,7 @@ pub fn draw(
     cam: &mut Camera,
     selected: Option<usize>,
     light: f32,
+    show_animals: bool,
 ) -> (egui::Response, DrawResult) {
     let (resp, painter) = ui.allocate_painter(ui.available_size(), egui::Sense::click_and_drag());
     let rect = resp.rect;
@@ -320,6 +348,24 @@ pub fn draw(
     let (w, h) = (world.width, world.height);
     let mut mesh = Mesh::default();
     let show_streams = matches!(layer, Layer::Nature | Layer::Water);
+    // Einzelne Tiere nur bei langsamer Zeit (sonst zappelt es), auf der
+    // Ebene „Tiere“ immer.
+    let animals = if show_animals || layer == Layer::Animals {
+        nig_core::appearance::animal_sprites(&sim.animals, &sim.world)
+    } else {
+        Vec::new()
+    };
+    let rabbit_tint = |i: usize, c: Color32| -> Color32 {
+        if layer != Layer::Animals {
+            return c;
+        }
+        let r = sim.animals.rabbits.get(i).copied().unwrap_or(0.0);
+        mix(
+            c,
+            Color32::from_rgb(200, 184, 152),
+            (r / 15.0).clamp(0.0, 1.0) * 0.8,
+        )
+    };
 
     match mode {
         ViewMode::Iso => {
@@ -351,7 +397,7 @@ pub fn draw(
                     {
                         continue;
                     }
-                    let col = night_tint(tile_color(world, i, layer), light);
+                    let col = night_tint(rabbit_tint(i, tile_color(world, i, layer)), light);
                     let n = Pos2::new(c.x, c.y - hh);
                     let east = Pos2::new(c.x + hw, c.y);
                     let south = Pos2::new(c.x, c.y + hh);
@@ -421,6 +467,19 @@ pub fn draw(
             }
             painter.add(Shape::mesh(mesh));
 
+            for a in &animals {
+                let (x, y) = world.xy(a.tile as usize);
+                let e = world.tiles[a.tile as usize].elevation;
+                let c = origin + iso_center(x, y, w, h, z).to_vec2()
+                    - Vec2::new(0.0, iso_lift(e, z))
+                    + Vec2::new(a.pos.0 * hw, a.pos.1 * hh);
+                if !rect.contains(c) {
+                    continue;
+                }
+                let r = (animal_radius(a.id, a.scale) * 1.6 * z).max(1.2);
+                painter.circle_filled(c, r, night_tint(animal_color(a.id), light));
+            }
+
             let outline = |i: usize, color: Color32| {
                 let (x, y) = world.xy(i);
                 let e = world.tiles[i].elevation;
@@ -466,7 +525,10 @@ pub fn draw(
                     if !r.intersects(rect) {
                         continue;
                     }
-                    mesh.add_colored_rect(r, night_tint(tile_color(world, i, layer), light));
+                    mesh.add_colored_rect(
+                        r,
+                        night_tint(rabbit_tint(i, tile_color(world, i, layer)), light),
+                    );
                     if let Some(m) = mouse
                         && r.contains(m)
                     {
@@ -496,6 +558,17 @@ pub fn draw(
                 }
             }
             painter.add(Shape::mesh(mesh));
+            for a in animals.iter().filter(|a| a.id != "rabbit") {
+                let (x, y) = world.xy(a.tile as usize);
+                let c = top_left
+                    + Vec2::new(x as f32 + 0.5, y as f32 + 0.5) * cell
+                    + Vec2::new(a.pos.0, a.pos.1) * cell * 0.45;
+                if !rect.contains(c) {
+                    continue;
+                }
+                let r = (animal_radius(a.id, a.scale) * cell * 0.22).max(1.2);
+                painter.circle_filled(c, r, night_tint(animal_color(a.id), light));
+            }
             let cell_rect = |i: usize| {
                 let (x, y) = world.xy(i);
                 Rect::from_min_size(

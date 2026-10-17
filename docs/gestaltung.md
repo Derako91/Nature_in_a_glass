@@ -471,9 +471,16 @@ Die Karte bekommt eine Ebene **Tiere**: Hirsche, Wölfe und Füchse als einzelne
 | Kaninchen (Tönung) | `#C8B898` |
 | Kadaver | `#5A3A30` |
 
-### 15.7 Schnittstelle (technisch, wird mit v0.4 gebaut)
+### 15.7 Schnittstelle (technisch, umgesetzt in v0.4.0)
 
-`crates/core/src/appearance.rs` bekommt eine Funktion, die für jedes sichtbare Tier liefert: Art, Altersstufe, Zustand, Blickrichtung, Variante, Fußpunkt innerhalb der Raute, Schwäche (0…1) – sowie pro Feld die Kaninchen-Spritezahl, Kadaver und die Dichte für die Spuren. Der Renderer muss keine Regeln selbst nachbauen.
+In `crates/core/src/appearance.rs`, ohne Grafik und getestet:
+
+- `animal_sprites(&sim.animals, &sim.world)` liefert je sichtbarem Tier: `id` (`deer`, `deer_young`, `wolf`, `fox`, `rabbit`), `state` (`graze`, `walk`, `run`, `rest`), `dir` (`l`, `r`), `variant` (0/1), `tile` und `prev_tile` (für das Gleiten bei 1 Std/s), `pos` (Fußpunkt in der Raute, −1…1 wie bei `positions()`), `scale` (0,75 für junge Wölfe und Füchse) und `weakness` (0…1, Entsättigung bis 25 %). Kaninchen sind bereits nach Tabelle 15.2 aufgelöst (0–3 Sprites je Feld, feste Positionen).
+- `rabbit_count(bestand)` – die Tabelle aus 15.2.
+- `carcasses(&sim.animals)` – Feld und `carcass_large` bzw. `carcass_small`.
+- `track_density(&sim.animals, feld, art)` – Deckkraft 0…1 für `tracks_<art>` ab 1 Monat/s.
+
+Der Beobachter zeichnet Tiere vorerst als **Platzhalter-Punkte** in den Kartenfarben aus 15.6 (`crates/app/src/view.rs`, `animal_color`), nur bis 1 Woche/s und auf der Ebene „Tiere“ immer. Diese Punkte ersetzt die Sprite-Einbindung.
 
 ### 15.8 Arbeitsreihenfolge
 

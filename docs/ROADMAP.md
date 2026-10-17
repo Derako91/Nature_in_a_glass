@@ -72,12 +72,14 @@ Umsetzungshinweise:
 - ~~Die Grundwasser-Anzeige ist ein Verhältnis zu einem Bezugswert und kann über 100 % steigen.~~ Erledigt in v0.2.4: echter Füllstand.
 - ~~Erosion ändert Höhen → Abflussnetz muss in größeren Abständen neu berechnet werden.~~ Nicht nötig: Der Abfluss richtet sich ohnehin täglich nach dem Wasserspiegel; Höhen ändern sich in Schritten ab 1 mm.
 
-## v0.4 – Erste Tiere
+## ✅ v0.4 – Erste Tiere (veröffentlicht als 0.4.0)
 
-- [ ] Einfaches Nahrungsnetz, zunächst Pflanzenfresser und Räuber.
-- [ ] Fortpflanzung, Nahrungsknappheit, Wanderung und Sterblichkeit.
-- [ ] Keine automatisch garantierte Stabilität und kein künstliches Wiedererscheinen ausgestorbener Populationen.
-- [ ] Tierverhalten ohne LLM ausführbar.
+- [x] Einfaches Nahrungsnetz: Hirsche und Kaninchen fressen Pflanzen, Wölfe jagen Hirsche, Füchse Kaninchen.
+- [x] Fortpflanzung, Nahrungsknappheit, Wanderung und Sterblichkeit (Hunger, Jagd, Alter, Feuer).
+- [x] Keine automatisch garantierte Stabilität und kein künstliches Wiedererscheinen ausgestorbener Populationen.
+- [x] Tierverhalten ohne LLM ausführbar.
+- [ ] Tier-Sprites von Codex einbinden (Schnittstelle steht, gestaltung.md 15.7); Kadaver und Spuren.
+- [ ] Abstimmung: Auf der kleinen Insel sterben Wölfe und Füchse meist nach einigen Jahren bis Jahrzehnten aus; Hirsche verdrängen ohne Wölfe die Kaninchen. Beobachten, ob das so bleiben soll.
 
 Entschieden (17.10.2026, Dennis):
 - **Erst Erosion (v0.3) abschließen**, dann Tiere.

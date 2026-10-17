@@ -4,6 +4,7 @@
 //! Fenster laufen (Tests, Kommandozeile, Server) und liefert bei gleichem Seed
 //! und gleichen Eingriffen immer exakt dieselbe Welt.
 
+pub mod animals;
 pub mod appearance;
 pub mod climate;
 pub mod erosion;

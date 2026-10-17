@@ -1,5 +1,36 @@
 # Änderungen
 
+## 0.4.0 – Erste Tiere
+
+**Neu in der Natur**
+- **Vier Tierarten:** Hirsche, Kaninchen, Wölfe und Füchse. Hirsche, Wölfe und Füchse leben als einzelne Tiere mit Alter, Geschlecht und Energiereserven; Kaninchen als Bestand je Feld.
+- **Nahrungsnetz:** Kaninchen fressen Gras. Hirsche fressen Gras, Busch und junge Bäume – viele Hirsche bremsen damit die Verjüngung des Waldes. Wölfe jagen Hirsche, schwache und junge leichter, im Rudel erfolgreicher, seltene Beute schwerer. Füchse jagen Kaninchen, fressen an Kadavern und im Sommer auch Kleintiere.
+- **Verhalten:** Hirsche ziehen zu Futter, bleiben gern beieinander und fliehen vor Wölfen; hungrige Hirsche suchen weiter. Wölfe nehmen die Spur auf, schleichen sich an und hetzen. Das Rudel frisst gemeinsam am Riss. Junge folgen ihrer Mutter.
+- **Leben und Tod:** Junge einmal im Jahr, wenn die Mutter gut genährt ist und ein Partner in der Nähe lebt. Tiere verhungern, werden gerissen, sterben an Altersschwäche oder im Feuer. Jeder Tod hinterlässt für einige Tage einen Kadaver.
+- **Keine Tiere von selbst:** Eine neue Insel ist tierfrei. Tiere kommen nur durch den Eingriff **Tiere aussetzen** – und eine ausgestorbene Art kehrt nur zurück, wenn du neue aussetzt.
+
+**Neu im Beobachter**
+- Unter *Eingriffe*: **Tiere aussetzen** – Hirsche (6), Kaninchen (20), Wölfe (Rudel aus 4), Füchse (4). Auf das gewählte Feld oder an eine zufällige Stelle; Räuber dort, wo es Beute gibt.
+- Ebene **Tiere** und vorläufige Tierpunkte auf Karte und Insel (bis 1 Woche/s, auf der Ebene *Tiere* immer). Die Tierbilder von Codex folgen.
+- Insel-Ansicht: Hirsche / Kaninchen, Wölfe / Füchse. Feld-Kasten: Tiere auf dem Feld.
+- Chronik: Aussetzen, **Aussterben** einer Art mit Ursachen (wichtiges Ereignis), **Hungerjahre**. Die Jahresbilanz nennt die Bestände.
+- Startoption `--tiere hirsche,kaninchen,woelfe,fuechse` mit `--danach N`.
+
+**Beobachtet (Insel 42 und weitere)**
+- Ohne Wölfe wachsen sechs Hirsche in 20 Jahren auf einige hundert an. Danach fressen sie Busch und Gras knapp, es folgen Hungerjahre; der Bestand pendelt zwischen etwa 100 und 400. Kaninchen werden dabei oft verdrängt.
+- Kaninchen allein wachsen in wenigen Jahren auf über 1.000 bis 4.000.
+- Wölfe und Füchse halten sich auf der kleinen Insel meist nur einige Jahre bis Jahrzehnte: Entweder sie jagen ihre Beute knapp und verhungern, oder das Rudel schrumpft durch Alter. Manchmal reißen Wölfe die Hirsche ganz aus. Ein Wolfsrudel lohnt sich erst, wenn viele Hirsche da sind.
+
+**Getestet**
+- Neue Insel tierfrei; ausgesetzte Hirsche vermehren sich und fressen Gras und Busch merklich ab.
+- Ohne Futter verhungern sie, das Aussterben steht mit Ursache in der Chronik, und sie kommen auch bei wieder gutem Regen nicht zurück.
+- Wölfe reißen Hirsche, Füchse dezimieren Kaninchen.
+- Gleicher Seed, gleiche Tiere; Speichern und Laden mitten im Tierleben ändert nichts.
+- Aussetzen im Wasser wird abgelehnt.
+
+**Spielstände:** Format 6. Alle früheren Spielstände lassen sich laden (ohne Tiere).
+
+
 ## 0.3.0 – Erosion: Die Insel formt sich selbst
 
 Letzter Schritt von v0.3 (Hydrologie und Erosion). Damit ist die Hydrologie abgeschlossen.

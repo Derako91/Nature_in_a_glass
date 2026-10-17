@@ -28,6 +28,9 @@ pub enum EventKind {
     NewLand,
     LakeFormed,
     LakeGone,
+    // seit v0.4
+    AnimalsExtinct,
+    AnimalsHunger,
 }
 
 impl EventKind {
@@ -54,6 +57,8 @@ impl EventKind {
             EventKind::NewLand => "Schwemmland",
             EventKind::LakeFormed => "See",
             EventKind::LakeGone => "See",
+            EventKind::AnimalsExtinct => "Tiere",
+            EventKind::AnimalsHunger => "Tiere",
         }
     }
 
@@ -70,6 +75,7 @@ impl EventKind {
                 | EventKind::Germination
                 | EventKind::GroundwaterLow
                 | EventKind::LakeGone
+                | EventKind::AnimalsExtinct
         )
     }
 }
