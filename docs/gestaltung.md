@@ -84,13 +84,14 @@ Die Bäume sind gegenüber dem echten Maßstab bewusst **etwas größer**, damit
 
 ### 4.3 Zoomstufen – was man bei welchem Abstand erkennt
 
-Festgelegt am 18.10.2026 mit Dennis. Die Kamera zoomt von 0,4 bis 8. Das Grundmaß (Raute 64 × 32 px) gilt bei Zoom 4; darunter verkleinert der Renderer, darüber vergrößert er pixelgenau.
+Festgelegt am 18.10.2026 mit Dennis. Die Kamera zoomt heute von 0,4 bis 8; mit den Menschen (v0.6) kommt die Stufe **Ganz nah** bis Zoom 32 dazu (Entscheidung B, siehe 17 und [ADR 0006](../decisions/0006-close-view-for-people.md)). Das Grundmaß (Raute 64 × 32 px) gilt bei Zoom 4; darunter verkleinert der Renderer, darüber vergrößert er pixelgenau.
 
 | Stufe | Zoom | Feld am Bildschirm | Was man erkennt |
 | --- | --- | --- | --- |
 | **Überblick** | 0,4 – 1,5 | 6–24 px | Die ganze Insel: Wald, Wiese, Wasser, Fels, Feuer als Flächen. **Keine einzelnen Tiere** – nur Spuren (`tracks_<art>`), wo Tiere leben. |
 | **Landschaft** | 1,5 – 4 | 24–64 px | Einzelne Bäume, Büsche, Totholz, Bäche. Hirsche, Wölfe und Füchse als kleine Figuren, Kaninchen als Gewimmel, Kadaver. |
 | **Nah** | 4 – 8 | 64–128 px | Jedes Tier mit Haltung (frisst, läuft, ruht), jung oder alt, kräftig oder geschwächt. |
+| **Ganz nah** (ab v0.6) | 8 – 32 | 128–512 px | Einzelne Menschen: wer es ist (Kleidung, Haar, Statur), was er gerade tut, ob er verletzt ist. Gesichter nur angedeutet. Später Hütten, Feuerstellen, Vorräte. |
 
 Dazu die Zeitregel aus 15.5: Ab 1 Monat/s gibt es unabhängig vom Zoom nur Spuren.
 
@@ -99,7 +100,7 @@ Folgerungen für die Bilder:
 - **Boden, Wände, Wasser, Pflanzen:** seit Dennis' Entscheidung vom 18.10.2026 ebenfalls in doppelter Pixelauflösung ausarbeiten. Das Grundmaß bleibt die Darstellungsgröße: Bodenrauten 64×32 werden als 128×64 gespeichert, Wände 32×32 als 64×64, Pflanzen mit verdoppelten Maßen und Ankern. `display_size` im Manifest hält das Weltmaß fest. Boden/Wände werden auf ihre feste Geometrie gelegt; Pflanzen skaliert der Renderer nach ihrer Darstellungsbreite. Keine doppelt großen Bäume. Zusätzliche Strukturen statt bloßer Pixelvergrößerung; Übersicht bei Zoom 2/4 und Nahansicht bei Zoom 8 prüfen. Referenz: `art/nature/ROUND-10.md`.
 - **Tiere:** werden größer dargestellt als bisher (neue Maße in 15.3) und dürfen **in doppelter Auflösung** gezeichnet werden (z. B. Hirsch 28 × 24 statt 14 × 12). Der Renderer bringt jedes Tierbild auf die Darstellungsbreite aus 15.3 – gleich, in welcher Auflösung es vorliegt. Doppelt aufgelöste Tiere bleiben so bei Zoom 8 scharf. Wichtig: alle Bilder einer Art und Variante in derselben Auflösung.
 - **Spuren** (`tracks_<art>`) sind das, was man im Überblick von den Tieren sieht. Sie sind deshalb wichtiger als die Kadaver.
-- **Menschen (v0.6)** sind noch offen: entweder wie die Tiere als vergrößerte kleine Figuren in diesem Maßstab, oder eine eigene Nahansicht (etwa Zoom 16–32) mit größeren Bildern für Dörfer und einzelne Menschen. Entscheidung, wenn die Bewohner geplant werden.
+- **Menschen (v0.6):** Dennis hat am 18.10.2026 **B** gewählt – eine eigene Nahansicht bis Zoom 32. Vorgaben in Abschnitt 17.
 
 ## 5. Farbpalette
 
@@ -582,3 +583,70 @@ Heutige Zeichenreihenfolge je Feld: Seitenwände (in 32-px-Streifen gekachelt, r
 - Beobachter starten mit z. B. `nature-in-a-glass --seed 42 --years 10 --tiere hirsche,kaninchen --danach 10 --zoom 5 --select 30,32`; mit `--flaechen` zum Vergleich ohne Grafik.
 - Ruhe-Regeln (Abschnitt 2 und 15.5) gelten im Spiel: nichts flackert bei 10 Jahre/s, Tiere laufen nur bei 1 Std/s.
 - Ein Bildschirmfoto vorher/nachher gehört in den Pull Request.
+
+
+## 17. Menschen (v0.6) – Vorgaben für die ersten Bewohner
+
+Stand 18.10.2026. Die Simulation der Menschen ist noch nicht gebaut (`docs/ROADMAP.md`, v0.6: zunächst fünf Menschen mit Bewegung, Nahrungssuche, Durst, Müdigkeit, Ruhe; Verletzung und Tod). Dieser Abschnitt legt fest, was gezeichnet wird, damit Codex vorarbeiten kann. Ändert sich beim Bau der Simulation etwas an der Schnittstelle, wird er im selben Schritt angepasst.
+
+### 17.1 Grundsätze
+
+- **Nur echte Bewohner.** Jede gezeichnete Person ist eine Person im Kern. Keine Deko-Menschen. Der Beobachter steuert niemanden (Prinzip 1) – die Bilder zeigen, was die Person selbst tut.
+- **Jeder ist erkennbar.** Man soll eine Person über Jahre wiedererkennen: eigenes Aussehen aus Kleidung, Haar und Statur. Keine Namensschilder im Bild – Name und Biografie zeigt der Feld-Kasten beim Anklicken.
+- **Natürlich, nicht niedlich** – wie bei den Tieren (15.1): keine Comic-Proportionen, keine großen Augen. Einfache Kleidung aus Fell, Leder, Pflanzenfasern in Erdtönen; je Person **eine** etwas kräftigere Erkennungsfarbe (Gürtel, Tuch, Haarband).
+- **Lesbar vor maßstäblich.** Wie die Tiere sind Menschen gegenüber der Landschaft vergrößert. Ein Mensch ist etwas höher als ein Hirsch, schmaler, und **höchstens so hoch wie ein Jungbaum**.
+
+### 17.2 Nahansicht (Entscheidung B)
+
+- Die Kamera darf mit den Menschen bis **Zoom 32** heran (Stufe „Ganz nah“, 4.3). Dort ist ein Feld 512 px breit.
+- Menschen werden deshalb in **achtfacher Auflösung** ihres Darstellungsmaßes gezeichnet: bei Zoom 32 ein Bildpunkt pro Bildschirmpunkt, also scharf. Der Renderer bringt das Bild – wie bei den Tieren – auf die Darstellungsbreite.
+- Im **Überblick** (Zoom unter 1,5) und ab 1 Monat/s sind Menschen zu klein bzw. zu schnell: Dort erscheint je Person ein kleines Zeichen `person_marker` (Raute oder Tropfen, 8 × 8 im Grundmaß, in der Erkennungsfarbe der Person), damit man die wenigen Bewohner auf der Insel findet.
+- **Landschaft in der Nahansicht:** Boden und Pflanzen in doppelter Auflösung (Runde 10) sind bis Zoom 8 scharf. Für Zoom 16–32 folgt später eine eigene Runde in **vierfacher Auflösung** (Bodenraute 256 × 128, Pflanzen und Wände entsprechend), zuerst für die Böden und Pflanzen rund um die Menschen. Bis dahin wirkt die Landschaft ganz nah grob gepixelt – bewusst in Kauf genommen, Menschen gehen vor.
+- Dörfer, Hütten, Feuerstellen und Werkzeuge kommen später in eigenen Abschnitten, im selben Maßstab.
+
+### 17.3 Maße (Grundmaß Raute 64 × 32 px)
+
+| ID | Darstellung B × H (px) | Datei (8-fach) | Fußpunkt | Bemerkung |
+| --- | --- | --- | --- | --- |
+| `person` | 7 × 15 | 56 × 120 | Mitte zwischen den Füßen | Erwachsene; Statur je Aussehen etwas verschieden (schmal / kräftig), Höhe ±1 px |
+| `person_child` | 5 × 10 | 40 × 80 | wie oben | für später (Kinder sind in v0.6 noch nicht vorgesehen), nur vormerken |
+| `person_dead` | 15 × 5 | 120 × 40 | Mitte | liegend, entsättigt; bleibt einige Tage wie ein Kadaver |
+| `person_marker` | 8 × 8 | 16 × 16 | Mitte unten | Überblickszeichen, einfarbig in der Erkennungsfarbe (die Farbe setzt der Renderer; Bild weiß bzw. hell) |
+
+Schlagschatten wie bei Tieren (15.3), in der Datei mit 8-fachem Versatz.
+
+### 17.4 Aussehen, Zustände, Richtungen
+
+- **Aussehen:** zunächst **fünf** feste Aussehen `0` bis `4` (Frauen und Männer gemischt, verschiedene Haarfarben, Kleidung und Erkennungsfarben). Der Kern weist jeder Person dauerhaft eines zu. Später kommen weitere dazu; gezeichnet wird so, dass sich neue Aussehen ergänzen lassen.
+- **Zustände** (der Kern liefert einen davon):
+
+| Zustand | ID-Anhang | Bedeutung | Frames |
+| --- | --- | --- | --- |
+| stehen | `_idle` | wartet, schaut sich um | 2, 1,6 s |
+| gehen | `_walk` | geht zu einem Ziel | 4, 0,8 s |
+| laufen | `_run` | Flucht, Eile | 4, 0,4 s |
+| sammeln | `_gather` | bückt sich, pflückt, gräbt | 4, 1,2 s |
+| essen | `_eat` | sitzt oder steht und isst | 2, 1,2 s |
+| trinken | `_drink` | kniet am Wasser | 2, 1,2 s |
+| schlafen | `_sleep` | liegt (nachts, erschöpft) | 1 |
+| verletzt | `_hurt` | hinkt bzw. hält sich die Seite (gehend) | 4, 1,0 s |
+
+- **Richtungen:** wie bei Tieren `_l` und `_r`, beide eigens gezeichnet (Licht von rechts oben, nicht spiegeln).
+- **Geschwächt** (Hunger, Durst, Erschöpfung): kein eigenes Bild, der Renderer entsättigt bis 25 %.
+- **Dateischema:** `person_<aussehen>_<zustand>_<richtung>_f<bild>.png`, z. B. `person_2_gather_r_f1.png`; tot: `person_dead_<aussehen>_<richtung>_f0.png`. Ablage: `assets/nature/people/` mit eigenem `manifest.json` wie bei den Tieren (Maße, Anker in Dateiauflösung, `display_size`, Doppelbilder über `frame_aliases`).
+
+### 17.5 Ruhe im Zeitraffer
+
+Wie 15.5: Bewegung und Laufanimation nur bei 1 Std/s; bei 1 Tag/s und 1 Woche/s stehen Menschen im Zustand an ihrem Platz (nur `_idle`, `_eat`, `_drink`, `_sleep`, `_gather` mit Bild 0); ab 1 Monat/s nur `person_marker`.
+
+### 17.6 Schnittstelle (kommt mit v0.6)
+
+Claude liefert in `crates/core/src/appearance.rs` eine Funktion analog zu `animal_sprites`: je Person `appearance` (0–4), `state`, `dir`, `tile`, `prev_tile`, `pos`, `weakness`, dazu Name und Erkennungsfarbe für Marker und Feld-Kasten. Der Beobachter bekommt dann auch den Zoom bis 32.
+
+### 17.7 Arbeitsreihenfolge
+
+1. Prüfblatt `assets/nature/_people-testsheet.png`: alle fünf Aussehen nebeneinander, `_idle` und `_walk` in beiden Richtungen, neben Hirsch und Jungbaum zum Größenvergleich, bei Zoom 4, 8 und 32.
+2. `_idle`, `_walk`, `_sleep`, dann `_gather`, `_eat`, `_drink`, `_run`, `_hurt`, zuletzt `person_dead` und `person_marker`.
+3. Danach die Nahansicht-Landschaft (17.2) rund um die Menschen.
+
+Abnahme zusätzlich zu Abschnitt 11: Die fünf Aussehen sind bei Zoom 8 als Silhouette bzw. an der Erkennungsfarbe auseinanderzuhalten; bei Zoom 32 erkennt man die Tätigkeit ohne Erklärung.
