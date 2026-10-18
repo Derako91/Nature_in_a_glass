@@ -15,6 +15,16 @@ und liegen deshalb nur dort.
 
 ## Aktuelle Entwürfe
 
+### Menschen nach Abschnitt 17 – aktuelle Vorbereitung
+
+![Fünf Aussehen und Zoomvergleich](../../assets/nature/_people-testsheet.png)
+
+[Tätigkeiten](../../assets/nature/_people-states.png)
+· [Gehen](../../assets/nature/_people-walk.gif)
+· [Sammeln](../../assets/nature/_people-gather.gif)
+· [Verstorbene und Marker](../../assets/nature/_people-remains.png)
+· [Umfang und Einbindung](PEOPLE-17.md)
+
 ### Menschen – erste Vorbereitung
 
 ![Männliche und weibliche Grundfiguren](../../assets/nature/_humans-motion.gif)
