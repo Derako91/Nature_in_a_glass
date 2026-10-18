@@ -1865,10 +1865,12 @@ dependencies = [
 
 [[package]]
 name = "nature-in-a-glass"
-version = "0.3.0"
+version = "0.4.4"
 dependencies = [
  "eframe",
  "nig-core",
+ "png",
+ "serde_json",
 ]
 
 [[package]]
@@ -1903,7 +1905,7 @@ dependencies = [
 
 [[package]]
 name = "nig-core"
-version = "0.3.0"
+version = "0.4.4"
 dependencies = [
  "serde",
  "serde_json",
@@ -1911,7 +1913,7 @@ dependencies = [
 
 [[package]]
 name = "nig-sim"
-version = "0.3.0"
+version = "0.4.4"
 dependencies = [
  "nig-core",
 ]

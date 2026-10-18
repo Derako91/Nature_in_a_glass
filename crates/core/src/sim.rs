@@ -2,6 +2,7 @@
 
 use serde::{Deserialize, Serialize};
 
+use crate::animals::{self, Animals, Cause, Species};
 use crate::climate::{Climate, Weather};
 use crate::erosion::{self, ErosionDay};
 use crate::events::{EventKind, Journal};
@@ -17,7 +18,7 @@ pub const DAYS_PER_YEAR: u64 = 365;
 pub const HOURS_PER_YEAR: u64 = HOURS_PER_DAY * DAYS_PER_YEAR;
 
 /// Version des Spielstand-Formats. Erhöhen, wenn sich die Struktur ändert.
-pub const SAVE_FORMAT_VERSION: u32 = 5;
+pub const SAVE_FORMAT_VERSION: u32 = 6;
 pub const ENGINE_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 pub const DEFAULT_SIZE: u32 = 64;
@@ -83,6 +84,15 @@ pub struct YearStats {
     /// Mittlere Bodendicke der Insel (m).
     #[serde(default)]
     pub soil_depth_m: f32,
+    // seit v0.4: Tierbestände zum Jahresende
+    #[serde(default)]
+    pub deer: u32,
+    #[serde(default)]
+    pub wolves: u32,
+    #[serde(default)]
+    pub foxes: u32,
+    #[serde(default)]
+    pub rabbits: u32,
 }
 
 /// Momentaufnahme der ganzen Insel.
@@ -145,6 +155,12 @@ pub enum Intervention {
     SetMeanTemp { celsius: f32 },
     /// Einen einzelnen Samen an einem zufälligen, nicht angezeigten Ort fallen lassen.
     ScatterSeed { kind: SeedKind },
+    /// Eine kleine Gruppe Tiere aussetzen – an einem Feld oder, ohne Angabe,
+    /// an einer zufälligen Stelle: Räuber bei ihrer Beute, sonst im Grasland.
+    ReleaseAnimals {
+        species: Species,
+        at: Option<(u32, u32)>,
+    },
     /// Gelände eines Landfeldes anheben (Damm, positiv) oder absenken
     /// (Graben/Durchbruch, negativ), in Metern. Das Feld bleibt Land.
     ChangeTerrain { x: u32, y: u32, meters: f32 },
@@ -245,6 +261,11 @@ pub struct Simulation {
     /// Benannte Seen, seit Format 5.
     #[serde(default)]
     pub lakes: Lakes,
+    /// Tiere, seit Format 6.
+    #[serde(default)]
+    pub animals: Animals,
+    #[serde(default)]
+    rng_animals: Rng,
 
     /// Wasserbilanz des letzten Tages (für Auswertung und Tests).
     #[serde(skip)]
@@ -305,6 +326,8 @@ impl Simulation {
             groundwater_low: false,
             erosion_year: Vec::new(),
             lakes: Lakes::default(),
+            animals: Animals::default(),
+            rng_animals: Rng::stream(seed, "tiere"),
             last_water: HydroDay::default(),
             last_erosion: ErosionDay::default(),
             scratch_through: Vec::new(),
@@ -423,6 +446,15 @@ impl Simulation {
             &mut self.rng_fire,
             &mut self.scratch_fire,
         );
+        let doy = self.day_of_year();
+        let animal_day = animals::step_day(
+            &mut self.animals,
+            &mut self.world,
+            &self.weather,
+            doy,
+            &mut self.rng_animals,
+        );
+        self.report_extinctions(&animal_day.extinct);
         self.step_seeds();
         if self.day_of_year().is_multiple_of(30) {
             self.world.flush_tiny();
@@ -845,7 +877,12 @@ impl Simulation {
             eroded_m3: self.year.eroded_m3,
             sediment_to_sea_m3: self.year.sediment_to_sea_m3,
             soil_depth_m: self.mean_soil_depth(),
+            deer: self.animals.total(Species::Deer),
+            wolves: self.animals.total(Species::Wolf),
+            foxes: self.animals.total(Species::Fox),
+            rabbits: self.animals.total(Species::Rabbit),
         };
+        self.report_animal_year(finished);
         let prev_forest = self.history.last().map(|s| s.forest_pct);
         let trend = match prev_forest {
             Some(p) => format!(" ({:+.1})", stats.forest_pct - p),
@@ -869,7 +906,7 @@ impl Simulation {
                 } else {
                     String::new()
                 }
-            ),
+            ) + &self.animal_census_text(&stats),
             Vec::new(),
         );
         self.history.push(stats);
@@ -916,6 +953,120 @@ impl Simulation {
             ),
             causes,
         );
+    }
+
+    /// Tierbestände für die Jahresbilanz („; Hirsche 34, Wölfe 4“).
+    fn animal_census_text(&self, y: &YearStats) -> String {
+        let ever = &self.animals.ever;
+        let mut parts = Vec::new();
+        for (s, n) in [
+            (Species::Deer, y.deer),
+            (Species::Rabbit, y.rabbits),
+            (Species::Wolf, y.wolves),
+            (Species::Fox, y.foxes),
+        ] {
+            if ever[s.index()] {
+                parts.push(format!("{} {}", s.names().1, n));
+            }
+        }
+        if parts.is_empty() {
+            String::new()
+        } else {
+            format!(" Tiere: {}.", parts.join(", "))
+        }
+    }
+
+    fn report_extinctions(&mut self, gone: &[Species]) {
+        for &s in gone {
+            let log = &self.animals.deaths_since;
+            let mut causes = Vec::new();
+            if let Some(c) = log.main_cause(s) {
+                causes.push(format!(
+                    "Die meisten {} sind zuletzt {}",
+                    s.names().1,
+                    c.label()
+                ));
+            }
+            match s {
+                Species::Wolf | Species::Fox => {
+                    let prey = if s == Species::Wolf {
+                        Species::Deer
+                    } else {
+                        Species::Rabbit
+                    };
+                    causes.push(format!(
+                        "Noch {} {} auf der Insel",
+                        self.animals.total(prey),
+                        prey.names().1
+                    ));
+                }
+                _ => {
+                    let snap = self.snapshot();
+                    causes.push(format!(
+                        "Gras bedeckt {:.0} %, Busch {:.0} % der Insel",
+                        snap.grass_pct, snap.shrub_pct
+                    ));
+                }
+            }
+            causes
+                .push("Ausgestorbene Arten kehren nur zurück, wenn neue ausgesetzt werden".into());
+            self.journal.push(
+                self.time_hours,
+                EventKind::AnimalsExtinct,
+                None,
+                format!("Die letzten {} der Insel sind gestorben.", s.names().1),
+                causes,
+            );
+            self.animals.deaths_since.counts[s.index()] = [0; 5];
+        }
+    }
+
+    /// Jahresrückblick der Tiere: Hungerjahre kommen in die Chronik.
+    fn report_animal_year(&mut self, year: u64) {
+        let d = self.animals.deaths.clone();
+        for s in [Species::Deer, Species::Wolf, Species::Fox] {
+            let starved = d.get(s, Cause::Starved);
+            let alive = self.animals.total(s);
+            // Ein Hungerjahr: mindestens 10 Tiere und die Hälfte des Bestands verhungert.
+            if starved >= 10 && starved >= alive {
+                let snap = self.snapshot();
+                let mut causes = vec![format!(
+                    "{} {} leben noch",
+                    alive,
+                    if alive == 1 { s.names().0 } else { s.names().1 }
+                )];
+                match s {
+                    Species::Deer => causes.push(format!(
+                        "Gras {:.0} %, Busch {:.0} % – zu wenig Futter für so viele Tiere",
+                        snap.grass_pct, snap.shrub_pct
+                    )),
+                    Species::Wolf => causes.push(format!(
+                        "Nur noch {} Hirsche als Beute",
+                        self.animals.total(Species::Deer)
+                    )),
+                    _ => causes.push(format!(
+                        "Nur noch {} Kaninchen als Beute",
+                        self.animals.total(Species::Rabbit)
+                    )),
+                }
+                self.journal.push(
+                    self.time_hours,
+                    EventKind::AnimalsHunger,
+                    None,
+                    format!(
+                        "Hungerjahr {year}: {starved} {} sind verhungert.",
+                        if starved == 1 {
+                            s.names().0
+                        } else {
+                            s.names().1
+                        }
+                    ),
+                    causes,
+                );
+            }
+        }
+        self.animals.deaths = Default::default();
+        self.animals.births = [0; 4];
     }
 
     fn report_lakes(&mut self, changes: Vec<LakeChange>) {
@@ -1095,6 +1246,14 @@ impl Simulation {
         }
         feed(self.seeds.len() as u64);
         feed(self.journal.events.len() as u64);
+        for x in &self.animals.list {
+            feed(x.id as u64);
+            feed(x.tile as u64);
+            feed(x.energy.to_bits() as u64);
+        }
+        for r in &self.animals.rabbits {
+            feed(r.to_bits() as u64);
+        }
         h
     }
 
@@ -1167,6 +1326,67 @@ impl Simulation {
                     format!("Der Beobachter {what} bei ({x}, {y}): {old:.1} m → {new:.1} m."),
                 )
             }
+            Intervention::ReleaseAnimals { species, at } => {
+                let tile = match at {
+                    Some((x, y)) if *x < self.world.width && *y < self.world.height => {
+                        let i = self.world.idx(*x, *y);
+                        let t = &self.world.tiles[i];
+                        if t.is_ocean() || t.surface_water > POND_MM {
+                            return;
+                        }
+                        i as u32
+                    }
+                    Some(_) => return,
+                    None if !self.animals.prey_tiles(*species).is_empty() => {
+                        // Räuber dort aussetzen, wo es Beute gibt
+                        let prey = self.animals.prey_tiles(*species);
+                        prey[self.rng_animals.below(prey.len() as u32) as usize]
+                    }
+                    None => {
+                        // Offenes Grasland, notfalls irgendein Feld mit Gras
+                        let pick = |min_grass: f32, max_forest: f32| -> Vec<u32> {
+                            (0..self.world.tiles.len() as u32)
+                                .filter(|&i| {
+                                    let t = &self.world.tiles[i as usize];
+                                    !t.is_ocean()
+                                        && t.surface_water <= POND_MM
+                                        && t.grass > min_grass
+                                        && t.forest < max_forest
+                                })
+                                .collect()
+                        };
+                        let mut land = pick(0.5, 0.3);
+                        if land.is_empty() {
+                            // Dicht bewaldete Insel: die offensten Stellen
+                            let mut all = pick(0.0, 1.1);
+                            all.sort_by(|&a, &b| {
+                                let open = |i: u32| {
+                                    let t = &self.world.tiles[i as usize];
+                                    t.grass + t.shrub - t.forest
+                                };
+                                open(b).total_cmp(&open(a)).then(a.cmp(&b))
+                            });
+                            all.truncate((all.len() / 10).max(1));
+                            land = all;
+                        }
+                        if land.is_empty() {
+                            return;
+                        }
+                        land[self.rng_animals.below(land.len() as u32) as usize]
+                    }
+                };
+                let n = self
+                    .animals
+                    .release(&self.world, *species, tile, &mut self.rng_animals);
+                let (x, y) = self.world.xy(tile as usize);
+                (
+                    Some((x, y)),
+                    format!(
+                        "Der Beobachter setzt {n} {} bei ({x}, {y}) aus.",
+                        species.names().1
+                    ),
+                )
+            }
             Intervention::ScatterSeed { kind } => {
                 let land: Vec<u32> = (0..self.world.tiles.len() as u32)
                     .filter(|&i| !self.world.tiles[i as usize].is_ocean())
@@ -1232,6 +1452,7 @@ impl Simulation {
                 sim.migrate_from_v4();
             }
             4 => sim.migrate_from_v4(),
+            5 => {}
             other => {
                 return Err(format!(
                     "Spielstand-Format {other} wird nicht unterstützt (erwartet 1 bis {SAVE_FORMAT_VERSION})."
@@ -1239,6 +1460,9 @@ impl Simulation {
             }
         }
         sim.world.rebuild_drainage();
+        if file.format_version < 6 {
+            sim.rng_animals = Rng::stream(sim.world.seed ^ sim.time_hours, "tiere");
+        }
         if file.format_version < 5 {
             // Bestehende Seen bekommen sofort ihre Namen.
             let year = sim.year().saturating_sub(1);

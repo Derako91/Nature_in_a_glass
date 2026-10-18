@@ -1,5 +1,88 @@
 # Änderungen
 
+## 0.4.4 – Zoomstufen
+
+**Neu**
+- **Tiere größer:** Hirsche, Wölfe, Füchse und Kaninchen erscheinen in der Grafik etwa anderthalb- bis zweimal so groß wie bisher – gut erkennbar, aber immer noch niedriger als ein junger Baum. Bis Codex sie schärfer neu zeichnet, sind sie etwas pixelig.
+- **Überblick:** Ist die Kamera weit weg (ganze Insel im Bild) oder läuft die Zeit ab 1 Monat/s, zeigt die Grafik keine einzelnen Tiere mehr, sondern einen Hauch Farbe, wo Tiere leben. Später ersetzen Codex' Trittspuren diesen Hauch.
+- Kadaver erscheinen, sobald es die Bilder dazu gibt.
+- In `docs/gestaltung.md` festgehalten (4.3): was man bei welchem Abstand erkennt, neue Tiergrößen, Tiere dürfen doppelt aufgelöst gezeichnet werden.
+
+## 0.4.3 – Die Insel bekommt ihre Bilder
+
+**Neu**
+- **Grafik:** Die isometrische Ansicht zeigt jetzt Codex' gezeichnete Bilder – Boden, Gras, Busch- und Waldboden, Brandflächen, Felswände und Erdkanten, Wasser, Bäume in drei Altersstufen, Büsche, Totholz und die Tiere. Umschalten mit **Grafik** neben der Ebenenwahl; aus = die gewohnten Flächenfarben.
+- Bei 1 Std/s laufen und grasen die Tiere sichtbar und gleiten von Feld zu Feld; schneller stehen sie still (nichts zappelt).
+- Die 2D-Karte und die Analyse-Ebenen bleiben bewusst schlicht.
+- Startoptionen `--flaechen` und `--zoom N`.
+
+**Hinweis:** Das ist ein früher Stand. Kadaver, Spuren, Feuer und Herbstfarben fehlen noch; Codex arbeitet an der Darstellung weiter.
+
+
+## 0.4.2 – Wölfe halten länger durch
+
+**Geändert**
+- **Ein Rudel bleibt ein Rudel:** Ab 8 Wölfen (mit Jungtieren) gibt es keine Welpen mehr. Vorher wuchs das Rudel auf über 20 Tiere, jagte die Hirsche fast aus und verhungerte dann.
+- **Seltene Hirsche sind schwerer zu finden:** Wenn es nur noch wenige gibt, misslingen mehr Jagden. So erholen sich die Hirsche eher.
+- **Hungrige Wölfe jagen Kaninchen:** Sehr hungrige Wölfe suchen gezielt Felder mit vielen Kaninchen auf, nicht nur zufällig.
+
+**Beobachtet:** Setzt man Wölfe zu über 200 Hirschen, halten sie sich jetzt meist 10–35 Jahre; Hirsche und Wölfe pendeln dabei miteinander. Mit Kaninchen auf der Insel können Wölfe sogar überleben, wenn die Hirsche verschwunden sind.
+
+
+## 0.4.1 – Die Zeit läuft weiter, Tiere besser abgestimmt
+
+**Behoben**
+- **Minimiertes Fenster hielt die Insel an.** Die Simulation läuft jetzt in einem eigenen Faden weiter, auch wenn das Fenster minimiert ist oder verdeckt wird.
+- **Kaninchen schrumpften ohne Fressfeinde** (z. B. von 20 auf 4), besonders auf alten, bewaldeten Inseln. Ursachen: Bei Überschwemmung ertranken alle Kaninchen eines Feldes, und beim Abwandern verteilten sie sich so dünn, dass die Reste verloren gingen. Jetzt flüchten sie vor Hochwasser, ziehen gezielt zum Nachbarfeld mit dem meisten Platz, und Waldränder und Lichtungen ernähren auch ein paar Kaninchen.
+- **Wölfe verhungerten neben vielen Hirschen,** wenn ein See dazwischen lag: Sie fanden keinen Weg um das Wasser. Jetzt suchen sie den Landweg.
+- **Füchse verhungerten im ersten Winter.** Sie jagen jetzt im ganzen Revier (Feld und Nachbarfelder), ziehen weiter, wenn es dort wenig gibt, und finden auch im Winter etwas Kleingetier.
+- Kaninchen und Hirsche werden auf einer dicht bewaldeten Insel an den offensten Stellen ausgesetzt.
+
+**Neu**
+- **Verlauf umschaltbar:** *Pflanzen* oder *Tiere*. Bei den Tieren ist jede Linie auf ihren eigenen Höchstwert bezogen, damit man vier Wölfe neben tausenden Kaninchen sieht. Mit der Maus über den Verlauf fahren zeigt die Zahlen des Jahres.
+
+**Geändert**
+- Wölfe fressen sich am Riss einen Vorrat an und müssen seltener jagen; ein Hirsch gibt mehr her. Füchse brauchen etwas weniger.
+- Reviere: Auf der Insel ist Platz für **einen Wolfswurf** und **drei Fuchswürfe** im Jahr. Vorher wurde die Zahl der erwachsenen Tiere begrenzt – dann bekam ein gealtertes Rudel nie mehr Junge und starb geschlossen aus.
+
+**Beobachtet**
+- Füchse halten sich mit tausenden Kaninchen jetzt oft Jahrzehnte; es gibt richtige Räuber-Beute-Wellen.
+- Wölfe halten sich meist einige Jahre bis etwa ein Jahrzehnt. Die Insel ist für ein Wolfsrudel eigentlich zu klein (echte Rudel brauchen viele Quadratkilometer). Eine größere Insel ist der natürliche nächste Schritt.
+
+**Getestet:** Kaninchen breiten sich auf einer alten, zu über 60 % bewaldeten Insel ohne Fressfeinde auf mehrere hundert aus.
+
+
+## 0.4.0 – Erste Tiere
+
+**Neu in der Natur**
+- **Vier Tierarten:** Hirsche, Kaninchen, Wölfe und Füchse. Hirsche, Wölfe und Füchse leben als einzelne Tiere mit Alter, Geschlecht und Energiereserven; Kaninchen als Bestand je Feld.
+- **Nahrungsnetz:** Kaninchen fressen Gras. Hirsche fressen Gras, Busch und junge Bäume – viele Hirsche bremsen damit die Verjüngung des Waldes. Wölfe jagen Hirsche, schwache und junge leichter, im Rudel erfolgreicher, seltene Beute schwerer. Füchse jagen Kaninchen, fressen an Kadavern und im Sommer auch Kleintiere.
+- **Verhalten:** Hirsche ziehen zu Futter, bleiben gern beieinander und fliehen vor Wölfen; hungrige Hirsche suchen weiter. Wölfe nehmen die Spur auf, schleichen sich an und hetzen. Das Rudel frisst gemeinsam am Riss. Junge folgen ihrer Mutter.
+- **Leben und Tod:** Junge einmal im Jahr, wenn die Mutter gut genährt ist und ein Partner in der Nähe lebt. Tiere verhungern, werden gerissen, sterben an Altersschwäche oder im Feuer. Jeder Tod hinterlässt für einige Tage einen Kadaver.
+- **Keine Tiere von selbst:** Eine neue Insel ist tierfrei. Tiere kommen nur durch den Eingriff **Tiere aussetzen** – und eine ausgestorbene Art kehrt nur zurück, wenn du neue aussetzt.
+
+**Neu im Beobachter**
+- Unter *Eingriffe*: **Tiere aussetzen** – Hirsche (6), Kaninchen (20), Wölfe (Rudel aus 4), Füchse (4). Auf das gewählte Feld oder an eine zufällige Stelle; Räuber dort, wo es Beute gibt.
+- Ebene **Tiere** und vorläufige Tierpunkte auf Karte und Insel (bis 1 Woche/s, auf der Ebene *Tiere* immer). Die Tierbilder von Codex folgen.
+- Insel-Ansicht: Hirsche / Kaninchen, Wölfe / Füchse. Feld-Kasten: Tiere auf dem Feld.
+- Chronik: Aussetzen, **Aussterben** einer Art mit Ursachen (wichtiges Ereignis), **Hungerjahre**. Die Jahresbilanz nennt die Bestände.
+- Startoption `--tiere hirsche,kaninchen,woelfe,fuechse` mit `--danach N`.
+
+**Beobachtet (Insel 42 und weitere)**
+- Ohne Wölfe wachsen sechs Hirsche in 20 Jahren auf einige hundert an. Danach fressen sie Busch und Gras knapp, es folgen Hungerjahre; der Bestand pendelt zwischen etwa 100 und 400. Kaninchen werden dabei oft verdrängt.
+- Kaninchen allein wachsen in wenigen Jahren auf über 1.000 bis 4.000.
+- Wölfe und Füchse halten sich auf der kleinen Insel meist nur einige Jahre bis Jahrzehnte: Entweder sie jagen ihre Beute knapp und verhungern, oder das Rudel schrumpft durch Alter. Manchmal reißen Wölfe die Hirsche ganz aus. Ein Wolfsrudel lohnt sich erst, wenn viele Hirsche da sind.
+
+**Getestet**
+- Neue Insel tierfrei; ausgesetzte Hirsche vermehren sich und fressen Gras und Busch merklich ab.
+- Ohne Futter verhungern sie, das Aussterben steht mit Ursache in der Chronik, und sie kommen auch bei wieder gutem Regen nicht zurück.
+- Wölfe reißen Hirsche, Füchse dezimieren Kaninchen.
+- Gleicher Seed, gleiche Tiere; Speichern und Laden mitten im Tierleben ändert nichts.
+- Aussetzen im Wasser wird abgelehnt.
+
+**Spielstände:** Format 6. Alle früheren Spielstände lassen sich laden (ohne Tiere).
+
+
 ## 0.3.0 – Erosion: Die Insel formt sich selbst
 
 Letzter Schritt von v0.3 (Hydrologie und Erosion). Damit ist die Hydrologie abgeschlossen.

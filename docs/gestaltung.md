@@ -1,8 +1,8 @@
 # Gestaltung – visuelle Richtung von Nature in a Glass
 
-Stand: v0.3 · Geltungsbereich: **Naturdarstellung** (Gelände, Wasser, Vegetation, Feuer, Tiere ab Abschnitt 15). Bewohner, Gebäude und Oberfläche folgen später in eigenen Abschnitten.
+Stand: v0.4.3 · Geltungsbereich: **Naturdarstellung** (Gelände, Wasser, Vegetation, Feuer, Tiere ab Abschnitt 15). Bewohner, Gebäude und Oberfläche folgen später in eigenen Abschnitten.
 
-Dieses Dokument ist die verbindliche Vorlage für Texturen, Sprites und Tiles. Es ist so geschrieben, dass ein Werkzeug wie Codex daraus Schritt für Schritt Assets erzeugen kann: Jede Asset-Gruppe hat Maße, Dateinamen, Varianten, Zustände und Abnahmekriterien.
+Dieses Dokument ist die verbindliche Vorlage für Texturen, Sprites und Tiles. **Was als Nächstes zu tun ist, steht in Abschnitt 16.** Es ist so geschrieben, dass ein Werkzeug wie Codex daraus Schritt für Schritt Assets erzeugen kann: Jede Asset-Gruppe hat Maße, Dateinamen, Varianten, Zustände und Abnahmekriterien.
 
 ---
 
@@ -81,6 +81,25 @@ Ein Feld ist 50 m breit. Ein ausgewachsener Baum ist etwa 20–30 m hoch. Daraus
 | Totholz, liegend | 16 × 5 | |
 
 Die Bäume sind gegenüber dem echten Maßstab bewusst **etwas größer**, damit Wald als Wald lesbar bleibt. Dieses Verhältnis gilt für alle Baum-Sprites.
+
+### 4.3 Zoomstufen – was man bei welchem Abstand erkennt
+
+Festgelegt am 18.10.2026 mit Dennis. Die Kamera zoomt von 0,4 bis 8. Das Grundmaß (Raute 64 × 32 px) gilt bei Zoom 4; darunter verkleinert der Renderer, darüber vergrößert er pixelgenau.
+
+| Stufe | Zoom | Feld am Bildschirm | Was man erkennt |
+| --- | --- | --- | --- |
+| **Überblick** | 0,4 – 1,5 | 6–24 px | Die ganze Insel: Wald, Wiese, Wasser, Fels, Feuer als Flächen. **Keine einzelnen Tiere** – nur Spuren (`tracks_<art>`), wo Tiere leben. |
+| **Landschaft** | 1,5 – 4 | 24–64 px | Einzelne Bäume, Büsche, Totholz, Bäche. Hirsche, Wölfe und Füchse als kleine Figuren, Kaninchen als Gewimmel, Kadaver. |
+| **Nah** | 4 – 8 | 64–128 px | Jedes Tier mit Haltung (frisst, läuft, ruht), jung oder alt, kräftig oder geschwächt. |
+
+Dazu die Zeitregel aus 15.5: Ab 1 Monat/s gibt es unabhängig vom Zoom nur Spuren.
+
+Folgerungen für die Bilder:
+
+- **Boden, Wände, Wasser, Pflanzen:** bleiben im Grundmaß. Sie reichen bis Zoom 8; größere Fassungen sind nicht nötig.
+- **Tiere:** werden größer dargestellt als bisher (neue Maße in 15.3) und dürfen **in doppelter Auflösung** gezeichnet werden (z. B. Hirsch 28 × 24 statt 14 × 12). Der Renderer bringt jedes Tierbild auf die Darstellungsbreite aus 15.3 – gleich, in welcher Auflösung es vorliegt. Doppelt aufgelöste Tiere bleiben so bei Zoom 8 scharf. Wichtig: alle Bilder einer Art und Variante in derselben Auflösung.
+- **Spuren** (`tracks_<art>`) sind das, was man im Überblick von den Tieren sieht. Sie sind deshalb wichtiger als die Kadaver.
+- **Menschen (v0.6)** sind noch offen: entweder wie die Tiere als vergrößerte kleine Figuren in diesem Maßstab, oder eine eigene Nahansicht (etwa Zoom 16–32) mit größeren Bildern für Dörfer und einzelne Menschen. Entscheidung, wenn die Bewohner geplant werden.
 
 ## 5. Farbpalette
 
@@ -368,7 +387,7 @@ Abnahme bei tatsächlichem Zoom stehen weiterhin aus.
 - Baumarten mit eigener Silhouette, sobald die Simulation sie unterscheidet.
 - Erosion (v0.3) ist simuliert; erste Zuordnung siehe 7.1 (`ground_silt`, Fels bei abgespültem Boden). Offen: Ufer, Kies und Abbruchkanten an tief eingeschnittenen Bächen.
 - Tiere (v0.4): siehe Abschnitt 15. Bewohner (v0.6) folgen in einem eigenen Abschnitt.
-- Technische Einbindung: Der Renderer zeichnet heute Flächenfarben ohne Texturen. Für diese Assets braucht er einen Textur-Atlas mit Manifest-Loader; das wird als eigenes ADR entschieden, sobald die ersten Assets abgenommen sind.
+- Technische Einbindung: umgesetzt in v0.4.3 ([ADR 0005](../decisions/0005-asset-atlas-in-the-observer.md)). Alle Bilder unter `assets/nature/{ground,walls,water,vegetation,animals}` werden eingebettet und über einen Atlas gezeichnet; Umschalter „Grafik“ im Beobachter. Neue Bilder nach dem Namensschema erscheinen beim nächsten Bauen von selbst. Offen für die Gestaltung: Tönung bei Trockenheit, Wasseranimation, Feuer, Übergänge zwischen Feldern.
 
 ## 14. Unterschiedliche Biome – erste Gestaltungsentwürfe
 
@@ -439,15 +458,19 @@ Kaninchen-Dichte → Sprites pro Feld (analog 7.2):
 
 ### 15.3 Maße im Grundmaß (Raute 64 × 32 px)
 
-| ID | Breite × Höhe (px) | Fußpunkt | Bemerkung |
-| --- | --- | --- | --- |
-| `deer` | 9 × 8 | Mitte zwischen den Hufen | Geweih nur beim Altersstufe `adult`, schlicht, 2–3 px |
-| `deer_young` | 6 × 6 | wie oben | Kalb, heller, ohne Geweih |
-| `wolf` | 8 × 5 | Mitte unter dem Körper | grau, niedriger und gestreckter als der Hirsch |
-| `fox` | 6 × 4 | wie oben | rötlich, buschiger Schwanz als Erkennungsmerkmal |
-| `rabbit` | 3 × 3 | Mitte unten | graubraun, heller Fleck am Schwanz |
-| `carcass_large` | 9 × 4 | Mitte | liegender Hirsch- oder Wolfskörper, entsättigt |
-| `carcass_small` | 4 × 2 | Mitte | Fuchs oder Kaninchen |
+Neu seit 18.10.2026 (4.3): Die ersten Maße (Hirsch 9 × 8, Kaninchen 3 × 3) waren im Spiel zu klein. Die **Darstellungsgröße** ist jetzt etwa das 1,5- bis 2-Fache. Tiere bleiben **niedriger als ein Jungbaum** (14 px).
+
+| ID | Darstellung B × H (px) | doppelt aufgelöst | Fußpunkt | Bemerkung |
+| --- | --- | --- | --- | --- |
+| `deer` | 14 × 12 | 28 × 24 | Mitte zwischen den Hufen | Geweih nur bei der Altersstufe `adult`, schlicht |
+| `deer_young` | 9 × 8 | 18 × 16 | wie oben | Kalb, heller, ohne Geweih |
+| `wolf` | 13 × 8 | 26 × 16 | Mitte unter dem Körper | grau, niedriger und gestreckter als der Hirsch |
+| `fox` | 10 × 6 | 20 × 12 | wie oben | rötlich, buschiger Schwanz als Erkennungsmerkmal |
+| `rabbit` | 6 × 5 | 12 × 10 | Mitte unten | graubraun, heller Fleck am Schwanz |
+| `carcass_large` | 14 × 6 | 28 × 12 | Mitte | liegender Hirsch- oder Wolfskörper, entsättigt |
+| `carcass_small` | 7 × 3 | 14 × 6 | Mitte | Fuchs oder Kaninchen |
+
+Maßgeblich für den Renderer ist nur die **Breite**: Er misst das Bild `<id>_<variante>_graze_<richtung>_f0` und skaliert alle Bilder dieser Art so, dass es die Darstellungsbreite hat (Kadaver: das Kadaverbild selbst). Die heutigen Bilder (9 × 8 usw.) werden deshalb schon vergrößert gezeigt, bis Codex neue liefert – dann etwas pixelig, aber in der richtigen Größe. Der `anchor` im Manifest wird in der Auflösung des Bildes angegeben.
 
 Schlagschatten wie bei der Vegetation: Teil des Sprites, links unten, 25–35 % Deckkraft, Farbe `#0C1A34`, höchstens 2 px versetzt.
 
@@ -491,9 +514,16 @@ Die Karte bekommt eine Ebene **Tiere**: Hirsche, Wölfe und Füchse als einzelne
 | Kaninchen (Tönung) | `#C8B898` |
 | Kadaver | `#5A3A30` |
 
-### 15.7 Schnittstelle (technisch, wird mit v0.4 gebaut)
+### 15.7 Schnittstelle (technisch, umgesetzt in v0.4.0)
 
-`crates/core/src/appearance.rs` bekommt eine Funktion, die für jedes sichtbare Tier liefert: Art, Altersstufe, Zustand, Blickrichtung, Variante, Fußpunkt innerhalb der Raute, Schwäche (0…1) – sowie pro Feld die Kaninchen-Spritezahl, Kadaver und die Dichte für die Spuren. Der Renderer muss keine Regeln selbst nachbauen.
+In `crates/core/src/appearance.rs`, ohne Grafik und getestet:
+
+- `animal_sprites(&sim.animals, &sim.world)` liefert je sichtbarem Tier: `id` (`deer`, `deer_young`, `wolf`, `fox`, `rabbit`), `state` (`graze`, `walk`, `run`, `rest`), `dir` (`l`, `r`), `variant` (0/1), `tile` und `prev_tile` (für das Gleiten bei 1 Std/s), `pos` (Fußpunkt in der Raute, −1…1 wie bei `positions()`), `scale` (0,75 für junge Wölfe und Füchse) und `weakness` (0…1, Entsättigung bis 25 %). Kaninchen sind bereits nach Tabelle 15.2 aufgelöst (0–3 Sprites je Feld, feste Positionen).
+- `rabbit_count(bestand)` – die Tabelle aus 15.2.
+- `carcasses(&sim.animals)` – Feld und `carcass_large` bzw. `carcass_small`.
+- `track_density(&sim.animals, feld, art)` – Deckkraft 0…1 für `tracks_<art>` ab 1 Monat/s.
+
+Der Beobachter zeichnet Tiere vorerst als **Platzhalter-Punkte** in den Kartenfarben aus 15.6 (`crates/app/src/view.rs`, `animal_color`), nur bis 1 Woche/s und auf der Ebene „Tiere“ immer. Diese Punkte ersetzt die Sprite-Einbindung.
 
 ### 15.8 Arbeitsreihenfolge
 
@@ -503,3 +533,52 @@ Die Karte bekommt eine Ebene **Tiere**: Hirsche, Wölfe und Füchse als einzelne
 
 Abnahme zusätzlich zu Abschnitt 11: Jede Art ist als Silhouette auf 50 % Größe von den anderen unterscheidbar; kein Tier ist auf Waldboden unsichtbar (mindestens 15 % Helligkeitsunterschied zum Untergrund).
 
+
+## 16. Stand der Einbindung und Aufgaben für Codex (ab v0.4.3)
+
+Stand 18.10.2026. Seit v0.4.3 zeigt der Beobachter Codex' Bilder im Spiel (Knopf **Grafik**, isometrische Ansicht, Ebene *Natur*). Technische Grundlage: [ADR 0005](../decisions/0005-asset-atlas-in-the-observer.md). Dieser Abschnitt sagt, was schon läuft, wo was liegt und was als Nächstes zu tun ist.
+
+### 16.1 Wie Bilder ins Spiel kommen
+
+1. PNG nach dem Namensschema aus Abschnitt 9 in den passenden Ordner legen: `assets/nature/ground`, `walls`, `water`, `vegetation` oder `animals`. Nur diese fünf Ordner werden eingebettet; Prüfblätter mit `_` am Anfang und alles unter `art/` bleiben draußen.
+2. Den Eintrag im Manifest ergänzen (`assets/nature/manifest.json`, für Tiere `assets/nature/animals/manifest.json`) – vor allem `anchor`, denn daraus kommt der Fußpunkt. Fehlt ein Anker, setzt der Beobachter unten Mitte an.
+3. Pull Request öffnen. GitHub baut und prüft auf allen drei Systemen; nach der Übernahme ist das Bild im nächsten Download drin. Rust ist dafür lokal nicht nötig (9.1).
+
+Der Beobachter sucht Bilder so (Rückfall in Klammern):
+
+| Art | Gesuchter Dateiname | Wenn nicht vorhanden |
+| --- | --- | --- |
+| Boden, Überlagerung, Wasser | `<id>_<variante>` mit Variante 0–3 je Feld | `<id>_0`, sonst Flächenfarbe |
+| Wand | `<id>_0` | Flächenfarbe, abgedunkelt |
+| Pflanze | `<id>_<variante>_<zustand>` (Variante 0–3) | `<id>_<variante>_normal`, dann `<id>_0_normal`, sonst nichts |
+| Tier | `<id>_<variante>_<zustand>_<richtung>_f<bild>` | Bild 0, dann `<id>_0_graze_<richtung>_f0`, sonst nichts; Doppelbilder über `frame_aliases` |
+
+Varianten sind also schon vorgesehen: Liegen `ground_soil_1.png` bis `_3.png` vor, verteilt der Beobachter sie fest je Feld.
+
+### 16.2 Wo die Darstellung im Code steht
+
+| Datei | Inhalt | Wer |
+| --- | --- | --- |
+| `crates/core/src/appearance.rs` | **welches** Bild auf welches Feld gehört (aus der Simulation) | Claude – Änderungen bitte als Wunsch an Claude |
+| `crates/app/build.rs`, `crates/app/src/atlas.rs` | Einbetten, Atlas, Bildsuche (16.1) | Claude |
+| `crates/app/src/view.rs`, Funktion `draw_iso_gfx` | **wie** gezeichnet wird: Reihenfolge, Größe, Tönung, Animation, Gleiten | Codex darf hier gestalten |
+
+Heutige Zeichenreihenfolge je Feld: Seitenwände (in 32-px-Streifen gekachelt, rechts 72 %, links 56 % Helligkeit) → Boden → Überlagerungen mit Deckkraft → Feuer als orange Fläche → Bachlinien → Pflanzen und Tiere nach Fußpunkt-Höhe. Maßstab: Grundmaß bei Zoom 4; bei Zoom 1 sind alle Bilder auf ein Viertel verkleinert. Nacht: alles wird mit der Tageshelligkeit getönt (nur bei 1 Std/s).
+
+### 16.3 Was fehlt – Aufgaben in dieser Reihenfolge
+
+1. **Tiere neu zeichnen, größer und doppelt aufgelöst** (entschieden 18.10.2026, siehe 4.3 und 15.3). Der Renderer zeigt die heutigen Bilder schon in der neuen Größe, vergrößert sie aber nur. Codex zeichnet alle vier Arten in doppelter Auflösung neu (Hirsch 28 × 24, Kaninchen 12 × 10 usw.), gleiche Dateinamen, Anker im Manifest anpassen. Prüfen bei Zoom 2, 4 und 8.
+2. **Feuer** (Gruppe E): `fire_ground` als Überlagerung und `fire_flame_small`, `fire_flame_large` als Sprites (`appearance::sprites` liefert sie schon bei brennenden Feldern), dazu `smoke`. Heute: nur eine orange Fläche.
+3. **Spuren und Kadaver** (15.3, 15.5, 4.3): `tracks_deer`, `tracks_wolf`, `tracks_fox`, `tracks_rabbit` (Überlagerung, Raute 64 × 32, Varianten `_0` bis `_3` möglich) sowie `carcass_large_0`, `carcass_small_0`. **Im Renderer schon eingehängt:** Spuren erscheinen im Überblick (Zoom unter 1,5) und ab 1 Monat/s mit Deckkraft nach Dichte – bis es die Bilder gibt, als Hauch der Kartenfarbe. Kadaver erscheinen in den Stufen Landschaft und Nah, sobald es die Bilder gibt.
+4. **Zustände der Pflanzen:** `stressed` (Trockenheit) für Bäume und Büsche, `charred` für Totholz, `log_fallen` (liegendes Totholz). Bis dahin erscheinen die normalen Bilder.
+5. **Varianten:** je Boden- und Pflanzenart 3 weitere Varianten (`_1` bis `_3`), damit Wald und Wiese nicht gekachelt wirken.
+6. **Wasser:** Animation (`water_*_f0…f3`, langsam, 15.5 bzw. 8 Gruppe C) und eine Lösung für Bäche – heute sind sie blaue Linien; `water_stream_0.png` ist noch nicht eingebunden.
+7. **Neue Bilder aus der Erosion:** `ground_silt` (7.1, Abschnitt 8 Gruppe A).
+8. **Übergänge zwischen Feldern** (`assets/nature/transitions/`): Die Kantenbilder liegen vor, aber der Beobachter weiß noch nicht, welche Kante wohin gehört. Das braucht eine Regel im Kern (Nachbarvergleich) – bitte als Wunsch an Claude, sobald die Kanten feststehen.
+9. **Biome** (Abschnitt 14) bleiben bis zur Biom-Simulation Entwürfe.
+
+### 16.4 Prüfen
+
+- Beobachter starten mit z. B. `nature-in-a-glass --seed 42 --years 10 --tiere hirsche,kaninchen --danach 10 --zoom 5 --select 30,32`; mit `--flaechen` zum Vergleich ohne Grafik.
+- Ruhe-Regeln (Abschnitt 2 und 15.5) gelten im Spiel: nichts flackert bei 10 Jahre/s, Tiere laufen nur bei 1 Std/s.
+- Ein Bildschirmfoto vorher/nachher gehört in den Pull Request.

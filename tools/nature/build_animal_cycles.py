@@ -176,4 +176,7 @@ def main():
     import build_animal_remains
     build_animal_remains.main()
 
-if __name__=='__main__':main()
+if __name__=='__main__':
+    # Aktuelle Auflösung gemäß Gestaltung 4.3; ältere Funktionen bleiben als Referenz.
+    import build_animal_detail
+    build_animal_detail.main()

@@ -6,6 +6,7 @@
 //! Positionen und Varianten sind fest aus Koordinate und Seed abgeleitet:
 //! Dasselbe Feld sieht immer gleich aus.
 
+use crate::animals::{Activity, Animals, Species};
 use crate::math::clamp01;
 use crate::rng::hash2;
 use crate::sim::{RILL_FLOW, STREAM_FLOW};
@@ -314,6 +315,139 @@ pub fn sprites(world: &World, i: usize) -> Vec<Sprite> {
     out
 }
 
+// ---------- Tiere (gestaltung.md, Abschnitt 15) ----------
+
+/// Ein sichtbares Tier: welches Sprite, wo, wie geschwächt.
+#[derive(Debug, Clone, PartialEq)]
+pub struct AnimalSprite {
+    /// Asset-ID: `deer`, `deer_young`, `wolf`, `fox`, `rabbit`.
+    pub id: &'static str,
+    /// Zustand: `graze`, `walk`, `run`, `rest`.
+    pub state: &'static str,
+    /// Blickrichtung: `l` oder `r`.
+    pub dir: &'static str,
+    pub variant: u8,
+    /// Feld heute und gestern (für gleitende Bewegung bei 1 Std/s).
+    pub tile: u32,
+    pub prev_tile: u32,
+    /// Fußpunkt in der Raute (−1…1 wie bei [`positions`]).
+    pub pos: (f32, f32),
+    /// Verkleinerung: junge Wölfe und Füchse 0,75, sonst 1.
+    pub scale: f32,
+    /// Schwäche 0…1 (Renderer entsättigt um bis zu 25 %).
+    pub weakness: f32,
+}
+
+fn activity_id(a: Activity) -> &'static str {
+    match a {
+        Activity::Graze => "graze",
+        Activity::Walk => "walk",
+        Activity::Run => "run",
+        Activity::Rest => "rest",
+    }
+}
+
+/// Kaninchen-Sprites je Feld nach Bestand (Tabelle 15.2).
+pub fn rabbit_count(rabbits: f32) -> u32 {
+    if rabbits < 1.0 {
+        0
+    } else if rabbits < 5.0 {
+        1
+    } else if rabbits < 15.0 {
+        2
+    } else {
+        3
+    }
+}
+
+/// Fußpunkt eines Tieres: fest aus Kennung und Feld, damit es auf einem Feld
+/// nicht springt.
+fn animal_pos(id: u32, tile: u32, seed: u64) -> (f32, f32) {
+    let h = hash2(id as i32, tile as i32, seed ^ 0xa11a_a1a5);
+    let a = unit(h) * 2.0 - 1.0;
+    let b = unit(h.rotate_left(24)) * 2.0 - 1.0;
+    ((a + b) * 0.35, (b - a) * 0.35)
+}
+
+/// Alle Hirsche, Wölfe und Füchse sowie die Kaninchen-Sprites.
+pub fn animal_sprites(animals: &Animals, world: &World) -> Vec<AnimalSprite> {
+    let mut out = Vec::new();
+    for x in &animals.list {
+        let young = x.is_young();
+        let id = match x.species {
+            Species::Deer if young => "deer_young",
+            Species::Deer => "deer",
+            Species::Wolf => "wolf",
+            Species::Fox => "fox",
+            Species::Rabbit => "rabbit",
+        };
+        let scale = if young && matches!(x.species, Species::Wolf | Species::Fox) {
+            0.75
+        } else {
+            1.0
+        };
+        out.push(AnimalSprite {
+            id,
+            state: activity_id(x.activity),
+            dir: if x.facing_right { "r" } else { "l" },
+            variant: x.variant,
+            tile: x.tile,
+            prev_tile: x.prev_tile,
+            pos: animal_pos(x.id, x.tile, world.seed),
+            scale,
+            weakness: clamp01((0.4 - x.energy) / 0.4),
+        });
+    }
+    for (i, &r) in animals.rabbits.iter().enumerate() {
+        let n = rabbit_count(r);
+        if n == 0 {
+            continue;
+        }
+        let (x, y) = world.xy(i);
+        for (k, pos) in positions(x, y, world.seed, 7, n).into_iter().enumerate() {
+            let h = fixed(x, y, world.seed, 7_000 + k as u64);
+            out.push(AnimalSprite {
+                id: "rabbit",
+                state: if h.is_multiple_of(3) { "rest" } else { "graze" },
+                dir: if h.is_multiple_of(2) { "l" } else { "r" },
+                variant: (h % 2) as u8,
+                tile: i as u32,
+                prev_tile: i as u32,
+                pos,
+                scale: 1.0,
+                weakness: 0.0,
+            });
+        }
+    }
+    out
+}
+
+/// Kadaver: Feld und Asset-ID (`carcass_large` oder `carcass_small`).
+pub fn carcasses(animals: &Animals) -> Vec<(u32, &'static str)> {
+    animals
+        .carcasses
+        .iter()
+        .map(|c| {
+            let id = match c.species {
+                Species::Deer | Species::Wolf => "carcass_large",
+                _ => "carcass_small",
+            };
+            (c.tile, id)
+        })
+        .collect()
+}
+
+/// Spuren-Deckkraft (0…1) einer Art auf einem Feld – für die Darstellung
+/// ab 1 Monat/s statt einzelner Tiere (`tracks_<art>`).
+pub fn track_density(animals: &Animals, tile: u32, species: Species) -> f32 {
+    match species {
+        Species::Rabbit => {
+            clamp01(animals.rabbits.get(tile as usize).copied().unwrap_or(0.0) / 15.0)
+        }
+        _ => clamp01(animals.count_at(tile, species) as f32 / 4.0),
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -371,6 +505,27 @@ mod tests {
         w.tiles[i].forest = 0.0;
         w.tiles[i].erosion_rate = SILT_FULL_RATE;
         assert!(overlays(&w.tiles[i]).iter().any(|o| o.id == "ground_silt"));
+    }
+
+    #[test]
+    fn animals_have_sprites_and_stable_positions() {
+        use crate::{Intervention, Simulation};
+        assert_eq!(rabbit_count(0.5), 0);
+        assert_eq!(rabbit_count(3.0), 1);
+        assert_eq!(rabbit_count(10.0), 2);
+        assert_eq!(rabbit_count(40.0), 3);
+        let mut sim = Simulation::new(42);
+        sim.apply(Intervention::ReleaseAnimals {
+            species: Species::Deer,
+            at: None,
+        });
+        let a = animal_sprites(&sim.animals, &sim.world);
+        assert_eq!(a.len(), 6);
+        assert!(
+            a.iter()
+                .all(|s| s.id == "deer" && s.pos.0.abs() + s.pos.1.abs() <= 0.86)
+        );
+        assert_eq!(a, animal_sprites(&sim.animals, &sim.world));
     }
 
     #[test]
