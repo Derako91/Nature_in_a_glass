@@ -106,7 +106,7 @@ def panel_background(kind):
     im=Image.open(b.ROOT/'assets/nature/ground/ground_soil_0.png').convert('RGBA')
     name={'grass':'ground_grass_wet_0','shrub':'ground_shrub_floor_0','forest':'ground_forest_floor_0'}[kind]
     im.alpha_composite(Image.open(b.ROOT/'assets/nature/ground'/(name+'.png')).convert('RGBA'))
-    return im
+    return im.resize((64,32),Image.Resampling.NEAREST)
 
 def sheet(sprites,animated=False):
     im=Image.new('RGB',(1800,1690),b.rgb('0C1A34'));d=ImageDraw.Draw(im)

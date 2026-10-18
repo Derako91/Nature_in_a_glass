@@ -1,0 +1,533 @@
+[
+  {
+    "file": "ground/ground_soil_0.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_soil_1.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_soil_2.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_soil_3.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_sand_0.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_sand_1.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_sand_2.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_sand_3.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_rock_0.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_rock_1.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_rock_2.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_rock_3.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_grass_wet_0.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_grass_wet_1.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_grass_wet_2.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_grass_wet_3.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_grass_dry_0.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_grass_dry_1.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_grass_dry_2.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_grass_dry_3.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_burnt_0.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 5,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_burnt_1.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 5,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_burnt_2.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 5,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_burnt_3.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 5,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_shrub_floor_0.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_shrub_floor_1.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_shrub_floor_2.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_shrub_floor_3.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_forest_floor_0.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_forest_floor_1.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_forest_floor_2.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "ground/ground_forest_floor_3.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "walls/wall_soil_0.png",
+    "size": [
+      64,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "walls/wall_sand_0.png",
+    "size": [
+      64,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "walls/wall_rock_0.png",
+    "size": [
+      64,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "water/water_shallow_0.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "water/water_deep_0.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "water/water_pond_0.png",
+    "size": [
+      128,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "water/water_stream_0.png",
+    "size": [
+      32,
+      64
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "vegetation/tree_young_0_normal.png",
+    "size": [
+      20,
+      28
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "vegetation/tree_young_1_normal.png",
+    "size": [
+      20,
+      28
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "vegetation/tree_young_2_normal.png",
+    "size": [
+      20,
+      28
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "vegetation/tree_young_3_normal.png",
+    "size": [
+      20,
+      28
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "vegetation/tree_mid_0_normal.png",
+    "size": [
+      28,
+      44
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "vegetation/tree_mid_1_normal.png",
+    "size": [
+      28,
+      44
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "vegetation/tree_mid_2_normal.png",
+    "size": [
+      28,
+      44
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "vegetation/tree_mid_3_normal.png",
+    "size": [
+      28,
+      44
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "vegetation/tree_old_0_normal.png",
+    "size": [
+      36,
+      60
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "vegetation/tree_old_1_normal.png",
+    "size": [
+      36,
+      60
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "vegetation/tree_old_2_normal.png",
+    "size": [
+      36,
+      60
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "vegetation/tree_old_3_normal.png",
+    "size": [
+      36,
+      60
+    ],
+    "colors": 6,
+    "new_detail": true
+  },
+  {
+    "file": "vegetation/shrub_0_normal.png",
+    "size": [
+      20,
+      16
+    ],
+    "colors": 5,
+    "new_detail": true
+  },
+  {
+    "file": "vegetation/shrub_1_normal.png",
+    "size": [
+      20,
+      16
+    ],
+    "colors": 5,
+    "new_detail": true
+  },
+  {
+    "file": "vegetation/shrub_2_normal.png",
+    "size": [
+      20,
+      16
+    ],
+    "colors": 5,
+    "new_detail": true
+  },
+  {
+    "file": "vegetation/shrub_3_normal.png",
+    "size": [
+      20,
+      16
+    ],
+    "colors": 5,
+    "new_detail": true
+  },
+  {
+    "file": "vegetation/snag_standing_0_normal.png",
+    "size": [
+      12,
+      44
+    ],
+    "colors": 4,
+    "new_detail": true
+  },
+  {
+    "file": "vegetation/snag_standing_1_normal.png",
+    "size": [
+      12,
+      44
+    ],
+    "colors": 4,
+    "new_detail": true
+  },
+  {
+    "file": "vegetation/snag_standing_2_normal.png",
+    "size": [
+      12,
+      44
+    ],
+    "colors": 4,
+    "new_detail": true
+  },
+  {
+    "file": "vegetation/snag_standing_3_normal.png",
+    "size": [
+      12,
+      44
+    ],
+    "colors": 4,
+    "new_detail": true
+  }
+]

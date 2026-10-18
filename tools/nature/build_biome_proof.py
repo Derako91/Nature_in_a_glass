@@ -22,7 +22,14 @@ IMAGES={}
 
 def original(group,name):
     key=(group,name)
-    if key not in IMAGES: IMAGES[key]=Image.open(BASE/group/(name+'.png')).convert('RGBA')
+    if key not in IMAGES:
+        im=Image.open(BASE/group/(name+'.png')).convert('RGBA')
+        manifest=json.loads((BASE/'manifest.json').read_text(encoding='utf-8'))
+        relative=f'{group}/{name}.png'
+        entry=next((a for a in manifest['assets'] if relative in a['files']),None)
+        if entry and 'display_size' in entry:
+            im=im.resize(tuple(entry['display_size']),Image.Resampling.NEAREST)
+        IMAGES[key]=im
     return IMAGES[key]
 
 def material(name,color):

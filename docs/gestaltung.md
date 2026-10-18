@@ -96,7 +96,7 @@ Dazu die Zeitregel aus 15.5: Ab 1 Monat/s gibt es unabhängig vom Zoom nur Spure
 
 Folgerungen für die Bilder:
 
-- **Boden, Wände, Wasser, Pflanzen:** bleiben im Grundmaß. Sie reichen bis Zoom 8; größere Fassungen sind nicht nötig.
+- **Boden, Wände, Wasser, Pflanzen:** seit Dennis' Entscheidung vom 18.10.2026 ebenfalls in doppelter Pixelauflösung ausarbeiten. Das Grundmaß bleibt die Darstellungsgröße: Bodenrauten 64×32 werden als 128×64 gespeichert, Wände 32×32 als 64×64, Pflanzen mit verdoppelten Maßen und Ankern. `display_size` im Manifest hält das Weltmaß fest. Boden/Wände werden auf ihre feste Geometrie gelegt; Pflanzen skaliert der Renderer nach ihrer Darstellungsbreite. Keine doppelt großen Bäume. Zusätzliche Strukturen statt bloßer Pixelvergrößerung; Übersicht bei Zoom 2/4 und Nahansicht bei Zoom 8 prüfen. Referenz: `art/nature/ROUND-10.md`.
 - **Tiere:** werden größer dargestellt als bisher (neue Maße in 15.3) und dürfen **in doppelter Auflösung** gezeichnet werden (z. B. Hirsch 28 × 24 statt 14 × 12). Der Renderer bringt jedes Tierbild auf die Darstellungsbreite aus 15.3 – gleich, in welcher Auflösung es vorliegt. Doppelt aufgelöste Tiere bleiben so bei Zoom 8 scharf. Wichtig: alle Bilder einer Art und Variante in derselben Auflösung.
 - **Spuren** (`tracks_<art>`) sind das, was man im Überblick von den Tieren sieht. Sie sind deshalb wichtiger als die Kadaver.
 - **Menschen (v0.6)** sind noch offen: entweder wie die Tiere als vergrößerte kleine Figuren in diesem Maßstab, oder eine eigene Nahansicht (etwa Zoom 16–32) mit größeren Bildern für Dörfer und einzelne Menschen. Entscheidung, wenn die Bewohner geplant werden.
