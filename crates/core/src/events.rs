@@ -31,6 +31,10 @@ pub enum EventKind {
     // seit v0.4
     AnimalsExtinct,
     AnimalsHunger,
+    // seit v0.6
+    PersonInjured,
+    PersonDied,
+    PeopleGone,
 }
 
 impl EventKind {
@@ -59,6 +63,9 @@ impl EventKind {
             EventKind::LakeGone => "See",
             EventKind::AnimalsExtinct => "Tiere",
             EventKind::AnimalsHunger => "Tiere",
+            EventKind::PersonInjured => "Mensch",
+            EventKind::PersonDied => "Mensch",
+            EventKind::PeopleGone => "Menschen",
         }
     }
 
@@ -76,6 +83,8 @@ impl EventKind {
                 | EventKind::GroundwaterLow
                 | EventKind::LakeGone
                 | EventKind::AnimalsExtinct
+                | EventKind::PersonDied
+                | EventKind::PeopleGone
         )
     }
 }

@@ -9,6 +9,7 @@ use crate::events::{EventKind, Journal};
 use crate::fire;
 use crate::hydro::{self, HydroDay};
 use crate::lakes::{LakeChange, Lakes};
+use crate::people::{self, NewsKind, People};
 use crate::rng::Rng;
 use crate::vegetation;
 use crate::world::{POND_MM, World};
@@ -18,7 +19,7 @@ pub const DAYS_PER_YEAR: u64 = 365;
 pub const HOURS_PER_YEAR: u64 = HOURS_PER_DAY * DAYS_PER_YEAR;
 
 /// Version des Spielstand-Formats. Erhöhen, wenn sich die Struktur ändert.
-pub const SAVE_FORMAT_VERSION: u32 = 6;
+pub const SAVE_FORMAT_VERSION: u32 = 7;
 pub const ENGINE_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 pub const DEFAULT_SIZE: u32 = 64;
@@ -93,6 +94,9 @@ pub struct YearStats {
     pub foxes: u32,
     #[serde(default)]
     pub rabbits: u32,
+    /// seit v0.6: lebende Menschen zum Jahresende
+    #[serde(default)]
+    pub people: u32,
 }
 
 /// Momentaufnahme der ganzen Insel.
@@ -164,6 +168,10 @@ pub enum Intervention {
     /// Gelände eines Landfeldes anheben (Damm, positiv) oder absenken
     /// (Graben/Durchbruch, negativ), in Metern. Das Feld bleibt Land.
     ChangeTerrain { x: u32, y: u32, meters: f32 },
+    /// Ein Boot mit fünf Menschen landet an der Küste – an einem Feld oder,
+    /// ohne Angabe, an einer zufälligen Küstenstelle. Danach handeln die
+    /// Menschen selbst (Prinzip 1).
+    PeopleArrive { at: Option<(u32, u32)> },
 }
 
 /// Höchste Änderung je Eingriff (m).
@@ -266,6 +274,11 @@ pub struct Simulation {
     pub animals: Animals,
     #[serde(default)]
     rng_animals: Rng,
+    /// Menschen, seit Format 7.
+    #[serde(default)]
+    pub people: People,
+    #[serde(default)]
+    rng_people: Rng,
 
     /// Wasserbilanz des letzten Tages (für Auswertung und Tests).
     #[serde(skip)]
@@ -283,6 +296,8 @@ pub struct Simulation {
     scratch_vegetation: vegetation::Scratch,
     #[serde(skip)]
     scratch_fire: fire::Scratch,
+    #[serde(skip)]
+    scratch_people: people::Scratch,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -328,6 +343,8 @@ impl Simulation {
             lakes: Lakes::default(),
             animals: Animals::default(),
             rng_animals: Rng::stream(seed, "tiere"),
+            people: People::default(),
+            rng_people: Rng::stream(seed, "menschen"),
             last_water: HydroDay::default(),
             last_erosion: ErosionDay::default(),
             scratch_through: Vec::new(),
@@ -335,6 +352,7 @@ impl Simulation {
             scratch_erosion: erosion::Scratch::default(),
             scratch_vegetation: vegetation::Scratch::default(),
             scratch_fire: fire::Scratch::default(),
+            scratch_people: people::Scratch::default(),
         };
         sim.forest_tracker.has_trees = sim.world.tiles.iter().any(|t| t.forest > 0.0);
         let land = sim.world.land_count();
@@ -455,6 +473,18 @@ impl Simulation {
             &mut self.rng_animals,
         );
         self.report_extinctions(&animal_day.extinct);
+        let news = people::step_day(
+            &mut self.people,
+            &self.world,
+            &mut self.animals,
+            &self.weather,
+            &self.lakes,
+            doy,
+            self.time_hours,
+            &mut self.rng_people,
+            &mut self.scratch_people,
+        );
+        self.report_people(news);
         self.step_seeds();
         if self.day_of_year().is_multiple_of(30) {
             self.world.flush_tiny();
@@ -881,6 +911,7 @@ impl Simulation {
             wolves: self.animals.total(Species::Wolf),
             foxes: self.animals.total(Species::Fox),
             rabbits: self.animals.total(Species::Rabbit),
+            people: self.people.alive() as u32,
         };
         self.report_animal_year(finished);
         let prev_forest = self.history.last().map(|s| s.forest_pct);
@@ -973,6 +1004,24 @@ impl Simulation {
             String::new()
         } else {
             format!(" Tiere: {}.", parts.join(", "))
+        }
+    }
+
+    fn report_people(&mut self, news: Vec<people::PeopleNews>) {
+        for n in news {
+            let (x, y) = self.world.xy(n.tile as usize);
+            let (kind, cause) = match n.kind {
+                NewsKind::Injured => (EventKind::PersonInjured, "Verletzung"),
+                NewsKind::Died => (EventKind::PersonDied, "Tod"),
+                NewsKind::AllGone => (EventKind::PeopleGone, "letzter Mensch"),
+            };
+            self.journal.push(
+                self.time_hours,
+                kind,
+                Some((x, y)),
+                n.text,
+                vec![cause.into()],
+            );
         }
     }
 
@@ -1254,6 +1303,14 @@ impl Simulation {
         for r in &self.animals.rabbits {
             feed(r.to_bits() as u64);
         }
+        for p in &self.people.list {
+            feed(p.id as u64);
+            feed(p.tile as u64);
+            feed(p.health.to_bits() as u64);
+            feed(p.hunger.to_bits() as u64);
+            feed(p.thirst.to_bits() as u64);
+        }
+        feed(self.people.departed.len() as u64);
         h
     }
 
@@ -1387,6 +1444,46 @@ impl Simulation {
                     ),
                 )
             }
+            Intervention::PeopleArrive { at } => {
+                let ok = |t: &crate::world::Tile| !t.is_ocean() && t.surface_water <= POND_MM;
+                let tile = match at {
+                    Some((x, y)) if *x < self.world.width && *y < self.world.height => {
+                        let i = self.world.idx(*x, *y);
+                        if !ok(&self.world.tiles[i]) {
+                            return;
+                        }
+                        i as u32
+                    }
+                    Some(_) => return,
+                    None => {
+                        let coast: Vec<u32> = (0..self.world.tiles.len())
+                            .filter(|&i| {
+                                ok(&self.world.tiles[i])
+                                    && self
+                                        .world
+                                        .neighbors(i)
+                                        .any(|j| self.world.tiles[j].is_ocean())
+                            })
+                            .map(|i| i as u32)
+                            .collect();
+                        if coast.is_empty() {
+                            return;
+                        }
+                        coast[self.rng_people.below(coast.len() as u32) as usize]
+                    }
+                };
+                let names = self
+                    .people
+                    .arrive(&self.world, tile, now, &mut self.rng_people);
+                let (x, y) = self.world.xy(tile as usize);
+                (
+                    Some((x, y)),
+                    format!(
+                        "Der Beobachter lässt ein Boot bei ({x}, {y}) landen: {} gehen an Land.",
+                        names.join(", ")
+                    ),
+                )
+            }
             Intervention::ScatterSeed { kind } => {
                 let land: Vec<u32> = (0..self.world.tiles.len() as u32)
                     .filter(|&i| !self.world.tiles[i as usize].is_ocean())
@@ -1452,7 +1549,7 @@ impl Simulation {
                 sim.migrate_from_v4();
             }
             4 => sim.migrate_from_v4(),
-            5 => {}
+            5 | 6 => {}
             other => {
                 return Err(format!(
                     "Spielstand-Format {other} wird nicht unterstützt (erwartet 1 bis {SAVE_FORMAT_VERSION})."
@@ -1462,6 +1559,9 @@ impl Simulation {
         sim.world.rebuild_drainage();
         if file.format_version < 6 {
             sim.rng_animals = Rng::stream(sim.world.seed ^ sim.time_hours, "tiere");
+        }
+        if file.format_version < 7 {
+            sim.rng_people = Rng::stream(sim.world.seed ^ sim.time_hours, "menschen");
         }
         if file.format_version < 5 {
             // Bestehende Seen bekommen sofort ihre Namen.

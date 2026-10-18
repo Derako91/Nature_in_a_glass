@@ -13,6 +13,7 @@ pub mod fire;
 pub mod hydro;
 pub mod lakes;
 pub mod math;
+pub mod people;
 pub mod rng;
 pub mod sim;
 pub mod vegetation;
