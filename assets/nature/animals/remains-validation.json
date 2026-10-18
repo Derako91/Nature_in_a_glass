@@ -1,0 +1,166 @@
+[
+  {
+    "file": "carcass_large_0_rest_l_f0.png",
+    "size": [
+      9,
+      4
+    ],
+    "colors": 4,
+    "alpha": [
+      0,
+      77,
+      255
+    ],
+    "srgb": true
+  },
+  {
+    "file": "carcass_large_0_rest_r_f0.png",
+    "size": [
+      9,
+      4
+    ],
+    "colors": 4,
+    "alpha": [
+      0,
+      77,
+      255
+    ],
+    "srgb": true
+  },
+  {
+    "file": "carcass_large_1_rest_l_f0.png",
+    "size": [
+      9,
+      4
+    ],
+    "colors": 4,
+    "alpha": [
+      0,
+      77,
+      255
+    ],
+    "srgb": true
+  },
+  {
+    "file": "carcass_large_1_rest_r_f0.png",
+    "size": [
+      9,
+      4
+    ],
+    "colors": 4,
+    "alpha": [
+      0,
+      77,
+      255
+    ],
+    "srgb": true
+  },
+  {
+    "file": "carcass_small_0_rest_l_f0.png",
+    "size": [
+      4,
+      2
+    ],
+    "colors": 4,
+    "alpha": [
+      0,
+      77,
+      255
+    ],
+    "srgb": true
+  },
+  {
+    "file": "carcass_small_0_rest_r_f0.png",
+    "size": [
+      4,
+      2
+    ],
+    "colors": 4,
+    "alpha": [
+      0,
+      77,
+      255
+    ],
+    "srgb": true
+  },
+  {
+    "file": "carcass_small_1_rest_l_f0.png",
+    "size": [
+      4,
+      2
+    ],
+    "colors": 4,
+    "alpha": [
+      0,
+      77,
+      255
+    ],
+    "srgb": true
+  },
+  {
+    "file": "carcass_small_1_rest_r_f0.png",
+    "size": [
+      4,
+      2
+    ],
+    "colors": 4,
+    "alpha": [
+      0,
+      77,
+      255
+    ],
+    "srgb": true
+  },
+  {
+    "file": "tracks_deer.png",
+    "size": [
+      64,
+      32
+    ],
+    "colors": 3,
+    "alpha": [
+      0,
+      255
+    ],
+    "srgb": true
+  },
+  {
+    "file": "tracks_wolf.png",
+    "size": [
+      64,
+      32
+    ],
+    "colors": 2,
+    "alpha": [
+      0,
+      255
+    ],
+    "srgb": true
+  },
+  {
+    "file": "tracks_fox.png",
+    "size": [
+      64,
+      32
+    ],
+    "colors": 2,
+    "alpha": [
+      0,
+      255
+    ],
+    "srgb": true
+  },
+  {
+    "file": "tracks_rabbit.png",
+    "size": [
+      64,
+      32
+    ],
+    "colors": 3,
+    "alpha": [
+      0,
+      255
+    ],
+    "srgb": true
+  }
+]

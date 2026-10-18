@@ -5,7 +5,6 @@ koordinaten verhindert sichtbare Wiederholungen an jeder 64×32-Feldgrenze.
 """
 import json
 import math
-import hashlib
 import numpy as np
 from PIL import Image, ImageDraw
 import build_proof as b
@@ -68,7 +67,8 @@ def make_fields(n,kind=None):
                     forest=.35 if x in (0,4) else .06
                 if kind=='highland':
                     rock=.65+.35*smooth(0,3,4-x+y*.2)
-                    height=6+int((4-x+y*.2)/2)*8
+                    ridge=max(0,1-((x-1.1)/3.3)**2-((y-2.0)/3.4)**2)
+                    height=6+round(ridge*4)*5
                     grass=.32*(1-smooth(1,4,4-x+y*.2))
                     forest=0;shrub=.13*(1-rock)
             age=75 if forest>.5 else 35 if forest>.2 else 10
@@ -148,7 +148,30 @@ def tile(fields,x,y,materials):
 def tree_count(f):
     return 0 if f<.05 else 1 if f<.2 else 2 if f<.4 else 3 if f<.6 else 4 if f<.7 else 5 if f<.8 else 6
 
-def render(fields,materials):
+def stream_overlay(t,x,y):
+    """Quadratische Kurve mit festen Kantenanschlüssen, auf die Raute begrenzt."""
+    center=(32,16)
+    endpoints=[]
+    for key in ['upstream','downstream']:
+        p=t.get(key)
+        if p:
+            dx=p[0]-x;dy=p[1]-y
+            endpoints.append((32+(dx-dy)*16,16+(dx+dy)*8))
+        else:endpoints.append(center)
+    start,end=endpoints
+    points=[]
+    for i in range(33):
+        f=i/32
+        points.append(tuple(round((1-f)**2*start[j]+2*f*(1-f)*center[j]+f*f*end[j]) for j in (0,1)))
+    overlay=Image.new('RGBA',(64,32));draw=ImageDraw.Draw(overlay)
+    for color,width in [('675E42',5),('4E96E6',3),('87B4C9',1)]:
+        draw.line(points,fill=b.rgb(color)+(255,),width=width,joint='curve')
+    alpha=np.array(overlay.getchannel('A'))
+    alpha[np.array(b.diamond_mask())==0]=0
+    overlay.putalpha(Image.fromarray(alpha))
+    return overlay
+
+def render(fields,materials,stream_draw=None,fall_draw=None):
     n=len(fields);canvas=Image.new('RGBA',(n*64+48,n*32+100));d=ImageDraw.Draw(canvas)
     origin=canvas.width//2
     for s in range(2*n-1):
@@ -163,17 +186,8 @@ def render(fields,materials):
             if height>right:d.polygon([(cx,cy+16),(cx+32,cy),(cx+32,cy+height-right),(cx,cy+16+height-right)],fill=tuple(round(c*.72) for c in wall))
             canvas.alpha_composite(tile(fields,x,y,materials),(cx-32,cy-16))
             if t['flow']>=60 and t['surface_water']<=150:
-                points=[]
-                for key in ['upstream',None,'downstream']:
-                    p=t.get(key) if key else None
-                    if p:
-                        dx=p[0]-x;dy=p[1]-y
-                        points.append((cx+(dx-dy)*16,cy+(dx+dy)*8))
-                    elif key is None:points.append((cx+round((noise(x,y,3)-.5)*6),cy+round((noise(x,y,4)-.5)*3)))
-                if len(points)>1:
-                    d.line(points,fill=b.rgb('675E42'),width=5)
-                    d.line(points,fill=b.rgb('4E96E6'),width=3)
-                    d.line(points,fill=b.rgb('87B4C9'),width=1)
+                canvas.alpha_composite((stream_draw or stream_overlay)(t,x,y),(cx-32,cy-16))
+                if fall_draw:fall_draw(canvas,fields,t,x,y,cx,cy)
             if t['surface_water']>150:continue
             spots=positions(x,y);sprites=[]
             stage='young' if t['forest_age']<15 else 'mid' if t['forest_age']<60 else 'old'
@@ -209,7 +223,7 @@ def main():
     scene.save(OUT/'connected-landscape.png',icc_profile=b.PROFILE)
     (OUT/'connected-landscape.json').write_text(json.dumps(fields,indent=2),encoding='utf-8')
     board=Image.new('RGB',(1800,1250),b.rgb('0C1A34'));d=ImageDraw.Draw(board)
-    d.text((52,30),'NATURE IN A GLASS / BIOME / RUNDE 05',font=b.font(22,True),fill='#91A99D')
+    d.text((52,30),'NATURE IN A GLASS / BIOME / RUNDE 07',font=b.font(22,True),fill='#91A99D')
     d.text((50,70),'Eine Landschaft statt einzelner Felder.',font=b.font(40,True),fill='#E5E4D4')
     d.text((52,128),'Waldsäume · Lichtungen · Feuchte Ufer · Trockene Grasinseln · Gestufte Felspartien',font=b.font(22),fill='#B9C6BB')
     zoom=scene.resize((scene.width*2,scene.height*2),Image.Resampling.NEAREST)

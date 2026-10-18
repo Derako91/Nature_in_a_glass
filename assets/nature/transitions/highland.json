@@ -10,7 +10,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 1.0,
-      "height_px": 22,
+      "height_px": 16,
       "flow": 0
     },
     {
@@ -23,7 +23,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 1.0,
-      "height_px": 14,
+      "height_px": 21,
       "flow": 0
     },
     {
@@ -36,7 +36,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 0.9093,
-      "height_px": 14,
+      "height_px": 16,
       "flow": 0
     },
     {
@@ -49,7 +49,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 0.7407,
-      "height_px": 6,
+      "height_px": 11,
       "flow": 0
     },
     {
@@ -77,7 +77,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 1.0,
-      "height_px": 22,
+      "height_px": 21,
       "flow": 0
     },
     {
@@ -90,7 +90,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 1.0,
-      "height_px": 14,
+      "height_px": 26,
       "flow": 0
     },
     {
@@ -103,7 +103,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 0.9386,
-      "height_px": 14,
+      "height_px": 21,
       "flow": 0
     },
     {
@@ -116,7 +116,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 0.7732,
-      "height_px": 6,
+      "height_px": 16,
       "flow": 0
     },
     {
@@ -129,7 +129,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 0.6545,
-      "height_px": 6,
+      "height_px": 11,
       "flow": 0
     }
   ],
@@ -144,7 +144,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 1.0,
-      "height_px": 22,
+      "height_px": 26,
       "flow": 0
     },
     {
@@ -157,7 +157,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 1.0,
-      "height_px": 14,
+      "height_px": 26,
       "flow": 0
     },
     {
@@ -170,7 +170,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 0.9636,
-      "height_px": 14,
+      "height_px": 26,
       "flow": 0
     },
     {
@@ -183,7 +183,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 0.8075,
-      "height_px": 6,
+      "height_px": 21,
       "flow": 0
     },
     {
@@ -196,7 +196,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 0.667,
-      "height_px": 6,
+      "height_px": 11,
       "flow": 0
     }
   ],
@@ -211,7 +211,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 1.0,
-      "height_px": 22,
+      "height_px": 21,
       "flow": 0
     },
     {
@@ -224,7 +224,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 1.0,
-      "height_px": 14,
+      "height_px": 26,
       "flow": 0
     },
     {
@@ -237,7 +237,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 0.983,
-      "height_px": 14,
+      "height_px": 21,
       "flow": 0
     },
     {
@@ -250,7 +250,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 0.8425,
-      "height_px": 6,
+      "height_px": 16,
       "flow": 0
     },
     {
@@ -263,7 +263,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 0.6864,
-      "height_px": 6,
+      "height_px": 11,
       "flow": 0
     }
   ],
@@ -278,7 +278,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 1.0,
-      "height_px": 22,
+      "height_px": 16,
       "flow": 0
     },
     {
@@ -291,7 +291,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 1.0,
-      "height_px": 14,
+      "height_px": 21,
       "flow": 0
     },
     {
@@ -304,7 +304,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 0.9955,
-      "height_px": 14,
+      "height_px": 16,
       "flow": 0
     },
     {
@@ -317,7 +317,7 @@
       "forest_age": 10,
       "surface_water": 0,
       "rock": 0.8768,
-      "height_px": 6,
+      "height_px": 11,
       "flow": 0
     },
     {

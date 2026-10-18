@@ -1,0 +1,970 @@
+[
+  [
+    {
+      "x": 0,
+      "y": 0,
+      "soil_moisture_fraction": 0.62,
+      "grass": 0.0,
+      "forest": 0,
+      "shrub": 0.0,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 1,
+      "height_px": 48,
+      "flow": 240,
+      "visual_width": 7,
+      "upstream": null,
+      "downstream": [
+        1,
+        0
+      ]
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "soil_moisture_fraction": 0.62,
+      "grass": 0.0,
+      "forest": 0,
+      "shrub": 0.0,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 1,
+      "height_px": 48,
+      "flow": 240,
+      "visual_width": 7,
+      "upstream": [
+        0,
+        0
+      ],
+      "downstream": [
+        1,
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "soil_moisture_fraction": 0.62,
+      "grass": 0.0,
+      "forest": 0,
+      "shrub": 0.0,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 1,
+      "height_px": 48,
+      "flow": 0
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "soil_moisture_fraction": 0.62,
+      "grass": 0.0,
+      "forest": 0,
+      "shrub": 0.0,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 1,
+      "height_px": 32,
+      "flow": 0
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "soil_moisture_fraction": 0.6338483965014577,
+      "grass": 0.04431486880466471,
+      "forest": 0,
+      "shrub": 0.009970845481049559,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.9446064139941691,
+      "height_px": 32,
+      "flow": 0
+    },
+    {
+      "x": 5,
+      "y": 0,
+      "soil_moisture_fraction": 0.6695626822157434,
+      "grass": 0.15860058309037905,
+      "forest": 0,
+      "shrub": 0.03568513119533528,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.8017492711370262,
+      "height_px": 32,
+      "flow": 0
+    },
+    {
+      "x": 6,
+      "y": 0,
+      "soil_moisture_fraction": 0.7183965014577259,
+      "grass": 0.314868804664723,
+      "forest": 0,
+      "shrub": 0.07084548104956268,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.6064139941690962,
+      "height_px": 18,
+      "flow": 0
+    },
+    {
+      "x": 7,
+      "y": 0,
+      "soil_moisture_fraction": 0.7716034985422741,
+      "grass": 0.48513119533527693,
+      "forest": 0,
+      "shrub": 0.1091545189504373,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.39358600583090386,
+      "height_px": 18,
+      "flow": 0
+    }
+  ],
+  [
+    {
+      "x": 0,
+      "y": 1,
+      "soil_moisture_fraction": 0.62,
+      "grass": 0.0,
+      "forest": 0,
+      "shrub": 0.0,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 1,
+      "height_px": 48,
+      "flow": 0
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "soil_moisture_fraction": 0.62,
+      "grass": 0.0,
+      "forest": 0,
+      "shrub": 0.0,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 1,
+      "height_px": 48,
+      "flow": 240,
+      "visual_width": 7,
+      "upstream": [
+        1,
+        0
+      ],
+      "downstream": [
+        2,
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "soil_moisture_fraction": 0.62,
+      "grass": 0.0,
+      "forest": 0,
+      "shrub": 0.0,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 1,
+      "height_px": 32,
+      "flow": 240,
+      "visual_width": 7,
+      "upstream": [
+        1,
+        1
+      ],
+      "downstream": [
+        2,
+        2
+      ]
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "soil_moisture_fraction": 0.6338483965014577,
+      "grass": 0.04431486880466471,
+      "forest": 0,
+      "shrub": 0.009970845481049559,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.9446064139941691,
+      "height_px": 32,
+      "flow": 0
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "soil_moisture_fraction": 0.6695626822157434,
+      "grass": 0.15860058309037905,
+      "forest": 0,
+      "shrub": 0.03568513119533528,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.8017492711370262,
+      "height_px": 32,
+      "flow": 0
+    },
+    {
+      "x": 5,
+      "y": 1,
+      "soil_moisture_fraction": 0.7183965014577259,
+      "grass": 0.314868804664723,
+      "forest": 0,
+      "shrub": 0.07084548104956268,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.6064139941690962,
+      "height_px": 18,
+      "flow": 0
+    },
+    {
+      "x": 6,
+      "y": 1,
+      "soil_moisture_fraction": 0.7716034985422741,
+      "grass": 0.48513119533527693,
+      "forest": 0,
+      "shrub": 0.1091545189504373,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.39358600583090386,
+      "height_px": 18,
+      "flow": 0
+    },
+    {
+      "x": 7,
+      "y": 1,
+      "soil_moisture_fraction": 0.8204373177842565,
+      "grass": 0.641399416909621,
+      "forest": 0,
+      "shrub": 0.1443148688046647,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.1982507288629738,
+      "height_px": 18,
+      "flow": 0
+    }
+  ],
+  [
+    {
+      "x": 0,
+      "y": 2,
+      "soil_moisture_fraction": 0.62,
+      "grass": 0.0,
+      "forest": 0,
+      "shrub": 0.0,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 1,
+      "height_px": 48,
+      "flow": 0
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "soil_moisture_fraction": 0.62,
+      "grass": 0.0,
+      "forest": 0,
+      "shrub": 0.0,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 1,
+      "height_px": 32,
+      "flow": 0
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "soil_moisture_fraction": 0.6338483965014577,
+      "grass": 0.04431486880466471,
+      "forest": 0,
+      "shrub": 0.009970845481049559,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.9446064139941691,
+      "height_px": 32,
+      "flow": 240,
+      "visual_width": 7,
+      "upstream": [
+        2,
+        1
+      ],
+      "downstream": [
+        3,
+        2
+      ]
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "soil_moisture_fraction": 0.6695626822157434,
+      "grass": 0.15860058309037905,
+      "forest": 0,
+      "shrub": 0.03568513119533528,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.8017492711370262,
+      "height_px": 32,
+      "flow": 240,
+      "visual_width": 7,
+      "upstream": [
+        2,
+        2
+      ],
+      "downstream": [
+        3,
+        3
+      ]
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "soil_moisture_fraction": 0.7183965014577259,
+      "grass": 0.314868804664723,
+      "forest": 0,
+      "shrub": 0.07084548104956268,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.6064139941690962,
+      "height_px": 18,
+      "flow": 0
+    },
+    {
+      "x": 5,
+      "y": 2,
+      "soil_moisture_fraction": 0.7716034985422741,
+      "grass": 0.48513119533527693,
+      "forest": 0,
+      "shrub": 0.1091545189504373,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.39358600583090386,
+      "height_px": 18,
+      "flow": 0
+    },
+    {
+      "x": 6,
+      "y": 2,
+      "soil_moisture_fraction": 0.8204373177842565,
+      "grass": 0.641399416909621,
+      "forest": 0,
+      "shrub": 0.1443148688046647,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.1982507288629738,
+      "height_px": 18,
+      "flow": 0
+    },
+    {
+      "x": 7,
+      "y": 2,
+      "soil_moisture_fraction": 0.8561516034985422,
+      "grass": 0.7556851311953353,
+      "forest": 0,
+      "shrub": 0.17002915451895043,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.055393586005830886,
+      "height_px": 6,
+      "flow": 0
+    }
+  ],
+  [
+    {
+      "x": 0,
+      "y": 3,
+      "soil_moisture_fraction": 0.62,
+      "grass": 0.0,
+      "forest": 0,
+      "shrub": 0.0,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 1,
+      "height_px": 32,
+      "flow": 0
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "soil_moisture_fraction": 0.6338483965014577,
+      "grass": 0.04431486880466471,
+      "forest": 0,
+      "shrub": 0.009970845481049559,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.9446064139941691,
+      "height_px": 32,
+      "flow": 0
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "soil_moisture_fraction": 0.6695626822157434,
+      "grass": 0.15860058309037905,
+      "forest": 0,
+      "shrub": 0.03568513119533528,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.8017492711370262,
+      "height_px": 32,
+      "flow": 0
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "soil_moisture_fraction": 0.7183965014577259,
+      "grass": 0.314868804664723,
+      "forest": 0,
+      "shrub": 0.07084548104956268,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.6064139941690962,
+      "height_px": 18,
+      "flow": 240,
+      "visual_width": 7,
+      "upstream": [
+        3,
+        2
+      ],
+      "downstream": [
+        4,
+        3
+      ]
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "soil_moisture_fraction": 0.7716034985422741,
+      "grass": 0.48513119533527693,
+      "forest": 0,
+      "shrub": 0.1091545189504373,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.39358600583090386,
+      "height_px": 18,
+      "flow": 240,
+      "visual_width": 7,
+      "upstream": [
+        3,
+        3
+      ],
+      "downstream": [
+        4,
+        4
+      ]
+    },
+    {
+      "x": 5,
+      "y": 3,
+      "soil_moisture_fraction": 0.8204373177842565,
+      "grass": 0.641399416909621,
+      "forest": 0,
+      "shrub": 0.1443148688046647,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.1982507288629738,
+      "height_px": 18,
+      "flow": 0
+    },
+    {
+      "x": 6,
+      "y": 3,
+      "soil_moisture_fraction": 0.8561516034985422,
+      "grass": 0.7556851311953353,
+      "forest": 0,
+      "shrub": 0.17002915451895043,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.055393586005830886,
+      "height_px": 6,
+      "flow": 0
+    },
+    {
+      "x": 7,
+      "y": 3,
+      "soil_moisture_fraction": 0.87,
+      "grass": 0.8,
+      "forest": 0,
+      "shrub": 0.18,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0,
+      "height_px": 6,
+      "flow": 0
+    }
+  ],
+  [
+    {
+      "x": 0,
+      "y": 4,
+      "soil_moisture_fraction": 0.6338483965014577,
+      "grass": 0.04431486880466471,
+      "forest": 0,
+      "shrub": 0.009970845481049559,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.9446064139941691,
+      "height_px": 32,
+      "flow": 0
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "soil_moisture_fraction": 0.6695626822157434,
+      "grass": 0.15860058309037905,
+      "forest": 0,
+      "shrub": 0.03568513119533528,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.8017492711370262,
+      "height_px": 32,
+      "flow": 0
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "soil_moisture_fraction": 0.7183965014577259,
+      "grass": 0.314868804664723,
+      "forest": 0,
+      "shrub": 0.07084548104956268,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.6064139941690962,
+      "height_px": 18,
+      "flow": 0
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "soil_moisture_fraction": 0.7716034985422741,
+      "grass": 0.48513119533527693,
+      "forest": 0,
+      "shrub": 0.1091545189504373,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.39358600583090386,
+      "height_px": 18,
+      "flow": 0
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "soil_moisture_fraction": 0.8204373177842565,
+      "grass": 0.641399416909621,
+      "forest": 0,
+      "shrub": 0.1443148688046647,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.1982507288629738,
+      "height_px": 18,
+      "flow": 240,
+      "visual_width": 7,
+      "upstream": [
+        4,
+        3
+      ],
+      "downstream": [
+        5,
+        4
+      ]
+    },
+    {
+      "x": 5,
+      "y": 4,
+      "soil_moisture_fraction": 0.8561516034985422,
+      "grass": 0.7556851311953353,
+      "forest": 0,
+      "shrub": 0.17002915451895043,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.055393586005830886,
+      "height_px": 6,
+      "flow": 240,
+      "visual_width": 7,
+      "upstream": [
+        4,
+        4
+      ],
+      "downstream": [
+        5,
+        5
+      ]
+    },
+    {
+      "x": 6,
+      "y": 4,
+      "soil_moisture_fraction": 0.87,
+      "grass": 0.8,
+      "forest": 0,
+      "shrub": 0.18,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0,
+      "height_px": 6,
+      "flow": 0
+    },
+    {
+      "x": 7,
+      "y": 4,
+      "soil_moisture_fraction": 0.87,
+      "grass": 0.8,
+      "forest": 0,
+      "shrub": 0.18,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0,
+      "height_px": 6,
+      "flow": 0
+    }
+  ],
+  [
+    {
+      "x": 0,
+      "y": 5,
+      "soil_moisture_fraction": 0.6695626822157434,
+      "grass": 0.15860058309037905,
+      "forest": 0,
+      "shrub": 0.03568513119533528,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.8017492711370262,
+      "height_px": 32,
+      "flow": 0
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "soil_moisture_fraction": 0.7183965014577259,
+      "grass": 0.314868804664723,
+      "forest": 0,
+      "shrub": 0.07084548104956268,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.6064139941690962,
+      "height_px": 18,
+      "flow": 0
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "soil_moisture_fraction": 0.7716034985422741,
+      "grass": 0.48513119533527693,
+      "forest": 0,
+      "shrub": 0.1091545189504373,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.39358600583090386,
+      "height_px": 18,
+      "flow": 0
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "soil_moisture_fraction": 0.8204373177842565,
+      "grass": 0.641399416909621,
+      "forest": 0,
+      "shrub": 0.1443148688046647,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.1982507288629738,
+      "height_px": 18,
+      "flow": 0
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "soil_moisture_fraction": 0.8561516034985422,
+      "grass": 0.7556851311953353,
+      "forest": 0,
+      "shrub": 0.17002915451895043,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.055393586005830886,
+      "height_px": 6,
+      "flow": 0
+    },
+    {
+      "x": 5,
+      "y": 5,
+      "soil_moisture_fraction": 0.87,
+      "grass": 0.8,
+      "forest": 0,
+      "shrub": 0.18,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0,
+      "height_px": 6,
+      "flow": 240,
+      "visual_width": 7,
+      "upstream": [
+        5,
+        4
+      ],
+      "downstream": [
+        6,
+        5
+      ]
+    },
+    {
+      "x": 6,
+      "y": 5,
+      "soil_moisture_fraction": 0.87,
+      "grass": 0.8,
+      "forest": 0,
+      "shrub": 0.18,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0,
+      "height_px": 6,
+      "flow": 240,
+      "visual_width": 7,
+      "upstream": [
+        5,
+        5
+      ],
+      "downstream": [
+        6,
+        6
+      ]
+    },
+    {
+      "x": 7,
+      "y": 5,
+      "soil_moisture_fraction": 0.87,
+      "grass": 0.8,
+      "forest": 0,
+      "shrub": 0.18,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0,
+      "height_px": 6,
+      "flow": 0
+    }
+  ],
+  [
+    {
+      "x": 0,
+      "y": 6,
+      "soil_moisture_fraction": 0.7183965014577259,
+      "grass": 0.314868804664723,
+      "forest": 0,
+      "shrub": 0.07084548104956268,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.6064139941690962,
+      "height_px": 18,
+      "flow": 0
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "soil_moisture_fraction": 0.7716034985422741,
+      "grass": 0.48513119533527693,
+      "forest": 0,
+      "shrub": 0.1091545189504373,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.39358600583090386,
+      "height_px": 18,
+      "flow": 0
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "soil_moisture_fraction": 0.8204373177842565,
+      "grass": 0.641399416909621,
+      "forest": 0,
+      "shrub": 0.1443148688046647,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.1982507288629738,
+      "height_px": 18,
+      "flow": 0
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "soil_moisture_fraction": 0.8561516034985422,
+      "grass": 0.7556851311953353,
+      "forest": 0,
+      "shrub": 0.17002915451895043,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.055393586005830886,
+      "height_px": 6,
+      "flow": 0
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "soil_moisture_fraction": 0.87,
+      "grass": 0.8,
+      "forest": 0,
+      "shrub": 0.18,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0,
+      "height_px": 6,
+      "flow": 0
+    },
+    {
+      "x": 5,
+      "y": 6,
+      "soil_moisture_fraction": 0.87,
+      "grass": 0.8,
+      "forest": 0,
+      "shrub": 0.18,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0,
+      "height_px": 6,
+      "flow": 0
+    },
+    {
+      "x": 6,
+      "y": 6,
+      "soil_moisture_fraction": 0.87,
+      "grass": 0.8,
+      "forest": 0,
+      "shrub": 0.18,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0,
+      "height_px": 6,
+      "flow": 240,
+      "visual_width": 7,
+      "upstream": [
+        6,
+        5
+      ],
+      "downstream": [
+        7,
+        6
+      ]
+    },
+    {
+      "x": 7,
+      "y": 6,
+      "soil_moisture_fraction": 0.87,
+      "grass": 0.8,
+      "forest": 0,
+      "shrub": 0.18,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0,
+      "height_px": 6,
+      "flow": 240,
+      "visual_width": 7,
+      "upstream": [
+        6,
+        6
+      ],
+      "downstream": null
+    }
+  ],
+  [
+    {
+      "x": 0,
+      "y": 7,
+      "soil_moisture_fraction": 0.7716034985422741,
+      "grass": 0.48513119533527693,
+      "forest": 0,
+      "shrub": 0.1091545189504373,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.39358600583090386,
+      "height_px": 18,
+      "flow": 0
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "soil_moisture_fraction": 0.8204373177842565,
+      "grass": 0.641399416909621,
+      "forest": 0,
+      "shrub": 0.1443148688046647,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.1982507288629738,
+      "height_px": 18,
+      "flow": 0
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "soil_moisture_fraction": 0.8561516034985422,
+      "grass": 0.7556851311953353,
+      "forest": 0,
+      "shrub": 0.17002915451895043,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0.055393586005830886,
+      "height_px": 6,
+      "flow": 0
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "soil_moisture_fraction": 0.87,
+      "grass": 0.8,
+      "forest": 0,
+      "shrub": 0.18,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0,
+      "height_px": 6,
+      "flow": 0
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "soil_moisture_fraction": 0.87,
+      "grass": 0.8,
+      "forest": 0,
+      "shrub": 0.18,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0,
+      "height_px": 6,
+      "flow": 0
+    },
+    {
+      "x": 5,
+      "y": 7,
+      "soil_moisture_fraction": 0.87,
+      "grass": 0.8,
+      "forest": 0,
+      "shrub": 0.18,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0,
+      "height_px": 6,
+      "flow": 0
+    },
+    {
+      "x": 6,
+      "y": 7,
+      "soil_moisture_fraction": 0.87,
+      "grass": 0.8,
+      "forest": 0,
+      "shrub": 0.18,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0,
+      "height_px": 6,
+      "flow": 0
+    },
+    {
+      "x": 7,
+      "y": 7,
+      "soil_moisture_fraction": 0.87,
+      "grass": 0.8,
+      "forest": 0,
+      "shrub": 0.18,
+      "forest_age": 35,
+      "surface_water": 0,
+      "rock": 0,
+      "height_px": 6,
+      "flow": 0
+    }
+  ]
+]

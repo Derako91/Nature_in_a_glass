@@ -1,6 +1,10 @@
 # Naturgestaltung – Prüfblatt 01
 
-**Aktuell ist Runde 05:** ausgearbeitete Biome und Übergänge, siehe `ROUND-05.md`.
+**Aktuell ist Runde 09:** neu gezeichnete Tiere in doppelter Auflösung für die
+Nahansicht, siehe `ROUND-09.md`. Runde 08 enthält Gebirgsgewässer, Wasserfälle und Materialübergänge,
+siehe `ROUND-08.md`. Runde 07 enthält die bestätigte Biomrichtung, weichere Bachkurven und
+versetzte Felsstufen, siehe `ROUND-07.md`. Kadaver und Spuren stehen in `ROUND-06.md`.
+Ausgearbeitete Biome und Übergänge stehen in `ROUND-05.md`.
 Tieranimationen und zweite Fellvariante stehen in `ROUND-04.md`.
 Die Naturkorrekturen der vorigen Runde stehen in `ROUND-03.md`.
 Die zweite Stilrunde ist in `REVISION-02.md` dokumentiert. Die folgende Beschreibung
@@ -9,6 +13,27 @@ Manifest und Testbelegung der ersten Runde sind mit `assets/nature/` identisch
 und liegen deshalb nur dort.
 
 ## Aktuelle Entwürfe
+
+### Tiere in der Nahansicht – Runde 09
+
+![Zoomvergleich und neue Tierkonturen](../../assets/nature/_animals-detail-comparison.png)
+
+[Bewegung und Fellvarianten](../../assets/nature/_animals-detail-motion.gif)
+· [Haltungen](../../assets/nature/_animals-detail-states.png)
+· [Prüfung und noch offene Spielaufnahme](ROUND-09.md)
+
+### Gebirgsgewässer – Runde 08
+
+![Animierte Gebirgsgewässer](../../assets/nature/_mountain-water.gif)
+
+[Standbild](../../assets/nature/_mountain-water.png)
+· [Herstellung, Prüfung und Einbindung](ROUND-08.md)
+
+### Kadaver und Spuren – Runde 06
+
+![Kadaver und Spuren auf drei Böden](../../assets/nature/_animals-remains.png)
+
+[Umfang, Prüfung und Einbindung](ROUND-06.md)
 
 ### Biome und Übergänge – Runde 05
 

@@ -1,83 +1,27 @@
 {
-  "version": 1,
-  "status": "animation_review",
+  "version": 2,
+  "status": "detail_review",
   "base_tile": {
     "width": 64,
     "height": 32
   },
-  "missing": [
-    "carcasses",
-    "tracks"
-  ],
-  "frame_aliases": {
-    "deer_0_run_l_f0.png": "deer_0_walk_l_f0.png",
-    "deer_0_run_l_f2.png": "deer_0_walk_l_f2.png",
-    "deer_0_run_r_f0.png": "deer_0_walk_r_f0.png",
-    "deer_0_run_r_f2.png": "deer_0_walk_r_f2.png",
-    "deer_1_run_l_f0.png": "deer_1_walk_l_f0.png",
-    "deer_1_run_l_f2.png": "deer_1_walk_l_f2.png",
-    "deer_1_run_r_f0.png": "deer_1_walk_r_f0.png",
-    "deer_1_run_r_f2.png": "deer_1_walk_r_f2.png",
-    "deer_young_0_run_l_f0.png": "deer_young_0_walk_l_f0.png",
-    "deer_young_0_run_l_f2.png": "deer_young_0_walk_l_f2.png",
-    "deer_young_0_run_l_f3.png": "deer_young_0_walk_l_f3.png",
-    "deer_young_0_run_r_f0.png": "deer_young_0_walk_r_f0.png",
-    "deer_young_0_run_r_f1.png": "deer_young_0_walk_r_f3.png",
-    "deer_young_0_run_r_f2.png": "deer_young_0_walk_r_f2.png",
-    "deer_young_1_run_l_f0.png": "deer_young_1_walk_l_f0.png",
-    "deer_young_1_run_l_f2.png": "deer_young_1_walk_l_f2.png",
-    "deer_young_1_run_l_f3.png": "deer_young_1_walk_l_f3.png",
-    "deer_young_1_run_r_f0.png": "deer_young_1_walk_r_f0.png",
-    "deer_young_1_run_r_f1.png": "deer_young_1_walk_r_f3.png",
-    "deer_young_1_run_r_f2.png": "deer_young_1_walk_r_f2.png",
-    "wolf_0_run_l_f0.png": "wolf_0_walk_l_f0.png",
-    "wolf_0_run_l_f2.png": "wolf_0_walk_l_f2.png",
-    "wolf_0_run_r_f0.png": "wolf_0_walk_r_f0.png",
-    "wolf_0_run_r_f2.png": "wolf_0_walk_r_f2.png",
-    "wolf_1_run_l_f0.png": "wolf_1_walk_l_f0.png",
-    "wolf_1_run_l_f2.png": "wolf_1_walk_l_f2.png",
-    "wolf_1_run_r_f0.png": "wolf_1_walk_r_f0.png",
-    "wolf_1_run_r_f2.png": "wolf_1_walk_r_f2.png",
-    "fox_0_walk_l_f0.png": "fox_0_graze_l_f0.png",
-    "fox_0_walk_r_f0.png": "fox_0_graze_r_f0.png",
-    "fox_1_walk_l_f0.png": "fox_1_graze_l_f0.png",
-    "fox_1_walk_r_f0.png": "fox_1_graze_r_f0.png",
-    "fox_0_run_l_f0.png": "fox_0_graze_l_f0.png",
-    "fox_0_run_l_f2.png": "fox_0_walk_l_f2.png",
-    "fox_0_run_r_f0.png": "fox_0_graze_r_f0.png",
-    "fox_0_run_r_f2.png": "fox_0_walk_r_f2.png",
-    "fox_1_run_l_f0.png": "fox_1_graze_l_f0.png",
-    "fox_1_run_l_f2.png": "fox_1_walk_l_f2.png",
-    "fox_1_run_r_f0.png": "fox_1_graze_r_f0.png",
-    "fox_1_run_r_f2.png": "fox_1_walk_r_f2.png",
-    "rabbit_0_walk_l_f0.png": "rabbit_0_graze_l_f0.png",
-    "rabbit_0_walk_l_f3.png": "rabbit_0_graze_l_f1.png",
-    "rabbit_0_walk_r_f0.png": "rabbit_0_graze_r_f0.png",
-    "rabbit_0_walk_r_f3.png": "rabbit_0_graze_r_f1.png",
-    "rabbit_1_walk_l_f0.png": "rabbit_1_graze_l_f0.png",
-    "rabbit_1_walk_l_f3.png": "rabbit_1_graze_l_f1.png",
-    "rabbit_1_walk_r_f0.png": "rabbit_1_graze_r_f0.png",
-    "rabbit_1_walk_r_f3.png": "rabbit_1_graze_r_f1.png",
-    "rabbit_0_run_l_f0.png": "rabbit_0_graze_l_f0.png",
-    "rabbit_0_run_l_f2.png": "rabbit_0_walk_l_f2.png",
-    "rabbit_0_run_r_f0.png": "rabbit_0_graze_r_f0.png",
-    "rabbit_0_run_r_f2.png": "rabbit_0_walk_r_f2.png",
-    "rabbit_1_run_l_f0.png": "rabbit_1_graze_l_f0.png",
-    "rabbit_1_run_l_f2.png": "rabbit_1_walk_l_f2.png",
-    "rabbit_1_run_r_f0.png": "rabbit_1_graze_r_f0.png",
-    "rabbit_1_run_r_f2.png": "rabbit_1_walk_r_f2.png"
-  },
+  "missing": [],
+  "frame_aliases": {},
   "assets": [
     {
       "id": "deer",
       "group": "animals",
       "size": [
-        9,
-        8
+        28,
+        24
+      ],
+      "display_size": [
+        14.0,
+        12.0
       ],
       "anchor": [
-        4,
-        7
+        14,
+        22
       ],
       "variants": 2,
       "state": "graze",
@@ -87,7 +31,7 @@
       ],
       "frames": 2,
       "frame_ms": 600,
-      "status": "animation_review",
+      "status": "detail_review",
       "files": [
         "deer_0_graze_l_f0.png",
         "deer_0_graze_l_f1.png",
@@ -153,12 +97,16 @@
       "id": "deer",
       "group": "animals",
       "size": [
-        9,
-        8
+        28,
+        24
+      ],
+      "display_size": [
+        14.0,
+        12.0
       ],
       "anchor": [
-        4,
-        7
+        14,
+        22
       ],
       "variants": 2,
       "state": "walk",
@@ -168,7 +116,7 @@
       ],
       "frames": 4,
       "frame_ms": 200,
-      "status": "animation_review",
+      "status": "detail_review",
       "files": [
         "deer_0_walk_l_f0.png",
         "deer_0_walk_l_f1.png",
@@ -290,12 +238,16 @@
       "id": "deer",
       "group": "animals",
       "size": [
-        9,
-        8
+        28,
+        24
+      ],
+      "display_size": [
+        14.0,
+        12.0
       ],
       "anchor": [
-        4,
-        7
+        14,
+        22
       ],
       "variants": 2,
       "state": "run",
@@ -305,23 +257,23 @@
       ],
       "frames": 4,
       "frame_ms": 100,
-      "status": "animation_review",
+      "status": "detail_review",
       "files": [
-        "deer_0_walk_l_f0.png",
+        "deer_0_run_l_f0.png",
         "deer_0_run_l_f1.png",
-        "deer_0_walk_l_f2.png",
+        "deer_0_run_l_f2.png",
         "deer_0_run_l_f3.png",
-        "deer_0_walk_r_f0.png",
+        "deer_0_run_r_f0.png",
         "deer_0_run_r_f1.png",
-        "deer_0_walk_r_f2.png",
+        "deer_0_run_r_f2.png",
         "deer_0_run_r_f3.png",
-        "deer_1_walk_l_f0.png",
+        "deer_1_run_l_f0.png",
         "deer_1_run_l_f1.png",
-        "deer_1_walk_l_f2.png",
+        "deer_1_run_l_f2.png",
         "deer_1_run_l_f3.png",
-        "deer_1_walk_r_f0.png",
+        "deer_1_run_r_f0.png",
         "deer_1_run_r_f1.png",
-        "deer_1_walk_r_f2.png",
+        "deer_1_run_r_f2.png",
         "deer_1_run_r_f3.png"
       ],
       "frame_map": [
@@ -329,7 +281,7 @@
           "variant": 0,
           "direction": "l",
           "frame": 0,
-          "file": "deer_0_walk_l_f0.png"
+          "file": "deer_0_run_l_f0.png"
         },
         {
           "variant": 0,
@@ -341,7 +293,7 @@
           "variant": 0,
           "direction": "l",
           "frame": 2,
-          "file": "deer_0_walk_l_f2.png"
+          "file": "deer_0_run_l_f2.png"
         },
         {
           "variant": 0,
@@ -353,7 +305,7 @@
           "variant": 0,
           "direction": "r",
           "frame": 0,
-          "file": "deer_0_walk_r_f0.png"
+          "file": "deer_0_run_r_f0.png"
         },
         {
           "variant": 0,
@@ -365,7 +317,7 @@
           "variant": 0,
           "direction": "r",
           "frame": 2,
-          "file": "deer_0_walk_r_f2.png"
+          "file": "deer_0_run_r_f2.png"
         },
         {
           "variant": 0,
@@ -377,7 +329,7 @@
           "variant": 1,
           "direction": "l",
           "frame": 0,
-          "file": "deer_1_walk_l_f0.png"
+          "file": "deer_1_run_l_f0.png"
         },
         {
           "variant": 1,
@@ -389,7 +341,7 @@
           "variant": 1,
           "direction": "l",
           "frame": 2,
-          "file": "deer_1_walk_l_f2.png"
+          "file": "deer_1_run_l_f2.png"
         },
         {
           "variant": 1,
@@ -401,7 +353,7 @@
           "variant": 1,
           "direction": "r",
           "frame": 0,
-          "file": "deer_1_walk_r_f0.png"
+          "file": "deer_1_run_r_f0.png"
         },
         {
           "variant": 1,
@@ -413,7 +365,7 @@
           "variant": 1,
           "direction": "r",
           "frame": 2,
-          "file": "deer_1_walk_r_f2.png"
+          "file": "deer_1_run_r_f2.png"
         },
         {
           "variant": 1,
@@ -427,12 +379,16 @@
       "id": "deer",
       "group": "animals",
       "size": [
-        9,
-        8
+        28,
+        24
+      ],
+      "display_size": [
+        14.0,
+        12.0
       ],
       "anchor": [
-        4,
-        7
+        14,
+        22
       ],
       "variants": 2,
       "state": "rest",
@@ -442,7 +398,7 @@
       ],
       "frames": 1,
       "frame_ms": null,
-      "status": "animation_review",
+      "status": "detail_review",
       "files": [
         "deer_0_rest_l_f0.png",
         "deer_0_rest_r_f0.png",
@@ -480,12 +436,16 @@
       "id": "deer_young",
       "group": "animals",
       "size": [
-        6,
-        6
+        18,
+        16
+      ],
+      "display_size": [
+        9.0,
+        8.0
       ],
       "anchor": [
-        3,
-        5
+        9,
+        14
       ],
       "variants": 2,
       "state": "graze",
@@ -495,7 +455,7 @@
       ],
       "frames": 2,
       "frame_ms": 600,
-      "status": "animation_review",
+      "status": "detail_review",
       "files": [
         "deer_young_0_graze_l_f0.png",
         "deer_young_0_graze_l_f1.png",
@@ -561,12 +521,16 @@
       "id": "deer_young",
       "group": "animals",
       "size": [
-        6,
-        6
+        18,
+        16
+      ],
+      "display_size": [
+        9.0,
+        8.0
       ],
       "anchor": [
-        3,
-        5
+        9,
+        14
       ],
       "variants": 2,
       "state": "walk",
@@ -576,7 +540,7 @@
       ],
       "frames": 4,
       "frame_ms": 200,
-      "status": "animation_review",
+      "status": "detail_review",
       "files": [
         "deer_young_0_walk_l_f0.png",
         "deer_young_0_walk_l_f1.png",
@@ -698,12 +662,16 @@
       "id": "deer_young",
       "group": "animals",
       "size": [
-        6,
-        6
+        18,
+        16
+      ],
+      "display_size": [
+        9.0,
+        8.0
       ],
       "anchor": [
-        3,
-        5
+        9,
+        14
       ],
       "variants": 2,
       "state": "run",
@@ -713,23 +681,23 @@
       ],
       "frames": 4,
       "frame_ms": 100,
-      "status": "animation_review",
+      "status": "detail_review",
       "files": [
-        "deer_young_0_walk_l_f0.png",
+        "deer_young_0_run_l_f0.png",
         "deer_young_0_run_l_f1.png",
-        "deer_young_0_walk_l_f2.png",
-        "deer_young_0_walk_l_f3.png",
-        "deer_young_0_walk_r_f0.png",
-        "deer_young_0_walk_r_f3.png",
-        "deer_young_0_walk_r_f2.png",
+        "deer_young_0_run_l_f2.png",
+        "deer_young_0_run_l_f3.png",
+        "deer_young_0_run_r_f0.png",
+        "deer_young_0_run_r_f1.png",
+        "deer_young_0_run_r_f2.png",
         "deer_young_0_run_r_f3.png",
-        "deer_young_1_walk_l_f0.png",
+        "deer_young_1_run_l_f0.png",
         "deer_young_1_run_l_f1.png",
-        "deer_young_1_walk_l_f2.png",
-        "deer_young_1_walk_l_f3.png",
-        "deer_young_1_walk_r_f0.png",
-        "deer_young_1_walk_r_f3.png",
-        "deer_young_1_walk_r_f2.png",
+        "deer_young_1_run_l_f2.png",
+        "deer_young_1_run_l_f3.png",
+        "deer_young_1_run_r_f0.png",
+        "deer_young_1_run_r_f1.png",
+        "deer_young_1_run_r_f2.png",
         "deer_young_1_run_r_f3.png"
       ],
       "frame_map": [
@@ -737,7 +705,7 @@
           "variant": 0,
           "direction": "l",
           "frame": 0,
-          "file": "deer_young_0_walk_l_f0.png"
+          "file": "deer_young_0_run_l_f0.png"
         },
         {
           "variant": 0,
@@ -749,31 +717,31 @@
           "variant": 0,
           "direction": "l",
           "frame": 2,
-          "file": "deer_young_0_walk_l_f2.png"
+          "file": "deer_young_0_run_l_f2.png"
         },
         {
           "variant": 0,
           "direction": "l",
           "frame": 3,
-          "file": "deer_young_0_walk_l_f3.png"
+          "file": "deer_young_0_run_l_f3.png"
         },
         {
           "variant": 0,
           "direction": "r",
           "frame": 0,
-          "file": "deer_young_0_walk_r_f0.png"
+          "file": "deer_young_0_run_r_f0.png"
         },
         {
           "variant": 0,
           "direction": "r",
           "frame": 1,
-          "file": "deer_young_0_walk_r_f3.png"
+          "file": "deer_young_0_run_r_f1.png"
         },
         {
           "variant": 0,
           "direction": "r",
           "frame": 2,
-          "file": "deer_young_0_walk_r_f2.png"
+          "file": "deer_young_0_run_r_f2.png"
         },
         {
           "variant": 0,
@@ -785,7 +753,7 @@
           "variant": 1,
           "direction": "l",
           "frame": 0,
-          "file": "deer_young_1_walk_l_f0.png"
+          "file": "deer_young_1_run_l_f0.png"
         },
         {
           "variant": 1,
@@ -797,31 +765,31 @@
           "variant": 1,
           "direction": "l",
           "frame": 2,
-          "file": "deer_young_1_walk_l_f2.png"
+          "file": "deer_young_1_run_l_f2.png"
         },
         {
           "variant": 1,
           "direction": "l",
           "frame": 3,
-          "file": "deer_young_1_walk_l_f3.png"
+          "file": "deer_young_1_run_l_f3.png"
         },
         {
           "variant": 1,
           "direction": "r",
           "frame": 0,
-          "file": "deer_young_1_walk_r_f0.png"
+          "file": "deer_young_1_run_r_f0.png"
         },
         {
           "variant": 1,
           "direction": "r",
           "frame": 1,
-          "file": "deer_young_1_walk_r_f3.png"
+          "file": "deer_young_1_run_r_f1.png"
         },
         {
           "variant": 1,
           "direction": "r",
           "frame": 2,
-          "file": "deer_young_1_walk_r_f2.png"
+          "file": "deer_young_1_run_r_f2.png"
         },
         {
           "variant": 1,
@@ -835,12 +803,16 @@
       "id": "deer_young",
       "group": "animals",
       "size": [
-        6,
-        6
+        18,
+        16
+      ],
+      "display_size": [
+        9.0,
+        8.0
       ],
       "anchor": [
-        3,
-        5
+        9,
+        14
       ],
       "variants": 2,
       "state": "rest",
@@ -850,7 +822,7 @@
       ],
       "frames": 1,
       "frame_ms": null,
-      "status": "animation_review",
+      "status": "detail_review",
       "files": [
         "deer_young_0_rest_l_f0.png",
         "deer_young_0_rest_r_f0.png",
@@ -888,12 +860,16 @@
       "id": "wolf",
       "group": "animals",
       "size": [
-        8,
-        5
+        26,
+        16
+      ],
+      "display_size": [
+        13.0,
+        8.0
       ],
       "anchor": [
-        4,
-        4
+        13,
+        14
       ],
       "variants": 2,
       "state": "graze",
@@ -903,7 +879,7 @@
       ],
       "frames": 2,
       "frame_ms": 600,
-      "status": "animation_review",
+      "status": "detail_review",
       "files": [
         "wolf_0_graze_l_f0.png",
         "wolf_0_graze_l_f1.png",
@@ -969,12 +945,16 @@
       "id": "wolf",
       "group": "animals",
       "size": [
-        8,
-        5
+        26,
+        16
+      ],
+      "display_size": [
+        13.0,
+        8.0
       ],
       "anchor": [
-        4,
-        4
+        13,
+        14
       ],
       "variants": 2,
       "state": "walk",
@@ -984,7 +964,7 @@
       ],
       "frames": 4,
       "frame_ms": 200,
-      "status": "animation_review",
+      "status": "detail_review",
       "files": [
         "wolf_0_walk_l_f0.png",
         "wolf_0_walk_l_f1.png",
@@ -1106,12 +1086,16 @@
       "id": "wolf",
       "group": "animals",
       "size": [
-        8,
-        5
+        26,
+        16
+      ],
+      "display_size": [
+        13.0,
+        8.0
       ],
       "anchor": [
-        4,
-        4
+        13,
+        14
       ],
       "variants": 2,
       "state": "run",
@@ -1121,23 +1105,23 @@
       ],
       "frames": 4,
       "frame_ms": 100,
-      "status": "animation_review",
+      "status": "detail_review",
       "files": [
-        "wolf_0_walk_l_f0.png",
+        "wolf_0_run_l_f0.png",
         "wolf_0_run_l_f1.png",
-        "wolf_0_walk_l_f2.png",
+        "wolf_0_run_l_f2.png",
         "wolf_0_run_l_f3.png",
-        "wolf_0_walk_r_f0.png",
+        "wolf_0_run_r_f0.png",
         "wolf_0_run_r_f1.png",
-        "wolf_0_walk_r_f2.png",
+        "wolf_0_run_r_f2.png",
         "wolf_0_run_r_f3.png",
-        "wolf_1_walk_l_f0.png",
+        "wolf_1_run_l_f0.png",
         "wolf_1_run_l_f1.png",
-        "wolf_1_walk_l_f2.png",
+        "wolf_1_run_l_f2.png",
         "wolf_1_run_l_f3.png",
-        "wolf_1_walk_r_f0.png",
+        "wolf_1_run_r_f0.png",
         "wolf_1_run_r_f1.png",
-        "wolf_1_walk_r_f2.png",
+        "wolf_1_run_r_f2.png",
         "wolf_1_run_r_f3.png"
       ],
       "frame_map": [
@@ -1145,7 +1129,7 @@
           "variant": 0,
           "direction": "l",
           "frame": 0,
-          "file": "wolf_0_walk_l_f0.png"
+          "file": "wolf_0_run_l_f0.png"
         },
         {
           "variant": 0,
@@ -1157,7 +1141,7 @@
           "variant": 0,
           "direction": "l",
           "frame": 2,
-          "file": "wolf_0_walk_l_f2.png"
+          "file": "wolf_0_run_l_f2.png"
         },
         {
           "variant": 0,
@@ -1169,7 +1153,7 @@
           "variant": 0,
           "direction": "r",
           "frame": 0,
-          "file": "wolf_0_walk_r_f0.png"
+          "file": "wolf_0_run_r_f0.png"
         },
         {
           "variant": 0,
@@ -1181,7 +1165,7 @@
           "variant": 0,
           "direction": "r",
           "frame": 2,
-          "file": "wolf_0_walk_r_f2.png"
+          "file": "wolf_0_run_r_f2.png"
         },
         {
           "variant": 0,
@@ -1193,7 +1177,7 @@
           "variant": 1,
           "direction": "l",
           "frame": 0,
-          "file": "wolf_1_walk_l_f0.png"
+          "file": "wolf_1_run_l_f0.png"
         },
         {
           "variant": 1,
@@ -1205,7 +1189,7 @@
           "variant": 1,
           "direction": "l",
           "frame": 2,
-          "file": "wolf_1_walk_l_f2.png"
+          "file": "wolf_1_run_l_f2.png"
         },
         {
           "variant": 1,
@@ -1217,7 +1201,7 @@
           "variant": 1,
           "direction": "r",
           "frame": 0,
-          "file": "wolf_1_walk_r_f0.png"
+          "file": "wolf_1_run_r_f0.png"
         },
         {
           "variant": 1,
@@ -1229,7 +1213,7 @@
           "variant": 1,
           "direction": "r",
           "frame": 2,
-          "file": "wolf_1_walk_r_f2.png"
+          "file": "wolf_1_run_r_f2.png"
         },
         {
           "variant": 1,
@@ -1243,12 +1227,16 @@
       "id": "wolf",
       "group": "animals",
       "size": [
-        8,
-        5
+        26,
+        16
+      ],
+      "display_size": [
+        13.0,
+        8.0
       ],
       "anchor": [
-        4,
-        4
+        13,
+        14
       ],
       "variants": 2,
       "state": "rest",
@@ -1258,7 +1246,7 @@
       ],
       "frames": 1,
       "frame_ms": null,
-      "status": "animation_review",
+      "status": "detail_review",
       "files": [
         "wolf_0_rest_l_f0.png",
         "wolf_0_rest_r_f0.png",
@@ -1296,12 +1284,16 @@
       "id": "fox",
       "group": "animals",
       "size": [
-        6,
-        4
+        20,
+        12
+      ],
+      "display_size": [
+        10.0,
+        6.0
       ],
       "anchor": [
-        3,
-        3
+        10,
+        10
       ],
       "variants": 2,
       "state": "graze",
@@ -1311,7 +1303,7 @@
       ],
       "frames": 2,
       "frame_ms": 600,
-      "status": "animation_review",
+      "status": "detail_review",
       "files": [
         "fox_0_graze_l_f0.png",
         "fox_0_graze_l_f1.png",
@@ -1377,12 +1369,16 @@
       "id": "fox",
       "group": "animals",
       "size": [
-        6,
-        4
+        20,
+        12
+      ],
+      "display_size": [
+        10.0,
+        6.0
       ],
       "anchor": [
-        3,
-        3
+        10,
+        10
       ],
       "variants": 2,
       "state": "walk",
@@ -1392,21 +1388,21 @@
       ],
       "frames": 4,
       "frame_ms": 200,
-      "status": "animation_review",
+      "status": "detail_review",
       "files": [
-        "fox_0_graze_l_f0.png",
+        "fox_0_walk_l_f0.png",
         "fox_0_walk_l_f1.png",
         "fox_0_walk_l_f2.png",
         "fox_0_walk_l_f3.png",
-        "fox_0_graze_r_f0.png",
+        "fox_0_walk_r_f0.png",
         "fox_0_walk_r_f1.png",
         "fox_0_walk_r_f2.png",
         "fox_0_walk_r_f3.png",
-        "fox_1_graze_l_f0.png",
+        "fox_1_walk_l_f0.png",
         "fox_1_walk_l_f1.png",
         "fox_1_walk_l_f2.png",
         "fox_1_walk_l_f3.png",
-        "fox_1_graze_r_f0.png",
+        "fox_1_walk_r_f0.png",
         "fox_1_walk_r_f1.png",
         "fox_1_walk_r_f2.png",
         "fox_1_walk_r_f3.png"
@@ -1416,7 +1412,7 @@
           "variant": 0,
           "direction": "l",
           "frame": 0,
-          "file": "fox_0_graze_l_f0.png"
+          "file": "fox_0_walk_l_f0.png"
         },
         {
           "variant": 0,
@@ -1440,7 +1436,7 @@
           "variant": 0,
           "direction": "r",
           "frame": 0,
-          "file": "fox_0_graze_r_f0.png"
+          "file": "fox_0_walk_r_f0.png"
         },
         {
           "variant": 0,
@@ -1464,7 +1460,7 @@
           "variant": 1,
           "direction": "l",
           "frame": 0,
-          "file": "fox_1_graze_l_f0.png"
+          "file": "fox_1_walk_l_f0.png"
         },
         {
           "variant": 1,
@@ -1488,7 +1484,7 @@
           "variant": 1,
           "direction": "r",
           "frame": 0,
-          "file": "fox_1_graze_r_f0.png"
+          "file": "fox_1_walk_r_f0.png"
         },
         {
           "variant": 1,
@@ -1514,12 +1510,16 @@
       "id": "fox",
       "group": "animals",
       "size": [
-        6,
-        4
+        20,
+        12
+      ],
+      "display_size": [
+        10.0,
+        6.0
       ],
       "anchor": [
-        3,
-        3
+        10,
+        10
       ],
       "variants": 2,
       "state": "run",
@@ -1529,23 +1529,23 @@
       ],
       "frames": 4,
       "frame_ms": 100,
-      "status": "animation_review",
+      "status": "detail_review",
       "files": [
-        "fox_0_graze_l_f0.png",
+        "fox_0_run_l_f0.png",
         "fox_0_run_l_f1.png",
-        "fox_0_walk_l_f2.png",
+        "fox_0_run_l_f2.png",
         "fox_0_run_l_f3.png",
-        "fox_0_graze_r_f0.png",
+        "fox_0_run_r_f0.png",
         "fox_0_run_r_f1.png",
-        "fox_0_walk_r_f2.png",
+        "fox_0_run_r_f2.png",
         "fox_0_run_r_f3.png",
-        "fox_1_graze_l_f0.png",
+        "fox_1_run_l_f0.png",
         "fox_1_run_l_f1.png",
-        "fox_1_walk_l_f2.png",
+        "fox_1_run_l_f2.png",
         "fox_1_run_l_f3.png",
-        "fox_1_graze_r_f0.png",
+        "fox_1_run_r_f0.png",
         "fox_1_run_r_f1.png",
-        "fox_1_walk_r_f2.png",
+        "fox_1_run_r_f2.png",
         "fox_1_run_r_f3.png"
       ],
       "frame_map": [
@@ -1553,7 +1553,7 @@
           "variant": 0,
           "direction": "l",
           "frame": 0,
-          "file": "fox_0_graze_l_f0.png"
+          "file": "fox_0_run_l_f0.png"
         },
         {
           "variant": 0,
@@ -1565,7 +1565,7 @@
           "variant": 0,
           "direction": "l",
           "frame": 2,
-          "file": "fox_0_walk_l_f2.png"
+          "file": "fox_0_run_l_f2.png"
         },
         {
           "variant": 0,
@@ -1577,7 +1577,7 @@
           "variant": 0,
           "direction": "r",
           "frame": 0,
-          "file": "fox_0_graze_r_f0.png"
+          "file": "fox_0_run_r_f0.png"
         },
         {
           "variant": 0,
@@ -1589,7 +1589,7 @@
           "variant": 0,
           "direction": "r",
           "frame": 2,
-          "file": "fox_0_walk_r_f2.png"
+          "file": "fox_0_run_r_f2.png"
         },
         {
           "variant": 0,
@@ -1601,7 +1601,7 @@
           "variant": 1,
           "direction": "l",
           "frame": 0,
-          "file": "fox_1_graze_l_f0.png"
+          "file": "fox_1_run_l_f0.png"
         },
         {
           "variant": 1,
@@ -1613,7 +1613,7 @@
           "variant": 1,
           "direction": "l",
           "frame": 2,
-          "file": "fox_1_walk_l_f2.png"
+          "file": "fox_1_run_l_f2.png"
         },
         {
           "variant": 1,
@@ -1625,7 +1625,7 @@
           "variant": 1,
           "direction": "r",
           "frame": 0,
-          "file": "fox_1_graze_r_f0.png"
+          "file": "fox_1_run_r_f0.png"
         },
         {
           "variant": 1,
@@ -1637,7 +1637,7 @@
           "variant": 1,
           "direction": "r",
           "frame": 2,
-          "file": "fox_1_walk_r_f2.png"
+          "file": "fox_1_run_r_f2.png"
         },
         {
           "variant": 1,
@@ -1651,12 +1651,16 @@
       "id": "fox",
       "group": "animals",
       "size": [
-        6,
-        4
+        20,
+        12
+      ],
+      "display_size": [
+        10.0,
+        6.0
       ],
       "anchor": [
-        3,
-        3
+        10,
+        10
       ],
       "variants": 2,
       "state": "rest",
@@ -1666,7 +1670,7 @@
       ],
       "frames": 1,
       "frame_ms": null,
-      "status": "animation_review",
+      "status": "detail_review",
       "files": [
         "fox_0_rest_l_f0.png",
         "fox_0_rest_r_f0.png",
@@ -1704,12 +1708,16 @@
       "id": "rabbit",
       "group": "animals",
       "size": [
-        3,
-        3
+        12,
+        10
+      ],
+      "display_size": [
+        6.0,
+        5.0
       ],
       "anchor": [
-        1,
-        2
+        6,
+        8
       ],
       "variants": 2,
       "state": "graze",
@@ -1719,7 +1727,7 @@
       ],
       "frames": 2,
       "frame_ms": 600,
-      "status": "animation_review",
+      "status": "detail_review",
       "files": [
         "rabbit_0_graze_l_f0.png",
         "rabbit_0_graze_l_f1.png",
@@ -1785,12 +1793,16 @@
       "id": "rabbit",
       "group": "animals",
       "size": [
-        3,
-        3
+        12,
+        10
+      ],
+      "display_size": [
+        6.0,
+        5.0
       ],
       "anchor": [
-        1,
-        2
+        6,
+        8
       ],
       "variants": 2,
       "state": "walk",
@@ -1800,31 +1812,31 @@
       ],
       "frames": 4,
       "frame_ms": 200,
-      "status": "animation_review",
+      "status": "detail_review",
       "files": [
-        "rabbit_0_graze_l_f0.png",
+        "rabbit_0_walk_l_f0.png",
         "rabbit_0_walk_l_f1.png",
         "rabbit_0_walk_l_f2.png",
-        "rabbit_0_graze_l_f1.png",
-        "rabbit_0_graze_r_f0.png",
+        "rabbit_0_walk_l_f3.png",
+        "rabbit_0_walk_r_f0.png",
         "rabbit_0_walk_r_f1.png",
         "rabbit_0_walk_r_f2.png",
-        "rabbit_0_graze_r_f1.png",
-        "rabbit_1_graze_l_f0.png",
+        "rabbit_0_walk_r_f3.png",
+        "rabbit_1_walk_l_f0.png",
         "rabbit_1_walk_l_f1.png",
         "rabbit_1_walk_l_f2.png",
-        "rabbit_1_graze_l_f1.png",
-        "rabbit_1_graze_r_f0.png",
+        "rabbit_1_walk_l_f3.png",
+        "rabbit_1_walk_r_f0.png",
         "rabbit_1_walk_r_f1.png",
         "rabbit_1_walk_r_f2.png",
-        "rabbit_1_graze_r_f1.png"
+        "rabbit_1_walk_r_f3.png"
       ],
       "frame_map": [
         {
           "variant": 0,
           "direction": "l",
           "frame": 0,
-          "file": "rabbit_0_graze_l_f0.png"
+          "file": "rabbit_0_walk_l_f0.png"
         },
         {
           "variant": 0,
@@ -1842,13 +1854,13 @@
           "variant": 0,
           "direction": "l",
           "frame": 3,
-          "file": "rabbit_0_graze_l_f1.png"
+          "file": "rabbit_0_walk_l_f3.png"
         },
         {
           "variant": 0,
           "direction": "r",
           "frame": 0,
-          "file": "rabbit_0_graze_r_f0.png"
+          "file": "rabbit_0_walk_r_f0.png"
         },
         {
           "variant": 0,
@@ -1866,13 +1878,13 @@
           "variant": 0,
           "direction": "r",
           "frame": 3,
-          "file": "rabbit_0_graze_r_f1.png"
+          "file": "rabbit_0_walk_r_f3.png"
         },
         {
           "variant": 1,
           "direction": "l",
           "frame": 0,
-          "file": "rabbit_1_graze_l_f0.png"
+          "file": "rabbit_1_walk_l_f0.png"
         },
         {
           "variant": 1,
@@ -1890,13 +1902,13 @@
           "variant": 1,
           "direction": "l",
           "frame": 3,
-          "file": "rabbit_1_graze_l_f1.png"
+          "file": "rabbit_1_walk_l_f3.png"
         },
         {
           "variant": 1,
           "direction": "r",
           "frame": 0,
-          "file": "rabbit_1_graze_r_f0.png"
+          "file": "rabbit_1_walk_r_f0.png"
         },
         {
           "variant": 1,
@@ -1914,7 +1926,7 @@
           "variant": 1,
           "direction": "r",
           "frame": 3,
-          "file": "rabbit_1_graze_r_f1.png"
+          "file": "rabbit_1_walk_r_f3.png"
         }
       ]
     },
@@ -1922,12 +1934,16 @@
       "id": "rabbit",
       "group": "animals",
       "size": [
-        3,
-        3
+        12,
+        10
+      ],
+      "display_size": [
+        6.0,
+        5.0
       ],
       "anchor": [
-        1,
-        2
+        6,
+        8
       ],
       "variants": 2,
       "state": "run",
@@ -1937,23 +1953,23 @@
       ],
       "frames": 4,
       "frame_ms": 100,
-      "status": "animation_review",
+      "status": "detail_review",
       "files": [
-        "rabbit_0_graze_l_f0.png",
+        "rabbit_0_run_l_f0.png",
         "rabbit_0_run_l_f1.png",
-        "rabbit_0_walk_l_f2.png",
+        "rabbit_0_run_l_f2.png",
         "rabbit_0_run_l_f3.png",
-        "rabbit_0_graze_r_f0.png",
+        "rabbit_0_run_r_f0.png",
         "rabbit_0_run_r_f1.png",
-        "rabbit_0_walk_r_f2.png",
+        "rabbit_0_run_r_f2.png",
         "rabbit_0_run_r_f3.png",
-        "rabbit_1_graze_l_f0.png",
+        "rabbit_1_run_l_f0.png",
         "rabbit_1_run_l_f1.png",
-        "rabbit_1_walk_l_f2.png",
+        "rabbit_1_run_l_f2.png",
         "rabbit_1_run_l_f3.png",
-        "rabbit_1_graze_r_f0.png",
+        "rabbit_1_run_r_f0.png",
         "rabbit_1_run_r_f1.png",
-        "rabbit_1_walk_r_f2.png",
+        "rabbit_1_run_r_f2.png",
         "rabbit_1_run_r_f3.png"
       ],
       "frame_map": [
@@ -1961,7 +1977,7 @@
           "variant": 0,
           "direction": "l",
           "frame": 0,
-          "file": "rabbit_0_graze_l_f0.png"
+          "file": "rabbit_0_run_l_f0.png"
         },
         {
           "variant": 0,
@@ -1973,7 +1989,7 @@
           "variant": 0,
           "direction": "l",
           "frame": 2,
-          "file": "rabbit_0_walk_l_f2.png"
+          "file": "rabbit_0_run_l_f2.png"
         },
         {
           "variant": 0,
@@ -1985,7 +2001,7 @@
           "variant": 0,
           "direction": "r",
           "frame": 0,
-          "file": "rabbit_0_graze_r_f0.png"
+          "file": "rabbit_0_run_r_f0.png"
         },
         {
           "variant": 0,
@@ -1997,7 +2013,7 @@
           "variant": 0,
           "direction": "r",
           "frame": 2,
-          "file": "rabbit_0_walk_r_f2.png"
+          "file": "rabbit_0_run_r_f2.png"
         },
         {
           "variant": 0,
@@ -2009,7 +2025,7 @@
           "variant": 1,
           "direction": "l",
           "frame": 0,
-          "file": "rabbit_1_graze_l_f0.png"
+          "file": "rabbit_1_run_l_f0.png"
         },
         {
           "variant": 1,
@@ -2021,7 +2037,7 @@
           "variant": 1,
           "direction": "l",
           "frame": 2,
-          "file": "rabbit_1_walk_l_f2.png"
+          "file": "rabbit_1_run_l_f2.png"
         },
         {
           "variant": 1,
@@ -2033,7 +2049,7 @@
           "variant": 1,
           "direction": "r",
           "frame": 0,
-          "file": "rabbit_1_graze_r_f0.png"
+          "file": "rabbit_1_run_r_f0.png"
         },
         {
           "variant": 1,
@@ -2045,7 +2061,7 @@
           "variant": 1,
           "direction": "r",
           "frame": 2,
-          "file": "rabbit_1_walk_r_f2.png"
+          "file": "rabbit_1_run_r_f2.png"
         },
         {
           "variant": 1,
@@ -2059,12 +2075,16 @@
       "id": "rabbit",
       "group": "animals",
       "size": [
-        3,
-        3
+        12,
+        10
+      ],
+      "display_size": [
+        6.0,
+        5.0
       ],
       "anchor": [
-        1,
-        2
+        6,
+        8
       ],
       "variants": 2,
       "state": "rest",
@@ -2074,7 +2094,7 @@
       ],
       "frames": 1,
       "frame_ms": null,
-      "status": "animation_review",
+      "status": "detail_review",
       "files": [
         "rabbit_0_rest_l_f0.png",
         "rabbit_0_rest_r_f0.png",
@@ -2107,6 +2127,180 @@
           "file": "rabbit_1_rest_r_f0.png"
         }
       ]
+    },
+    {
+      "id": "carcass_large",
+      "group": "animals",
+      "size": [
+        9,
+        4
+      ],
+      "anchor": [
+        4,
+        2
+      ],
+      "variants": 2,
+      "state": "rest",
+      "frames": 1,
+      "frame_ms": null,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "files": [
+        "carcass_large_0_rest_l_f0.png",
+        "carcass_large_0_rest_r_f0.png",
+        "carcass_large_1_rest_l_f0.png",
+        "carcass_large_1_rest_r_f0.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "carcass_large_0_rest_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "carcass_large_0_rest_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "carcass_large_1_rest_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "carcass_large_1_rest_r_f0.png"
+        }
+      ],
+      "status": "design_review"
+    },
+    {
+      "id": "carcass_small",
+      "group": "animals",
+      "size": [
+        4,
+        2
+      ],
+      "anchor": [
+        2,
+        1
+      ],
+      "variants": 2,
+      "state": "rest",
+      "frames": 1,
+      "frame_ms": null,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "files": [
+        "carcass_small_0_rest_l_f0.png",
+        "carcass_small_0_rest_r_f0.png",
+        "carcass_small_1_rest_l_f0.png",
+        "carcass_small_1_rest_r_f0.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "carcass_small_0_rest_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "carcass_small_0_rest_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "carcass_small_1_rest_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "carcass_small_1_rest_r_f0.png"
+        }
+      ],
+      "status": "design_review"
+    },
+    {
+      "id": "tracks_deer",
+      "group": "animals",
+      "size": [
+        64,
+        32
+      ],
+      "anchor": [
+        32,
+        16
+      ],
+      "files": [
+        "tracks_deer.png"
+      ],
+      "opacity": "renderer_density",
+      "status": "design_review"
+    },
+    {
+      "id": "tracks_wolf",
+      "group": "animals",
+      "size": [
+        64,
+        32
+      ],
+      "anchor": [
+        32,
+        16
+      ],
+      "files": [
+        "tracks_wolf.png"
+      ],
+      "opacity": "renderer_density",
+      "status": "design_review"
+    },
+    {
+      "id": "tracks_fox",
+      "group": "animals",
+      "size": [
+        64,
+        32
+      ],
+      "anchor": [
+        32,
+        16
+      ],
+      "files": [
+        "tracks_fox.png"
+      ],
+      "opacity": "renderer_density",
+      "status": "design_review"
+    },
+    {
+      "id": "tracks_rabbit",
+      "group": "animals",
+      "size": [
+        64,
+        32
+      ],
+      "anchor": [
+        32,
+        16
+      ],
+      "files": [
+        "tracks_rabbit.png"
+      ],
+      "opacity": "renderer_density",
+      "status": "design_review"
     }
   ]
 }
