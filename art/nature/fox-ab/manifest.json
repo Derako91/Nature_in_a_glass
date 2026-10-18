@@ -1,0 +1,29 @@
+{
+  "status": "single_frame_review_not_installed",
+  "assets": [
+    {
+      "id": "fox",
+      "variant": 0,
+      "state": "graze",
+      "direction": "r",
+      "frame": 0,
+      "file": "fox_0_graze_r_f0.png",
+      "size": [
+        80,
+        48
+      ],
+      "display_size": [
+        10,
+        6
+      ],
+      "anchor": [
+        40,
+        40
+      ],
+      "resolution_scale": 8
+    }
+  ],
+  "reference": "fox-b-imagegen-source.png",
+  "baseline": "assets/nature/animals/fox_0_graze_r_f0.png",
+  "note": "Ein Standbild. Erst nach Freigabe alle Bilder derselben Art konsistent umstellen."
+}

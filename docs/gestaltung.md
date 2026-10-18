@@ -25,8 +25,30 @@ werden eigenständig erstellt.
 - Kronen wirken organisch und leicht unregelmäßig, mit kleinen Blattgruppen.
 - Flächen erhalten feine Materialstruktur; große glatte Farbflächen vermeiden.
 - Alte Bäume wirken voller und gedrungener, junge Bäume bleiben schmal und hell.
-- Die Dateimaße, Anker, Farbobergrenze und Simulationszuordnung unten gelten weiter.
+- Weltmaße, Anker und Simulationszuordnung gelten weiter. Die neuere Stilentscheidung 1.2 ersetzt die bisherige Farbobergrenze und starre Dateiauflösungen.
 - Prüfblatt 02 erprobt diese Richtung; es ist noch keine Freigabe der Asset-Serie.
+
+### 1.2 Verbindliche Stilreferenz: Fuchs (18.10.2026)
+
+Dennis hat den [Fuchs-Entwurf](../art/nature/fox-ab/fox-b-imagegen-source.png)
+als gewünschte Richtung gewählt: plastische Körper, warme natürliche Farben,
+erkennbare Anatomie und feinere Pixelstrukturen. Schwanz, Ohren und Schnauze
+sollen die Art erklären; Fellflächen bekommen zusammenhängende Licht- und
+Schattenformen statt zufälliger Einzelpixel. Keine Comic-Gesichter.
+
+Diese Richtung gilt langfristig für Tiere, Menschen, Vegetation, Gelände und
+Wasser. Zunächst wird nur ein Fuchs-Standbild geprüft. Der
+[Vergleich](../art/nature/fox-ab/comparison.png) zeigt den bisherigen Projektstand
+und den neuen Export bei Zoom 4, 8, 16 und 32 auf drei Böden. Er ist eine
+synthetische Vorschau, keine Spielabnahme. Animationen und andere Arten folgen
+erst nach dem Vergleich. Die Referenz ist eine Stilfreigabe, keine Freigabe
+jedes Details der technischen Umsetzung.
+
+Für diesen Nahansicht-Test wird der Fuchs als 80×48 RGBA exportiert, bei
+unverändertem Weltmaß 10×6 und Anker 40/40 (Weltanker 5/5). Das erlaubt
+Zoom 32 ohne Vergrößerung. Es ist keine pauschale Pflichtauflösung für alle
+Assets. Vor einer Einbindung müssen sämtliche Frames derselben Art/Variante
+auf eine gemeinsame Auflösung gebracht werden; keine Mischung mit 20×12.
 
 ## 2. Prioritäten (in dieser Reihenfolge)
 
@@ -128,7 +150,7 @@ Die Grundfarben stammen aus dem heutigen Renderer. Neue Assets bauen ihre Schatt
 | Quelle versiegt | `#966E46` | |
 
 Regeln:
-- Höchstens **6 Töne pro Asset** (inklusive Schatten und Glanzlicht), aus der Familie der jeweiligen Ankerfarbe.
+- **Keine feste Farbanzahl.** Farben aus der jeweiligen Ankerfamilie entwickeln; zusätzliche Abstufungen sind für Fell, Rinde, Blätter, Stein und Wasser ausdrücklich erlaubt. Zusammenhängende Material- und Lichtflächen bewahren, Farbrauschen vermeiden.
 - Kein reines Schwarz, kein reines Weiß.
 - Vegetation **leicht entsättigt** anlegen, damit der Renderer sie für Trockenheit oder Jahreszeit sanft tönen kann (multiplikativ, höchstens ±20 % Helligkeit).
 - Wasser, Feuer und Quelle sind die einzigen gesättigten Farben – sie sollen sofort ins Auge fallen.
@@ -192,7 +214,7 @@ Höchstens **6 Baum- und 4 Busch-Sprites pro Feld** (Leistungsgrenze: 4096 Felde
 
 ## 8. Asset-Gruppen (erste Ausbaustufe)
 
-Format für alle: **PNG, 32 Bit mit Transparenz, sRGB**, keine halbtransparenten Fransen an den Rändern (Kanten entweder voll deckend oder voll transparent, Ausnahme: Schatten, Wasser, Feuer). Kein Hintergrund, keine eingebauten Schatten außer dem Schlagschatten der Sprites.
+Format für alle: **PNG, RGBA mit 8 Bit je Kanal, sRGB**. Halbtransparente Kanten und freie Deckkraft sind erlaubt; keine hellen oder dunklen Hintergrundsäume. Kein Hintergrund, keine eingebauten Schatten außer dem Schlagschatten der Sprites. Auflösung nach benötigter Nahansicht wählen, Weltmaß unverändert lassen (16.5). Tabellen mit alten Dateimaßen dokumentieren die bisherigen Exporte, keine technische Obergrenze.
 
 ### Gruppe A – Boden-Tiles (Oberseite der Raute)
 
@@ -367,7 +389,7 @@ Abnahme bei tatsächlichem Zoom stehen weiterhin aus.
 
 - [ ] Maße exakt wie in der Tabelle, Anker im Manifest eingetragen.
 - [ ] Transparenter Hintergrund, keine Fransen an den Kanten.
-- [ ] Höchstens 6 Töne, alle aus der Familie der Ankerfarbe (Abschnitt 5).
+- [ ] Stimmige Ankerfarbfamilie, plastische Lichtflächen, keine störenden Farbsäume; keine feste Farbobergrenze (Abschnitt 5).
 - [ ] Licht von oben rechts, Schatten links unten.
 - [ ] Tiles: nahtlos in alle Richtungen; Wände: vertikal nahtlos.
 - [ ] Silhouettentest bei 50 % Größe bestanden (Abschnitt 6).
