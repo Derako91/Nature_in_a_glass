@@ -380,11 +380,40 @@ fn draw_iso_gfx(
         origin + iso_center(x, y, w, h, z).to_vec2()
             - Vec2::new(0.0, iso_lift(world.tiles[i].elevation, z))
     };
+    // Zoomstufen (gestaltung.md 4.3): im Überblick und bei schneller Zeit
+    // keine Einzeltiere, sondern Spuren, wo Tiere leben.
+    let individuals = z >= OVERVIEW_ZOOM && !animals.is_empty();
+    let tracks = !individuals && (!sim.animals.list.is_empty() || sim.animals.rabbit_total() > 0.0);
     // Tiere je Feld
     let mut by_tile: Vec<Vec<usize>> = vec![Vec::new(); world.tiles.len()];
-    for (k, a) in animals.iter().enumerate() {
-        by_tile[a.tile as usize].push(k);
+    if individuals {
+        for (k, a) in animals.iter().enumerate() {
+            by_tile[a.tile as usize].push(k);
+        }
     }
+    let mut carcass_at: Vec<Vec<&'static str>> = vec![Vec::new(); world.tiles.len()];
+    if individuals {
+        for (tile, id) in ap::carcasses(&sim.animals) {
+            carcass_at[tile as usize].push(id);
+        }
+    }
+    let carcass_entry = |id: &str| atlas.tile(id, 0).or_else(|| atlas.sprite(id, 0, "normal"));
+    // Spurendichte je Feld: Hirsche, Wölfe, Füchse (Kaninchen aus dem Bestand)
+    let mut pack: Vec<[u16; 3]> = Vec::new();
+    if tracks {
+        pack = vec![[0; 3]; world.tiles.len()];
+        for a in &sim.animals.list {
+            let k = a.species.index();
+            if k < 3 {
+                pack[a.tile as usize][k] += 1;
+            }
+        }
+    }
+    let track_ids = ["tracks_deer", "tracks_wolf", "tracks_fox", "tracks_rabbit"];
+    let track_entries: Vec<[Option<&Entry>; 4]> = track_ids
+        .iter()
+        .map(|id| [0, 1, 2, 3].map(|v| atlas.tile(id, v)))
+        .collect();
     let solid = |mesh: &mut Mesh, p: [Pos2; 4], c: Color32| {
         tex_quad(mesh, p, [white; 4], c);
     };
@@ -489,6 +518,34 @@ fn draw_iso_gfx(
                 );
             }
 
+            // Spuren statt Einzeltieren (15.5, 4.3)
+            if tracks && !t.is_ocean() {
+                for (k, entries) in track_entries.iter().enumerate() {
+                    let d = if k < 3 {
+                        (pack[i][k] as f32 / 4.0).min(1.0)
+                    } else {
+                        ap::track_density(
+                            &sim.animals,
+                            i as u32,
+                            nig_core::animals::Species::Rabbit,
+                        )
+                    };
+                    if d <= 0.0 {
+                        continue;
+                    }
+                    match entries[variant as usize] {
+                        Some(te) => tex_rect(&mut mesh, top_rect, te, with_alpha(lit, d)),
+                        // Platzhalter, bis es die Spurenbilder gibt: Hauch
+                        // der Kartenfarbe
+                        None => solid(
+                            &mut mesh,
+                            [n, east, south, west],
+                            with_alpha(night_tint(TRACK_COLORS[k], light), 0.35 * d),
+                        ),
+                    }
+                }
+            }
+
             // Wasserläufe als Linien
             if !t.is_ocean() {
                 let flat = iso_center(x, y, w, h, z);
@@ -526,6 +583,7 @@ fn draw_iso_gfx(
             enum Thing<'b> {
                 Plant(&'b ap::Sprite),
                 Animal(&'b ap::AnimalSprite),
+                Carcass(&'static str, f32, f32),
             }
             let plants = ap::sprites(world, i);
             let mut things: Vec<(f32, Thing)> = plants
@@ -536,6 +594,10 @@ fn draw_iso_gfx(
                         .iter()
                         .map(|&k| (animals[k].pos.1, Thing::Animal(&animals[k]))),
                 )
+                .chain(carcass_at[i].iter().enumerate().map(|(k, &id)| {
+                    let (u, v) = [(0.15, 0.3), (-0.35, 0.15), (0.45, 0.0)][k % 3];
+                    (v, Thing::Carcass(id, u, v))
+                }))
                 .collect();
             things.sort_by(|a, b| a.0.total_cmp(&b.0));
             for (_, th) in things {
@@ -575,13 +637,32 @@ fn draw_iso_gfx(
                                 + Vec2::new(a.pos.0 * hw, a.pos.1 * hh);
                             foot = from + (foot - from) * g.day_frac;
                         }
-                        let s = scale * a.scale;
+                        // Auf die Darstellungsbreite bringen, gleich in
+                        // welcher Auflösung das Bild gezeichnet ist (4.3).
+                        let reference = atlas
+                            .animal(a.id, a.variant, "graze", a.dir, 0)
+                            .map_or(ae.size.x, |r| r.size.x)
+                            .max(1.0);
+                        let s = scale * a.scale * animal_width(a.id) / reference;
                         let tint = shade(lit, 1.0 - 0.25 * a.weakness);
                         tex_rect(
                             &mut mesh,
                             Rect::from_min_size(foot - ae.anchor * s, ae.size * s),
                             ae,
                             tint,
+                        );
+                    }
+                    Thing::Carcass(id, u, v) => {
+                        let Some(ce) = carcass_entry(id) else {
+                            continue;
+                        };
+                        let foot = c + Vec2::new(u * hw, v * hh);
+                        let s = scale * animal_width(id) / ce.size.x.max(1.0);
+                        tex_rect(
+                            &mut mesh,
+                            Rect::from_min_size(foot - ce.anchor * s, ce.size * s),
+                            ce,
+                            lit,
                         );
                     }
                 }
@@ -599,6 +680,35 @@ fn draw_iso_gfx(
     painter.add(Shape::mesh(mesh));
     hovered
 }
+
+/// Unterhalb dieses Zooms („Überblick“, gestaltung.md 4.3) erscheinen keine
+/// einzelnen Tiere, sondern Spuren.
+pub const OVERVIEW_ZOOM: f32 = 1.5;
+
+/// Darstellungsbreite im Grundmaß (Raute 64 × 32), gestaltung.md 4.3/15.3.
+/// Jedes Tierbild wird auf diese Breite gebracht – gleich, ob es in
+/// einfacher oder doppelter Auflösung gezeichnet ist. Doppelt aufgelöste
+/// Bilder bleiben so bei Zoom 8 scharf.
+fn animal_width(id: &str) -> f32 {
+    match id {
+        "deer" => 14.0,
+        "deer_young" => 9.0,
+        "wolf" => 13.0,
+        "fox" => 10.0,
+        "rabbit" => 6.0,
+        "carcass_large" => 14.0,
+        "carcass_small" => 7.0,
+        _ => 8.0,
+    }
+}
+
+/// Platzhalterfarben der Spuren: Hirsch, Wolf, Fuchs, Kaninchen (15.6).
+const TRACK_COLORS: [Color32; 4] = [
+    Color32::from_rgb(176, 122, 68),
+    Color32::from_rgb(154, 160, 166),
+    Color32::from_rgb(210, 104, 44),
+    Color32::from_rgb(200, 184, 152),
+];
 
 /// Kartenfarben der Tiere (gestaltung.md 15.6). Platzhalter, bis die
 /// Tier-Sprites eingebunden sind.

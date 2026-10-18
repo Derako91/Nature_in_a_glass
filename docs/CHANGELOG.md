@@ -1,5 +1,13 @@
 # Änderungen
 
+## 0.4.4 – Zoomstufen
+
+**Neu**
+- **Tiere größer:** Hirsche, Wölfe, Füchse und Kaninchen erscheinen in der Grafik etwa anderthalb- bis zweimal so groß wie bisher – gut erkennbar, aber immer noch niedriger als ein junger Baum. Bis Codex sie schärfer neu zeichnet, sind sie etwas pixelig.
+- **Überblick:** Ist die Kamera weit weg (ganze Insel im Bild) oder läuft die Zeit ab 1 Monat/s, zeigt die Grafik keine einzelnen Tiere mehr, sondern einen Hauch Farbe, wo Tiere leben. Später ersetzen Codex' Trittspuren diesen Hauch.
+- Kadaver erscheinen, sobald es die Bilder dazu gibt.
+- In `docs/gestaltung.md` festgehalten (4.3): was man bei welchem Abstand erkennt, neue Tiergrößen, Tiere dürfen doppelt aufgelöst gezeichnet werden.
+
 ## 0.4.3 – Die Insel bekommt ihre Bilder
 
 **Neu**

@@ -82,6 +82,25 @@ Ein Feld ist 50 m breit. Ein ausgewachsener Baum ist etwa 20–30 m hoch. Daraus
 
 Die Bäume sind gegenüber dem echten Maßstab bewusst **etwas größer**, damit Wald als Wald lesbar bleibt. Dieses Verhältnis gilt für alle Baum-Sprites.
 
+### 4.3 Zoomstufen – was man bei welchem Abstand erkennt
+
+Festgelegt am 18.10.2026 mit Dennis. Die Kamera zoomt von 0,4 bis 8. Das Grundmaß (Raute 64 × 32 px) gilt bei Zoom 4; darunter verkleinert der Renderer, darüber vergrößert er pixelgenau.
+
+| Stufe | Zoom | Feld am Bildschirm | Was man erkennt |
+| --- | --- | --- | --- |
+| **Überblick** | 0,4 – 1,5 | 6–24 px | Die ganze Insel: Wald, Wiese, Wasser, Fels, Feuer als Flächen. **Keine einzelnen Tiere** – nur Spuren (`tracks_<art>`), wo Tiere leben. |
+| **Landschaft** | 1,5 – 4 | 24–64 px | Einzelne Bäume, Büsche, Totholz, Bäche. Hirsche, Wölfe und Füchse als kleine Figuren, Kaninchen als Gewimmel, Kadaver. |
+| **Nah** | 4 – 8 | 64–128 px | Jedes Tier mit Haltung (frisst, läuft, ruht), jung oder alt, kräftig oder geschwächt. |
+
+Dazu die Zeitregel aus 15.5: Ab 1 Monat/s gibt es unabhängig vom Zoom nur Spuren.
+
+Folgerungen für die Bilder:
+
+- **Boden, Wände, Wasser, Pflanzen:** bleiben im Grundmaß. Sie reichen bis Zoom 8; größere Fassungen sind nicht nötig.
+- **Tiere:** werden größer dargestellt als bisher (neue Maße in 15.3) und dürfen **in doppelter Auflösung** gezeichnet werden (z. B. Hirsch 28 × 24 statt 14 × 12). Der Renderer bringt jedes Tierbild auf die Darstellungsbreite aus 15.3 – gleich, in welcher Auflösung es vorliegt. Doppelt aufgelöste Tiere bleiben so bei Zoom 8 scharf. Wichtig: alle Bilder einer Art und Variante in derselben Auflösung.
+- **Spuren** (`tracks_<art>`) sind das, was man im Überblick von den Tieren sieht. Sie sind deshalb wichtiger als die Kadaver.
+- **Menschen (v0.6)** sind noch offen: entweder wie die Tiere als vergrößerte kleine Figuren in diesem Maßstab, oder eine eigene Nahansicht (etwa Zoom 16–32) mit größeren Bildern für Dörfer und einzelne Menschen. Entscheidung, wenn die Bewohner geplant werden.
+
 ## 5. Farbpalette
 
 Die Grundfarben stammen aus dem heutigen Renderer. Neue Assets bauen ihre Schattierungen **aus diesen Ankerfarben** auf (heller/dunkler, wärmer/kühler), damit Karte und isometrische Ansicht zusammenpassen.
@@ -419,15 +438,19 @@ Kaninchen-Dichte → Sprites pro Feld (analog 7.2):
 
 ### 15.3 Maße im Grundmaß (Raute 64 × 32 px)
 
-| ID | Breite × Höhe (px) | Fußpunkt | Bemerkung |
-| --- | --- | --- | --- |
-| `deer` | 9 × 8 | Mitte zwischen den Hufen | Geweih nur beim Altersstufe `adult`, schlicht, 2–3 px |
-| `deer_young` | 6 × 6 | wie oben | Kalb, heller, ohne Geweih |
-| `wolf` | 8 × 5 | Mitte unter dem Körper | grau, niedriger und gestreckter als der Hirsch |
-| `fox` | 6 × 4 | wie oben | rötlich, buschiger Schwanz als Erkennungsmerkmal |
-| `rabbit` | 3 × 3 | Mitte unten | graubraun, heller Fleck am Schwanz |
-| `carcass_large` | 9 × 4 | Mitte | liegender Hirsch- oder Wolfskörper, entsättigt |
-| `carcass_small` | 4 × 2 | Mitte | Fuchs oder Kaninchen |
+Neu seit 18.10.2026 (4.3): Die ersten Maße (Hirsch 9 × 8, Kaninchen 3 × 3) waren im Spiel zu klein. Die **Darstellungsgröße** ist jetzt etwa das 1,5- bis 2-Fache. Tiere bleiben **niedriger als ein Jungbaum** (14 px).
+
+| ID | Darstellung B × H (px) | doppelt aufgelöst | Fußpunkt | Bemerkung |
+| --- | --- | --- | --- | --- |
+| `deer` | 14 × 12 | 28 × 24 | Mitte zwischen den Hufen | Geweih nur bei der Altersstufe `adult`, schlicht |
+| `deer_young` | 9 × 8 | 18 × 16 | wie oben | Kalb, heller, ohne Geweih |
+| `wolf` | 13 × 8 | 26 × 16 | Mitte unter dem Körper | grau, niedriger und gestreckter als der Hirsch |
+| `fox` | 10 × 6 | 20 × 12 | wie oben | rötlich, buschiger Schwanz als Erkennungsmerkmal |
+| `rabbit` | 6 × 5 | 12 × 10 | Mitte unten | graubraun, heller Fleck am Schwanz |
+| `carcass_large` | 14 × 6 | 28 × 12 | Mitte | liegender Hirsch- oder Wolfskörper, entsättigt |
+| `carcass_small` | 7 × 3 | 14 × 6 | Mitte | Fuchs oder Kaninchen |
+
+Maßgeblich für den Renderer ist nur die **Breite**: Er misst das Bild `<id>_<variante>_graze_<richtung>_f0` und skaliert alle Bilder dieser Art so, dass es die Darstellungsbreite hat (Kadaver: das Kadaverbild selbst). Die heutigen Bilder (9 × 8 usw.) werden deshalb schon vergrößert gezeigt, bis Codex neue liefert – dann etwas pixelig, aber in der richtigen Größe. Der `anchor` im Manifest wird in der Auflösung des Bildes angegeben.
 
 Schlagschatten wie bei der Vegetation: Teil des Sprites, links unten, 25–35 % Deckkraft, Farbe `#0C1A34`, höchstens 2 px versetzt.
 
@@ -524,9 +547,9 @@ Heutige Zeichenreihenfolge je Feld: Seitenwände (in 32-px-Streifen gekachelt, r
 
 ### 16.3 Was fehlt – Aufgaben in dieser Reihenfolge
 
-1. **Tiere besser erkennbar.** Im Spiel sind Hirsch (9 × 8) und vor allem Kaninchen (3 × 3) bei üblichem Zoom nur Punkte. Vorschlag: Codex prüft im laufenden Spiel bei Zoom 2–5, ob die Tiersprites im Renderer vergrößert werden sollen (z. B. eigener Faktor in `draw_iso_gfx`) oder neue, größere Sprites nötig sind. Maßstab 4.2 gilt für Pflanzen; für Tiere darf davon abgewichen werden, solange sie kleiner als ein Jungbaum bleiben.
+1. **Tiere neu zeichnen, größer und doppelt aufgelöst** (entschieden 18.10.2026, siehe 4.3 und 15.3). Der Renderer zeigt die heutigen Bilder schon in der neuen Größe, vergrößert sie aber nur. Codex zeichnet alle vier Arten in doppelter Auflösung neu (Hirsch 28 × 24, Kaninchen 12 × 10 usw.), gleiche Dateinamen, Anker im Manifest anpassen. Prüfen bei Zoom 2, 4 und 8.
 2. **Feuer** (Gruppe E): `fire_ground` als Überlagerung und `fire_flame_small`, `fire_flame_large` als Sprites (`appearance::sprites` liefert sie schon bei brennenden Feldern), dazu `smoke`. Heute: nur eine orange Fläche.
-3. **Kadaver und Spuren** (15.3, 15.5): `carcass_large`, `carcass_small`, `tracks_<art>`. Die Schnittstelle liefert sie (`appearance::carcasses`, `track_density`), der Renderer zeichnet sie, sobald es die Bilder gibt – das Einhängen in `draw_iso_gfx` gehört dazu.
+3. **Spuren und Kadaver** (15.3, 15.5, 4.3): `tracks_deer`, `tracks_wolf`, `tracks_fox`, `tracks_rabbit` (Überlagerung, Raute 64 × 32, Varianten `_0` bis `_3` möglich) sowie `carcass_large_0`, `carcass_small_0`. **Im Renderer schon eingehängt:** Spuren erscheinen im Überblick (Zoom unter 1,5) und ab 1 Monat/s mit Deckkraft nach Dichte – bis es die Bilder gibt, als Hauch der Kartenfarbe. Kadaver erscheinen in den Stufen Landschaft und Nah, sobald es die Bilder gibt.
 4. **Zustände der Pflanzen:** `stressed` (Trockenheit) für Bäume und Büsche, `charred` für Totholz, `log_fallen` (liegendes Totholz). Bis dahin erscheinen die normalen Bilder.
 5. **Varianten:** je Boden- und Pflanzenart 3 weitere Varianten (`_1` bis `_3`), damit Wald und Wiese nicht gekachelt wirken.
 6. **Wasser:** Animation (`water_*_f0…f3`, langsam, 15.5 bzw. 8 Gruppe C) und eine Lösung für Bäche – heute sind sie blaue Linien; `water_stream_0.png` ist noch nicht eingebunden.
