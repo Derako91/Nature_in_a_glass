@@ -15,6 +15,13 @@ und liegen deshalb nur dort.
 
 ## Aktuelle Entwürfe
 
+### Menschen – erste Vorbereitung
+
+![Männliche und weibliche Grundfiguren](../../assets/nature/_humans-motion.gif)
+
+[Maßstabsvergleich](../../assets/nature/_humans-scale.png)
+· [Umfang und offene Entscheidungen](HUMANS-01.md)
+
 ### Landschaft in der Nahansicht – Runde 10
 
 ![Landschaft vorher und nachher](../../assets/nature/_landscape-detail-comparison.png)
