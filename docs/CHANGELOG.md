@@ -1,5 +1,12 @@
 # Änderungen
 
+## 0.7.1 – Die Bewohner bekommen Gesichter
+
+**Neu**
+- **Codex' Menschenbilder sind im Spiel:** fünf unterschiedliche Bewohner – Haare, Kleidung, Statur und eine eigene Erkennungsfarbe – in allen Tätigkeiten: stehen, gehen, laufen, sammeln, essen, trinken, schlafen, verletzt hinken. Fein genug für die Nahansicht bis Zoom 32. Tote liegen entsättigt am Boden.
+- Im Überblick zeigt Codex' Zeichen in der Erkennungsfarbe, wo jemand ist.
+- Kinder erscheinen vorerst als kleinere Fassung des Erwachsenenbilds, bis es eigene Kinderbilder gibt.
+
 ## 0.7.0 – Familien
 
 **Neu**

@@ -5,7 +5,14 @@
 use std::fs;
 use std::path::Path;
 
-const GROUPS: [&str; 5] = ["ground", "walls", "water", "vegetation", "animals"];
+const GROUPS: [&str; 6] = [
+    "ground",
+    "walls",
+    "water",
+    "vegetation",
+    "animals",
+    "people",
+];
 
 fn main() {
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../assets/nature");
@@ -42,10 +49,12 @@ fn main() {
         "/// Eingebettete Bilder: (Dateiname ohne Endung, PNG-Daten).\n\
          pub static IMAGES: &[(&str, &[u8])] = &[\n{}\n];\n\
          pub static MANIFEST: Option<&str> = {};\n\
-         pub static ANIMAL_MANIFEST: Option<&str> = {};\n",
+         pub static ANIMAL_MANIFEST: Option<&str> = {};\n\
+         pub static PEOPLE_MANIFEST: Option<&str> = {};\n",
         entries.join("\n"),
         manifest("manifest.json"),
         manifest("animals/manifest.json"),
+        manifest("people/manifest.json"),
     );
     let out = Path::new(&std::env::var("OUT_DIR").unwrap()).join("assets.rs");
     fs::write(out, code).unwrap();

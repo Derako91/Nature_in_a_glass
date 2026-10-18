@@ -821,7 +821,7 @@ fn draw_iso_gfx(
     }
     painter.add(Shape::mesh(mesh));
     if !people_close {
-        draw_person_markers(painter, sim, &persons, origin, z, light);
+        draw_person_markers(painter, sim, &persons, origin, z, light, Some(atlas));
     }
     hovered
 }
@@ -846,13 +846,14 @@ fn person_frames(state: &str) -> (u32, f64) {
     }
 }
 
-/// Erkennungsfarben der fünf Aussehen (Vorschlag; Codex darf sie anpassen).
+/// Erkennungsfarben der fünf Aussehen – aus Codex' Menschenbildern
+/// (`assets/nature/people/manifest.json`, `recognition_color`).
 pub const PERSON_COLORS: [Color32; 5] = [
-    Color32::from_rgb(196, 78, 52),
-    Color32::from_rgb(58, 112, 186),
-    Color32::from_rgb(222, 178, 58),
-    Color32::from_rgb(78, 150, 92),
-    Color32::from_rgb(150, 92, 172),
+    Color32::from_rgb(0xA5, 0x4E, 0x3B),
+    Color32::from_rgb(0x4D, 0x7B, 0x91),
+    Color32::from_rgb(0x7B, 0x56, 0x7E),
+    Color32::from_rgb(0xB7, 0x8E, 0x38),
+    Color32::from_rgb(0x53, 0x7E, 0x68),
 ];
 
 pub fn person_color(look: u8) -> Color32 {
@@ -917,14 +918,28 @@ fn draw_person_markers(
     origin: Pos2,
     z: f32,
     light: f32,
+    atlas: Option<&Atlas>,
 ) {
     let world = &sim.world;
     let (w, h) = (world.width, world.height);
+    // Codex' Zeichen (weiß, wird eingefärbt), 1 Bildpunkt = 1 Bildschirmpunkt
+    let marker = atlas.and_then(|a| a.get("person_marker_0").map(|e| (a, e)));
+    let mut mesh = marker.map(|(a, _)| Mesh::with_texture(a.texture.id()));
     for p in persons {
         let (x, y) = world.xy(p.tile as usize);
         let e = world.tiles[p.tile as usize].elevation;
         let c = origin + iso_center(x, y, w, h, z).to_vec2() - Vec2::new(0.0, iso_lift(e, z))
             + Vec2::new(p.pos.0, p.pos.1) * 4.0;
+        if let (Some((_, me)), Some(mesh)) = (marker, mesh.as_mut()) {
+            let min = c - me.anchor;
+            tex_rect(
+                mesh,
+                Rect::from_min_size(min, me.size),
+                me,
+                night_tint(person_color(p.look), light),
+            );
+            continue;
+        }
         let r = 4.0;
         let tip = c + Vec2::new(0.0, -2.0);
         let pts = vec![
@@ -938,6 +953,9 @@ fn draw_person_markers(
             night_tint(person_color(p.look), light),
             Stroke::new(1.0, Color32::from_rgb(245, 240, 225)),
         ));
+    }
+    if let Some(mesh) = mesh {
+        painter.add(Shape::mesh(mesh));
     }
 }
 

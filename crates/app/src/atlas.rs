@@ -60,9 +60,13 @@ fn anchors() -> (HashMap<String, Vec2>, HashMap<String, String>) {
         let name = f.rsplit('/').next().unwrap_or(f);
         name.strip_suffix(".png").unwrap_or(name).to_string()
     };
-    for src in [embedded::MANIFEST, embedded::ANIMAL_MANIFEST]
-        .into_iter()
-        .flatten()
+    for src in [
+        embedded::MANIFEST,
+        embedded::ANIMAL_MANIFEST,
+        embedded::PEOPLE_MANIFEST,
+    ]
+    .into_iter()
+    .flatten()
     {
         let Ok(v) = serde_json::from_str::<serde_json::Value>(src) else {
             continue;

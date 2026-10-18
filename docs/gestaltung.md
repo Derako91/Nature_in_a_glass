@@ -541,7 +541,7 @@ Stand 18.10.2026. Seit v0.4.3 zeigt der Beobachter Codex' Bilder im Spiel (Knopf
 
 ### 16.1 Wie Bilder ins Spiel kommen
 
-1. PNG nach dem Namensschema aus Abschnitt 9 in den passenden Ordner legen: `assets/nature/ground`, `walls`, `water`, `vegetation` oder `animals`. Nur diese fünf Ordner werden eingebettet; Prüfblätter mit `_` am Anfang und alles unter `art/` bleiben draußen.
+1. PNG nach dem Namensschema aus Abschnitt 9 in den passenden Ordner legen: `assets/nature/ground`, `walls`, `water`, `vegetation` oder `animals`. Nur diese Ordner (seit v0.7.1 auch `people`) werden eingebettet; Prüfblätter mit `_` am Anfang und alles unter `art/` bleiben draußen.
 2. Den Eintrag im Manifest ergänzen (`assets/nature/manifest.json`, für Tiere `assets/nature/animals/manifest.json`) – vor allem `anchor`, denn daraus kommt der Fußpunkt. Fehlt ein Anker, setzt der Beobachter unten Mitte an.
 3. Pull Request öffnen. GitHub baut und prüft auf allen drei Systemen; nach der Übernahme ist das Bild im nächsten Download drin. Rust ist dafür lokal nicht nötig (9.1).
 
@@ -667,8 +667,8 @@ Der Beobachter (`crates/app/src/view.rs`, `draw_iso_gfx`):
 - Zoom bis 32 (`MAX_ZOOM`). Menschen werden nach den Pflanzen ihres Feldes gezeichnet.
 - Bildsuche: `person_<aussehen>_<zustand>_<richtung>_f<bild>`, sonst `person_<aussehen>_idle_<richtung>_f0`. Die Breite von `person_<aussehen>_idle_<richtung>_f0` bestimmt den Maßstab (Darstellungsbreite 7). Fehlt jedes Bild, zeichnet er eine **Platzhalterfigur** (Körper in Erdtönen, Band in der Erkennungsfarbe, Kopf; liegend für `sleep` und tot, gebückt für `gather`/`drink`).
 - Bilddauer: `walk` 4 × 200 ms, `run` 4 × 100 ms, `gather` 4 × 300 ms, `hurt` 4 × 250 ms, `eat`/`drink` 2 × 600 ms, `idle` 2 × 800 ms.
-- **Erkennungsfarben** (Vorschlag, `PERSON_COLORS`; Codex darf sie anpassen): 0 `#C44E34` (Rotocker), 1 `#3A70BA` (Blau), 2 `#DEB23A` (Gelb), 3 `#4E965C` (Grün), 4 `#965CAC` (Violett). Aussehen 0, 2, 4 sind Frauen, 1 und 3 Männer.
-- Im Überblick (Zoom unter 1,5) und ab 1 Monat/s: Zeichen über jedem Menschen als kleine Raute in der Erkennungsfarbe mit hellem Rand, feste Bildschirmgröße (`draw_person_markers`). Ein Bild `person_marker` wird noch nicht gesucht – wenn Codex eins liefert, bitte als Wunsch an Claude.
+- **Erkennungsfarben** (seit v0.7.1 aus Codex' `people/manifest.json`, `recognition_color`; im Beobachter `PERSON_COLORS`): 0 `#A54E3B`, 1 `#4D7B91`, 2 `#7B567E`, 3 `#B78E38`, 4 `#537E68`. Ändert Codex sie im Manifest, bitte Claude Bescheid geben. Aussehen 0, 2, 4 sind Frauen, 1 und 3 Männer.
+- Im Überblick (Zoom unter 1,5) und ab 1 Monat/s: Zeichen über jedem Menschen als kleine Raute in der Erkennungsfarbe mit hellem Rand, feste Bildschirmgröße (`draw_person_markers`). Seit v0.7.1 nimmt der Beobachter Codex' `person_marker_0` (weiß, wird in der Erkennungsfarbe eingefärbt, ein Bildpunkt = ein Bildschirmpunkt); ohne Bild die gezeichnete Raute.
 - Die feinen Bilder (8-fach) werden bisher ohne verkleinerte Fassungen gezeichnet; Mipmaps folgen, sobald sie da sind und flimmern (ADR 0006).
 
 ### 17.7 Arbeitsreihenfolge
