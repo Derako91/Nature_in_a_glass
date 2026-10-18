@@ -36,3 +36,21 @@ Nachbau: `python tools/nature/build_fox_comparison.py` (Pillow erforderlich;
 Prüfblatt-Schrift Segoe UI unter Windows). `validation.json` enthält Maße,
 Quellhash und Farb-/Deckkraftzahlen. Spielabnahme und weitere Frames bleiben
 offen; das Paket ist zunächst zur visuellen Entscheidung gedacht.
+
+## Spielaufnahmen (Claude, 18.10.2026)
+
+Probeversion des Beobachters, in der alle Fuchsbilder durch `fox_0_graze_r_f0.png`
+(bzw. gespiegelt für `_l`) ersetzt waren, Anker 40/40. Insel 7, Tag 22 nach dem
+Aussetzen, Feld (12, 36). Jeweils links bisher, rechts neu.
+
+- `spiel-zoom-4-8.png` – oben Zoom 4, unten Zoom 8 (beide dreifach vergrößert).
+- `spiel-zoom-16-32.png` – oben Zoom 16, unten Zoom 32.
+
+Befund: Bei Zoom 16 und 32 wirkt der neue Fuchs deutlich natürlicher und plastischer.
+Bei Zoom 4 und 8 verliert er dagegen seine Form: Das 8-fach aufgelöste Bild wird
+ohne Glättung stark verkleinert, die Silhouette (Ohren, heller Schwanzspitz)
+zerfällt in Einzelpixel, während der alte Fuchs dort klarer lesbar bleibt.
+Abhilfe technisch (Claude): verkleinerte Fassungen bzw. geglättete Verkleinerung
+im Atlas (ADR 0006). Gestalterisch (Codex): prüfen, ob für Zoom 4–8 eine eigene
+kleine Fassung mit klarer Silhouette nötig ist.
+
