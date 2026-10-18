@@ -2,6 +2,7 @@
 
 #![cfg_attr(windows, windows_subsystem = "windows")]
 
+mod atlas;
 mod view;
 
 use std::path::PathBuf;
@@ -107,6 +108,9 @@ fn main() -> eframe::Result {
         })
         .unwrap_or_default();
     let after: u64 = arg("--danach").and_then(|s| s.parse().ok()).unwrap_or(0);
+    // `--flaechen` startet mit Flächenfarben statt Grafik
+    let no_graphics = std::env::args().any(|a| a == "--flaechen");
+    let zoom: Option<f32> = arg("--zoom").and_then(|s| s.parse().ok());
     let select: Option<(u32, u32)> = arg("--select").and_then(|s| {
         let (x, y) = s.split_once(',')?;
         Some((x.trim().parse().ok()?, y.trim().parse().ok()?))
@@ -114,8 +118,10 @@ fn main() -> eframe::Result {
     eframe::run_native(
         "Nature in a Glass",
         options,
-        Box::new(move |_cc| {
+        Box::new(move |cc| {
             let mut app = App::new(seed);
+            app.atlas = atlas::Atlas::load(&cc.egui_ctx);
+            app.graphics = app.atlas.is_some() && !no_graphics;
             app.sim.advance_years(years);
             for &species in &release {
                 app.sim
@@ -141,9 +147,16 @@ fn main() -> eframe::Result {
                     _ => Layer::Nature,
                 };
             }
+            if let Some(z) = zoom {
+                app.camera.zoom = z.clamp(0.4, 8.0);
+            }
             if let Some((x, y)) = select {
                 let w = &app.sim.world;
-                app.selected = Some(w.idx(x.min(w.width - 1), y.min(w.height - 1)));
+                let i = w.idx(x.min(w.width - 1), y.min(w.height - 1));
+                app.selected = Some(i);
+                if zoom.is_some() {
+                    app.camera.pan = view::focus_pan(w, i, app.mode, app.camera.zoom);
+                }
             }
             if let Some(k) = speed {
                 app.speed = k.min(SPEEDS.len() - 1);
@@ -269,6 +282,9 @@ struct App {
     show_year_summaries: bool,
     /// Verlauf: Tierbestände statt Pflanzen.
     history_animals: bool,
+    /// Codex' Bilder (falls eingebettet) und ob sie gezeigt werden.
+    atlas: Option<atlas::Atlas>,
+    graphics: bool,
     status: String,
     reaction: EventReaction,
     /// Höchste Ereignis-ID, die der Beobachter schon geprüft hat.
@@ -310,6 +326,8 @@ impl App {
             seed_text: seed.to_string(),
             show_year_summaries: false,
             history_animals: false,
+            atlas: None,
+            graphics: false,
             status: String::new(),
             reaction: EventReaction::ChronicleOnly,
             seen_event: 0,
@@ -483,6 +501,17 @@ impl App {
                         ui.selectable_value(&mut self.layer, l, l.label());
                     }
                 });
+            let gfx_ok = self.atlas.is_some() && self.mode == ViewMode::Iso;
+            if ui
+                .add_enabled(gfx_ok, egui::Button::selectable(self.graphics, "Grafik"))
+                .on_hover_text(
+                    "Isometrische Ansicht mit den gezeichneten Bildern (Ebene Natur). \
+                     Aus: schlichte Flächenfarben. Die Grafik ist ein früher Stand.",
+                )
+                .clicked()
+            {
+                self.graphics = !self.graphics;
+            }
             ui.separator();
             ui.label("Wichtige Ereignisse:");
             egui::ComboBox::from_id_salt("reaction")
@@ -1215,6 +1244,15 @@ impl eframe::App for App {
                 self.selected,
                 light,
                 self.speed <= 2,
+                self.atlas
+                    .as_ref()
+                    .filter(|_| self.graphics)
+                    .map(|a| view::Gfx {
+                        atlas: a,
+                        time_s: ui.input(|i| i.time),
+                        animate: self.speed == 0 && self.running,
+                        day_frac: (self.sim.hour_of_day() as f32 + self.owed_hours as f32) / 24.0,
+                    }),
             );
             if resp.clicked() {
                 self.selected = result.hovered;

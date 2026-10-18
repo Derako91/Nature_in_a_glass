@@ -5,6 +5,8 @@ use nig_core::sim::{RILL_FLOW, STREAM_FLOW};
 use nig_core::world::POND_MM;
 use nig_core::{Simulation, Terrain, World};
 
+use crate::atlas::{Atlas, Entry};
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ViewMode {
     Iso,
@@ -286,6 +288,318 @@ fn quad(mesh: &mut Mesh, p: [Pos2; 4], c: Color32) {
     mesh.add_triangle(i, i + 2, i + 3);
 }
 
+/// Einstellungen für die Grafik-Darstellung (Codex' Assets).
+#[derive(Clone, Copy)]
+pub struct Gfx<'a> {
+    pub atlas: &'a Atlas,
+    /// Laufende Zeit in Sekunden (für Animationen).
+    pub time_s: f64,
+    /// Bei 1 Std/s: Tiere bewegen sich sichtbar und gleiten zwischen Feldern.
+    pub animate: bool,
+    /// Anteil des Tages (0..1) für das Gleiten.
+    pub day_frac: f32,
+}
+
+fn tex_quad(mesh: &mut Mesh, p: [Pos2; 4], uv: [Pos2; 4], c: Color32) {
+    let i = mesh.vertices.len() as u32;
+    for k in 0..4 {
+        mesh.vertices.push(egui::epaint::Vertex {
+            pos: p[k],
+            uv: uv[k],
+            color: c,
+        });
+    }
+    mesh.add_triangle(i, i + 1, i + 2);
+    mesh.add_triangle(i, i + 2, i + 3);
+}
+
+fn tex_rect(mesh: &mut Mesh, r: Rect, e: &Entry, c: Color32) {
+    tex_quad(
+        mesh,
+        [
+            r.left_top(),
+            r.right_top(),
+            r.right_bottom(),
+            r.left_bottom(),
+        ],
+        [
+            e.uv.left_top(),
+            e.uv.right_top(),
+            e.uv.right_bottom(),
+            e.uv.left_bottom(),
+        ],
+        c,
+    );
+}
+
+fn with_alpha(c: Color32, a: f32) -> Color32 {
+    let a = a.clamp(0.0, 1.0);
+    Color32::from_rgba_premultiplied(
+        (c.r() as f32 * a) as u8,
+        (c.g() as f32 * a) as u8,
+        (c.b() as f32 * a) as u8,
+        (255.0 * a) as u8,
+    )
+}
+
+/// Isometrische Ansicht mit Codex' Bildern. Erste technische Fassung: Boden,
+/// Überlagerungen, Wände, Pflanzen und Tiere werden in einem Durchgang von
+/// hinten nach vorne gelegt. Feinheiten der Darstellung gestaltet Codex.
+#[allow(clippy::too_many_arguments)]
+fn draw_iso_gfx(
+    painter: &egui::Painter,
+    sim: &Simulation,
+    animals: &[nig_core::appearance::AnimalSprite],
+    g: Gfx<'_>,
+    origin: Pos2,
+    rect: Rect,
+    z: f32,
+    mouse: Option<Pos2>,
+    light: f32,
+) -> Option<usize> {
+    use nig_core::appearance as ap;
+    let world = &sim.world;
+    let (w, h) = (world.width, world.height);
+    let (hw, hh) = (ISO_TILE_W * 0.5 * z, ISO_TILE_H * 0.5 * z);
+    // Asset-Grundmaß gilt bei Zoom 4 (Raute 64 × 32)
+    let scale = z / 4.0;
+    let atlas = g.atlas;
+    let white = atlas.white_uv();
+    let lit = night_tint(Color32::WHITE, light);
+    let mut mesh = Mesh::with_texture(atlas.texture.id());
+    let mut hovered = None;
+    let height_of = |x: i32, y: i32| -> f32 {
+        if x < 0 || y < 0 || x >= w as i32 || y >= h as i32 {
+            0.0
+        } else {
+            world.tile(x as u32, y as u32).elevation
+        }
+    };
+    let center_of = |i: usize| -> Pos2 {
+        let (x, y) = world.xy(i);
+        origin + iso_center(x, y, w, h, z).to_vec2()
+            - Vec2::new(0.0, iso_lift(world.tiles[i].elevation, z))
+    };
+    // Tiere je Feld
+    let mut by_tile: Vec<Vec<usize>> = vec![Vec::new(); world.tiles.len()];
+    for (k, a) in animals.iter().enumerate() {
+        by_tile[a.tile as usize].push(k);
+    }
+    let solid = |mesh: &mut Mesh, p: [Pos2; 4], c: Color32| {
+        tex_quad(mesh, p, [white; 4], c);
+    };
+
+    for s in 0..(w + h - 1) {
+        for x in 0..w {
+            let Some(y) = s.checked_sub(x) else { continue };
+            if y >= h {
+                continue;
+            }
+            let i = world.idx(x, y);
+            let t = &world.tiles[i];
+            let e = t.elevation;
+            let c = center_of(i);
+            if c.x < rect.left() - hw * 2.0
+                || c.x > rect.right() + hw * 2.0
+                || c.y < rect.top() - 200.0
+                || c.y > rect.bottom() + 200.0
+            {
+                continue;
+            }
+            let ground = ap::ground(world, i);
+            let variant = (nig_core::rng::hash2(x as i32, y as i32, world.seed) % 4) as u32;
+            let n = Pos2::new(c.x, c.y - hh);
+            let east = Pos2::new(c.x + hw, c.y);
+            let south = Pos2::new(c.x, c.y + hh);
+            let west = Pos2::new(c.x - hw, c.y);
+
+            // Seitenwände, in Streifen von 32 Bildpunkten gekachelt
+            let wall = atlas.tile(ground.wall_id(), 0);
+            for (drop, a, b, f) in [
+                (
+                    iso_lift(e, z) - iso_lift(height_of(x as i32 + 1, y as i32), z),
+                    east,
+                    south,
+                    0.72,
+                ),
+                (
+                    iso_lift(e, z) - iso_lift(height_of(x as i32, y as i32 + 1), z),
+                    south,
+                    west,
+                    0.56,
+                ),
+            ] {
+                if drop <= 0.0 {
+                    continue;
+                }
+                let col = shade(lit, f);
+                match wall {
+                    Some(we) if !ground.is_water() => {
+                        let seg = 32.0 * scale;
+                        let mut top = 0.0;
+                        while top < drop {
+                            let bottom = (top + seg).min(drop);
+                            let v0 = we.uv.top();
+                            let v1 = v0 + (we.uv.bottom() - v0) * ((bottom - top) / seg);
+                            let (dt, db) = (Vec2::new(0.0, top), Vec2::new(0.0, bottom));
+                            tex_quad(
+                                &mut mesh,
+                                [a + dt, b + dt, b + db, a + db],
+                                [
+                                    Pos2::new(we.uv.left(), v0),
+                                    Pos2::new(we.uv.right(), v0),
+                                    Pos2::new(we.uv.right(), v1),
+                                    Pos2::new(we.uv.left(), v1),
+                                ],
+                                col,
+                            );
+                            top = bottom;
+                        }
+                    }
+                    _ => {
+                        let base = night_tint(shade(tile_color(world, i, Layer::Nature), f), light);
+                        let d = Vec2::new(0.0, drop);
+                        solid(&mut mesh, [a, b, b + d, a + d], base);
+                    }
+                }
+            }
+
+            // Boden und Überlagerungen
+            let top_rect =
+                Rect::from_min_max(Pos2::new(c.x - hw, c.y - hh), Pos2::new(c.x + hw, c.y + hh));
+            match atlas.tile(ground.asset_id(), variant) {
+                Some(ge) => tex_rect(&mut mesh, top_rect, ge, lit),
+                None => solid(
+                    &mut mesh,
+                    [n, east, south, west],
+                    night_tint(tile_color(world, i, Layer::Nature), light),
+                ),
+            }
+            for o in ap::overlays(t) {
+                if let Some(oe) = atlas.tile(o.id, variant) {
+                    tex_rect(&mut mesh, top_rect, oe, with_alpha(lit, o.alpha));
+                }
+            }
+            if t.fire > 0.0 {
+                let fc = Color32::from_rgb(245, 110, 30);
+                solid(
+                    &mut mesh,
+                    [n, east, south, west],
+                    with_alpha(fc, 0.35 + 0.4 * t.fire),
+                );
+            }
+
+            // Wasserläufe als Linien
+            if !t.is_ocean() {
+                let flat = iso_center(x, y, w, h, z);
+                let mut line = |a: Pos2, b: Pos2, flow: f32| {
+                    let d = b - a;
+                    let len = d.length();
+                    if len < 0.01 {
+                        return;
+                    }
+                    let nn = Vec2::new(-d.y, d.x) / len * (stream_width(flow, z) * 0.5);
+                    solid(
+                        &mut mesh,
+                        [a + nn, b + nn, b - nn, a - nn],
+                        stream_color(flow, light),
+                    );
+                };
+                if t.flow >= RILL_FLOW
+                    && let Some(d) = world.downstream[i]
+                {
+                    let (dx, dy) = world.xy(d as usize);
+                    let dir = iso_center(dx, dy, w, h, z) - flat;
+                    line(c, c + dir * 0.5, t.flow);
+                }
+                for nb in world.neighbors(i) {
+                    let up = &world.tiles[nb];
+                    if up.flow >= RILL_FLOW && world.downstream[nb] == Some(i as u32) {
+                        let (ux, uy) = world.xy(nb);
+                        let dir = iso_center(ux, uy, w, h, z) - flat;
+                        line(c + dir * 0.5, c, up.flow);
+                    }
+                }
+            }
+
+            // Pflanzen und Tiere, nach Fußpunkt von hinten nach vorne
+            enum Thing<'b> {
+                Plant(&'b ap::Sprite),
+                Animal(&'b ap::AnimalSprite),
+            }
+            let plants = ap::sprites(world, i);
+            let mut things: Vec<(f32, Thing)> = plants
+                .iter()
+                .map(|p| (p.v, Thing::Plant(p)))
+                .chain(
+                    by_tile[i]
+                        .iter()
+                        .map(|&k| (animals[k].pos.1, Thing::Animal(&animals[k]))),
+                )
+                .collect();
+            things.sort_by(|a, b| a.0.total_cmp(&b.0));
+            for (_, th) in things {
+                match th {
+                    Thing::Plant(p) => {
+                        let Some(pe) = atlas.sprite(p.id, p.variant_seed % 4, p.state) else {
+                            continue;
+                        };
+                        let foot = c + Vec2::new(p.u * hw, p.v * hh);
+                        let min = foot - pe.anchor * scale;
+                        tex_rect(
+                            &mut mesh,
+                            Rect::from_min_size(min, pe.size * scale),
+                            pe,
+                            lit,
+                        );
+                    }
+                    Thing::Animal(a) => {
+                        // Bei schneller Zeit kein Laufen: stehen bzw. ruhen (15.5)
+                        let (state, frames, ms) = match (a.state, g.animate) {
+                            ("rest", _) => ("rest", 1, 1000.0),
+                            ("walk", true) => ("walk", 4, 200.0),
+                            ("run", true) => ("run", 4, 100.0),
+                            _ => ("graze", 2, 600.0),
+                        };
+                        let frame = if g.animate {
+                            ((g.time_s * 1000.0 / ms) as u64 % frames) as u32
+                        } else {
+                            0
+                        };
+                        let Some(ae) = atlas.animal(a.id, a.variant, state, a.dir, frame) else {
+                            continue;
+                        };
+                        let mut foot = c + Vec2::new(a.pos.0 * hw, a.pos.1 * hh);
+                        if g.animate && a.prev_tile != a.tile {
+                            let from = center_of(a.prev_tile as usize)
+                                + Vec2::new(a.pos.0 * hw, a.pos.1 * hh);
+                            foot = from + (foot - from) * g.day_frac;
+                        }
+                        let s = scale * a.scale;
+                        let tint = shade(lit, 1.0 - 0.25 * a.weakness);
+                        tex_rect(
+                            &mut mesh,
+                            Rect::from_min_size(foot - ae.anchor * s, ae.size * s),
+                            ae,
+                            tint,
+                        );
+                    }
+                }
+            }
+
+            if let Some(m) = mouse {
+                let dx = (m.x - c.x).abs() / hw;
+                let dy = (m.y - c.y).abs() / hh;
+                if dx + dy <= 1.0 {
+                    hovered = Some(i);
+                }
+            }
+        }
+    }
+    painter.add(Shape::mesh(mesh));
+    hovered
+}
+
 /// Kartenfarben der Tiere (gestaltung.md 15.6). Platzhalter, bis die
 /// Tier-Sprites eingebunden sind.
 fn animal_color(id: &str) -> Color32 {
@@ -317,6 +631,7 @@ pub fn draw(
     selected: Option<usize>,
     light: f32,
     show_animals: bool,
+    gfx: Option<Gfx<'_>>,
 ) -> (egui::Response, DrawResult) {
     let (resp, painter) = ui.allocate_painter(ui.available_size(), egui::Sense::click_and_drag());
     let rect = resp.rect;
@@ -378,106 +693,112 @@ pub fn draw(
                     world.tile(x as u32, y as u32).elevation
                 }
             };
-            mesh.reserve_vertices((w * h * 12) as usize);
-            // Von hinten nach vorne zeichnen (Maleralgorithmus)
-            for s in 0..(w + h - 1) {
-                for x in 0..w {
-                    let Some(y) = s.checked_sub(x) else { continue };
-                    if y >= h {
-                        continue;
-                    }
-                    let i = world.idx(x, y);
-                    let e = world.tiles[i].elevation;
-                    let c = origin + iso_center(x, y, w, h, z).to_vec2()
-                        - Vec2::new(0.0, iso_lift(e, z));
-                    if c.x < rect.left() - hw * 2.0
-                        || c.x > rect.right() + hw * 2.0
-                        || c.y < rect.top() - 200.0
-                        || c.y > rect.bottom() + 200.0
-                    {
-                        continue;
-                    }
-                    let col = night_tint(rabbit_tint(i, tile_color(world, i, layer)), light);
-                    let n = Pos2::new(c.x, c.y - hh);
-                    let east = Pos2::new(c.x + hw, c.y);
-                    let south = Pos2::new(c.x, c.y + hh);
-                    let west = Pos2::new(c.x - hw, c.y);
-                    // Seitenwände zu tieferen Nachbarn vorne
-                    let drop_r = iso_lift(e, z) - iso_lift(height_of(x as i32 + 1, y as i32), z);
-                    if drop_r > 0.0 {
-                        let d = Vec2::new(0.0, drop_r);
-                        quad(
-                            &mut mesh,
-                            [east, south, south + d, east + d],
-                            shade(col, 0.72),
-                        );
-                    }
-                    let drop_l = iso_lift(e, z) - iso_lift(height_of(x as i32, y as i32 + 1), z);
-                    if drop_l > 0.0 {
-                        let d = Vec2::new(0.0, drop_l);
-                        quad(
-                            &mut mesh,
-                            [south, west, west + d, south + d],
-                            shade(col, 0.56),
-                        );
-                    }
-                    quad(&mut mesh, [n, east, south, west], col);
-
-                    // Wasserlauf: halbe Strecke zum Abfluss und von jedem Zufluss
-                    if show_streams && !world.tiles[i].is_ocean() {
-                        let flat = iso_center(x, y, w, h, z);
-                        let t = &world.tiles[i];
-                        if t.flow >= RILL_FLOW
-                            && let Some(d) = world.downstream[i]
+            if let Some(g) = gfx.filter(|_| layer == Layer::Nature) {
+                hovered = draw_iso_gfx(&painter, sim, &animals, g, origin, rect, z, mouse, light);
+            } else {
+                mesh.reserve_vertices((w * h * 12) as usize);
+                // Von hinten nach vorne zeichnen (Maleralgorithmus)
+                for s in 0..(w + h - 1) {
+                    for x in 0..w {
+                        let Some(y) = s.checked_sub(x) else { continue };
+                        if y >= h {
+                            continue;
+                        }
+                        let i = world.idx(x, y);
+                        let e = world.tiles[i].elevation;
+                        let c = origin + iso_center(x, y, w, h, z).to_vec2()
+                            - Vec2::new(0.0, iso_lift(e, z));
+                        if c.x < rect.left() - hw * 2.0
+                            || c.x > rect.right() + hw * 2.0
+                            || c.y < rect.top() - 200.0
+                            || c.y > rect.bottom() + 200.0
                         {
-                            let (dx, dy) = world.xy(d as usize);
-                            let dir = iso_center(dx, dy, w, h, z) - flat;
-                            segment(
+                            continue;
+                        }
+                        let col = night_tint(rabbit_tint(i, tile_color(world, i, layer)), light);
+                        let n = Pos2::new(c.x, c.y - hh);
+                        let east = Pos2::new(c.x + hw, c.y);
+                        let south = Pos2::new(c.x, c.y + hh);
+                        let west = Pos2::new(c.x - hw, c.y);
+                        // Seitenwände zu tieferen Nachbarn vorne
+                        let drop_r =
+                            iso_lift(e, z) - iso_lift(height_of(x as i32 + 1, y as i32), z);
+                        if drop_r > 0.0 {
+                            let d = Vec2::new(0.0, drop_r);
+                            quad(
                                 &mut mesh,
-                                c,
-                                c + dir * 0.5,
-                                stream_width(t.flow, z),
-                                stream_color(t.flow, light),
+                                [east, south, south + d, east + d],
+                                shade(col, 0.72),
                             );
                         }
-                        for nb in world.neighbors(i) {
-                            let up = &world.tiles[nb];
-                            if up.flow >= RILL_FLOW && world.downstream[nb] == Some(i as u32) {
-                                let (ux, uy) = world.xy(nb);
-                                let dir = iso_center(ux, uy, w, h, z) - flat;
+                        let drop_l =
+                            iso_lift(e, z) - iso_lift(height_of(x as i32, y as i32 + 1), z);
+                        if drop_l > 0.0 {
+                            let d = Vec2::new(0.0, drop_l);
+                            quad(
+                                &mut mesh,
+                                [south, west, west + d, south + d],
+                                shade(col, 0.56),
+                            );
+                        }
+                        quad(&mut mesh, [n, east, south, west], col);
+
+                        // Wasserlauf: halbe Strecke zum Abfluss und von jedem Zufluss
+                        if show_streams && !world.tiles[i].is_ocean() {
+                            let flat = iso_center(x, y, w, h, z);
+                            let t = &world.tiles[i];
+                            if t.flow >= RILL_FLOW
+                                && let Some(d) = world.downstream[i]
+                            {
+                                let (dx, dy) = world.xy(d as usize);
+                                let dir = iso_center(dx, dy, w, h, z) - flat;
                                 segment(
                                     &mut mesh,
-                                    c + dir * 0.5,
                                     c,
-                                    stream_width(up.flow, z),
-                                    stream_color(up.flow, light),
+                                    c + dir * 0.5,
+                                    stream_width(t.flow, z),
+                                    stream_color(t.flow, light),
                                 );
+                            }
+                            for nb in world.neighbors(i) {
+                                let up = &world.tiles[nb];
+                                if up.flow >= RILL_FLOW && world.downstream[nb] == Some(i as u32) {
+                                    let (ux, uy) = world.xy(nb);
+                                    let dir = iso_center(ux, uy, w, h, z) - flat;
+                                    segment(
+                                        &mut mesh,
+                                        c + dir * 0.5,
+                                        c,
+                                        stream_width(up.flow, z),
+                                        stream_color(up.flow, light),
+                                    );
+                                }
+                            }
+                        }
+
+                        if let Some(m) = mouse {
+                            let dx = (m.x - c.x).abs() / hw;
+                            let dy = (m.y - c.y).abs() / hh;
+                            if dx + dy <= 1.0 {
+                                hovered = Some(i); // der vorderste Treffer gewinnt
                             }
                         }
                     }
+                }
+                painter.add(Shape::mesh(mesh));
 
-                    if let Some(m) = mouse {
-                        let dx = (m.x - c.x).abs() / hw;
-                        let dy = (m.y - c.y).abs() / hh;
-                        if dx + dy <= 1.0 {
-                            hovered = Some(i); // der vorderste Treffer gewinnt
-                        }
+                for a in &animals {
+                    let (x, y) = world.xy(a.tile as usize);
+                    let e = world.tiles[a.tile as usize].elevation;
+                    let c = origin + iso_center(x, y, w, h, z).to_vec2()
+                        - Vec2::new(0.0, iso_lift(e, z))
+                        + Vec2::new(a.pos.0 * hw, a.pos.1 * hh);
+                    if !rect.contains(c) {
+                        continue;
                     }
+                    let r = (animal_radius(a.id, a.scale) * 1.6 * z).max(1.2);
+                    painter.circle_filled(c, r, night_tint(animal_color(a.id), light));
                 }
-            }
-            painter.add(Shape::mesh(mesh));
-
-            for a in &animals {
-                let (x, y) = world.xy(a.tile as usize);
-                let e = world.tiles[a.tile as usize].elevation;
-                let c = origin + iso_center(x, y, w, h, z).to_vec2()
-                    - Vec2::new(0.0, iso_lift(e, z))
-                    + Vec2::new(a.pos.0 * hw, a.pos.1 * hh);
-                if !rect.contains(c) {
-                    continue;
-                }
-                let r = (animal_radius(a.id, a.scale) * 1.6 * z).max(1.2);
-                painter.circle_filled(c, r, night_tint(animal_color(a.id), light));
             }
 
             let outline = |i: usize, color: Color32| {

@@ -348,7 +348,7 @@ Gibt der Befehl etwas aus, liegt mindestens eine Datei doppelt vor.
 - Baumarten mit eigener Silhouette, sobald die Simulation sie unterscheidet.
 - Erosion (v0.3) ist simuliert; erste Zuordnung siehe 7.1 (`ground_silt`, Fels bei abgespültem Boden). Offen: Ufer, Kies und Abbruchkanten an tief eingeschnittenen Bächen.
 - Tiere (v0.4): siehe Abschnitt 15. Bewohner (v0.6) folgen in einem eigenen Abschnitt.
-- Technische Einbindung: Der Renderer zeichnet heute Flächenfarben ohne Texturen. Für diese Assets braucht er einen Textur-Atlas mit Manifest-Loader; das wird als eigenes ADR entschieden, sobald die ersten Assets abgenommen sind.
+- Technische Einbindung: umgesetzt in v0.4.3 ([ADR 0005](../decisions/0005-asset-atlas-in-the-observer.md)). Alle Bilder unter `assets/nature/{ground,walls,water,vegetation,animals}` werden eingebettet und über einen Atlas gezeichnet; Umschalter „Grafik“ im Beobachter. Neue Bilder nach dem Namensschema erscheinen beim nächsten Bauen von selbst. Offen für die Gestaltung: Tönung bei Trockenheit, Wasseranimation, Feuer, Übergänge zwischen Feldern.
 
 ## 14. Unterschiedliche Biome – erste Gestaltungsentwürfe
 

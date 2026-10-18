@@ -65,6 +65,7 @@ Ideen zum Ausprobieren:
 - `--years N` – vor dem Öffnen N Jahre vorspulen
 - `--view karte` – mit der 2D-Karte starten
 - `--layer hoehe|feuchte|wasser|brand|boden|tiere` – Startebene
+- `--flaechen` – mit Flächenfarben statt Grafik starten; `--zoom N` – Startzoom (0,4 bis 8)
 - `--tiere hirsche,kaninchen,woelfe,fuechse` – nach `--years` Jahren diese Tiere aussetzen; `--danach N` lässt sie anschließend N Jahre leben
 - `--speed 0…5` – sofort mit Zeitraffer starten (0 = 1 Std/s, 5 = 10 Jahre/s)
 - `--days N` – zusätzlich N Tage vorspulen

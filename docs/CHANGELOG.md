@@ -1,5 +1,16 @@
 # Änderungen
 
+## 0.4.3 – Die Insel bekommt ihre Bilder
+
+**Neu**
+- **Grafik:** Die isometrische Ansicht zeigt jetzt Codex' gezeichnete Bilder – Boden, Gras, Busch- und Waldboden, Brandflächen, Felswände und Erdkanten, Wasser, Bäume in drei Altersstufen, Büsche, Totholz und die Tiere. Umschalten mit **Grafik** neben der Ebenenwahl; aus = die gewohnten Flächenfarben.
+- Bei 1 Std/s laufen und grasen die Tiere sichtbar und gleiten von Feld zu Feld; schneller stehen sie still (nichts zappelt).
+- Die 2D-Karte und die Analyse-Ebenen bleiben bewusst schlicht.
+- Startoptionen `--flaechen` und `--zoom N`.
+
+**Hinweis:** Das ist ein früher Stand. Kadaver, Spuren, Feuer und Herbstfarben fehlen noch; Codex arbeitet an der Darstellung weiter.
+
+
 ## 0.4.2 – Wölfe halten länger durch
 
 **Geändert**

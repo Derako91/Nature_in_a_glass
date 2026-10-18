@@ -6,3 +6,5 @@ edition = "2024"
 [dependencies]
 eframe = "0.37.0"
 nig-core = { path = "../core" }
+png = "0.18"
+serde_json = "1"
