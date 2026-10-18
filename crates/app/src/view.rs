@@ -607,10 +607,21 @@ fn draw_iso_gfx(
                             continue;
                         };
                         let foot = c + Vec2::new(p.u * hw, p.v * hh);
-                        let min = foot - pe.anchor * scale;
+                        // Dateiauflösung und Weltmaß trennen: Nahansicht-Assets
+                        // dürfen doppelt so viele Pixel enthalten (Gestaltung 4.3).
+                        let display_width = match p.id {
+                            "tree_young" | "shrub" => 10.0,
+                            "tree_mid" => 14.0,
+                            "tree_old" => 18.0,
+                            "snag_standing" => 6.0,
+                            "log_fallen" => 16.0,
+                            _ => pe.size.x,
+                        };
+                        let plant_scale = scale * display_width / pe.size.x.max(1.0);
+                        let min = foot - pe.anchor * plant_scale;
                         tex_rect(
                             &mut mesh,
-                            Rect::from_min_size(min, pe.size * scale),
+                            Rect::from_min_size(min, pe.size * plant_scale),
                             pe,
                             lit,
                         );

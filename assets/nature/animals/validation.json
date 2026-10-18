@@ -9,9 +9,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.21,
-        "shrub": 0.218,
-        "forest": 0.36
+        "grass": 0.225,
+        "shrub": 0.198,
+        "forest": 0.313
       }
     },
     {
@@ -23,9 +23,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.207,
-        "shrub": 0.217,
-        "forest": 0.359
+        "grass": 0.222,
+        "shrub": 0.197,
+        "forest": 0.311
       }
     },
     {
@@ -37,9 +37,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.211,
-        "shrub": 0.222,
-        "forest": 0.365
+        "grass": 0.225,
+        "shrub": 0.202,
+        "forest": 0.317
       }
     },
     {
@@ -51,9 +51,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.209,
-        "shrub": 0.223,
-        "forest": 0.366
+        "grass": 0.223,
+        "shrub": 0.203,
+        "forest": 0.318
       }
     },
     {
@@ -65,9 +65,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.184,
-        "shrub": 0.305,
-        "forest": 0.465
+        "grass": 0.166,
+        "shrub": 0.283,
+        "forest": 0.411
       }
     },
     {
@@ -79,9 +79,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.182,
-        "shrub": 0.302,
-        "forest": 0.461
+        "grass": 0.164,
+        "shrub": 0.28,
+        "forest": 0.408
       }
     },
     {
@@ -93,9 +93,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.187,
-        "shrub": 0.308,
-        "forest": 0.469
+        "grass": 0.169,
+        "shrub": 0.286,
+        "forest": 0.415
       }
     },
     {
@@ -107,9 +107,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.187,
-        "shrub": 0.308,
-        "forest": 0.468
+        "grass": 0.169,
+        "shrub": 0.286,
+        "forest": 0.415
       }
     },
     {
@@ -121,9 +121,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.22,
-        "shrub": 0.229,
-        "forest": 0.364
+        "grass": 0.234,
+        "shrub": 0.211,
+        "forest": 0.319
       }
     },
     {
@@ -135,9 +135,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.208,
-        "shrub": 0.218,
-        "forest": 0.361
+        "grass": 0.222,
+        "shrub": 0.198,
+        "forest": 0.313
       }
     },
     {
@@ -149,9 +149,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.22,
-        "shrub": 0.228,
-        "forest": 0.362
+        "grass": 0.234,
+        "shrub": 0.209,
+        "forest": 0.317
       }
     },
     {
@@ -163,9 +163,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.208,
-        "shrub": 0.218,
-        "forest": 0.361
+        "grass": 0.222,
+        "shrub": 0.198,
+        "forest": 0.313
       }
     },
     {
@@ -177,9 +177,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.222,
-        "shrub": 0.233,
-        "forest": 0.369
+        "grass": 0.235,
+        "shrub": 0.214,
+        "forest": 0.323
       }
     },
     {
@@ -191,9 +191,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.208,
-        "shrub": 0.219,
-        "forest": 0.363
+        "grass": 0.223,
+        "shrub": 0.199,
+        "forest": 0.315
       }
     },
     {
@@ -205,9 +205,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.22,
-        "shrub": 0.229,
-        "forest": 0.364
+        "grass": 0.234,
+        "shrub": 0.211,
+        "forest": 0.319
       }
     },
     {
@@ -219,9 +219,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.209,
-        "shrub": 0.221,
-        "forest": 0.365
+        "grass": 0.223,
+        "shrub": 0.201,
+        "forest": 0.317
       }
     },
     {
@@ -233,9 +233,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.197,
-        "shrub": 0.312,
-        "forest": 0.464
+        "grass": 0.18,
+        "shrub": 0.291,
+        "forest": 0.413
       }
     },
     {
@@ -247,9 +247,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.183,
-        "shrub": 0.304,
-        "forest": 0.465
+        "grass": 0.165,
+        "shrub": 0.282,
+        "forest": 0.411
       }
     },
     {
@@ -261,9 +261,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.196,
-        "shrub": 0.31,
-        "forest": 0.462
+        "grass": 0.179,
+        "shrub": 0.289,
+        "forest": 0.411
       }
     },
     {
@@ -275,9 +275,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.183,
-        "shrub": 0.304,
-        "forest": 0.465
+        "grass": 0.165,
+        "shrub": 0.282,
+        "forest": 0.411
       }
     },
     {
@@ -289,9 +289,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.2,
-        "shrub": 0.315,
-        "forest": 0.468
+        "grass": 0.183,
+        "shrub": 0.294,
+        "forest": 0.417
       }
     },
     {
@@ -303,9 +303,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.184,
-        "shrub": 0.306,
-        "forest": 0.467
+        "grass": 0.166,
+        "shrub": 0.284,
+        "forest": 0.413
       }
     },
     {
@@ -317,9 +317,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.197,
-        "shrub": 0.312,
-        "forest": 0.464
+        "grass": 0.18,
+        "shrub": 0.291,
+        "forest": 0.413
       }
     },
     {
@@ -331,9 +331,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.186,
-        "shrub": 0.308,
-        "forest": 0.469
+        "grass": 0.167,
+        "shrub": 0.285,
+        "forest": 0.415
       }
     },
     {
@@ -345,9 +345,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.22,
-        "shrub": 0.232,
-        "forest": 0.37
+        "grass": 0.233,
+        "shrub": 0.213,
+        "forest": 0.323
       }
     },
     {
@@ -359,9 +359,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.21,
-        "shrub": 0.22,
-        "forest": 0.362
+        "grass": 0.224,
+        "shrub": 0.201,
+        "forest": 0.315
       }
     },
     {
@@ -373,9 +373,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.222,
-        "shrub": 0.231,
-        "forest": 0.364
+        "grass": 0.236,
+        "shrub": 0.212,
+        "forest": 0.319
       }
     },
     {
@@ -387,9 +387,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.21,
-        "shrub": 0.22,
-        "forest": 0.362
+        "grass": 0.224,
+        "shrub": 0.201,
+        "forest": 0.315
       }
     },
     {
@@ -401,9 +401,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.221,
-        "shrub": 0.235,
-        "forest": 0.374
+        "grass": 0.234,
+        "shrub": 0.216,
+        "forest": 0.327
       }
     },
     {
@@ -415,9 +415,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.21,
-        "shrub": 0.22,
-        "forest": 0.362
+        "grass": 0.224,
+        "shrub": 0.201,
+        "forest": 0.315
       }
     },
     {
@@ -429,9 +429,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.223,
-        "shrub": 0.232,
-        "forest": 0.366
+        "grass": 0.236,
+        "shrub": 0.214,
+        "forest": 0.321
       }
     },
     {
@@ -443,9 +443,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.211,
-        "shrub": 0.224,
-        "forest": 0.366
+        "grass": 0.225,
+        "shrub": 0.204,
+        "forest": 0.319
       }
     },
     {
@@ -457,9 +457,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.199,
-        "shrub": 0.315,
-        "forest": 0.47
+        "grass": 0.181,
+        "shrub": 0.294,
+        "forest": 0.418
       }
     },
     {
@@ -471,9 +471,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.186,
-        "shrub": 0.306,
-        "forest": 0.465
+        "grass": 0.168,
+        "shrub": 0.284,
+        "forest": 0.412
       }
     },
     {
@@ -485,9 +485,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.199,
-        "shrub": 0.312,
-        "forest": 0.462
+        "grass": 0.182,
+        "shrub": 0.291,
+        "forest": 0.412
       }
     },
     {
@@ -499,9 +499,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.186,
-        "shrub": 0.306,
-        "forest": 0.465
+        "grass": 0.168,
+        "shrub": 0.284,
+        "forest": 0.412
       }
     },
     {
@@ -513,9 +513,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.201,
-        "shrub": 0.319,
-        "forest": 0.474
+        "grass": 0.184,
+        "shrub": 0.297,
+        "forest": 0.422
       }
     },
     {
@@ -527,9 +527,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.186,
-        "shrub": 0.306,
-        "forest": 0.465
+        "grass": 0.168,
+        "shrub": 0.284,
+        "forest": 0.412
       }
     },
     {
@@ -541,9 +541,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.2,
-        "shrub": 0.314,
-        "forest": 0.464
+        "grass": 0.184,
+        "shrub": 0.293,
+        "forest": 0.413
       }
     },
     {
@@ -555,9 +555,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.189,
-        "shrub": 0.31,
-        "forest": 0.469
+        "grass": 0.171,
+        "shrub": 0.287,
+        "forest": 0.416
       }
     },
     {
@@ -569,9 +569,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.209,
-        "shrub": 0.227,
-        "forest": 0.379
+        "grass": 0.223,
+        "shrub": 0.206,
+        "forest": 0.328
       }
     },
     {
@@ -583,9 +583,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.209,
-        "shrub": 0.227,
-        "forest": 0.379
+        "grass": 0.223,
+        "shrub": 0.206,
+        "forest": 0.328
       }
     },
     {
@@ -597,9 +597,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.189,
-        "shrub": 0.317,
-        "forest": 0.487
+        "grass": 0.169,
+        "shrub": 0.294,
+        "forest": 0.43
       }
     },
     {
@@ -611,9 +611,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.189,
-        "shrub": 0.317,
-        "forest": 0.487
+        "grass": 0.169,
+        "shrub": 0.294,
+        "forest": 0.43
       }
     },
     {
@@ -625,9 +625,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.208,
-        "shrub": 0.344,
-        "forest": 0.531
+        "grass": 0.186,
+        "shrub": 0.319,
+        "forest": 0.464
       }
     },
     {
@@ -639,9 +639,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.226,
-        "shrub": 0.359,
-        "forest": 0.543
+        "grass": 0.205,
+        "shrub": 0.334,
+        "forest": 0.476
       }
     },
     {
@@ -653,9 +653,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.208,
-        "shrub": 0.344,
-        "forest": 0.531
+        "grass": 0.186,
+        "shrub": 0.319,
+        "forest": 0.464
       }
     },
     {
@@ -667,9 +667,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.228,
-        "shrub": 0.362,
-        "forest": 0.547
+        "grass": 0.207,
+        "shrub": 0.338,
+        "forest": 0.48
       }
     },
     {
@@ -681,9 +681,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.23,
-        "shrub": 0.371,
-        "forest": 0.564
+        "grass": 0.208,
+        "shrub": 0.345,
+        "forest": 0.494
       }
     },
     {
@@ -695,9 +695,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.247,
-        "shrub": 0.385,
-        "forest": 0.575
+        "grass": 0.226,
+        "shrub": 0.36,
+        "forest": 0.506
       }
     },
     {
@@ -709,9 +709,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.23,
-        "shrub": 0.371,
-        "forest": 0.564
+        "grass": 0.208,
+        "shrub": 0.345,
+        "forest": 0.494
       }
     },
     {
@@ -723,9 +723,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.25,
-        "shrub": 0.388,
-        "forest": 0.579
+        "grass": 0.229,
+        "shrub": 0.363,
+        "forest": 0.509
       }
     },
     {
@@ -737,9 +737,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.223,
-        "shrub": 0.349,
-        "forest": 0.524
+        "grass": 0.203,
+        "shrub": 0.326,
+        "forest": 0.46
       }
     },
     {
@@ -751,9 +751,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.203,
-        "shrub": 0.347,
-        "forest": 0.544
+        "grass": 0.18,
+        "shrub": 0.32,
+        "forest": 0.474
       }
     },
     {
@@ -765,9 +765,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.219,
-        "shrub": 0.346,
-        "forest": 0.521
+        "grass": 0.199,
+        "shrub": 0.322,
+        "forest": 0.457
       }
     },
     {
@@ -779,9 +779,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.202,
-        "shrub": 0.345,
-        "forest": 0.541
+        "grass": 0.179,
+        "shrub": 0.319,
+        "forest": 0.471
       }
     },
     {
@@ -793,9 +793,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.223,
-        "shrub": 0.349,
-        "forest": 0.524
+        "grass": 0.203,
+        "shrub": 0.326,
+        "forest": 0.46
       }
     },
     {
@@ -807,9 +807,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.2,
-        "shrub": 0.344,
-        "forest": 0.541
+        "grass": 0.178,
+        "shrub": 0.318,
+        "forest": 0.471
       }
     },
     {
@@ -821,9 +821,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.219,
-        "shrub": 0.346,
-        "forest": 0.521
+        "grass": 0.199,
+        "shrub": 0.322,
+        "forest": 0.457
       }
     },
     {
@@ -835,9 +835,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.202,
-        "shrub": 0.345,
-        "forest": 0.541
+        "grass": 0.179,
+        "shrub": 0.319,
+        "forest": 0.471
       }
     },
     {
@@ -849,9 +849,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.244,
-        "shrub": 0.374,
-        "forest": 0.555
+        "grass": 0.223,
+        "shrub": 0.35,
+        "forest": 0.489
       }
     },
     {
@@ -863,9 +863,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.226,
-        "shrub": 0.375,
-        "forest": 0.578
+        "grass": 0.203,
+        "shrub": 0.347,
+        "forest": 0.505
       }
     },
     {
@@ -877,9 +877,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.24,
-        "shrub": 0.371,
-        "forest": 0.552
+        "grass": 0.22,
+        "shrub": 0.347,
+        "forest": 0.486
       }
     },
     {
@@ -891,9 +891,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.225,
-        "shrub": 0.373,
-        "forest": 0.575
+        "grass": 0.202,
+        "shrub": 0.346,
+        "forest": 0.503
       }
     },
     {
@@ -905,9 +905,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.244,
-        "shrub": 0.374,
-        "forest": 0.555
+        "grass": 0.223,
+        "shrub": 0.35,
+        "forest": 0.489
       }
     },
     {
@@ -919,9 +919,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.224,
-        "shrub": 0.372,
-        "forest": 0.574
+        "grass": 0.201,
+        "shrub": 0.345,
+        "forest": 0.502
       }
     },
     {
@@ -933,9 +933,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.24,
-        "shrub": 0.371,
-        "forest": 0.552
+        "grass": 0.22,
+        "shrub": 0.347,
+        "forest": 0.486
       }
     },
     {
@@ -947,9 +947,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.225,
-        "shrub": 0.373,
-        "forest": 0.575
+        "grass": 0.202,
+        "shrub": 0.346,
+        "forest": 0.503
       }
     },
     {
@@ -961,9 +961,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.222,
-        "shrub": 0.347,
-        "forest": 0.522
+        "grass": 0.202,
+        "shrub": 0.324,
+        "forest": 0.458
       }
     },
     {
@@ -975,9 +975,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.203,
-        "shrub": 0.347,
-        "forest": 0.544
+        "grass": 0.18,
+        "shrub": 0.32,
+        "forest": 0.474
       }
     },
     {
@@ -989,9 +989,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.218,
-        "shrub": 0.344,
-        "forest": 0.519
+        "grass": 0.198,
+        "shrub": 0.321,
+        "forest": 0.455
       }
     },
     {
@@ -1003,9 +1003,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.204,
-        "shrub": 0.344,
-        "forest": 0.537
+        "grass": 0.181,
+        "shrub": 0.318,
+        "forest": 0.467
       }
     },
     {
@@ -1017,9 +1017,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.222,
-        "shrub": 0.347,
-        "forest": 0.522
+        "grass": 0.202,
+        "shrub": 0.324,
+        "forest": 0.458
       }
     },
     {
@@ -1031,9 +1031,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.2,
-        "shrub": 0.344,
-        "forest": 0.541
+        "grass": 0.178,
+        "shrub": 0.318,
+        "forest": 0.471
       }
     },
     {
@@ -1045,9 +1045,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.216,
-        "shrub": 0.345,
-        "forest": 0.523
+        "grass": 0.196,
+        "shrub": 0.321,
+        "forest": 0.458
       }
     },
     {
@@ -1059,9 +1059,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.204,
-        "shrub": 0.344,
-        "forest": 0.537
+        "grass": 0.181,
+        "shrub": 0.318,
+        "forest": 0.467
       }
     },
     {
@@ -1073,9 +1073,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.243,
-        "shrub": 0.372,
-        "forest": 0.552
+        "grass": 0.223,
+        "shrub": 0.348,
+        "forest": 0.486
       }
     },
     {
@@ -1087,9 +1087,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.226,
-        "shrub": 0.375,
-        "forest": 0.578
+        "grass": 0.203,
+        "shrub": 0.347,
+        "forest": 0.505
       }
     },
     {
@@ -1101,9 +1101,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.239,
-        "shrub": 0.369,
-        "forest": 0.549
+        "grass": 0.219,
+        "shrub": 0.345,
+        "forest": 0.483
       }
     },
     {
@@ -1115,9 +1115,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.227,
-        "shrub": 0.371,
-        "forest": 0.57
+        "grass": 0.204,
+        "shrub": 0.345,
+        "forest": 0.498
       }
     },
     {
@@ -1129,9 +1129,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.243,
-        "shrub": 0.372,
-        "forest": 0.552
+        "grass": 0.223,
+        "shrub": 0.348,
+        "forest": 0.486
       }
     },
     {
@@ -1143,9 +1143,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.224,
-        "shrub": 0.372,
-        "forest": 0.574
+        "grass": 0.201,
+        "shrub": 0.345,
+        "forest": 0.502
       }
     },
     {
@@ -1157,9 +1157,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.238,
-        "shrub": 0.371,
-        "forest": 0.554
+        "grass": 0.217,
+        "shrub": 0.346,
+        "forest": 0.487
       }
     },
     {
@@ -1171,9 +1171,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.227,
-        "shrub": 0.371,
-        "forest": 0.57
+        "grass": 0.204,
+        "shrub": 0.345,
+        "forest": 0.498
       }
     },
     {
@@ -1185,9 +1185,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.193,
-        "shrub": 0.345,
-        "forest": 0.549
+        "grass": 0.169,
+        "shrub": 0.317,
+        "forest": 0.479
       }
     },
     {
@@ -1199,9 +1199,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.193,
-        "shrub": 0.345,
-        "forest": 0.549
+        "grass": 0.169,
+        "shrub": 0.317,
+        "forest": 0.479
       }
     },
     {
@@ -1213,9 +1213,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.217,
-        "shrub": 0.374,
-        "forest": 0.584
+        "grass": 0.193,
+        "shrub": 0.345,
+        "forest": 0.511
       }
     },
     {
@@ -1227,9 +1227,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.217,
-        "shrub": 0.374,
-        "forest": 0.584
+        "grass": 0.193,
+        "shrub": 0.345,
+        "forest": 0.511
       }
     },
     {
@@ -1241,9 +1241,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.276,
-        "shrub": 0.394,
-        "forest": 0.549
+        "grass": 0.258,
+        "shrub": 0.372,
+        "forest": 0.497
       }
     },
     {
@@ -1255,9 +1255,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.27,
-        "shrub": 0.39,
-        "forest": 0.548
+        "grass": 0.251,
+        "shrub": 0.368,
+        "forest": 0.495
       }
     },
     {
@@ -1269,9 +1269,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.28,
-        "shrub": 0.399,
-        "forest": 0.557
+        "grass": 0.261,
+        "shrub": 0.377,
+        "forest": 0.504
       }
     },
     {
@@ -1283,9 +1283,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.277,
-        "shrub": 0.4,
-        "forest": 0.562
+        "grass": 0.257,
+        "shrub": 0.377,
+        "forest": 0.508
       }
     },
     {
@@ -1297,9 +1297,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.233,
-        "shrub": 0.342,
-        "forest": 0.505
+        "grass": 0.215,
+        "shrub": 0.322,
+        "forest": 0.446
       }
     },
     {
@@ -1311,9 +1311,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.226,
-        "shrub": 0.338,
-        "forest": 0.503
+        "grass": 0.208,
+        "shrub": 0.317,
+        "forest": 0.444
       }
     },
     {
@@ -1325,9 +1325,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.236,
-        "shrub": 0.348,
-        "forest": 0.513
+        "grass": 0.219,
+        "shrub": 0.327,
+        "forest": 0.454
       }
     },
     {
@@ -1339,9 +1339,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.233,
-        "shrub": 0.348,
-        "forest": 0.518
+        "grass": 0.215,
+        "shrub": 0.327,
+        "forest": 0.457
       }
     },
     {
@@ -1353,9 +1353,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.284,
-        "shrub": 0.396,
-        "forest": 0.545
+        "grass": 0.266,
+        "shrub": 0.375,
+        "forest": 0.495
       }
     },
     {
@@ -1367,9 +1367,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.278,
-        "shrub": 0.396,
-        "forest": 0.552
+        "grass": 0.26,
+        "shrub": 0.374,
+        "forest": 0.5
       }
     },
     {
@@ -1381,9 +1381,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.285,
-        "shrub": 0.395,
-        "forest": 0.541
+        "grass": 0.268,
+        "shrub": 0.375,
+        "forest": 0.492
       }
     },
     {
@@ -1395,9 +1395,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.277,
-        "shrub": 0.394,
-        "forest": 0.549
+        "grass": 0.258,
+        "shrub": 0.372,
+        "forest": 0.497
       }
     },
     {
@@ -1409,9 +1409,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.287,
-        "shrub": 0.402,
-        "forest": 0.553
+        "grass": 0.269,
+        "shrub": 0.38,
+        "forest": 0.502
       }
     },
     {
@@ -1423,9 +1423,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.28,
-        "shrub": 0.4,
-        "forest": 0.558
+        "grass": 0.261,
+        "shrub": 0.378,
+        "forest": 0.505
       }
     },
     {
@@ -1437,9 +1437,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.287,
-        "shrub": 0.399,
-        "forest": 0.547
+        "grass": 0.269,
+        "shrub": 0.378,
+        "forest": 0.497
       }
     },
     {
@@ -1451,9 +1451,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.282,
-        "shrub": 0.402,
-        "forest": 0.56
+        "grass": 0.263,
+        "shrub": 0.379,
+        "forest": 0.507
       }
     },
     {
@@ -1465,9 +1465,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.24,
-        "shrub": 0.344,
-        "forest": 0.503
+        "grass": 0.223,
+        "shrub": 0.325,
+        "forest": 0.445
       }
     },
     {
@@ -1479,9 +1479,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.235,
-        "shrub": 0.345,
-        "forest": 0.508
+        "grass": 0.217,
+        "shrub": 0.324,
+        "forest": 0.449
       }
     },
     {
@@ -1493,9 +1493,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.24,
-        "shrub": 0.343,
-        "forest": 0.5
+        "grass": 0.224,
+        "shrub": 0.324,
+        "forest": 0.442
       }
     },
     {
@@ -1507,9 +1507,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.233,
-        "shrub": 0.342,
-        "forest": 0.506
+        "grass": 0.216,
+        "shrub": 0.322,
+        "forest": 0.447
       }
     },
     {
@@ -1521,9 +1521,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.243,
-        "shrub": 0.35,
-        "forest": 0.511
+        "grass": 0.226,
+        "shrub": 0.33,
+        "forest": 0.452
       }
     },
     {
@@ -1535,9 +1535,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.237,
-        "shrub": 0.348,
-        "forest": 0.514
+        "grass": 0.219,
+        "shrub": 0.328,
+        "forest": 0.454
       }
     },
     {
@@ -1549,9 +1549,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.242,
-        "shrub": 0.346,
-        "forest": 0.506
+        "grass": 0.226,
+        "shrub": 0.327,
+        "forest": 0.447
       }
     },
     {
@@ -1563,9 +1563,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.238,
-        "shrub": 0.35,
-        "forest": 0.517
+        "grass": 0.221,
+        "shrub": 0.33,
+        "forest": 0.457
       }
     },
     {
@@ -1577,9 +1577,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.285,
-        "shrub": 0.395,
-        "forest": 0.541
+        "grass": 0.268,
+        "shrub": 0.375,
+        "forest": 0.492
       }
     },
     {
@@ -1591,9 +1591,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.278,
-        "shrub": 0.395,
-        "forest": 0.549
+        "grass": 0.26,
+        "shrub": 0.373,
+        "forest": 0.498
       }
     },
     {
@@ -1605,9 +1605,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.287,
-        "shrub": 0.397,
-        "forest": 0.543
+        "grass": 0.269,
+        "shrub": 0.377,
+        "forest": 0.495
       }
     },
     {
@@ -1619,9 +1619,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.275,
-        "shrub": 0.394,
-        "forest": 0.551
+        "grass": 0.256,
+        "shrub": 0.372,
+        "forest": 0.498
       }
     },
     {
@@ -1633,9 +1633,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.288,
-        "shrub": 0.401,
-        "forest": 0.549
+        "grass": 0.271,
+        "shrub": 0.38,
+        "forest": 0.5
       }
     },
     {
@@ -1647,9 +1647,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.28,
-        "shrub": 0.398,
-        "forest": 0.556
+        "grass": 0.261,
+        "shrub": 0.377,
+        "forest": 0.503
       }
     },
     {
@@ -1661,9 +1661,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.288,
-        "shrub": 0.398,
-        "forest": 0.543
+        "grass": 0.27,
+        "shrub": 0.378,
+        "forest": 0.495
       }
     },
     {
@@ -1675,9 +1675,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.278,
-        "shrub": 0.399,
-        "forest": 0.559
+        "grass": 0.259,
+        "shrub": 0.377,
+        "forest": 0.506
       }
     },
     {
@@ -1689,9 +1689,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.24,
-        "shrub": 0.343,
-        "forest": 0.5
+        "grass": 0.224,
+        "shrub": 0.324,
+        "forest": 0.442
       }
     },
     {
@@ -1703,9 +1703,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.234,
-        "shrub": 0.343,
-        "forest": 0.507
+        "grass": 0.217,
+        "shrub": 0.323,
+        "forest": 0.447
       }
     },
     {
@@ -1717,9 +1717,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.242,
-        "shrub": 0.345,
-        "forest": 0.502
+        "grass": 0.226,
+        "shrub": 0.326,
+        "forest": 0.444
       }
     },
     {
@@ -1731,9 +1731,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.231,
-        "shrub": 0.342,
-        "forest": 0.507
+        "grass": 0.214,
+        "shrub": 0.322,
+        "forest": 0.447
       }
     },
     {
@@ -1745,9 +1745,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.244,
-        "shrub": 0.348,
-        "forest": 0.509
+        "grass": 0.228,
+        "shrub": 0.329,
+        "forest": 0.45
       }
     },
     {
@@ -1759,9 +1759,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.236,
-        "shrub": 0.347,
-        "forest": 0.513
+        "grass": 0.218,
+        "shrub": 0.326,
+        "forest": 0.453
       }
     },
     {
@@ -1773,9 +1773,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.243,
-        "shrub": 0.345,
-        "forest": 0.504
+        "grass": 0.227,
+        "shrub": 0.326,
+        "forest": 0.445
       }
     },
     {
@@ -1787,9 +1787,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.235,
-        "shrub": 0.348,
-        "forest": 0.516
+        "grass": 0.217,
+        "shrub": 0.327,
+        "forest": 0.455
       }
     },
     {
@@ -1801,9 +1801,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.257,
-        "shrub": 0.384,
-        "forest": 0.55
+        "grass": 0.237,
+        "shrub": 0.36,
+        "forest": 0.495
       }
     },
     {
@@ -1815,9 +1815,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.262,
-        "shrub": 0.389,
-        "forest": 0.557
+        "grass": 0.242,
+        "shrub": 0.366,
+        "forest": 0.501
       }
     },
     {
@@ -1829,9 +1829,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.211,
-        "shrub": 0.329,
-        "forest": 0.509
+        "grass": 0.193,
+        "shrub": 0.307,
+        "forest": 0.443
       }
     },
     {
@@ -1843,9 +1843,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.216,
-        "shrub": 0.335,
-        "forest": 0.516
+        "grass": 0.198,
+        "shrub": 0.313,
+        "forest": 0.45
       }
     },
     {
@@ -1857,9 +1857,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.331,
-        "shrub": 0.345,
-        "forest": 0.502
+        "grass": 0.332,
+        "shrub": 0.328,
+        "forest": 0.449
       }
     },
     {
@@ -1871,9 +1871,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.321,
-        "shrub": 0.336,
-        "forest": 0.499
+        "grass": 0.322,
+        "shrub": 0.319,
+        "forest": 0.445
       }
     },
     {
@@ -1886,8 +1886,8 @@
       "colors": 6,
       "contrast": {
         "grass": 0.332,
-        "shrub": 0.349,
-        "forest": 0.506
+        "shrub": 0.331,
+        "forest": 0.454
       }
     },
     {
@@ -1899,9 +1899,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.323,
-        "shrub": 0.344,
-        "forest": 0.509
+        "grass": 0.322,
+        "shrub": 0.326,
+        "forest": 0.454
       }
     },
     {
@@ -1913,9 +1913,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.311,
-        "shrub": 0.377,
-        "forest": 0.54
+        "grass": 0.313,
+        "shrub": 0.354,
+        "forest": 0.485
       }
     },
     {
@@ -1927,9 +1927,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.3,
-        "shrub": 0.368,
-        "forest": 0.537
+        "grass": 0.301,
+        "shrub": 0.344,
+        "forest": 0.481
       }
     },
     {
@@ -1941,9 +1941,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.313,
-        "shrub": 0.38,
-        "forest": 0.544
+        "grass": 0.314,
+        "shrub": 0.357,
+        "forest": 0.489
       }
     },
     {
@@ -1955,9 +1955,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.304,
-        "shrub": 0.376,
-        "forest": 0.547
+        "grass": 0.303,
+        "shrub": 0.352,
+        "forest": 0.49
       }
     },
     {
@@ -1970,8 +1970,8 @@
       "colors": 6,
       "contrast": {
         "grass": 0.334,
-        "shrub": 0.347,
-        "forest": 0.501
+        "shrub": 0.33,
+        "forest": 0.449
       }
     },
     {
@@ -1984,8 +1984,8 @@
       "colors": 6,
       "contrast": {
         "grass": 0.323,
-        "shrub": 0.34,
-        "forest": 0.509
+        "shrub": 0.321,
+        "forest": 0.452
       }
     },
     {
@@ -1997,9 +1997,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.335,
-        "shrub": 0.347,
-        "forest": 0.498
+        "grass": 0.336,
+        "shrub": 0.33,
+        "forest": 0.447
       }
     },
     {
@@ -2012,8 +2012,8 @@
       "colors": 6,
       "contrast": {
         "grass": 0.32,
-        "shrub": 0.338,
-        "forest": 0.51
+        "shrub": 0.319,
+        "forest": 0.452
       }
     },
     {
@@ -2026,8 +2026,8 @@
       "colors": 6,
       "contrast": {
         "grass": 0.334,
-        "shrub": 0.35,
-        "forest": 0.505
+        "shrub": 0.333,
+        "forest": 0.453
       }
     },
     {
@@ -2040,8 +2040,8 @@
       "colors": 6,
       "contrast": {
         "grass": 0.323,
-        "shrub": 0.343,
-        "forest": 0.513
+        "shrub": 0.325,
+        "forest": 0.456
       }
     },
     {
@@ -2053,9 +2053,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.335,
-        "shrub": 0.35,
-        "forest": 0.503
+        "grass": 0.336,
+        "shrub": 0.334,
+        "forest": 0.452
       }
     },
     {
@@ -2067,9 +2067,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.321,
-        "shrub": 0.342,
-        "forest": 0.514
+        "grass": 0.32,
+        "shrub": 0.323,
+        "forest": 0.457
       }
     },
     {
@@ -2081,9 +2081,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.314,
-        "shrub": 0.378,
-        "forest": 0.539
+        "grass": 0.315,
+        "shrub": 0.355,
+        "forest": 0.485
       }
     },
     {
@@ -2095,9 +2095,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.305,
-        "shrub": 0.377,
-        "forest": 0.554
+        "grass": 0.306,
+        "shrub": 0.352,
+        "forest": 0.494
       }
     },
     {
@@ -2109,9 +2109,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.314,
-        "shrub": 0.376,
-        "forest": 0.534
+        "grass": 0.316,
+        "shrub": 0.354,
+        "forest": 0.481
       }
     },
     {
@@ -2123,9 +2123,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.302,
-        "shrub": 0.376,
-        "forest": 0.555
+        "grass": 0.303,
+        "shrub": 0.351,
+        "forest": 0.495
       }
     },
     {
@@ -2138,8 +2138,8 @@
       "colors": 6,
       "contrast": {
         "grass": 0.316,
-        "shrub": 0.381,
-        "forest": 0.543
+        "shrub": 0.359,
+        "forest": 0.489
       }
     },
     {
@@ -2152,8 +2152,8 @@
       "colors": 6,
       "contrast": {
         "grass": 0.307,
-        "shrub": 0.381,
-        "forest": 0.558
+        "shrub": 0.356,
+        "forest": 0.499
       }
     },
     {
@@ -2165,9 +2165,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.316,
-        "shrub": 0.38,
-        "forest": 0.538
+        "grass": 0.317,
+        "shrub": 0.358,
+        "forest": 0.485
       }
     },
     {
@@ -2180,8 +2180,8 @@
       "colors": 6,
       "contrast": {
         "grass": 0.304,
-        "shrub": 0.379,
-        "forest": 0.56
+        "shrub": 0.354,
+        "forest": 0.499
       }
     },
     {
@@ -2193,9 +2193,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.327,
-        "shrub": 0.337,
-        "forest": 0.496
+        "grass": 0.328,
+        "shrub": 0.319,
+        "forest": 0.443
       }
     },
     {
@@ -2208,8 +2208,8 @@
       "colors": 6,
       "contrast": {
         "grass": 0.32,
-        "shrub": 0.338,
-        "forest": 0.512
+        "shrub": 0.319,
+        "forest": 0.454
       }
     },
     {
@@ -2221,9 +2221,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.335,
-        "shrub": 0.345,
-        "forest": 0.495
+        "grass": 0.336,
+        "shrub": 0.329,
+        "forest": 0.444
       }
     },
     {
@@ -2236,8 +2236,8 @@
       "colors": 6,
       "contrast": {
         "grass": 0.321,
-        "shrub": 0.34,
-        "forest": 0.513
+        "shrub": 0.321,
+        "forest": 0.455
       }
     },
     {
@@ -2250,8 +2250,8 @@
       "colors": 6,
       "contrast": {
         "grass": 0.328,
-        "shrub": 0.34,
-        "forest": 0.501
+        "shrub": 0.323,
+        "forest": 0.447
       }
     },
     {
@@ -2263,9 +2263,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.321,
-        "shrub": 0.342,
-        "forest": 0.517
+        "grass": 0.32,
+        "shrub": 0.323,
+        "forest": 0.458
       }
     },
     {
@@ -2278,8 +2278,8 @@
       "colors": 6,
       "contrast": {
         "grass": 0.333,
-        "shrub": 0.349,
-        "forest": 0.503
+        "shrub": 0.332,
+        "forest": 0.452
       }
     },
     {
@@ -2292,8 +2292,8 @@
       "colors": 6,
       "contrast": {
         "grass": 0.321,
-        "shrub": 0.344,
-        "forest": 0.518
+        "shrub": 0.325,
+        "forest": 0.459
       }
     },
     {
@@ -2305,9 +2305,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.309,
-        "shrub": 0.374,
-        "forest": 0.541
+        "grass": 0.311,
+        "shrub": 0.35,
+        "forest": 0.485
       }
     },
     {
@@ -2320,8 +2320,8 @@
       "colors": 6,
       "contrast": {
         "grass": 0.303,
-        "shrub": 0.377,
-        "forest": 0.558
+        "shrub": 0.352,
+        "forest": 0.498
       }
     },
     {
@@ -2333,9 +2333,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.315,
-        "shrub": 0.375,
-        "forest": 0.531
+        "grass": 0.316,
+        "shrub": 0.353,
+        "forest": 0.478
       }
     },
     {
@@ -2348,8 +2348,8 @@
       "colors": 6,
       "contrast": {
         "grass": 0.303,
-        "shrub": 0.377,
-        "forest": 0.558
+        "shrub": 0.352,
+        "forest": 0.497
       }
     },
     {
@@ -2361,9 +2361,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.31,
-        "shrub": 0.377,
-        "forest": 0.545
+        "grass": 0.312,
+        "shrub": 0.354,
+        "forest": 0.489
       }
     },
     {
@@ -2376,8 +2376,8 @@
       "colors": 6,
       "contrast": {
         "grass": 0.304,
-        "shrub": 0.38,
-        "forest": 0.563
+        "shrub": 0.355,
+        "forest": 0.502
       }
     },
     {
@@ -2389,9 +2389,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.315,
-        "shrub": 0.38,
-        "forest": 0.541
+        "grass": 0.316,
+        "shrub": 0.358,
+        "forest": 0.487
       }
     },
     {
@@ -2404,8 +2404,8 @@
       "colors": 6,
       "contrast": {
         "grass": 0.304,
-        "shrub": 0.381,
-        "forest": 0.562
+        "shrub": 0.355,
+        "forest": 0.501
       }
     },
     {
@@ -2417,9 +2417,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.322,
-        "shrub": 0.348,
-        "forest": 0.518
+        "grass": 0.32,
+        "shrub": 0.329,
+        "forest": 0.461
       }
     },
     {
@@ -2431,9 +2431,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.322,
-        "shrub": 0.352,
-        "forest": 0.524
+        "grass": 0.32,
+        "shrub": 0.333,
+        "forest": 0.466
       }
     },
     {
@@ -2445,9 +2445,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.299,
-        "shrub": 0.375,
-        "forest": 0.551
+        "grass": 0.298,
+        "shrub": 0.35,
+        "forest": 0.492
       }
     },
     {
@@ -2459,9 +2459,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.301,
-        "shrub": 0.379,
-        "forest": 0.556
+        "grass": 0.299,
+        "shrub": 0.354,
+        "forest": 0.497
       }
     },
     {
@@ -2473,9 +2473,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.237,
-        "shrub": 0.387,
-        "forest": 0.605
+        "grass": 0.213,
+        "shrub": 0.359,
+        "forest": 0.524
       }
     },
     {
@@ -2487,9 +2487,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.225,
-        "shrub": 0.382,
-        "forest": 0.608
+        "grass": 0.2,
+        "shrub": 0.353,
+        "forest": 0.524
       }
     },
     {
@@ -2501,9 +2501,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.238,
-        "shrub": 0.39,
-        "forest": 0.61
+        "grass": 0.214,
+        "shrub": 0.362,
+        "forest": 0.528
       }
     },
     {
@@ -2515,9 +2515,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.229,
-        "shrub": 0.393,
-        "forest": 0.625
+        "grass": 0.204,
+        "shrub": 0.363,
+        "forest": 0.54
       }
     },
     {
@@ -2529,9 +2529,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.246,
-        "shrub": 0.398,
-        "forest": 0.623
+        "grass": 0.222,
+        "shrub": 0.37,
+        "forest": 0.541
       }
     },
     {
@@ -2543,9 +2543,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.235,
-        "shrub": 0.393,
-        "forest": 0.626
+        "grass": 0.21,
+        "shrub": 0.364,
+        "forest": 0.541
       }
     },
     {
@@ -2557,9 +2557,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.248,
-        "shrub": 0.402,
-        "forest": 0.629
+        "grass": 0.224,
+        "shrub": 0.373,
+        "forest": 0.546
       }
     },
     {
@@ -2571,9 +2571,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.24,
-        "shrub": 0.405,
-        "forest": 0.644
+        "grass": 0.214,
+        "shrub": 0.375,
+        "forest": 0.558
       }
     },
     {
@@ -2585,9 +2585,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.231,
-        "shrub": 0.38,
-        "forest": 0.6
+        "grass": 0.207,
+        "shrub": 0.353,
+        "forest": 0.517
       }
     },
     {
@@ -2599,9 +2599,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.232,
-        "shrub": 0.387,
-        "forest": 0.609
+        "grass": 0.207,
+        "shrub": 0.359,
+        "forest": 0.528
       }
     },
     {
@@ -2613,9 +2613,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.239,
-        "shrub": 0.391,
-        "forest": 0.608
+        "grass": 0.215,
+        "shrub": 0.363,
+        "forest": 0.529
       }
     },
     {
@@ -2627,9 +2627,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.226,
-        "shrub": 0.381,
-        "forest": 0.604
+        "grass": 0.202,
+        "shrub": 0.352,
+        "forest": 0.521
       }
     },
     {
@@ -2641,9 +2641,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.233,
-        "shrub": 0.384,
-        "forest": 0.605
+        "grass": 0.209,
+        "shrub": 0.356,
+        "forest": 0.522
       }
     },
     {
@@ -2655,9 +2655,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.228,
-        "shrub": 0.386,
-        "forest": 0.611
+        "grass": 0.203,
+        "shrub": 0.357,
+        "forest": 0.529
       }
     },
     {
@@ -2669,9 +2669,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.241,
-        "shrub": 0.394,
-        "forest": 0.613
+        "grass": 0.216,
+        "shrub": 0.366,
+        "forest": 0.533
       }
     },
     {
@@ -2683,9 +2683,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.222,
-        "shrub": 0.38,
-        "forest": 0.607
+        "grass": 0.198,
+        "shrub": 0.351,
+        "forest": 0.523
       }
     },
     {
@@ -2697,9 +2697,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.24,
-        "shrub": 0.391,
-        "forest": 0.619
+        "grass": 0.217,
+        "shrub": 0.364,
+        "forest": 0.535
       }
     },
     {
@@ -2711,9 +2711,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.241,
-        "shrub": 0.398,
-        "forest": 0.626
+        "grass": 0.216,
+        "shrub": 0.369,
+        "forest": 0.544
       }
     },
     {
@@ -2725,9 +2725,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.248,
-        "shrub": 0.402,
-        "forest": 0.625
+        "grass": 0.224,
+        "shrub": 0.374,
+        "forest": 0.545
       }
     },
     {
@@ -2739,9 +2739,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.235,
-        "shrub": 0.391,
-        "forest": 0.622
+        "grass": 0.211,
+        "shrub": 0.363,
+        "forest": 0.538
       }
     },
     {
@@ -2753,9 +2753,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.242,
-        "shrub": 0.395,
-        "forest": 0.625
+        "grass": 0.218,
+        "shrub": 0.367,
+        "forest": 0.54
       }
     },
     {
@@ -2767,9 +2767,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.237,
-        "shrub": 0.397,
-        "forest": 0.628
+        "grass": 0.212,
+        "shrub": 0.368,
+        "forest": 0.545
       }
     },
     {
@@ -2781,9 +2781,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.25,
-        "shrub": 0.406,
-        "forest": 0.631
+        "grass": 0.226,
+        "shrub": 0.377,
+        "forest": 0.55
       }
     },
     {
@@ -2795,9 +2795,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.232,
-        "shrub": 0.391,
-        "forest": 0.624
+        "grass": 0.207,
+        "shrub": 0.361,
+        "forest": 0.54
       }
     },
     {
@@ -2809,9 +2809,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.226,
-        "shrub": 0.368,
-        "forest": 0.585
+        "grass": 0.203,
+        "shrub": 0.342,
+        "forest": 0.501
       }
     },
     {
@@ -2823,9 +2823,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.226,
-        "shrub": 0.383,
-        "forest": 0.606
+        "grass": 0.201,
+        "shrub": 0.354,
+        "forest": 0.525
       }
     },
     {
@@ -2837,9 +2837,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.234,
-        "shrub": 0.385,
-        "forest": 0.604
+        "grass": 0.21,
+        "shrub": 0.357,
+        "forest": 0.522
       }
     },
     {
@@ -2851,9 +2851,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.223,
-        "shrub": 0.379,
-        "forest": 0.603
+        "grass": 0.199,
+        "shrub": 0.35,
+        "forest": 0.52
       }
     },
     {
@@ -2865,9 +2865,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.229,
-        "shrub": 0.38,
-        "forest": 0.606
+        "grass": 0.205,
+        "shrub": 0.352,
+        "forest": 0.52
       }
     },
     {
@@ -2879,9 +2879,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.225,
-        "shrub": 0.384,
-        "forest": 0.61
+        "grass": 0.2,
+        "shrub": 0.355,
+        "forest": 0.528
       }
     },
     {
@@ -2893,9 +2893,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.235,
-        "shrub": 0.388,
-        "forest": 0.609
+        "grass": 0.211,
+        "shrub": 0.36,
+        "forest": 0.527
       }
     },
     {
@@ -2907,9 +2907,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.222,
-        "shrub": 0.38,
-        "forest": 0.607
+        "grass": 0.198,
+        "shrub": 0.351,
+        "forest": 0.523
       }
     },
     {
@@ -2921,9 +2921,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.235,
-        "shrub": 0.379,
-        "forest": 0.605
+        "grass": 0.212,
+        "shrub": 0.352,
+        "forest": 0.519
       }
     },
     {
@@ -2935,9 +2935,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.235,
-        "shrub": 0.394,
-        "forest": 0.623
+        "grass": 0.21,
+        "shrub": 0.364,
+        "forest": 0.541
       }
     },
     {
@@ -2949,9 +2949,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.243,
-        "shrub": 0.396,
-        "forest": 0.621
+        "grass": 0.219,
+        "shrub": 0.367,
+        "forest": 0.539
       }
     },
     {
@@ -2963,9 +2963,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.232,
-        "shrub": 0.389,
-        "forest": 0.621
+        "grass": 0.208,
+        "shrub": 0.36,
+        "forest": 0.536
       }
     },
     {
@@ -2977,9 +2977,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.239,
-        "shrub": 0.392,
-        "forest": 0.626
+        "grass": 0.215,
+        "shrub": 0.364,
+        "forest": 0.539
       }
     },
     {
@@ -2991,9 +2991,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.234,
-        "shrub": 0.395,
-        "forest": 0.626
+        "grass": 0.209,
+        "shrub": 0.365,
+        "forest": 0.544
       }
     },
     {
@@ -3005,9 +3005,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.245,
-        "shrub": 0.399,
-        "forest": 0.627
+        "grass": 0.22,
+        "shrub": 0.371,
+        "forest": 0.544
       }
     },
     {
@@ -3019,9 +3019,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.232,
-        "shrub": 0.391,
-        "forest": 0.624
+        "grass": 0.207,
+        "shrub": 0.361,
+        "forest": 0.54
       }
     },
     {
@@ -3033,9 +3033,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.221,
-        "shrub": 0.365,
-        "forest": 0.574
+        "grass": 0.198,
+        "shrub": 0.338,
+        "forest": 0.496
       }
     },
     {
@@ -3047,9 +3047,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.222,
-        "shrub": 0.371,
-        "forest": 0.586
+        "grass": 0.198,
+        "shrub": 0.343,
+        "forest": 0.506
       }
     },
     {
@@ -3061,9 +3061,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.227,
-        "shrub": 0.373,
-        "forest": 0.588
+        "grass": 0.204,
+        "shrub": 0.346,
+        "forest": 0.509
       }
     },
     {
@@ -3075,9 +3075,9 @@
       ],
       "colors": 6,
       "contrast": {
-        "grass": 0.229,
-        "shrub": 0.38,
-        "forest": 0.6
+        "grass": 0.205,
+        "shrub": 0.352,
+        "forest": 0.52
       }
     }
   ],

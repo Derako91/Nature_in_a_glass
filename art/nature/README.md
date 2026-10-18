@@ -1,6 +1,7 @@
 # Naturgestaltung – Prüfblatt 01
 
-**Aktuell ist Runde 09:** neu gezeichnete Tiere in doppelter Auflösung für die
+**Aktuell ist Runde 10:** Landschaft in doppelter Auflösung mit Boden- und
+Pflanzenvarianten, siehe `ROUND-10.md`. Runde 09 enthält neu gezeichnete Tiere in doppelter Auflösung für die
 Nahansicht, siehe `ROUND-09.md`. Runde 08 enthält Gebirgsgewässer, Wasserfälle und Materialübergänge,
 siehe `ROUND-08.md`. Runde 07 enthält die bestätigte Biomrichtung, weichere Bachkurven und
 versetzte Felsstufen, siehe `ROUND-07.md`. Kadaver und Spuren stehen in `ROUND-06.md`.
@@ -13,6 +14,12 @@ Manifest und Testbelegung der ersten Runde sind mit `assets/nature/` identisch
 und liegen deshalb nur dort.
 
 ## Aktuelle Entwürfe
+
+### Landschaft in der Nahansicht – Runde 10
+
+![Landschaft vorher und nachher](../../assets/nature/_landscape-detail-comparison.png)
+
+[Umfang, Maßstab und Prüfgrenzen](ROUND-10.md)
 
 ### Tiere in der Nahansicht – Runde 09
 
