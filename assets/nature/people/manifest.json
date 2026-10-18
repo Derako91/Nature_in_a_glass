@@ -1,0 +1,1979 @@
+{
+  "version": 1,
+  "status": "section_17_preproduction",
+  "base_tile": [
+    64,
+    32
+  ],
+  "appearances": [
+    {
+      "id": 0,
+      "gender": "female",
+      "hair": "braid",
+      "recognition_color": "#A54E3B"
+    },
+    {
+      "id": 1,
+      "gender": "male",
+      "hair": "short",
+      "recognition_color": "#4D7B91"
+    },
+    {
+      "id": 2,
+      "gender": "female",
+      "hair": "long",
+      "recognition_color": "#7B567E"
+    },
+    {
+      "id": 3,
+      "gender": "male",
+      "hair": "beard",
+      "recognition_color": "#B78E38"
+    },
+    {
+      "id": 4,
+      "gender": "female",
+      "hair": "bun",
+      "recognition_color": "#537E68"
+    }
+  ],
+  "assets": [
+    {
+      "id": "person",
+      "state": "idle",
+      "size": [
+        56,
+        120
+      ],
+      "display_size": [
+        7,
+        15
+      ],
+      "anchor": [
+        28,
+        112
+      ],
+      "appearances": 5,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 2,
+      "frame_ms": 800,
+      "files": [
+        "person_0_idle_l_f0.png",
+        "person_0_idle_l_f1.png",
+        "person_0_idle_r_f0.png",
+        "person_0_idle_r_f1.png",
+        "person_1_idle_l_f0.png",
+        "person_1_idle_l_f1.png",
+        "person_1_idle_r_f0.png",
+        "person_1_idle_r_f1.png",
+        "person_2_idle_l_f0.png",
+        "person_2_idle_l_f1.png",
+        "person_2_idle_r_f0.png",
+        "person_2_idle_r_f1.png",
+        "person_3_idle_l_f0.png",
+        "person_3_idle_l_f1.png",
+        "person_3_idle_r_f0.png",
+        "person_3_idle_r_f1.png",
+        "person_4_idle_l_f0.png",
+        "person_4_idle_l_f1.png",
+        "person_4_idle_r_f0.png",
+        "person_4_idle_r_f1.png"
+      ],
+      "frame_map": [
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_0_idle_l_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_0_idle_l_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_0_idle_r_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_0_idle_r_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_1_idle_l_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_1_idle_l_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_1_idle_r_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_1_idle_r_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_2_idle_l_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_2_idle_l_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_2_idle_r_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_2_idle_r_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_3_idle_l_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_3_idle_l_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_3_idle_r_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_3_idle_r_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_4_idle_l_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_4_idle_l_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_4_idle_r_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_4_idle_r_f1.png"
+        }
+      ]
+    },
+    {
+      "id": "person",
+      "state": "walk",
+      "size": [
+        56,
+        120
+      ],
+      "display_size": [
+        7,
+        15
+      ],
+      "anchor": [
+        28,
+        112
+      ],
+      "appearances": 5,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 4,
+      "frame_ms": 200,
+      "files": [
+        "person_0_walk_l_f0.png",
+        "person_0_walk_l_f1.png",
+        "person_0_walk_l_f2.png",
+        "person_0_walk_l_f3.png",
+        "person_0_walk_r_f0.png",
+        "person_0_walk_r_f1.png",
+        "person_0_walk_r_f2.png",
+        "person_0_walk_r_f3.png",
+        "person_1_walk_l_f0.png",
+        "person_1_walk_l_f1.png",
+        "person_1_walk_l_f2.png",
+        "person_1_walk_l_f3.png",
+        "person_1_walk_r_f0.png",
+        "person_1_walk_r_f1.png",
+        "person_1_walk_r_f2.png",
+        "person_1_walk_r_f3.png",
+        "person_2_walk_l_f0.png",
+        "person_2_walk_l_f1.png",
+        "person_2_walk_l_f2.png",
+        "person_2_walk_l_f3.png",
+        "person_2_walk_r_f0.png",
+        "person_2_walk_r_f1.png",
+        "person_2_walk_r_f2.png",
+        "person_2_walk_r_f3.png",
+        "person_3_walk_l_f0.png",
+        "person_3_walk_l_f1.png",
+        "person_3_walk_l_f2.png",
+        "person_3_walk_l_f3.png",
+        "person_3_walk_r_f0.png",
+        "person_3_walk_r_f1.png",
+        "person_3_walk_r_f2.png",
+        "person_3_walk_r_f3.png",
+        "person_4_walk_l_f0.png",
+        "person_4_walk_l_f1.png",
+        "person_4_walk_l_f2.png",
+        "person_4_walk_l_f3.png",
+        "person_4_walk_r_f0.png",
+        "person_4_walk_r_f1.png",
+        "person_4_walk_r_f2.png",
+        "person_4_walk_r_f3.png"
+      ],
+      "frame_map": [
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_0_walk_l_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_0_walk_l_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_0_walk_l_f2.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_0_walk_l_f3.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_0_walk_r_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_0_walk_r_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_0_walk_r_f2.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_0_walk_r_f3.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_1_walk_l_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_1_walk_l_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_1_walk_l_f2.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_1_walk_l_f3.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_1_walk_r_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_1_walk_r_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_1_walk_r_f2.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_1_walk_r_f3.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_2_walk_l_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_2_walk_l_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_2_walk_l_f2.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_2_walk_l_f3.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_2_walk_r_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_2_walk_r_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_2_walk_r_f2.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_2_walk_r_f3.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_3_walk_l_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_3_walk_l_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_3_walk_l_f2.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_3_walk_l_f3.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_3_walk_r_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_3_walk_r_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_3_walk_r_f2.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_3_walk_r_f3.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_4_walk_l_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_4_walk_l_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_4_walk_l_f2.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_4_walk_l_f3.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_4_walk_r_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_4_walk_r_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_4_walk_r_f2.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_4_walk_r_f3.png"
+        }
+      ]
+    },
+    {
+      "id": "person",
+      "state": "run",
+      "size": [
+        56,
+        120
+      ],
+      "display_size": [
+        7,
+        15
+      ],
+      "anchor": [
+        28,
+        112
+      ],
+      "appearances": 5,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 4,
+      "frame_ms": 100,
+      "files": [
+        "person_0_run_l_f0.png",
+        "person_0_run_l_f1.png",
+        "person_0_run_l_f2.png",
+        "person_0_run_l_f3.png",
+        "person_0_run_r_f0.png",
+        "person_0_run_r_f1.png",
+        "person_0_run_r_f2.png",
+        "person_0_run_r_f3.png",
+        "person_1_run_l_f0.png",
+        "person_1_run_l_f1.png",
+        "person_1_run_l_f2.png",
+        "person_1_run_l_f3.png",
+        "person_1_run_r_f0.png",
+        "person_1_run_r_f1.png",
+        "person_1_run_r_f2.png",
+        "person_1_run_r_f3.png",
+        "person_2_run_l_f0.png",
+        "person_2_run_l_f1.png",
+        "person_2_run_l_f2.png",
+        "person_2_run_l_f3.png",
+        "person_2_run_r_f0.png",
+        "person_2_run_r_f1.png",
+        "person_2_run_r_f2.png",
+        "person_2_run_r_f3.png",
+        "person_3_run_l_f0.png",
+        "person_3_run_l_f1.png",
+        "person_3_run_l_f2.png",
+        "person_3_run_l_f3.png",
+        "person_3_run_r_f0.png",
+        "person_3_run_r_f1.png",
+        "person_3_run_r_f2.png",
+        "person_3_run_r_f3.png",
+        "person_4_run_l_f0.png",
+        "person_4_run_l_f1.png",
+        "person_4_run_l_f2.png",
+        "person_4_run_l_f3.png",
+        "person_4_run_r_f0.png",
+        "person_4_run_r_f1.png",
+        "person_4_run_r_f2.png",
+        "person_4_run_r_f3.png"
+      ],
+      "frame_map": [
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_0_run_l_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_0_run_l_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_0_run_l_f2.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_0_run_l_f3.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_0_run_r_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_0_run_r_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_0_run_r_f2.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_0_run_r_f3.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_1_run_l_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_1_run_l_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_1_run_l_f2.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_1_run_l_f3.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_1_run_r_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_1_run_r_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_1_run_r_f2.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_1_run_r_f3.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_2_run_l_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_2_run_l_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_2_run_l_f2.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_2_run_l_f3.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_2_run_r_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_2_run_r_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_2_run_r_f2.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_2_run_r_f3.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_3_run_l_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_3_run_l_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_3_run_l_f2.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_3_run_l_f3.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_3_run_r_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_3_run_r_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_3_run_r_f2.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_3_run_r_f3.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_4_run_l_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_4_run_l_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_4_run_l_f2.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_4_run_l_f3.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_4_run_r_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_4_run_r_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_4_run_r_f2.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_4_run_r_f3.png"
+        }
+      ]
+    },
+    {
+      "id": "person",
+      "state": "gather",
+      "size": [
+        56,
+        120
+      ],
+      "display_size": [
+        7,
+        15
+      ],
+      "anchor": [
+        28,
+        112
+      ],
+      "appearances": 5,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 4,
+      "frame_ms": 300,
+      "files": [
+        "person_0_gather_l_f0.png",
+        "person_0_gather_l_f1.png",
+        "person_0_gather_l_f2.png",
+        "person_0_gather_l_f3.png",
+        "person_0_gather_r_f0.png",
+        "person_0_gather_r_f1.png",
+        "person_0_gather_r_f2.png",
+        "person_0_gather_r_f3.png",
+        "person_1_gather_l_f0.png",
+        "person_1_gather_l_f1.png",
+        "person_1_gather_l_f2.png",
+        "person_1_gather_l_f3.png",
+        "person_1_gather_r_f0.png",
+        "person_1_gather_r_f1.png",
+        "person_1_gather_r_f2.png",
+        "person_1_gather_r_f3.png",
+        "person_2_gather_l_f0.png",
+        "person_2_gather_l_f1.png",
+        "person_2_gather_l_f2.png",
+        "person_2_gather_l_f3.png",
+        "person_2_gather_r_f0.png",
+        "person_2_gather_r_f1.png",
+        "person_2_gather_r_f2.png",
+        "person_2_gather_r_f3.png",
+        "person_3_gather_l_f0.png",
+        "person_3_gather_l_f1.png",
+        "person_3_gather_l_f2.png",
+        "person_3_gather_l_f3.png",
+        "person_3_gather_r_f0.png",
+        "person_3_gather_r_f1.png",
+        "person_3_gather_r_f2.png",
+        "person_3_gather_r_f3.png",
+        "person_4_gather_l_f0.png",
+        "person_4_gather_l_f1.png",
+        "person_4_gather_l_f2.png",
+        "person_4_gather_l_f3.png",
+        "person_4_gather_r_f0.png",
+        "person_4_gather_r_f1.png",
+        "person_4_gather_r_f2.png",
+        "person_4_gather_r_f3.png"
+      ],
+      "frame_map": [
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_0_gather_l_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_0_gather_l_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_0_gather_l_f2.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_0_gather_l_f3.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_0_gather_r_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_0_gather_r_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_0_gather_r_f2.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_0_gather_r_f3.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_1_gather_l_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_1_gather_l_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_1_gather_l_f2.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_1_gather_l_f3.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_1_gather_r_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_1_gather_r_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_1_gather_r_f2.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_1_gather_r_f3.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_2_gather_l_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_2_gather_l_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_2_gather_l_f2.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_2_gather_l_f3.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_2_gather_r_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_2_gather_r_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_2_gather_r_f2.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_2_gather_r_f3.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_3_gather_l_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_3_gather_l_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_3_gather_l_f2.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_3_gather_l_f3.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_3_gather_r_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_3_gather_r_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_3_gather_r_f2.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_3_gather_r_f3.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_4_gather_l_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_4_gather_l_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_4_gather_l_f2.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_4_gather_l_f3.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_4_gather_r_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_4_gather_r_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_4_gather_r_f2.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_4_gather_r_f3.png"
+        }
+      ]
+    },
+    {
+      "id": "person",
+      "state": "eat",
+      "size": [
+        56,
+        120
+      ],
+      "display_size": [
+        7,
+        15
+      ],
+      "anchor": [
+        28,
+        112
+      ],
+      "appearances": 5,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 2,
+      "frame_ms": 600,
+      "files": [
+        "person_0_eat_l_f0.png",
+        "person_0_eat_l_f1.png",
+        "person_0_eat_r_f0.png",
+        "person_0_eat_r_f1.png",
+        "person_1_eat_l_f0.png",
+        "person_1_eat_l_f1.png",
+        "person_1_eat_r_f0.png",
+        "person_1_eat_r_f1.png",
+        "person_2_eat_l_f0.png",
+        "person_2_eat_l_f1.png",
+        "person_2_eat_r_f0.png",
+        "person_2_eat_r_f1.png",
+        "person_3_eat_l_f0.png",
+        "person_3_eat_l_f1.png",
+        "person_3_eat_r_f0.png",
+        "person_3_eat_r_f1.png",
+        "person_4_eat_l_f0.png",
+        "person_4_eat_l_f1.png",
+        "person_4_eat_r_f0.png",
+        "person_4_eat_r_f1.png"
+      ],
+      "frame_map": [
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_0_eat_l_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_0_eat_l_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_0_eat_r_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_0_eat_r_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_1_eat_l_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_1_eat_l_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_1_eat_r_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_1_eat_r_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_2_eat_l_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_2_eat_l_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_2_eat_r_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_2_eat_r_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_3_eat_l_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_3_eat_l_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_3_eat_r_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_3_eat_r_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_4_eat_l_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_4_eat_l_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_4_eat_r_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_4_eat_r_f1.png"
+        }
+      ]
+    },
+    {
+      "id": "person",
+      "state": "drink",
+      "size": [
+        56,
+        120
+      ],
+      "display_size": [
+        7,
+        15
+      ],
+      "anchor": [
+        28,
+        112
+      ],
+      "appearances": 5,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 2,
+      "frame_ms": 600,
+      "files": [
+        "person_0_drink_l_f0.png",
+        "person_0_drink_l_f1.png",
+        "person_0_drink_r_f0.png",
+        "person_0_drink_r_f1.png",
+        "person_1_drink_l_f0.png",
+        "person_1_drink_l_f1.png",
+        "person_1_drink_r_f0.png",
+        "person_1_drink_r_f1.png",
+        "person_2_drink_l_f0.png",
+        "person_2_drink_l_f1.png",
+        "person_2_drink_r_f0.png",
+        "person_2_drink_r_f1.png",
+        "person_3_drink_l_f0.png",
+        "person_3_drink_l_f1.png",
+        "person_3_drink_r_f0.png",
+        "person_3_drink_r_f1.png",
+        "person_4_drink_l_f0.png",
+        "person_4_drink_l_f1.png",
+        "person_4_drink_r_f0.png",
+        "person_4_drink_r_f1.png"
+      ],
+      "frame_map": [
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_0_drink_l_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_0_drink_l_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_0_drink_r_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_0_drink_r_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_1_drink_l_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_1_drink_l_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_1_drink_r_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_1_drink_r_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_2_drink_l_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_2_drink_l_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_2_drink_r_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_2_drink_r_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_3_drink_l_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_3_drink_l_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_3_drink_r_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_3_drink_r_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_4_drink_l_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_4_drink_l_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_4_drink_r_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_4_drink_r_f1.png"
+        }
+      ]
+    },
+    {
+      "id": "person",
+      "state": "sleep",
+      "size": [
+        56,
+        120
+      ],
+      "display_size": [
+        7,
+        15
+      ],
+      "anchor": [
+        28,
+        112
+      ],
+      "appearances": 5,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 1,
+      "frame_ms": null,
+      "files": [
+        "person_0_sleep_l_f0.png",
+        "person_0_sleep_r_f0.png",
+        "person_1_sleep_l_f0.png",
+        "person_1_sleep_r_f0.png",
+        "person_2_sleep_l_f0.png",
+        "person_2_sleep_r_f0.png",
+        "person_3_sleep_l_f0.png",
+        "person_3_sleep_r_f0.png",
+        "person_4_sleep_l_f0.png",
+        "person_4_sleep_r_f0.png"
+      ],
+      "frame_map": [
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_0_sleep_l_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_0_sleep_r_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_1_sleep_l_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_1_sleep_r_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_2_sleep_l_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_2_sleep_r_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_3_sleep_l_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_3_sleep_r_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_4_sleep_l_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_4_sleep_r_f0.png"
+        }
+      ]
+    },
+    {
+      "id": "person",
+      "state": "hurt",
+      "size": [
+        56,
+        120
+      ],
+      "display_size": [
+        7,
+        15
+      ],
+      "anchor": [
+        28,
+        112
+      ],
+      "appearances": 5,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 4,
+      "frame_ms": 250,
+      "files": [
+        "person_0_hurt_l_f0.png",
+        "person_0_hurt_l_f1.png",
+        "person_0_hurt_l_f2.png",
+        "person_0_hurt_l_f3.png",
+        "person_0_hurt_r_f0.png",
+        "person_0_hurt_r_f1.png",
+        "person_0_hurt_r_f2.png",
+        "person_0_hurt_r_f3.png",
+        "person_1_hurt_l_f0.png",
+        "person_1_hurt_l_f1.png",
+        "person_1_hurt_l_f2.png",
+        "person_1_hurt_l_f3.png",
+        "person_1_hurt_r_f0.png",
+        "person_1_hurt_r_f1.png",
+        "person_1_hurt_r_f2.png",
+        "person_1_hurt_r_f3.png",
+        "person_2_hurt_l_f0.png",
+        "person_2_hurt_l_f1.png",
+        "person_2_hurt_l_f2.png",
+        "person_2_hurt_l_f3.png",
+        "person_2_hurt_r_f0.png",
+        "person_2_hurt_r_f1.png",
+        "person_2_hurt_r_f2.png",
+        "person_2_hurt_r_f3.png",
+        "person_3_hurt_l_f0.png",
+        "person_3_hurt_l_f1.png",
+        "person_3_hurt_l_f2.png",
+        "person_3_hurt_l_f3.png",
+        "person_3_hurt_r_f0.png",
+        "person_3_hurt_r_f1.png",
+        "person_3_hurt_r_f2.png",
+        "person_3_hurt_r_f3.png",
+        "person_4_hurt_l_f0.png",
+        "person_4_hurt_l_f1.png",
+        "person_4_hurt_l_f2.png",
+        "person_4_hurt_l_f3.png",
+        "person_4_hurt_r_f0.png",
+        "person_4_hurt_r_f1.png",
+        "person_4_hurt_r_f2.png",
+        "person_4_hurt_r_f3.png"
+      ],
+      "frame_map": [
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_0_hurt_l_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_0_hurt_l_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_0_hurt_l_f2.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_0_hurt_l_f3.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_0_hurt_r_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_0_hurt_r_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_0_hurt_r_f2.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_0_hurt_r_f3.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_1_hurt_l_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_1_hurt_l_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_1_hurt_l_f2.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_1_hurt_l_f3.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_1_hurt_r_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_1_hurt_r_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_1_hurt_r_f2.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_1_hurt_r_f3.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_2_hurt_l_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_2_hurt_l_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_2_hurt_l_f2.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_2_hurt_l_f3.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_2_hurt_r_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_2_hurt_r_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_2_hurt_r_f2.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_2_hurt_r_f3.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_3_hurt_l_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_3_hurt_l_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_3_hurt_l_f2.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_3_hurt_l_f3.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_3_hurt_r_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_3_hurt_r_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_3_hurt_r_f2.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_3_hurt_r_f3.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_4_hurt_l_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_4_hurt_l_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_4_hurt_l_f2.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_4_hurt_l_f3.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_4_hurt_r_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_4_hurt_r_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_4_hurt_r_f2.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_4_hurt_r_f3.png"
+        }
+      ]
+    },
+    {
+      "id": "person_dead",
+      "size": [
+        120,
+        40
+      ],
+      "display_size": [
+        15,
+        5
+      ],
+      "anchor": [
+        60,
+        20
+      ],
+      "frames": 1,
+      "files": [
+        "person_dead_0_l_f0.png",
+        "person_dead_0_r_f0.png",
+        "person_dead_1_l_f0.png",
+        "person_dead_1_r_f0.png",
+        "person_dead_2_l_f0.png",
+        "person_dead_2_r_f0.png",
+        "person_dead_3_l_f0.png",
+        "person_dead_3_r_f0.png",
+        "person_dead_4_l_f0.png",
+        "person_dead_4_r_f0.png"
+      ],
+      "frame_map": [
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_dead_0_l_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_dead_0_r_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_dead_1_l_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_dead_1_r_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_dead_2_l_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_dead_2_r_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_dead_3_l_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_dead_3_r_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_dead_4_l_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_dead_4_r_f0.png"
+        }
+      ]
+    },
+    {
+      "id": "person_marker",
+      "size": [
+        16,
+        16
+      ],
+      "display_size": [
+        8,
+        8
+      ],
+      "anchor": [
+        8,
+        14
+      ],
+      "frames": 1,
+      "files": [
+        "person_marker_0.png"
+      ],
+      "tint": "renderer_recognition_color"
+    }
+  ],
+  "frame_aliases": {}
+}

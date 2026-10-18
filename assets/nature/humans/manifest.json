@@ -1,0 +1,952 @@
+{
+  "version": 1,
+  "status": "preproduction_not_integrated",
+  "resolution_scale": 2,
+  "assets": [
+    {
+      "id": "human_male",
+      "size": [
+        16,
+        24
+      ],
+      "display_size": [
+        8,
+        12
+      ],
+      "anchor": [
+        8,
+        22
+      ],
+      "variants": 2,
+      "state": "stand",
+      "frames": 1,
+      "frame_ms": null,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "files": [
+        "human_male_0_stand_l_f0.png",
+        "human_male_0_stand_r_f0.png",
+        "human_male_1_stand_l_f0.png",
+        "human_male_1_stand_r_f0.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "human_male_0_stand_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "human_male_0_stand_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "human_male_1_stand_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "human_male_1_stand_r_f0.png"
+        }
+      ]
+    },
+    {
+      "id": "human_male",
+      "size": [
+        16,
+        24
+      ],
+      "display_size": [
+        8,
+        12
+      ],
+      "anchor": [
+        8,
+        22
+      ],
+      "variants": 2,
+      "state": "walk",
+      "frames": 4,
+      "frame_ms": 200,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "files": [
+        "human_male_0_walk_l_f0.png",
+        "human_male_0_walk_l_f1.png",
+        "human_male_0_walk_l_f2.png",
+        "human_male_0_walk_l_f3.png",
+        "human_male_0_walk_r_f0.png",
+        "human_male_0_walk_r_f1.png",
+        "human_male_0_walk_r_f2.png",
+        "human_male_0_walk_r_f3.png",
+        "human_male_1_walk_l_f0.png",
+        "human_male_1_walk_l_f1.png",
+        "human_male_1_walk_l_f2.png",
+        "human_male_1_walk_l_f3.png",
+        "human_male_1_walk_r_f0.png",
+        "human_male_1_walk_r_f1.png",
+        "human_male_1_walk_r_f2.png",
+        "human_male_1_walk_r_f3.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "human_male_0_walk_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "human_male_0_walk_l_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "human_male_0_walk_l_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "human_male_0_walk_l_f3.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "human_male_0_walk_r_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "human_male_0_walk_r_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "human_male_0_walk_r_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "human_male_0_walk_r_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "human_male_1_walk_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "human_male_1_walk_l_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "human_male_1_walk_l_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "human_male_1_walk_l_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "human_male_1_walk_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "human_male_1_walk_r_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "human_male_1_walk_r_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "human_male_1_walk_r_f3.png"
+        }
+      ]
+    },
+    {
+      "id": "human_male",
+      "size": [
+        16,
+        24
+      ],
+      "display_size": [
+        8,
+        12
+      ],
+      "anchor": [
+        8,
+        22
+      ],
+      "variants": 2,
+      "state": "carry",
+      "frames": 4,
+      "frame_ms": 200,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "files": [
+        "human_male_0_carry_l_f0.png",
+        "human_male_0_carry_l_f1.png",
+        "human_male_0_carry_l_f2.png",
+        "human_male_0_carry_l_f3.png",
+        "human_male_0_carry_r_f0.png",
+        "human_male_0_carry_r_f1.png",
+        "human_male_0_carry_r_f2.png",
+        "human_male_0_carry_r_f3.png",
+        "human_male_1_carry_l_f0.png",
+        "human_male_1_carry_l_f1.png",
+        "human_male_1_carry_l_f2.png",
+        "human_male_1_carry_l_f3.png",
+        "human_male_1_carry_r_f0.png",
+        "human_male_1_carry_r_f1.png",
+        "human_male_1_carry_r_f2.png",
+        "human_male_1_carry_r_f3.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "human_male_0_carry_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "human_male_0_carry_l_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "human_male_0_carry_l_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "human_male_0_carry_l_f3.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "human_male_0_carry_r_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "human_male_0_carry_r_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "human_male_0_carry_r_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "human_male_0_carry_r_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "human_male_1_carry_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "human_male_1_carry_l_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "human_male_1_carry_l_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "human_male_1_carry_l_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "human_male_1_carry_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "human_male_1_carry_r_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "human_male_1_carry_r_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "human_male_1_carry_r_f3.png"
+        }
+      ]
+    },
+    {
+      "id": "human_male",
+      "size": [
+        16,
+        24
+      ],
+      "display_size": [
+        8,
+        12
+      ],
+      "anchor": [
+        8,
+        22
+      ],
+      "variants": 2,
+      "state": "work",
+      "frames": 4,
+      "frame_ms": 300,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "files": [
+        "human_male_0_work_l_f0.png",
+        "human_male_0_work_l_f1.png",
+        "human_male_0_work_l_f2.png",
+        "human_male_0_work_l_f3.png",
+        "human_male_0_work_r_f0.png",
+        "human_male_0_work_r_f1.png",
+        "human_male_0_work_r_f2.png",
+        "human_male_0_work_r_f3.png",
+        "human_male_1_work_l_f0.png",
+        "human_male_1_work_l_f1.png",
+        "human_male_1_work_l_f2.png",
+        "human_male_1_work_l_f3.png",
+        "human_male_1_work_r_f0.png",
+        "human_male_1_work_r_f1.png",
+        "human_male_1_work_r_f2.png",
+        "human_male_1_work_r_f3.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "human_male_0_work_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "human_male_0_work_l_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "human_male_0_work_l_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "human_male_0_work_l_f3.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "human_male_0_work_r_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "human_male_0_work_r_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "human_male_0_work_r_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "human_male_0_work_r_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "human_male_1_work_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "human_male_1_work_l_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "human_male_1_work_l_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "human_male_1_work_l_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "human_male_1_work_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "human_male_1_work_r_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "human_male_1_work_r_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "human_male_1_work_r_f3.png"
+        }
+      ]
+    },
+    {
+      "id": "human_female",
+      "size": [
+        16,
+        24
+      ],
+      "display_size": [
+        8,
+        12
+      ],
+      "anchor": [
+        8,
+        22
+      ],
+      "variants": 2,
+      "state": "stand",
+      "frames": 1,
+      "frame_ms": null,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "files": [
+        "human_female_0_stand_l_f0.png",
+        "human_female_0_stand_r_f0.png",
+        "human_female_1_stand_l_f0.png",
+        "human_female_1_stand_r_f0.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "human_female_0_stand_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "human_female_0_stand_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "human_female_1_stand_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "human_female_1_stand_r_f0.png"
+        }
+      ]
+    },
+    {
+      "id": "human_female",
+      "size": [
+        16,
+        24
+      ],
+      "display_size": [
+        8,
+        12
+      ],
+      "anchor": [
+        8,
+        22
+      ],
+      "variants": 2,
+      "state": "walk",
+      "frames": 4,
+      "frame_ms": 200,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "files": [
+        "human_female_0_walk_l_f0.png",
+        "human_female_0_walk_l_f1.png",
+        "human_female_0_walk_l_f2.png",
+        "human_female_0_walk_l_f3.png",
+        "human_female_0_walk_r_f0.png",
+        "human_female_0_walk_r_f1.png",
+        "human_female_0_walk_r_f2.png",
+        "human_female_0_walk_r_f3.png",
+        "human_female_1_walk_l_f0.png",
+        "human_female_1_walk_l_f1.png",
+        "human_female_1_walk_l_f2.png",
+        "human_female_1_walk_l_f3.png",
+        "human_female_1_walk_r_f0.png",
+        "human_female_1_walk_r_f1.png",
+        "human_female_1_walk_r_f2.png",
+        "human_female_1_walk_r_f3.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "human_female_0_walk_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "human_female_0_walk_l_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "human_female_0_walk_l_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "human_female_0_walk_l_f3.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "human_female_0_walk_r_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "human_female_0_walk_r_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "human_female_0_walk_r_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "human_female_0_walk_r_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "human_female_1_walk_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "human_female_1_walk_l_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "human_female_1_walk_l_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "human_female_1_walk_l_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "human_female_1_walk_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "human_female_1_walk_r_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "human_female_1_walk_r_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "human_female_1_walk_r_f3.png"
+        }
+      ]
+    },
+    {
+      "id": "human_female",
+      "size": [
+        16,
+        24
+      ],
+      "display_size": [
+        8,
+        12
+      ],
+      "anchor": [
+        8,
+        22
+      ],
+      "variants": 2,
+      "state": "carry",
+      "frames": 4,
+      "frame_ms": 200,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "files": [
+        "human_female_0_carry_l_f0.png",
+        "human_female_0_carry_l_f1.png",
+        "human_female_0_carry_l_f2.png",
+        "human_female_0_carry_l_f3.png",
+        "human_female_0_carry_r_f0.png",
+        "human_female_0_carry_r_f1.png",
+        "human_female_0_carry_r_f2.png",
+        "human_female_0_carry_r_f3.png",
+        "human_female_1_carry_l_f0.png",
+        "human_female_1_carry_l_f1.png",
+        "human_female_1_carry_l_f2.png",
+        "human_female_1_carry_l_f3.png",
+        "human_female_1_carry_r_f0.png",
+        "human_female_1_carry_r_f1.png",
+        "human_female_1_carry_r_f2.png",
+        "human_female_1_carry_r_f3.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "human_female_0_carry_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "human_female_0_carry_l_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "human_female_0_carry_l_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "human_female_0_carry_l_f3.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "human_female_0_carry_r_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "human_female_0_carry_r_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "human_female_0_carry_r_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "human_female_0_carry_r_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "human_female_1_carry_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "human_female_1_carry_l_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "human_female_1_carry_l_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "human_female_1_carry_l_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "human_female_1_carry_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "human_female_1_carry_r_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "human_female_1_carry_r_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "human_female_1_carry_r_f3.png"
+        }
+      ]
+    },
+    {
+      "id": "human_female",
+      "size": [
+        16,
+        24
+      ],
+      "display_size": [
+        8,
+        12
+      ],
+      "anchor": [
+        8,
+        22
+      ],
+      "variants": 2,
+      "state": "work",
+      "frames": 4,
+      "frame_ms": 300,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "files": [
+        "human_female_0_work_l_f0.png",
+        "human_female_0_work_l_f1.png",
+        "human_female_0_work_l_f2.png",
+        "human_female_0_work_l_f3.png",
+        "human_female_0_work_r_f0.png",
+        "human_female_0_work_r_f1.png",
+        "human_female_0_work_r_f2.png",
+        "human_female_0_work_r_f3.png",
+        "human_female_1_work_l_f0.png",
+        "human_female_1_work_l_f1.png",
+        "human_female_1_work_l_f2.png",
+        "human_female_1_work_l_f3.png",
+        "human_female_1_work_r_f0.png",
+        "human_female_1_work_r_f1.png",
+        "human_female_1_work_r_f2.png",
+        "human_female_1_work_r_f3.png"
+      ],
+      "frame_map": [
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "human_female_0_work_l_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "human_female_0_work_l_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "human_female_0_work_l_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "human_female_0_work_l_f3.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "human_female_0_work_r_f0.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "human_female_0_work_r_f1.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "human_female_0_work_r_f2.png"
+        },
+        {
+          "variant": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "human_female_0_work_r_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "human_female_1_work_l_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "human_female_1_work_l_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "human_female_1_work_l_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "human_female_1_work_l_f3.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "human_female_1_work_r_f0.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "human_female_1_work_r_f1.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "human_female_1_work_r_f2.png"
+        },
+        {
+          "variant": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "human_female_1_work_r_f3.png"
+        }
+      ]
+    }
+  ],
+  "frame_aliases": {}
+}

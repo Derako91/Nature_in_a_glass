@@ -1,0 +1,938 @@
+[
+  {
+    "frame_id": "human_male_0_stand_l_f0.png",
+    "file": "human_male_0_stand_l_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_stand_r_f0.png",
+    "file": "human_male_0_stand_r_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_stand_l_f0.png",
+    "file": "human_male_1_stand_l_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_stand_r_f0.png",
+    "file": "human_male_1_stand_r_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_walk_l_f0.png",
+    "file": "human_male_0_walk_l_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_walk_l_f1.png",
+    "file": "human_male_0_walk_l_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_walk_l_f2.png",
+    "file": "human_male_0_walk_l_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_walk_l_f3.png",
+    "file": "human_male_0_walk_l_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_walk_r_f0.png",
+    "file": "human_male_0_walk_r_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_walk_r_f1.png",
+    "file": "human_male_0_walk_r_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_walk_r_f2.png",
+    "file": "human_male_0_walk_r_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_walk_r_f3.png",
+    "file": "human_male_0_walk_r_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_walk_l_f0.png",
+    "file": "human_male_1_walk_l_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_walk_l_f1.png",
+    "file": "human_male_1_walk_l_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_walk_l_f2.png",
+    "file": "human_male_1_walk_l_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_walk_l_f3.png",
+    "file": "human_male_1_walk_l_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_walk_r_f0.png",
+    "file": "human_male_1_walk_r_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_walk_r_f1.png",
+    "file": "human_male_1_walk_r_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_walk_r_f2.png",
+    "file": "human_male_1_walk_r_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_walk_r_f3.png",
+    "file": "human_male_1_walk_r_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_carry_l_f0.png",
+    "file": "human_male_0_carry_l_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_carry_l_f1.png",
+    "file": "human_male_0_carry_l_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_carry_l_f2.png",
+    "file": "human_male_0_carry_l_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_carry_l_f3.png",
+    "file": "human_male_0_carry_l_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_carry_r_f0.png",
+    "file": "human_male_0_carry_r_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_carry_r_f1.png",
+    "file": "human_male_0_carry_r_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_carry_r_f2.png",
+    "file": "human_male_0_carry_r_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_carry_r_f3.png",
+    "file": "human_male_0_carry_r_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_carry_l_f0.png",
+    "file": "human_male_1_carry_l_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_carry_l_f1.png",
+    "file": "human_male_1_carry_l_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_carry_l_f2.png",
+    "file": "human_male_1_carry_l_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_carry_l_f3.png",
+    "file": "human_male_1_carry_l_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_carry_r_f0.png",
+    "file": "human_male_1_carry_r_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_carry_r_f1.png",
+    "file": "human_male_1_carry_r_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_carry_r_f2.png",
+    "file": "human_male_1_carry_r_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_carry_r_f3.png",
+    "file": "human_male_1_carry_r_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_work_l_f0.png",
+    "file": "human_male_0_work_l_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_work_l_f1.png",
+    "file": "human_male_0_work_l_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_work_l_f2.png",
+    "file": "human_male_0_work_l_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_work_l_f3.png",
+    "file": "human_male_0_work_l_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_work_r_f0.png",
+    "file": "human_male_0_work_r_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_work_r_f1.png",
+    "file": "human_male_0_work_r_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_work_r_f2.png",
+    "file": "human_male_0_work_r_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_0_work_r_f3.png",
+    "file": "human_male_0_work_r_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_work_l_f0.png",
+    "file": "human_male_1_work_l_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_work_l_f1.png",
+    "file": "human_male_1_work_l_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_work_l_f2.png",
+    "file": "human_male_1_work_l_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_work_l_f3.png",
+    "file": "human_male_1_work_l_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_work_r_f0.png",
+    "file": "human_male_1_work_r_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_work_r_f1.png",
+    "file": "human_male_1_work_r_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_work_r_f2.png",
+    "file": "human_male_1_work_r_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_male_1_work_r_f3.png",
+    "file": "human_male_1_work_r_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_stand_l_f0.png",
+    "file": "human_female_0_stand_l_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_stand_r_f0.png",
+    "file": "human_female_0_stand_r_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_stand_l_f0.png",
+    "file": "human_female_1_stand_l_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_stand_r_f0.png",
+    "file": "human_female_1_stand_r_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_walk_l_f0.png",
+    "file": "human_female_0_walk_l_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_walk_l_f1.png",
+    "file": "human_female_0_walk_l_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_walk_l_f2.png",
+    "file": "human_female_0_walk_l_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_walk_l_f3.png",
+    "file": "human_female_0_walk_l_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_walk_r_f0.png",
+    "file": "human_female_0_walk_r_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_walk_r_f1.png",
+    "file": "human_female_0_walk_r_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_walk_r_f2.png",
+    "file": "human_female_0_walk_r_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_walk_r_f3.png",
+    "file": "human_female_0_walk_r_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_walk_l_f0.png",
+    "file": "human_female_1_walk_l_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_walk_l_f1.png",
+    "file": "human_female_1_walk_l_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_walk_l_f2.png",
+    "file": "human_female_1_walk_l_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_walk_l_f3.png",
+    "file": "human_female_1_walk_l_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_walk_r_f0.png",
+    "file": "human_female_1_walk_r_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_walk_r_f1.png",
+    "file": "human_female_1_walk_r_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_walk_r_f2.png",
+    "file": "human_female_1_walk_r_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_walk_r_f3.png",
+    "file": "human_female_1_walk_r_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_carry_l_f0.png",
+    "file": "human_female_0_carry_l_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_carry_l_f1.png",
+    "file": "human_female_0_carry_l_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_carry_l_f2.png",
+    "file": "human_female_0_carry_l_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_carry_l_f3.png",
+    "file": "human_female_0_carry_l_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_carry_r_f0.png",
+    "file": "human_female_0_carry_r_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_carry_r_f1.png",
+    "file": "human_female_0_carry_r_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_carry_r_f2.png",
+    "file": "human_female_0_carry_r_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_carry_r_f3.png",
+    "file": "human_female_0_carry_r_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_carry_l_f0.png",
+    "file": "human_female_1_carry_l_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_carry_l_f1.png",
+    "file": "human_female_1_carry_l_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_carry_l_f2.png",
+    "file": "human_female_1_carry_l_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_carry_l_f3.png",
+    "file": "human_female_1_carry_l_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_carry_r_f0.png",
+    "file": "human_female_1_carry_r_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_carry_r_f1.png",
+    "file": "human_female_1_carry_r_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_carry_r_f2.png",
+    "file": "human_female_1_carry_r_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_carry_r_f3.png",
+    "file": "human_female_1_carry_r_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_work_l_f0.png",
+    "file": "human_female_0_work_l_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_work_l_f1.png",
+    "file": "human_female_0_work_l_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_work_l_f2.png",
+    "file": "human_female_0_work_l_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_work_l_f3.png",
+    "file": "human_female_0_work_l_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_work_r_f0.png",
+    "file": "human_female_0_work_r_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_work_r_f1.png",
+    "file": "human_female_0_work_r_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_work_r_f2.png",
+    "file": "human_female_0_work_r_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_0_work_r_f3.png",
+    "file": "human_female_0_work_r_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_work_l_f0.png",
+    "file": "human_female_1_work_l_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_work_l_f1.png",
+    "file": "human_female_1_work_l_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_work_l_f2.png",
+    "file": "human_female_1_work_l_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_work_l_f3.png",
+    "file": "human_female_1_work_l_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_work_r_f0.png",
+    "file": "human_female_1_work_r_f0.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_work_r_f1.png",
+    "file": "human_female_1_work_r_f1.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_work_r_f2.png",
+    "file": "human_female_1_work_r_f2.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  },
+  {
+    "frame_id": "human_female_1_work_r_f3.png",
+    "file": "human_female_1_work_r_f3.png",
+    "size": [
+      16,
+      24
+    ],
+    "colors": 6
+  }
+]
