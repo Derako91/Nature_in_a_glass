@@ -298,6 +298,8 @@ pub struct Gfx<'a> {
     pub animate: bool,
     /// Anteil des Tages (0..1) für das Gleiten.
     pub day_frac: f32,
+    /// Bei 1 Std/s (auch angehalten): Menschen schlafen nachts, gehen morgens.
+    pub hourly: bool,
 }
 
 fn tex_quad(mesh: &mut Mesh, p: [Pos2; 4], uv: [Pos2; 4], c: Color32) {
@@ -356,6 +358,7 @@ fn draw_iso_gfx(
     z: f32,
     mouse: Option<Pos2>,
     light: f32,
+    detail: bool,
 ) -> Option<usize> {
     use nig_core::appearance as ap;
     let world = &sim.world;
@@ -404,6 +407,21 @@ fn draw_iso_gfx(
             .animal(id, variant, "rest", dir, 0)
             .or_else(|| atlas.tile(id, 0))
     };
+    // Menschen: einzeln ab der Stufe Landschaft und bei langsamer Zeit,
+    // sonst nur als Zeichen (17.2).
+    let people_close = z >= OVERVIEW_ZOOM && detail;
+    let persons = ap::person_sprites(&sim.people, world);
+    let mut people_at: Vec<Vec<usize>> = vec![Vec::new(); world.tiles.len()];
+    let mut bodies_at: Vec<Vec<(u8, &'static str)>> = vec![Vec::new(); world.tiles.len()];
+    if people_close {
+        for (k, p) in persons.iter().enumerate() {
+            people_at[p.tile as usize].push(k);
+        }
+        for (tile, look, dir) in ap::person_bodies(&sim.people) {
+            bodies_at[tile as usize].push((look, dir));
+        }
+    }
+    let hour = g.day_frac * 24.0;
     // Spurendichte je Feld: Hirsche, Wölfe, Füchse (Kaninchen aus dem Bestand)
     let mut pack: Vec<[u16; 3]> = Vec::new();
     if tracks {
@@ -590,6 +608,8 @@ fn draw_iso_gfx(
                 Plant(&'b ap::Sprite),
                 Animal(&'b ap::AnimalSprite),
                 Carcass(&'static str, f32, f32, usize),
+                Person(&'b ap::PersonSprite),
+                Body(u8, &'static str),
             }
             let plants = ap::sprites(world, i);
             let mut things: Vec<(f32, Thing)> = plants
@@ -599,6 +619,18 @@ fn draw_iso_gfx(
                     by_tile[i]
                         .iter()
                         .map(|&k| (animals[k].pos.1, Thing::Animal(&animals[k]))),
+                )
+                .chain(
+                    people_at[i]
+                        .iter()
+                        // Menschen nach den Pflanzen ihres Feldes: Sie sind die
+                        // Hauptsache im Bild.
+                        .map(|&k| (persons[k].pos.1 + 2.0, Thing::Person(&persons[k]))),
+                )
+                .chain(
+                    bodies_at[i]
+                        .iter()
+                        .map(|&(look, dir)| (0.2, Thing::Body(look, dir))),
                 )
                 .chain(carcass_at[i].iter().enumerate().map(|(k, &id)| {
                     let (u, v) = [(0.15, 0.3), (-0.35, 0.15), (0.45, 0.0)][k % 3];
@@ -669,6 +701,84 @@ fn draw_iso_gfx(
                             tint,
                         );
                     }
+                    Thing::Person(p) => {
+                        let (state, t) = if g.hourly {
+                            ap::person_state_at(p, hour)
+                        } else {
+                            // Zeitraffer: am Platz, ohne Laufen (17.5)
+                            let st = match p.activity {
+                                "walk" | "run" | "hurt" => "idle",
+                                a => a,
+                            };
+                            (st, 1.0)
+                        };
+                        let mut foot = c + Vec2::new(p.pos.0 * hw, p.pos.1 * hh);
+                        if t < 1.0 && p.prev_tile != p.tile {
+                            let from = center_of(p.prev_tile as usize)
+                                + Vec2::new(p.pos.0 * hw, p.pos.1 * hh);
+                            foot = from + (foot - from) * t;
+                        }
+                        let (frames, ms) = person_frames(state);
+                        let frame = if g.animate && frames > 1 {
+                            ((g.time_s * 1000.0 / ms) as u64 % frames as u64) as u32
+                        } else {
+                            0
+                        };
+                        let tint = shade(lit, 1.0 - 0.25 * p.weakness);
+                        let entry = atlas
+                            .animal("person", p.look, state, p.dir, frame)
+                            .filter(|e| e.size.x > 0.0)
+                            .or_else(|| atlas.get(&format!("person_{}_idle_{}_f0", p.look, p.dir)));
+                        match entry {
+                            Some(pe) => {
+                                let reference = atlas
+                                    .get(&format!("person_{}_idle_{}_f0", p.look, p.dir))
+                                    .map_or(pe.size.x, |r| r.size.x)
+                                    .max(1.0);
+                                let s = scale * PERSON_WIDTH / reference;
+                                tex_rect(
+                                    &mut mesh,
+                                    Rect::from_min_size(foot - pe.anchor * s, pe.size * s),
+                                    pe,
+                                    tint,
+                                );
+                            }
+                            None => person_placeholder(
+                                &mut mesh,
+                                white,
+                                foot,
+                                scale,
+                                state,
+                                person_color(p.look),
+                                light,
+                                p.weakness,
+                            ),
+                        }
+                    }
+                    Thing::Body(look, dir) => {
+                        let foot = c + Vec2::new(0.1 * hw, 0.2 * hh);
+                        match atlas.get(&format!("person_dead_{look}_{dir}_f0")) {
+                            Some(be) => {
+                                let s = scale * 15.0 / be.size.x.max(1.0);
+                                tex_rect(
+                                    &mut mesh,
+                                    Rect::from_min_size(foot - be.anchor * s, be.size * s),
+                                    be,
+                                    shade(lit, 0.8),
+                                );
+                            }
+                            None => person_placeholder(
+                                &mut mesh,
+                                white,
+                                foot,
+                                scale,
+                                "dead",
+                                person_color(look),
+                                light,
+                                0.6,
+                            ),
+                        }
+                    }
                     Thing::Carcass(id, u, v, k) => {
                         let Some(ce) = carcass_entry(id, k) else {
                             continue;
@@ -695,8 +805,125 @@ fn draw_iso_gfx(
         }
     }
     painter.add(Shape::mesh(mesh));
+    if !people_close {
+        draw_person_markers(painter, sim, &persons, origin, z, light);
+    }
     hovered
 }
+
+/// Darstellungsbreite eines Menschen im Grundmaß (17.3).
+const PERSON_WIDTH: f32 = 7.0;
+
+/// Bilder und Bilddauer je Zustand (17.4).
+fn person_frames(state: &str) -> (u32, f64) {
+    match state {
+        "walk" => (4, 200.0),
+        "run" => (4, 100.0),
+        "gather" => (4, 300.0),
+        "hurt" => (4, 250.0),
+        "eat" | "drink" => (2, 600.0),
+        "idle" => (2, 800.0),
+        _ => (1, 1000.0),
+    }
+}
+
+/// Erkennungsfarben der fünf Aussehen (Vorschlag; Codex darf sie anpassen).
+pub const PERSON_COLORS: [Color32; 5] = [
+    Color32::from_rgb(196, 78, 52),
+    Color32::from_rgb(58, 112, 186),
+    Color32::from_rgb(222, 178, 58),
+    Color32::from_rgb(78, 150, 92),
+    Color32::from_rgb(150, 92, 172),
+];
+
+pub fn person_color(look: u8) -> Color32 {
+    PERSON_COLORS[look as usize % PERSON_COLORS.len()]
+}
+
+/// Einfache Figur, solange es keine Bilder gibt: Körper in Erdtönen mit
+/// einem Band in der Erkennungsfarbe, darüber der Kopf. Maße im Grundmaß.
+#[allow(clippy::too_many_arguments)]
+fn person_placeholder(
+    mesh: &mut Mesh,
+    white: Pos2,
+    foot: Pos2,
+    scale: f32,
+    state: &str,
+    color: Color32,
+    light: f32,
+    weakness: f32,
+) {
+    let tint = |c: Color32| night_tint(shade(c, 1.0 - 0.25 * weakness), light);
+    let cloth = tint(Color32::from_rgb(118, 92, 64));
+    let skin = tint(Color32::from_rgb(214, 172, 132));
+    let band = tint(color);
+    let mut rect = |x0: f32, y0: f32, x1: f32, y1: f32, c: Color32| {
+        let a = foot + Vec2::new(x0, y0) * scale;
+        let b = foot + Vec2::new(x1, y1) * scale;
+        tex_quad(
+            mesh,
+            [a, Pos2::new(b.x, a.y), b, Pos2::new(a.x, b.y)],
+            [white; 4],
+            c,
+        );
+    };
+    match state {
+        "sleep" | "dead" => {
+            // liegend
+            rect(-6.0, -3.0, 4.0, 0.0, cloth);
+            rect(-1.5, -3.0, 0.5, 0.0, band);
+            rect(4.0, -3.0, 6.5, -0.5, skin);
+        }
+        "gather" | "drink" => {
+            // gebückt
+            rect(-2.0, -7.0, 2.0, 0.0, cloth);
+            rect(-2.0, -5.0, 2.0, -4.0, band);
+            rect(1.0, -8.5, 3.5, -6.0, skin);
+        }
+        _ => {
+            rect(-1.8, -12.0, 1.8, 0.0, cloth);
+            rect(-1.8, -8.0, 1.8, -6.8, band);
+            rect(-1.3, -15.0, 1.3, -12.2, skin);
+        }
+    }
+}
+
+/// Überblick: ein Zeichen je Mensch in seiner Erkennungsfarbe, damit man die
+/// wenigen Bewohner auf der Insel findet (17.2). Bleibt in fester
+/// Bildschirmgröße.
+fn draw_person_markers(
+    painter: &egui::Painter,
+    sim: &Simulation,
+    persons: &[nig_core::appearance::PersonSprite],
+    origin: Pos2,
+    z: f32,
+    light: f32,
+) {
+    let world = &sim.world;
+    let (w, h) = (world.width, world.height);
+    for p in persons {
+        let (x, y) = world.xy(p.tile as usize);
+        let e = world.tiles[p.tile as usize].elevation;
+        let c = origin + iso_center(x, y, w, h, z).to_vec2() - Vec2::new(0.0, iso_lift(e, z))
+            + Vec2::new(p.pos.0, p.pos.1) * 4.0;
+        let r = 4.0;
+        let tip = c + Vec2::new(0.0, -2.0);
+        let pts = vec![
+            tip + Vec2::new(0.0, -2.0 * r),
+            tip + Vec2::new(r, -r),
+            tip,
+            tip + Vec2::new(-r, -r),
+        ];
+        painter.add(Shape::convex_polygon(
+            pts,
+            night_tint(person_color(p.look), light),
+            Stroke::new(1.0, Color32::from_rgb(245, 240, 225)),
+        ));
+    }
+}
+
+/// Größter Zoom: Stufe „Ganz nah“ (gestaltung.md 4.3, ADR 0006).
+pub const MAX_ZOOM: f32 = 32.0;
 
 /// Unterhalb dieses Zooms („Überblick“, gestaltung.md 4.3) erscheinen keine
 /// einzelnen Tiere, sondern Spuren.
@@ -774,7 +1001,7 @@ pub fn draw(
         let factor = (scroll * 0.0015).exp() * pinch;
         if (factor - 1.0).abs() > 1e-4 {
             let old = cam.zoom;
-            cam.zoom = (cam.zoom * factor).clamp(0.4, 8.0);
+            cam.zoom = (cam.zoom * factor).clamp(0.4, MAX_ZOOM);
             if let Some(mp) = resp.hover_pos() {
                 let origin = rect.center() + cam.pan;
                 let rel = mp - origin;
@@ -821,7 +1048,18 @@ pub fn draw(
                 }
             };
             if let Some(g) = gfx.filter(|_| layer == Layer::Nature) {
-                hovered = draw_iso_gfx(&painter, sim, &animals, g, origin, rect, z, mouse, light);
+                hovered = draw_iso_gfx(
+                    &painter,
+                    sim,
+                    &animals,
+                    g,
+                    origin,
+                    rect,
+                    z,
+                    mouse,
+                    light,
+                    show_animals,
+                );
             } else {
                 mesh.reserve_vertices((w * h * 12) as usize);
                 // Von hinten nach vorne zeichnen (Maleralgorithmus)
@@ -926,6 +1164,23 @@ pub fn draw(
                     let r = (animal_radius(a.id, a.scale) * 1.6 * z).max(1.2);
                     painter.circle_filled(c, r, night_tint(animal_color(a.id), light));
                 }
+                for p in nig_core::appearance::person_sprites(&sim.people, world) {
+                    let (x, y) = world.xy(p.tile as usize);
+                    let e = world.tiles[p.tile as usize].elevation;
+                    let c = origin + iso_center(x, y, w, h, z).to_vec2()
+                        - Vec2::new(0.0, iso_lift(e, z))
+                        + Vec2::new(p.pos.0 * hw, p.pos.1 * hh);
+                    if !rect.contains(c) {
+                        continue;
+                    }
+                    let r = (1.4 * z).max(2.5);
+                    painter.circle(
+                        c,
+                        r,
+                        night_tint(person_color(p.look), light),
+                        Stroke::new(1.0, Color32::from_rgb(245, 240, 225)),
+                    );
+                }
             }
 
             let outline = |i: usize, color: Color32| {
@@ -1016,6 +1271,21 @@ pub fn draw(
                 }
                 let r = (animal_radius(a.id, a.scale) * cell * 0.22).max(1.2);
                 painter.circle_filled(c, r, night_tint(animal_color(a.id), light));
+            }
+            for p in nig_core::appearance::person_sprites(&sim.people, world) {
+                let (x, y) = world.xy(p.tile as usize);
+                let c = top_left
+                    + Vec2::new(x as f32 + 0.5, y as f32 + 0.5) * cell
+                    + Vec2::new(p.pos.0, p.pos.1) * cell * 0.45;
+                if !rect.contains(c) {
+                    continue;
+                }
+                painter.circle(
+                    c,
+                    (cell * 0.3).max(2.5),
+                    night_tint(person_color(p.look), light),
+                    Stroke::new(1.0, Color32::from_rgb(245, 240, 225)),
+                );
             }
             let cell_rect = |i: usize| {
                 let (x, y) = world.xy(i);

@@ -96,13 +96,14 @@ Entschieden (17.10.2026, Dennis):
 
 Hinweis: Damit Jung- und Altwald unterscheidbar sind, braucht der Kern ab v0.2 ein Bestandsalter je Feld. Das wird in v0.2 gleich mit angelegt.
 
-## v0.6 – Erste Bewohner
+## ✅ v0.6 – Erste Bewohner (v0.6.0)
 
-- [ ] Zunächst fünf sichtbare Menschen mit einfacher Bewegung, Nahrungssuche, Durst, Müdigkeit und Ruhephasen.
-- [ ] Keine direkten Spielerbefehle.
-- [ ] Noch keine komplexe KI, Erfindungssysteme oder vollständig simulierte Gesellschaft erforderlich.
-- [ ] Ereignisprotokoll und anklickbare Biografien; Scheitern, Verletzung und Tod als Spielzustände.
-- [ ] Individuelle Persönlichkeit, Erinnerungen, Beziehungen und Wissensweitergabe bleiben spätere Entwicklungsziele.
+- [x] Fünf sichtbare Menschen mit Bewegung, Nahrungssuche, Durst, Müdigkeit und Ruhephasen. Sie kommen nur durch den Beobachter auf die Insel (Eingriff „Boot landen lassen“).
+- [x] Keine direkten Spielerbefehle.
+- [x] Keine komplexe KI: Bedürfnisse wählen das Ziel, Wege meiden steile Stufen, jeder kennt nur, was er gesehen hat (Wasser- und Sammelstellen, Küste).
+- [x] Chronik und anklickbare Biografien (Fenster „Bewohner“); Verletzung (Sturz, Wölfe), Not und Tod (Durst, Hunger, Kälte, Feuer, Alter) als Spielzustände. Gefährten teilen Wasser und Essen und bleiben bei Verletzten.
+- [x] Eigene Nahansicht bis Zoom 32 (ADR 0006); Platzhalterfiguren, bis Codex' Bilder kommen (gestaltung.md 17).
+- [ ] Offen: Nachwuchs, Persönlichkeit, Beziehungen, Wissensweitergabe (Lehren, Nachahmen), Werkzeuge, Unterkünfte, Feuer machen, Jagd und Fischfang als eigene Tätigkeiten.
 
 ---
 

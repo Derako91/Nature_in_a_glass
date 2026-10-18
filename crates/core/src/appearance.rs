@@ -8,6 +8,7 @@
 
 use crate::animals::{Activity, Animals, Species};
 use crate::math::clamp01;
+use crate::people::People;
 use crate::rng::hash2;
 use crate::sim::{RILL_FLOW, STREAM_FLOW};
 use crate::world::{POND_MM, Terrain, Tile, World};
@@ -448,6 +449,94 @@ pub fn track_density(animals: &Animals, tile: u32, species: Species) -> f32 {
     }
 }
 
+// ---------- Menschen (gestaltung.md 17) ----------
+
+/// Was der Renderer für einen Menschen zeichnet.
+#[derive(Debug, Clone, PartialEq)]
+pub struct PersonSprite {
+    pub id: u32,
+    pub name: String,
+    /// Aussehen 0–4 (17.4).
+    pub look: u8,
+    /// Was die Person heute vor allem tut (`idle`, `walk`, `gather` …). Die
+    /// Darstellung zur Tageszeit liefert [`person_state_at`].
+    pub activity: &'static str,
+    pub dir: &'static str,
+    pub tile: u32,
+    pub prev_tile: u32,
+    /// Fußpunkt in der Raute (−1…1).
+    pub pos: (f32, f32),
+    pub weakness: f32,
+}
+
+/// Alle lebenden Menschen.
+pub fn person_sprites(people: &People, world: &World) -> Vec<PersonSprite> {
+    people
+        .list
+        .iter()
+        .map(|p| PersonSprite {
+            id: p.id,
+            name: p.name.clone(),
+            look: p.look,
+            activity: p.activity.id(),
+            dir: if p.facing_right { "r" } else { "l" },
+            tile: p.tile,
+            prev_tile: p.prev_tile,
+            pos: person_pos(p.id, world.seed),
+            weakness: p.weakness(),
+        })
+        .collect()
+}
+
+/// Fester Platz je Person, damit mehrere auf einem Feld nebeneinander stehen.
+fn person_pos(id: u32, seed: u64) -> (f32, f32) {
+    let h = hash2(id as i32, 77, seed ^ 0x9e05_1e5a);
+    let a = unit(h) * 2.0 - 1.0;
+    let b = unit(h.rotate_left(24)) * 2.0 - 1.0;
+    ((a + b) * 0.3, (b - a) * 0.3)
+}
+
+/// Bild zur Tageszeit (nur bei 1 Std/s sichtbar, 17.5): nachts schlafen,
+/// morgens unterwegs (wenn die Person das Feld gewechselt hat), sonst die
+/// Tätigkeit des Tages. Gibt den Zustand und den Weganteil 0…1 zurück
+/// (0 = noch am alten Feld, 1 = angekommen).
+pub fn person_state_at(s: &PersonSprite, hour: f32) -> (&'static str, f32) {
+    let moved = s.tile != s.prev_tile;
+    let travel = matches!(s.activity, "walk" | "run" | "hurt");
+    if s.activity == "run" && moved {
+        // Flucht: sofort und schnell
+        let t = clamp01((hour - 6.0) / 2.0);
+        return (if t < 1.0 { "run" } else { "idle" }, t);
+    }
+    if !(6.0..21.0).contains(&hour) {
+        return ("sleep", if hour >= 21.0 { 1.0 } else { 0.0 });
+    }
+    if moved {
+        let t = clamp01((hour - 6.0) / 4.0);
+        if t < 1.0 {
+            return (if s.activity == "hurt" { "hurt" } else { "walk" }, t);
+        }
+    }
+    let state = match s.activity {
+        "walk" | "run" if travel => "idle",
+        a => a,
+    };
+    // Abends wird gegessen, wer tagsüber gesammelt hat
+    if state == "gather" && hour >= 18.0 {
+        return ("eat", 1.0);
+    }
+    (state, 1.0)
+}
+
+/// Tote Menschen: Feld, Aussehen, Blickrichtung (`person_dead_<aussehen>_<richtung>`).
+pub fn person_bodies(people: &People) -> Vec<(u32, u8, &'static str)> {
+    people
+        .bodies
+        .iter()
+        .map(|b| (b.tile, b.look, if b.facing_right { "r" } else { "l" }))
+        .collect()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -538,5 +627,27 @@ mod tests {
         assert_eq!(TreeStage::from_age(5.0), TreeStage::Young);
         assert_eq!(TreeStage::from_age(30.0), TreeStage::Mid);
         assert_eq!(TreeStage::from_age(80.0), TreeStage::Old);
+    }
+
+    #[test]
+    fn people_sleep_at_night_and_walk_in_the_morning() {
+        let s = PersonSprite {
+            id: 1,
+            name: "Mira".into(),
+            look: 0,
+            activity: "gather",
+            dir: "l",
+            tile: 5,
+            prev_tile: 4,
+            pos: (0.0, 0.0),
+            weakness: 0.0,
+        };
+        assert_eq!(person_state_at(&s, 2.0).0, "sleep");
+        assert_eq!(person_state_at(&s, 23.0).0, "sleep");
+        let (st, t) = person_state_at(&s, 7.0);
+        assert_eq!(st, "walk");
+        assert!(t > 0.0 && t < 1.0);
+        assert_eq!(person_state_at(&s, 12.0), ("gather", 1.0));
+        assert_eq!(person_state_at(&s, 19.0).0, "eat");
     }
 }

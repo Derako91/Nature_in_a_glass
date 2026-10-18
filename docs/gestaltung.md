@@ -84,7 +84,7 @@ Die Bäume sind gegenüber dem echten Maßstab bewusst **etwas größer**, damit
 
 ### 4.3 Zoomstufen – was man bei welchem Abstand erkennt
 
-Festgelegt am 18.10.2026 mit Dennis. Die Kamera zoomt heute von 0,4 bis 8; mit den Menschen (v0.6) kommt die Stufe **Ganz nah** bis Zoom 32 dazu (Entscheidung B, siehe 17 und [ADR 0006](../decisions/0006-close-view-for-people.md)). Das Grundmaß (Raute 64 × 32 px) gilt bei Zoom 4; darunter verkleinert der Renderer, darüber vergrößert er pixelgenau.
+Festgelegt am 18.10.2026 mit Dennis. Die Kamera zoomt von 0,4 bis 32; die Stufe **Ganz nah** kam mit den Menschen in v0.6.0 dazu (Entscheidung B, siehe 17 und [ADR 0006](../decisions/0006-close-view-for-people.md)). Das Grundmaß (Raute 64 × 32 px) gilt bei Zoom 4; darunter verkleinert der Renderer, darüber vergrößert er pixelgenau.
 
 | Stufe | Zoom | Feld am Bildschirm | Was man erkennt |
 | --- | --- | --- | --- |
@@ -568,6 +568,7 @@ Heutige Zeichenreihenfolge je Feld: Seitenwände (in 32-px-Streifen gekachelt, r
 
 ### 16.3 Was fehlt – Aufgaben in dieser Reihenfolge
 
+0. **Menschen** (Abschnitt 17): Die Simulation ist da (v0.6.0), im Spiel stehen Platzhalterfiguren. Bilder nach 17.3/17.4 ersetzen sie.
 1. ~~**Tiere neu zeichnen, größer und doppelt aufgelöst**~~ – erledigt (Runde 09), im Spiel ab v0.4.5. Maße 4.3 und 15.3.
 2. **Feuer** (Gruppe E): `fire_ground` als Überlagerung und `fire_flame_small`, `fire_flame_large` als Sprites (`appearance::sprites` liefert sie schon bei brennenden Feldern), dazu `smoke`. Heute: nur eine orange Fläche.
 3. ~~**Spuren und Kadaver**~~ – erledigt (Runde 06), im Spiel ab v0.4.5. Kadaver heißen wie Tiere `carcass_<large|small>_<variante>_rest_<richtung>_f0`, Spuren `tracks_<art>` (Varianten `_0` bis `_3` möglich). Spuren erscheinen im Überblick (Zoom unter 1,5) und ab 1 Monat/s mit Deckkraft nach Dichte; Kadaver in den Stufen Landschaft und Nah. Offen: Feinabstimmung der Deckkraft im laufenden Spiel.
@@ -639,9 +640,22 @@ Schlagschatten wie bei Tieren (15.3), in der Datei mit 8-fachem Versatz.
 
 Wie 15.5: Bewegung und Laufanimation nur bei 1 Std/s; bei 1 Tag/s und 1 Woche/s stehen Menschen im Zustand an ihrem Platz (nur `_idle`, `_eat`, `_drink`, `_sleep`, `_gather` mit Bild 0); ab 1 Monat/s nur `person_marker`.
 
-### 17.6 Schnittstelle (kommt mit v0.6)
+### 17.6 Schnittstelle (umgesetzt in v0.6.0)
 
-Claude liefert in `crates/core/src/appearance.rs` eine Funktion analog zu `animal_sprites`: je Person `appearance` (0–4), `state`, `dir`, `tile`, `prev_tile`, `pos`, `weakness`, dazu Name und Erkennungsfarbe für Marker und Feld-Kasten. Der Beobachter bekommt dann auch den Zoom bis 32.
+In `crates/core/src/appearance.rs`, ohne Grafik und getestet:
+
+- `person_sprites(&sim.people, &sim.world)` liefert je lebendem Menschen: `id`, `name`, `look` (0–4), `activity` (Tätigkeit des Tages: `idle`, `walk`, `run`, `gather`, `eat`, `drink`, `hurt`), `dir` (`l`/`r`), `tile`, `prev_tile`, `pos` (fester Platz je Person in der Raute) und `weakness` (0…1).
+- `person_state_at(sprite, stunde)` – das Bild zur Tageszeit bei 1 Std/s: 21–6 Uhr `sleep`, morgens 6–10 Uhr `walk`/`hurt` mit Weganteil (Gleiten vom alten zum neuen Feld), tagsüber die Tätigkeit, ab 18 Uhr `eat` statt `gather`.
+- `person_bodies(&sim.people)` – Tote: Feld, Aussehen, Richtung (`person_dead_<aussehen>_<richtung>_f0`), etwa 12 Tage lang.
+
+Der Beobachter (`crates/app/src/view.rs`, `draw_iso_gfx`):
+
+- Zoom bis 32 (`MAX_ZOOM`). Menschen werden nach den Pflanzen ihres Feldes gezeichnet.
+- Bildsuche: `person_<aussehen>_<zustand>_<richtung>_f<bild>`, sonst `person_<aussehen>_idle_<richtung>_f0`. Die Breite von `person_<aussehen>_idle_<richtung>_f0` bestimmt den Maßstab (Darstellungsbreite 7). Fehlt jedes Bild, zeichnet er eine **Platzhalterfigur** (Körper in Erdtönen, Band in der Erkennungsfarbe, Kopf; liegend für `sleep` und tot, gebückt für `gather`/`drink`).
+- Bilddauer: `walk` 4 × 200 ms, `run` 4 × 100 ms, `gather` 4 × 300 ms, `hurt` 4 × 250 ms, `eat`/`drink` 2 × 600 ms, `idle` 2 × 800 ms.
+- **Erkennungsfarben** (Vorschlag, `PERSON_COLORS`; Codex darf sie anpassen): 0 `#C44E34` (Rotocker), 1 `#3A70BA` (Blau), 2 `#DEB23A` (Gelb), 3 `#4E965C` (Grün), 4 `#965CAC` (Violett). Aussehen 0, 2, 4 sind Frauen, 1 und 3 Männer.
+- Im Überblick (Zoom unter 1,5) und ab 1 Monat/s: Zeichen über jedem Menschen als kleine Raute in der Erkennungsfarbe mit hellem Rand, feste Bildschirmgröße (`draw_person_markers`). Ein Bild `person_marker` wird noch nicht gesucht – wenn Codex eins liefert, bitte als Wunsch an Claude.
+- Die feinen Bilder (8-fach) werden bisher ohne verkleinerte Fassungen gezeichnet; Mipmaps folgen, sobald sie da sind und flimmern (ADR 0006).
 
 ### 17.7 Arbeitsreihenfolge
 

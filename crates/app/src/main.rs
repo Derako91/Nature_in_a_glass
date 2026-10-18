@@ -20,6 +20,16 @@ fn de(v: f32, decimals: usize) -> String {
 }
 
 /// Ganze Zahl mit Tausenderpunkten.
+/// Stärke eines Bedürfnisses in Worten (0 = gar nicht, 1 = tödlich).
+fn level(v: f32) -> &'static str {
+    match v {
+        v if v < 0.15 => "keiner",
+        v if v < 0.4 => "leicht",
+        v if v < 0.7 => "stark",
+        _ => "lebensgefährlich",
+    }
+}
+
 fn thousands(v: f32) -> String {
     let n = v.round().max(0.0) as u64;
     let s = n.to_string();
@@ -108,6 +118,12 @@ fn main() -> eframe::Result {
         })
         .unwrap_or_default();
     let after: u64 = arg("--danach").and_then(|s| s.parse().ok()).unwrap_or(0);
+    // `--menschen` lässt nach `--years` Jahren ein Boot landen, `--bewohner`
+    // öffnet das Fenster mit den Lebensgeschichten.
+    let people = std::env::args().any(|a| a == "--menschen");
+    let people_window = std::env::args().any(|a| a == "--bewohner");
+    // `--folgen` richtet die Kamera (mit `--zoom`) auf den ersten Menschen aus.
+    let follow = std::env::args().any(|a| a == "--folgen");
     // `--flaechen` startet mit Flächenfarben statt Grafik
     let no_graphics = std::env::args().any(|a| a == "--flaechen");
     let zoom: Option<f32> = arg("--zoom").and_then(|s| s.parse().ok());
@@ -127,9 +143,22 @@ fn main() -> eframe::Result {
                 app.sim
                     .apply(Intervention::ReleaseAnimals { species, at: None });
             }
+            if people {
+                app.sim.apply(Intervention::PeopleArrive { at: None });
+            }
             app.sim.advance_years(after);
             app.sim.advance_days(days);
             app.seen_event = app.last_event_id();
+            if people_window {
+                app.show_people = true;
+                app.bio_person = app.sim.people.list.first().map(|p| p.id);
+            }
+            if follow && let (Some(z), Some(p)) = (zoom, app.sim.people.list.first()) {
+                let i = p.tile as usize;
+                app.selected = Some(i);
+                app.camera.zoom = z.clamp(0.4, view::MAX_ZOOM);
+                app.camera.pan = view::focus_pan(&app.sim.world, i, app.mode, app.camera.zoom);
+            }
             if let Some(r) = reaction {
                 app.reaction = EventReaction::ALL[r.min(2)];
             }
@@ -148,7 +177,7 @@ fn main() -> eframe::Result {
                 };
             }
             if let Some(z) = zoom {
-                app.camera.zoom = z.clamp(0.4, 8.0);
+                app.camera.zoom = z.clamp(0.4, view::MAX_ZOOM);
             }
             if let Some((x, y)) = select {
                 let w = &app.sim.world;
@@ -282,6 +311,9 @@ struct App {
     show_year_summaries: bool,
     /// Verlauf: Tierbestände statt Pflanzen.
     history_animals: bool,
+    /// Fenster „Bewohner“ und die Person, deren Biografie gezeigt wird.
+    show_people: bool,
+    bio_person: Option<u32>,
     /// Codex' Bilder (falls eingebettet) und ob sie gezeigt werden.
     atlas: Option<atlas::Atlas>,
     graphics: bool,
@@ -326,6 +358,8 @@ impl App {
             seed_text: seed.to_string(),
             show_year_summaries: false,
             history_animals: false,
+            show_people: false,
+            bio_person: None,
             atlas: None,
             graphics: false,
             status: String::new(),
@@ -579,6 +613,7 @@ impl App {
         self.intervention_section(ui);
         self.seed_row(ui);
         self.animal_row(ui);
+        self.people_row(ui);
         ui.separator();
         self.history_section(ui);
         ui.separator();
@@ -721,6 +756,25 @@ impl App {
                     "Wölfe / Füchse",
                     format!("{} / {}", an.total(Species::Wolf), an.total(Species::Fox)),
                 );
+                let pe = &self.sim.people;
+                ui.label("Menschen");
+                if pe.alive() + pe.departed.len() == 0 {
+                    ui.label("–");
+                } else {
+                    let text = format!(
+                        "{} leben · {} verstorben  ›",
+                        pe.alive(),
+                        pe.departed.len()
+                    );
+                    if ui
+                        .link(text)
+                        .on_hover_text("Bewohner und ihre Lebensgeschichten")
+                        .clicked()
+                    {
+                        self.show_people = true;
+                    }
+                }
+                ui.end_row();
                 row(
                     ui,
                     "Feuer",
@@ -757,7 +811,9 @@ impl App {
             ("Trockentage", dash()),
             ("Boden", dash()),
             ("Tiere", dash()),
+            ("Menschen", dash()),
         ];
+        let mut here: Vec<(u32, String)> = Vec::new();
         if let Some(i) = self.selected {
             let world = &self.sim.world;
             let t = &world.tiles[i];
@@ -856,6 +912,17 @@ impl App {
                 if !parts.is_empty() {
                     rows[15].1 = parts.join(" · ");
                 }
+                here = self
+                    .sim
+                    .people
+                    .list
+                    .iter()
+                    .filter(|p| p.tile == i as u32)
+                    .map(|p| (p.id, p.name.clone()))
+                    .collect();
+                if here.is_empty() && self.sim.people.bodies.iter().any(|b| b.tile == i as u32) {
+                    rows[16].1 = "ein Toter liegt hier".into();
+                }
             }
         }
         egui::Grid::new("tile")
@@ -865,7 +932,19 @@ impl App {
             .show(ui, |ui| {
                 for (k, v) in rows {
                     ui.label(k);
-                    ui.add(egui::Label::new(v).truncate());
+                    if k == "Menschen" && !here.is_empty() {
+                        // Namen anklickbar: öffnet die Biografie
+                        ui.horizontal(|ui| {
+                            for (id, name) in &here {
+                                if ui.link(name).clicked() {
+                                    self.bio_person = Some(*id);
+                                    self.show_people = true;
+                                }
+                            }
+                        });
+                    } else {
+                        ui.add(egui::Label::new(v).truncate());
+                    }
                     ui.end_row();
                 }
             });
@@ -1006,6 +1085,161 @@ impl App {
                 }
             }
         });
+    }
+
+    fn people_row(&mut self, ui: &mut egui::Ui) {
+        ui.horizontal(|ui| {
+            ui.label("Menschen:");
+            let at = self.selected.and_then(|i| {
+                let t = &self.sim.world.tiles[i];
+                (!t.is_ocean() && t.surface_water <= POND_MM).then(|| self.sim.world.xy(i))
+            });
+            let place = if at.is_some() {
+                "Es landet am gewählten Feld."
+            } else {
+                "Ohne gewähltes Feld landet es an einer zufälligen Stelle der Küste."
+            };
+            if ui
+                .small_button("Boot landen lassen")
+                .on_hover_text(format!(
+                    "Ein Boot mit fünf Menschen kommt auf die Insel. {place} Danach                      handeln sie selbst: Du kannst ihnen nichts befehlen."
+                ))
+                .clicked()
+            {
+                self.sim.apply(Intervention::PeopleArrive { at });
+            }
+        });
+    }
+
+    /// Fenster mit allen Bewohnern (lebend und verstorben) und der
+    /// Lebensgeschichte der gewählten Person.
+    fn people_window(&mut self, ctx: &egui::Context) {
+        if !self.show_people {
+            return;
+        }
+        let mut open = true;
+        let year_day = |h: u64| {
+            let d = h / HOURS_PER_DAY;
+            format!("J{} T{}", d / 365 + 1, d % 365)
+        };
+        egui::Window::new("Bewohner")
+            .open(&mut open)
+            .fixed_size([620.0, 400.0])
+            .default_pos([16.0, 80.0])
+            .collapsible(false)
+            .show(ctx, |ui| {
+                let pe = &self.sim.people;
+                ui.horizontal_top(|ui| {
+                    ui.vertical(|ui| {
+                        ui.set_width(200.0);
+                        egui::ScrollArea::vertical()
+                            .id_salt("people_list")
+                            .max_height(400.0)
+                            .show(ui, |ui| {
+                                for p in &pe.list {
+                                    let sel = self.bio_person == Some(p.id);
+                                    let text = RichText::new(format!(
+                                        "● {} · {} J.",
+                                        p.name,
+                                        p.age_years()
+                                    ))
+                                    .color(view::person_color(p.look));
+                                    if ui.selectable_label(sel, text).clicked() {
+                                        self.bio_person = Some(p.id);
+                                    }
+                                }
+                                if !pe.departed.is_empty() {
+                                    ui.separator();
+                                    ui.label(RichText::new("Verstorben").weak());
+                                }
+                                for d in pe.departed.iter().rev() {
+                                    let sel = self.bio_person == Some(d.person.id);
+                                    let text = RichText::new(format!(
+                                        "† {} · {} J.",
+                                        d.person.name,
+                                        d.person.age_years()
+                                    ))
+                                    .weak();
+                                    if ui.selectable_label(sel, text).clicked() {
+                                        self.bio_person = Some(d.person.id);
+                                    }
+                                }
+                            });
+                    });
+                    ui.separator();
+                    ui.vertical(|ui| {
+                        let alive = self
+                            .bio_person
+                            .and_then(|id| pe.list.iter().find(|p| p.id == id));
+                        let dead = self
+                            .bio_person
+                            .and_then(|id| pe.departed.iter().find(|d| d.person.id == id));
+                        let Some(p) = alive.or(dead.map(|d| &d.person)) else {
+                            ui.label(RichText::new("Wähle links eine Person.").weak());
+                            return;
+                        };
+                        ui.heading(&p.name);
+                        let sex = match p.sex {
+                            nig_core::people::Sex::Female => "Frau",
+                            nig_core::people::Sex::Male => "Mann",
+                        };
+                        if let Some(d) = dead {
+                            ui.label(format!(
+                                "{sex}, {} Jahre · {} ({})",
+                                p.age_years(),
+                                d.cause.label(),
+                                year_day(d.died_hours)
+                            ));
+                        } else {
+                            let (x, y) = self.sim.world.xy(p.tile as usize);
+                            ui.label(format!(
+                                "{sex}, {} Jahre · {} bei ({x}, {y})",
+                                p.age_years(),
+                                p.activity.label()
+                            ));
+                            ui.label(
+                                RichText::new(format!(
+                                    "Hunger {} · Durst {} · Gesundheit {} · trägt {} Rationen",
+                                    level(p.hunger),
+                                    level(p.thirst),
+                                    level(1.0 - p.health),
+                                    de(p.pack, 1)
+                                ))
+                                .weak(),
+                            );
+                            if ui.small_button("Zeigen").clicked() {
+                                self.selected = Some(p.tile as usize);
+                                self.camera.pan = view::focus_pan(
+                                    &self.sim.world,
+                                    p.tile as usize,
+                                    self.mode,
+                                    self.camera.zoom,
+                                );
+                            }
+                        }
+                        ui.separator();
+                        egui::ScrollArea::vertical()
+                            .id_salt("bio")
+                            .max_height(330.0)
+                            .stick_to_bottom(true)
+                            .show(ui, |ui| {
+                                for e in &p.bio {
+                                    ui.horizontal_wrapped(|ui| {
+                                        ui.label(
+                                            RichText::new(year_day(e.time_hours))
+                                                .weak()
+                                                .monospace(),
+                                        );
+                                        ui.label(&e.text);
+                                    });
+                                }
+                            });
+                    });
+                });
+            });
+        if !open {
+            self.show_people = false;
+        }
     }
 
     fn history_section(&mut self, ui: &mut egui::Ui) {
@@ -1223,6 +1457,8 @@ impl eframe::App for App {
             .resizable(false)
             .exact_size(400.0)
             .show(ui, |ui| self.side_panel(ui));
+        let ctx = ui.ctx().clone();
+        self.people_window(&ctx);
         egui::CentralPanel::no_frame().show(ui, |ui| {
             // Tag und Nacht nur bei 1 Std/s oder Pause – schneller würde es
             // flackern. Die Helligkeit gleitet stufenlos zwischen den Stunden.
@@ -1252,6 +1488,7 @@ impl eframe::App for App {
                         time_s: ui.input(|i| i.time),
                         animate: self.speed == 0 && self.running,
                         day_frac: (self.sim.hour_of_day() as f32 + self.owed_hours as f32) / 24.0,
+                        hourly: self.speed == 0,
                     }),
             );
             if resp.clicked() {

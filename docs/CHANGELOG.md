@@ -1,5 +1,20 @@
 # Änderungen
 
+## 0.6.0 – Die ersten Menschen
+
+**Neu**
+- **Boot landen lassen:** Neuer Eingriff unter „Menschen“. Fünf Menschen kommen an der Küste an – an einer zufälligen Stelle oder am gewählten Feld. Danach handeln sie selbst; du kannst ihnen nichts befehlen.
+- **Bedürfnisse treiben sie an:** Sie trinken an Bächen, Teichen und Seen, sammeln Beeren, Nüsse, Wurzeln, Muscheln und Fisch, essen von toten Tieren, schlafen nachts und suchen im Winter Schutz im Wald.
+- **Jeder weiß nur, was er gesehen hat:** Menschen merken sich Wasser- und Sammelstellen. Ein Rinnsal, das sie kennen, kann inzwischen versiegt sein – dann irren sie sich. Wer noch keine verlässliche Wasserstelle kennt, zieht los und erkundet.
+- **Sie halten zusammen:** Gefährten bringen Verletzten Wasser, teilen Essen und bleiben bei ihnen.
+- **Gefahren:** Durst, Hunger, Kälte, Stürze an steilen Stufen, hungrige Wölfe (wenn jemand allein ist), Feuer und das Alter. Tote liegen einige Tage dort, wo sie gestorben sind.
+- **Lebensgeschichten:** Die Zeile „Menschen“ im Insel-Überblick öffnet das Fenster **Bewohner**: alle Lebenden und Verstorbenen mit ihrer Biografie – Ankunft, erste Wasserstelle, Winter, Stürze, Genesung, Verluste, Tod. Im Feld-Kasten sind die Namen der Menschen auf dem Feld anklickbar.
+- **Ganz nah heranzoomen:** bis Zoom 32. Die Menschen erscheinen vorerst als einfache Figuren in ihrer Erkennungsfarbe, bis Codex' Bilder kommen; die Landschaft ist ganz nah noch grob gepixelt. Im Überblick und bei schneller Zeit zeigt eine kleine Raute, wo jemand ist.
+- Bei 1 Std/s schlafen die Menschen nachts und gehen morgens los.
+- Startoptionen `--menschen`, `--bewohner`, `--folgen`.
+
+**Hinweis:** Nachwuchs gibt es noch nicht – die ersten Bewohner sterben irgendwann. Mit Menschen läuft die Simulation etwas langsamer (mit fünf Menschen etwa 6 Jahre pro Sekunde). Spielstände aus 0.4 lassen sich laden.
+
 ## 0.4.6 – Feinere Landschaft
 
 **Neu**

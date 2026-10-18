@@ -104,7 +104,8 @@ impl Atlas {
         imgs.push((WHITE, 4, 4, vec![255; 4 * 4 * 4]));
         // Regalpacken: nach Höhe sortiert in Reihen, 1 Pixel Abstand
         imgs.sort_by(|a, b| b.2.cmp(&a.2).then(a.0.cmp(b.0)));
-        const W: usize = 1024;
+        // Breit genug für die feinen Nahansicht-Bilder (ADR 0006)
+        const W: usize = 2048;
         let (mut x, mut y, mut row_h) = (1usize, 1usize, 0usize);
         let mut places = Vec::with_capacity(imgs.len());
         for (_, w, h, _) in &imgs {
