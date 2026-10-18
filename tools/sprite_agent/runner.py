@@ -179,6 +179,7 @@ def main():
     s=subs.add_parser('request');s.add_argument('request');s.add_argument('--profile',default=str(PROFILE));s.add_argument('--output',default=str(ROOT/'runs/sprite-agent'));s.add_argument('--url',default='http://127.0.0.1:8188');s.add_argument('--max-images',type=int,default=8)
     r=subs.add_parser('run');r.add_argument('job');r.add_argument('--output',default=str(ROOT/'runs/sprite-agent'));r.add_argument('--url',default='http://127.0.0.1:8188');r.add_argument('--resume')
     t=subs.add_parser('prepare');t.add_argument('package')
+    e=subs.add_parser('export-engine');e.add_argument('package');e.add_argument('--out',required=True);e.add_argument('--preview',action='store_true')
     a=subs.add_parser('approve');a.add_argument('package');a.add_argument('--reviewer',required=True);a.add_argument('--notes',required=True);a.add_argument('--visual-checked',action='store_true')
     args=p.parse_args()
     try:
@@ -211,5 +212,8 @@ def main():
                 jobfile=jobroot/(j['id']+'.json');write(jobfile,j)
                 produce(jobfile,args.output,args.url)
         elif args.command=='approve':approve(args.package,args.reviewer,args.notes,args.visual_checked)
+        elif args.command=='export-engine':
+            from .export_nature import export_package
+            print(export_package(args.package,args.out,args.preview))
     except (ValueError,RuntimeError,OSError,KeyError) as exc:
         print('ABBRUCH: '+str(exc),file=sys.stderr);sys.exit(1)

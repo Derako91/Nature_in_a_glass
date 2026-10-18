@@ -140,7 +140,20 @@ andere Ausgabeart kann ein eigener Exportadapter ergänzt werden, ohne den
 Auftrags- oder Freigabeablauf zu ersetzen.
 
 Die genaue Übergabe an Claude steht in `docs/sprite-package-contract.md`.
-Das Format ist noch nicht von ihm bestätigt; es gibt keine Rendereränderung.
+Inzwischen ist seine Engine-Schnittstelle in Gestaltung 16.6 / v0.7.2 verfügbar.
+Der separate Ausgabeadapter folgt ihr, ohne Rendereränderung:
+
+```text
+python -m tools.sprite_agent export-engine PAKET --out NEUER_PRUEFORDNER --preview
+```
+
+Er schreibt Hauptbild + `@fern` und ein kompatibles Manifest; `se/sw` werden
+explizit `r/l`, Rückansichten werden mit Hinweis ausgelassen. Die Engine wählt
+ihre Zwischenstufen selbst. `--preview` erlaubt die Prüfung unfertiger Bilder
+mit `--bilder`, ist keine Freigabe. Ohne diesen Schalter wird ein gültiges
+Freigabeprotokoll verlangt. Bestehende Ziele werden nicht überschrieben.
+Das automatisch vereinfachte `@fern` bleibt ein Kandidat; eine richtige
+gestalterische Fernzeichnung wird dadurch nicht behauptet.
 
 Tests: `python -m unittest discover -s tools/sprite_agent/tests -v`.
 Die Tests nutzen synthetische Bildfixtures und einen falschen Comfy-Adapter;

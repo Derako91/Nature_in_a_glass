@@ -8,6 +8,7 @@ from tools.sprite_agent.model import PROFILE, load_profile, plan, validate, fram
 from tools.sprite_agent.imaging import cutout, fit_frames, make_lod
 from tools.sprite_agent.runner import produce, approve
 from tools.sprite_agent.review import validate_package
+from tools.sprite_agent.export_nature import export_package
 
 def fixture(path):
     im=Image.new('RGB',(128,128),'white');d=ImageDraw.Draw(im)
@@ -86,6 +87,15 @@ class AgentTests(unittest.TestCase):
             self.assertFalse(report['approved'])
             self.assertEqual(report['file_count'],16)
             self.assertTrue((folder/'review.html').exists())
+            with self.assertRaises(ValueError):export_package(folder,base/'engine')
+            export_package(folder,base/'engine',preview=True)
+            engine=read(base/'engine/animals/manifest.json')
+            self.assertEqual(len(engine['assets']),2)
+            self.assertEqual(engine['assets'][0]['anchor'],[40,40])
+            self.assertEqual(engine['assets'][0]['levels'][0]['anchor'],[10,10])
+            self.assertTrue((base/'engine/animals/fox_0_graze_r_f0@fern.png').exists())
+            self.assertEqual(len(read(base/'engine/export-report.json')['skipped_rear_views_or_unsupported_plant_frames']),2)
+            with self.assertRaises(ValueError):export_package(folder,base/'engine',preview=True)
             produce(jobfile,base/'out','mock',resume=folder)
             self.assertEqual(FakeComfy.calls,4)
             with self.assertRaises(ValueError):approve(folder,'Tester','Nur Technik',False)

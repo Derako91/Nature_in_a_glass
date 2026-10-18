@@ -58,5 +58,7 @@ die exakten Pixel einer erneuten Generierung verändern.
 Das JSON-Profil und die Pipeline sind unter `tools/sprite_agent/` dokumentiert.
 Für neue Aufträge kann der normale Ablauf ohne weitere Codex-Einzelarbeit laufen;
 die menschliche Auswahl und stilistische Freigabe bleiben absichtlich notwendig.
-Die Engine-Schnittstelle ist in `docs/sprite-package-contract.md` vorgeschlagen,
-aber noch nicht von Claude bestätigt.
+Der später ergänzte Engine-Adapter folgt Claudes inzwischen veröffentlichter
+Schnittstelle in Gestaltung 16.6 / v0.7.2. Er kann Hauptbild + `@fern` für `--bilder`
+ausgeben; die Bilder bleiben trotz passendem Dateiformat gestalterisch ungeeignet.
+Details und offene Sichtprüfung: `docs/sprite-package-contract.md`.
