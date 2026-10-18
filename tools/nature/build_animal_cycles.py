@@ -174,4 +174,7 @@ def main():
     feed[0].save(b.ROOT/'assets/nature/_animals-graze.gif',save_all=True,append_images=feed[1:],duration=600,loop=0,disposal=2)
     print(len(checks),'Bildzuordnungen aus',len(unique),'eindeutigen PNGs,',len(cycles),'Vierbild-Zyklen und drei animierte Bodenprüfungen erstellt.')
 
-if __name__=='__main__':main()
+if __name__=='__main__':
+    # Aktuelle Auflösung gemäß Gestaltung 4.3; ältere Funktionen bleiben als Referenz.
+    import build_animal_detail
+    build_animal_detail.main()
