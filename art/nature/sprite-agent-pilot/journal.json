@@ -1,0 +1,33 @@
+{
+  "calls": {
+    "fox_0_graze_se_f0": {
+      "state": "complete",
+      "strategy": "reference",
+      "seed": 202610180,
+      "prompt_id": "bc55844d-1313-4256-9130-0bed1425394d",
+      "sha256": "a3e3e57fc32e872cc45c57f6608618f54d843c3e6db1c9c62c9e27f058061d69"
+    },
+    "fox_0_graze_sw_f0": {
+      "state": "complete",
+      "strategy": "reference",
+      "seed": 202610181,
+      "prompt_id": "03133b53-e0f5-4aa8-93b0-1d3742274a1b",
+      "sha256": "6db76bd1364b2fb3edf76bbf1be819fe78e5e8444a97b9222314298358212cb3"
+    },
+    "fox_0_graze_ne_f0": {
+      "state": "complete",
+      "strategy": "reference",
+      "seed": 202610182,
+      "prompt_id": "dc531a2a-ac11-4968-86d1-fa52676fdac2",
+      "sha256": "204d7e04e4b97c6595d4b29a7b6994b57313cecd61efa27da3d0b2e8ac292a11"
+    },
+    "fox_0_graze_nw_f0": {
+      "state": "complete",
+      "strategy": "reference",
+      "seed": 202610183,
+      "prompt_id": "099e951d-5d79-4f3d-abf7-8f4e7f73aa49",
+      "sha256": "51f6aa65fc20df0423f3d2ace52784d4e0c37463a5c34a897d3792b8bd946c86"
+    }
+  },
+  "budget": 8
+}

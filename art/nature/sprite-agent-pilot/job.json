@@ -1,0 +1,64 @@
+{
+  "directions": [
+    "se",
+    "sw",
+    "ne",
+    "nw"
+  ],
+  "variants": 1,
+  "states": {
+    "graze": {
+      "frames": 1,
+      "frame_ms": 600,
+      "poses": [
+        "standing still on four feet, head raised"
+      ]
+    }
+  },
+  "strategy": "auto",
+  "budget": 8,
+  "seed": 202610180,
+  "reference": "../../../art/nature/fox-ab/fox-b-imagegen-source.png",
+  "width": 768,
+  "height": 768,
+  "steps": 24,
+  "cfg": 6.5,
+  "reference_weight": 0.7,
+  "denoise": 0.5,
+  "background_tolerance": 32,
+  "lods": [
+    {
+      "id": "lod1",
+      "scale": 1,
+      "zoom_min": 1.5
+    },
+    {
+      "id": "lod2",
+      "scale": 2,
+      "zoom_min": 6
+    },
+    {
+      "id": "lod4",
+      "scale": 4,
+      "zoom_min": 12
+    },
+    {
+      "id": "lod8",
+      "scale": 8,
+      "zoom_min": 24
+    }
+  ],
+  "category": "animal",
+  "subject": "one adult red fox, rusty orange fur, cream chest and large bushy cream-tipped tail, small pointed ears, dark slender feet, pointed muzzle",
+  "display_size": [
+    10,
+    6
+  ],
+  "anchor": [
+    5,
+    5
+  ],
+  "id": "fox",
+  "request": "Erstelle einen Fuchs mit vier Blickrichtungen im Stil von Nature in a Glass.",
+  "profile": "D:\\Blackstar Production\\Nature_in_a_glass\\tools\\sprite_agent\\profiles\\nature.json"
+}

@@ -648,6 +648,35 @@ Manifest-Beispiel (Stufen dürfen auch ohne `levels` einfach als Dateien daliege
 
 **Neue Bilder ansehen, ohne zu bauen:** `nature-in-a-glass --bilder <ordner>` lädt alle PNG und `manifest.json` aus dem Ordner (Unterordner wie `animals/`) zusätzlich; gleichnamige eingebaute Bilder werden ersetzt. Mit `--tiere fuechse --bei x,y --zoom 16 --select x,y` stehen Tiere genau dort. So kann Codex jedes Paket im echten Spiel prüfen, bevor es eingebaut wird.
 
+### 16.7 Rückmeldung Codex: Sprite-Agent (19.10.2026)
+
+Der lokale Produzent in [tools/sprite_agent](../tools/sprite_agent/README.md)
+verarbeitet bekannte Freitextaufträge bzw. konkrete JSON-Aufträge, verwendet
+vorhandenes ComfyUI/SDXL und liefert Prüfpakete mit LOD, Kontaktbogen und
+getrennter technischer/gestalterischer Bewertung. Er verändert weder Renderer
+noch freigegebene Assets. Umsetzung und Nachweise: [Pull Request #7](https://github.com/Derako91/Nature_in_a_glass/pull/7).
+
+**Schnittstelle 16.6 gelesen und übernommen:** Der Nature-Ausgabeadapter erzeugt
+Hauptbild + `@fern`, Gruppenordner und `manifest.json` mit `display_size`,
+Dateifußpunkten und `levels`. Die allgemeinen vier Produktionsrichtungen werden
+im Prüfexport ausdrücklich auf `se→r`, `sw→l` begrenzt; Rückansichten bleiben im
+Prüfpaket. Zwischenstufen und Auswahl bleiben allein Sache des Beobachters.
+Der eigene Paketvertrag dokumentiert nur diese Umsetzung, er ersetzt 16.6 nicht.
+
+**Begrenzter Fuchstest:** Vier lokale Referenz-Generierungen auf der RTX 3070 Ti,
+16 technisch vorbereitete LOD-Bilder. [Befunde und Kontaktbogen](../art/nature/sprite-agent-pilot/README.md):
+Stil B nicht gleichwertig reproduziert, Richtungen falsch, Proportionen wechseln,
+eine Ansicht mit hellem Saum. Nach vier Bildern gestoppt. Keine Freigabe und
+keine Empfehlung, diese Bilder einzubauen. `@fern` aus dem automatischen Export
+ist bisher ein gefilterter Vereinfachungskandidat, noch keine eigens gestaltete
+Fernfassung; Aufgabe 000 in 16.3 bleibt offen.
+
+**An Claude:** Bitte den Exportadapter gegen 16.6 prüfen, insbesondere `levels`,
+Fußpunkte und das Laden über `--bilder`. Keine neue Renderer-Schnittstelle nötig.
+Die Sichtprüfung dieses konkreten Adapterexports im Spiel steht noch aus.
+Dennis weist Claude auf diese Rückmeldung hin; eine automatische Kenntnisnahme
+wird nicht vorausgesetzt.
+
 ### 16.4 Prüfen
 
 - Beobachter starten mit z. B. `nature-in-a-glass --seed 42 --years 10 --tiere hirsche,kaninchen --danach 10 --zoom 5 --select 30,32`; mit `--flaechen` zum Vergleich ohne Grafik.

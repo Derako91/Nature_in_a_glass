@@ -1,0 +1,125 @@
+{
+  "1": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {
+      "ckpt_name": "sd_xl_base_1.0.safetensors"
+    }
+  },
+  "2": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "Original warm late-1990s isometric strategy game pixel painting. Natural anatomical proportions, sculpted readable volumes, coherent warm material colors, fine pixel clusters, upper RIGHT lighting regardless of facing, shaded lower left. Natural rather than cute. Match the approved Nature in a Glass fox style B. Isolated single whole subject with ample margin on uniform pure white background. No ground or cast shadow; shadow is added during export. one adult red fox, rusty orange fur, cream chest and large bushy cream-tipped tail, small pointed ears, dark slender feet, pointed muzzle standing still on four feet, head raised facing screen RIGHT and toward viewer, head at right, elevated three-quarter front-side view One single subject only. Keep the same anatomy, colors and markings across views.",
+      "clip": [
+        "1",
+        1
+      ]
+    }
+  },
+  "3": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "photograph, photorealistic, glossy 3d render, anime, comic, cute, large eyes, smile, black outline, flat logo, icon, text, watermark, border, panels, sprite sheet, multiple subjects, collage, scenery, landscape, grass floor, pedestal, cropped, extra limbs, extra tail",
+      "clip": [
+        "1",
+        1
+      ]
+    }
+  },
+  "4": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "width": 768,
+      "height": 768,
+      "batch_size": 1
+    }
+  },
+  "5": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "10",
+        0
+      ],
+      "positive": [
+        "2",
+        0
+      ],
+      "negative": [
+        "3",
+        0
+      ],
+      "latent_image": [
+        "4",
+        0
+      ],
+      "seed": 202610180,
+      "steps": 24,
+      "cfg": 6.5,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "karras",
+      "denoise": 1.0
+    }
+  },
+  "6": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "5",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    }
+  },
+  "7": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "6",
+        0
+      ],
+      "filename_prefix": "sprite_agent/fox_0_graze_se_f0"
+    }
+  },
+  "8": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "1b09e65b15414ec19a78e5c9dfb4e422.png"
+    }
+  },
+  "9": {
+    "class_type": "IPAdapterUnifiedLoader",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "preset": "PLUS (high strength)"
+    }
+  },
+  "10": {
+    "class_type": "IPAdapterAdvanced",
+    "inputs": {
+      "model": [
+        "9",
+        0
+      ],
+      "ipadapter": [
+        "9",
+        1
+      ],
+      "image": [
+        "8",
+        0
+      ],
+      "weight": 0.7,
+      "weight_type": "linear",
+      "combine_embeds": "concat",
+      "start_at": 0.0,
+      "end_at": 0.85,
+      "embeds_scaling": "V only"
+    }
+  }
+}

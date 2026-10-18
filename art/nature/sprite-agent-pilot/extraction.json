@@ -1,0 +1,58 @@
+[
+  {
+    "key": "fox_0_graze_se_f0",
+    "method": "border_connected_color_key",
+    "bbox": [
+      142,
+      192,
+      570,
+      553
+    ],
+    "removed_component_pixels": 5,
+    "warnings": [
+      "5 Pixel in getrennten Komponenten entfernt; auf verlorene Motivteile prüfen."
+    ]
+  },
+  {
+    "key": "fox_0_graze_sw_f0",
+    "method": "border_connected_color_key",
+    "bbox": [
+      130,
+      221,
+      622,
+      543
+    ],
+    "removed_component_pixels": 2,
+    "warnings": [
+      "2 Pixel in getrennten Komponenten entfernt; auf verlorene Motivteile prüfen."
+    ]
+  },
+  {
+    "key": "fox_0_graze_ne_f0",
+    "method": "border_connected_color_key",
+    "bbox": [
+      86,
+      206,
+      681,
+      608
+    ],
+    "removed_component_pixels": 4,
+    "warnings": [
+      "4 Pixel in getrennten Komponenten entfernt; auf verlorene Motivteile prüfen."
+    ]
+  },
+  {
+    "key": "fox_0_graze_nw_f0",
+    "method": "border_connected_color_key",
+    "bbox": [
+      89,
+      222,
+      653,
+      578
+    ],
+    "removed_component_pixels": 3,
+    "warnings": [
+      "3 Pixel in getrennten Komponenten entfernt; auf verlorene Motivteile prüfen."
+    ]
+  }
+]

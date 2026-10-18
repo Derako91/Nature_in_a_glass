@@ -1,0 +1,12 @@
+{
+  "reviewer": "Codex",
+  "scope": "visual_pre_review_not_user_approval",
+  "production_recommendation": "reject",
+  "style_b_reproduced": false,
+  "direction_consistency": "failed",
+  "character_consistency": "failed",
+  "cutout_quality": "white_halo_in_sw_candidate",
+  "user_approval": "pending",
+  "generation_count": 4,
+  "further_generation": "stopped_after_bounded_test"
+}

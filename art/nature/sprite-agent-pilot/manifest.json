@@ -1,0 +1,321 @@
+{
+  "schema_version": 1,
+  "package_id": "fox-20261018-223020-df2872",
+  "asset_id": "fox",
+  "category": "animal",
+  "status": "pending_human_review",
+  "display_size": [
+    10,
+    6
+  ],
+  "anchor": [
+    5,
+    5
+  ],
+  "anchor_method": "bottom_center_heuristic_requires_review",
+  "direction_convention": "screen_diagonal_se_sw_ne_nw",
+  "lighting": "upper_right_fixed",
+  "style_sha256": "5b991881b35cce3a4c227cd323a1cb6ae62b4779bd242b413b7aab3bf3e9185e",
+  "frames": [
+    {
+      "key": "fox_0_graze_se_f0",
+      "variant": 0,
+      "state": "graze",
+      "direction": "se",
+      "frame": 0,
+      "frame_ms": 600,
+      "pose": "standing still on four feet, head raised",
+      "lods": [
+        {
+          "id": "lod1",
+          "scale": 1,
+          "zoom_min": 1.5,
+          "file": "sprites/fox_0_graze_se_f0__lod1.png",
+          "size": [
+            10,
+            6
+          ],
+          "anchor": [
+            5,
+            5
+          ],
+          "method": "filtered_palette_candidate_requires_review",
+          "sha256": "b9a8b4d14c10e4bf88b87a46c4e8373f7d34ee5c373f8773ca21a4993e495095"
+        },
+        {
+          "id": "lod2",
+          "scale": 2,
+          "zoom_min": 6,
+          "file": "sprites/fox_0_graze_se_f0__lod2.png",
+          "size": [
+            20,
+            12
+          ],
+          "anchor": [
+            10,
+            10
+          ],
+          "method": "filtered_palette_candidate_requires_review",
+          "sha256": "0d807e77e03795700b7a83888ae142807edc04fd6191112e8b15699811d4aadc"
+        },
+        {
+          "id": "lod4",
+          "scale": 4,
+          "zoom_min": 12,
+          "file": "sprites/fox_0_graze_se_f0__lod4.png",
+          "size": [
+            40,
+            24
+          ],
+          "anchor": [
+            20,
+            20
+          ],
+          "method": "filtered_downsample",
+          "sha256": "259d624e2d9023dc7ff1b7b813ebd5027c2c63f9287483d2875abc84e4b337b0"
+        },
+        {
+          "id": "lod8",
+          "scale": 8,
+          "zoom_min": 24,
+          "file": "sprites/fox_0_graze_se_f0__lod8.png",
+          "size": [
+            80,
+            48
+          ],
+          "anchor": [
+            40,
+            40
+          ],
+          "method": "reference_downsample",
+          "sha256": "71dd8f25a16dcc7230348ee7cb32a74b61733778c3953ce38dd15731b94c838b"
+        }
+      ]
+    },
+    {
+      "key": "fox_0_graze_sw_f0",
+      "variant": 0,
+      "state": "graze",
+      "direction": "sw",
+      "frame": 0,
+      "frame_ms": 600,
+      "pose": "standing still on four feet, head raised",
+      "lods": [
+        {
+          "id": "lod1",
+          "scale": 1,
+          "zoom_min": 1.5,
+          "file": "sprites/fox_0_graze_sw_f0__lod1.png",
+          "size": [
+            10,
+            6
+          ],
+          "anchor": [
+            5,
+            5
+          ],
+          "method": "filtered_palette_candidate_requires_review",
+          "sha256": "17107f988e45e049c003140d1f11f8672e4dc83b88cc6326d1405867904bde67"
+        },
+        {
+          "id": "lod2",
+          "scale": 2,
+          "zoom_min": 6,
+          "file": "sprites/fox_0_graze_sw_f0__lod2.png",
+          "size": [
+            20,
+            12
+          ],
+          "anchor": [
+            10,
+            10
+          ],
+          "method": "filtered_palette_candidate_requires_review",
+          "sha256": "d22172d4a301dea9f59526f6403b5aa93fb3b854f07304e290aeb115824f2a63"
+        },
+        {
+          "id": "lod4",
+          "scale": 4,
+          "zoom_min": 12,
+          "file": "sprites/fox_0_graze_sw_f0__lod4.png",
+          "size": [
+            40,
+            24
+          ],
+          "anchor": [
+            20,
+            20
+          ],
+          "method": "filtered_downsample",
+          "sha256": "d8e5d72133347cd27917d7e2aba2b67b1e0b2b5f2e86ef1aba001a9f0635e9ce"
+        },
+        {
+          "id": "lod8",
+          "scale": 8,
+          "zoom_min": 24,
+          "file": "sprites/fox_0_graze_sw_f0__lod8.png",
+          "size": [
+            80,
+            48
+          ],
+          "anchor": [
+            40,
+            40
+          ],
+          "method": "reference_downsample",
+          "sha256": "b1f25a25f15e44d7c85652d30411fc1af4df4ce8adf216f13abb3624999023c0"
+        }
+      ]
+    },
+    {
+      "key": "fox_0_graze_ne_f0",
+      "variant": 0,
+      "state": "graze",
+      "direction": "ne",
+      "frame": 0,
+      "frame_ms": 600,
+      "pose": "standing still on four feet, head raised",
+      "lods": [
+        {
+          "id": "lod1",
+          "scale": 1,
+          "zoom_min": 1.5,
+          "file": "sprites/fox_0_graze_ne_f0__lod1.png",
+          "size": [
+            10,
+            6
+          ],
+          "anchor": [
+            5,
+            5
+          ],
+          "method": "filtered_palette_candidate_requires_review",
+          "sha256": "7a87699a9caec9dd65841896b78b9219896a554f4a41212faf836968cf03b051"
+        },
+        {
+          "id": "lod2",
+          "scale": 2,
+          "zoom_min": 6,
+          "file": "sprites/fox_0_graze_ne_f0__lod2.png",
+          "size": [
+            20,
+            12
+          ],
+          "anchor": [
+            10,
+            10
+          ],
+          "method": "filtered_palette_candidate_requires_review",
+          "sha256": "bc3d3436330752e71ad35d38e0140f721e65a2d3a69acdcf9f364f1a431832c4"
+        },
+        {
+          "id": "lod4",
+          "scale": 4,
+          "zoom_min": 12,
+          "file": "sprites/fox_0_graze_ne_f0__lod4.png",
+          "size": [
+            40,
+            24
+          ],
+          "anchor": [
+            20,
+            20
+          ],
+          "method": "filtered_downsample",
+          "sha256": "30d9cd6c26dfe2fc0bd652b45e2f9de98dbc04abb12f06cf4d1a43fa3b7a7511"
+        },
+        {
+          "id": "lod8",
+          "scale": 8,
+          "zoom_min": 24,
+          "file": "sprites/fox_0_graze_ne_f0__lod8.png",
+          "size": [
+            80,
+            48
+          ],
+          "anchor": [
+            40,
+            40
+          ],
+          "method": "reference_downsample",
+          "sha256": "8fab1d5a41b4b7921e7d2141ec4929239d059c4939cbb31d0f6cc6f708eb9843"
+        }
+      ]
+    },
+    {
+      "key": "fox_0_graze_nw_f0",
+      "variant": 0,
+      "state": "graze",
+      "direction": "nw",
+      "frame": 0,
+      "frame_ms": 600,
+      "pose": "standing still on four feet, head raised",
+      "lods": [
+        {
+          "id": "lod1",
+          "scale": 1,
+          "zoom_min": 1.5,
+          "file": "sprites/fox_0_graze_nw_f0__lod1.png",
+          "size": [
+            10,
+            6
+          ],
+          "anchor": [
+            5,
+            5
+          ],
+          "method": "filtered_palette_candidate_requires_review",
+          "sha256": "1d9ce7dded09303fb137345aac4d9941f3750fa6590983e47a09257ae952c133"
+        },
+        {
+          "id": "lod2",
+          "scale": 2,
+          "zoom_min": 6,
+          "file": "sprites/fox_0_graze_nw_f0__lod2.png",
+          "size": [
+            20,
+            12
+          ],
+          "anchor": [
+            10,
+            10
+          ],
+          "method": "filtered_palette_candidate_requires_review",
+          "sha256": "056b648ec82e59c1d71988af09c4714e540e2da21f807066ed0db8888dac0b96"
+        },
+        {
+          "id": "lod4",
+          "scale": 4,
+          "zoom_min": 12,
+          "file": "sprites/fox_0_graze_nw_f0__lod4.png",
+          "size": [
+            40,
+            24
+          ],
+          "anchor": [
+            20,
+            20
+          ],
+          "method": "filtered_downsample",
+          "sha256": "193d483ee9c34d6394ee5996a481b6999e234ba46efba8913b1f7b17b57a5cf2"
+        },
+        {
+          "id": "lod8",
+          "scale": 8,
+          "zoom_min": 24,
+          "file": "sprites/fox_0_graze_nw_f0__lod8.png",
+          "size": [
+            80,
+            48
+          ],
+          "anchor": [
+            40,
+            40
+          ],
+          "method": "reference_downsample",
+          "sha256": "23b09a84e0f1221e5b0abbefa56366244e2d8d2428e3df17df8b1a3e55fe29f5"
+        }
+      ]
+    }
+  ]
+}
