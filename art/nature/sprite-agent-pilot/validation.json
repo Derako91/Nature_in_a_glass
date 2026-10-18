@@ -1,0 +1,77 @@
+{
+  "technical_status": "passed",
+  "errors": [],
+  "warnings": [
+    "Kleine Silhouette instabil/zu wenig Pixel: eigene LOD zur Sichtprüfung vorschlagen: sprites/fox_0_graze_se_f0__lod1.png",
+    "Kleine Silhouette instabil/zu wenig Pixel: eigene LOD zur Sichtprüfung vorschlagen: sprites/fox_0_graze_sw_f0__lod1.png",
+    "Kleine Silhouette instabil/zu wenig Pixel: eigene LOD zur Sichtprüfung vorschlagen: sprites/fox_0_graze_ne_f0__lod1.png",
+    "Kleine Silhouette instabil/zu wenig Pixel: eigene LOD zur Sichtprüfung vorschlagen: sprites/fox_0_graze_nw_f0__lod1.png",
+    "5 Pixel in getrennten Komponenten entfernt; auf verlorene Motivteile prüfen.",
+    "2 Pixel in getrennten Komponenten entfernt; auf verlorene Motivteile prüfen.",
+    "4 Pixel in getrennten Komponenten entfernt; auf verlorene Motivteile prüfen.",
+    "3 Pixel in getrennten Komponenten entfernt; auf verlorene Motivteile prüfen."
+  ],
+  "visual_status": "pending_human_review",
+  "approved": false,
+  "required_review": [
+    "Stil B getroffen?",
+    "Gleiche Figur in allen Ansichten?",
+    "Blickrichtungen und Anatomie korrekt?",
+    "Fußpunkt tatsächlich zwischen den Füßen?",
+    "Helle Fellteile und Kanten sauber freigestellt?",
+    "Ohren, Beine und Schwanz bei Zoom 4/8 lesbar?",
+    "Bei Animation: plausible Bewegung und kein Größen-/Positionsspringen?"
+  ],
+  "lod_action": "Kleine Fassungen sind technische Vereinfachungskandidaten. Bei unklarer Silhouette eigene gezeichnete LOD zur Prüfung anfordern.",
+  "file_count": 16,
+  "lod_metrics": [
+    {
+      "file": "sprites/fox_0_graze_se_f0__lod1.png",
+      "nearest_vs_filtered_silhouette_iou": 0.556,
+      "opaque_pixels": 6,
+      "semantic_readability": "not_measured"
+    },
+    {
+      "file": "sprites/fox_0_graze_se_f0__lod2.png",
+      "nearest_vs_filtered_silhouette_iou": 0.862,
+      "opaque_pixels": 29,
+      "semantic_readability": "not_measured"
+    },
+    {
+      "file": "sprites/fox_0_graze_sw_f0__lod1.png",
+      "nearest_vs_filtered_silhouette_iou": 1.0,
+      "opaque_pixels": 10,
+      "semantic_readability": "not_measured"
+    },
+    {
+      "file": "sprites/fox_0_graze_sw_f0__lod2.png",
+      "nearest_vs_filtered_silhouette_iou": 0.864,
+      "opaque_pixels": 41,
+      "semantic_readability": "not_measured"
+    },
+    {
+      "file": "sprites/fox_0_graze_ne_f0__lod1.png",
+      "nearest_vs_filtered_silhouette_iou": 0.8,
+      "opaque_pixels": 15,
+      "semantic_readability": "not_measured"
+    },
+    {
+      "file": "sprites/fox_0_graze_ne_f0__lod2.png",
+      "nearest_vs_filtered_silhouette_iou": 0.952,
+      "opaque_pixels": 60,
+      "semantic_readability": "not_measured"
+    },
+    {
+      "file": "sprites/fox_0_graze_nw_f0__lod1.png",
+      "nearest_vs_filtered_silhouette_iou": 0.75,
+      "opaque_pixels": 9,
+      "semantic_readability": "not_measured"
+    },
+    {
+      "file": "sprites/fox_0_graze_nw_f0__lod2.png",
+      "nearest_vs_filtered_silhouette_iou": 0.783,
+      "opaque_pixels": 42,
+      "semantic_readability": "not_measured"
+    }
+  ]
+}

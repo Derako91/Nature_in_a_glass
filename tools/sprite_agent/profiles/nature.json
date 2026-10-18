@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "nature-in-a-glass",
+  "style_document": "../../../docs/gestaltung.md",
+  "style_prompt": "Original warm late-1990s isometric strategy game pixel painting. Natural anatomical proportions, sculpted readable volumes, coherent warm material colors, fine pixel clusters, upper RIGHT lighting regardless of facing, shaded lower left. Natural rather than cute. Match the approved Nature in a Glass fox style B. Isolated single whole subject with ample margin on uniform pure white background. No ground or cast shadow; shadow is added during export.",
+  "negative_prompt": "photograph, photorealistic, glossy 3d render, anime, comic, cute, large eyes, smile, black outline, flat logo, icon, text, watermark, border, panels, sprite sheet, multiple subjects, collage, scenery, landscape, grass floor, pedestal, cropped, extra limbs, extra tail",
+  "backgrounds": ["../../../assets/nature/ground/ground_grass_wet_0.png", "../../../assets/nature/ground/ground_shrub_floor_0.png", "../../../assets/nature/ground/ground_forest_floor_0.png"],
+  "checkpoint": "sd_xl_base_1.0.safetensors",
+  "defaults": {
+    "directions": ["se", "sw"], "variants": 1,
+    "states": {"graze":{"frames":1,"frame_ms":600,"poses":["standing still on four feet, head raised"]}},
+    "strategy":"auto", "budget":8, "seed":202610180,
+    "reference":null, "width":768, "height":768, "steps":24,
+    "cfg":6.5, "reference_weight":0.7, "denoise":0.5,
+    "background_tolerance":32,
+    "lods":[{"id":"lod1","scale":1,"zoom_min":1.5},{"id":"lod2","scale":2,"zoom_min":6},{"id":"lod4","scale":4,"zoom_min":12},{"id":"lod8","scale":8,"zoom_min":24}]
+  },
+  "animal_batch":["fox","wolf","rabbit"],
+  "catalog":{
+    "fox":{"aliases":["fuchs","füchse","fox"],"category":"animal","subject":"one adult red fox, rusty orange fur, cream chest and large bushy cream-tipped tail, small pointed ears, dark slender feet, pointed muzzle","display_size":[10,6],"anchor":[5,5],"reference":"../../../art/nature/fox-ab/fox-b-imagegen-source.png"},
+    "wolf":{"aliases":["wolf","wölfe"],"category":"animal","subject":"one natural grey wolf, long low body, pointed muzzle, small ears, hanging straight tail","display_size":[13,8],"anchor":[6.5,7]},
+    "rabbit":{"aliases":["kaninchen","rabbit"],"category":"animal","subject":"one wild brown rabbit, compact body, two upright long ears, pale small tail","display_size":[6,5],"anchor":[3,4]},
+    "person":{"aliases":["mensch","menschen","bewohner","person"],"category":"human","subject":"one adult human, natural proportions, simple earth-tone leather and plant-fiber clothing, brown hair, muted red belt","display_size":[7,15],"anchor":[3.5,14],"states":{"idle":{"frames":1,"frame_ms":800,"poses":["standing upright, relaxed arms, whole body and both feet visible"]}}},
+    "hut":{"aliases":["hütte","hütten","hut"],"category":"building","subject":"one small primitive wooden hut, timber posts, simple thatched roof, open doorway, no people","display_size":[32,24],"anchor":[16,22],"states":{"idle":{"frames":1,"frame_ms":1000,"poses":["static complete building, elevated isometric view"]}}},
+    "basket":{"aliases":["korb","körbe","basket"],"category":"object","subject":"one woven wicker gathering basket, warm brown reed texture, open top, simple handle","display_size":[5,5],"anchor":[2.5,4.5],"states":{"idle":{"frames":1,"frame_ms":1000,"poses":["resting upright, entire object visible"]}}},
+    "tree":{"aliases":["baum","bäume","tree"],"category":"plant","subject":"one young tree, slender light olive green crown, visible brown trunk, irregular leaf clusters","display_size":[10,14],"anchor":[5,13],"states":{"idle":{"frames":1,"frame_ms":1000,"poses":["static young tree, entire crown and trunk visible"]}}}
+  }
+}
