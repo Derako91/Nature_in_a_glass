@@ -5,6 +5,7 @@
 - Dennis ist Projektinhaber und Spieldesigner, programmiert aber nicht. Den Code schreibt Claude. Erklärungen an Dennis: auf Deutsch, ohne Fachjargon, mit Fokus darauf, was er im Spiel sieht.
 - Spielbare Stände kommen als Download (GitHub Releases), nicht als Bauanleitung.
 - **Arbeitsteilung:** Claude ist für Simulation und Technik zuständig (Wasser, Flussläufe, Tiere, Kern, Tests, Werkzeuge). Die **Gestaltung** – Texturen, Sprites, Tiles, Bildaufbereitung (z. B. aus ComfyUI) und deren Darstellung – übernimmt **Codex** nach `docs/gestaltung.md`. Claude ändert dort nur technische Schnittstellen (z. B. `crates/core/src/appearance.rs`, Simulationswerte), keine visuellen Vorgaben.
+- **Codex-Pull-Requests** darf Claude selbst übernehmen (Squash), wenn die GitHub-Prüfungen grün sind und Claude den Stand im Spiel angesehen hat (Bildschirmfotos, z. B. Zoom 2 und 8). Freigabe von Dennis am 18.10.2026. Danach Version anheben und Dennis kurz berichten.
 - Designgrundlagen: `docs/PRINCIPLES.md` (nicht verhandelbar), `docs/ROADMAP.md`, Entscheidungen in `decisions/`. Größere technische Weichenstellungen als neues ADR festhalten.
 
 ## Sprache

@@ -1,5 +1,11 @@
 # Änderungen
 
+## 0.4.6 – Feinere Landschaft
+
+**Neu**
+- **Landschaft in doppelter Auflösung:** Böden, Felswände, Wasser, Bäume, Büsche und Totholz haben beim Heranzoomen mehr Feinheiten – Risse im Fels, Grashalme, Blattgruppen, Äste. Die Bäume bleiben dabei gleich groß.
+- **Vier Varianten** je Boden und Pflanze: Wald und Wiese wirken nicht mehr gekachelt.
+
 ## 0.4.5 – Codex' neue Tiere
 
 **Neu**
