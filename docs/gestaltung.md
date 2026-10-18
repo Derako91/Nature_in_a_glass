@@ -1,8 +1,8 @@
 # Gestaltung – visuelle Richtung von Nature in a Glass
 
-Stand: v0.3 · Geltungsbereich: **Naturdarstellung** (Gelände, Wasser, Vegetation, Feuer, Tiere ab Abschnitt 15). Bewohner, Gebäude und Oberfläche folgen später in eigenen Abschnitten.
+Stand: v0.4.3 · Geltungsbereich: **Naturdarstellung** (Gelände, Wasser, Vegetation, Feuer, Tiere ab Abschnitt 15). Bewohner, Gebäude und Oberfläche folgen später in eigenen Abschnitten.
 
-Dieses Dokument ist die verbindliche Vorlage für Texturen, Sprites und Tiles. Es ist so geschrieben, dass ein Werkzeug wie Codex daraus Schritt für Schritt Assets erzeugen kann: Jede Asset-Gruppe hat Maße, Dateinamen, Varianten, Zustände und Abnahmekriterien.
+Dieses Dokument ist die verbindliche Vorlage für Texturen, Sprites und Tiles. **Was als Nächstes zu tun ist, steht in Abschnitt 16.** Es ist so geschrieben, dass ein Werkzeug wie Codex daraus Schritt für Schritt Assets erzeugen kann: Jede Asset-Gruppe hat Maße, Dateinamen, Varianten, Zustände und Abnahmekriterien.
 
 ---
 
@@ -490,3 +490,52 @@ Der Beobachter zeichnet Tiere vorerst als **Platzhalter-Punkte** in den Kartenfa
 
 Abnahme zusätzlich zu Abschnitt 11: Jede Art ist als Silhouette auf 50 % Größe von den anderen unterscheidbar; kein Tier ist auf Waldboden unsichtbar (mindestens 15 % Helligkeitsunterschied zum Untergrund).
 
+
+## 16. Stand der Einbindung und Aufgaben für Codex (ab v0.4.3)
+
+Stand 18.10.2026. Seit v0.4.3 zeigt der Beobachter Codex' Bilder im Spiel (Knopf **Grafik**, isometrische Ansicht, Ebene *Natur*). Technische Grundlage: [ADR 0005](../decisions/0005-asset-atlas-in-the-observer.md). Dieser Abschnitt sagt, was schon läuft, wo was liegt und was als Nächstes zu tun ist.
+
+### 16.1 Wie Bilder ins Spiel kommen
+
+1. PNG nach dem Namensschema aus Abschnitt 9 in den passenden Ordner legen: `assets/nature/ground`, `walls`, `water`, `vegetation` oder `animals`. Nur diese fünf Ordner werden eingebettet; Prüfblätter mit `_` am Anfang und alles unter `art/` bleiben draußen.
+2. Den Eintrag im Manifest ergänzen (`assets/nature/manifest.json`, für Tiere `assets/nature/animals/manifest.json`) – vor allem `anchor`, denn daraus kommt der Fußpunkt. Fehlt ein Anker, setzt der Beobachter unten Mitte an.
+3. Pull Request öffnen. GitHub baut und prüft auf allen drei Systemen; nach der Übernahme ist das Bild im nächsten Download drin. Rust ist dafür lokal nicht nötig (9.1).
+
+Der Beobachter sucht Bilder so (Rückfall in Klammern):
+
+| Art | Gesuchter Dateiname | Wenn nicht vorhanden |
+| --- | --- | --- |
+| Boden, Überlagerung, Wasser | `<id>_<variante>` mit Variante 0–3 je Feld | `<id>_0`, sonst Flächenfarbe |
+| Wand | `<id>_0` | Flächenfarbe, abgedunkelt |
+| Pflanze | `<id>_<variante>_<zustand>` (Variante 0–3) | `<id>_<variante>_normal`, dann `<id>_0_normal`, sonst nichts |
+| Tier | `<id>_<variante>_<zustand>_<richtung>_f<bild>` | Bild 0, dann `<id>_0_graze_<richtung>_f0`, sonst nichts; Doppelbilder über `frame_aliases` |
+
+Varianten sind also schon vorgesehen: Liegen `ground_soil_1.png` bis `_3.png` vor, verteilt der Beobachter sie fest je Feld.
+
+### 16.2 Wo die Darstellung im Code steht
+
+| Datei | Inhalt | Wer |
+| --- | --- | --- |
+| `crates/core/src/appearance.rs` | **welches** Bild auf welches Feld gehört (aus der Simulation) | Claude – Änderungen bitte als Wunsch an Claude |
+| `crates/app/build.rs`, `crates/app/src/atlas.rs` | Einbetten, Atlas, Bildsuche (16.1) | Claude |
+| `crates/app/src/view.rs`, Funktion `draw_iso_gfx` | **wie** gezeichnet wird: Reihenfolge, Größe, Tönung, Animation, Gleiten | Codex darf hier gestalten |
+
+Heutige Zeichenreihenfolge je Feld: Seitenwände (in 32-px-Streifen gekachelt, rechts 72 %, links 56 % Helligkeit) → Boden → Überlagerungen mit Deckkraft → Feuer als orange Fläche → Bachlinien → Pflanzen und Tiere nach Fußpunkt-Höhe. Maßstab: Grundmaß bei Zoom 4; bei Zoom 1 sind alle Bilder auf ein Viertel verkleinert. Nacht: alles wird mit der Tageshelligkeit getönt (nur bei 1 Std/s).
+
+### 16.3 Was fehlt – Aufgaben in dieser Reihenfolge
+
+1. **Tiere besser erkennbar.** Im Spiel sind Hirsch (9 × 8) und vor allem Kaninchen (3 × 3) bei üblichem Zoom nur Punkte. Vorschlag: Codex prüft im laufenden Spiel bei Zoom 2–5, ob die Tiersprites im Renderer vergrößert werden sollen (z. B. eigener Faktor in `draw_iso_gfx`) oder neue, größere Sprites nötig sind. Maßstab 4.2 gilt für Pflanzen; für Tiere darf davon abgewichen werden, solange sie kleiner als ein Jungbaum bleiben.
+2. **Feuer** (Gruppe E): `fire_ground` als Überlagerung und `fire_flame_small`, `fire_flame_large` als Sprites (`appearance::sprites` liefert sie schon bei brennenden Feldern), dazu `smoke`. Heute: nur eine orange Fläche.
+3. **Kadaver und Spuren** (15.3, 15.5): `carcass_large`, `carcass_small`, `tracks_<art>`. Die Schnittstelle liefert sie (`appearance::carcasses`, `track_density`), der Renderer zeichnet sie, sobald es die Bilder gibt – das Einhängen in `draw_iso_gfx` gehört dazu.
+4. **Zustände der Pflanzen:** `stressed` (Trockenheit) für Bäume und Büsche, `charred` für Totholz, `log_fallen` (liegendes Totholz). Bis dahin erscheinen die normalen Bilder.
+5. **Varianten:** je Boden- und Pflanzenart 3 weitere Varianten (`_1` bis `_3`), damit Wald und Wiese nicht gekachelt wirken.
+6. **Wasser:** Animation (`water_*_f0…f3`, langsam, 15.5 bzw. 8 Gruppe C) und eine Lösung für Bäche – heute sind sie blaue Linien; `water_stream_0.png` ist noch nicht eingebunden.
+7. **Neue Bilder aus der Erosion:** `ground_silt` (7.1, Abschnitt 8 Gruppe A).
+8. **Übergänge zwischen Feldern** (`assets/nature/transitions/`): Die Kantenbilder liegen vor, aber der Beobachter weiß noch nicht, welche Kante wohin gehört. Das braucht eine Regel im Kern (Nachbarvergleich) – bitte als Wunsch an Claude, sobald die Kanten feststehen.
+9. **Biome** (Abschnitt 14) bleiben bis zur Biom-Simulation Entwürfe.
+
+### 16.4 Prüfen
+
+- Beobachter starten mit z. B. `nature-in-a-glass --seed 42 --years 10 --tiere hirsche,kaninchen --danach 10 --zoom 5 --select 30,32`; mit `--flaechen` zum Vergleich ohne Grafik.
+- Ruhe-Regeln (Abschnitt 2 und 15.5) gelten im Spiel: nichts flackert bei 10 Jahre/s, Tiere laufen nur bei 1 Std/s.
+- Ein Bildschirmfoto vorher/nachher gehört in den Pull Request.
