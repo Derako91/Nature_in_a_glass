@@ -1,0 +1,30 @@
+{
+  "source_size": [
+    1619,
+    972
+  ],
+  "source_bbox": [
+    285,
+    286,
+    1337,
+    825
+  ],
+  "output_size": [
+    80,
+    48
+  ],
+  "visible_rgb_colors": 1333,
+  "alpha_levels": 195,
+  "world_size": [
+    10,
+    6
+  ],
+  "world_anchor": [
+    5,
+    5
+  ],
+  "source_sha256": "2018b9ca1d9bba168fb861fcb11161baf7d052b294154cc247013cb424642f1f",
+  "baseline_sha256": "43aa8ec3771c94125ca4f0da969637ab3abb256a390fabce4fa00daf63ecf177",
+  "game_review": "pending",
+  "animation": "not_in_scope"
+}
