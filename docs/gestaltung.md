@@ -568,6 +568,7 @@ Heutige Zeichenreihenfolge je Feld: Seitenwände (in 32-px-Streifen gekachelt, r
 
 ### 16.3 Was fehlt – Aufgaben in dieser Reihenfolge
 
+00. **Neuer Stil nach dem Fuchs-Entwurf** (Entscheidung Dennis, 18.10.2026): Der neue Fuchs-Entwurf (`art/nature/fox-ab/`) ist die verbindliche visuelle Referenz – plastischere Formen, warme natürliche Farben, erkennbare Anatomie, feinere Pixelstrukturen. Die Richtung gilt langfristig für Tiere, Menschen und Landschaft einschließlich Wasser. Codex überarbeitet dieses Dokument danach und prüft die eigenen Auflösungs- und Farbgrenzen (z. B. „höchstens sechs Farben“, Deckkraft-Stufen) – maßgeblich sind Lesbarkeit und die technischen Grenzen in 16.5. **Zuerst nur der Fuchs:** Entwurf als nutzbares Sprite, in Spielgröße und Nahansicht mit dem bisherigen Fuchs vergleichen, Weltmaß (Darstellungsbreite 10) und Fußpunkt beibehalten. Erst nach diesem Vergleich weitere Tiere und Animationen umstellen.
 0. **Menschen** (Abschnitt 17): Die Simulation ist da (v0.6.0), im Spiel stehen Platzhalterfiguren. Bilder nach 17.3/17.4 ersetzen sie.
 1. ~~**Tiere neu zeichnen, größer und doppelt aufgelöst**~~ – erledigt (Runde 09), im Spiel ab v0.4.5. Maße 4.3 und 15.3.
 2. **Feuer** (Gruppe E): `fire_ground` als Überlagerung und `fire_flame_small`, `fire_flame_large` als Sprites (`appearance::sprites` liefert sie schon bei brennenden Feldern), dazu `smoke`. Heute: nur eine orange Fläche.
@@ -578,6 +579,17 @@ Heutige Zeichenreihenfolge je Feld: Seitenwände (in 32-px-Streifen gekachelt, r
 7. **Neue Bilder aus der Erosion:** `ground_silt` (7.1, Abschnitt 8 Gruppe A).
 8. **Übergänge zwischen Feldern** (`assets/nature/transitions/`): Die Kantenbilder liegen vor, aber der Beobachter weiß noch nicht, welche Kante wohin gehört. Das braucht eine Regel im Kern (Nachbarvergleich) – bitte als Wunsch an Claude, sobald die Kanten feststehen.
 9. **Biome** (Abschnitt 14) bleiben bis zur Biom-Simulation Entwürfe.
+
+### 16.5 Technische Grenzen (was der Beobachter wirklich verlangt)
+
+Alles andere in diesem Dokument sind Gestaltungsregeln, die Codex selbst anpassen darf. Technisch nötig ist nur:
+
+- **PNG mit RGBA, 8 Bit je Kanal.** Beliebig viele Farben, beliebige Deckkraft (0–255, auch Zwischenstufen). Halbtransparente Kanten sind erlaubt.
+- **Auflösung frei**, solange alle Bilder einer Art und Variante dieselbe haben. Der Beobachter bringt Tiere, Menschen und Pflanzen auf ihre Darstellungsbreite (`display_size` bzw. die Tabellen 4.2, 15.3, 17.3); Boden, Wände und Wasser werden auf die feste Raute bzw. Wandfläche gelegt.
+- **Fußpunkt (`anchor`) in Dateiauflösung** im Manifest; fehlt er, gilt unten Mitte.
+- **Größe je Bild unter 2000 px Breite**, alle Bilder zusammen bis etwa 2048 × 8192 px im Atlas. Für die geplanten 4- und 8-fachen Fassungen reicht das; wird es enger, baut Claude einen zweiten Atlas.
+- **Weltmaß bleibt:** Darstellungsbreiten und Fußpunkte ändern sich nur nach Absprache, weil Größenverhältnisse (Tier zu Baum zu Mensch) und Zeichenreihenfolge daran hängen.
+- **Pixelgenau vergrößert** wird ab Zoom 4 (Grundmaß); verkleinert wird ohne Glättung. Sehr feine Bilder können beim Herauszoomen flimmern – dann baut Claude verkleinerte Fassungen (ADR 0006). Das ist kein Grund, auf Feinheit zu verzichten.
 
 ### 16.4 Prüfen
 
