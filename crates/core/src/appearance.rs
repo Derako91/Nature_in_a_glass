@@ -467,6 +467,8 @@ pub struct PersonSprite {
     /// Fußpunkt in der Raute (−1…1).
     pub pos: (f32, f32),
     pub weakness: f32,
+    /// Kind (unter 14): `person_child_<aussehen>_…`, sonst kleiner gezeichnet.
+    pub child: bool,
 }
 
 /// Alle lebenden Menschen.
@@ -484,6 +486,7 @@ pub fn person_sprites(people: &People, world: &World) -> Vec<PersonSprite> {
             prev_tile: p.prev_tile,
             pos: person_pos(p.id, world.seed),
             weakness: p.weakness(),
+            child: p.is_child(),
         })
         .collect()
 }
@@ -641,6 +644,7 @@ mod tests {
             prev_tile: 4,
             pos: (0.0, 0.0),
             weakness: 0.0,
+            child: false,
         };
         assert_eq!(person_state_at(&s, 2.0).0, "sleep");
         assert_eq!(person_state_at(&s, 23.0).0, "sleep");

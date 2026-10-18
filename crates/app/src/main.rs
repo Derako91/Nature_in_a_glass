@@ -19,7 +19,25 @@ fn de(v: f32, decimals: usize) -> String {
     format!("{v:.decimals$}").replace('.', ",")
 }
 
-/// Ganze Zahl mit Tausenderpunkten.
+/// Alter kurz für Listen: „34 J.“ bzw. „5 Mon.“
+fn age_short(days: u32) -> String {
+    if days < 365 {
+        format!("{} Mon.", days / 30)
+    } else {
+        format!("{} J.", days / 365)
+    }
+}
+
+/// Alter ausgeschrieben: „34 Jahre“, „1 Jahr“, „5 Monate“.
+fn age_long(days: u32) -> String {
+    match days {
+        d if d < 60 => format!("{} Tage", d.max(1)),
+        d if d < 365 => format!("{} Monate", d / 30),
+        d if d < 730 => "1 Jahr".to_string(),
+        d => format!("{} Jahre", d / 365),
+    }
+}
+
 /// Stärke eines Bedürfnisses in Worten (0 = gar nicht, 1 = tödlich).
 fn level(v: f32) -> &'static str {
     match v {
@@ -30,6 +48,7 @@ fn level(v: f32) -> &'static str {
     }
 }
 
+/// Ganze Zahl mit Tausenderpunkten.
 fn thousands(v: f32) -> String {
     let n = v.round().max(0.0) as u64;
     let s = n.to_string();
@@ -761,11 +780,20 @@ impl App {
                 if pe.alive() + pe.departed.len() == 0 {
                     ui.label("–");
                 } else {
-                    let text = format!(
-                        "{} leben · {} verstorben  ›",
-                        pe.alive(),
-                        pe.departed.len()
-                    );
+                    let kids = pe.list.iter().filter(|p| p.is_child()).count();
+                    let text = if kids > 0 {
+                        format!(
+                            "{} leben ({kids} Kinder) · {} verstorben  ›",
+                            pe.alive(),
+                            pe.departed.len()
+                        )
+                    } else {
+                        format!(
+                            "{} leben · {} verstorben  ›",
+                            pe.alive(),
+                            pe.departed.len()
+                        )
+                    };
                     if ui
                         .link(text)
                         .on_hover_text("Bewohner und ihre Lebensgeschichten")
@@ -1124,7 +1152,7 @@ impl App {
         };
         egui::Window::new("Bewohner")
             .open(&mut open)
-            .fixed_size([620.0, 400.0])
+            .fixed_size([620.0, 310.0])
             .default_pos([16.0, 80.0])
             .collapsible(false)
             .show(ctx, |ui| {
@@ -1134,14 +1162,14 @@ impl App {
                         ui.set_width(200.0);
                         egui::ScrollArea::vertical()
                             .id_salt("people_list")
-                            .max_height(400.0)
+                            .max_height(300.0)
                             .show(ui, |ui| {
                                 for p in &pe.list {
                                     let sel = self.bio_person == Some(p.id);
                                     let text = RichText::new(format!(
-                                        "● {} · {} J.",
+                                        "● {} · {}",
                                         p.name,
-                                        p.age_years()
+                                        age_short(p.age_days)
                                     ))
                                     .color(view::person_color(p.look));
                                     if ui.selectable_label(sel, text).clicked() {
@@ -1155,9 +1183,9 @@ impl App {
                                 for d in pe.departed.iter().rev() {
                                     let sel = self.bio_person == Some(d.person.id);
                                     let text = RichText::new(format!(
-                                        "† {} · {} J.",
+                                        "† {} · {}",
                                         d.person.name,
-                                        d.person.age_years()
+                                        age_short(d.person.age_days)
                                     ))
                                     .weak();
                                     if ui.selectable_label(sel, text).clicked() {
@@ -1179,23 +1207,29 @@ impl App {
                             return;
                         };
                         ui.heading(&p.name);
-                        let sex = match p.sex {
-                            nig_core::people::Sex::Female => "Frau",
-                            nig_core::people::Sex::Male => "Mann",
+                        let sex = match (p.sex, p.is_child()) {
+                            (nig_core::people::Sex::Female, false) => "Frau",
+                            (nig_core::people::Sex::Male, false) => "Mann",
+                            (nig_core::people::Sex::Female, true) => "Mädchen",
+                            (nig_core::people::Sex::Male, true) => "Junge",
                         };
                         if let Some(d) = dead {
                             ui.label(format!(
-                                "{sex}, {} Jahre · {} ({})",
-                                p.age_years(),
+                                "{sex}, {} · {} ({})",
+                                age_long(p.age_days),
                                 d.cause.label(),
                                 year_day(d.died_hours)
                             ));
                         } else {
                             let (x, y) = self.sim.world.xy(p.tile as usize);
+                            let state = if p.pregnant_days > 0 {
+                                format!("{}, erwartet ein Kind,", p.activity.label())
+                            } else {
+                                p.activity.label().to_string()
+                            };
                             ui.label(format!(
-                                "{sex}, {} Jahre · {} bei ({x}, {y})",
-                                p.age_years(),
-                                p.activity.label()
+                                "{sex}, {} · {state} bei ({x}, {y})",
+                                age_long(p.age_days),
                             ));
                             ui.label(
                                 RichText::new(format!(
@@ -1217,10 +1251,44 @@ impl App {
                                 );
                             }
                         }
+                        // Familie: Namen, Verstorbene mit †
+                        let name_of = |id: u32| -> Option<String> {
+                            pe.list
+                                .iter()
+                                .find(|q| q.id == id)
+                                .map(|q| q.name.clone())
+                                .or_else(|| {
+                                    pe.departed
+                                        .iter()
+                                        .find(|d| d.person.id == id)
+                                        .map(|d| format!("{} †", d.person.name))
+                                })
+                        };
+                        let mut family = Vec::new();
+                        let parents: Vec<String> = [p.mother, p.father]
+                            .into_iter()
+                            .filter_map(name_of)
+                            .collect();
+                        if !parents.is_empty() {
+                            family.push(format!("Eltern: {}", parents.join(", ")));
+                        }
+                        if let Some(n) = name_of(p.partner) {
+                            family.push(format!("Partner: {n}"));
+                        }
+                        let kids: Vec<String> =
+                            p.children.iter().copied().filter_map(name_of).collect();
+                        if !kids.is_empty() {
+                            family.push(format!("Kinder: {}", kids.join(", ")));
+                        }
+                        if !family.is_empty() {
+                            ui.add(
+                                egui::Label::new(RichText::new(family.join(" · ")).weak()).wrap(),
+                            );
+                        }
                         ui.separator();
                         egui::ScrollArea::vertical()
                             .id_salt("bio")
-                            .max_height(330.0)
+                            .max_height(200.0)
                             .stick_to_bottom(true)
                             .show(ui, |ui| {
                                 for e in &p.bio {

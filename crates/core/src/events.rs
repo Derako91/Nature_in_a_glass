@@ -35,6 +35,9 @@ pub enum EventKind {
     PersonInjured,
     PersonDied,
     PeopleGone,
+    // seit v0.7
+    PersonBorn,
+    FirstBorn,
 }
 
 impl EventKind {
@@ -66,6 +69,8 @@ impl EventKind {
             EventKind::PersonInjured => "Mensch",
             EventKind::PersonDied => "Mensch",
             EventKind::PeopleGone => "Menschen",
+            EventKind::PersonBorn => "Geburt",
+            EventKind::FirstBorn => "Geburt",
         }
     }
 
@@ -85,6 +90,7 @@ impl EventKind {
                 | EventKind::AnimalsExtinct
                 | EventKind::PersonDied
                 | EventKind::PeopleGone
+                | EventKind::FirstBorn
         )
     }
 }

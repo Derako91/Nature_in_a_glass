@@ -22,3 +22,11 @@ v0.6 bringt die ersten Bewohner. Die Prinzipien verlangen: keine Befehle (1), Be
 - Auf gewöhnlichen Inseln leben die ersten fünf meist 20–30 Jahre und sterben an Altersschwäche; auf kargen Inseln (wenig verlässliches Wasser) oder in Dürren sterben einige früh. Das ist gewollt und erzählt etwas über die Insel.
 - Kosten: mit fünf Menschen etwa halb so viele Jahre pro Sekunde wie ohne. Größere Gruppen brauchen später weitere Abkürzungen (z. B. gemeinsame Wegsuche je Feld).
 - Jagd, Fischfang mit Werkzeug, Feuer machen, Unterkünfte, Nachwuchs, Persönlichkeit und Wissensweitergabe bauen auf dieser Grundlage auf.
+
+## Nachtrag v0.7.0 – Nachwuchs
+
+- Paare bilden sich zufällig zwischen erwachsenen, unverbundenen Menschen, die nah beieinander sind (keine Eltern, Kinder, Geschwister oder Halbgeschwister) – keine festen Rollen (Prinzip 4).
+- Empfängnis hängt von Ernährung und Gesundheit ab; das begrenzt das Wachstum über die Nahrung der Insel. Stillzeit zwei Jahre.
+- Kinder unter 14 entscheiden nicht selbst, sondern ziehen mit ihrer Betreuerin (Mutter, sonst Vater, sonst nächster Erwachsener). Das spart Rechenzeit und verhindert, dass Kinder allein verhungern. Sie übernehmen das Wissen der Betreuerin über Wasser- und Küstenstellen (Prinzip 6).
+- Kleine Gruppen sind empfindlich: Ohne Partner außerhalb der eigenen Familie endet eine Linie. Das ist gewollt; neue Boote bringen neue Menschen.
+

@@ -725,17 +725,32 @@ fn draw_iso_gfx(
                             0
                         };
                         let tint = shade(lit, 1.0 - 0.25 * p.weakness);
+                        // Kinder: eigene Bilder `person_child_…` (17.3), sonst
+                        // die Erwachsenenbilder kleiner.
+                        let child_art = p.child
+                            && atlas
+                                .get(&format!("person_child_{}_idle_{}_f0", p.look, p.dir))
+                                .is_some();
+                        let (id, width) = match (p.child, child_art) {
+                            (true, true) => ("person_child", PERSON_CHILD_WIDTH),
+                            (true, false) => ("person", PERSON_WIDTH * CHILD_SCALE),
+                            _ => ("person", PERSON_WIDTH),
+                        };
+                        let idle = format!("{id}_{}_idle_{}_f0", p.look, p.dir);
                         let entry = atlas
-                            .animal("person", p.look, state, p.dir, frame)
+                            .animal(id, p.look, state, p.dir, frame)
                             .filter(|e| e.size.x > 0.0)
-                            .or_else(|| atlas.get(&format!("person_{}_idle_{}_f0", p.look, p.dir)));
+                            .or_else(|| atlas.get(&idle));
+                        let scale = if p.child && entry.is_none() {
+                            scale * CHILD_SCALE
+                        } else {
+                            scale
+                        };
                         match entry {
                             Some(pe) => {
-                                let reference = atlas
-                                    .get(&format!("person_{}_idle_{}_f0", p.look, p.dir))
-                                    .map_or(pe.size.x, |r| r.size.x)
-                                    .max(1.0);
-                                let s = scale * PERSON_WIDTH / reference;
+                                let reference =
+                                    atlas.get(&idle).map_or(pe.size.x, |r| r.size.x).max(1.0);
+                                let s = scale * width / reference;
                                 tex_rect(
                                     &mut mesh,
                                     Rect::from_min_size(foot - pe.anchor * s, pe.size * s),
@@ -813,6 +828,10 @@ fn draw_iso_gfx(
 
 /// Darstellungsbreite eines Menschen im Grundmaß (17.3).
 const PERSON_WIDTH: f32 = 7.0;
+/// Kinder (`person_child`, 17.3): 5 × 10.
+const PERSON_CHILD_WIDTH: f32 = 5.0;
+/// Ohne eigene Kinderbilder: Erwachsenenbild bzw. Platzhalter verkleinert.
+const CHILD_SCALE: f32 = 0.65;
 
 /// Bilder und Bilddauer je Zustand (17.4).
 fn person_frames(state: &str) -> (u32, f64) {

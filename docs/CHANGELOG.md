@@ -1,5 +1,18 @@
 # Änderungen
 
+## 0.7.0 – Familien
+
+**Neu**
+- **Paare und Kinder:** Erwachsene, die viel Zeit miteinander verbringen, werden ein Paar. Frauen werden schwanger, Kinder kommen zur Welt und werden zwei Jahre gestillt. Geburten sind gefährlich – für Mutter und Kind.
+- **Kinder wachsen in der Familie auf:** Kleine Kinder sind immer bei der Mutter, ab acht sammeln sie mit, mit 14 sind sie erwachsen und gehen eigene Wege. Die Eltern teilen ihr Essen mit ihnen und hungern zur Not lieber selbst.
+- **Wissen geht weiter:** Kinder lernen von den Erwachsenen, wo es Wasser und Muscheln gibt – sie wissen es dann schon, bevor sie selbst dort waren.
+- **Krankheiten** treffen vor allem Säuglinge und Kleinkinder.
+- **Generationen:** Auf wasserreichen Inseln wachsen über Jahrzehnte Gruppen von 20 bis 35 Menschen heran. Auf kargen Inseln kann eine Gruppe nach Hungerjahren so klein werden, dass die Jungen nur noch Geschwister um sich haben – dann stirbt sie aus, außer ein neues Boot kommt.
+- **Fenster „Bewohner“** zeigt die Familie (Eltern, Partner, Kinder, Verstorbene mit †), Alter von Säuglingen in Monaten und ob jemand ein Kind erwartet. Im Insel-Überblick steht, wie viele Kinder leben. Die Chronik meldet Geburten; die erste Geburt auf der Insel ist ein wichtiges Ereignis.
+- Wer mit dem Boot kommt, ist jetzt 16 bis 34 Jahre alt.
+
+**Hinweis:** Mit vielen Menschen läuft die Simulation langsamer (mit 20 Menschen etwa 1,5 Jahre pro Sekunde). Spielstände aus 0.6 lassen sich laden.
+
 ## 0.6.0 – Die ersten Menschen
 
 **Neu**

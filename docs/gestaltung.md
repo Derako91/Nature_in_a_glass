@@ -622,7 +622,7 @@ Stand 18.10.2026. Die Simulation der Menschen ist noch nicht gebaut (`docs/ROADM
 | ID | Darstellung B × H (px) | Datei (8-fach) | Fußpunkt | Bemerkung |
 | --- | --- | --- | --- | --- |
 | `person` | 7 × 15 | 56 × 120 | Mitte zwischen den Füßen | Erwachsene; Statur je Aussehen etwas verschieden (schmal / kräftig), Höhe ±1 px |
-| `person_child` | 5 × 10 | 40 × 80 | wie oben | für später (Kinder sind in v0.6 noch nicht vorgesehen), nur vormerken |
+| `person_child` | 5 × 10 | 40 × 80 | wie oben | Kinder bis 14 Jahre (seit v0.7.0). Bis es Bilder gibt, zeigt der Beobachter das Erwachsenenbild bzw. den Platzhalter auf 65 % |
 | `person_dead` | 15 × 5 | 120 × 40 | Mitte | liegend, entsättigt; bleibt einige Tage wie ein Kadaver |
 | `person_marker` | 8 × 8 | 16 × 16 | Mitte unten | Überblickszeichen, einfarbig in der Erkennungsfarbe (die Farbe setzt der Renderer; Bild weiß bzw. hell) |
 
@@ -646,6 +646,7 @@ Schlagschatten wie bei Tieren (15.3), in der Datei mit 8-fachem Versatz.
 
 - **Richtungen:** wie bei Tieren `_l` und `_r`, beide eigens gezeichnet (Licht von rechts oben, nicht spiegeln).
 - **Geschwächt** (Hunger, Durst, Erschöpfung): kein eigenes Bild, der Renderer entsättigt bis 25 %.
+- **Kinder** (seit v0.7.0): `person_child_<aussehen>_<zustand>_<richtung>_f<bild>.png`, dieselben Zustände außer `run` und `hurt` (nötig: `idle`, `walk`, `gather`, `eat`, `sleep`). Das Aussehen erbt ein Kind von einem Elternteil desselben Geschlechts – Kinder sollen deshalb wie eine jüngere Fassung dieses Aussehens wirken (gleiche Haarfarbe, Erkennungsfarbe). Kinder unter 8 Jahren laufen immer bei der Mutter mit (bzw. dem Vater oder einem anderen Erwachsenen) und stehen dicht neben ihr; Säuglinge werden getragen, ein eigenes Säuglingsbild ist nicht nötig.
 - **Dateischema:** `person_<aussehen>_<zustand>_<richtung>_f<bild>.png`, z. B. `person_2_gather_r_f1.png`; tot: `person_dead_<aussehen>_<richtung>_f0.png`. Ablage: `assets/nature/people/` mit eigenem `manifest.json` wie bei den Tieren (Maße, Anker in Dateiauflösung, `display_size`, Doppelbilder über `frame_aliases`).
 
 ### 17.5 Ruhe im Zeitraffer
@@ -658,6 +659,7 @@ In `crates/core/src/appearance.rs`, ohne Grafik und getestet:
 
 - `person_sprites(&sim.people, &sim.world)` liefert je lebendem Menschen: `id`, `name`, `look` (0–4), `activity` (Tätigkeit des Tages: `idle`, `walk`, `run`, `gather`, `eat`, `drink`, `hurt`), `dir` (`l`/`r`), `tile`, `prev_tile`, `pos` (fester Platz je Person in der Raute) und `weakness` (0…1).
 - `person_state_at(sprite, stunde)` – das Bild zur Tageszeit bei 1 Std/s: 21–6 Uhr `sleep`, morgens 6–10 Uhr `walk`/`hurt` mit Weganteil (Gleiten vom alten zum neuen Feld), tagsüber die Tätigkeit, ab 18 Uhr `eat` statt `gather`.
+- `PersonSprite.child` – Kind unter 14; der Beobachter sucht dann `person_child_…` (Darstellungsbreite 5), sonst das Erwachsenenbild auf 65 %.
 - `person_bodies(&sim.people)` – Tote: Feld, Aussehen, Richtung (`person_dead_<aussehen>_<richtung>_f0`), etwa 12 Tage lang.
 
 Der Beobachter (`crates/app/src/view.rs`, `draw_iso_gfx`):

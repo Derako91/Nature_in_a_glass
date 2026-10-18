@@ -49,7 +49,7 @@ fn rejects_unknown_save_format() {
     let json =
         Simulation::new(1)
             .to_json()
-            .replacen("\"format_version\":7", "\"format_version\":999", 1);
+            .replacen("\"format_version\":8", "\"format_version\":999", 1);
     assert!(Simulation::from_json(&json).is_err());
 }
 

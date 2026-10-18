@@ -56,7 +56,8 @@ fn people_find_water_and_survive_the_first_years() {
         "nur {} leben noch",
         sim.people.alive()
     );
-    for p in &sim.people.list {
+    // Nur die mit dem Boot Gekommenen (Kinder können noch jung sein)
+    for p in sim.people.list.iter().filter(|p| p.mother == 0) {
         assert!(
             p.memory.iter().any(|m| m.kind == PlaceKind::Water),
             "{} kennt kein Wasser",
@@ -132,4 +133,49 @@ fn people_are_deterministic_and_survive_save_load() {
     b.advance_days(400);
     assert_eq!(a.state_hash(), b.state_hash());
     assert_eq!(a.people, b.people);
+}
+
+/// v0.7: Paare finden sich, Kinder kommen zur Welt, wachsen bei der Mutter
+/// auf und kennen ihre Familie.
+#[test]
+fn couples_form_and_children_are_born() {
+    let mut sim = Simulation::new(42);
+    sim.advance_years(10);
+    arrive(&mut sim);
+    sim.advance_years(12);
+    let pe = &sim.people;
+    assert!(pe.born >= 1, "kein Kind in 12 Jahren");
+    let all: Vec<&nig_core::people::Person> = pe
+        .list
+        .iter()
+        .chain(pe.departed.iter().map(|d| &d.person))
+        .collect();
+    let couples = all.iter().filter(|p| p.partner != 0).count()
+        + pe.departed
+            .iter()
+            .filter(|d| !d.person.children.is_empty())
+            .count();
+    assert!(couples >= 1, "kein Paar");
+    let child = all
+        .iter()
+        .find(|p| p.mother != 0)
+        .expect("ein Kind mit Mutter");
+    let mother = all.iter().find(|p| p.id == child.mother).unwrap();
+    assert!(mother.children.contains(&child.id));
+    assert!(child.bio[0].text.contains("geboren"));
+    assert!(child.bio[0].text.contains(&mother.name));
+    assert!(
+        sim.journal
+            .events
+            .iter()
+            .any(|e| e.kind == EventKind::FirstBorn)
+    );
+    // Kleinkinder sind bei einem Erwachsenen
+    for c in pe.list.iter().filter(|p| p.is_small_child()) {
+        assert!(
+            pe.list.iter().any(|a| !a.is_child() && a.tile == c.tile),
+            "{} ist allein",
+            c.name
+        );
+    }
 }

@@ -50,7 +50,7 @@ const THIRST_PER_DAY: f32 = 0.25;
 /// Höchstens so viele Rationen trägt man bei sich.
 pub const PACK_MAX: f32 = 3.0;
 /// So viel Ausbeute erholt sich je Tag (Anteil).
-const REGROW: f32 = 0.015;
+const REGROW: f32 = 0.03;
 /// Höhenunterschied, ab dem ein Schritt nicht mehr möglich ist (m).
 const STEP_MAX_M: f32 = 25.0;
 /// Ab diesem Abstieg kann man stürzen (m).
@@ -59,6 +59,16 @@ const FALL_FROM_M: f32 = 8.0;
 const MEMORY: usize = 16;
 /// Einträge in einer Biografie (die ersten bleiben, danach die neuesten).
 const BIO_MAX: usize = 300;
+/// Bis zu diesem Alter wird ein Kind getragen und versorgt (Tage).
+pub const SMALL_CHILD_DAYS: u32 = 8 * 365;
+/// Ab diesem Alter ist man erwachsen (Tage).
+pub const ADULT_DAYS: u32 = 14 * 365;
+/// Dauer einer Schwangerschaft (Tage).
+pub const PREGNANCY_DAYS: u16 = 270;
+/// Wahrscheinlichkeit je Tag, dass sich zwei, die viel beieinander sind, als Paar finden.
+const PAIR_CHANCE: f32 = 0.004;
+/// Wahrscheinlichkeit je Tag für eine Empfängnis bei gut genährter Frau.
+const CONCEIVE_CHANCE: f32 = 0.012;
 
 #[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq, Eq)]
 pub enum Sex {
@@ -115,6 +125,8 @@ pub enum Cause {
     Wolves,
     Fire,
     Age,
+    Illness,
+    Childbirth,
 }
 
 impl Cause {
@@ -127,6 +139,8 @@ impl Cause {
             Cause::Wolves => "von Wölfen getötet worden",
             Cause::Fire => "im Feuer umgekommen",
             Cause::Age => "an Altersschwäche gestorben",
+            Cause::Illness => "an einer Krankheit gestorben",
+            Cause::Childbirth => "bei einer Geburt gestorben",
         }
     }
 }
@@ -188,6 +202,20 @@ pub struct Person {
     flags: Flags,
     /// Was heute am meisten geschadet hat (Todesursache).
     harm: Option<Cause>,
+    // --- Familie, seit Format 8 ---
+    /// Eltern (0 = unbekannt, z. B. mit dem Boot gekommen).
+    #[serde(default)]
+    pub mother: u32,
+    #[serde(default)]
+    pub father: u32,
+    /// Lebenspartner (0 = keiner).
+    #[serde(default)]
+    pub partner: u32,
+    #[serde(default)]
+    pub children: Vec<u32>,
+    /// Tage der Schwangerschaft (0 = nicht schwanger).
+    #[serde(default)]
+    pub pregnant_days: u16,
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq)]
@@ -207,6 +235,22 @@ struct Flags {
 impl Person {
     pub fn age_years(&self) -> u32 {
         self.age_days / 365
+    }
+    /// Kleinkind: wird getragen und versorgt.
+    pub fn is_small_child(&self) -> bool {
+        self.age_days < SMALL_CHILD_DAYS
+    }
+    /// Kind (noch nicht erwachsen).
+    pub fn is_child(&self) -> bool {
+        self.age_days < ADULT_DAYS
+    }
+    /// Alter in Worten (Jahre, bei Säuglingen Monate).
+    pub fn age_text(&self) -> String {
+        match self.age_days {
+            d if d < 60 => format!("{} Tagen", d.max(1)),
+            d if d < 365 => format!("{} Monaten", d / 30),
+            d => format!("{} Jahren", d / 365),
+        }
     }
     /// Wie geschwächt die Person wirkt (0..1, für die Darstellung).
     pub fn weakness(&self) -> f32 {
@@ -258,6 +302,9 @@ pub enum NewsKind {
     Injured,
     Died,
     AllGone,
+    Born,
+    /// Das erste Kind, das auf der Insel geboren wird.
+    FirstBorn,
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq)]
@@ -271,14 +318,67 @@ pub struct People {
     next_id: u32,
     /// Wie viele Boote schon angekommen sind.
     pub boats: u32,
+    /// Auf der Insel geborene Kinder (insgesamt).
+    #[serde(default)]
+    pub born: u32,
 }
 
-const FEMALE_NAMES: [&str; 12] = [
+const FEMALE_NAMES: [&str; 30] = [
     "Mira", "Ilka", "Runa", "Tala", "Edda", "Liv", "Asta", "Neva", "Saja", "Yrsa", "Ama", "Wenna",
+    "Brin", "Kaja", "Lone", "Maren", "Nila", "Oda", "Rika", "Siv", "Tove", "Una", "Veda", "Alva",
+    "Dagny", "Elin", "Frida", "Greta", "Hilde", "Isa",
 ];
-const MALE_NAMES: [&str; 12] = [
+const MALE_NAMES: [&str; 30] = [
     "Tovo", "Aren", "Bero", "Kael", "Odo", "Jorn", "Sten", "Ulf", "Halm", "Ivo", "Rasko", "Fenn",
+    "Arvid", "Bjarn", "Dag", "Eik", "Falk", "Gorm", "Hakon", "Ingo", "Joki", "Knut", "Lasse",
+    "Mads", "Nils", "Ole", "Pelle", "Ragn", "Sune", "Torben",
 ];
+/// Ein Name, den noch niemand trägt oder getragen hat; notfalls mit Zählung.
+fn pick_name(sex: Sex, used: &[String], rng: &mut Rng) -> String {
+    let pool: &[&str] = match sex {
+        Sex::Female => &FEMALE_NAMES,
+        Sex::Male => &MALE_NAMES,
+    };
+    let free: Vec<&str> = pool
+        .iter()
+        .copied()
+        .filter(|n| !used.iter().any(|u| u == n))
+        .collect();
+    if !free.is_empty() {
+        return free[rng.below(free.len() as u32) as usize].to_string();
+    }
+    let base = pool[rng.below(pool.len() as u32) as usize];
+    for k in 2.. {
+        let n = format!("{base} {}", roman(k));
+        if !used.contains(&n) {
+            return n;
+        }
+    }
+    unreachable!()
+}
+
+fn roman(mut n: u32) -> String {
+    let table = [
+        (100, "C"),
+        (90, "XC"),
+        (50, "L"),
+        (40, "XL"),
+        (10, "X"),
+        (9, "IX"),
+        (5, "V"),
+        (4, "IV"),
+        (1, "I"),
+    ];
+    let mut out = String::new();
+    for (v, r) in table {
+        while n >= v {
+            out.push_str(r);
+            n -= v;
+        }
+    }
+    out
+}
+
 /// Geschlecht je Aussehen (17.4): 0, 2, 4 Frauen; 1, 3 Männer.
 pub fn look_sex(look: u8) -> Sex {
     if look.is_multiple_of(2) {
@@ -315,6 +415,11 @@ pub struct Scratch {
     touched: Vec<u32>,
     /// Tageswerte je Feld, einmal am Tag für alle berechnet.
     info: Vec<TileInfo>,
+    /// Wegkosten zu den Nachbarn je Feld, einmal am Tag beim ersten Bedarf.
+    edges: Vec<[(u32, f32); 8]>,
+    edge_n: Vec<u8>,
+    edge_stamp: Vec<u64>,
+    last_reach: Option<(u64, u32, u32)>,
     /// Tag, für den `info` gilt (je Feld; nur angeschaute Felder werden berechnet).
     stamp: Vec<u64>,
     today: u64,
@@ -336,6 +441,11 @@ impl Scratch {
         if self.info.len() != n {
             self.info = vec![TileInfo::default(); n];
             self.stamp = vec![u64::MAX; n];
+        }
+        if self.edges.len() != n {
+            self.edges = vec![[(0, 0.0); 8]; n];
+            self.edge_n = vec![0; n];
+            self.edge_stamp = vec![u64::MAX; n];
         }
         self.today = day;
         self.doy = doy;
@@ -371,6 +481,11 @@ impl Scratch {
             self.cost = vec![f32::INFINITY; n];
             self.parent = vec![u32::MAX; n];
         }
+        // Gleicher Ausgangspunkt am selben Tag (Familie, Gruppe): Ergebnis bleibt.
+        if self.last_reach == Some((self.today, from, max_cost.to_bits())) {
+            return;
+        }
+        self.last_reach = Some((self.today, from, max_cost.to_bits()));
         for &t in &self.touched {
             self.cost[t as usize] = f32::INFINITY;
             self.parent[t as usize] = u32::MAX;
@@ -387,10 +502,21 @@ impl Scratch {
             if (c as f32) > ci * 100.0 + 0.5 {
                 continue;
             }
-            for nb in world.neighbors(i as usize) {
-                let Some(e) = edge_cost(world, i as usize, nb) else {
-                    continue;
-                };
+            let iu = i as usize;
+            if self.edge_stamp[iu] != self.today {
+                self.edge_stamp[iu] = self.today;
+                let mut k = 0;
+                for nb in world.neighbors(iu) {
+                    if let Some(e) = edge_cost(world, iu, nb) {
+                        self.edges[iu][k] = (nb as u32, e);
+                        k += 1;
+                    }
+                }
+                self.edge_n[iu] = k as u8;
+            }
+            for k in 0..self.edge_n[iu] as usize {
+                let (nb, e) = self.edges[iu][k];
+                let nb = nb as usize;
                 let nc = ci + e;
                 if nc <= max_cost && nc < self.cost[nb] {
                     if self.cost[nb] == f32::INFINITY {
@@ -402,8 +528,8 @@ impl Scratch {
                 }
             }
         }
-        // Feste Reihenfolge für spätere Auswertungen
-        self.touched.sort_unstable();
+        // `touched` steht in der (festen) Reihenfolge, in der die Felder
+        // erreicht wurden – das genügt für eine eindeutige Auswertung.
     }
 
     fn path(&self, from: u32, to: u32) -> Vec<u32> {
@@ -440,13 +566,14 @@ pub fn forage_yield(world: &World, i: usize, doy: u32, temp_c: f32) -> f32 {
     let t = &world.tiles[i];
     let berries = (150..270).contains(&doy);
     let autumn = (240..320).contains(&doy);
-    let mut plants = t.shrub * if berries { 3.0 } else { 0.4 }
-        + t.forest * if autumn { 2.5 } else { 0.4 }
-        + t.grass * if (120..300).contains(&doy) { 0.8 } else { 0.25 };
+    // Außerhalb der Saison: Wurzeln, Knollen, Rinde, Vogeleier, Kleintiere
+    let mut plants = t.shrub * if berries { 3.0 } else { 0.6 }
+        + t.forest * if autumn { 2.5 } else { 0.6 }
+        + t.grass * if (120..300).contains(&doy) { 0.8 } else { 0.35 };
     if temp_c < 0.0 {
         plants *= 0.3;
     }
-    let shore = if coastal(world, i) { 1.3 } else { 0.0 };
+    let shore = if coastal(world, i) { 1.7 } else { 0.0 };
     let fish = if world
         .neighbors(i)
         .any(|j| world.tiles[j].surface_water > 3.0 * POND_MM && !world.tiles[j].is_ocean())
@@ -517,25 +644,10 @@ impl People {
         let (x, y) = world.xy(tile as usize);
         for look in 0..BOAT_SIZE as u8 {
             let sex = look_sex(look);
-            let pool: &[&str] = match sex {
-                Sex::Female => &FEMALE_NAMES,
-                Sex::Male => &MALE_NAMES,
-            };
-            let free: Vec<&str> = pool
-                .iter()
-                .copied()
-                .filter(|n| !used.iter().any(|u| u == n) && !names.iter().any(|m| m == n))
-                .collect();
-            let name = if free.is_empty() {
-                format!(
-                    "{} {}",
-                    pool[rng.below(pool.len() as u32) as usize],
-                    self.boats
-                )
-            } else {
-                free[rng.below(free.len() as u32) as usize].to_string()
-            };
-            let age_days = (18 + rng.below(23)) * 365 + rng.below(365);
+            let mut taken: Vec<String> = used.clone();
+            taken.extend(names.iter().cloned());
+            let name = pick_name(sex, &taken, rng);
+            let age_days = (16 + rng.below(19)) * 365 + rng.below(365);
             self.next_id += 1;
             let mut p = Person {
                 id: self.next_id,
@@ -558,6 +670,11 @@ impl People {
                 arrived_hours: now,
                 flags: Flags::default(),
                 harm: None,
+                mother: 0,
+                father: 0,
+                partner: 0,
+                children: Vec::new(),
+                pregnant_days: 0,
             };
             p.note(
                 now,
@@ -611,9 +728,11 @@ pub fn step_day(
     // Wo die anderen sind (Mitte der Gruppe, vom Vortag)
     let positions: Vec<(u32, u32)> = people.list.iter().map(|p| (p.id, p.tile)).collect();
     // Wer heute helfen kann: gesund, nicht durstig, mit Vorrat (Stand vom Vortag)
+    let adults_exist = people.list.iter().any(|p| !p.is_child());
     let helpers: Vec<(u32, u32, String, bool, bool)> = people
         .list
         .iter()
+        .filter(|p| !p.is_child())
         .map(|p| {
             (
                 p.id,
@@ -639,6 +758,10 @@ pub fn step_day(
         p.prev_tile = p.tile;
         p.age_days += 1;
         let start = p.tile;
+        // Kinder ziehen mit ihrer Familie (unten, nach den Erwachsenen).
+        if p.is_child() && adults_exist {
+            continue;
+        }
 
         // --- Umschauen und merken (nach einem Ortswechsel, sonst alle 5 Tage) ---
         let (px, py) = world.xy(start as usize);
@@ -712,6 +835,7 @@ pub fn step_day(
         // --- Ziel wählen ---
         let budget = DAY_BUDGET
             * if p.injury > 0.2 { 0.6 } else { 1.0 }
+            * if p.is_child() { 0.6 } else { 1.0 }
             * if p.fatigue > 0.9 { 0.5 } else { 1.0 };
         let fire_near = world.tiles[start as usize].fire > 0.0
             || world
@@ -736,6 +860,7 @@ pub fn step_day(
                 && near_group
                 && !someone_hurt
                 && reliable_known
+                && !p.is_child()
                 && s.at(world, start as usize).food * (1.0 - people.taken[start as usize]) > 0.5
         };
         if !content {
@@ -872,6 +997,24 @@ pub fn step_day(
             {
                 best = t;
             }
+            // Paare bleiben beieinander, wenn nichts drängt.
+            if fine
+                && p.partner != 0
+                && let Some(&(_, pt)) = positions.iter().find(|(id, _)| *id == p.partner)
+                && cheb(world, start, pt) > 1
+                && cheb(world, best, pt) > 1
+                && s.cost[pt as usize].is_finite()
+            {
+                best = pt;
+            }
+            // Kinder bleiben in der Nähe der Mutter.
+            if p.is_child()
+                && let Some(&(_, mt)) = positions.iter().find(|(id, _)| *id == p.mother)
+                && cheb(world, start, mt) > 1
+                && s.cost[mt as usize].is_finite()
+            {
+                best = mt;
+            }
             // Ohne Not bei den anderen bleiben
             let (cx, cy, others) = group_center(world, &positions, p.id);
             if others > 0 {
@@ -971,10 +1114,12 @@ pub fn step_day(
             let i = at as usize;
             let food_i = s.at(world, i).food;
             let y = food_i * (1.0 - people.taken[i]);
-            let work = (0.3 + 0.7 * time_left) * if p.injury > 0.2 { 0.5 } else { 1.0 };
+            let work = (0.3 + 0.7 * time_left)
+                * if p.injury > 0.2 { 0.5 } else { 1.0 }
+                * if p.is_child() { 0.5 } else { 1.0 };
             let got = (y * work).min(2.5);
             // Abgesammelt: Je mehr man holt, desto weniger bleibt.
-            let cap = food_i.max(0.5) * 6.0;
+            let cap = food_i.max(0.5) * 8.0;
             people.taken[i] = clamp01(people.taken[i] + got / cap);
             food += got;
             // Fleisch von einem Kadaver
@@ -1084,6 +1229,17 @@ pub fn step_day(
         }
     }
 
+    // --- Kleinkinder: mit der Mutter (oder einem anderen Erwachsenen) ---
+    if adults_exist {
+        care_for_children(people, world, weather, doy, now);
+    }
+
+    // --- Ältere Kinder: Erwachsene am selben Ort teilen mit ihnen ---
+    share_with_children(people, now);
+
+    // --- Paare, Schwangerschaft, Geburt ---
+    family_day(people, world, now, rng, &mut news);
+
     // --- Gefahren durch andere: Wölfe, Feuer ---
     for k in 0..people.list.len() {
         let tile = people.list[k].tile;
@@ -1129,6 +1285,12 @@ pub fn step_day(
         } else {
             0.0
         };
+        // Krankheiten: für Säuglinge und Kleinkinder viel gefährlicher
+        let ill = match p.age_days {
+            d if d < 365 => 0.0002,
+            d if d < SMALL_CHILD_DAYS => 0.00003,
+            _ => 0.00002,
+        };
         let cause = if p.thirst >= 1.0 {
             Some(Cause::Thirst)
         } else if p.hunger >= 1.0 {
@@ -1137,6 +1299,8 @@ pub fn step_day(
             Some(p.harm.unwrap_or(Cause::Hunger))
         } else if rng.chance(old) {
             Some(Cause::Age)
+        } else if rng.chance(ill) {
+            Some(Cause::Illness)
         } else {
             None
         };
@@ -1147,12 +1311,25 @@ pub fn step_day(
         let mut p = people.list.remove(k);
         p.health = 0.0;
         let age = p.age_years();
-        p.note(now, format!("Ist mit {age} Jahren {}.", cause.label()));
+        p.note(now, format!("Ist mit {} {}.", p.age_text(), cause.label()));
+        let partner = p.partner;
+        if let Some(q) = people.list.iter_mut().find(|q| q.id == partner) {
+            q.partner = 0;
+        }
         let (x, y) = world.xy(p.tile as usize);
         news.push(PeopleNews {
             kind: NewsKind::Died,
             tile: p.tile,
-            text: format!("{} ist {} ({age} Jahre).", p.name, cause.label()),
+            text: if p.is_child() {
+                format!(
+                    "{} ist {}, erst {} alt.",
+                    p.name,
+                    cause.label(),
+                    short_age(p.age_days)
+                )
+            } else {
+                format!("{} ist {} ({age} Jahre).", p.name, cause.label())
+            },
         });
         people.bodies.push(Body {
             tile: p.tile,
@@ -1177,6 +1354,429 @@ pub fn step_day(
         }
     }
     news
+}
+
+fn short_age(days: u32) -> String {
+    match days {
+        d if d < 60 => format!("{} Tage", d.max(1)),
+        d if d < 365 => format!("{} Monate", d / 30),
+        d if d < 730 => "1 Jahr".to_string(),
+        d => format!("{} Jahre", d / 365),
+    }
+}
+
+/// Kleinkinder sind dort, wo ihre Mutter ist (sonst der Vater oder der
+/// nächste Erwachsene). Sie trinken, wenn die Betreuerin getrunken hat, und
+/// essen aus den Vorräten der Erwachsenen am selben Ort; Säuglinge trinken
+/// bei der Mutter, solange sie nicht selbst hungert.
+fn care_for_children(people: &mut People, world: &World, weather: &Weather, doy: u32, now: u64) {
+    for k in 0..people.list.len() {
+        if !people.list[k].is_child() {
+            continue;
+        }
+        let small = people.list[k].is_small_child();
+        let (mother, father, here) = {
+            let c = &people.list[k];
+            (c.mother, c.father, c.tile)
+        };
+        let adult = |p: &Person| !p.is_child();
+        let carer = people
+            .list
+            .iter()
+            .position(|p| p.id == mother && adult(p))
+            .or_else(|| people.list.iter().position(|p| p.id == father && adult(p)))
+            .or_else(|| {
+                (0..people.list.len())
+                    .filter(|&j| adult(&people.list[j]))
+                    .min_by_key(|&j| (cheb(world, people.list[j].tile, here), people.list[j].id))
+            });
+        let Some(ci) = carer else { continue };
+        let (ct, cprev, cface, cthirst, cid) = {
+            let c = &people.list[ci];
+            (c.tile, c.prev_tile, c.facing_right, c.thirst, c.id)
+        };
+        // Ältere Kinder sammeln am Ort mit, so gut sie es schon können.
+        let mut found = 0.0f32;
+        if !small {
+            let i = ct as usize;
+            let temp = weather.temp_at(world.tiles[i].elevation);
+            let y = forage_yield(world, i, doy, temp) * (1.0 - people.taken[i]);
+            found = (y * 0.5).min(1.2);
+            let cap = y.max(0.5) * 8.0;
+            people.taken[i] = clamp01(people.taken[i] + found / cap);
+            // Wissen geht weiter (Prinzip 6): Das Kind lernt die Wasserstellen
+            // und Küstenplätze kennen, die die Betreuerin kennt.
+            if people.list[k].age_days.is_multiple_of(30) {
+                let known: Vec<Place> = people.list[ci]
+                    .memory
+                    .iter()
+                    .filter(|m| m.kind != PlaceKind::Food)
+                    .cloned()
+                    .collect();
+                let cname = people.list[ci].name.clone();
+                let c = &mut people.list[k];
+                let before = c
+                    .memory
+                    .iter()
+                    .filter(|m| m.kind == PlaceKind::Water)
+                    .count();
+                for m in known {
+                    if !c
+                        .memory
+                        .iter()
+                        .any(|x| x.tile == m.tile && x.kind == m.kind)
+                    {
+                        remember(c, m.tile, m.kind, m.value, m.seen_day);
+                    }
+                }
+                let after = c
+                    .memory
+                    .iter()
+                    .filter(|m| m.kind == PlaceKind::Water)
+                    .count();
+                if before == 0 && after > 0 {
+                    c.note(now, format!("Lernt von {cname}, wo es Wasser gibt."));
+                }
+            }
+        }
+        // Essen: Muttermilch, Selbstgesammeltes, Vorräte der Erwachsenen am Ort
+        let need = if small { 0.5f32 } else { 0.8 };
+        let mut eaten = found.min(need);
+        people.list[k].pack = (people.list[k].pack + found - eaten).min(1.0);
+        if eaten < need {
+            let own = people.list[k].pack.min(need - eaten);
+            people.list[k].pack -= own;
+            eaten += own;
+        }
+        let nursing = people.list[k].age_days < 2 * 365 && cid == mother;
+        if nursing && people.list[ci].hunger < 0.6 {
+            eaten = need;
+            people.list[ci].hunger = clamp01(people.list[ci].hunger + 0.012);
+        } else if eaten < need {
+            let order: Vec<usize> =
+                std::iter::once(ci)
+                    .chain((0..people.list.len()).filter(|&j| {
+                        j != ci && adult(&people.list[j]) && people.list[j].tile == ct
+                    }))
+                    .collect();
+            for j in order {
+                let give = people.list[j].pack.min(need - eaten);
+                if give > 0.0 {
+                    people.list[j].pack -= give;
+                    eaten += give;
+                }
+                if eaten >= need {
+                    break;
+                }
+            }
+            // Reicht der Vorrat nicht, teilen die Eltern ihr eigenes Essen:
+            // Sie werden selbst hungriger, das Kind nicht.
+            let short = need - eaten;
+            if short > 0.0 && people.list[ci].hunger < 0.7 {
+                people.list[ci].hunger =
+                    clamp01(people.list[ci].hunger + short * HUNGER_PER_RATION);
+                eaten = need;
+            }
+        }
+        let tt = &world.tiles[ct as usize];
+        let temp = weather.temp_at(tt.elevation);
+        let shelter = clamp01(tt.forest * 1.5 + tt.shrub * 0.4);
+        let c = &mut people.list[k];
+        c.prev_tile = if c.tile == ct { ct } else { cprev };
+        c.tile = ct;
+        c.facing_right = cface;
+        c.activity = if c.prev_tile != c.tile {
+            Activity::Walk
+        } else if found > 0.0 {
+            Activity::Gather
+        } else {
+            Activity::Idle
+        };
+        if cthirst < 0.25 {
+            c.thirst = 0.0;
+        } else {
+            c.thirst += THIRST_PER_DAY;
+        }
+        // Bezogen auf den kleineren Bedarf eines Kindes
+        c.hunger = clamp01(c.hunger + HUNGER_PER_DAY - HUNGER_PER_RATION * eaten / need);
+        // Getragene Kinder frieren weniger, aber Kälte trifft sie trotzdem.
+        if temp < 2.0 {
+            let cold = (2.0 - temp) * 0.003 * (1.0 - shelter);
+            c.health -= cold;
+            if cold > 0.01 {
+                c.harm = Some(Cause::Cold);
+            }
+        }
+        if c.hunger > 0.75 {
+            c.health -= 0.03;
+            c.harm = Some(Cause::Hunger);
+        }
+        if c.thirst > 0.7 {
+            c.health -= 0.1;
+            c.harm = Some(Cause::Thirst);
+        }
+        if c.hunger < 0.5 && c.thirst < 0.5 {
+            c.health = (c.health + 0.01).min(1.0);
+        }
+        if c.age_days == SMALL_CHILD_DAYS - 1 {
+            c.note(
+                now,
+                "Läuft nun selbst mit und hilft beim Sammeln.".to_string(),
+            );
+        }
+        if c.age_days == ADULT_DAYS - 1 {
+            c.note(now, "Ist nun erwachsen und geht eigene Wege.".to_string());
+        }
+    }
+}
+
+/// Ältere Kinder sammeln schon selbst, bekommen aber von Eltern (sonst
+/// anderen Erwachsenen) am selben Ort ab, wenn sie hungern.
+fn share_with_children(people: &mut People, now: u64) {
+    for k in 0..people.list.len() {
+        let c = &people.list[k];
+        if !c.is_child() || c.is_small_child() || c.hunger < 0.3 {
+            continue;
+        }
+        let (tile, mother, father) = (c.tile, c.mother, c.father);
+        let giver = (0..people.list.len())
+            .filter(|&j| {
+                let a = &people.list[j];
+                !a.is_child() && a.tile == tile && (a.pack >= 0.5 || a.hunger < 0.5)
+            })
+            .min_by_key(|&j| {
+                let id = people.list[j].id;
+                (id != mother && id != father, id)
+            });
+        let Some(g) = giver else { continue };
+        let from_pack = people.list[g].pack.min(1.0);
+        people.list[g].pack -= from_pack;
+        if from_pack < 1.0 {
+            people.list[g].hunger =
+                clamp01(people.list[g].hunger + (1.0 - from_pack) * HUNGER_PER_RATION);
+        }
+        let gname = people.list[g].name.clone();
+        let c = &mut people.list[k];
+        c.hunger = (c.hunger - HUNGER_PER_RATION).max(0.0);
+        if c.hunger > 0.5 && !c.flags.hungry {
+            c.note(now, format!("{gname} teilt Essen."));
+        }
+    }
+}
+
+/// Paare finden sich, Frauen werden schwanger, Kinder kommen zur Welt.
+fn family_day(
+    people: &mut People,
+    world: &World,
+    now: u64,
+    rng: &mut Rng,
+    news: &mut Vec<PeopleNews>,
+) {
+    let n = people.list.len();
+    // Paare: Unverbundene Erwachsene, die viel beieinander sind
+    for a in 0..n {
+        for b in 0..n {
+            let (pa, pb) = (&people.list[a], &people.list[b]);
+            if pa.sex != Sex::Female || pb.sex != Sex::Male {
+                continue;
+            }
+            if pa.partner != 0 || pb.partner != 0 || pa.is_child() || pb.is_child() {
+                continue;
+            }
+            if pa.age_days < 16 * 365 || pb.age_days < 16 * 365 {
+                continue;
+            }
+            if cheb(world, pa.tile, pb.tile) > 1 {
+                continue;
+            }
+            // Keine engen Verwandten
+            let related = pa.mother == pb.id
+                || pb.mother == pa.id
+                || pa.father == pb.id
+                || pb.father == pa.id
+                || (pa.mother != 0 && pa.mother == pb.mother)
+                || (pa.father != 0 && pa.father == pb.father);
+            if related {
+                continue;
+            }
+            let gap = (pa.age_days as i64 - pb.age_days as i64).unsigned_abs() as f32 / 365.0;
+            let chance = PAIR_CHANCE * if gap > 15.0 { 0.25 } else { 1.0 };
+            if !rng.chance(chance) {
+                continue;
+            }
+            let (ida, idb) = (pa.id, pb.id);
+            let (na, nb) = (pa.name.clone(), pb.name.clone());
+            people.list[a].partner = idb;
+            people.list[b].partner = ida;
+            people.list[a].note(now, format!("Wird die Gefährtin von {nb}."));
+            people.list[b].note(now, format!("Wird der Gefährte von {na}."));
+        }
+    }
+
+    // Schwangerschaft und Geburt
+    let mut births = Vec::new();
+    for k in 0..n {
+        let p = &people.list[k];
+        if p.sex != Sex::Female {
+            continue;
+        }
+        if p.pregnant_days > 0 {
+            let starving = p.hunger > 0.7 || p.health < 0.4;
+            let q = &mut people.list[k];
+            if starving && rng.chance(0.01) {
+                q.pregnant_days = 0;
+                q.note(now, "Verliert ihr ungeborenes Kind.".to_string());
+                continue;
+            }
+            q.pregnant_days += 1;
+            if q.pregnant_days >= PREGNANCY_DAYS {
+                q.pregnant_days = 0;
+                births.push(k);
+            }
+            continue;
+        }
+        let years = p.age_days / 365;
+        if p.partner == 0 || !(16..=42).contains(&years) {
+            continue;
+        }
+        if p.hunger > 0.5 || p.health < 0.6 || p.injury > 0.3 {
+            continue;
+        }
+        let fed = 1.0 - p.hunger * 1.6;
+        let Some(partner) = people.list.iter().find(|q| q.id == p.partner) else {
+            continue;
+        };
+        if cheb(world, partner.tile, p.tile) > 4 {
+            continue;
+        }
+        // Das jüngste Kind wird noch gestillt
+        let youngest = p
+            .children
+            .iter()
+            .filter_map(|c| people.list.iter().find(|q| q.id == *c))
+            .map(|c| c.age_days)
+            .min();
+        if youngest.is_some_and(|a| a < 2 * 365) {
+            continue;
+        }
+        if rng.chance(CONCEIVE_CHANCE * fed) {
+            people.list[k].pregnant_days = 1;
+            people.list[k].note(now, "Erwartet ein Kind.".to_string());
+        }
+    }
+    for k in births {
+        let used: Vec<String> = people
+            .list
+            .iter()
+            .map(|p| p.name.clone())
+            .chain(people.departed.iter().map(|d| d.person.name.clone()))
+            .collect();
+        let sex = if rng.chance(0.5) {
+            Sex::Female
+        } else {
+            Sex::Male
+        };
+        let look = match sex {
+            Sex::Female => [0u8, 2, 4][rng.below(3) as usize],
+            Sex::Male => [1u8, 3][rng.below(2) as usize],
+        };
+        let name = pick_name(sex, &used, rng);
+        let mother = &people.list[k];
+        let (mid, mname, tile, father) =
+            (mother.id, mother.name.clone(), mother.tile, mother.partner);
+        let memory = mother.memory.clone();
+        let fname = people
+            .list
+            .iter()
+            .find(|q| q.id == father)
+            .map(|q| q.name.clone());
+        let (x, y) = world.xy(tile as usize);
+        let what = if sex == Sex::Female {
+            "Tochter"
+        } else {
+            "Sohn"
+        };
+        // „eine Tochter“, „einen Sohn“
+        let a_what = if sex == Sex::Female {
+            "eine Tochter"
+        } else {
+            "einen Sohn"
+        };
+        // Eine Geburt ist gefährlich – für Kind und Mutter.
+        let stillborn = rng.chance(0.03);
+        let mother_dies = rng.chance(0.015);
+        {
+            let m = &mut people.list[k];
+            m.health -= 0.15;
+            if mother_dies {
+                m.health = 0.0;
+                m.harm = Some(Cause::Childbirth);
+            }
+        }
+        if stillborn {
+            people.list[k].note(now, format!("Bringt {a_what} tot zur Welt."));
+            continue;
+        }
+        people.next_id += 1;
+        let id = people.next_id;
+        people.born += 1;
+        let first = people.born == 1;
+        let mut child = Person {
+            id,
+            name: name.clone(),
+            sex,
+            look,
+            age_days: 0,
+            tile,
+            prev_tile: tile,
+            hunger: 0.0,
+            thirst: 0.0,
+            fatigue: 0.0,
+            health: 1.0,
+            injury: 0.0,
+            pack: 0.0,
+            activity: Activity::Sleep,
+            facing_right: rng.chance(0.5),
+            memory,
+            bio: Vec::new(),
+            arrived_hours: now,
+            flags: Flags::default(),
+            harm: None,
+            mother: mid,
+            father,
+            partner: 0,
+            children: Vec::new(),
+            pregnant_days: 0,
+        };
+        let parents = match &fname {
+            Some(f) => format!("Mutter: {mname}, Vater: {f}."),
+            None => format!("Mutter: {mname}."),
+        };
+        child.note(now, format!("Wird bei ({x}, {y}) geboren. {parents}"));
+        people.list[k].children.push(id);
+        people.list[k].note(now, format!("Bringt {a_what} zur Welt: {name}."));
+        if let Some(f) = people.list.iter_mut().find(|q| q.id == father) {
+            f.children.push(id);
+            f.note(now, format!("Wird Vater: {name} ({what})."));
+        }
+        let text = if first {
+            format!(
+                "Das erste Kind der Insel kommt zur Welt: {mname} bringt {a_what} zur Welt, {name}."
+            )
+        } else {
+            format!("{mname} bringt {a_what} zur Welt: {name}.")
+        };
+        news.push(PeopleNews {
+            kind: if first {
+                NewsKind::FirstBorn
+            } else {
+                NewsKind::Born
+            },
+            tile,
+            text,
+        });
+        people.list.push(child);
+    }
 }
 
 /// Merkt sich einen Ort (oder vergisst ihn, wenn er nichts mehr bietet).

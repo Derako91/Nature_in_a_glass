@@ -107,6 +107,22 @@ Hinweis: Damit Jung- und Altwald unterscheidbar sind, braucht der Kern ab v0.2 e
 
 ---
 
+## ✅ v0.7 – Nachwuchs (v0.7.0)
+
+- [x] Paare finden sich unter Erwachsenen, die viel beieinander sind (keine nahen Verwandten). Gefährten bleiben beieinander, wenn nichts drängt.
+- [x] Schwangerschaft (9 Monate), Geburt mit Risiken für Mutter und Kind, Stillzeit von zwei Jahren, Abstand zwischen Geburten.
+- [x] Kinder ziehen mit der Familie, sammeln ab 8 Jahren mit, bekommen von den Erwachsenen ab und lernen von ihnen die Wasserstellen und Küstenplätze (Wissen geht weiter, Prinzip 6). Mit 14 sind sie erwachsen.
+- [x] Krankheiten treffen vor allem Säuglinge und Kleinkinder. Familie (Eltern, Partner, Kinder) im Fenster „Bewohner“.
+- Ergebnis: Auf wasserreichen Inseln wachsen über Generationen Gruppen von 20–35 Menschen; auf kargen Inseln schrumpfen sie nach Hungerzeiten und sterben aus, wenn die Jungen nur noch Geschwister um sich haben – ein weiteres Boot kann helfen.
+
+## Als Nächstes: Sesshaftigkeit (Unterkünfte, Lager, Dörfer)
+
+Die Bewohner bauen selbst – der Beobachter gibt keine Bauaufträge (Prinzip 1).
+- Unterschlupf und Lagerplatz: Wer immer wieder an dieselben Wasser- und Sammelstellen zurückkehrt, legt dort einen Lagerplatz an (Feuerstelle, Windschutz). Schutz vor Kälte statt nur Wald.
+- Hütten aus Holz, Ästen, Fell; Holz kommt aus dem Wald und fehlt dort danach (Rückwirkung auf die Natur).
+- Vorräte, die man nicht mehr tragen muss; Fischfang und später Anbau als Voraussetzung für größere, feste Siedlungen – auf 4 km² können sonst nur wenige Sammler leben.
+- Siedlungen entstehen dort, wo Wasser, Nahrung und Schutz zusammenkommen, und verfallen, wenn sie verlassen werden.
+
 ## Später: Biome
 
 Entwurf von Codex: Feuchter Wald, Wiesenland, Trockenes Buschland, Steppe, Feuchtgebiet, Felsiges Bergland.
