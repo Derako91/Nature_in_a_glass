@@ -143,6 +143,14 @@ fn main() -> eframe::Result {
     let people_window = std::env::args().any(|a| a == "--bewohner");
     // `--folgen` richtet die Kamera (mit `--zoom`) auf den ersten Menschen aus.
     let follow = std::env::args().any(|a| a == "--folgen");
+    // `--bilder <ordner>` lädt zusätzlich Bilder aus einem Ordner (ersetzen
+    // gleichnamige eingebaute) – zum Ansehen neuer Bilder ohne Neubau.
+    let extra_images: Option<PathBuf> = arg("--bilder").map(PathBuf::from);
+    // `--bei x,y`: Tiere aus `--tiere` an diesem Feld aussetzen
+    let release_at: Option<(u32, u32)> = arg("--bei").and_then(|s| {
+        let (x, y) = s.split_once(',')?;
+        Some((x.trim().parse().ok()?, y.trim().parse().ok()?))
+    });
     // `--flaechen` startet mit Flächenfarben statt Grafik
     let no_graphics = std::env::args().any(|a| a == "--flaechen");
     let zoom: Option<f32> = arg("--zoom").and_then(|s| s.parse().ok());
@@ -155,12 +163,14 @@ fn main() -> eframe::Result {
         options,
         Box::new(move |cc| {
             let mut app = App::new(seed);
-            app.atlas = atlas::Atlas::load(&cc.egui_ctx);
+            app.atlas = atlas::Atlas::load(&cc.egui_ctx, extra_images.as_deref());
             app.graphics = app.atlas.is_some() && !no_graphics;
             app.sim.advance_years(years);
             for &species in &release {
-                app.sim
-                    .apply(Intervention::ReleaseAnimals { species, at: None });
+                app.sim.apply(Intervention::ReleaseAnimals {
+                    species,
+                    at: release_at,
+                });
             }
             if people {
                 app.sim.apply(Intervention::PeopleArrive { at: None });

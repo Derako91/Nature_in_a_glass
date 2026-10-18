@@ -590,6 +590,7 @@ Heutige Zeichenreihenfolge je Feld: Seitenwände (in 32-px-Streifen gekachelt, r
 
 ### 16.3 Was fehlt – Aufgaben in dieser Reihenfolge
 
+000. **Fernansicht für Stil B** (nach dem Spielvergleich `art/nature/fox-ab/lod/`, 18.10.2026): Der Fuchs B ist ab Zoom 8 gut lesbar (bei Zoom 8 schon mit der berechneten Stufe), bei Zoom 4 nicht. Für jedes feine Tier im Stil B bitte eine `@fern`-Fassung (Weltmaß × 2 Bildpunkte, z. B. Fuchs 20 × 12) im selben Stil mit klarer Silhouette – Format in 16.6. Vor dem Einbau mit `--bilder` im Spiel prüfen.
 00. **Neuer Stil nach dem Fuchs-Entwurf** (Entscheidung Dennis, 18.10.2026): Der neue Fuchs-Entwurf (`art/nature/fox-ab/`) ist die verbindliche visuelle Referenz – plastischere Formen, warme natürliche Farben, erkennbare Anatomie, feinere Pixelstrukturen. Die Richtung gilt langfristig für Tiere, Menschen und Landschaft einschließlich Wasser. Codex überarbeitet dieses Dokument danach und prüft die eigenen Auflösungs- und Farbgrenzen (z. B. „höchstens sechs Farben“, Deckkraft-Stufen) – maßgeblich sind Lesbarkeit und die technischen Grenzen in 16.5. **Zuerst nur der Fuchs:** Entwurf als nutzbares Sprite, in Spielgröße und Nahansicht mit dem bisherigen Fuchs vergleichen, Weltmaß (Darstellungsbreite 10) und Fußpunkt beibehalten. Erst nach diesem Vergleich weitere Tiere und Animationen umstellen.
 0. **Menschen** (Abschnitt 17): Die Simulation ist da (v0.6.0), im Spiel stehen Platzhalterfiguren. Bilder nach 17.3/17.4 ersetzen sie.
 1. ~~**Tiere neu zeichnen, größer und doppelt aufgelöst**~~ – erledigt (Runde 09), im Spiel ab v0.4.5. Maße 4.3 und 15.3.
@@ -612,6 +613,40 @@ Alles andere in diesem Dokument sind Gestaltungsregeln, die Codex selbst anpasse
 - **Größe je Bild unter 2000 px Breite**, alle Bilder zusammen bis etwa 2048 × 8192 px im Atlas. Für die geplanten 4- und 8-fachen Fassungen reicht das; wird es enger, baut Claude einen zweiten Atlas.
 - **Weltmaß bleibt:** Darstellungsbreiten und Fußpunkte ändern sich nur nach Absprache, weil Größenverhältnisse (Tier zu Baum zu Mensch) und Zeichenreihenfolge daran hängen.
 - **Pixelgenau vergrößert** wird ab Zoom 4 (Grundmaß); verkleinert wird ohne Glättung. Sehr feine Bilder können beim Herauszoomen flimmern – dann baut Claude verkleinerte Fassungen (ADR 0006). Das ist kein Grund, auf Feinheit zu verzichten.
+
+### 16.6 Sprite-Paket und Detailstufen (technische Schnittstelle, ab v0.7.2)
+
+Gilt für **alles, was als Figur auf einem Feld steht**: Pflanzen, Tiere, Menschen, Kadaver, Tote, später Gebäude und Gegenstände (Ordner `vegetation`, `animals`, `people`, `objects`, `buildings`). Boden, Wände und Wasser werden weiterhin auf die feste Raute bzw. Wandfläche gelegt. Grundlage: [ADR 0008](../decisions/0008-sprite-detail-levels.md).
+
+**Ein Sprite-Paket besteht aus:**
+
+| Eigenschaft | Wo | Pflicht |
+| --- | --- | --- |
+| Bilddateien `<id>_<variante>_<zustand>_<richtung>_f<bild>.png` (Pflanzen `<id>_<variante>_<zustand>.png`) | Ordner der Gruppe | ja |
+| **Weltmaß** `display_size` [Breite, Höhe] im Grundmaß (Raute 64 × 32) | `manifest.json` je Asset | empfohlen – fehlt es, gelten die Tabellen 4.2, 15.3, 17.3 |
+| **Fußpunkt** `anchor` [x, y] in Bildpunkten der Datei | `manifest.json` | empfohlen – fehlt er, unten Mitte |
+| **Blickrichtung** `_l`, `_r` (beide gezeichnet, nicht gespiegelt) | Dateiname | ja bei Tieren/Menschen |
+| **Zustände und Bilder** (`graze`, `walk`, …; `f0`…`f3`), Doppelbilder über `frame_aliases` | Dateiname, Manifest | `f0` je Zustand |
+| **Detailstufen** `<dateiname>@<stufe>.png`, z. B. `@fern` | gleicher Ordner | nein |
+
+**Detailstufen – so wählt der Beobachter:**
+
+- Die Feinheit einer Stufe ergibt sich aus ihrer Breite: Bildpunkte ÷ Weltmaß. Der Fuchs B (80 px bei Weltbreite 10) ist 8-fach, eine Fernansicht mit 20 px 2-fach.
+- Gezeichnet wird die **feinste Stufe, die höchstens 1,5-fach verkleinert** werden müsste; passt keine, die gröbste. Vergrößert wird immer pixelgenau.
+- Aus Bildern ab **48 px Breite** berechnet der Beobachter selbst verkleinerte Stufen (halbiert, Deckkraft nachgeschärft), bis zur Darstellungsgröße – aber nicht feiner abgestuft als eine vorhandene `@fern`-Stufe. Ohne eigene Fernansicht funktioniert also jedes feine Bild; bei Zoom 8 wirkt das gut, bei Zoom 4 oft nur noch als Fleck (Vergleich: `art/nature/fox-ab/lod/`).
+- Eine **eigene Fernansicht** (`@fern`) lohnt sich, wo die Silhouette klein bleiben muss: bei Zoom 4 nur Weltmaß × 1 bis × 2 Bildpunkte (Fuchs 10–20 px). Sie soll dieselbe Art im selben Stil vereinfacht zeigen – klare Umrisse, wenige große Farbflächen, typische Merkmale (Fuchs: Ohren, heller Schwanzspitz). Sie ersetzt die feine Fassung bei Zoom 4–10, darüber übernimmt die feine.
+- Gleiche Stelle, gleiche Größe: Alle Stufen werden auf das Weltmaß gebracht. Der Fußpunkt einer Stufe wird aus ihrem eigenen `anchor` gelesen; fehlt er, rechnet der Beobachter den Anker der Hauptfassung um. Am einfachsten: gleiche Leinwand-Proportionen in allen Stufen.
+- Die Feinheit misst sich bei Tieren am ersten Fressbild der Art (`<id>_<v>_graze_<r>_f0`), bei Menschen am ersten Stehbild – alle Bilder einer Art/Variante und Stufe brauchen dieselbe Auflösung.
+- Fehlt einem Bild eine Stufe, nimmt der Beobachter dessen eigene beste Stufe (bzw. die berechnete). Fehlt ein Bild ganz, gibt es die Ersatzdarstellung (Platzhalter bzw. nichts) – kein Absturz.
+
+Manifest-Beispiel (Stufen dürfen auch ohne `levels` einfach als Dateien daliegen):
+
+```json
+{"id": "fox", "files": ["fox_0_graze_r_f0.png"], "anchor": [40, 40], "display_size": [10, 6],
+ "levels": [{"label": "@fern", "files": ["fox_0_graze_r_f0@fern.png"], "anchor": [10, 10]}]}
+```
+
+**Neue Bilder ansehen, ohne zu bauen:** `nature-in-a-glass --bilder <ordner>` lädt alle PNG und `manifest.json` aus dem Ordner (Unterordner wie `animals/`) zusätzlich; gleichnamige eingebaute Bilder werden ersetzt. Mit `--tiere fuechse --bei x,y --zoom 16 --select x,y` stehen Tiere genau dort. So kann Codex jedes Paket im echten Spiel prüfen, bevor es eingebaut wird.
 
 ### 16.4 Prüfen
 

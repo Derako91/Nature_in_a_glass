@@ -401,11 +401,11 @@ fn draw_iso_gfx(
         }
     }
     // Kadaver wie Tiere benannt: `<id>_<variante>_rest_<richtung>_f0`
-    let carcass_entry = |id: &str, k: usize| {
+    let carcass_name = |id: &str, k: usize| {
         let (variant, dir) = [(0, "l"), (1, "r"), (1, "l")][k % 3];
         atlas
-            .animal(id, variant, "rest", dir, 0)
-            .or_else(|| atlas.tile(id, 0))
+            .animal_name(id, variant, "rest", dir, 0)
+            .or_else(|| atlas.first_of(&[format!("{id}_0")]))
     };
     // Menschen: einzeln ab der Stufe Landschaft und bei langsamer Zeit,
     // sonst nur als Zeichen (17.2).
@@ -641,28 +641,17 @@ fn draw_iso_gfx(
             for (_, th) in things {
                 match th {
                     Thing::Plant(p) => {
-                        let Some(pe) = atlas.sprite(p.id, p.variant_seed % 4, p.state) else {
+                        let Some(name) = atlas.sprite_name(p.id, p.variant_seed % 4, p.state)
+                        else {
                             continue;
                         };
                         let foot = c + Vec2::new(p.u * hw, p.v * hh);
-                        // Dateiauflösung und Weltmaß trennen: Nahansicht-Assets
-                        // dürfen doppelt so viele Pixel enthalten (Gestaltung 4.3).
-                        let display_width = match p.id {
-                            "tree_young" | "shrub" => 10.0,
-                            "tree_mid" => 14.0,
-                            "tree_old" => 18.0,
-                            "snag_standing" => 6.0,
-                            "log_fallen" => 16.0,
-                            _ => pe.size.x,
-                        };
-                        let plant_scale = scale * display_width / pe.size.x.max(1.0);
-                        let min = foot - pe.anchor * plant_scale;
-                        tex_rect(
-                            &mut mesh,
-                            Rect::from_min_size(min, pe.size * plant_scale),
-                            pe,
-                            lit,
-                        );
+                        // Weltmaß (4.2) – Dateiauflösung und Detailstufe
+                        // wählt der Atlas.
+                        let width = display_width(atlas, &name, plant_width(p.id));
+                        if let Some(pk) = atlas.pick(&name, &name, width, scale) {
+                            tex_rect(&mut mesh, pk.rect(foot), &pk.entry, lit);
+                        }
                     }
                     Thing::Animal(a) => {
                         // Bei schneller Zeit kein Laufen: stehen bzw. ruhen (15.5)
@@ -677,7 +666,8 @@ fn draw_iso_gfx(
                         } else {
                             0
                         };
-                        let Some(ae) = atlas.animal(a.id, a.variant, state, a.dir, frame) else {
+                        let Some(name) = atlas.animal_name(a.id, a.variant, state, a.dir, frame)
+                        else {
                             continue;
                         };
                         let mut foot = c + Vec2::new(a.pos.0 * hw, a.pos.1 * hh);
@@ -686,20 +676,16 @@ fn draw_iso_gfx(
                                 + Vec2::new(a.pos.0 * hw, a.pos.1 * hh);
                             foot = from + (foot - from) * g.day_frac;
                         }
-                        // Auf die Darstellungsbreite bringen, gleich in
-                        // welcher Auflösung das Bild gezeichnet ist (4.3).
+                        // Alle Bilder einer Art messen sich am ersten
+                        // Fressbild, damit sie gleich groß erscheinen (15.3).
                         let reference = atlas
-                            .animal(a.id, a.variant, "graze", a.dir, 0)
-                            .map_or(ae.size.x, |r| r.size.x)
-                            .max(1.0);
-                        let s = scale * a.scale * animal_width(a.id) / reference;
+                            .animal_name(a.id, a.variant, "graze", a.dir, 0)
+                            .unwrap_or_else(|| name.clone());
+                        let width = display_width(atlas, &reference, animal_width(a.id));
                         let tint = shade(lit, 1.0 - 0.25 * a.weakness);
-                        tex_rect(
-                            &mut mesh,
-                            Rect::from_min_size(foot - ae.anchor * s, ae.size * s),
-                            ae,
-                            tint,
-                        );
+                        if let Some(pk) = atlas.pick(&name, &reference, width, scale * a.scale) {
+                            tex_rect(&mut mesh, pk.rect(foot), &pk.entry, tint);
+                        }
                     }
                     Thing::Person(p) => {
                         let (state, t) = if g.hourly {
@@ -737,32 +723,22 @@ fn draw_iso_gfx(
                             _ => ("person", PERSON_WIDTH),
                         };
                         let idle = format!("{id}_{}_idle_{}_f0", p.look, p.dir);
-                        let entry = atlas
-                            .animal(id, p.look, state, p.dir, frame)
-                            .filter(|e| e.size.x > 0.0)
-                            .or_else(|| atlas.get(&idle));
-                        let scale = if p.child && entry.is_none() {
-                            scale * CHILD_SCALE
+                        let name = atlas
+                            .first_of(&[format!("{id}_{}_{state}_{}_f{frame}", p.look, p.dir)])
+                            .or_else(|| atlas.first_of(std::slice::from_ref(&idle)));
+                        let width = if child_art || !p.child {
+                            display_width(atlas, &idle, width)
                         } else {
-                            scale
+                            width
                         };
-                        match entry {
-                            Some(pe) => {
-                                let reference =
-                                    atlas.get(&idle).map_or(pe.size.x, |r| r.size.x).max(1.0);
-                                let s = scale * width / reference;
-                                tex_rect(
-                                    &mut mesh,
-                                    Rect::from_min_size(foot - pe.anchor * s, pe.size * s),
-                                    pe,
-                                    tint,
-                                );
-                            }
+                        let picked = name.and_then(|n| atlas.pick(&n, &idle, width, scale));
+                        match picked {
+                            Some(pk) => tex_rect(&mut mesh, pk.rect(foot), &pk.entry, tint),
                             None => person_placeholder(
                                 &mut mesh,
                                 white,
                                 foot,
-                                scale,
+                                if p.child { scale * CHILD_SCALE } else { scale },
                                 state,
                                 person_color(p.look),
                                 light,
@@ -772,15 +748,11 @@ fn draw_iso_gfx(
                     }
                     Thing::Body(look, dir) => {
                         let foot = c + Vec2::new(0.1 * hw, 0.2 * hh);
-                        match atlas.get(&format!("person_dead_{look}_{dir}_f0")) {
-                            Some(be) => {
-                                let s = scale * 15.0 / be.size.x.max(1.0);
-                                tex_rect(
-                                    &mut mesh,
-                                    Rect::from_min_size(foot - be.anchor * s, be.size * s),
-                                    be,
-                                    shade(lit, 0.8),
-                                );
+                        let name = format!("person_dead_{look}_{dir}_f0");
+                        let width = display_width(atlas, &name, 15.0);
+                        match atlas.pick(&name, &name, width, scale) {
+                            Some(pk) => {
+                                tex_rect(&mut mesh, pk.rect(foot), &pk.entry, shade(lit, 0.8))
                             }
                             None => person_placeholder(
                                 &mut mesh,
@@ -795,17 +767,14 @@ fn draw_iso_gfx(
                         }
                     }
                     Thing::Carcass(id, u, v, k) => {
-                        let Some(ce) = carcass_entry(id, k) else {
+                        let Some(name) = carcass_name(id, k) else {
                             continue;
                         };
                         let foot = c + Vec2::new(u * hw, v * hh);
-                        let s = scale * animal_width(id) / ce.size.x.max(1.0);
-                        tex_rect(
-                            &mut mesh,
-                            Rect::from_min_size(foot - ce.anchor * s, ce.size * s),
-                            ce,
-                            lit,
-                        );
+                        let width = display_width(atlas, &name, animal_width(id));
+                        if let Some(pk) = atlas.pick(&name, &name, width, scale) {
+                            tex_rect(&mut mesh, pk.rect(foot), &pk.entry, lit);
+                        }
                     }
                 }
             }
@@ -824,6 +793,28 @@ fn draw_iso_gfx(
         draw_person_markers(painter, sim, &persons, origin, z, light, Some(atlas));
     }
     hovered
+}
+
+/// Weltmaß eines Bildes: aus dem Manifest (`display_size`, Codex), sonst
+/// aus den Tabellen der Gestaltung.
+fn display_width(atlas: &Atlas, name: &str, table: f32) -> f32 {
+    atlas
+        .display_size(name)
+        .map(|d| d.x)
+        .filter(|w| *w > 0.0)
+        .unwrap_or(table)
+}
+
+/// Darstellungsbreite der Pflanzen im Grundmaß (gestaltung.md 4.2).
+fn plant_width(id: &str) -> f32 {
+    match id {
+        "tree_young" | "shrub" => 10.0,
+        "tree_mid" => 14.0,
+        "tree_old" => 18.0,
+        "snag_standing" => 6.0,
+        "log_fallen" => 16.0,
+        _ => 10.0,
+    }
 }
 
 /// Darstellungsbreite eines Menschen im Grundmaß (17.3).
