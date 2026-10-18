@@ -1,5 +1,12 @@
 # Änderungen
 
+## 0.4.5 – Codex' neue Tiere
+
+**Neu**
+- **Neu gezeichnete Tiere:** Hirsch mit Geweih, gepunktetes Kalb, Wolf, Fuchs und Kaninchen in doppelter Auflösung – auch ganz nah (Zoom 8) scharf. Je zwei Fellfarben, fressen, gehen, laufen und ruhen.
+- **Kadaver:** Gerissene oder verendete Tiere liegen einige Tage auf dem Feld.
+- **Trittspuren:** Im Überblick und ab 1 Monat/s zeigen Spuren, wo Tiere leben – je mehr Tiere, desto deutlicher.
+
 ## 0.4.4 – Zoomstufen
 
 **Neu**
