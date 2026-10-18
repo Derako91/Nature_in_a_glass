@@ -5,13 +5,15 @@
 use std::fs;
 use std::path::Path;
 
-const GROUPS: [&str; 6] = [
+const GROUPS: [&str; 8] = [
     "ground",
     "walls",
     "water",
     "vegetation",
     "animals",
     "people",
+    "objects",
+    "buildings",
 ];
 
 fn main() {
@@ -31,8 +33,9 @@ fn main() {
         for f in files {
             let name = f.file_stem().unwrap().to_string_lossy().to_string();
             entries.push(format!(
-                "    ({:?}, include_bytes!({:?})),",
+                "    ({:?}, {:?}, include_bytes!({:?})),",
                 name,
+                g,
                 f.display().to_string()
             ));
         }
@@ -46,8 +49,8 @@ fn main() {
         }
     };
     let code = format!(
-        "/// Eingebettete Bilder: (Dateiname ohne Endung, PNG-Daten).\n\
-         pub static IMAGES: &[(&str, &[u8])] = &[\n{}\n];\n\
+        "/// Eingebettete Bilder: (Dateiname ohne Endung, Ordner, PNG-Daten).\n\
+         pub static IMAGES: &[(&str, &str, &[u8])] = &[\n{}\n];\n\
          pub static MANIFEST: Option<&str> = {};\n\
          pub static ANIMAL_MANIFEST: Option<&str> = {};\n\
          pub static PEOPLE_MANIFEST: Option<&str> = {};\n",

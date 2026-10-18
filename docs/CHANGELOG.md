@@ -1,5 +1,13 @@
 # Änderungen
 
+## 0.7.2 – Detailstufen für feine Bilder
+
+**Neu**
+- **Detailstufen:** Ein Bild kann jetzt in mehreren Fassungen vorliegen – fein für die Nahansicht, vereinfacht für den Abstand. Das Spiel wählt beim Zoomen selbst die passende; Größe und Standort bleiben dabei gleich.
+- Sehr feine Bilder (wie der neue Fuchs oder die Menschen) werden nicht mehr grob verkleinert: Das Spiel rechnet verkleinerte Fassungen vor, sodass nichts flimmert oder zu Pixelbrei zerfällt. Bestehende Pixelgrafik bleibt unverändert scharf.
+- **Neue Bilder ansehen ohne Neubau:** `--bilder <ordner>` lädt Bilder aus einem Ordner dazu. Damit kann Codex neue Bilder im echten Spiel prüfen. `--bei x,y` setzt Tiere an einem bestimmten Feld aus.
+- Vorbereitet für Gebäude und Gegenstände (Ordner `buildings`, `objects`).
+
 ## 0.7.1 – Die Bewohner bekommen Gesichter
 
 **Neu**
