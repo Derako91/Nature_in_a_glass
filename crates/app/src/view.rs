@@ -397,7 +397,13 @@ fn draw_iso_gfx(
             carcass_at[tile as usize].push(id);
         }
     }
-    let carcass_entry = |id: &str| atlas.tile(id, 0).or_else(|| atlas.sprite(id, 0, "normal"));
+    // Kadaver wie Tiere benannt: `<id>_<variante>_rest_<richtung>_f0`
+    let carcass_entry = |id: &str, k: usize| {
+        let (variant, dir) = [(0, "l"), (1, "r"), (1, "l")][k % 3];
+        atlas
+            .animal(id, variant, "rest", dir, 0)
+            .or_else(|| atlas.tile(id, 0))
+    };
     // Spurendichte je Feld: Hirsche, Wölfe, Füchse (Kaninchen aus dem Bestand)
     let mut pack: Vec<[u16; 3]> = Vec::new();
     if tracks {
@@ -412,7 +418,7 @@ fn draw_iso_gfx(
     let track_ids = ["tracks_deer", "tracks_wolf", "tracks_fox", "tracks_rabbit"];
     let track_entries: Vec<[Option<&Entry>; 4]> = track_ids
         .iter()
-        .map(|id| [0, 1, 2, 3].map(|v| atlas.tile(id, v)))
+        .map(|id| [0, 1, 2, 3].map(|v| atlas.tile(id, v).or_else(|| atlas.get(id))))
         .collect();
     let solid = |mesh: &mut Mesh, p: [Pos2; 4], c: Color32| {
         tex_quad(mesh, p, [white; 4], c);
@@ -583,7 +589,7 @@ fn draw_iso_gfx(
             enum Thing<'b> {
                 Plant(&'b ap::Sprite),
                 Animal(&'b ap::AnimalSprite),
-                Carcass(&'static str, f32, f32),
+                Carcass(&'static str, f32, f32, usize),
             }
             let plants = ap::sprites(world, i);
             let mut things: Vec<(f32, Thing)> = plants
@@ -596,7 +602,7 @@ fn draw_iso_gfx(
                 )
                 .chain(carcass_at[i].iter().enumerate().map(|(k, &id)| {
                     let (u, v) = [(0.15, 0.3), (-0.35, 0.15), (0.45, 0.0)][k % 3];
-                    (v, Thing::Carcass(id, u, v))
+                    (v, Thing::Carcass(id, u, v, k))
                 }))
                 .collect();
             things.sort_by(|a, b| a.0.total_cmp(&b.0));
@@ -652,8 +658,8 @@ fn draw_iso_gfx(
                             tint,
                         );
                     }
-                    Thing::Carcass(id, u, v) => {
-                        let Some(ce) = carcass_entry(id) else {
+                    Thing::Carcass(id, u, v, k) => {
+                        let Some(ce) = carcass_entry(id, k) else {
                             continue;
                         };
                         let foot = c + Vec2::new(u * hw, v * hh);

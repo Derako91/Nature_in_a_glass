@@ -567,9 +567,9 @@ Heutige Zeichenreihenfolge je Feld: Seitenwände (in 32-px-Streifen gekachelt, r
 
 ### 16.3 Was fehlt – Aufgaben in dieser Reihenfolge
 
-1. **Tiere neu zeichnen, größer und doppelt aufgelöst** (entschieden 18.10.2026, siehe 4.3 und 15.3). Der Renderer zeigt die heutigen Bilder schon in der neuen Größe, vergrößert sie aber nur. Codex zeichnet alle vier Arten in doppelter Auflösung neu (Hirsch 28 × 24, Kaninchen 12 × 10 usw.), gleiche Dateinamen, Anker im Manifest anpassen. Prüfen bei Zoom 2, 4 und 8.
+1. ~~**Tiere neu zeichnen, größer und doppelt aufgelöst**~~ – erledigt (Runde 09), im Spiel ab v0.4.5. Maße 4.3 und 15.3.
 2. **Feuer** (Gruppe E): `fire_ground` als Überlagerung und `fire_flame_small`, `fire_flame_large` als Sprites (`appearance::sprites` liefert sie schon bei brennenden Feldern), dazu `smoke`. Heute: nur eine orange Fläche.
-3. **Spuren und Kadaver** (15.3, 15.5, 4.3): `tracks_deer`, `tracks_wolf`, `tracks_fox`, `tracks_rabbit` (Überlagerung, Raute 64 × 32, Varianten `_0` bis `_3` möglich) sowie `carcass_large_0`, `carcass_small_0`. **Im Renderer schon eingehängt:** Spuren erscheinen im Überblick (Zoom unter 1,5) und ab 1 Monat/s mit Deckkraft nach Dichte – bis es die Bilder gibt, als Hauch der Kartenfarbe. Kadaver erscheinen in den Stufen Landschaft und Nah, sobald es die Bilder gibt.
+3. ~~**Spuren und Kadaver**~~ – erledigt (Runde 06), im Spiel ab v0.4.5. Kadaver heißen wie Tiere `carcass_<large|small>_<variante>_rest_<richtung>_f0`, Spuren `tracks_<art>` (Varianten `_0` bis `_3` möglich). Spuren erscheinen im Überblick (Zoom unter 1,5) und ab 1 Monat/s mit Deckkraft nach Dichte; Kadaver in den Stufen Landschaft und Nah. Offen: Feinabstimmung der Deckkraft im laufenden Spiel.
 4. **Zustände der Pflanzen:** `stressed` (Trockenheit) für Bäume und Büsche, `charred` für Totholz, `log_fallen` (liegendes Totholz). Bis dahin erscheinen die normalen Bilder.
 5. **Varianten:** je Boden- und Pflanzenart 3 weitere Varianten (`_1` bis `_3`), damit Wald und Wiese nicht gekachelt wirken.
 6. **Wasser:** Animation (`water_*_f0…f3`, langsam, 15.5 bzw. 8 Gruppe C) und eine Lösung für Bäche – heute sind sie blaue Linien; `water_stream_0.png` ist noch nicht eingebunden.
