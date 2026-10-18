@@ -1,6 +1,7 @@
 # Naturgestaltung – Prüfblatt 01
 
-**Aktuell ist Runde 08:** Gebirgsgewässer, Wasserfälle und Materialübergänge,
+**Aktuell ist Runde 09:** neu gezeichnete Tiere in doppelter Auflösung für die
+Nahansicht, siehe `ROUND-09.md`. Runde 08 enthält Gebirgsgewässer, Wasserfälle und Materialübergänge,
 siehe `ROUND-08.md`. Runde 07 enthält die bestätigte Biomrichtung, weichere Bachkurven und
 versetzte Felsstufen, siehe `ROUND-07.md`. Kadaver und Spuren stehen in `ROUND-06.md`.
 Ausgearbeitete Biome und Übergänge stehen in `ROUND-05.md`.
@@ -12,6 +13,14 @@ Manifest und Testbelegung der ersten Runde sind mit `assets/nature/` identisch
 und liegen deshalb nur dort.
 
 ## Aktuelle Entwürfe
+
+### Tiere in der Nahansicht – Runde 09
+
+![Zoomvergleich und neue Tierkonturen](../../assets/nature/_animals-detail-comparison.png)
+
+[Bewegung und Fellvarianten](../../assets/nature/_animals-detail-motion.gif)
+· [Haltungen](../../assets/nature/_animals-detail-states.png)
+· [Prüfung und noch offene Spielaufnahme](ROUND-09.md)
 
 ### Gebirgsgewässer – Runde 08
 
