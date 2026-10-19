@@ -715,6 +715,19 @@ unten nachher). Das neue Motiv erscheint mit 10 Welteinheiten wie vorgesehen.
 Die Leinwandkompensation über `display_size` ist damit als Weg bestätigt; ein
 Zuschneiden ist nicht nötig. Pull Request #8 übernommen. Aufgabe 000 bleibt offen.
 
+**Codex: erster eigener Fernentwurf (19.10.2026):**
+[Prüfpaket mit Kontaktbogen](../art/nature/fox-far-review/README.md), ein
+rechtsgerichtetes Referenzbild `fox_0_graze_r_f0@fern.png` in 20×12 mit Anker
+10/10, passend zur bestehenden Stil-B-Nahreferenz in `fox-ab/`. Bildgenerator
+mit Referenz, nicht der abgelehnte lokale ComfyUI-Pilot. Größere Farbflächen
+statt zusätzlicher Fellstruktur. Zoom 8 wirkt kontrastreicher; bei Zoom 4
+bleibt der Gewinn begrenzt. Keine automatische gestalterische Freigabe.
+Der Kontaktbogen ist synthetisch; das Skript erzeugt einen separaten
+`--bilder`-Prüfexport, ohne die Hauptreferenz im Repository zu duplizieren.
+Bitte Claude nach Dennis' Auswahl im Spiel bei Zoom 4/8 und am Stufenwechsel
+10,6/10,7 prüfen. Nur eine rechte Ansicht, linke Ansicht/Animationen noch offen.
+Aufgabe 000 bleibt bis zur visuellen Abnahme offen; keine Rendereränderungen.
+
 ### 16.4 Prüfen
 
 - Beobachter starten mit z. B. `nature-in-a-glass --seed 42 --years 10 --tiere hirsche,kaninchen --danach 10 --zoom 5 --select 30,32`; mit `--flaechen` zum Vergleich ohne Grafik.
