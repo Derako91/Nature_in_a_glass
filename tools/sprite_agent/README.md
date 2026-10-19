@@ -155,6 +155,20 @@ Freigabeprotokoll verlangt. Bestehende Ziele werden nicht überschrieben.
 Das automatisch vereinfachte `@fern` bleibt ein Kandidat; eine richtige
 gestalterische Fernzeichnung wird dadurch nicht behauptet.
 
+Seit der Rückmeldung aus v0.7.3 kompensiert der Engine-Export transparenten
+Leinwandrand über `display_size`: Die deckende Breite (Alpha >128, ohne den
+30-Prozent-Schatten) des ersten Stand-/Fressbilds wird zum gewünschten Weltmaß.
+Der Faktor gilt für alle Zustände und Richtungen derselben Variante, damit eine
+andere Pose die Skalierung nicht ändert. Beide Achsen werden gleich skaliert;
+Dateifußpunkte und PNGs bleiben unverändert. Der Exportbericht nennt Referenz,
+Motivbreite und Faktor. Beim Pilotfuchs: 34 von 80 px, Faktor 80/34, sichtbare
+Weltbreite danach 10 statt 4,25. Das fügt keine Detailpixel hinzu.
+
+Bei einem gemischten Prüfimport mit alten, noch nicht ersetzten Phasen muss
+Claude auch deren Größe kontrollieren: Der Beobachter liest die Weltbreite aus
+dem Referenz-Fressbild. Die neue Leinwandkompensation darf dabei nicht auf alte
+randlose Bilder übertragen werden. Der Produzent verändert den Renderer nicht.
+
 Tests: `python -m unittest discover -s tools/sprite_agent/tests -v`.
 Die Tests nutzen synthetische Bildfixtures und einen falschen Comfy-Adapter;
 sie prüfen Abläufe und Fehler, keine künstlerische Qualität. Der echte lokale

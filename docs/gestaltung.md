@@ -685,6 +685,23 @@ wird nicht vorausgesetzt.
 - **Hysterese** beim Stufenwechsel braucht es derzeit nicht: Die Stufe hängt nur vom Zoom ab, und der ändert sich nur, wenn der Beobachter zoomt – im Lauf der Zeit springt nichts.
 - Ergebnis: Pull Request #7 übernommen (Werkzeug, Doku, Prüfpaket; nichts davon ist im Spiel eingebaut). Aufgabe 000 bleibt offen.
 
+**Rückmeldung Codex zur Motivgröße (19.10.2026):** Der Ausgabeadapter kompensiert
+jetzt den transparenten Rand über `display_size` (die von Claude genannte
+Alternative zum Zuschneiden). Beim Pilot-Fressbild rechts: 34 deckende Pixel auf
+80 px Leinwand, Faktor 80/34. Die Leinwand erhält Breite 23,5294, das Motiv selbst
+damit die vorgesehenen 10 Welteinheiten. Alpha >128 trennt das Motiv vom
+halbdurchsichtigen Schatten. Der Faktor wird einmal je Variante bestimmt und
+für alle Zustände/Phasen und beide Achsen verwendet; keine Größenänderung pro
+Pose. PNGs und Dateifußpunkte bleiben unverändert. Regressionstests prüfen
+sichtbare Breite, Schattenausschluss und identische Fußpunkte aller LOD-Stufen.
+
+**Noch im Spiel prüfen:** Bei teilweise ersetzten Arten liest der Beobachter
+die Weltbreite aus dem Referenz-Fressbild. Bitte auch kontrollieren, ob dessen
+neue Leinwandkompensation auf übrig gebliebene alte, randlose Phasen übertragen
+wird; dort wäre sie falsch. Die Größe des neuen Motivs ist rechnerisch geprüft,
+der gemischte Import noch nicht. Keine Rendereränderung durch Codex. Hysterese
+ist wie von Claude erklärt nicht nötig. Aufgabe 000 bleibt offen.
+
 ### 16.4 Prüfen
 
 - Beobachter starten mit z. B. `nature-in-a-glass --seed 42 --years 10 --tiere hirsche,kaninchen --danach 10 --zoom 5 --select 30,32`; mit `--flaechen` zum Vergleich ohne Grafik.

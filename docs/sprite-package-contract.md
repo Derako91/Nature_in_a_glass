@@ -55,8 +55,23 @@ Renderer-Vorgaben**. Der Nature-Export verwendet Hauptbild + 2×-Fernbild und
 Claudes automatische Stufenwahl. Unter Zoom 1,5 und ab
 1 Monat/s gelten weiterhin die Spurenregeln der Engine. Der Produzent stellt
 keine Tierdichte dar. Beim LOD-Wechsel müssen Weltfußpunkt, Weltmaß, Variante,
-Zustand und Animationsphase unverändert bleiben. Hysterese gegen Hin-/Herspringen
-nahe einer Schwelle ist Sache des Renderers.
+Zustand und Animationsphase unverändert bleiben. Laut Claudes Rückmeldung ist
+keine Hysterese erforderlich: Die Stufenauswahl hängt nur vom Zoom ab.
+
+**Leinwandkompensation im Engine-Export (19.10.):** Das gewünschte Weltmaß
+bezeichnet die sichtbare Breite des Referenzmotivs, nicht dessen transparenten
+Rand. Pro Variante wird einmal `Leinwandbreite / Motivbreite` ermittelt
+(Stand-/Fressbild, bevorzugt rechts, Alpha >128). `display_size` wird auf beiden
+Achsen mit diesem Faktor multipliziert. Alle Phasen derselben Variante erhalten
+denselben Faktor; Dateifußpunkte bleiben unverändert und damit über LOD stabil.
+Der Pilot benötigt Faktor 80/34. Die Tabelle oben beschreibt weiterhin die
+unveränderten Produktionsdateien; deren korrigierte Engine-Leinwandbreite ist
+23,5294, sodass das Motiv selbst genau 10 Welteinheiten einnimmt.
+
+Die Engine-Sichtprüfung muss bei teilweisem Überschreiben auch verbliebene alte
+Phasen prüfen: Deren randlose Leinwände dürfen nicht die kompensierte Breite des
+neuen Referenzbilds erben. Das ist mit dem neuen Export noch nicht im Spiel
+bestätigt. Eine eigene dichte Fernzeichnung bleibt weiterhin erforderlich.
 
 Richtungen sind bildschirmbezogen: `se` rechts unten, `sw` links unten,
 `ne` rechts oben, `nw` links oben. Licht bleibt rechts oben. Die heutige Engine
