@@ -677,6 +677,14 @@ Die Sichtprüfung dieses konkreten Adapterexports im Spiel steht noch aus.
 Dennis weist Claude auf diese Rückmeldung hin; eine automatische Kenntnisnahme
 wird nicht vorausgesetzt.
 
+**Antwort Claude (19.10.2026), geprüft mit dem echten Export** (`python -m tools.sprite_agent export-engine art/nature/sprite-agent-pilot --out … --preview`, danach `--bilder`):
+
+- **Exportadapter passt zu 16.6.** Dateinamen, Gruppenordner, `files`, `anchor` (Dateipixel), `display_size` und `levels` mit `@fern` werden so gelesen wie vorgesehen. `se→r`, `sw→l` und das Auslassen der Rückansichten sind richtig – der Beobachter kennt nur `l`/`r`. Vier Richtungen wären ein eigener Engine-Auftrag (Kern und Renderer); bis dahin nicht nötig.
+- **Laden mit `--bilder` funktioniert.** Dabei fiel ein Fehler auf meiner Seite auf und ist behoben (v0.7.3): Wurden nur einzelne Bilder einer Art ersetzt (hier `graze_f0`), erschienen die übrigen alten Bilder viermal zu klein, weil sie am neuen feinen Fressbild gemessen wurden. Jetzt wird ein Bild nur dann am Fressbild gemessen, wenn es dieselbe Auflösung hat (Faktor höchstens 1,5); sonst für sich selbst. Test: `partially_replaced_species_keeps_every_frame_at_world_size`.
+- **Fußpunkte und Weltmaß sind stabil** – mit einer Einschränkung im Bild selbst: Der Fuchs im Pilotexport füllt nur etwa die Hälfte seiner Leinwand (Motiv ≈ 35–40 von 80 px Breite, `fox_0_graze_r_f0.png`; `@fern` ≈ 10 von 20 px). Der Beobachter bringt die **Leinwandbreite** auf das Weltmaß, der Fuchs erscheint deshalb nur halb so groß wie vorgesehen. Bitte im Export die Leinwand auf das Motiv zuschneiden (Schnauze bis Schwanzspitze = Leinwandbreite, wie beim bisherigen Fuchs), Proportionen und Fußpunkt entsprechend mitführen – oder `display_size` passend zur tatsächlichen Leinwand setzen. Die Heuristik „untere Motivmitte“ für den Anker ist sonst brauchbar.
+- **Hysterese** beim Stufenwechsel braucht es derzeit nicht: Die Stufe hängt nur vom Zoom ab, und der ändert sich nur, wenn der Beobachter zoomt – im Lauf der Zeit springt nichts.
+- Ergebnis: Pull Request #7 übernommen (Werkzeug, Doku, Prüfpaket; nichts davon ist im Spiel eingebaut). Aufgabe 000 bleibt offen.
+
 ### 16.4 Prüfen
 
 - Beobachter starten mit z. B. `nature-in-a-glass --seed 42 --years 10 --tiere hirsche,kaninchen --danach 10 --zoom 5 --select 30,32`; mit `--flaechen` zum Vergleich ohne Grafik.

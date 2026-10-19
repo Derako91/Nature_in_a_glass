@@ -1,5 +1,10 @@
 # Änderungen
 
+## 0.7.3 – Korrektur bei teilweise ersetzten Bildern
+
+**Behoben**
+- Werden nur einzelne Bilder einer Tierart durch feinere ersetzt (zum Beispiel beim Prüfen neuer Bilder mit `--bilder`), erscheinen die übrigen alten Bilder jetzt weiter in richtiger Größe statt viermal zu klein.
+
 ## 0.7.2 – Detailstufen für feine Bilder
 
 **Neu**

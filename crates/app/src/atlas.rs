@@ -475,9 +475,25 @@ impl AtlasData {
         if own.is_empty() {
             return None;
         }
+        let main_w = |v: &[Level]| {
+            v.iter()
+                .find(|l| l.label.is_empty())
+                .unwrap_or(&v[0])
+                .entry
+                .size
+                .x
+                .max(1.0)
+        };
+        // Die Referenz gilt nur für Bilder derselben Auflösung. Ein Bild aus
+        // einem anderen Satz (z. B. noch nicht ersetzte alte Bilder neben
+        // neuen feinen) wird für sich selbst bemessen.
         let refs = {
             let r = self.levels(reference);
-            if r.is_empty() { own } else { r }
+            let same_set = !r.is_empty() && {
+                let q = main_w(own) / main_w(r);
+                (1.0 / MAX_DOWNSCALE..=MAX_DOWNSCALE).contains(&q)
+            };
+            if same_set { r } else { own }
         };
         let display_w = display_w.max(0.01);
         let factors: Vec<f32> = refs.iter().map(|l| l.entry.size.x / display_w).collect();
@@ -488,15 +504,6 @@ impl AtlasData {
         let (lvl, ref_w) = match own.iter().position(|l| &l.label == label) {
             Some(i) => (i, refs[k].entry.size.x),
             None => {
-                let main_w = |v: &[Level]| {
-                    v.iter()
-                        .find(|l| l.label.is_empty())
-                        .unwrap_or(&v[0])
-                        .entry
-                        .size
-                        .x
-                        .max(1.0)
-                };
                 let conv = main_w(refs) / main_w(own);
                 let own_f: Vec<f32> = own
                     .iter()
@@ -925,6 +932,46 @@ mod tests {
                     );
                 }
             }
+        }
+    }
+
+    /// Teilweise ersetzt: Nur das Fressbild ist neu und fein (80 px), die
+    /// übrigen Bilder der Art sind noch die alten (20 px). Beide müssen in
+    /// ihrer Darstellungsbreite erscheinen – die alten nicht viermal zu klein.
+    #[test]
+    fn partially_replaced_species_keeps_every_frame_at_world_size() {
+        let d = AtlasData::build(
+            vec![
+                img("fox_0_graze_r_f0", "animals", 80, 48, [200, 100, 40, 255]),
+                img(
+                    "fox_0_graze_r_f0@fern",
+                    "animals",
+                    20,
+                    12,
+                    [200, 100, 40, 255],
+                ),
+                img("fox_0_rest_r_f0", "animals", 20, 12, [200, 100, 40, 255]),
+                // leicht breiteres Laufbild derselben (feinen) Auflösung
+                img("fox_0_walk_r_f1", "animals", 88, 48, [200, 100, 40, 255]),
+            ],
+            ManifestInfo::default(),
+        );
+        for zoom in [4.0f32, 8.0, 16.0, 32.0] {
+            let s = zoom / 4.0;
+            let rest = d
+                .pick("fox_0_rest_r_f0", "fox_0_graze_r_f0", 10.0, s)
+                .unwrap();
+            let shown = rest.entry.size.x * rest.px;
+            assert!(
+                (shown - 10.0 * s).abs() < 0.01,
+                "altes Bild bei Zoom {zoom}: {shown}"
+            );
+            // Gleiche Auflösung wie die Referenz: am Fressbild gemessen
+            let walk = d
+                .pick("fox_0_walk_r_f1", "fox_0_graze_r_f0", 10.0, s)
+                .unwrap();
+            let w = walk.entry.size.x * walk.px;
+            assert!((w - 11.0 * s).abs() < 0.01, "Laufbild bei Zoom {zoom}: {w}");
         }
     }
 }
