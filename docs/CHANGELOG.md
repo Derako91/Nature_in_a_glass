@@ -1,5 +1,13 @@
 # Änderungen
 
+## 0.7.4 – Bilder mit Rand in richtiger Größe
+
+**Behoben**
+- Neue Bilder, die ihr Motiv mit einem durchsichtigen Rand liefern, geben ihr vergrößertes Maß nicht mehr an alte Bilder derselben Tierart weiter. Vorher erschienen die alten Fuchsbilder neben einem neuen Fressbild gut doppelt so groß.
+
+**Übernommen**
+- Codex' Ausgabewerkzeug berücksichtigt jetzt durchsichtige Ränder: Das Motiv selbst bekommt das vorgesehene Weltmaß (Pull Request #8).
+
 ## 0.7.3 – Korrektur bei teilweise ersetzten Bildern
 
 **Behoben**

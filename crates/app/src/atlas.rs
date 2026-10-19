@@ -471,6 +471,22 @@ impl AtlasData {
     /// Weltpunkten. Fehlt `name`, gibt es `None` – der Aufrufer zeichnet
     /// dann eine Ersatzdarstellung.
     pub fn pick(&self, name: &str, reference: &str, display_w: f32, screen: f32) -> Option<Pick> {
+        self.pick_sized(name, reference, display_w, display_w, screen)
+    }
+
+    /// Wie [`pick`](Self::pick), aber mit getrenntem Weltmaß: `ref_w` gilt,
+    /// wenn das Bild am Referenzbild gemessen wird, `own_w`, wenn es aus
+    /// einem anderen Satz stammt und für sich selbst bemessen wird. So erbt
+    /// ein altes randloses Bild nicht das vergrößerte Weltmaß eines neuen
+    /// Bildes mit transparentem Rand (gestaltung.md 16.7).
+    pub fn pick_sized(
+        &self,
+        name: &str,
+        reference: &str,
+        ref_w: f32,
+        own_w: f32,
+        screen: f32,
+    ) -> Option<Pick> {
         let own = self.levels(name);
         if own.is_empty() {
             return None;
@@ -493,8 +509,9 @@ impl AtlasData {
                 let q = main_w(own) / main_w(r);
                 (1.0 / MAX_DOWNSCALE..=MAX_DOWNSCALE).contains(&q)
             };
-            if same_set { r } else { own }
+            if same_set { (r, ref_w) } else { (own, own_w) }
         };
+        let (refs, display_w) = refs;
         let display_w = display_w.max(0.01);
         let factors: Vec<f32> = refs.iter().map(|l| l.entry.size.x / display_w).collect();
         let k = choose_level(&factors, screen);
@@ -972,6 +989,41 @@ mod tests {
                 .unwrap();
             let w = walk.entry.size.x * walk.px;
             assert!((w - 11.0 * s).abs() < 0.01, "Laufbild bei Zoom {zoom}: {w}");
+        }
+    }
+
+    /// Neues Fressbild mit transparentem Rand: Sein Weltmaß ist vergrößert
+    /// (Motiv 34 von 80 px → Leinwand 23,53). Alte randlose Bilder derselben
+    /// Art dürfen das nicht erben, neue Bilder des Satzes schon.
+    #[test]
+    fn padded_reference_does_not_enlarge_old_frames() {
+        let d = AtlasData::build(
+            vec![
+                img("fox_0_graze_r_f0", "animals", 80, 48, [200, 100, 40, 255]),
+                img("fox_0_walk_r_f0", "animals", 80, 48, [200, 100, 40, 255]),
+                img("fox_0_rest_r_f0", "animals", 20, 12, [200, 100, 40, 255]),
+            ],
+            ManifestInfo::default(),
+        );
+        let padded = 10.0 * 80.0 / 34.0;
+        for zoom in [4.0f32, 8.0, 16.0, 32.0] {
+            let s = zoom / 4.0;
+            let shown = |n: &str| {
+                let p = d
+                    .pick_sized(n, "fox_0_graze_r_f0", padded, 10.0, s)
+                    .unwrap();
+                p.entry.size.x * p.px
+            };
+            let old = shown("fox_0_rest_r_f0");
+            assert!(
+                (old - 10.0 * s).abs() < 0.01,
+                "altes Bild bei Zoom {zoom}: {old}"
+            );
+            let new = shown("fox_0_walk_r_f0");
+            assert!(
+                (new - padded * s).abs() < 0.01,
+                "neues Bild bei Zoom {zoom}: {new}"
+            );
         }
     }
 }

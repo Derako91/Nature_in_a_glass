@@ -682,8 +682,12 @@ fn draw_iso_gfx(
                             .animal_name(a.id, a.variant, "graze", a.dir, 0)
                             .unwrap_or_else(|| name.clone());
                         let width = display_width(atlas, &reference, animal_width(a.id));
+                        // Aus einem anderen Bildsatz (alt neben neu): eigenes Maß
+                        let own = display_width(atlas, &name, animal_width(a.id));
                         let tint = shade(lit, 1.0 - 0.25 * a.weakness);
-                        if let Some(pk) = atlas.pick(&name, &reference, width, scale * a.scale) {
+                        if let Some(pk) =
+                            atlas.pick_sized(&name, &reference, width, own, scale * a.scale)
+                        {
                             tex_rect(&mut mesh, pk.rect(foot), &pk.entry, tint);
                         }
                     }
@@ -726,12 +730,16 @@ fn draw_iso_gfx(
                         let name = atlas
                             .first_of(&[format!("{id}_{}_{state}_{}_f{frame}", p.look, p.dir)])
                             .or_else(|| atlas.first_of(std::slice::from_ref(&idle)));
-                        let width = if child_art || !p.child {
-                            display_width(atlas, &idle, width)
-                        } else {
-                            width
+                        let measured = |n: &str| {
+                            if child_art || !p.child {
+                                display_width(atlas, n, width)
+                            } else {
+                                width
+                            }
                         };
-                        let picked = name.and_then(|n| atlas.pick(&n, &idle, width, scale));
+                        let picked = name.and_then(|n| {
+                            atlas.pick_sized(&n, &idle, measured(&idle), measured(&n), scale)
+                        });
                         match picked {
                             Some(pk) => tex_rect(&mut mesh, pk.rect(foot), &pk.entry, tint),
                             None => person_placeholder(
