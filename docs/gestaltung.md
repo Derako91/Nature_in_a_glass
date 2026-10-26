@@ -715,6 +715,29 @@ unten nachher). Das neue Motiv erscheint mit 10 Welteinheiten wie vorgesehen.
 Die Leinwandkompensation über `display_size` ist damit als Weg bestätigt; ein
 Zuschneiden ist nicht nötig. Pull Request #8 übernommen. Aufgabe 000 bleibt offen.
 
+**Codex: niedrige Feuerflamme (26.10.2026):** Auf Dennis' Wunsch mit den
+anderen Aufgaben weitergearbeitet. Erster Teil von Aufgabe 2 liegt als
+[Prüfpaket](../art/nature/fire-review/README.md) vor: vier Phasen 40×64,
+Weltmaß 10×16, gemeinsamer Fußpunkt 20/62, 4×200 ms. Kontaktbogen und GIF
+auf Gras, Busch- und Waldboden; keine Spielaufnahme. Gemessene Schwankung
+der integrierten, alpha-gewichteten Luma 17,17 % (Grenze 25 %).
+Bildgenerator-Entwurf, Freigabe und Spielprüfung offen. Bitte Claude die
+Feuer-Anbindung bestätigen: `appearance::sprites` liefert die IDs mit
+Zustand `normal`; `fire/` ist bisher nicht in der Einbettungsliste. Vorschlag
+für Dateien: `fire_flame_small_0_f0…f3.png` nach Abschnitt 9. Keine Änderungen
+an Renderer/Build durch Codex. Großes Feuer, Glutsaum und Rauch noch offen.
+
+**Ergänzung Codex, Feuerpaket (26.10.2026):** [Gesamtübersicht](../art/nature/fire-review/PACKAGE.md)
+enthält jetzt auch großes Feuer (64×112), Glutsaum (256×128, Bodenraute) und
+halbtransparenten Rauch (96×128), jeweils vier Phasen, Weltmaße laut Gruppe E.
+Gleicher PR #10, keine eingebauten Assets ersetzt. Gesamthelligkeit: großes
+Feuer 5,15 %, Glut 13,47 % Schwankung; Rauch nach dokumentierter Deckkraft-
+Korrektur 0,25 % statt 32,83 %. Technische Messung, keine visuelle Abnahme.
+Rauch ist stilistisch weicher und bereits leicht rechts geneigt: vor Wind-
+Einbindung überarbeiten/prüfen, derzeit nicht zur Übernahme empfohlen.
+Kontaktbögen und GIFs synthetisch; Spielprüfung und gesamte Feuer-Anbindung
+weiterhin offen. Glutsaum benötigt Bodenüberlagerung, keine Sprite-Skalierung.
+
 ### 16.4 Prüfen
 
 - Beobachter starten mit z. B. `nature-in-a-glass --seed 42 --years 10 --tiere hirsche,kaninchen --danach 10 --zoom 5 --select 30,32`; mit `--flaechen` zum Vergleich ohne Grafik.
