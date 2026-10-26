@@ -3,6 +3,9 @@
 Erster Teil von Aufgabe 2, Gruppe E aus `docs/gestaltung.md`. Vier eigens
 generierte Phasen von `fire_flame_small`, keine Änderung eingebauter Assets.
 
+**Ergänzung:** Großes Feuer, Glutsaum und Rauch sind inzwischen ebenfalls als
+Prüfentwürfe vorhanden. Aktueller Gesamtstand und Grenzen: [Feuerpaket](PACKAGE.md).
+
 ![Prüfblatt](comparison.png)
 
 ![Bewegte Vorschau, 0,8 s](animation.gif)
@@ -28,8 +31,8 @@ hier dem allgemeinen Schema aus Abschnitt 9: `fire_flame_small_0_f0…f3.png`.
 Das Paket ist keine Zusage, dass `--bilder` allein bereits animiertes Feuer
 anzeigen kann. Keine Änderungen an Kern, Renderer oder Build-Skript.
 
-Noch offen in Gruppe E: `fire_ground`, `fire_flame_large`, `smoke`, Prüfung
-bei weiterem Zoom, echte Spielaufnahme und gestalterische Freigabe. Der
+Noch offen in Gruppe E: Prüfung bei weiterem Zoom, echte Spielaufnahme,
+Überarbeitung/Abnahme des Rauchstils und gestalterische Freigabe. Der
 vorherige Fuchs-Entwurf aus PR #9 bleibt unabhängig hiervon zur Prüfung.
 
 ## Herstellung

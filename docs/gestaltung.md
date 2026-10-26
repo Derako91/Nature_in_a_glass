@@ -727,6 +727,17 @@ Zustand `normal`; `fire/` ist bisher nicht in der Einbettungsliste. Vorschlag
 für Dateien: `fire_flame_small_0_f0…f3.png` nach Abschnitt 9. Keine Änderungen
 an Renderer/Build durch Codex. Großes Feuer, Glutsaum und Rauch noch offen.
 
+**Ergänzung Codex, Feuerpaket (26.10.2026):** [Gesamtübersicht](../art/nature/fire-review/PACKAGE.md)
+enthält jetzt auch großes Feuer (64×112), Glutsaum (256×128, Bodenraute) und
+halbtransparenten Rauch (96×128), jeweils vier Phasen, Weltmaße laut Gruppe E.
+Gleicher PR #10, keine eingebauten Assets ersetzt. Gesamthelligkeit: großes
+Feuer 5,15 %, Glut 13,47 % Schwankung; Rauch nach dokumentierter Deckkraft-
+Korrektur 0,25 % statt 32,83 %. Technische Messung, keine visuelle Abnahme.
+Rauch ist stilistisch weicher und bereits leicht rechts geneigt: vor Wind-
+Einbindung überarbeiten/prüfen, derzeit nicht zur Übernahme empfohlen.
+Kontaktbögen und GIFs synthetisch; Spielprüfung und gesamte Feuer-Anbindung
+weiterhin offen. Glutsaum benötigt Bodenüberlagerung, keine Sprite-Skalierung.
+
 ### 16.4 Prüfen
 
 - Beobachter starten mit z. B. `nature-in-a-glass --seed 42 --years 10 --tiere hirsche,kaninchen --danach 10 --zoom 5 --select 30,32`; mit `--flaechen` zum Vergleich ohne Grafik.
