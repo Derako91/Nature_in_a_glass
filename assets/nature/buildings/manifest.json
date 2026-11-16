@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "status": "draft_visual_review",
+  "base_tile": [
+    64,
+    32
+  ],
+  "assets": [
+    {
+      "id": "camp_hearth",
+      "files": [
+        "camp_hearth.png"
+      ],
+      "size": [
+        48,
+        32
+      ],
+      "display_size": [
+        6,
+        4
+      ],
+      "anchor": [
+        24,
+        30
+      ]
+    },
+    {
+      "id": "camp_windbreak",
+      "files": [
+        "camp_windbreak.png"
+      ],
+      "size": [
+        96,
+        112
+      ],
+      "display_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        48,
+        108
+      ]
+    },
+    {
+      "id": "camp_hut_0",
+      "files": [
+        "camp_hut_0.png"
+      ],
+      "size": [
+        128,
+        240
+      ],
+      "display_size": [
+        16,
+        30
+      ],
+      "anchor": [
+        64,
+        236
+      ]
+    },
+    {
+      "id": "camp_hut_1",
+      "files": [
+        "camp_hut_1.png"
+      ],
+      "size": [
+        128,
+        240
+      ],
+      "display_size": [
+        16,
+        30
+      ],
+      "anchor": [
+        64,
+        236
+      ]
+    },
+    {
+      "id": "camp_ruin",
+      "files": [
+        "camp_ruin.png"
+      ],
+      "size": [
+        48,
+        40
+      ],
+      "display_size": [
+        6,
+        5
+      ],
+      "anchor": [
+        24,
+        38
+      ]
+    },
+    {
+      "id": "camp_fire",
+      "files": [
+        "camp_fire_f0.png",
+        "camp_fire_f1.png",
+        "camp_fire_f2.png",
+        "camp_fire_f3.png"
+      ],
+      "size": [
+        48,
+        56
+      ],
+      "display_size": [
+        6,
+        7
+      ],
+      "anchor": [
+        24,
+        52
+      ],
+      "frames": 4,
+      "frame_ms": 200
+    }
+  ],
+  "frame_aliases": {},
+  "note": "Zeittakt kommt aus dem Beobachter; frame_ms dokumentiert 17.8."
+}

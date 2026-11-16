@@ -6,9 +6,9 @@
 
 | Frage | Antwort |
 | --- | --- |
-| **Zuletzt erledigt** | v0.8.0: Menschen legen selbst Lagerplätze an, bauen Hütten mit Holz aus dem Wald, legen Vorräte an; Lagerfeuer können Brände auslösen; verlassene Lager verfallen. ADR 0009. |
+| **Zuletzt erledigt** | Codex-Draft: neun Lager-Einzelbilder und 40 Holztragephasen im neuen Stil, eigenes Gebäudemanifest; noch keine gestalterische Freigabe. Spielprüfung und Kontaktbogen: `art/nature/camp-review/`. Ausgangsstand `8218fc2`, Branch `codex/camp-sprites`. |
 | **Getestet** | `cargo fmt`, `cargo clippy -D warnings`, `cargo test --release --workspace` grün; vier neue Tests in `crates/core/tests/people.rs` (Lager an Wasser + Hütten, Holzschlag lichtet Wald, Verfall, Speichern/Laden). Bildschirmfotos Seed 2024, Zoom 8 und 2: Lager mit zwei Hütten und Feuer sichtbar (Platzhalter). |
-| **Offen für Codex** | Bilder für Lagerplätze und Zustand `_build` (gestaltung.md 16.3 Punkt 0a, Abschnitt 17.8). |
+| **Offen für Codex** | Nach Abnahme des Lager-Drafts übrige Menschenzustände stilistisch angleichen. Dennis hat die schrittweise Umstellung aller Spielbilder beauftragt; Reihenfolge in Gestaltung 18. Ruine noch nicht an einem natürlich verlassenen Lager geprüft. |
 | **Offen für Dennis** | – (PR #9 und #10 übernommen; Feuer im Spiel seit 0.8.1, Fuchs B Fernfassung liegt als Entwurf in art/) |
 | **Nächster Schritt (Roadmap)** | Vom Lager zum Dorf: Fischfang, später Anbau, mehrere Lager einer Gruppe, Werkzeuge. |
 
@@ -23,6 +23,7 @@
 
 | Datum | Änderung | Code-Test |
 | --- | --- | --- |
+| 16.11.2026 | Codex: Lager-Draft mit neun Einzelbildern, 40 `_build`-Phasen, Manifesten und Prüfpaket; Übergabe an Claude: Bewuchs auf Lagerfeldern verdeckt teilweise Hütten. Stilumstellung aller Bildgruppen in Gestaltung 18 festgehalten. | 89 Rust-Tests, fmt, strenges Clippy und Release-Bau bestanden; Dateiprüfung aller 49 PNGs; eingebettete Bilder ohne `--bilder` bei Zoom 4/8/32, Windschutz, Holztragen und kalter Feuerstelle angesehen. Keine Änderungen am Kern/Renderer, visuelle Freigabe offen. |
 | 16.11.2026 | v0.8.1 Flammen und Glutsaum aus PR #10 eingebunden | Spielbild Seed 7 Zoom 8 |
 | 16.11.2026 | v0.8.0 Lagerplätze (Claude) | fmt, clippy, alle Tests grün; Spielbild Zoom 8/2 angesehen |
 | 29.10.2026 | Erste gemeinsame, lesbare Übergabe aus den vorhandenen Projektberichten erstellt | Nicht ausgeführt |
