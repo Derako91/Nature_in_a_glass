@@ -782,12 +782,22 @@ Stand 18.10.2026. Die Simulation der Menschen ist noch nicht gebaut (`docs/ROADM
 
 | ID | Darstellung B × H (px) | Datei (8-fach) | Fußpunkt | Bemerkung |
 | --- | --- | --- | --- | --- |
-| `person` | 7 × 15 | 56 × 120 | Mitte zwischen den Füßen | Erwachsene; Statur je Aussehen etwas verschieden (schmal / kräftig), Höhe ±1 px |
-| `person_child` | 5 × 10 | 40 × 80 | wie oben | Kinder bis 14 Jahre (seit v0.7.0). Bis es Bilder gibt, zeigt der Beobachter das Erwachsenenbild bzw. den Platzhalter auf 65 % |
+| `person` | 7 × 15 | 112 × 120 mit Seitenrand | Mitte zwischen den Füßen | Stil-B-Draft: sichtbare Größe an `_build` kalibriert; `display_size` 14×15 kompensiert die doppelte transparente Breite |
+| `person_child` | 5 × 10 | 80 × 80 mit Seitenrand | wie oben | Eigene Kinderbilder im Stil-B-Draft; `display_size` 10×10 kompensiert den Seitenrand. Ohne Kinderbilder weiter Erwachsenen-Rückfall auf 65 % |
 | `person_dead` | 15 × 5 | 120 × 40 | Mitte | liegend, entsättigt; bleibt einige Tage wie ein Kadaver |
 | `person_marker` | 8 × 8 | 16 × 16 | Mitte unten | Überblickszeichen, einfarbig in der Erkennungsfarbe (die Farbe setzt der Renderer; Bild weiß bzw. hell) |
 
 Schlagschatten wie bei Tieren (15.3), in der Datei mit 8-fachem Versatz.
+
+**Stil-B-Einzelbild-Draft (16.11.2026):** Alle übrigen Menschenzustände sind
+auf `codex/people-style-b` umgestellt: 230 Erwachsenenphasen, 150 Kinderphasen
+(einschließlich Trinken) und zehn Tote. Die 40 vorhandenen Holztragebilder
+werden nur von 56 auf 112 px Leinwandbreite gepolstert, nicht skaliert oder
+neu gezeichnet. Der Marker bleibt bytegleich. Es gelten weiterhin acht Pixel
+je Welteinheit; dadurch verdoppelt der Seitenrand nicht die sichtbare Figur.
+Pro Aussehen/Richtung wird derselbe proportionale Faktor für alle Phasen und
+Tätigkeiten verwendet. Details, Quellen, Kontaktbögen und Spielvergleich:
+[Menschen-Prüfpaket](../art/nature/people-style-b/README.md).
 
 ### 17.4 Aussehen, Zustände, Richtungen
 
@@ -899,9 +909,12 @@ Je Schritt entsteht ein zusammenhängendes, im Spiel geprüftes Draft-Paket:
 
 1. **Lagerplätze und Holztragen:** aktueller Draft, neun Gebäude-/Feuerbilder
    und 40 Bauphasen. Kein Abschluss der visuellen Abnahme behauptet.
-2. **Alle übrigen Menschenbilder:** dieselben fünf Identitäten und
-   Erkennungsfarben durch sämtliche Zustände, Richtungen, Tote und Kinder.
-   Vor allem den sichtbaren Stilwechsel zwischen `_build` und `_idle` beseitigen.
+2. **Alle übrigen Menschenbilder:** vollständiger Draft auf
+   `codex/people-style-b`, dieselben fünf Identitäten/Erkennungsfarben durch
+   sämtliche Zustände, Richtungen, Tote und Kinder. 390 neue Bilder, 40
+   Holztragebilder nur gepolstert; keine alten Tätigkeitsbilder mehr im Paket.
+   Vorher-/Nachher-Spielvergleich und Animationsbögen liegen unter
+   `art/nature/people-style-b/`. Visuelle Abnahme noch offen.
 3. **Landschaft:** Böden, Seitenwände und Vegetation einschließlich Trockenheit,
    verkohlter/liegender Stämme und Varianten. Kleine Figuren dürfen nicht vom
    neuen Detailgrad des Bodens verschluckt werden.

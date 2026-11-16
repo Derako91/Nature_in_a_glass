@@ -1,0 +1,106 @@
+{
+  "producer": "image_gen",
+  "style_reference": "bestehende Holztragebilder / Stil B",
+  "sources": [
+    {
+      "kind": "adult",
+      "look": 0,
+      "dir": "r",
+      "file": "sources/adult-0-r.png",
+      "sha256": "5a98bac28bee5ee013664787ee8dd107766656027f7e5280a788de23925cc572"
+    },
+    {
+      "kind": "adult",
+      "look": 0,
+      "dir": "l",
+      "file": "sources/adult-0-l.png",
+      "sha256": "7bf3a51e977b9d05fec474c3d1895fca49be42a05fea9051c99a77ee78d3d928"
+    },
+    {
+      "kind": "child",
+      "look": 0,
+      "file": "sources/child-0.png",
+      "sha256": "e95c15b4218e5e28b5849ed37bb3eba21e126a943772daa761d8ba950b326fff"
+    },
+    {
+      "kind": "adult",
+      "look": 1,
+      "dir": "r",
+      "file": "sources/adult-1-r.png",
+      "sha256": "d32445db104fd4202dcaf29955e6766f1ef526515d9bfb7cc65f57dd5ae6f61a"
+    },
+    {
+      "kind": "adult",
+      "look": 1,
+      "dir": "l",
+      "file": "sources/adult-1-l.png",
+      "sha256": "175c8cd5c1314aa3ffee7d99aa9d0cde7af4f33b52d2f7dab2dec898f15e9e79"
+    },
+    {
+      "kind": "child",
+      "look": 1,
+      "file": "sources/child-1.png",
+      "sha256": "83d71f5f8f88ddea3a5012f4913f8b86c4c52a195fabd69f205376f35f90b64d"
+    },
+    {
+      "kind": "adult",
+      "look": 2,
+      "dir": "r",
+      "file": "sources/adult-2-r.png",
+      "sha256": "bb3b7d7b00cd306a1ef1ad1c67ac93b16cf53c4c9f2e10da41f9c38a3aa3464b"
+    },
+    {
+      "kind": "adult",
+      "look": 2,
+      "dir": "l",
+      "file": "sources/adult-2-l.png",
+      "sha256": "0dd906621dd7a588cc4143a2e2dfa7a260917c5eab9c7fb407df9f62c8add04a"
+    },
+    {
+      "kind": "child",
+      "look": 2,
+      "file": "sources/child-2.png",
+      "sha256": "e09cfcb9541de56c5d32cd1d1b68e5872d856a7353dcc8b1d5f0e175f7eec411"
+    },
+    {
+      "kind": "adult",
+      "look": 3,
+      "dir": "r",
+      "file": "sources/adult-3-r.png",
+      "sha256": "69daeff294c71b34c3fc5dc3bace3ccb3d43b9319b4b383ddb2bb5a1a496551f"
+    },
+    {
+      "kind": "adult",
+      "look": 3,
+      "dir": "l",
+      "file": "sources/adult-3-l.png",
+      "sha256": "7a4e8ed30cf6fbd499444d5b6eacc856ea05da4e6009b36b0814cfddfbf2dfff"
+    },
+    {
+      "kind": "child",
+      "look": 3,
+      "file": "sources/child-3.png",
+      "sha256": "e79a00e00487e2545d2dbff7c953baf409517e5ae3e33740236309ba95b5a3d0"
+    },
+    {
+      "kind": "adult",
+      "look": 4,
+      "dir": "r",
+      "file": "sources/adult-4-r.png",
+      "sha256": "768e87018040692045f048a9799d19686a83ebbc4f0f330b208bb6ab9fb62773"
+    },
+    {
+      "kind": "adult",
+      "look": 4,
+      "dir": "l",
+      "file": "sources/adult-4-l.png",
+      "sha256": "ac678409f5c36444fbe3144464c5d9553c2e2d9589751d10bb9a9562c5d35a9c"
+    },
+    {
+      "kind": "child",
+      "look": 4,
+      "file": "sources/child-4.png",
+      "sha256": "983cb41fdf6ec802ea014ed0d2ca0e53ddf2f1a81e0efa54d778ea5d6807ebf6"
+    }
+  ]
+}
