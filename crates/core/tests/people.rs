@@ -391,3 +391,25 @@ fn gardens_grow_are_harvested_and_go_wild() {
             .any(|e| e.kind == EventKind::GardenLost)
     );
 }
+
+/// Wer vor allem gefischt hat, erscheint mit der Tätigkeit „fischt“ (Bild `_fish`).
+#[test]
+fn fishing_shows_as_its_own_activity() {
+    use nig_core::people::Activity;
+    let mut sim = settled(5, 5);
+    let mut seen = false;
+    for _ in 0..365 {
+        sim.advance_days(1);
+        if sim
+            .people
+            .list
+            .iter()
+            .any(|p| !p.is_child() && p.activity == Activity::Fish)
+        {
+            seen = true;
+            break;
+        }
+    }
+    assert!(seen, "niemand fischt sichtbar");
+    assert_eq!(Activity::Fish.id(), "fish");
+}

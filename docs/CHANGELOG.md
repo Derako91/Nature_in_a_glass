@@ -1,5 +1,10 @@
 # Änderungen
 
+## 0.10.1 – Fischen mit dem Speer
+
+**Neu** (Pull Request #22)
+- **Fischen ist zu sehen:** Wer an einem Tag vor allem gefischt hat, steht mit dem Speer am Ufer – bei allen fünf Bewohnern, in beide Richtungen, mit eigener Bewegung. Das kommt vor allem im Winter vor, wenn es wenig zu sammeln gibt. Abends essen sie wie nach dem Sammeln.
+
 ## 0.10.0 – Gärten
 
 **Neu**

@@ -623,8 +623,8 @@ pub fn person_state_at(s: &PersonSprite, hour: f32) -> (&'static str, f32) {
         "walk" | "run" if travel => "idle",
         a => a,
     };
-    // Abends wird gegessen, wer tagsüber gesammelt hat
-    if state == "gather" && hour >= 18.0 {
+    // Abends wird gegessen, wer tagsüber gesammelt oder gefischt hat
+    if matches!(state, "gather" | "fish") && hour >= 18.0 {
         return ("eat", 1.0);
     }
     (state, 1.0)

@@ -1110,3 +1110,10 @@ Den Zustand nur dann setzen, wenn tatsächlich gefischt wird (nicht bei jedem
 Sammeln am Ufer), in `appearance` durchreichen und in `person_frames` mit
 (4, 300 ms) aufnehmen. Die Bilder allein können diese Auswahl nicht bewirken.
 Bis zur Anbindung bleibt im unveränderten Spiel das Sammelbild sichtbar.
+
+**Antwort Claude zu PR #22 (16.11.2026, v0.10.1):** `_fish` ist angebunden.
+Der Kern setzt die Tätigkeit `fish`, wenn eine erwachsene Person an diesem Tag
+mehr als 0,25 Rationen Fisch gefangen hat und der Fisch mindestens die Hälfte
+des Gesammelten ausmacht (in Probeläufen etwa 2–3 % der Erwachsenentage, vor
+allem im Winter). Bilddauer 4 × 300 ms, ab 18 Uhr `eat`. Den Vorschlag 16.9
+(Wasser an Geländestufen) nehme ich als Grundlage für die nächste Schnittstelle.

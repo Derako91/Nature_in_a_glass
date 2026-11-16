@@ -107,6 +107,8 @@ pub enum Activity {
     Hurt,
     /// Holt Holz und baut am Lagerplatz (seit v0.8).
     Build,
+    /// Fischt am Ufer (seit v0.10.1).
+    Fish,
 }
 
 impl Activity {
@@ -121,6 +123,7 @@ impl Activity {
             Activity::Sleep => "sleep",
             Activity::Hurt => "hurt",
             Activity::Build => "build",
+            Activity::Fish => "fish",
         }
     }
     pub fn label(self) -> &'static str {
@@ -134,6 +137,7 @@ impl Activity {
             Activity::Sleep => "schläft",
             Activity::Hurt => "schleppt sich verletzt dahin",
             Activity::Build => "holt Holz für das Lager",
+            Activity::Fish => "fischt",
         }
     }
 }
@@ -1309,6 +1313,8 @@ fn day(
         }
         let time_left = clamp01(1.0 - spent / DAY_BUDGET);
         let mut food = p.pack;
+        // Was der Tag gebracht hat: Gesammeltes und Fisch (für das Bild)
+        let (mut gathered, mut fished) = (0.0f32, 0.0f32);
         if activity != Activity::Run {
             let i = at as usize;
             let food_i = s.at(world, i).food;
@@ -1321,12 +1327,14 @@ fn day(
             let cap = food_i.max(0.5) * 8.0;
             people.taken[i] = clamp01(people.taken[i] + got / cap);
             food += got;
+            gathered = got;
             // Fischen: bringt umso mehr, je geübter man ist; Übung macht geschickter.
             let fish_i = s.at(world, i).fish;
             if fish_i > 0.0 && !p.is_child() {
                 let caught = (fish_i * p.fishing * (1.0 - people.fished[i]) * work).min(2.0);
                 people.fished[i] = clamp01(people.fished[i] + caught / (fish_i * 6.0));
                 food += caught;
+                fished = caught;
                 let before = p.fishing;
                 p.fishing = (p.fishing + 0.0015 * (1.0 - p.fishing)).min(1.0);
                 if before < SKILLED_FISHER && p.fishing >= SKILLED_FISHER {
@@ -1369,6 +1377,13 @@ fn day(
         food -= eat;
         p.pack = food.min(PACK_MAX);
         p.hunger = clamp01(p.hunger + HUNGER_PER_DAY - HUNGER_PER_RATION * eat).max(0.0);
+        // Wer heute vor allem gefischt hat, steht mit dem Speer am Ufer.
+        if matches!(activity, Activity::Gather | Activity::Idle)
+            && fished > 0.25
+            && fished * 2.0 >= gathered
+        {
+            activity = Activity::Fish;
+        }
         if activity == Activity::Gather && eat > 0.0 && !moved_far && time_left > 0.8 {
             activity = Activity::Eat;
         }

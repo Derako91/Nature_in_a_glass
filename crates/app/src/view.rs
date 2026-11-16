@@ -971,7 +971,7 @@ fn person_frames(state: &str) -> (u32, f64) {
     match state {
         "walk" => (4, 200.0),
         "run" => (4, 100.0),
-        "gather" => (4, 300.0),
+        "gather" | "fish" => (4, 300.0),
         "hurt" | "build" => (4, 250.0),
         "eat" | "drink" => (2, 600.0),
         "idle" => (2, 800.0),
