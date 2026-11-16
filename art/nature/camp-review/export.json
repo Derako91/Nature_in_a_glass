@@ -1,0 +1,779 @@
+{
+  "producer": "image_gen; technischer Rasterexport mit Pillow",
+  "sources": [
+    {
+      "name": "camp",
+      "sha256": "5f379edd50ad05471ba99cb45259bbb83d748624f5abde405a174ed2bc24f6e8"
+    },
+    {
+      "name": "people_right",
+      "sha256": "a0721b9d886308cf94a4f8c52c25ac04d175fdc427aad79fb8feb6d5938e9a63"
+    },
+    {
+      "name": "people_left",
+      "sha256": "d0520c0eb59bff5386f7bb3d17170d9453a23adf17627d5a093bf45311083f92"
+    }
+  ],
+  "mirrored_frames": false,
+  "building_count": 9,
+  "build_frame_count": 40,
+  "hut_export": "Hüllmaß beider Hütten auf 120×232 px normiert; Leinwand 128×240, Weltmaß 16×30",
+  "fire_source_files": [
+    {
+      "file": "assets/nature/objects/fire_flame_small_0_f0.png",
+      "sha256": "550a1f7db131f913228762d4f3f52dbc9eb8ac523fccf5bd16e254f30fd4785d"
+    },
+    {
+      "file": "assets/nature/objects/fire_flame_small_0_f1.png",
+      "sha256": "07cce9da41e1b2cb2b22b3503424fd0bcddbd9a15429133cd838760afde8d49b"
+    },
+    {
+      "file": "assets/nature/objects/fire_flame_small_0_f2.png",
+      "sha256": "f41a2a066776f1d69bd6f7011895ec08a4549b0e610c8e7a30ac3c98fa9bfdc6"
+    },
+    {
+      "file": "assets/nature/objects/fire_flame_small_0_f3.png",
+      "sha256": "39eacaa2eb6cd5c5cbed3add9f075a7d5c184d4e0f59fb89a3a5928c3890cafe"
+    }
+  ],
+  "fire_export": "Fester kalter Steinring + vier vorhandene generierte Flammen, einheitlich 20×32 px; Ring unverändert.",
+  "files": [
+    {
+      "file": "assets/nature/buildings/camp_hearth.png",
+      "sha256": "6c496af2339570405526d67b07af24d99ec12572378978faad9a06b97c9eebd4",
+      "size": [
+        48,
+        32
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        6,
+        6,
+        42,
+        30
+      ]
+    },
+    {
+      "file": "assets/nature/buildings/camp_windbreak.png",
+      "sha256": "4dd47747e6a3de37490cf9282ab8014c006f39dc3b6d5817c85ca6d12cd81fe4",
+      "size": [
+        96,
+        112
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        2,
+        27,
+        94,
+        108
+      ]
+    },
+    {
+      "file": "assets/nature/buildings/camp_hut_0.png",
+      "sha256": "925ce2daac264a101744670a8fb4cee909cf8220f25c7621df9885d180c5b327",
+      "size": [
+        128,
+        240
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        4,
+        4,
+        124,
+        236
+      ]
+    },
+    {
+      "file": "assets/nature/buildings/camp_hut_1.png",
+      "sha256": "9f794932b5d0c2d09a32982dcad4af1b955f951b54e7cb50433be5d3a011afc2",
+      "size": [
+        128,
+        240
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        4,
+        4,
+        124,
+        236
+      ]
+    },
+    {
+      "file": "assets/nature/buildings/camp_ruin.png",
+      "sha256": "6760696b87db1f4ec8c1c33aaebb0a237bdf5b36be2428798d4d3c6e915cc6be",
+      "size": [
+        48,
+        40
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        2,
+        6,
+        46,
+        38
+      ]
+    },
+    {
+      "file": "assets/nature/buildings/camp_fire_f0.png",
+      "sha256": "e34a7aeaf4f47c3d0070dacbb09cab70a0c2375907d8446de6065e829c893a00",
+      "size": [
+        48,
+        56
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        6,
+        11,
+        42,
+        52
+      ]
+    },
+    {
+      "file": "assets/nature/buildings/camp_fire_f1.png",
+      "sha256": "634f7e1a54e6ddadb7000f07a642d5690ca1c05de8b35133781dd626ec4e61ca",
+      "size": [
+        48,
+        56
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        6,
+        10,
+        42,
+        52
+      ]
+    },
+    {
+      "file": "assets/nature/buildings/camp_fire_f2.png",
+      "sha256": "39426c57579d302d4a2a45805fd3e77f92e2bfc3e1b1be1ea3335cc94415b92d",
+      "size": [
+        48,
+        56
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        6,
+        12,
+        42,
+        52
+      ]
+    },
+    {
+      "file": "assets/nature/buildings/camp_fire_f3.png",
+      "sha256": "411cbfc489a133eb2a60aec9d66404ab2c08e17881e628d45c0510a973a482ab",
+      "size": [
+        48,
+        56
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        6,
+        11,
+        42,
+        52
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_0_build_l_f0.png",
+      "sha256": "0624d123f344b99a46e7f928bc208d2034137341f6af187884ab497414050ac9",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        2,
+        23,
+        54,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_0_build_l_f1.png",
+      "sha256": "9266c5a0339b960fa6dd2dd1aab94febccd89ba45fd279daf6753bfbbaab0e01",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        4,
+        23,
+        52,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_0_build_l_f2.png",
+      "sha256": "5541f6551b633cbf86ac6ed76fd8d5a6a249214e6b07d39ad940335bd54b541a",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        4,
+        23,
+        52,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_0_build_l_f3.png",
+      "sha256": "da9e6d9d74a1060f3e636c66a043f906242c8b24fb846e5bb4f1460b20139f9c",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        4,
+        24,
+        51,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_0_build_r_f0.png",
+      "sha256": "bab3f9c377a5cdb70e2fef86056721e7d0616640dde6a50217ed5f461b8841fc",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        3,
+        23,
+        53,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_0_build_r_f1.png",
+      "sha256": "26bd159b948eddbf36669d33bb8c3dcb4e8b9de9b33a37fbe1326e0419114894",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        2,
+        24,
+        54,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_0_build_r_f2.png",
+      "sha256": "58eaf18d19dc2645ac5bf6a9dc9d3d2d4e82548f57bb29b0898b861ca5bacb43",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        4,
+        23,
+        53,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_0_build_r_f3.png",
+      "sha256": "4c5adff1d0b4dac7162e6cbf250b03f9453eab03380e1e253c9445b3fc21095d",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        3,
+        24,
+        53,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_1_build_l_f0.png",
+      "sha256": "343ccbee5158d3474a09f74a71fe99fec72e90940df304ebeff5aa62ba53e810",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        2,
+        23,
+        54,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_1_build_l_f1.png",
+      "sha256": "c3d3f78de0a756c447fd9fc6b0a72e1a426af6023094166164a18ef982652da0",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        4,
+        23,
+        51,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_1_build_l_f2.png",
+      "sha256": "81dcd5bc086cc2a19c5e77ebad6ea6c773956adda3a77dd2a68fc849c64a7d32",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        4,
+        23,
+        51,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_1_build_l_f3.png",
+      "sha256": "73be96686f80e4323890c380ca0f29d2bc17a61634b70e12caa23fd61ace87ca",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        4,
+        23,
+        51,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_1_build_r_f0.png",
+      "sha256": "ae13fb22111a55a96b342803470b290e9585f1159e0f4a1dfcabf72949d4ea96",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        2,
+        22,
+        53,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_1_build_r_f1.png",
+      "sha256": "7e566b3b44eb1ca6a893554be5a10d7fc4874e3ae0e85bf48b8575af6318ca56",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        3,
+        24,
+        53,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_1_build_r_f2.png",
+      "sha256": "efbcf015be2804ed8c1672a88a4e6491203e83ee44867df04aabb7c078980163",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        3,
+        22,
+        53,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_1_build_r_f3.png",
+      "sha256": "1557f906744d857f1c4240aea6e8c79df5ce636df54181686f6b7acb402111e7",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        3,
+        22,
+        53,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_2_build_l_f0.png",
+      "sha256": "ee23ac086288e95020ff21cdc38069b15a6dd8f552a87bd3b93beb229a668e21",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        2,
+        21,
+        54,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_2_build_l_f1.png",
+      "sha256": "e6e2a2aa2d7a2de68fdbb7fa33f8cf18326df0912edc5e36392a7446564df518",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        4,
+        21,
+        52,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_2_build_l_f2.png",
+      "sha256": "337559180b3bc72b1f1418e175d44f091b39d11333df2f1dcdb82871223d6cf5",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        4,
+        22,
+        52,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_2_build_l_f3.png",
+      "sha256": "9fd0341e45f2e349ff8c383146d38f8cb023e10ec3d33e6f2df7499c4e14ef9d",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        4,
+        22,
+        51,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_2_build_r_f0.png",
+      "sha256": "45d2c219c9ab0400d45f7bb3319246c64ca398a990ff139352618a5719158855",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        2,
+        19,
+        53,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_2_build_r_f1.png",
+      "sha256": "e9130f7afca189c3c571e4f0e8e4236c2a087c076babfed5c986cb3f3146e961",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        2,
+        20,
+        53,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_2_build_r_f2.png",
+      "sha256": "c09a638ac331396e08bcdae58ba1abf89283f11ee279413ebcc458ed05a5a04b",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        2,
+        19,
+        54,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_2_build_r_f3.png",
+      "sha256": "2924cee9700a48686daef9951402d019e20ee57c68c7e002dd6b38ef8ec5e4ba",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        3,
+        19,
+        53,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_3_build_l_f0.png",
+      "sha256": "7188ff536f238df3e65752bc719cc29aa96e0829e86c6f46e96f28695be80f2c",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        4,
+        33,
+        53,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_3_build_l_f1.png",
+      "sha256": "ee619abcb34e214896e17723c8ae8c3a6fd775ef0cbb5050600354cb03ef9910",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        4,
+        33,
+        51,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_3_build_l_f2.png",
+      "sha256": "93405da5d8e2e83dcd1f856439849e5da472167c15c219b424d0744441534c32",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        5,
+        34,
+        51,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_3_build_l_f3.png",
+      "sha256": "ea2f1eabe5bc7967823abfbe95747fe36ae50c433bfde9aa7a7c2b0391836173",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        4,
+        34,
+        51,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_3_build_r_f0.png",
+      "sha256": "ab7fb3d14d6acf4844d85ffa95f0576551b1b6958ed78bb6359d7588f158666e",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        2,
+        33,
+        53,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_3_build_r_f1.png",
+      "sha256": "2589763e7db2f12a1abaf3344b714f554fdf4bf5ccb46b83f8d976066f90abb7",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        2,
+        33,
+        53,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_3_build_r_f2.png",
+      "sha256": "a6d5de8e8efccdfe964d4aa08a62685cb46d250c89b51b04a5596a024aca36c0",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        3,
+        33,
+        53,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_3_build_r_f3.png",
+      "sha256": "727fb23f1c37be8f0cf94ab38f25154990363192bdc0fdcbeba9414ed0352e89",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        2,
+        34,
+        54,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_4_build_l_f0.png",
+      "sha256": "37d818700ebbc09482489f11e6cb1b9c560903b6127bb3cfda4fe984d7fb61e0",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        2,
+        19,
+        54,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_4_build_l_f1.png",
+      "sha256": "c02cfb553357c12aeb20a5800c65605df2be12aabf1b6b3717f4fabf99a27c6c",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        4,
+        19,
+        52,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_4_build_l_f2.png",
+      "sha256": "f7de6f49a0c09f5c3daa9bb591b808ac7738ad127ec5cb5d5e6afa46f713aaec",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        3,
+        19,
+        53,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_4_build_l_f3.png",
+      "sha256": "2265cdc2387c8e668ca54ec359faf51cab5128e4452ba02463e2885ed0fa8463",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        4,
+        20,
+        52,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_4_build_r_f0.png",
+      "sha256": "c866e71271a215cf013eb14b9f003cd307f8d191d38114e7e034d0fc2ad683ae",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        2,
+        17,
+        53,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_4_build_r_f1.png",
+      "sha256": "9cc840c05591af5d343e4de3d58bcff0c28ad49cdee79da53e98092ad5e83637",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        2,
+        19,
+        53,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_4_build_r_f2.png",
+      "sha256": "dede52479fc0a2336b8bec0c7f62e487e164ea2e18e6aedb5d806c0a70bd799e",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        2,
+        18,
+        54,
+        112
+      ]
+    },
+    {
+      "file": "assets/nature/people/person_4_build_r_f3.png",
+      "sha256": "46084e705b1ef0957aa71a4dddff763bd10a32d191814dd501c0081f1a2241e1",
+      "size": [
+        56,
+        120
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        2,
+        19,
+        53,
+        112
+      ]
+    }
+  ],
+  "visual_approval": "pending",
+  "game_review": "pending"
+}

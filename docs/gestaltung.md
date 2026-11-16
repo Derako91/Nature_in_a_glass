@@ -592,7 +592,7 @@ Heutige Zeichenreihenfolge je Feld: Seitenwände (in 32-px-Streifen gekachelt, r
 
 000. **Fernansicht für Stil B** (nach dem Spielvergleich `art/nature/fox-ab/lod/`, 18.10.2026): Der Fuchs B ist ab Zoom 8 gut lesbar (bei Zoom 8 schon mit der berechneten Stufe), bei Zoom 4 nicht. Für jedes feine Tier im Stil B bitte eine `@fern`-Fassung (Weltmaß × 2 Bildpunkte, z. B. Fuchs 20 × 12) im selben Stil mit klarer Silhouette – Format in 16.6. Vor dem Einbau mit `--bilder` im Spiel prüfen.
 00. **Neuer Stil nach dem Fuchs-Entwurf** (Entscheidung Dennis, 18.10.2026): Der neue Fuchs-Entwurf (`art/nature/fox-ab/`) ist die verbindliche visuelle Referenz – plastischere Formen, warme natürliche Farben, erkennbare Anatomie, feinere Pixelstrukturen. Die Richtung gilt langfristig für Tiere, Menschen und Landschaft einschließlich Wasser. Codex überarbeitet dieses Dokument danach und prüft die eigenen Auflösungs- und Farbgrenzen (z. B. „höchstens sechs Farben“, Deckkraft-Stufen) – maßgeblich sind Lesbarkeit und die technischen Grenzen in 16.5. **Zuerst nur der Fuchs:** Entwurf als nutzbares Sprite, in Spielgröße und Nahansicht mit dem bisherigen Fuchs vergleichen, Weltmaß (Darstellungsbreite 10) und Fußpunkt beibehalten. Erst nach diesem Vergleich weitere Tiere und Animationen umstellen.
-0a. **Lagerplätze** (17.8, seit v0.8.0): Feuerstelle, Feuer, Windschutz, Hütte, verfallenes Lager und der Menschenzustand `_build`. Im Spiel stehen Platzhalter.
+0a. **Lagerplätze** (17.8, seit v0.8.0): Einzelbild-Draft auf `codex/camp-sprites`: neun Lagerbilder und 40 `_build`-Phasen in `assets/nature/buildings/` und `people/`. Eigenes Gebäudemanifest, Spielvergleich Zoom 4/8/32 und Prüfbögen unter `art/nature/camp-review/`. Gestalterische Abnahme offen; im veröffentlichten Spiel weiterhin bisheriger Stand bis zur Übernahme.
 0. **Menschen** (Abschnitt 17): Die Simulation ist da (v0.6.0), im Spiel stehen Platzhalterfiguren. Bilder nach 17.3/17.4 ersetzen sie.
 1. ~~**Tiere neu zeichnen, größer und doppelt aufgelöst**~~ – erledigt (Runde 09), im Spiel ab v0.4.5. Maße 4.3 und 15.3.
 2. **Feuer** (Gruppe E): ~~`fire_ground`, `fire_flame_small`, `fire_flame_large`~~ – im Spiel ab v0.8.1 (aus PR #10). Offen: `smoke` (Codex rät selbst von der Übernahme ab, Neigung durch Wind macht später der Renderer) und Fernfassungen, falls die Flammen bei Zoom 2–4 flimmern.
@@ -861,6 +861,17 @@ Stand 16.11.2026. Seit v0.8.0 legen die Menschen selbst Lagerplätze an (niemand
 
 **Offen zur Gestaltung:** Auf dem Lagerfeld wachsen weiter Büsche und Bäume und verdecken die Hütten teilweise. Wenn das stört, bitte als Wunsch an Claude (z. B. weniger Pflanzen auf Lagerfeldern zeichnen) – nicht im Kern ändern.
 
+**Codex, Einzelbild-Draft (16.11.2026):** Neun Lagerbilder und 40 Bauphasen
+für alle fünf Aussehen, beide Richtungen separat erzeugt, nicht gespiegelt.
+Eigene Gebäude-Metadaten funktionieren seit `8218fc2` auch im eingebetteten
+Spiel; direkt ohne `--bilder` geprüft. Feuer übernimmt vier Flammen aus dem
+bereits eingebauten neuen Feuerpaket auf einem identischen kalten Steinring.
+Die Hütten erhalten Weltmaß 16×30, Menschen 7×15, feste Fußpunkte.
+Kontaktbogen, Animationen, tatsächliche Aufnahmen und offene Abnahmepunkte:
+[Lager-Prüfpaket](../art/nature/camp-review/README.md).
+Bewuchs verdeckt in der Nahansicht Teile einer Hütte; bitte Claude eine
+optische Zurücknahme auf Lagerfeldern prüfen. Hier keine Rendereränderung.
+
 **Antwort Claude zum Feuerpaket (16.11.2026, v0.8.1):** Flammen und Glutsaum
 sind eingebunden. Ablage: Flammen in `assets/nature/objects/`, Glutsaum in
 `assets/nature/ground/`, Einträge im Haupt-`manifest.json` (Anker und
@@ -872,3 +883,35 @@ im Renderer: 4 × 200 ms bei 1 Std/s, jede Flamme mit eigenem Versatz, damit
 nicht alle gleichzeitig flackern; bei schnellerer Zeit steht das Bild still.
 `frame_duration_ms` im Manifest wird nicht gelesen. Geprüft bei Seed 7,
 Jahr 22, Zoom 8. Rauch bleibt draußen, bis es eine neutrale Vorlage gibt.
+
+## 18. Schrittweise Umstellung aller Spielbilder auf Stil B
+
+Dennis hat am 16.11.2026 die Umstellung **aller Spielbilder, schrittweise**
+beauftragt. Das erweitert den bisherigen Einzelmotiv-Testauftrag. Verbindlich
+bleiben die Fuchs-B-Referenz in 1.2, natürliche plastische Formen, warme
+Materialfarben, Licht von rechts oben und lesbare zusammenhängende Pixelgruppen.
+Bestehende Weltmaße, Fußpunkte, Simulationswahrheit und Ruhe im Zeitraffer gelten
+weiter. Keine Änderung der Simulation zur Anpassung an ein Bild.
+
+Je Schritt entsteht ein zusammenhängendes, im Spiel geprüftes Draft-Paket:
+
+1. **Lagerplätze und Holztragen:** aktueller Draft, neun Gebäude-/Feuerbilder
+   und 40 Bauphasen. Kein Abschluss der visuellen Abnahme behauptet.
+2. **Alle übrigen Menschenbilder:** dieselben fünf Identitäten und
+   Erkennungsfarben durch sämtliche Zustände, Richtungen, Tote und Kinder.
+   Vor allem den sichtbaren Stilwechsel zwischen `_build` und `_idle` beseitigen.
+3. **Landschaft:** Böden, Seitenwände und Vegetation einschließlich Trockenheit,
+   verkohlter/liegender Stämme und Varianten. Kleine Figuren dürfen nicht vom
+   neuen Detailgrad des Bodens verschluckt werden.
+4. **Tiere:** Fuchs, Wolf, Hirsch und Kaninchen mit sämtlichen Zuständen,
+   Richtungen, Spuren und Kadavern. Konsistente Nah-/Fernfassungen pro Satz.
+5. **Wasser und verbleibende Natur-Effekte:** ruhige Wasserflächen/Bäche,
+   Übergänge sowie bisher nicht freigegebene Effekte. Rauch und Biom-Bilder
+   bleiben an die passenden Simulations-/Renderer-Schnittstellen gebunden.
+
+Für jede Gruppe: vollständige Einzeldateien und Manifest, Kontaktbogen auf
+mehreren Untergründen, tatsächlicher Vorher-/Nachher-Vergleich bei Zoom 4/8/32,
+Phasen und Fußpunkte prüfen, offene gestalterische Befunde ausdrücklich nennen.
+Bereits übernommene Flammen aus PR #10 werden wiederverwendet, soweit ihr Stil
+passt. Nicht eingebettete Altentwürfe in `art/`, `humans`, `biomes` oder
+`mountain-water` sind keine automatisch freigegebenen Spielbilder.

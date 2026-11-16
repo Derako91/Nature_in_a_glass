@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "rgba_files": 49,
+  "build_frames": 40,
+  "camp_frames": 9,
+  "alpha_clear_border": true,
+  "all_manifest_files_present": true,
+  "distinct_build_phases_per_direction": 4,
+  "mirrored_directions": false,
+  "approval": "pending",
+  "fire_static_front_ring": true,
+  "fire_distinct_frames": 4,
+  "fire_luminance": [
+    81438.97261254901,
+    85638.78968,
+    82567.90356470588,
+    81206.05894588235
+  ],
+  "fire_luminance_max_min_change": 0.054586206887243804,
+  "game_review": "passed_for_huts_hearth_windbreak_build_at_documented_seeds",
+  "embedded_manifest": "verified_without_extra_images",
+  "rust_tests_passed": 89,
+  "python_tests_passed": 15,
+  "clippy": "passed",
+  "format": "passed",
+  "release_build": "passed",
+  "ruin_game_review": "not_exercised",
+  "visual_approval": "pending"
+}
