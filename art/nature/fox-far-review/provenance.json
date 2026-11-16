@@ -1,0 +1,20 @@
+{
+  "method": "built-in image_gen, reference-guided simplified redesign",
+  "source_sha256": "5f0f9287cf61a55607ad7f56d24df8d4dfabb144c45d9e87cb3fab62a9ba69ef",
+  "reference": "art/nature/fox-ab/fox-b-imagegen-source.png",
+  "source_bbox": [
+    245,
+    256,
+    1408,
+    810
+  ],
+  "fit": [
+    19,
+    10
+  ],
+  "alpha_threshold": 128,
+  "direction": "r",
+  "state": "graze",
+  "frame": 0,
+  "status": "candidate_not_approved"
+}

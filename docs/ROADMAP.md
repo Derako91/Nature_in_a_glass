@@ -115,13 +115,21 @@ Hinweis: Damit Jung- und Altwald unterscheidbar sind, braucht der Kern ab v0.2 e
 - [x] Krankheiten treffen vor allem Säuglinge und Kleinkinder. Familie (Eltern, Partner, Kinder) im Fenster „Bewohner“.
 - Ergebnis: Auf wasserreichen Inseln wachsen über Generationen Gruppen von 20–35 Menschen; auf kargen Inseln schrumpfen sie nach Hungerzeiten und sterben aus, wenn die Jungen nur noch Geschwister um sich haben – ein weiteres Boot kann helfen.
 
-## Als Nächstes: Sesshaftigkeit (Unterkünfte, Lager, Dörfer)
+## ✅ v0.8 – Lagerplätze (v0.8.0)
 
-Die Bewohner bauen selbst – der Beobachter gibt keine Bauaufträge (Prinzip 1).
-- Unterschlupf und Lagerplatz: Wer immer wieder an dieselben Wasser- und Sammelstellen zurückkehrt, legt dort einen Lagerplatz an (Feuerstelle, Windschutz). Schutz vor Kälte statt nur Wald.
-- Hütten aus Holz, Ästen, Fell; Holz kommt aus dem Wald und fehlt dort danach (Rückwirkung auf die Natur).
-- Vorräte, die man nicht mehr tragen muss; Fischfang und später Anbau als Voraussetzung für größere, feste Siedlungen – auf 4 km² können sonst nur wenige Sammler leben.
-- Siedlungen entstehen dort, wo Wasser, Nahrung und Schutz zusammenkommen, und verfallen, wenn sie verlassen werden.
+Die Bewohner bauen selbst – der Beobachter gibt keine Bauaufträge (Prinzip 1). [ADR 0009](../decisions/0009-camps-emerge-from-staying.md).
+- [x] Lagerplatz: Wer viele Nächte an derselben verlässlichen Wasserstelle verbringt, legt dort eine Feuerstelle mit Windschutz an. Schutz vor Kälte statt nur Wald.
+- [x] Hütten aus Stangen, Ästen und Rinde; das Holz kommt aus dem Wald und fehlt dort danach (Rückwirkung auf die Natur).
+- [x] Vorräte, die man nicht mehr tragen muss (verderben langsam).
+- [x] Lagerfeuer können in Trockenzeiten Brände auslösen.
+- [x] Verlassene Lager verfallen und verschwinden; sie können wieder bezogen werden.
+- [ ] Bilder von Codex (gestaltung.md 17.8).
+
+## Als Nächstes: Vom Lager zum Dorf
+
+- Fischfang und später Anbau als Voraussetzung für größere, feste Siedlungen – auf 4 km² können sonst nur wenige Sammler leben.
+- Mehrere Lager einer wachsenden Gruppe; Siedlungen entstehen dort, wo Wasser, Nahrung und Schutz zusammenkommen.
+- Werkzeuge und erstes Können (wer gut baut, baut öfter), weitergegeben an die Kinder.
 
 ## Später: Biome
 

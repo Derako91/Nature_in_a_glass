@@ -19,7 +19,7 @@
 //! - Jeder hat eine Lebensgeschichte (Biografie). Tote bleiben in Erinnerung
 //!   (Prinzip 3) und liegen einige Tage dort, wo sie gestorben sind.
 //!
-//! Nachwuchs gibt es in v0.6 noch nicht.
+//! Seit v0.7 gibt es Nachwuchs, seit v0.8 Lagerplätze (siehe `camps`).
 
 use std::cmp::Reverse;
 use std::collections::BinaryHeap;
@@ -32,6 +32,14 @@ use crate::math::clamp01;
 use crate::rng::Rng;
 use crate::sim::RILL_FLOW;
 use crate::world::{POND_MM, World};
+
+mod camps;
+pub use camps::{Camp, CampStage};
+
+/// Mindestabstand zwischen zwei bewohnten Lagerplätzen (Felder).
+pub fn camps_spacing() -> i32 {
+    camps::CAMP_SPACING
+}
 
 /// Menschen je Boot.
 pub const BOAT_SIZE: usize = 5;
@@ -87,6 +95,8 @@ pub enum Activity {
     Drink,
     Sleep,
     Hurt,
+    /// Holt Holz und baut am Lagerplatz (seit v0.8).
+    Build,
 }
 
 impl Activity {
@@ -100,6 +110,7 @@ impl Activity {
             Activity::Drink => "drink",
             Activity::Sleep => "sleep",
             Activity::Hurt => "hurt",
+            Activity::Build => "build",
         }
     }
     pub fn label(self) -> &'static str {
@@ -112,6 +123,7 @@ impl Activity {
             Activity::Drink => "trinkt",
             Activity::Sleep => "schläft",
             Activity::Hurt => "schleppt sich verletzt dahin",
+            Activity::Build => "holt Holz für das Lager",
         }
     }
 }
@@ -216,6 +228,9 @@ pub struct Person {
     /// Tage der Schwangerschaft (0 = nicht schwanger).
     #[serde(default)]
     pub pregnant_days: u16,
+    /// Lagerplatz, zu dem man gehört (0 = keiner), seit Format 9.
+    #[serde(default)]
+    pub camp: u32,
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq)]
@@ -230,6 +245,11 @@ struct Flags {
     scan_tile: u32,
     #[serde(default)]
     scan_day: u64,
+    /// Wo man in letzter Zeit die Nächte verbringt und wie viele schon.
+    #[serde(default)]
+    stay_tile: u32,
+    #[serde(default)]
+    stay_days: u16,
 }
 
 impl Person {
@@ -305,6 +325,16 @@ pub enum NewsKind {
     Born,
     /// Das erste Kind, das auf der Insel geboren wird.
     FirstBorn,
+    /// Ein Lagerplatz entsteht (oder wird wieder bezogen).
+    CampFounded,
+    /// Am Lagerplatz steht eine neue Hütte.
+    HutBuilt,
+    /// Niemand kommt mehr zum Lagerplatz.
+    CampAbandoned,
+    /// Vom verlassenen Lagerplatz ist nichts mehr zu sehen.
+    CampGone,
+    /// Funken vom Lagerfeuer setzen trockene Pflanzen in Brand.
+    CampfireSpread,
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq)]
@@ -321,6 +351,14 @@ pub struct People {
     /// Auf der Insel geborene Kinder (insgesamt).
     #[serde(default)]
     pub born: u32,
+    /// Lagerplätze (seit Format 9), nach `id` sortiert.
+    #[serde(default)]
+    pub camps: Vec<Camp>,
+    #[serde(default)]
+    next_camp: u32,
+    /// Wie viele Hütten insgesamt schon gebaut wurden.
+    #[serde(default)]
+    pub huts_built: u32,
 }
 
 const FEMALE_NAMES: [&str; 30] = [
@@ -675,6 +713,7 @@ impl People {
                 partner: 0,
                 children: Vec::new(),
                 pregnant_days: 0,
+                camp: 0,
             };
             p.note(
                 now,
@@ -695,9 +734,39 @@ impl People {
     }
 }
 
-/// Ein Tag für alle Menschen.
+/// Ein Tag für alle Menschen. Holz für die Lagerplätze fehlt danach im Wald,
+/// Funken vom Lagerfeuer können einen Brand auslösen.
 #[allow(clippy::too_many_arguments)]
 pub fn step_day(
+    people: &mut People,
+    world: &mut World,
+    animals: &mut Animals,
+    weather: &Weather,
+    lakes: &crate::lakes::Lakes,
+    doy: u32,
+    now: u64,
+    rng: &mut Rng,
+    s: &mut Scratch,
+) -> Vec<PeopleNews> {
+    let mut effects = camps::Effects::default();
+    let news = day(
+        people,
+        world,
+        animals,
+        weather,
+        lakes,
+        doy,
+        now,
+        rng,
+        s,
+        &mut effects,
+    );
+    effects.apply(world);
+    news
+}
+
+#[allow(clippy::too_many_arguments)]
+fn day(
     people: &mut People,
     world: &World,
     animals: &mut Animals,
@@ -707,6 +776,7 @@ pub fn step_day(
     now: u64,
     rng: &mut Rng,
     s: &mut Scratch,
+    effects: &mut camps::Effects,
 ) -> Vec<PeopleNews> {
     let mut news = Vec::new();
     for b in &mut people.bodies {
@@ -714,6 +784,8 @@ pub fn step_day(
     }
     people.bodies.retain(|b| b.days_left > 0);
     if people.list.is_empty() {
+        // Verlassene Lager verfallen auch ohne Menschen.
+        camps::decay_unused(people, world, now / 24, &mut news);
         return news;
     }
     people.ensure(world.tiles.len());
@@ -751,9 +823,17 @@ pub fn step_day(
         .filter(|p| p.injury > 0.2 || p.health < 0.6)
         .map(|p| (p.id, p.tile))
         .collect();
+    // Bewohnte Lagerplätze (Stand vom Vortag): Ort und Schutz in der Nacht
+    let homes: Vec<(u32, u32, f32)> = people
+        .camps
+        .iter()
+        .filter(|c| !c.abandoned)
+        .map(|c| (c.id, c.tile, c.shelter()))
+        .collect();
 
     for k in 0..people.list.len() {
         let p = &mut people.list[k];
+        let home = homes.iter().find(|h| h.0 == p.camp).map(|h| h.1);
         p.harm = None;
         p.prev_tile = p.tile;
         p.age_days += 1;
@@ -845,7 +925,10 @@ pub fn step_day(
         // Hilfe – dann bleibt man und sammelt, ohne neue Wege zu planen.
         let content = {
             let (cx, cy, others) = group_center(world, &positions, p.id);
-            let near_group = others == 0 || cheb(world, start, world.idx(cx, cy) as u32) <= 6;
+            let near_group = match home {
+                Some(h) => cheb(world, start, h) <= 2,
+                None => others == 0 || cheb(world, start, world.idx(cx, cy) as u32) <= 6,
+            };
             let someone_hurt = hurt.iter().any(|h| h.0 != p.id && h.1 != start);
             let reliable_known = p
                 .memory
@@ -949,8 +1032,11 @@ pub fn step_day(
             // Hunger macht weite Wege und Abstand zum Wasser erträglicher.
             let gap_w = 0.08 * (1.0 - p.hunger).max(0.2);
             let walk_w = 0.06 * (1.0 - 0.6 * p.hunger);
+            // Wer ein Lager hat, sammelt lieber in dessen Nähe.
+            let home_w = 0.03 * (1.0 - p.hunger);
+            let home_gap = |t: u32| home.map_or(0.0, |h| cheb(world, h, t) as f32);
             let mut best = start;
-            let mut best_score = here - gap_w * water_gap(p, start);
+            let mut best_score = here - gap_w * water_gap(p, start) - home_w * home_gap(start);
             for m in p.memory.iter().filter(|m| m.kind != PlaceKind::Water) {
                 let c = s.cost[m.tile as usize];
                 if !c.is_finite() {
@@ -963,7 +1049,8 @@ pub fn step_day(
                 } else {
                     (m.value - 0.02 * age).max(0.0)
                 };
-                let score = value - walk_w * c - gap_w * water_gap(p, m.tile);
+                let score =
+                    value - walk_w * c - gap_w * water_gap(p, m.tile) - home_w * home_gap(m.tile);
                 if score > best_score + 0.05 {
                     best_score = score;
                     best = m.tile;
@@ -1015,9 +1102,21 @@ pub fn step_day(
             {
                 best = mt;
             }
-            // Ohne Not bei den anderen bleiben
+            // Ohne Not zum Lager zurück, sonst bei den anderen bleiben
             let (cx, cy, others) = group_center(world, &positions, p.id);
-            if others > 0 {
+            if let Some(h) = home
+                && carer.is_none()
+            {
+                if !need && cheb(world, start, h) > 1 {
+                    best = if s.cost[h as usize].is_finite() {
+                        h
+                    } else {
+                        nearest_reachable(world, s, h).unwrap_or(best)
+                    };
+                } else if need && cheb(world, best, h) > 12 && here > 0.6 {
+                    best = start;
+                }
+            } else if others > 0 {
                 let center = world.idx(cx, cy) as u32;
                 let far = cheb(world, best, center);
                 if !need && cheb(world, start, center) > 6 {
@@ -1148,7 +1247,8 @@ pub fn step_day(
         // --- Nacht: Kälte, Schlaf ---
         let tt = &world.tiles[at as usize];
         let temp = weather.temp_at(tt.elevation);
-        let shelter = clamp01(tt.forest * 1.5 + tt.shrub * 0.4);
+        let shelter =
+            clamp01(tt.forest * 1.5 + tt.shrub * 0.4).max(camp_shelter(world, &homes, at));
         let mut cold = 0.0;
         if temp < 2.0 {
             cold = (2.0 - temp) * 0.004 * (1.0 - shelter);
@@ -1231,7 +1331,7 @@ pub fn step_day(
 
     // --- Kleinkinder: mit der Mutter (oder einem anderen Erwachsenen) ---
     if adults_exist {
-        care_for_children(people, world, weather, doy, now);
+        care_for_children(people, world, weather, doy, now, &homes);
     }
 
     // --- Ältere Kinder: Erwachsene am selben Ort teilen mit ihnen ---
@@ -1239,6 +1339,9 @@ pub fn step_day(
 
     // --- Paare, Schwangerschaft, Geburt ---
     family_day(people, world, now, rng, &mut news);
+
+    // --- Lagerplätze: anlegen, Holz holen, Hütten bauen, Vorräte, Verfall ---
+    camps::camp_day(people, world, weather, now, rng, &mut news, effects);
 
     // --- Gefahren durch andere: Wölfe, Feuer ---
     for k in 0..people.list.len() {
@@ -1356,6 +1459,15 @@ pub fn step_day(
     news
 }
 
+/// Schutz in der Nacht durch einen Lagerplatz auf dem Feld oder daneben.
+fn camp_shelter(world: &World, homes: &[(u32, u32, f32)], at: u32) -> f32 {
+    homes
+        .iter()
+        .filter(|h| cheb(world, h.1, at) <= 1)
+        .map(|h| h.2)
+        .fold(0.0, f32::max)
+}
+
 fn short_age(days: u32) -> String {
     match days {
         d if d < 60 => format!("{} Tage", d.max(1)),
@@ -1369,7 +1481,14 @@ fn short_age(days: u32) -> String {
 /// nächste Erwachsene). Sie trinken, wenn die Betreuerin getrunken hat, und
 /// essen aus den Vorräten der Erwachsenen am selben Ort; Säuglinge trinken
 /// bei der Mutter, solange sie nicht selbst hungert.
-fn care_for_children(people: &mut People, world: &World, weather: &Weather, doy: u32, now: u64) {
+fn care_for_children(
+    people: &mut People,
+    world: &World,
+    weather: &Weather,
+    doy: u32,
+    now: u64,
+    homes: &[(u32, u32, f32)],
+) {
     for k in 0..people.list.len() {
         if !people.list[k].is_child() {
             continue;
@@ -1480,7 +1599,7 @@ fn care_for_children(people: &mut People, world: &World, weather: &Weather, doy:
         }
         let tt = &world.tiles[ct as usize];
         let temp = weather.temp_at(tt.elevation);
-        let shelter = clamp01(tt.forest * 1.5 + tt.shrub * 0.4);
+        let shelter = clamp01(tt.forest * 1.5 + tt.shrub * 0.4).max(camp_shelter(world, homes, ct));
         let c = &mut people.list[k];
         c.prev_tile = if c.tile == ct { ct } else { cprev };
         c.tile = ct;
@@ -1685,6 +1804,7 @@ fn family_day(
         let (mid, mname, tile, father) =
             (mother.id, mother.name.clone(), mother.tile, mother.partner);
         let memory = mother.memory.clone();
+        let mother_camp = mother.camp;
         let fname = people
             .list
             .iter()
@@ -1747,6 +1867,7 @@ fn family_day(
             partner: 0,
             children: Vec::new(),
             pregnant_days: 0,
+            camp: mother_camp,
         };
         let parents = match &fname {
             Some(f) => format!("Mutter: {mname}, Vater: {f}."),

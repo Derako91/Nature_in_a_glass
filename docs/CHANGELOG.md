@@ -1,5 +1,19 @@
 # Änderungen
 
+## 0.8.0 – Lagerplätze
+
+**Neu**
+- **Die Menschen werden sesshaft – von selbst:** Wer viele Nächte an derselben verlässlichen Wasserstelle verbringt, legt dort einen Lagerplatz an: eine Feuerstelle mit Windschutz aus Ästen. Niemand gibt einen Auftrag; ob und wo ein Lager entsteht, hängt vom Wasser und vom Verhalten der Menschen ab.
+- **Hütten:** Wer am Lager ist und gerade nichts Dringendes zu tun hat, holt Holz aus dem Wald in der Nähe. Reicht es, entsteht eine Hütte aus Stangen, Ästen und Rinde – eine für je fünf Menschen, höchstens vier je Lager.
+- **Das Holz fehlt im Wald:** Rund um ein Lager lichtet sich der Wald über die Jahre, zuerst verschwindet das Totholz.
+- **Schutz und Heimat:** Windschutz, Hütte und Feuer halten nachts die Kälte ab. Ohne Not kehren die Menschen zu ihrem Lager zurück und sammeln lieber in seiner Nähe. Überschüssige Nahrung wird im Lager abgelegt und verdirbt langsam.
+- **Lagerfeuer können Brände auslösen:** In trockenen Sommern und bei Wind springen manchmal Funken über.
+- **Verfall:** Kommt zwei Jahre niemand mehr, ist ein Lager verlassen; nach einigen Jahren ist nichts mehr davon zu sehen. Ein verlassenes Lager kann wieder bezogen werden.
+- **Chronik:** erster Lagerplatz der Insel (wichtiges Ereignis), neue Hütten, verlassene und verschwundene Lager. Die Biografien erzählen, wer ein Lager angelegt, mitgebaut oder es verlassen hat.
+- **Anzeige:** Lager im Bild (vorerst Platzhalter, bis Codex' Bilder kommen), auf der Karte als braunes Quadrat; im Feld-Kasten „Lager“ mit Hütten, Holz und Vorrat; im Insel-Überblick die Zahl der Lagerplätze und Hütten.
+
+**Spielstände** aus 0.7 lassen sich laden; die Menschen dort haben noch kein Lager und legen eines an, wenn sie lange genug an einem Ort bleiben.
+
 ## 0.7.4 – Bilder mit Rand in richtiger Größe
 
 **Behoben**

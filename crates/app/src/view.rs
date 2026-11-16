@@ -421,6 +421,12 @@ fn draw_iso_gfx(
             bodies_at[tile as usize].push((look, dir));
         }
     }
+    // Lagerplätze: immer sichtbar (sie sind Teil der Landschaft)
+    let camps = ap::camp_sprites(&sim.people);
+    let mut camps_at: Vec<Vec<usize>> = vec![Vec::new(); world.tiles.len()];
+    for (k, c) in camps.iter().enumerate() {
+        camps_at[c.tile as usize].push(k);
+    }
     let hour = g.day_frac * 24.0;
     // Spurendichte je Feld: Hirsche, Wölfe, Füchse (Kaninchen aus dem Bestand)
     let mut pack: Vec<[u16; 3]> = Vec::new();
@@ -610,6 +616,8 @@ fn draw_iso_gfx(
                 Carcass(&'static str, f32, f32, usize),
                 Person(&'b ap::PersonSprite),
                 Body(u8, &'static str),
+                /// Lager: Feuerstelle (`None`) oder Hütte Nr. k
+                Camp(&'b ap::CampSprite, Option<usize>),
             }
             let plants = ap::sprites(world, i);
             let mut things: Vec<(f32, Thing)> = plants
@@ -632,6 +640,15 @@ fn draw_iso_gfx(
                         .iter()
                         .map(|&(look, dir)| (0.2, Thing::Body(look, dir))),
                 )
+                .chain(camps_at[i].iter().flat_map(|&k| {
+                    let c = &camps[k];
+                    std::iter::once((c.hearth_pos.1, Thing::Camp(c, None))).chain(
+                        c.hut_pos
+                            .iter()
+                            .enumerate()
+                            .map(move |(h, p)| (p.1, Thing::Camp(c, Some(h)))),
+                    )
+                }))
                 .chain(carcass_at[i].iter().enumerate().map(|(k, &id)| {
                     let (u, v) = [(0.15, 0.3), (-0.35, 0.15), (0.45, 0.0)][k % 3];
                     (v, Thing::Carcass(id, u, v, k))
@@ -774,6 +791,45 @@ fn draw_iso_gfx(
                             ),
                         }
                     }
+                    Thing::Camp(cs, part) => {
+                        let tint = shade(lit, 0.55 + 0.45 * cs.condition);
+                        let (pos, name, table) = match part {
+                            None => {
+                                let frame = if g.animate {
+                                    ((g.time_s * 1000.0 / 200.0) as u64 % 4) as u32
+                                } else {
+                                    0
+                                };
+                                let name = if cs.ruin {
+                                    "camp_ruin".to_string()
+                                } else if cs.fire {
+                                    format!("camp_fire_f{frame}")
+                                } else {
+                                    "camp_hearth".to_string()
+                                };
+                                (cs.hearth_pos, name, 6.0)
+                            }
+                            Some(h) => (cs.hut_pos[h], format!("camp_hut_{}", h % 2), 16.0),
+                        };
+                        let foot = c + Vec2::new(pos.0 * hw, pos.1 * hh);
+                        let width = display_width(atlas, &name, table);
+                        match atlas.pick(&name, &name, width, scale) {
+                            Some(pk) => tex_rect(&mut mesh, pk.rect(foot), &pk.entry, tint),
+                            None => {
+                                camp_placeholder(&mut mesh, white, foot, scale, cs, part, light)
+                            }
+                        }
+                        // Ohne Hütte: Windschutz neben der Feuerstelle
+                        if part.is_none() && cs.huts == 0 && !cs.ruin {
+                            let foot = c + Vec2::new(-0.35 * hw, -0.15 * hh);
+                            let name = "camp_windbreak";
+                            let width = display_width(atlas, name, 12.0);
+                            match atlas.pick(name, name, width, scale) {
+                                Some(pk) => tex_rect(&mut mesh, pk.rect(foot), &pk.entry, tint),
+                                None => windbreak_placeholder(&mut mesh, white, foot, scale, light),
+                            }
+                        }
+                    }
                     Thing::Carcass(id, u, v, k) => {
                         let Some(name) = carcass_name(id, k) else {
                             continue;
@@ -838,7 +894,7 @@ fn person_frames(state: &str) -> (u32, f64) {
         "walk" => (4, 200.0),
         "run" => (4, 100.0),
         "gather" => (4, 300.0),
-        "hurt" => (4, 250.0),
+        "hurt" | "build" => (4, 250.0),
         "eat" | "drink" => (2, 600.0),
         "idle" => (2, 800.0),
         _ => (1, 1000.0),
@@ -905,6 +961,118 @@ fn person_placeholder(
             rect(-1.3, -15.0, 1.3, -12.2, skin);
         }
     }
+}
+
+/// Platzhalter für Lagerplätze, bis Codex' Bilder kommen (17.8):
+/// Steinring mit Flammen, Hütte als brauner Kegel.
+fn camp_placeholder(
+    mesh: &mut Mesh,
+    white: Pos2,
+    foot: Pos2,
+    scale: f32,
+    cs: &nig_core::appearance::CampSprite,
+    part: Option<usize>,
+    light: f32,
+) {
+    let fade = 0.5 + 0.5 * cs.condition;
+    let tint = |c: Color32| night_tint(shade(c, fade), light);
+    let mut quad = |p: [Vec2; 4], c: Color32| {
+        tex_quad(mesh, p.map(|v| foot + v * scale), [white; 4], c);
+    };
+    match part {
+        None => {
+            let stone = tint(Color32::from_rgb(120, 116, 108));
+            quad(
+                [
+                    Vec2::new(-3.5, -0.5),
+                    Vec2::new(0.0, -2.2),
+                    Vec2::new(3.5, -0.5),
+                    Vec2::new(0.0, 1.2),
+                ],
+                stone,
+            );
+            if cs.fire && !cs.ruin {
+                // Flamme leuchtet auch nachts
+                let flame = Color32::from_rgb(240, 150, 50);
+                quad(
+                    [
+                        Vec2::new(-1.6, -0.8),
+                        Vec2::new(0.0, -6.0),
+                        Vec2::new(1.6, -0.8),
+                        Vec2::new(0.0, -0.2),
+                    ],
+                    flame,
+                );
+            }
+            if cs.store {
+                let sack = tint(Color32::from_rgb(170, 140, 90));
+                quad(
+                    [
+                        Vec2::new(4.0, -0.5),
+                        Vec2::new(4.0, -3.0),
+                        Vec2::new(6.5, -3.0),
+                        Vec2::new(6.5, -0.5),
+                    ],
+                    sack,
+                );
+            }
+        }
+        Some(_) => {
+            let (dark, light_side) = if cs.ruin {
+                (
+                    tint(Color32::from_rgb(80, 66, 50)),
+                    tint(Color32::from_rgb(100, 84, 64)),
+                )
+            } else {
+                (
+                    tint(Color32::from_rgb(104, 78, 50)),
+                    tint(Color32::from_rgb(140, 108, 70)),
+                )
+            };
+            let top = if cs.ruin { -5.0 } else { -11.0 };
+            quad(
+                [
+                    Vec2::new(-6.0, 0.0),
+                    Vec2::new(0.0, top),
+                    Vec2::new(0.0, top),
+                    Vec2::new(0.0, 2.0),
+                ],
+                dark,
+            );
+            quad(
+                [
+                    Vec2::new(0.0, 2.0),
+                    Vec2::new(0.0, top),
+                    Vec2::new(0.0, top),
+                    Vec2::new(6.0, 0.0),
+                ],
+                light_side,
+            );
+            if !cs.ruin {
+                let door = tint(Color32::from_rgb(50, 38, 28));
+                quad(
+                    [
+                        Vec2::new(0.6, 1.6),
+                        Vec2::new(1.4, -3.5),
+                        Vec2::new(2.6, -3.0),
+                        Vec2::new(2.6, 1.0),
+                    ],
+                    door,
+                );
+            }
+        }
+    }
+}
+
+fn windbreak_placeholder(mesh: &mut Mesh, white: Pos2, foot: Pos2, scale: f32, light: f32) {
+    let c = night_tint(Color32::from_rgb(112, 92, 60), light);
+    let p = [
+        Vec2::new(-5.0, 0.0),
+        Vec2::new(-3.0, -5.0),
+        Vec2::new(5.0, -3.0),
+        Vec2::new(4.0, 1.0),
+    ];
+    tex_quad(mesh, p.map(|v| foot + v * scale), [white; 4], c);
 }
 
 /// Überblick: ein Zeichen je Mensch in seiner Erkennungsfarbe, damit man die
@@ -1307,6 +1475,32 @@ pub fn draw(
                 }
                 let r = (animal_radius(a.id, a.scale) * cell * 0.22).max(1.2);
                 painter.circle_filled(c, r, night_tint(animal_color(a.id), light));
+            }
+            for cs in nig_core::appearance::camp_sprites(&sim.people) {
+                let (x, y) = world.xy(cs.tile as usize);
+                let c = top_left + Vec2::new(x as f32 + 0.5, y as f32 + 0.5) * cell;
+                if !rect.contains(c) {
+                    continue;
+                }
+                let r = (cell * 0.32).max(2.5);
+                let col = if cs.ruin {
+                    Color32::from_rgb(120, 100, 80)
+                } else {
+                    Color32::from_rgb(150, 100, 50)
+                };
+                painter.rect_filled(
+                    Rect::from_center_size(c, Vec2::splat(r * 2.0)),
+                    0.0,
+                    night_tint(col, light),
+                );
+                if cs.huts > 0 && !cs.ruin {
+                    painter.rect_stroke(
+                        Rect::from_center_size(c, Vec2::splat(r * 2.0)),
+                        0.0,
+                        Stroke::new(1.0, Color32::from_rgb(245, 240, 225)),
+                        egui::StrokeKind::Outside,
+                    );
+                }
             }
             for p in nig_core::appearance::person_sprites(&sim.people, world) {
                 let (x, y) = world.xy(p.tile as usize);

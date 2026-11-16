@@ -179,3 +179,109 @@ fn couples_form_and_children_are_born() {
         );
     }
 }
+
+// ---------- v0.8: Lagerplätze ----------
+
+fn settled(seed: u64, years: u64) -> Simulation {
+    let mut sim = Simulation::new(seed);
+    sim.advance_years(10);
+    arrive(&mut sim);
+    sim.advance_years(years);
+    sim
+}
+
+/// Wer viele Nächte an verlässlichem Wasser verbringt, legt dort ein Lager
+/// an. Sind die Menschen zahlreich genug, entstehen Hütten.
+#[test]
+fn people_settle_at_reliable_water_and_build_huts() {
+    let sim = settled(2024, 5);
+    let pe = &sim.people;
+    assert!(!pe.camps.is_empty(), "kein Lagerplatz in 5 Jahren");
+    for c in pe.camps.iter().filter(|c| !c.abandoned) {
+        assert!(
+            nig_core::people::drinkable(&sim.world, c.tile as usize),
+            "Lager ohne Wasser"
+        );
+    }
+    assert!(pe.huts_built >= 1, "keine Hütte");
+    assert!(
+        pe.list.iter().any(|p| p.camp != 0),
+        "niemand gehört zum Lager"
+    );
+    let ev = &sim.journal.events;
+    assert!(ev.iter().any(|e| e.kind == EventKind::CampFounded));
+    assert!(ev.iter().any(|e| e.kind == EventKind::HutBuilt));
+    // Lager liegen nicht dicht nebeneinander
+    for a in pe.camps.iter().filter(|a| !a.abandoned) {
+        for b in pe.camps.iter().filter(|b| b.id < a.id && !b.abandoned) {
+            let (ax, ay) = sim.world.xy(a.tile as usize);
+            let (bx, by) = sim.world.xy(b.tile as usize);
+            let d = (ax as i32 - bx as i32)
+                .abs()
+                .max((ay as i32 - by as i32).abs());
+            assert!(d >= nig_core::people::camps_spacing(), "Lager zu dicht");
+        }
+    }
+}
+
+/// Holz für Feuer und Hütten fehlt danach im Wald rund um das Lager.
+#[test]
+fn camp_wood_thins_the_forest_nearby() {
+    let with = settled(2024, 12);
+    let mut without = Simulation::new(2024);
+    without.advance_years(22);
+    let camp = with.people.camps.first().expect("ein Lager").tile as usize;
+    let wood = |sim: &Simulation| -> f32 {
+        let (cx, cy) = sim.world.xy(camp);
+        let mut sum = 0.0;
+        for y in cy.saturating_sub(3)..=(cy + 3).min(sim.world.height - 1) {
+            for x in cx.saturating_sub(3)..=(cx + 3).min(sim.world.width - 1) {
+                let t = sim.world.tile(x, y);
+                sum += t.forest + t.deadwood;
+            }
+        }
+        sum
+    };
+    assert!(
+        wood(&with) < wood(&without) - 0.3,
+        "mit Lager {:.2}, ohne {:.2}",
+        wood(&with),
+        wood(&without)
+    );
+}
+
+/// Kommt niemand mehr, wird das Lager verlassen und verfällt.
+#[test]
+fn abandoned_camps_decay_and_disappear() {
+    let mut sim = settled(2024, 3);
+    assert!(!sim.people.camps.is_empty());
+    // Alle verlassen die Insel (nur im Test)
+    sim.people.list.clear();
+    sim.advance_years(3);
+    assert!(sim.people.camps.iter().all(|c| c.abandoned));
+    assert!(
+        sim.journal
+            .events
+            .iter()
+            .any(|e| e.kind == EventKind::CampAbandoned)
+    );
+    sim.advance_years(3);
+    assert!(sim.people.camps.is_empty(), "Lager verfällt nicht");
+    assert!(
+        sim.journal
+            .events
+            .iter()
+            .any(|e| e.kind == EventKind::CampGone)
+    );
+}
+
+#[test]
+fn camps_survive_save_load() {
+    let mut a = settled(2024, 2);
+    assert!(!a.people.camps.is_empty());
+    let mut b = Simulation::from_json(&a.to_json()).unwrap();
+    assert_eq!(a.people.camps, b.people.camps);
+    a.advance_days(300);
+    b.advance_days(300);
+    assert_eq!(a.state_hash(), b.state_hash());
+}

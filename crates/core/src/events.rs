@@ -38,6 +38,11 @@ pub enum EventKind {
     // seit v0.7
     PersonBorn,
     FirstBorn,
+    // seit v0.8
+    CampFounded,
+    HutBuilt,
+    CampAbandoned,
+    CampGone,
 }
 
 impl EventKind {
@@ -71,6 +76,10 @@ impl EventKind {
             EventKind::PeopleGone => "Menschen",
             EventKind::PersonBorn => "Geburt",
             EventKind::FirstBorn => "Geburt",
+            EventKind::CampFounded => "Lager",
+            EventKind::HutBuilt => "Lager",
+            EventKind::CampAbandoned => "Lager",
+            EventKind::CampGone => "Lager",
         }
     }
 
@@ -91,6 +100,7 @@ impl EventKind {
                 | EventKind::PersonDied
                 | EventKind::PeopleGone
                 | EventKind::FirstBorn
+                | EventKind::CampFounded
         )
     }
 }
