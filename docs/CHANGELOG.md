@@ -1,5 +1,12 @@
 # Änderungen
 
+## 0.8.5 – Stimmige Größen am Lager
+
+**Geändert** (Pull Request #16)
+- Erwachsene sind etwa 10 % kleiner, Kinder bleiben gleich – das Verhältnis zwischen Groß und Klein wirkt natürlicher.
+- Beim Sammeln hocken die Bewohner kompakter und wirken nicht mehr wuchtig.
+- Die Hütteneingänge sind höher und breiter: Man kann gebückt hineingehen.
+
 ## 0.8.4 – Bewohner im neuen Stil
 
 **Neu**
