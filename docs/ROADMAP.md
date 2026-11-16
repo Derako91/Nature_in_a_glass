@@ -178,6 +178,16 @@ Die Bewohner bauen selbst – der Beobachter gibt keine Bauaufträge (Prinzip 1)
 - [x] Inselgröße wählbar (64, 96, 128 Felder Kantenlänge); Quellen und Reviere wachsen mit der Fläche (`World::area_factor`).
 - Erster Schritt zur ganzen Welt: Die Simulation richtet sich nach der Fläche statt nach festen Zahlen.
 
+## Fernziel: Von einer Insel zur Welt, von der Steinzeit bis heute
+
+Richtung festgehalten in [ADR 0012](../decisions/0012-from-one-island-to-a-world.md). Etappen:
+
+1. **Archipel:** mehrere Inseln in einer Welt, Eingriffe je Insel.
+2. **Küsten sehen, übers Meer fahren:** Wissen um ferne Küsten, seetüchtiges Boot, Überfahrten mit Gefahren.
+3. **Ferne Siedlungen:** zusammengefasste Rechnung für Siedlungen, auf die man nicht schaut; Übergang Nah ↔ Fern; mehrere Prozessorkerne.
+4. **Festland:** große, aus Regionen zusammengesetzte Welt.
+5. **Große Schwellen:** Ackerbau als Lebensgrundlage, Viehhaltung, Metall, Austausch – Folgen von Dichte und Überschuss, kein Technologiebaum.
+
 ## Als Nächstes (Ideen)
 
 - Weitere Erfindungen: Speerschleuder (Jagd).
