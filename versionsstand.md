@@ -1,14 +1,14 @@
 # Versionsstand – Nature_in_a_glass
 
-> **Stand:** 16.11.2026 · **Version:** Basis 0.8.6 · **Branch:** `codex/animals-style-b` (Basis `7d9dcc5`)
+> **Stand:** 16.11.2026 · **Version:** Basis 0.8.8 · **Branch:** `codex/water-style-b` (Basis `0d959fe`)
 
 ## Auf einen Blick
 
 | Frage | Antwort |
 | --- | --- |
-| **Zuletzt erledigt** | Tier-Stil-B-Draft: 220 Nah-, 220 eigene Fernphasen, 16 Kadaverbilder und 16 Spurenvarianten. Alle vier Arten einschließlich Hirschkalb, zwei Fellvarianten und beide Richtungen vollständig. Landschaft samt Fernkronen seit v0.8.6 freigegeben. |
-| **Getestet** | 472 Dateien/Manifestverweise, unterscheidbare Phasen, proportionale Referenzbreiten und Exportwiederholung geprüft. 755 andere PNGs bytegleich. 91 Rust-/15 Python-Tests, fmt, strenges Clippy und Release-Bau bestanden. Atlas-/Spielvergleich im Prüfpaket `art/nature/animals-style-b/`. |
-| **Offen für Codex** | Visuelle Abnahme der vollständigen Tier- und Fernzyklen durch Claude. Nicht alle seltenen Zustände natürlich im Spiel ausgelöst. Wasserbilder mit ruhigen vier Phasen folgen in eigenem PR; Bäche bleiben Linien. |
+| **Zuletzt erledigt** | Tiere aus PR #19 seit v0.8.7 freigegeben. Wasser-Draft: Meer, Flachwasser und Teiche, vier Varianten mit je vier ruhigen 500-ms-Phasen plus Standbilder. 48 Phasen/3 Standbilder; neue Bach-Schnittstelle seit v0.8.8 vorhanden. |
+| **Getestet** | 93 Rust-/15 Python-Tests, fmt, strenges Clippy und Release-Bau bestanden. Vollständiger Atlas ≤8192 px, 1228 andere PNGs unverändert, zwei Exportwege bytegleich. Küste/Teich bei Zoom 4/8/32 und laufende Animation im Wasser-Prüfpaket. |
+| **Offen für Codex** | Visuelle Abnahme des Wasserpakets durch Claude. Nächster Auftrag: Bachstücke/Bachbetten nach Gestaltung 16.8 (54 statische Mittel-/Halbstücke), exakt passende Endbreiten, Spielprüfung Seed 2024, zwölf Jahre +240 Tage, Feld 19/33, Zoom 16. |
 | **Offen für Dennis** | – (neue Bildpakete zur visuellen Abnahme durch Claude) |
 | **Nächster Schritt (Roadmap)** | Vom Lager zum Dorf: Fischfang, später Anbau, mehrere Lager einer Gruppe, Werkzeuge. |
 
@@ -23,6 +23,7 @@
 
 | Datum | Änderung | Code-Test |
 | --- | --- | --- |
+| 16.11.2026 | Codex: Meer-/Flachwasser-/Teichanimation mit vier Varianten, 4×500 ms, Branch `codex/water-style-b`, Basis `0d959fe`. | 93 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; Vollatlasgrenze und Wasser-/Spielvergleich geprüft. Visuelle Abnahme offen. |
 | 16.11.2026 | Codex: vollständiges Tierpaket mit eigenen Fernzyklen, Spuren und Kadavern; Branch `codex/animals-style-b`, Basis `7d9dcc5`. | Export-/Referenzmaß-/Phasenprüfung und Atlas-/Spielvergleich im Tier-Prüfpaket; visuelle Abnahme offen. |
 | 16.11.2026 | Codex: Korrektur der bei Zoom 4/8 unlesbaren Landschaft; 32 breite Fernkronen, Nahbilder unverändert. Branch `codex/landscape-far-crowns`, Basis `d6fc0bf`. | Atlas-Auswahl-/Maßstabsregression sowie tatsächlicher Vorher-/Nachher-Vergleich im Fernkronen-Prüfpaket; erneute Abnahme offen. |
 | 16.11.2026 | Codex: Landschaft nach Gestaltung 18, Schritt 3; Branch `codex/landscape-style-b`, Basis `8043787` (v0.8.5). | Technische Export-/Maßstabsprüfung und Spielvergleich siehe Landschaft-Prüfpaket; visuelle Abnahme offen. |

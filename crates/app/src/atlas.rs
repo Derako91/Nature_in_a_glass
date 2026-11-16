@@ -1030,6 +1030,60 @@ mod tests {
         }
     }
 
+    /// Alle Wasserarten/Varianten haben eine vollständige ruhige Schleife;
+    /// das Standbild ist identisch zur ersten Phase und die Raute bleibt fest.
+    #[test]
+    fn embedded_water_complete_quiet_four_phase_loops() {
+        for id in ["water_deep", "water_shallow", "water_pond"] {
+            for variant in 0..4 {
+                let mut means = Vec::new();
+                let mut phases = Vec::new();
+                let mut geometry = None;
+                for frame in 0..4 {
+                    let name = format!("{id}_{variant}_f{frame}");
+                    let bytes = embedded::IMAGES
+                        .iter()
+                        .find(|(n, _, _)| *n == name)
+                        .expect("Wasserphase eingebettet")
+                        .2;
+                    let (w, h, pixels) = decode(bytes).expect("Wasser-PNG lesbar");
+                    assert_eq!((w, h), (128, 64));
+                    let alpha: Vec<_> = pixels.as_chunks::<4>().0.iter().map(|p| p[3]).collect();
+                    assert_eq!(alpha[0], 0);
+                    assert_eq!(alpha[32 * 128 + 64], 255);
+                    if let Some(ref previous) = geometry {
+                        assert_eq!(&alpha, previous);
+                    }
+                    geometry = Some(alpha);
+                    let values: Vec<_> = pixels
+                        .as_chunks::<4>()
+                        .0
+                        .iter()
+                        .filter(|p| p[3] > 128)
+                        .map(|p| 0.2126 * p[0] as f64 + 0.7152 * p[1] as f64 + 0.0722 * p[2] as f64)
+                        .collect();
+                    means.push(values.iter().sum::<f64>() / values.len() as f64);
+                    for previous in &phases {
+                        assert_ne!(&pixels, previous, "Unterschiedliche Wasserphasen");
+                    }
+                    phases.push(pixels);
+                }
+                let min = means.iter().copied().fold(f64::INFINITY, f64::min);
+                let max = means.iter().copied().fold(f64::NEG_INFINITY, f64::max);
+                assert!((max - min) / min < 0.15, "Keine Wasserblitze");
+                if variant == 0 {
+                    let static_name = format!("{id}_0");
+                    let bytes = embedded::IMAGES
+                        .iter()
+                        .find(|(n, _, _)| *n == static_name)
+                        .expect("Standbild vorhanden")
+                        .2;
+                    assert_eq!(decode(bytes).unwrap().2, phases[0]);
+                }
+            }
+        }
+    }
+
     /// Alle eingebauten Bilder: Der Atlas passt in eine Textur, die jede
     /// Grafikkarte kann, und jedes Tier und jeder Mensch erscheint bei jedem
     /// Zoom in seiner Darstellungsbreite.

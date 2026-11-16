@@ -1,0 +1,876 @@
+{
+  "files": [
+    {
+      "file": "water_deep_0_f0.png",
+      "kind": "water_deep",
+      "variant": 0,
+      "frame": 0,
+      "sha256": "c1bebc553ec29f97e58e731bd90ddb3c78d610a516ab2d19d4e424e90458bae5",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_deep_0_f1.png",
+      "kind": "water_deep",
+      "variant": 0,
+      "frame": 1,
+      "sha256": "ca316c494f8398a01b112bfa781f1cffb98053263decd7307fdd0179ab4cce60",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_deep_0_f2.png",
+      "kind": "water_deep",
+      "variant": 0,
+      "frame": 2,
+      "sha256": "6a2df6d2224a0c4c275b46329c799354242cf0e4e68c9e774ccc834a10c8c750",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_deep_0_f3.png",
+      "kind": "water_deep",
+      "variant": 0,
+      "frame": 3,
+      "sha256": "c2972b129fda3e50e7c3aa3922ee946e7469abd80b19552c60c310cd311be491",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_deep_1_f0.png",
+      "kind": "water_deep",
+      "variant": 1,
+      "frame": 0,
+      "sha256": "038743227298b016809c865a6ecd8d16e6358f909420a9129a4224e830575858",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_deep_1_f1.png",
+      "kind": "water_deep",
+      "variant": 1,
+      "frame": 1,
+      "sha256": "d8478210d9aa0bf0f31a23b80b1fb5639760c330050ac214dd350a45c5ee065a",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_deep_1_f2.png",
+      "kind": "water_deep",
+      "variant": 1,
+      "frame": 2,
+      "sha256": "ef54c65f50a24f8522b2c225c5dfccce029098288cbfee8b7076eb5cfb60bd0e",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_deep_1_f3.png",
+      "kind": "water_deep",
+      "variant": 1,
+      "frame": 3,
+      "sha256": "7d687dd65f5f07f8f4342979aad0a99644f7a84630e39b1d7c50a5bef5586625",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_deep_2_f0.png",
+      "kind": "water_deep",
+      "variant": 2,
+      "frame": 0,
+      "sha256": "c4330597013c473c1601089fc35518e666c73c95e6aba2bf424300853c775d02",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_deep_2_f1.png",
+      "kind": "water_deep",
+      "variant": 2,
+      "frame": 1,
+      "sha256": "4668f21e7c1327f6d2152f05c7a8bcb6e424bbe0ec120c04307c2fc6edcfefaa",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_deep_2_f2.png",
+      "kind": "water_deep",
+      "variant": 2,
+      "frame": 2,
+      "sha256": "727ae810433b5ecb7410b44f1b934380b7747c595251bbc2a2a8c2e9c38a391b",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_deep_2_f3.png",
+      "kind": "water_deep",
+      "variant": 2,
+      "frame": 3,
+      "sha256": "4a7d15bff7235570a10083ca6a47f12d7d5329c36ad13d09b7b0f197a71962ff",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_deep_3_f0.png",
+      "kind": "water_deep",
+      "variant": 3,
+      "frame": 0,
+      "sha256": "900582af148e2bbcc580fbcbaec1a7d0ee2dd9f3572f50d2081df53bed448b8f",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_deep_3_f1.png",
+      "kind": "water_deep",
+      "variant": 3,
+      "frame": 1,
+      "sha256": "e11a56ed5cbb6601e7a4287168e55dd339c1890cb74ab5884dfdaf98989a25b7",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_deep_3_f2.png",
+      "kind": "water_deep",
+      "variant": 3,
+      "frame": 2,
+      "sha256": "12fc4823ded1f1c325c02abab2da7568ab010ff5bccf8fabfbb872aaa2245013",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_deep_3_f3.png",
+      "kind": "water_deep",
+      "variant": 3,
+      "frame": 3,
+      "sha256": "c32a9294fb5c1e4516abf2fd49c10f7d31ab378d9c36896f091948c803f9b230",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_shallow_0_f0.png",
+      "kind": "water_shallow",
+      "variant": 0,
+      "frame": 0,
+      "sha256": "26b706efb69ce30b634ff96ea086f6788346e0e6f48606b06527fbd61ed8c5ab",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_shallow_0_f1.png",
+      "kind": "water_shallow",
+      "variant": 0,
+      "frame": 1,
+      "sha256": "907c2652c970f42d403aeffed5d02314946f396bc06e08ec25d4a3291dec021c",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_shallow_0_f2.png",
+      "kind": "water_shallow",
+      "variant": 0,
+      "frame": 2,
+      "sha256": "6e4f1830b52fb69907ecd586ca5e268f6ffb2178555bae25b952d2f2bdf037d5",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_shallow_0_f3.png",
+      "kind": "water_shallow",
+      "variant": 0,
+      "frame": 3,
+      "sha256": "7ef216333e9a47534f908098988ef175d51d56cebc6a15e14e9d38feb0b93b48",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_shallow_1_f0.png",
+      "kind": "water_shallow",
+      "variant": 1,
+      "frame": 0,
+      "sha256": "cedc6efda37c26c7f31e0c34356dc793dd811fb78e14448aa284702a8c0b98ba",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_shallow_1_f1.png",
+      "kind": "water_shallow",
+      "variant": 1,
+      "frame": 1,
+      "sha256": "cf27e98e3a97c09b2a8461ba4cf948888e9f8d20b8cd4c6cfa0c5e1984dc0a49",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_shallow_1_f2.png",
+      "kind": "water_shallow",
+      "variant": 1,
+      "frame": 2,
+      "sha256": "b4b813a6bab876e8cea2a87c0c9a917d0288bc263612d5cd1bb59b37c0dd4d60",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_shallow_1_f3.png",
+      "kind": "water_shallow",
+      "variant": 1,
+      "frame": 3,
+      "sha256": "8ad7a12a0e669d75ada7a384f32acf244b69c653372d92660b2e4f1ce646d78b",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_shallow_2_f0.png",
+      "kind": "water_shallow",
+      "variant": 2,
+      "frame": 0,
+      "sha256": "93f63b3f438eb8856f28be7adc1d7f1dce022997cd856b38257d5e9a22bfd4bc",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_shallow_2_f1.png",
+      "kind": "water_shallow",
+      "variant": 2,
+      "frame": 1,
+      "sha256": "69055b99ddb117b098cca30e6f6fff52e70c15d723ab786d626f29cae48fc1dc",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_shallow_2_f2.png",
+      "kind": "water_shallow",
+      "variant": 2,
+      "frame": 2,
+      "sha256": "1ec31c14afeb242588909418a9bda9cd25bd3a09d2fb6484e1b1b29ce5edd4a9",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_shallow_2_f3.png",
+      "kind": "water_shallow",
+      "variant": 2,
+      "frame": 3,
+      "sha256": "6a8675a4c106940c12054ff701631a03f4fa6e4320fba8fd293d87615657fd1b",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_shallow_3_f0.png",
+      "kind": "water_shallow",
+      "variant": 3,
+      "frame": 0,
+      "sha256": "1fd80dae11ecdbdd63ad8aef5d1164f3f0ffed06cbbb259682a1f67ddb1e4b80",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_shallow_3_f1.png",
+      "kind": "water_shallow",
+      "variant": 3,
+      "frame": 1,
+      "sha256": "856def5f090144a9a920d095786348fda1a7b1bda389658a56a7e12afcabad42",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_shallow_3_f2.png",
+      "kind": "water_shallow",
+      "variant": 3,
+      "frame": 2,
+      "sha256": "83438c69652b23bbae573bdf61c24a2938fa4e4d428de566010e3658275a6d88",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_shallow_3_f3.png",
+      "kind": "water_shallow",
+      "variant": 3,
+      "frame": 3,
+      "sha256": "32a5792ceb7ee489f1feaa6ebb3bfc440ee1a4d347029261f740807927f3154a",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_pond_0_f0.png",
+      "kind": "water_pond",
+      "variant": 0,
+      "frame": 0,
+      "sha256": "806192bdc6af42dbee0a3d6f491eafd1007c19da684d1f3e0d492c44f9ee3f87",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_pond_0_f1.png",
+      "kind": "water_pond",
+      "variant": 0,
+      "frame": 1,
+      "sha256": "517a8e63b3ec13802843cda68af9513f456a584ea4aa37a65f48aff6bef215a8",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_pond_0_f2.png",
+      "kind": "water_pond",
+      "variant": 0,
+      "frame": 2,
+      "sha256": "0f4bea098de98a639927ed9a96f8782abc438b4d30053aa22b0b76ad530c2daa",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_pond_0_f3.png",
+      "kind": "water_pond",
+      "variant": 0,
+      "frame": 3,
+      "sha256": "c8d8ca83819d82cb17c9dda2a162776a4304038e5a147de9e6b14d9be308b152",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_pond_1_f0.png",
+      "kind": "water_pond",
+      "variant": 1,
+      "frame": 0,
+      "sha256": "70c1ae82967d9c062cc50b3f29d6d22cf6e7edd06a89ef4624ca2265376b1746",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_pond_1_f1.png",
+      "kind": "water_pond",
+      "variant": 1,
+      "frame": 1,
+      "sha256": "0bdf5d4143378a6c1f98172486786ee554ef0801c3e3e1e89153bee82e7311f0",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_pond_1_f2.png",
+      "kind": "water_pond",
+      "variant": 1,
+      "frame": 2,
+      "sha256": "61d618bdb4b1c1208a665698c9f540f0b126de6dcf4f6b131b4dec6aa75a91fb",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_pond_1_f3.png",
+      "kind": "water_pond",
+      "variant": 1,
+      "frame": 3,
+      "sha256": "1f1963bdb65911fb32a5a1fc9937f6bc76a994dd66d04eec7f2a82a6b6764e04",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_pond_2_f0.png",
+      "kind": "water_pond",
+      "variant": 2,
+      "frame": 0,
+      "sha256": "a94f1533448669f623c34ccceac2b8831a42c26bc5c97dbc9dbfdadc1fa1d478",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_pond_2_f1.png",
+      "kind": "water_pond",
+      "variant": 2,
+      "frame": 1,
+      "sha256": "bd9be9f437cd80285314301b397181990c2db56f4c08199ecd5bdfa5a7b7f45e",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_pond_2_f2.png",
+      "kind": "water_pond",
+      "variant": 2,
+      "frame": 2,
+      "sha256": "62fc3d82a104e948936a880063e3f38961c434f88df2ef37aa7fdb7e6f91b14e",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_pond_2_f3.png",
+      "kind": "water_pond",
+      "variant": 2,
+      "frame": 3,
+      "sha256": "d0aa348e62b5077572334172b941495992bb5964d57163805c86f28cfedc5a35",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_pond_3_f0.png",
+      "kind": "water_pond",
+      "variant": 3,
+      "frame": 0,
+      "sha256": "d42b391c9494e545f4ad10b8c70f58b92f52bb667eb89ae9cd2de5563d650804",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_pond_3_f1.png",
+      "kind": "water_pond",
+      "variant": 3,
+      "frame": 1,
+      "sha256": "8e00dae1c1862cf272be3b529898857eafa317ea094af6d17a3048b9b6259de3",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_pond_3_f2.png",
+      "kind": "water_pond",
+      "variant": 3,
+      "frame": 2,
+      "sha256": "0e821dc822bc74fb7c6a1bbdd373496788180ada02f01013ec1a21590f2eac05",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "water_pond_3_f3.png",
+      "kind": "water_pond",
+      "variant": 3,
+      "frame": 3,
+      "sha256": "a9d92b94dcf1cc1966e408a7bc4e4102a65e95953f0a68cc8fdef8fa06adef23",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "kind": "water_deep",
+      "variant": 0,
+      "mean_luma": [
+        43.8087861328125,
+        43.802613671875,
+        43.79514912109375,
+        43.81924716796875
+      ],
+      "luma_spread": 0.0005501027225946504,
+      "maximum_mean_channel_delta": 0.349853515625
+    },
+    {
+      "kind": "water_deep",
+      "variant": 1,
+      "mean_luma": [
+        43.90543002929688,
+        43.886034814453126,
+        43.88431982421875,
+        43.90170532226563
+      ],
+      "luma_spread": 0.00048093192536935827,
+      "maximum_mean_channel_delta": 0.3177490234375
+    },
+    {
+      "kind": "water_deep",
+      "variant": 2,
+      "mean_luma": [
+        43.750621435546876,
+        43.7345326171875,
+        43.727537011718745,
+        43.751802539062496
+      ],
+      "luma_spread": 0.0005547531809222593,
+      "maximum_mean_channel_delta": 0.304931640625
+    },
+    {
+      "kind": "water_deep",
+      "variant": 3,
+      "mean_luma": [
+        43.713677539062495,
+        43.70170986328125,
+        43.702804443359376,
+        43.717375390624994
+      ],
+      "luma_spread": 0.0003584059603288138,
+      "maximum_mean_channel_delta": 0.300262451171875
+    },
+    {
+      "kind": "water_shallow",
+      "variant": 0,
+      "mean_luma": [
+        135.93481171874998,
+        135.91768559570312,
+        135.9251777832031,
+        135.92725131835937
+      ],
+      "luma_spread": 0.00012599571727080804,
+      "maximum_mean_channel_delta": 0.3851318359375
+    },
+    {
+      "kind": "water_shallow",
+      "variant": 1,
+      "mean_luma": [
+        135.90123037109373,
+        135.87981406249997,
+        135.88215996093749,
+        135.8818650390625
+      ],
+      "luma_spread": 0.00015760465726291412,
+      "maximum_mean_channel_delta": 0.342987060546875
+    },
+    {
+      "kind": "water_shallow",
+      "variant": 2,
+      "mean_luma": [
+        135.8680189941406,
+        135.83790576171873,
+        135.83642919921874,
+        135.8455138183594
+      ],
+      "luma_spread": 0.00023253956737246886,
+      "maximum_mean_channel_delta": 0.34674072265625
+    },
+    {
+      "kind": "water_shallow",
+      "variant": 3,
+      "mean_luma": [
+        135.8100375,
+        135.78338037109376,
+        135.79072236328125,
+        135.788734375
+      ],
+      "luma_spread": 0.00019630677563129442,
+      "maximum_mean_channel_delta": 0.34478759765625
+    },
+    {
+      "kind": "water_pond",
+      "variant": 0,
+      "mean_luma": [
+        109.10867875976562,
+        109.11150678710938,
+        109.10875786132813,
+        109.11224067382813
+      ],
+      "luma_spread": 3.2645077434600077e-05,
+      "maximum_mean_channel_delta": 0.184967041015625
+    },
+    {
+      "kind": "water_pond",
+      "variant": 1,
+      "mean_luma": [
+        109.12707104492188,
+        109.1339556640625,
+        109.13141743164063,
+        109.13398940429688
+      ],
+      "luma_spread": 6.33946431955983e-05,
+      "maximum_mean_channel_delta": 0.16607666015625
+    },
+    {
+      "kind": "water_pond",
+      "variant": 2,
+      "mean_luma": [
+        109.10705185546875,
+        109.1077689453125,
+        109.11254096679687,
+        109.11226835937501
+      ],
+      "luma_spread": 5.030809256730929e-05,
+      "maximum_mean_channel_delta": 0.16290283203125
+    },
+    {
+      "kind": "water_pond",
+      "variant": 3,
+      "mean_luma": [
+        109.07616118164063,
+        109.07895493164062,
+        109.08195083007813,
+        109.07638598632813
+      ],
+      "luma_spread": 5.3077881496652405e-05,
+      "maximum_mean_channel_delta": 0.1630859375
+    }
+  ],
+  "periodic_edges": true,
+  "variant_edges_identical_per_phase": true,
+  "frame_ms": 500,
+  "loop_ms": 2000,
+  "flow": "small_periodic_texture_displacement_not_simulated_current",
+  "visual_approval": "pending"
+}
