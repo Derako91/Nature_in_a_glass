@@ -1,0 +1,69 @@
+{
+  "status": "passed",
+  "exported_pngs": 91,
+  "ground_pngs": 36,
+  "wall_pngs": 7,
+  "vegetation_pngs": 48,
+  "unchanged_other_pngs": 864,
+  "existing_display_sizes_unchanged": true,
+  "existing_world_anchors_unchanged": true,
+  "water_fire_people_buildings_animals_unchanged": true,
+  "all_files_rgba_and_hashes_match": true,
+  "periodic_uv_edges": true,
+  "variant_material_edges_identical": true,
+  "wall_vertical_edges_byte_identical": true,
+  "visual_approval": "pending",
+  "repeated_export_byte_identical": true,
+  "rust_tests_passed": 89,
+  "python_tests_passed": 15,
+  "format": "passed",
+  "clippy": "passed",
+  "release_build": "passed",
+  "game_review": {
+    "embedded_assets": true,
+    "camp": {
+      "seed": 2024,
+      "years": 10,
+      "menschen": true,
+      "danach": 3,
+      "days": 120,
+      "select": [
+        19,
+        34
+      ],
+      "speed": 0,
+      "zoom": [
+        4,
+        8,
+        32
+      ]
+    },
+    "forest": {
+      "seed": 42,
+      "years": 80,
+      "select": [
+        25,
+        11
+      ],
+      "speed": 0,
+      "zoom": [
+        8,
+        32
+      ]
+    },
+    "capture": "paused_at_matching_hour_per_before_after_pair",
+    "rare_states": "not_all_naturally_exercised",
+    "clocks": {
+      "nachher-wald-zoom32.png": "12:00",
+      "nachher-wald-zoom8.png": "12:00",
+      "nachher-zoom32.png": "12:00",
+      "nachher-zoom4.png": "11:00",
+      "nachher-zoom8.png": "12:00",
+      "vorher-wald-zoom32.png": "12:00",
+      "vorher-wald-zoom8.png": "12:00",
+      "vorher-zoom32.png": "12:00",
+      "vorher-zoom4.png": "11:00",
+      "vorher-zoom8.png": "12:00"
+    }
+  }
+}

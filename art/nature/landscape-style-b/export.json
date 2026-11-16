@@ -1,0 +1,1703 @@
+{
+  "files": [
+    {
+      "file": "ground/ground_soil_0.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "1556bbcd08563ada4d4f210a0b2ca24a5208be9eca5544f61da872bf982a9123",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_soil_1.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "4ca1a03328cded8c1e40a1500d1d263e78bc27f140e4de1434f7ff7f9ed2163d",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_soil_2.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "c80b323ca1713eca5ace1fac5230229086a0eecb5e7aaf62c12417a3185c36f6",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_soil_3.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "92710216d816a34331c3d5b9b4ba9c719165382a5c8c83ba4b2a5ce079825be1",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_sand_0.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "14c179f5e105ec52c83a6babf8266b0b5c07efc2cd0a8d6d766abe92bd57b40e",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_sand_1.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "f9857ce8c652174226885a9fa1c671883768bd27b043de0fb5898c3c2e92e50e",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_sand_2.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "a1b47c7f46783fff8dbe821054974f9f61dbb98290e95aa8aec4cd241b955bc6",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_sand_3.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "41380b470ab96a41828c29e0ca1f03d13c578de13155907214298e8e86fe98de",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_rock_0.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "42237e81fddd21653d7ef4e24cde03aff361431713b5a4fbebeb0152dc0bf16c",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_rock_1.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "44509f262600fd0dcf94512e89a7ae002f0a5db63adfe6982478a302d8979b06",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_rock_2.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "60c4d52d88de41b0817e7e30e8b989413c6f55da3b213deed1a2afb879d878c3",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_rock_3.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "ae96601457aec0b57d1a31f4091851dff41860a3382ef3cb251c75efbfbd7309",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_grass_wet_0.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "890571fa49aba06748444c27b1b95a63752cf6db8398af23858559adfd262d95",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_grass_wet_1.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "e98593ee6f033e018071d5ba7be701380e5e11fb6cdb04d34ac39bb7c7d22ae8",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_grass_wet_2.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "4eaa524c260701252dfcf3d908e80818d130d5382662040ee6718beb5b942065",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_grass_wet_3.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "85b343aab00c462d02a0a7a9e1d1297e8ca927f773a5956ea9db71b12f3adca0",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_grass_dry_0.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "9cbe748e8218179e00466c375e1adbf0fe51c9b5736a5378be9f25e532c5354d",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_grass_dry_1.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "7ccc81b1287a040b824110aab30fcb2f11da86e5d696034ad1e9c68a60975271",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_grass_dry_2.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "7c14bb7876a8fab073df4cee0434a6e0f35f19deb73e240a796bb8a1299534f7",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_grass_dry_3.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "fea94875cb72e78d3f20c75d92a152cc2633493c527ec05f2375dde430a2ec7d",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_burnt_0.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "590a541fe715034e1469b655920074f16fc41ed15f6c3be4e1955bdea1f93c9d",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_burnt_1.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "557fc585b86ded35c3e5639034e500491ab890caf3b608a2f84e9477792d176e",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_burnt_2.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "0bb7dfce2c886363d748fc9079ab02e30ed1abd7a9b19258f984bb766b6ca3b1",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_burnt_3.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "a929d9c5e497eddea7003f0a8d3ba05975d09f12402bce240a42bf5a8a619648",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_shrub_floor_0.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "a3c04692e3eaad3c6c4a774c2d6d6ddd4c5e4bac108bbdbb2162629aef3e9cdd",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_shrub_floor_1.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "9db0798bf83c38d6dfb5b9e56a6b064e55c03bd8360195a8818e2897fe325f89",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_shrub_floor_2.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "bedc0f57a623e21d4620ca4b990df01b1ca1d14da481d36fe180f5fe3c6d0294",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_shrub_floor_3.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "a1e77decf8ff3c8bb1b0a2a7e3410f068d87e8ea757e3dd965276f18dfa06a4d",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_forest_floor_0.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "1965e2f841043f595f73b9ebdda2e4c7847d82f2edebddac8f8c3b92e4b6b3ac",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_forest_floor_1.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "e95058edac52344fdcce7ffa5095b6fc5657e4d940258c21abe18496e686b8da",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_forest_floor_2.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "adf96dbd9b77d61ac4ac6e758d82ebf83832a25b553f6596fee5d4b22411ecfc",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_forest_floor_3.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "2dc90d62d9daba73e590a66930cac467a176717e1e03fa77bacaa77a674ef70c",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_silt_0.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "375bcb3adc0ac7a21873d7defc519585f0e8373329992529e369fb3d283b87ae",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_silt_1.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "67964f7a088bc336cac97b37e6aa07c9b1ca70e26d44d76170259d96ea865e7b",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_silt_2.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "48c5d716d9b82e55805466f535a968b0e68a628dbf4524a68ac2b12e95627bc0",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "ground/ground_silt_3.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "c2356b167c98e1af34d042d33f8c483034a2a5d052c1d0aed23d4a5fd4a282de",
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "walls/wall_soil_0.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "fe4de65aed34643f1bc7a813f5308290e67252efab9bb27483eaa544fb32e4d7",
+      "anchor": [
+        64,
+        64
+      ],
+      "display_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "file": "walls/wall_soil_1.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "dc024a4f582fa8547a7fb7195b19ea86973af5ba2f6db52ffead1541a9bb69bb",
+      "anchor": [
+        64,
+        64
+      ],
+      "display_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "file": "walls/wall_sand_0.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "8118ac7f5fa8bc253154477c1941f8e53c64243d54355fd4fed462861cd7b4fc",
+      "anchor": [
+        64,
+        64
+      ],
+      "display_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "file": "walls/wall_sand_1.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "b342229c505223fabbbe4fb8046e7de1fa2fd615f45bbc4e99812f09128d6b98",
+      "anchor": [
+        64,
+        64
+      ],
+      "display_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "file": "walls/wall_rock_0.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "6f04e316f578f1f9a75320f9c23bdd0cea7ee292f96fdd31d41cc4b985b9751d",
+      "anchor": [
+        64,
+        64
+      ],
+      "display_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "file": "walls/wall_rock_1.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "c88cdeafc53a9c07d8a7a7e0f0f53b127614b66f3a02d9a26f4f04846283330b",
+      "anchor": [
+        64,
+        64
+      ],
+      "display_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "file": "walls/wall_rock_2.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "3f53623a32fa954a2ffa4d4a50bd5df80ed98fa8b283f01f5e9676ffadbd3ad7",
+      "anchor": [
+        64,
+        64
+      ],
+      "display_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "file": "vegetation/tree_young_0_normal.png",
+      "size": [
+        80,
+        112
+      ],
+      "sha256": "5e7e6c8514b0b171fc199ebb82c7c6ac7487ad23082cb9b7a68dd7bb43e6fb35",
+      "anchor": [
+        40,
+        104
+      ],
+      "display_size": [
+        10,
+        14
+      ],
+      "proportional_factor": 0.2774725274725275,
+      "source_foot": [
+        93.0,
+        364
+      ]
+    },
+    {
+      "file": "vegetation/tree_young_0_stressed.png",
+      "size": [
+        80,
+        112
+      ],
+      "sha256": "39456067a749b181457fc337a2652ba870e8d0275dbcf968056a3a63a76878f0",
+      "anchor": [
+        40,
+        104
+      ],
+      "display_size": [
+        10,
+        14
+      ],
+      "proportional_factor": 0.2774725274725275,
+      "source_foot": [
+        95.0,
+        363
+      ]
+    },
+    {
+      "file": "vegetation/tree_young_1_normal.png",
+      "size": [
+        80,
+        112
+      ],
+      "sha256": "723e926584593f8f9f187771178de24b2bb2fb9f64ba6c41b719303be2c98b0d",
+      "anchor": [
+        40,
+        104
+      ],
+      "display_size": [
+        10,
+        14
+      ],
+      "proportional_factor": 0.2722371967654987,
+      "source_foot": [
+        102.5,
+        371
+      ]
+    },
+    {
+      "file": "vegetation/tree_young_1_stressed.png",
+      "size": [
+        80,
+        112
+      ],
+      "sha256": "73e9c9704562fd547427ac6dd314da91e24adc17ebbdab082bd436ec49a571bf",
+      "anchor": [
+        40,
+        104
+      ],
+      "display_size": [
+        10,
+        14
+      ],
+      "proportional_factor": 0.2722371967654987,
+      "source_foot": [
+        101.5,
+        371
+      ]
+    },
+    {
+      "file": "vegetation/tree_young_2_normal.png",
+      "size": [
+        80,
+        112
+      ],
+      "sha256": "5f20154aa6a904cca210ca56b684ffa0ba85ee0988ac9861a4877f1bae6f1b12",
+      "anchor": [
+        40,
+        104
+      ],
+      "display_size": [
+        10,
+        14
+      ],
+      "proportional_factor": 0.27900552486187846,
+      "source_foot": [
+        123.5,
+        362
+      ]
+    },
+    {
+      "file": "vegetation/tree_young_2_stressed.png",
+      "size": [
+        80,
+        112
+      ],
+      "sha256": "9d60797739f577c46036c032824dbd2d00ec09018befc7e5912aef9c5f5106d3",
+      "anchor": [
+        40,
+        104
+      ],
+      "display_size": [
+        10,
+        14
+      ],
+      "proportional_factor": 0.27900552486187846,
+      "source_foot": [
+        108.5,
+        357
+      ]
+    },
+    {
+      "file": "vegetation/tree_young_3_normal.png",
+      "size": [
+        80,
+        112
+      ],
+      "sha256": "2689745b448a9468ef3747130e1ea40b269f76c417a2f2a5f5ef674de01ea72b",
+      "anchor": [
+        40,
+        104
+      ],
+      "display_size": [
+        10,
+        14
+      ],
+      "proportional_factor": 0.271505376344086,
+      "source_foot": [
+        91.0,
+        372
+      ]
+    },
+    {
+      "file": "vegetation/tree_young_3_stressed.png",
+      "size": [
+        80,
+        112
+      ],
+      "sha256": "0590da55b2183489a82cc0fd5b1d9714cde69748c567f4f0a3e4323cab7eb8f6",
+      "anchor": [
+        40,
+        104
+      ],
+      "display_size": [
+        10,
+        14
+      ],
+      "proportional_factor": 0.271505376344086,
+      "source_foot": [
+        85.5,
+        371
+      ]
+    },
+    {
+      "file": "vegetation/tree_mid_0_normal.png",
+      "size": [
+        112,
+        176
+      ],
+      "sha256": "147eb89dbf1ad382014679f2cff4f475e40dc6eab21bbaea0a18ff1ec1e623ca",
+      "anchor": [
+        56,
+        168
+      ],
+      "display_size": [
+        14,
+        22
+      ],
+      "proportional_factor": 0.2440828402366864,
+      "source_foot": [
+        96.5,
+        676
+      ]
+    },
+    {
+      "file": "vegetation/tree_mid_0_stressed.png",
+      "size": [
+        112,
+        176
+      ],
+      "sha256": "8a3c1ff9a662ea390fa0378ad098657b4085d4c556048341ab08e1bac7676440",
+      "anchor": [
+        56,
+        168
+      ],
+      "display_size": [
+        14,
+        22
+      ],
+      "proportional_factor": 0.2440828402366864,
+      "source_foot": [
+        93.5,
+        672
+      ]
+    },
+    {
+      "file": "vegetation/tree_mid_1_normal.png",
+      "size": [
+        112,
+        176
+      ],
+      "sha256": "920facc1f90337e1d5c4bab68c3603232b49e41f5f8ed5b70d9e03b915a689d2",
+      "anchor": [
+        56,
+        168
+      ],
+      "display_size": [
+        14,
+        22
+      ],
+      "proportional_factor": 0.2470059880239521,
+      "source_foot": [
+        85.5,
+        668
+      ]
+    },
+    {
+      "file": "vegetation/tree_mid_1_stressed.png",
+      "size": [
+        112,
+        176
+      ],
+      "sha256": "e376d150cd8ac2f2406b9d3b0ff14dde7797bbb52b8c0f5a745dbbf859b1f9f9",
+      "anchor": [
+        56,
+        168
+      ],
+      "display_size": [
+        14,
+        22
+      ],
+      "proportional_factor": 0.2470059880239521,
+      "source_foot": [
+        81.5,
+        667
+      ]
+    },
+    {
+      "file": "vegetation/tree_mid_2_normal.png",
+      "size": [
+        112,
+        176
+      ],
+      "sha256": "5277020c6a1ddd73833d13acc2e51ed02e805ca44220d276ab3ead78758b0061",
+      "anchor": [
+        56,
+        168
+      ],
+      "display_size": [
+        14,
+        22
+      ],
+      "proportional_factor": 0.2562111801242236,
+      "source_foot": [
+        94.5,
+        644
+      ]
+    },
+    {
+      "file": "vegetation/tree_mid_2_stressed.png",
+      "size": [
+        112,
+        176
+      ],
+      "sha256": "f59ad1393711c6bd39588d7cf7fe16ae20b0f93f077d073864edab1761efaf3d",
+      "anchor": [
+        56,
+        168
+      ],
+      "display_size": [
+        14,
+        22
+      ],
+      "proportional_factor": 0.2562111801242236,
+      "source_foot": [
+        93.5,
+        643
+      ]
+    },
+    {
+      "file": "vegetation/tree_mid_3_normal.png",
+      "size": [
+        112,
+        176
+      ],
+      "sha256": "32bd25069e50fed459a9cb8dc6236c5dcc80754b438e54ed30c42d0b58dc778b",
+      "anchor": [
+        56,
+        168
+      ],
+      "display_size": [
+        14,
+        22
+      ],
+      "proportional_factor": 0.24774774774774774,
+      "source_foot": [
+        69.5,
+        665
+      ]
+    },
+    {
+      "file": "vegetation/tree_mid_3_stressed.png",
+      "size": [
+        112,
+        176
+      ],
+      "sha256": "3037f9bc5e62f12a8472b4a7b6c70356b79c4f695c55333532922ee9d4acf66d",
+      "anchor": [
+        56,
+        168
+      ],
+      "display_size": [
+        14,
+        22
+      ],
+      "proportional_factor": 0.24774774774774774,
+      "source_foot": [
+        68.0,
+        666
+      ]
+    },
+    {
+      "file": "vegetation/tree_old_0_normal.png",
+      "size": [
+        144,
+        240
+      ],
+      "sha256": "7cb41605e0c7963e85b3fc2af7980c2c26707df83cc6edfb1c5270de7f1c4729",
+      "anchor": [
+        72,
+        232
+      ],
+      "display_size": [
+        18,
+        30
+      ],
+      "proportional_factor": 0.36995153473344106,
+      "source_foot": [
+        139.0,
+        619
+      ]
+    },
+    {
+      "file": "vegetation/tree_old_0_stressed.png",
+      "size": [
+        144,
+        240
+      ],
+      "sha256": "05da04750f8c663bc8e7d320d218474dca98d03c9eab416ec7fb58f7c8e5c054",
+      "anchor": [
+        72,
+        232
+      ],
+      "display_size": [
+        18,
+        30
+      ],
+      "proportional_factor": 0.36995153473344106,
+      "source_foot": [
+        137.5,
+        618
+      ]
+    },
+    {
+      "file": "vegetation/tree_old_1_normal.png",
+      "size": [
+        144,
+        240
+      ],
+      "sha256": "5e2e8557d91d1fb72d1d961d89db32578e7b5d117608fcdf9863bafab235a7eb",
+      "anchor": [
+        72,
+        232
+      ],
+      "display_size": [
+        18,
+        30
+      ],
+      "proportional_factor": 0.3741830065359477,
+      "source_foot": [
+        132.0,
+        609
+      ]
+    },
+    {
+      "file": "vegetation/tree_old_1_stressed.png",
+      "size": [
+        144,
+        240
+      ],
+      "sha256": "24b79cda55d7fe837770d6b7f17098696b4ce6ec131175a39dbaafcba0909f88",
+      "anchor": [
+        72,
+        232
+      ],
+      "display_size": [
+        18,
+        30
+      ],
+      "proportional_factor": 0.3741830065359477,
+      "source_foot": [
+        131.0,
+        612
+      ]
+    },
+    {
+      "file": "vegetation/tree_old_2_normal.png",
+      "size": [
+        144,
+        240
+      ],
+      "sha256": "1100c9b9d1d4211a366efb9159d54aa88bbff98a61da184245f4eb09fa6d2339",
+      "anchor": [
+        72,
+        232
+      ],
+      "display_size": [
+        18,
+        30
+      ],
+      "proportional_factor": 0.38422818791946306,
+      "source_foot": [
+        116.5,
+        596
+      ]
+    },
+    {
+      "file": "vegetation/tree_old_2_stressed.png",
+      "size": [
+        144,
+        240
+      ],
+      "sha256": "bc520af6710c18434f81f51dce206dcf5ace8c040dfd1e3712fa3e70a0351001",
+      "anchor": [
+        72,
+        232
+      ],
+      "display_size": [
+        18,
+        30
+      ],
+      "proportional_factor": 0.38422818791946306,
+      "source_foot": [
+        115.5,
+        596
+      ]
+    },
+    {
+      "file": "vegetation/tree_old_3_normal.png",
+      "size": [
+        144,
+        240
+      ],
+      "sha256": "5ce42b6d3a4575b39539937be28b2359e5484683e41e7754f2d4e453c9bdc776",
+      "anchor": [
+        72,
+        232
+      ],
+      "display_size": [
+        18,
+        30
+      ],
+      "proportional_factor": 0.37664473684210525,
+      "source_foot": [
+        154.5,
+        606
+      ]
+    },
+    {
+      "file": "vegetation/tree_old_3_stressed.png",
+      "size": [
+        144,
+        240
+      ],
+      "sha256": "d5da0f48a0ec5426b24090d26e4d874bc6ec2b63424d1f58b974daf7ebdee75d",
+      "anchor": [
+        72,
+        232
+      ],
+      "display_size": [
+        18,
+        30
+      ],
+      "proportional_factor": 0.37664473684210525,
+      "source_foot": [
+        150.5,
+        608
+      ]
+    },
+    {
+      "file": "vegetation/shrub_0_normal.png",
+      "size": [
+        80,
+        64
+      ],
+      "sha256": "3d3a8d3d2d6b408ccec6e0790cba6ac0fad238896b910037cb7944cab19d389f",
+      "anchor": [
+        40,
+        56
+      ],
+      "display_size": [
+        10,
+        8
+      ],
+      "proportional_factor": 0.21082621082621084,
+      "source_foot": [
+        165.5,
+        244
+      ]
+    },
+    {
+      "file": "vegetation/shrub_0_stressed.png",
+      "size": [
+        80,
+        64
+      ],
+      "sha256": "53854dacf47703e37c181f1d8907dd060dc7f09f0b887e325af7c1e76652578d",
+      "anchor": [
+        40,
+        56
+      ],
+      "display_size": [
+        10,
+        8
+      ],
+      "proportional_factor": 0.21082621082621084,
+      "source_foot": [
+        168.5,
+        243
+      ]
+    },
+    {
+      "file": "vegetation/shrub_1_normal.png",
+      "size": [
+        80,
+        64
+      ],
+      "sha256": "83e1ff6508d9dfd2996fbf9eaba7f765983795ca633e7cc03e994a7de4dccea6",
+      "anchor": [
+        40,
+        56
+      ],
+      "display_size": [
+        10,
+        8
+      ],
+      "proportional_factor": 0.18092909535452323,
+      "source_foot": [
+        189.5,
+        244
+      ]
+    },
+    {
+      "file": "vegetation/shrub_1_stressed.png",
+      "size": [
+        80,
+        64
+      ],
+      "sha256": "eae0e491835861348ebcff7640f2f68760c137599a829b490fdd5fb3ef2c728d",
+      "anchor": [
+        40,
+        56
+      ],
+      "display_size": [
+        10,
+        8
+      ],
+      "proportional_factor": 0.18092909535452323,
+      "source_foot": [
+        188.5,
+        242
+      ]
+    },
+    {
+      "file": "vegetation/shrub_2_normal.png",
+      "size": [
+        80,
+        64
+      ],
+      "sha256": "06b6de465e637c09709eaced69747387562be791967c1bf1a132b2644a59707e",
+      "anchor": [
+        40,
+        56
+      ],
+      "display_size": [
+        10,
+        8
+      ],
+      "proportional_factor": 0.19121447028423771,
+      "source_foot": [
+        186.5,
+        277
+      ]
+    },
+    {
+      "file": "vegetation/shrub_2_stressed.png",
+      "size": [
+        80,
+        64
+      ],
+      "sha256": "ff8f8b55238410be60d49cf78afad2d88e624e02ea1f605fba7acc3231742367",
+      "anchor": [
+        40,
+        56
+      ],
+      "display_size": [
+        10,
+        8
+      ],
+      "proportional_factor": 0.19121447028423771,
+      "source_foot": [
+        189.5,
+        275
+      ]
+    },
+    {
+      "file": "vegetation/shrub_3_normal.png",
+      "size": [
+        80,
+        64
+      ],
+      "sha256": "5fa66e00edfb9127ab80962c65aa70e965df7018b6eb6f4491eb4982c95e5513",
+      "anchor": [
+        40,
+        56
+      ],
+      "display_size": [
+        10,
+        8
+      ],
+      "proportional_factor": 0.1791767554479419,
+      "source_foot": [
+        180.5,
+        249
+      ]
+    },
+    {
+      "file": "vegetation/shrub_3_stressed.png",
+      "size": [
+        80,
+        64
+      ],
+      "sha256": "5aaa22d855caec8aa5e077b00c4eb67a4659014d99c248a703f3388c0629ad72",
+      "anchor": [
+        40,
+        56
+      ],
+      "display_size": [
+        10,
+        8
+      ],
+      "proportional_factor": 0.1791767554479419,
+      "source_foot": [
+        178.5,
+        250
+      ]
+    },
+    {
+      "file": "vegetation/snag_standing_0_normal.png",
+      "size": [
+        48,
+        176
+      ],
+      "sha256": "eabe0365c85394a583ce6aeaa54a6720e9f84821253c864db8a9e8942287e73c",
+      "anchor": [
+        24,
+        168
+      ],
+      "display_size": [
+        6,
+        22
+      ],
+      "proportional_factor": 0.22571819425444598,
+      "source_foot": [
+        69.0,
+        731
+      ]
+    },
+    {
+      "file": "vegetation/snag_standing_0_charred.png",
+      "size": [
+        48,
+        176
+      ],
+      "sha256": "b67f68e5f16462388cc0058413c1fcf18df0f74a9025d450c42a371d2567a022",
+      "anchor": [
+        24,
+        168
+      ],
+      "display_size": [
+        6,
+        22
+      ],
+      "proportional_factor": 0.22571819425444598,
+      "source_foot": [
+        68.5,
+        730
+      ]
+    },
+    {
+      "file": "vegetation/snag_standing_1_normal.png",
+      "size": [
+        48,
+        176
+      ],
+      "sha256": "a6fbfe96433bf15704701f382c8c7697dc5e39952bc2f179f85199b8fe9e817f",
+      "anchor": [
+        24,
+        168
+      ],
+      "display_size": [
+        6,
+        22
+      ],
+      "proportional_factor": 0.22571819425444598,
+      "source_foot": [
+        67.5,
+        729
+      ]
+    },
+    {
+      "file": "vegetation/snag_standing_1_charred.png",
+      "size": [
+        48,
+        176
+      ],
+      "sha256": "8777253324a8a13496e5f18da4d1f7d22fc2a5808d76135fb8be0067335eb884",
+      "anchor": [
+        24,
+        168
+      ],
+      "display_size": [
+        6,
+        22
+      ],
+      "proportional_factor": 0.22571819425444598,
+      "source_foot": [
+        67.5,
+        731
+      ]
+    },
+    {
+      "file": "vegetation/snag_standing_2_normal.png",
+      "size": [
+        48,
+        176
+      ],
+      "sha256": "4677e1f94002d7c54b0b62f420eec6e04803a6634c827df26b9d0d25491401ea",
+      "anchor": [
+        24,
+        168
+      ],
+      "display_size": [
+        6,
+        22
+      ],
+      "proportional_factor": 0.22821576763485477,
+      "source_foot": [
+        57.5,
+        723
+      ]
+    },
+    {
+      "file": "vegetation/snag_standing_2_charred.png",
+      "size": [
+        48,
+        176
+      ],
+      "sha256": "0a24f54fd0daf59152773173bc16fb03a05fb9f3d09fe9db53bbb96ef178f2e7",
+      "anchor": [
+        24,
+        168
+      ],
+      "display_size": [
+        6,
+        22
+      ],
+      "proportional_factor": 0.22821576763485477,
+      "source_foot": [
+        57.5,
+        723
+      ]
+    },
+    {
+      "file": "vegetation/snag_standing_3_normal.png",
+      "size": [
+        48,
+        176
+      ],
+      "sha256": "e95781067da455828d622c091743e634f1c135b52395958ff3ba9b1b1eb57929",
+      "anchor": [
+        24,
+        168
+      ],
+      "display_size": [
+        6,
+        22
+      ],
+      "proportional_factor": 0.22602739726027396,
+      "source_foot": [
+        67.5,
+        728
+      ]
+    },
+    {
+      "file": "vegetation/snag_standing_3_charred.png",
+      "size": [
+        48,
+        176
+      ],
+      "sha256": "967db74debbc8ffc9bb5f0d2941af650c368a4d98ec7526741d49dc6a9078f96",
+      "anchor": [
+        24,
+        168
+      ],
+      "display_size": [
+        6,
+        22
+      ],
+      "proportional_factor": 0.22602739726027396,
+      "source_foot": [
+        66.5,
+        730
+      ]
+    },
+    {
+      "file": "vegetation/log_fallen_0_normal.png",
+      "size": [
+        128,
+        40
+      ],
+      "sha256": "0892a9cb04956cd13a777deb34541b6d37321a50cca44cd8b9eaa874c76b865b",
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        16,
+        5
+      ],
+      "proportional_factor": 0.2406311637080868,
+      "source_foot": [
+        253.5,
+        95
+      ]
+    },
+    {
+      "file": "vegetation/log_fallen_0_charred.png",
+      "size": [
+        128,
+        40
+      ],
+      "sha256": "a87f737bb3453988e8a58fd6d34d13c1a9c4647928944b68661a110ecc5524e5",
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        16,
+        5
+      ],
+      "proportional_factor": 0.2406311637080868,
+      "source_foot": [
+        253.5,
+        96
+      ]
+    },
+    {
+      "file": "vegetation/log_fallen_1_normal.png",
+      "size": [
+        128,
+        40
+      ],
+      "sha256": "aa7b38f50ad0d6a4f99a43767ff19d239aee3d32aacfe888d45a4cedf1adfcf2",
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        16,
+        5
+      ],
+      "proportional_factor": 0.23968565815324164,
+      "source_foot": [
+        254.5,
+        99
+      ]
+    },
+    {
+      "file": "vegetation/log_fallen_1_charred.png",
+      "size": [
+        128,
+        40
+      ],
+      "sha256": "a970b23cf8c0b2742cacdc3790ed3501d5145b2bbc9a2ff112ff9db3149fc650",
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        16,
+        5
+      ],
+      "proportional_factor": 0.23968565815324164,
+      "source_foot": [
+        254.5,
+        98
+      ]
+    },
+    {
+      "file": "vegetation/log_fallen_2_normal.png",
+      "size": [
+        128,
+        40
+      ],
+      "sha256": "a602c92b62951ecf6035bfe4a3246db1ffa1cb81bba633585e8606c469d53da0",
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        16,
+        5
+      ],
+      "proportional_factor": 0.23968565815324164,
+      "source_foot": [
+        254.5,
+        82
+      ]
+    },
+    {
+      "file": "vegetation/log_fallen_2_charred.png",
+      "size": [
+        128,
+        40
+      ],
+      "sha256": "392310ff14fc3691009fbe82c5836d9b4cd8bf2f2de220ffb9dfaa6be3eab87b",
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        16,
+        5
+      ],
+      "proportional_factor": 0.23968565815324164,
+      "source_foot": [
+        254.0,
+        81
+      ]
+    },
+    {
+      "file": "vegetation/log_fallen_3_normal.png",
+      "size": [
+        128,
+        40
+      ],
+      "sha256": "55f3ae56164de9256b98fae24375229445dae13579bb892343b23841a782feab",
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        16,
+        5
+      ],
+      "proportional_factor": 0.24110671936758893,
+      "source_foot": [
+        253.0,
+        90
+      ]
+    },
+    {
+      "file": "vegetation/log_fallen_3_charred.png",
+      "size": [
+        128,
+        40
+      ],
+      "sha256": "97270e8b61ad35d871743628ab2f21159bef13bbdec04786a91db3fed60fb92e",
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        16,
+        5
+      ],
+      "proportional_factor": 0.24110671936758893,
+      "source_foot": [
+        253.0,
+        89
+      ]
+    }
+  ],
+  "periodic_edges": true,
+  "variant_edges_identical": true,
+  "visual_approval": "pending"
+}
