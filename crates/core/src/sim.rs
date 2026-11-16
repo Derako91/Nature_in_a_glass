@@ -19,7 +19,7 @@ pub const DAYS_PER_YEAR: u64 = 365;
 pub const HOURS_PER_YEAR: u64 = HOURS_PER_DAY * DAYS_PER_YEAR;
 
 /// Version des Spielstand-Formats. Erhöhen, wenn sich die Struktur ändert.
-pub const SAVE_FORMAT_VERSION: u32 = 13;
+pub const SAVE_FORMAT_VERSION: u32 = 14;
 pub const ENGINE_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 pub const DEFAULT_SIZE: u32 = 64;
@@ -1027,6 +1027,9 @@ impl Simulation {
                 NewsKind::CampSplit => (EventKind::CampSplit, "Aufbruch"),
                 NewsKind::VillageFounded => (EventKind::VillageFounded, "Lager nah beieinander"),
                 NewsKind::VillageGone => (EventKind::VillageGone, "Lager verlassen"),
+                NewsKind::CampMoved => (EventKind::CampMoved, "Wasser oder Holz fehlt"),
+                NewsKind::ToolInvented => (EventKind::ToolInvented, "Übung"),
+                NewsKind::ToolLost => (EventKind::ToolLost, "Wissen verloren"),
                 NewsKind::CampfireSpread => {
                     // Wie ein Blitz: Der Brand wird verfolgt, bis er erlischt.
                     if !self.fire_tracker.active {
@@ -1343,6 +1346,7 @@ impl Simulation {
             feed(p.fishing.to_bits() as u64);
             feed(p.farming.to_bits() as u64);
             feed(p.settle as u64);
+            feed(p.tools as u64);
         }
         feed(self.people.departed.len() as u64);
         for c in &self.people.camps {
@@ -1598,7 +1602,7 @@ impl Simulation {
                 sim.migrate_from_v4();
             }
             4 => sim.migrate_from_v4(),
-            5..=12 => {}
+            5..=13 => {}
             other => {
                 return Err(format!(
                     "Spielstand-Format {other} wird nicht unterstützt (erwartet 1 bis {SAVE_FORMAT_VERSION})."

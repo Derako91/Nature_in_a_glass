@@ -35,9 +35,11 @@ use crate::world::{POND_MM, World};
 
 mod camps;
 mod gardens;
+mod tools;
 mod villages;
 pub use camps::{Camp, CampStage};
 pub use gardens::Garden;
+pub use tools::{TOOLS, Tool};
 pub use villages::{Village, village_of};
 
 /// Mindestabstand zwischen zwei bewohnten Lagerplätzen (Felder).
@@ -258,6 +260,9 @@ pub struct Person {
     /// seit Format 12.
     #[serde(default)]
     pub settle: u32,
+    /// Bekannte Werkzeuge (Bits von `Tool`), seit Format 14.
+    #[serde(default)]
+    pub tools: u8,
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq)]
@@ -289,6 +294,15 @@ impl Person {
     /// Kleinkind: wird getragen und versorgt.
     pub fn is_small_child(&self) -> bool {
         self.age_days < SMALL_CHILD_DAYS
+    }
+    /// So viel Nahrung trägt man (mit Korb mehr).
+    pub fn pack_max(&self) -> f32 {
+        PACK_MAX
+            + if self.knows(Tool::Basket) {
+                tools::BASKET_PACK
+            } else {
+                0.0
+            }
     }
     /// Kind (noch nicht erwachsen).
     pub fn is_child(&self) -> bool {
@@ -379,6 +393,12 @@ pub enum NewsKind {
     VillageFounded,
     /// Ein Dorf zerfällt.
     VillageGone,
+    /// Ein ganzes Lager zieht um.
+    CampMoved,
+    /// Ein Werkzeug wird erfunden (oder wiederentdeckt).
+    ToolInvented,
+    /// Niemand kann ein Werkzeug mehr herstellen.
+    ToolLost,
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq)]
@@ -428,6 +448,11 @@ pub struct People {
     /// Zerfallene Dörfer: Name und Mitte (für die Wiederkehr am selben Ort).
     #[serde(default)]
     former_villages: Vec<(String, u32)>,
+    /// Werkzeuge, die je erfunden wurden bzw. die heute jemand kann (Bits).
+    #[serde(default)]
+    pub tools_ever: u8,
+    #[serde(default)]
+    pub tools_alive: u8,
 }
 
 const FEMALE_NAMES: [&str; 30] = [
@@ -817,6 +842,7 @@ impl People {
                 fishing: 0.25 * rng.next_f32(),
                 farming: 0.0,
                 settle: 0,
+                tools: 0,
             };
             p.note(
                 now,
@@ -985,11 +1011,11 @@ fn day(
                 let water = info.drink;
                 let food = info.food * (1.0 - people.taken[i])
                     + info.fish * p.fishing * (1.0 - people.fished[i]);
-                // Trockene Stellen vergisst man erst, wenn man davorsteht:
-                // Ein Bach kann nach dem nächsten Regen wieder fließen.
+                // Ausgetrocknete Stellen, die man sieht, streicht man; fließt der
+                // Bach nach dem nächsten Regen wieder, merkt man ihn sich neu.
                 if water && standable(world, i) {
                     remember_water(p, world, i as u32, info.reliable, day);
-                } else if !water && dx.abs() <= 1 && dy.abs() <= 1 {
+                } else if !water {
                     forget_dry(p, i as u32);
                 }
                 remember(p, i as u32, PlaceKind::Food, food, day);
@@ -1139,7 +1165,10 @@ fn day(
                     && cheb(world, m.tile, start) <= 1
                     && !drinkable(world, m.tile as usize))
             });
-            let score = |m: &Place| s.cost[m.tile as usize] - 30.0 * m.value;
+            // Sehr durstig: zur nächsten bekannten Stelle, nicht zur besten.
+            let desperate = p.thirst >= 0.45;
+            let score =
+                |m: &Place| s.cost[m.tile as usize] - if desperate { 0.0 } else { 30.0 * m.value };
             let known = p
                 .memory
                 .iter()
@@ -1355,7 +1384,12 @@ fn day(
             let work = (0.3 + 0.7 * time_left)
                 * if p.injury > 0.2 { 0.5 } else { 1.0 }
                 * if p.is_child() { 0.5 } else { 1.0 };
-            let got = (y * work).min(2.5);
+            let basket = if p.knows(Tool::Basket) {
+                tools::BASKET_FACTOR
+            } else {
+                1.0
+            };
+            let got = (y * work * basket).min(2.5 * basket);
             // Abgesammelt: Je mehr man holt, desto weniger bleibt.
             let cap = food_i.max(0.5) * 8.0;
             people.taken[i] = clamp01(people.taken[i] + got / cap);
@@ -1364,7 +1398,13 @@ fn day(
             // Fischen: bringt umso mehr, je geübter man ist; Übung macht geschickter.
             let fish_i = s.at(world, i).fish;
             if fish_i > 0.0 && !p.is_child() {
-                let caught = (fish_i * p.fishing * (1.0 - people.fished[i]) * work).min(2.0);
+                let net = if p.knows(Tool::Net) {
+                    tools::NET_FACTOR
+                } else {
+                    1.0
+                };
+                let caught =
+                    (fish_i * p.fishing * (1.0 - people.fished[i]) * work * net).min(2.0 * net);
                 people.fished[i] = clamp01(people.fished[i] + caught / (fish_i * 6.0));
                 food += caught;
                 fished = caught;
@@ -1408,7 +1448,7 @@ fn day(
         let want = if p.hunger > 0.3 { 1.5 } else { 1.0 };
         let eat = food.min(want);
         food -= eat;
-        p.pack = food.min(PACK_MAX);
+        p.pack = food.min(p.pack_max());
         p.hunger = clamp01(p.hunger + HUNGER_PER_DAY - HUNGER_PER_RATION * eat).max(0.0);
         // Wer heute vor allem gefischt hat, steht mit dem Speer am Ufer.
         if matches!(activity, Activity::Gather | Activity::Idle)
@@ -1524,6 +1564,7 @@ fn day(
     camps::camp_day(people, world, weather, now, rng, &mut news, effects);
     gardens::garden_day(people, world, weather, doy, now, rng, &mut news, effects);
     villages::village_day(people, world, now, rng, &mut news);
+    tools::tools_day(people, world, now, rng, &mut news);
 
     // --- Gefahren durch andere: Wölfe, Feuer ---
     for k in 0..people.list.len() {
@@ -2096,6 +2137,7 @@ fn family_day(
             fishing: 0.0,
             farming: 0.0,
             settle: 0,
+            tools: 0,
         };
         let parents = match &fname {
             Some(f) => format!("Mutter: {mname}, Vater: {f}."),
@@ -2144,8 +2186,9 @@ pub fn water_reliability(world: &World, i: usize) -> f32 {
         if t.is_ocean() {
             continue;
         }
+        // Flache Teiche trocknen in Dürren aus, tiefe Seen nicht.
         if t.surface_water > POND_MM {
-            best = 1.0;
+            best = best.max(0.5 + (t.surface_water - POND_MM) / 3000.0);
         }
         best = best.max(t.flow_permanence);
     }

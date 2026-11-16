@@ -1,5 +1,20 @@
 # Änderungen
 
+## 0.13.0 – Werkzeuge und Umzüge
+
+**Neu**
+- **Werkzeuge entstehen aus dem Tun:** Wer oft und geschickt fischt, knüpft irgendwann ein **Netz** und fängt damit viel mehr. Wer oft mit vollen Händen vom Sammeln kommt, flicht einen **Korb** – man sammelt mehr und trägt mehr. Wer oft Holz holt, schlägt sich ein **Steinbeil** und schafft doppelt so viel. Die Chronik meldet jede Erfindung als wichtiges Ereignis.
+- **Wissen geht weiter – oder verloren:** Wer mit Kundigen zusammen ist, lernt es mit der Zeit, Kinder schneller. Sterben alle, die es konnten, ist es verloren, bis es jemand neu erfindet.
+- **Ganze Lager ziehen um:** Versiegt die Wasserstelle am Lager für zwei Monate, oder fehlt einer kleinen Gruppe ein halbes Jahr lang Holz, ziehen alle zu einer guten Wasserstelle, die jemand von ihnen kennt.
+- **Fenster „Bewohner“** zeigt, was jemand kann: Fischen, Gärtnern und die Werkzeuge.
+
+**Behoben**
+- **Verdursten an ausgetrockneten Teichen (zweite Ursache):** In Dürren hielten die Menschen flache Teiche weiter für sichere Wasserstellen und gingen dorthin statt zum fließenden Bach – und verdursteten. Jetzt gelten flache Teiche als weniger verlässlich, Ausgetrocknetes in Sichtweite wird gestrichen, und sehr Durstige gehen zur nächsten bekannten Stelle.
+
+**Ergebnis:** Im Langlauf (16 Inseln, 120 Jahre) überleben jetzt 13 Gruppen mit zusammen rund 410 Menschen.
+
+**Spielstände** aus 0.12 lassen sich laden.
+
 ## 0.12.0 – Dörfer
 
 **Neu**

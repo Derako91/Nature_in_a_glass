@@ -506,3 +506,40 @@ fn camps_close_together_become_a_named_village() {
     sim.advance_days(60);
     assert!(sim.people.villages.is_empty(), "Dorf ohne Menschen");
 }
+
+// ---------- v0.13: Umzug und Werkzeuge ----------
+
+/// Fehlt einer kleinen Gruppe lange Holz (oder versiegt ihr Wasser), zieht
+/// das ganze Lager um: Auf Insel 99 gibt es um das erste Lager kaum Wald.
+#[test]
+fn a_camp_without_wood_moves_away() {
+    let sim = settled(99, 2);
+    let ev = sim
+        .journal
+        .events
+        .iter()
+        .find(|e| e.kind == EventKind::CampMoved)
+        .expect("Lager zieht nicht um");
+    assert!(ev.message.contains("aufgegeben"));
+    assert!(sim.people.camps.iter().any(|c| c.abandoned));
+    // Am Ziel entsteht ein neues Lager
+    assert!(sim.people.camps.iter().any(|c| !c.abandoned));
+}
+
+/// Werkzeuge entstehen aus dem Tun und gehen auf andere über.
+#[test]
+fn tools_are_invented_and_spread() {
+    use nig_core::people::TOOLS;
+    let sim = settled(5, 30);
+    let ev = &sim.journal.events;
+    assert!(
+        ev.iter().any(|e| e.kind == EventKind::ToolInvented),
+        "nichts erfunden"
+    );
+    let best = TOOLS
+        .iter()
+        .map(|t| sim.people.list.iter().filter(|p| p.knows(*t)).count())
+        .max()
+        .unwrap_or(0);
+    assert!(best >= 2, "Wissen geht nicht weiter");
+}

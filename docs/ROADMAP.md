@@ -151,10 +151,18 @@ Die Bewohner bauen selbst – der Beobachter gibt keine Bauaufträge (Prinzip 1)
 - [x] Dorf als erkennbare Einheit: entsteht aus nahen Lagern, Name aus der Umgebung, in der Chronik.
 - [x] Austausch zwischen Lagern eines Dorfes: Vorräte in Hungerzeiten, Partner aus dem Nachbarlager.
 
-## Als Nächstes
+## ✅ v0.13 – Werkzeuge und Umzüge (v0.13.0)
 
-- Ein ganzes Lager zieht um, wenn Wasser oder Holz dauerhaft ausbleiben.
-- Werkzeuge und Können über Fischen und Gärtnern hinaus (Steinwerkzeug, Netze, Körbe), Weitergabe im Dorf.
+[ADR 0011](../decisions/0011-tools-from-practice.md).
+- [x] Netz, Korb, Steinbeil – erfunden aus dem Tun, weitergegeben durch Abschauen, verloren mit den Toten.
+- [x] Ganze Lager ziehen um, wenn Wasser oder Holz dauerhaft ausbleiben.
+- [x] Zweite Ursache für Verdursten in Dürren behoben.
+
+## Als Nächstes (Ideen)
+
+- Weitere Erfindungen: Boot (Fischen auf dem Meer, andere Küsten), Tongefäß (Vorräte halten länger), Speerschleuder (Jagd).
+- Jagd als eigene Tätigkeit (Wild wird weniger).
+- Rollen im Dorf, die aus Können entstehen (wer am besten fischt, fischt öfter).
 
 - Mehrere Lager einer wachsenden Gruppe; Siedlungen entstehen dort, wo Wasser, Nahrung und Schutz zusammenkommen.
 - Werkzeuge und erstes Können (wer gut baut, baut öfter), weitergegeben an die Kinder.

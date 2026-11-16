@@ -87,6 +87,9 @@ pub struct Camp {
     /// Nahrung, die Nachbarn aus dem Dorf gebracht haben (seit Format 13).
     #[serde(default)]
     pub help_received: f32,
+    /// Tage in Folge, an denen am Lager kein Wasser zu finden ist (seit Format 14).
+    #[serde(default)]
+    pub dry_days: u16,
 }
 
 impl Camp {
@@ -324,6 +327,7 @@ pub(super) fn camp_day(
                 fire_today: false,
                 no_wood_days: 0,
                 help_received: 0.0,
+                dry_days: 0,
             });
             let text = if first {
                 format!(
@@ -379,6 +383,12 @@ pub(super) fn camp_day(
         }
         camp.last_used_day = day;
         camp.condition = (camp.condition + 0.02).min(1.0);
+        // Wasser am Lager: auf dem Feld oder gleich daneben
+        if drinkable(world, ctile as usize) {
+            camp.dry_days = 0;
+        } else {
+            camp.dry_days = camp.dry_days.saturating_add(1);
+        }
 
         // Feuer: zum Kochen, bei Kälte auch zum Wärmen
         let burn = 0.1 + if temp < 6.0 { 0.3 } else { 0.0 };
@@ -392,7 +402,19 @@ pub(super) fn camp_day(
         // Holz holen, wenn es fehlt
         let hut_needed = members > camp.huts as usize * HUT_PEOPLE && camp.huts < MAX_HUTS;
         let target = FIRE_RESERVE + if hut_needed { HUT_WOOD } else { 0.0 };
-        for &k in &present {
+        // Mit Steinbeil schafft man an einem Tag zwei Lasten.
+        let workers: Vec<usize> = present
+            .iter()
+            .flat_map(|&k| {
+                let n = if people.list[k].knows(super::Tool::Axe) {
+                    2
+                } else {
+                    1
+                };
+                std::iter::repeat_n(k, n)
+            })
+            .collect();
+        for &k in &workers {
             if people.camps[ci].wood >= target {
                 break;
             }
@@ -471,7 +493,7 @@ pub(super) fn camp_day(
                 continue;
             }
             let camp = &mut people.camps[ci];
-            if p.hunger < 0.2 && p.pack > super::PACK_MAX - 0.3 {
+            if p.hunger < 0.2 && p.pack > p.pack_max() - 0.3 {
                 // Gesammeltes nur bis zur Hälfte: Der Rest bleibt für die Ernte.
                 let put = (p.pack - 1.5)
                     .min(camp.store_cap() * 0.5 - camp.store)
@@ -512,6 +534,7 @@ pub(super) fn camp_day(
     }
 
     split_camps(people, world, now, rng, news);
+    move_camps(people, world, now, rng, news);
 
     // --- Vorräte verderben ---
     for c in &mut people.camps {
@@ -653,6 +676,99 @@ fn split_camps(
     }
 }
 
+/// Das ganze Lager zieht um: Die Wasserstelle ist seit zwei Monaten trocken,
+/// oder einer kleinen Gruppe (die sich nicht teilt) fehlt seit einem halben
+/// Jahr Holz. Ziel ist die beste verlässliche Wasserstelle, die jemand im
+/// Lager kennt (5–20 Felder entfernt, nicht zu nah an anderen Lagern). Das
+/// alte Lager wird aufgegeben und verfällt.
+fn move_camps(
+    people: &mut People,
+    world: &World,
+    now: u64,
+    rng: &mut Rng,
+    news: &mut Vec<PeopleNews>,
+) {
+    let day = now / 24;
+    for ci in 0..people.camps.len() {
+        let c = &people.camps[ci];
+        if c.abandoned {
+            continue;
+        }
+        let (cid, ctile) = (c.id, c.tile);
+        let members: Vec<usize> = (0..people.list.len())
+            .filter(|&k| people.list[k].camp == cid)
+            .collect();
+        if members.is_empty() {
+            continue;
+        }
+        let dry = c.dry_days >= 60;
+        let no_wood = c.no_wood_days >= 180 && members.len() < 16;
+        if !(dry || no_wood) || !rng.chance(0.02) {
+            continue;
+        }
+        let others: Vec<u32> = people
+            .camps
+            .iter()
+            .filter(|o| !o.abandoned && o.id != cid)
+            .map(|o| o.tile)
+            .collect();
+        // Was alle Erwachsenen des Lagers zusammen an Wasserstellen kennen
+        let target = members
+            .iter()
+            .filter(|&&k| adult(&people.list[k]))
+            .flat_map(|&k| people.list[k].memory.iter())
+            .filter(|m| m.kind == super::PlaceKind::Water && m.value >= RELIABLE_WATER)
+            .filter(|m| {
+                let d = cheb(world, m.tile, ctile);
+                (CAMP_SPACING..=20).contains(&d)
+                    && others
+                        .iter()
+                        .all(|&o| cheb(world, o, m.tile) >= CAMP_SPACING)
+                    && super::standable(world, m.tile as usize)
+                    && drinkable(world, m.tile as usize)
+            })
+            .max_by(|a, b| {
+                let sa = a.value - 0.02 * cheb(world, a.tile, ctile) as f32;
+                let sb = b.value - 0.02 * cheb(world, b.tile, ctile) as f32;
+                sa.total_cmp(&sb).then(b.tile.cmp(&a.tile))
+            })
+            .map(|m| m.tile);
+        let Some(target) = target else {
+            continue;
+        };
+        let from = xy_text(world, ctile);
+        let to = xy_text(world, target);
+        let why = if dry {
+            "die Wasserstelle ist versiegt"
+        } else {
+            "in der Gegend gibt es kein Holz mehr"
+        };
+        for &k in &members {
+            let p = &mut people.list[k];
+            p.camp = 0;
+            p.settle = target + 1;
+            p.flags.settle_day = day;
+            if adult(p) {
+                p.note(
+                    now,
+                    format!("Verlässt mit allen anderen das Lager bei {from}, {why}, und zieht nach {to}."),
+                );
+            }
+        }
+        let c = &mut people.camps[ci];
+        c.abandoned = true;
+        c.last_used_day = day;
+        news.push(PeopleNews {
+            kind: NewsKind::CampMoved,
+            tile: ctile,
+            text: format!(
+                "Das Lager bei {from} wird aufgegeben – {why}. {} Menschen ziehen nach {to}.",
+                members.len()
+            ),
+        });
+    }
+}
+
 /// Ungenutzte Lager verfallen; verlassene verschwinden irgendwann.
 pub(super) fn decay_unused(
     people: &mut People,
@@ -773,6 +889,7 @@ mod tests {
             fire_today: false,
             no_wood_days: 0,
             help_received: 0.0,
+            dry_days: 0,
         }
     }
 

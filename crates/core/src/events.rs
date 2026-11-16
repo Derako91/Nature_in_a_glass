@@ -54,6 +54,10 @@ pub enum EventKind {
     // seit v0.12
     VillageFounded,
     VillageGone,
+    // seit v0.13
+    CampMoved,
+    ToolInvented,
+    ToolLost,
 }
 
 impl EventKind {
@@ -98,6 +102,9 @@ impl EventKind {
             EventKind::CampSplit => "Aufbruch",
             EventKind::VillageFounded => "Dorf",
             EventKind::VillageGone => "Dorf",
+            EventKind::CampMoved => "Umzug",
+            EventKind::ToolInvented => "Werkzeug",
+            EventKind::ToolLost => "Werkzeug",
         }
     }
 
@@ -121,6 +128,7 @@ impl EventKind {
                 | EventKind::CampFounded
                 | EventKind::GardenPlanted
                 | EventKind::VillageFounded
+                | EventKind::ToolInvented
         )
     }
 }

@@ -1343,6 +1343,17 @@ impl App {
                                 egui::Label::new(RichText::new(family.join(" · ")).weak()).wrap(),
                             );
                         }
+                        // Können: Fischen, Gärtnern, Werkzeuge (immer eine Zeile)
+                        let mut can = vec![
+                            format!("Fischen {:>3.0} %", p.fishing * 100.0),
+                            format!("Gärtnern {:>3.0} %", p.farming * 100.0),
+                        ];
+                        for t in nig_core::people::TOOLS {
+                            if p.knows(t) {
+                                can.push(t.name().to_string());
+                            }
+                        }
+                        ui.label(RichText::new(format!("Kann: {}", can.join(" · "))).weak());
                         ui.separator();
                         egui::ScrollArea::vertical()
                             .id_salt("bio")
