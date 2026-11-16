@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "png_files": 431,
+  "new_frames": 390,
+  "build_frames_only_padded": 40,
+  "marker_unchanged": true,
+  "all_manifest_files_present": true,
+  "all_pngs_rgba_with_transparent_margin": true,
+  "recognition_colors_and_appearances_unchanged": true,
+  "idle_heights_l_r": [
+    [
+      89,
+      89
+    ],
+    [
+      89,
+      88
+    ],
+    [
+      92,
+      91
+    ],
+    [
+      79,
+      80
+    ],
+    [
+      93,
+      94
+    ]
+  ],
+  "game_review": "passed_embedded_build_zoom4_zoom8_zoom32_day_evening_night",
+  "visual_approval": "pending",
+  "repeated_export_byte_identical": true,
+  "rust_tests_passed": 89,
+  "python_tests_passed": 15,
+  "format": "passed",
+  "clippy": "passed",
+  "release_build": "passed",
+  "rare_states_game_review": "not_all_naturally_exercised",
+  "observed_game_states": [
+    "gather",
+    "build",
+    "adult_and_child_idle",
+    "eat_at_19h",
+    "adult_and_child_sleep_at_22h"
+  ]
+}
