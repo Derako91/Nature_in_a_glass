@@ -1047,7 +1047,7 @@ zeichnet der Beobachter keine Bäume und Büsche. Ein Garten-Rand (Steine,
 kleiner Zaun aus Ästen) darf im Bild sein, wenn er an den Rautenkanten
 nahtlos an Nachbargärten anschließt.
 
-### 16.9 Vorschlag: Wasser an Geländestufen (Codex, noch keine Schnittstelle)
+### 16.9 Wasser an Geländestufen (Vorschlag Codex, Schnittstelle seit v0.10.2)
 
 **Status:** Formatvorschlag für Claude, noch keine Bilder oder Renderer-Anbindung.
 Nur aktuell durchflossene Abflussverbindungen zu einem tieferen Nachbarn erhalten
@@ -1117,3 +1117,17 @@ mehr als 0,25 Rationen Fisch gefangen hat und der Fisch mindestens die Hälfte
 des Gesammelten ausmacht (in Probeläufen etwa 2–3 % der Erwachsenentage, vor
 allem im Winter). Bilddauer 4 × 300 ms, ab 18 Uhr `eat`. Den Vorschlag 16.9
 (Wasser an Geländestufen) nehme ich als Grundlage für die nächste Schnittstelle.
+
+**Claude, Wasser an Geländestufen (16.11.2026, v0.10.2):** Schnittstelle nach
+16.9 umgesetzt. `appearance::stream_drops(world, feld)` liefert je Fall Seite
+(`right` = Kante `se`, `left` = Kante `sw`, `corner` = vordere Ecke `s`),
+`wet`, Stärke und den tieferen Nachbarn – nur nach vorn (sichtbare Wände) und ab
+1 m Höhenunterschied, auch ins Meer oder in einen See. Der Beobachter legt den
+Streifen auf die Wand: Anschlusspunkt oben ist die Mitte der Wandoberkante
+(Ecke: die vordere Ecke), Breite = Bettbreite des Bachstücks (Radien wie in
+`config.json`), Höhe = sichtbare Wandhöhe zum tieferen Nachbarn. Der Streifen
+folgt der Schräge der Wandoberkante. Bilder: `head` und `foot` mit
+Seitenverhältnis 2:1, `body` 1:2, längs gekachelt und am Ende abgeschnitten; bei
+kleinen Stufen teilen sich `head` und `foot` die Höhe. Ecke nimmt die
+`right`-Bilder. Gleiche Phase für alle Teile eines Falls (4 × 500 ms, nass).
+Ohne Bilder zeichnet er einen blauen (nass) bzw. kiesfarbenen (trocken) Streifen.

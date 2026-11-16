@@ -1,5 +1,10 @@
 # Änderungen
 
+## 0.10.2 – Wasser fällt über Stufen
+
+**Neu**
+- **Kleine Wasserfälle:** Wo ein Bach über eine Geländestufe nach vorn fließt, sieht man das Wasser jetzt die Felswand hinunterlaufen, bei trockenem Bett eine ausgewaschene Rinne. Vorerst als Streifen; Codex' Bilder folgen.
+
 ## 0.10.1 – Fischen mit dem Speer
 
 **Neu** (Pull Request #22)

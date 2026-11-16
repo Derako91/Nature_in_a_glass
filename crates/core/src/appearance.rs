@@ -307,6 +307,53 @@ pub fn stream_piece(world: &World, i: usize) -> Option<StreamPiece> {
     })
 }
 
+/// Wasser über eine sichtbare Geländestufe (gestaltung.md 16.9): von diesem
+/// Feld zum tieferen vorderen Nachbarn.
+#[derive(Debug, Clone, PartialEq)]
+pub struct StreamDrop {
+    /// `right` = rechte Wand (zum Nachbarn x+1, Kante `se`), `left` = linke
+    /// Wand (zum Nachbarn y+1, Kante `sw`), `corner` = vordere Ecke `s`
+    /// (zum Nachbarn x+1, y+1; beide Wände).
+    pub side: &'static str,
+    pub wet: bool,
+    /// Stärke wie beim Bachstück dieses Feldes (0, 1, 2).
+    pub size: u8,
+    /// Tieferer Nachbar.
+    pub to: u32,
+}
+
+/// Fälle eines Feldes: jede Bachverbindung nach vorn (`se`, `s`, `sw`) zu
+/// einem mindestens 1 m tieferen Feld, auch ins Meer oder in einen See.
+/// Verbindungen nach hinten liegen an verdeckten Wänden und fehlen.
+pub fn stream_drops(world: &World, i: usize) -> Vec<StreamDrop> {
+    let Some(piece) = stream_piece(world, i) else {
+        return Vec::new();
+    };
+    let (x, y) = world.xy(i);
+    let e = world.tiles[i].elevation;
+    let mut out = Vec::new();
+    for (d, side, dx, dy) in [(3, "right", 1, 0), (4, "corner", 1, 1), (5, "left", 0, 1)] {
+        if !piece.dirs.contains(&d) {
+            continue;
+        }
+        let (nx, ny) = (x + dx, y + dy);
+        if nx >= world.width || ny >= world.height {
+            continue;
+        }
+        let j = world.idx(nx, ny);
+        if e - world.tiles[j].elevation.max(0.0) < 1.0 {
+            continue;
+        }
+        out.push(StreamDrop {
+            side,
+            wet: piece.wet,
+            size: piece.size,
+            to: j as u32,
+        });
+    }
+    out
+}
+
 /// Feste Pseudozufallszahl für Feld, Seed und laufende Nummer.
 fn fixed(x: u32, y: u32, seed: u64, salt: u64) -> u64 {
     hash2(
@@ -813,6 +860,24 @@ mod tests {
                 "gerade Nachbarn an Kanten"
             );
         }
+    }
+
+    #[test]
+    fn drops_only_at_visible_front_walls() {
+        let mut sim = crate::Simulation::new(2024);
+        sim.advance_years(3);
+        let w = &sim.world;
+        let mut n = 0;
+        for i in 0..w.tiles.len() {
+            for d in stream_drops(w, i) {
+                n += 1;
+                let (x, y) = w.xy(i);
+                let (tx, ty) = w.xy(d.to as usize);
+                assert!(tx >= x && ty >= y && (tx, ty) != (x, y), "Fall nach hinten");
+                assert!(w.tiles[i].elevation > w.tiles[d.to as usize].elevation);
+            }
+        }
+        assert!(n > 0, "keine Fälle auf einer bergigen Insel");
     }
 
     #[test]

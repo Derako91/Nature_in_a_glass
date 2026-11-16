@@ -258,6 +258,113 @@ fn iso_lift(elevation: f32, zoom: f32) -> f32 {
 }
 
 /// Breite eines Wasserlaufs in Bildpunkten, wächst mit der Wassermenge.
+/// Bettbreite (Radius als Anteil der Rautenbreite) je Stärke, passend zu
+/// Codex' Bachstücken (`art/nature/stream-beds-style-b/config.json`).
+const BED_RADIUS: [f32; 3] = [0.035, 0.055, 0.085];
+const WATER_RADIUS: [f32; 3] = [0.012, 0.027, 0.050];
+
+/// Ein Fall an der Wand: oben `head`, längs gekachelt `body`, unten `foot`
+/// (`stream_drop_<wet|dry>_<stärke>_<left|right>_<teil>_f<bild>`). Der Streifen
+/// folgt der Schräge der Wand (`k` = Steigung der Wandoberkante), damit oben
+/// und unten keine Lücke entsteht. Ohne Bilder: einfarbiger Streifen.
+#[allow(clippy::too_many_arguments)]
+fn draw_stream_drop(
+    mesh: &mut Mesh,
+    atlas: &Atlas,
+    g: &Gfx<'_>,
+    white: Pos2,
+    m: Pos2,
+    k: f32,
+    drop: f32,
+    hw: f32,
+    d: &nig_core::appearance::StreamDrop,
+    tile: usize,
+    light: f32,
+    lit: Color32,
+) {
+    if drop < 1.0 {
+        return;
+    }
+    let size = (d.size as usize).min(2);
+    let width = 2.0 * BED_RADIUS[size] * 2.0 * hw;
+    let half = width * 0.5;
+    // Viereck für den senkrechten Abschnitt t0..t1 unter der Oberkante
+    let quad = |t0: f32, t1: f32| {
+        [
+            m + Vec2::new(-half, -k * half + t0),
+            m + Vec2::new(half, k * half + t0),
+            m + Vec2::new(half, k * half + t1),
+            m + Vec2::new(-half, -k * half + t1),
+        ]
+    };
+    let state = if d.wet { "wet" } else { "dry" };
+    let side = if d.side == "left" { "left" } else { "right" };
+    let frame = if d.wet && g.animate {
+        (((g.time_s * 1000.0 / 500.0) as u64 + tile as u64 * 3) % 4) as u32
+    } else {
+        0
+    };
+    let part = |p: &str| {
+        atlas
+            .get(&format!("stream_drop_{state}_{size}_{side}_{p}_f{frame}"))
+            .or_else(|| atlas.get(&format!("stream_drop_{state}_{size}_{side}_{p}_f0")))
+    };
+    if let (Some(head), Some(body), Some(foot)) = (part("head"), part("body"), part("foot")) {
+        // Seitenverhältnis der Bilder bleibt: Kopf/Fuß 2:1, Rinne 1:2
+        let mut cap = width * 0.5;
+        if drop < 2.0 * cap {
+            cap = drop * 0.5;
+        }
+        let uv = |e: &Entry, f0: f32, f1: f32| {
+            let v0 = e.uv.top() + (e.uv.bottom() - e.uv.top()) * f0;
+            let v1 = e.uv.top() + (e.uv.bottom() - e.uv.top()) * f1;
+            [
+                Pos2::new(e.uv.left(), v0),
+                Pos2::new(e.uv.right(), v0),
+                Pos2::new(e.uv.right(), v1),
+                Pos2::new(e.uv.left(), v1),
+            ]
+        };
+        let piece = width * 2.0;
+        let mut t = cap;
+        while t < drop - cap - 0.5 {
+            let t1 = (t + piece).min(drop - cap);
+            tex_quad(mesh, quad(t, t1), uv(body, 0.0, (t1 - t) / piece), lit);
+            t = t1;
+        }
+        tex_quad(mesh, quad(0.0, cap), uv(head, 0.0, 1.0), lit);
+        tex_quad(mesh, quad(drop - cap, drop), uv(foot, 0.0, 1.0), lit);
+    } else {
+        let color = if d.wet {
+            let c = night_tint(Color32::from_rgb(110, 170, 235), light);
+            Color32::from_rgba_unmultiplied(c.r(), c.g(), c.b(), 230)
+        } else {
+            let c = night_tint(Color32::from_rgb(170, 158, 130), light);
+            Color32::from_rgba_unmultiplied(c.r(), c.g(), c.b(), 200)
+        };
+        tex_quad(mesh, quad(0.0, drop), [white; 4], color);
+        if d.wet {
+            // heller Wasserkern
+            let core = WATER_RADIUS[size] / BED_RADIUS[size];
+            let inner = |t0: f32, t1: f32| {
+                let h = half * core;
+                [
+                    m + Vec2::new(-h, -k * h + t0),
+                    m + Vec2::new(h, k * h + t0),
+                    m + Vec2::new(h, k * h + t1),
+                    m + Vec2::new(-h, -k * h + t1),
+                ]
+            };
+            tex_quad(
+                mesh,
+                inner(0.0, drop),
+                [white; 4],
+                night_tint(Color32::from_rgb(200, 230, 250), light),
+            );
+        }
+    }
+}
+
 /// Kartenversatz je Bildschirmrichtung (Reihenfolge wie `appearance::STREAM_DIRS`).
 const DIR_OFFSETS: [(i32, i32); 8] = [
     (-1, -1),
@@ -538,6 +645,20 @@ fn draw_iso_gfx(
                         solid(&mut mesh, [a, b, b + d, a + d], base);
                     }
                 }
+            }
+
+            // Wasser über Geländestufen (16.9): Streifen auf der vorderen Wand
+            for d in ap::stream_drops(world, i) {
+                let (tx, ty) = world.xy(d.to as usize);
+                let drop = iso_lift(e, z) - iso_lift(height_of(tx as i32, ty as i32), z);
+                let (m, k) = match d.side {
+                    "right" => (east + (south - east) * 0.5, -0.5),
+                    "left" => (south + (west - south) * 0.5, 0.5),
+                    _ => (south, 0.0),
+                };
+                draw_stream_drop(
+                    &mut mesh, atlas, &g, white, m, k, drop, hw, &d, i, light, lit,
+                );
             }
 
             // Boden und Überlagerungen
