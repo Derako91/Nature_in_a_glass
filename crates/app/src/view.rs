@@ -625,7 +625,12 @@ fn draw_iso_gfx(
                 /// Lager: Feuerstelle (`None`) oder Hütte Nr. k
                 Camp(&'b ap::CampSprite, Option<usize>),
             }
-            let plants = ap::sprites(world, i);
+            let mut plants = ap::sprites(world, i);
+            // Auf Lagerfeldern ist freigeräumt: keine Bäume und Büsche, die
+            // Hütten und Feuerstelle verdecken (Totholz und Feuer bleiben).
+            if !camps_at[i].is_empty() {
+                plants.retain(|p| !p.id.starts_with("tree") && p.id != "shrub");
+            }
             let mut things: Vec<(f32, Thing)> = plants
                 .iter()
                 .map(|p| (p.v, Thing::Plant(p)))

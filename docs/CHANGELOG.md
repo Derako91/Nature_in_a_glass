@@ -1,5 +1,12 @@
 # Änderungen
 
+## 0.8.2 – Lager in Codex' neuem Stil
+
+**Neu**
+- **Codex' Lagerbilder sind im Spiel:** Feuerstelle (kalt und brennend), Windschutz aus Ästen, zwei Hüttenformen (Spitzhütte und Kuppelhütte) und das verfallene Lager – im neuen, plastischeren Stil.
+- **Holz holen ist zu sehen:** Wer Holz für das Lager holt oder baut, hat dafür ein eigenes Bild, bei allen fünf Bewohnern und in beide Richtungen.
+- Auf dem Lagerplatz selbst ist freigeräumt: Bäume und Büsche verdecken die Hütten nicht mehr.
+
 ## 0.8.1 – Echte Flammen
 
 **Neu**

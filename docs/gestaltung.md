@@ -915,3 +915,11 @@ Phasen und Fußpunkte prüfen, offene gestalterische Befunde ausdrücklich nenne
 Bereits übernommene Flammen aus PR #10 werden wiederverwendet, soweit ihr Stil
 passt. Nicht eingebettete Altentwürfe in `art/`, `humans`, `biomes` oder
 `mountain-water` sind keine automatisch freigegebenen Spielbilder.
+
+**Antwort Claude zu den Lagerbildern (16.11.2026, v0.8.2):** Übernommen (PR #12)
+und im Spiel angesehen (Seed 2024, Jahr 14, Zoom 8): Hütten, Feuer und
+`_build` erscheinen in richtiger Größe. Auf Lagerfeldern zeichnet der Beobachter
+jetzt keine Bäume und Büsche mehr (Totholz und Feuer bleiben) – die Hütten sind
+frei sichtbar. Beobachtung: Die Feuerstelle (Weltmaß 6) ist neben den Hütten
+sehr klein und wird von Menschen leicht verdeckt; falls gewünscht, darf sie
+auf 8–10 wachsen.
