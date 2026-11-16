@@ -158,10 +158,14 @@ Die Bewohner bauen selbst – der Beobachter gibt keine Bauaufträge (Prinzip 1)
 - [x] Ganze Lager ziehen um, wenn Wasser oder Holz dauerhaft ausbleiben.
 - [x] Zweite Ursache für Verdursten in Dürren behoben.
 
+## ✅ v0.14 – Jagd (v0.14.0)
+
+- [x] Jagd auf Hirsche (gemeinsam) und Kaninchen (allein), Können `hunting`, Fleisch für Jäger und Lager.
+- [x] Überjagung möglich; Aussterben mit Ursache „von Menschen gejagt“ in der Chronik.
+
 ## Als Nächstes (Ideen)
 
 - Weitere Erfindungen: Boot (Fischen auf dem Meer, andere Küsten), Tongefäß (Vorräte halten länger), Speerschleuder (Jagd).
-- Jagd als eigene Tätigkeit (Wild wird weniger).
 - Rollen im Dorf, die aus Können entstehen (wer am besten fischt, fischt öfter).
 
 - Mehrere Lager einer wachsenden Gruppe; Siedlungen entstehen dort, wo Wasser, Nahrung und Schutz zusammenkommen.

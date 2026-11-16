@@ -58,6 +58,8 @@ pub enum EventKind {
     CampMoved,
     ToolInvented,
     ToolLost,
+    // seit v0.14
+    FirstHunt,
 }
 
 impl EventKind {
@@ -105,6 +107,7 @@ impl EventKind {
             EventKind::CampMoved => "Umzug",
             EventKind::ToolInvented => "Werkzeug",
             EventKind::ToolLost => "Werkzeug",
+            EventKind::FirstHunt => "Jagd",
         }
     }
 
@@ -129,6 +132,7 @@ impl EventKind {
                 | EventKind::GardenPlanted
                 | EventKind::VillageFounded
                 | EventKind::ToolInvented
+                | EventKind::FirstHunt
         )
     }
 }

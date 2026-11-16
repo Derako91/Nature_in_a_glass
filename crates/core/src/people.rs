@@ -35,6 +35,7 @@ use crate::world::{POND_MM, World};
 
 mod camps;
 mod gardens;
+mod hunting;
 mod tools;
 mod villages;
 pub use camps::{Camp, CampStage};
@@ -263,6 +264,9 @@ pub struct Person {
     /// Bekannte Werkzeuge (Bits von `Tool`), seit Format 14.
     #[serde(default)]
     pub tools: u8,
+    /// Können bei der Jagd 0..1 (seit Format 15).
+    #[serde(default)]
+    pub hunting: f32,
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq)]
@@ -399,6 +403,8 @@ pub enum NewsKind {
     ToolInvented,
     /// Niemand kann ein Werkzeug mehr herstellen.
     ToolLost,
+    /// Der erste von Menschen erlegte Hirsch.
+    FirstHunt,
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq)]
@@ -453,6 +459,9 @@ pub struct People {
     pub tools_ever: u8,
     #[serde(default)]
     pub tools_alive: u8,
+    /// Von Menschen erlegte Hirsche (insgesamt).
+    #[serde(default)]
+    pub deer_hunted: u32,
 }
 
 const FEMALE_NAMES: [&str; 30] = [
@@ -843,7 +852,12 @@ impl People {
                 farming: 0.0,
                 settle: 0,
                 tools: 0,
+                hunting: 0.0,
             };
+            // Wer mit dem Boot kommt, hat schon ein wenig gejagt – etwa so viel,
+            // wie er fischen kann (ohne eigenen Zufall, damit die Zufallsfolge
+            // der übrigen Simulation gleich bleibt).
+            p.hunting = p.fishing * 0.8;
             p.note(
                 now,
                 format!(
@@ -1565,6 +1579,7 @@ fn day(
     gardens::garden_day(people, world, weather, doy, now, rng, &mut news, effects);
     villages::village_day(people, world, now, rng, &mut news);
     tools::tools_day(people, world, now, rng, &mut news);
+    hunting::hunting_day(people, animals, world, now, rng, &mut news);
 
     // --- Gefahren durch andere: Wölfe, Feuer ---
     for k in 0..people.list.len() {
@@ -1876,11 +1891,11 @@ fn care_for_children(
 /// ab sechs Jahren schneller als Erwachsene (Prinzip 6). Ohne Lehrer bleibt
 /// das Können, wo es ist; stirbt der letzte Geübte, geht es verloren.
 fn learn_from_others(people: &mut People) {
-    let best: Vec<(u32, f32, f32)> = people
+    let best: Vec<(u32, f32, f32, f32)> = people
         .list
         .iter()
         .filter(|p| !p.is_child())
-        .map(|p| (p.tile, p.fishing, p.farming))
+        .map(|p| (p.tile, p.fishing, p.farming, p.hunting))
         .collect();
     for p in &mut people.list {
         if p.age_days < 6 * 365 {
@@ -1892,9 +1907,13 @@ fn learn_from_others(people: &mut People) {
         if fish > p.fishing {
             p.fishing += rate * (fish - p.fishing);
         }
-        let farm = here.map(|b| b.2).fold(0.0f32, f32::max);
+        let farm = here.clone().map(|b| b.2).fold(0.0f32, f32::max);
         if farm > p.farming {
             p.farming += rate * (farm - p.farming);
+        }
+        let hunt = here.map(|b| b.3).fold(0.0f32, f32::max);
+        if hunt > p.hunting {
+            p.hunting += rate * (hunt - p.hunting);
         }
     }
 }
@@ -2138,6 +2157,7 @@ fn family_day(
             farming: 0.0,
             settle: 0,
             tools: 0,
+            hunting: 0.0,
         };
         let parents = match &fname {
             Some(f) => format!("Mutter: {mname}, Vater: {f}."),

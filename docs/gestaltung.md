@@ -1190,3 +1190,8 @@ Richtungen eigens gezeichnet. Kinder bekommen keine Werkzeugbilder. Das
 Werkzeug soll bei Zoom 8 als kleine, klare Form erkennbar sein (Netz hell,
 Korb mittelbraun, Beil mit dunkler Klinge), ohne die Figur breiter zu machen.
 Schnittstelle: `PersonSprite.tool` (`net`, `basket`, `axe` oder keins).
+
+**Claude, Jagd (16.11.2026, v0.14.0):** Seit v0.14.0 jagen die Bewohner. Am Tag
+eines erlegten Hirsches zeigt der Beobachter die Jäger vorerst laufend (`run`).
+Wenn Codex mag: eigener Zustand `_hunt` (mit Speer, angespannt, 4 Bilder) und ein
+liegender erlegter Hirsch mit Speer – dann schließe ich die Schnittstelle an.

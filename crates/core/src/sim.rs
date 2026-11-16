@@ -19,7 +19,7 @@ pub const DAYS_PER_YEAR: u64 = 365;
 pub const HOURS_PER_YEAR: u64 = HOURS_PER_DAY * DAYS_PER_YEAR;
 
 /// Version des Spielstand-Formats. Erhöhen, wenn sich die Struktur ändert.
-pub const SAVE_FORMAT_VERSION: u32 = 14;
+pub const SAVE_FORMAT_VERSION: u32 = 15;
 pub const ENGINE_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 pub const DEFAULT_SIZE: u32 = 64;
@@ -473,6 +473,14 @@ impl Simulation {
             &mut self.rng_animals,
         );
         self.report_extinctions(&animal_day.extinct);
+        // Arten, die heute noch leben – die Jagd kann die letzten erlegen.
+        let alive_before: Vec<Species> = Species::ALL
+            .into_iter()
+            .filter(|&s| {
+                self.animals.total(s) > 0
+                    || (s == Species::Rabbit && self.animals.rabbit_total() > 0.0)
+            })
+            .collect();
         let news = people::step_day(
             &mut self.people,
             &mut self.world,
@@ -485,6 +493,17 @@ impl Simulation {
             &mut self.scratch_people,
         );
         self.report_people(news);
+        let hunted_out: Vec<Species> = alive_before
+            .into_iter()
+            .filter(|&s| {
+                if s == Species::Rabbit {
+                    self.animals.rabbit_total() <= 0.0
+                } else {
+                    self.animals.total(s) == 0
+                }
+            })
+            .collect();
+        self.report_extinctions(&hunted_out);
         self.step_seeds();
         if self.day_of_year().is_multiple_of(30) {
             self.world.flush_tiny();
@@ -1030,6 +1049,7 @@ impl Simulation {
                 NewsKind::CampMoved => (EventKind::CampMoved, "Wasser oder Holz fehlt"),
                 NewsKind::ToolInvented => (EventKind::ToolInvented, "Übung"),
                 NewsKind::ToolLost => (EventKind::ToolLost, "Wissen verloren"),
+                NewsKind::FirstHunt => (EventKind::FirstHunt, "Wild in der Nähe"),
                 NewsKind::CampfireSpread => {
                     // Wie ein Blitz: Der Brand wird verfolgt, bis er erlischt.
                     if !self.fire_tracker.active {
@@ -1063,13 +1083,23 @@ impl Simulation {
         for &s in gone {
             let log = &self.animals.deaths_since;
             let mut causes = Vec::new();
-            if let Some(c) = log.main_cause(s) {
-                causes.push(format!(
+            let hunted = self.animals.hunted_since[s.index()];
+            match log.main_cause(s) {
+                Some(c) if log.get(s, c) >= hunted => causes.push(format!(
                     "Die meisten {} sind zuletzt {}",
                     s.names().1,
                     c.label()
-                ));
+                )),
+                _ if hunted > 0 => causes.push(format!(
+                    "Die meisten {} sind zuletzt von Menschen gejagt worden",
+                    s.names().1
+                )),
+                _ => {}
             }
+            if hunted > 0 {
+                causes.push(format!("Menschen haben {hunted} erlegt"));
+            }
+            self.animals.hunted_since[s.index()] = 0;
             match s {
                 Species::Wolf | Species::Fox => {
                     let prey = if s == Species::Wolf {
@@ -1347,6 +1377,7 @@ impl Simulation {
             feed(p.farming.to_bits() as u64);
             feed(p.settle as u64);
             feed(p.tools as u64);
+            feed(p.hunting.to_bits() as u64);
         }
         feed(self.people.departed.len() as u64);
         for c in &self.people.camps {
@@ -1602,7 +1633,7 @@ impl Simulation {
                 sim.migrate_from_v4();
             }
             4 => sim.migrate_from_v4(),
-            5..=13 => {}
+            5..=14 => {}
             other => {
                 return Err(format!(
                     "Spielstand-Format {other} wird nicht unterstützt (erwartet 1 bis {SAVE_FORMAT_VERSION})."

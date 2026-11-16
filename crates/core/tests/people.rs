@@ -543,3 +543,36 @@ fn tools_are_invented_and_spread() {
         .unwrap_or(0);
     assert!(best >= 2, "Wissen geht nicht weiter");
 }
+
+// ---------- v0.14: Jagd ----------
+
+/// Menschen jagen Hirsche und Kaninchen. (Nach 30 Jahren gibt es mit Jägern
+/// oft sogar mehr Hirsche: Ohne Jagd vermehren sie sich, bis viele
+/// verhungern. Deshalb prüft der Test nur, dass gejagt wird.)
+#[test]
+fn people_hunt_deer_and_rabbits() {
+    use nig_core::animals::Species;
+    let mut with = Simulation::new(2024);
+    with.advance_years(5);
+    with.apply(Intervention::ReleaseAnimals {
+        species: Species::Deer,
+        at: None,
+    });
+    with.apply(Intervention::ReleaseAnimals {
+        species: Species::Rabbit,
+        at: None,
+    });
+    with.advance_years(5);
+    arrive(&mut with);
+    with.advance_years(30);
+    assert!(
+        with.journal
+            .events
+            .iter()
+            .any(|e| e.kind == EventKind::FirstHunt),
+        "keine Jagd"
+    );
+    assert!(with.animals.hunted[Species::Deer.index()] > 0);
+    assert!(with.animals.hunted[Species::Rabbit.index()] > 0);
+    assert!(with.people.list.iter().any(|p| p.hunting > 0.3));
+}

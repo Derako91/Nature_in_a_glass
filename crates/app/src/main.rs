@@ -1347,6 +1347,7 @@ impl App {
                         let mut can = vec![
                             format!("Fischen {:>3.0} %", p.fishing * 100.0),
                             format!("Gärtnern {:>3.0} %", p.farming * 100.0),
+                            format!("Jagen {:>3.0} %", p.hunting * 100.0),
                         ];
                         for t in nig_core::people::TOOLS {
                             if p.knows(t) {

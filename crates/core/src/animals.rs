@@ -234,6 +234,12 @@ pub struct Animals {
     pub deaths_since: DeathLog,
     /// Geburten im laufenden Jahr je Art.
     pub births: [u32; 4],
+    /// Von Menschen erlegt: insgesamt und seit der letzten Aussterbe-Meldung
+    /// (seit Format 15).
+    #[serde(default)]
+    pub hunted: [u32; 4],
+    #[serde(default)]
+    pub hunted_since: [u32; 4],
 }
 
 /// Was an einem Tag geschehen ist.

@@ -1,5 +1,17 @@
 # Änderungen
 
+## 0.14.0 – Jagd
+
+**Neu**
+- **Die Menschen jagen:** Wer gesund ist und Hunger hat, jagt, wenn Wild in der Nähe ist – Hirsche zu mehreren, Kaninchen allein. Jagen wird mit Übung besser und wird abgeschaut. Ein Hirsch bringt Fleisch für Tage; was die Jäger nicht tragen, kommt in den Vorrat ihres Lagers oder bleibt für andere liegen. Die Chronik meldet den ersten erlegten Hirsch.
+- **Folgen für das Wild:** Die Jagd hält die Hirsche klein – oft kleiner, als sie ohne Menschen wären, wo sie sich vermehren, bis viele verhungern. Auf manchen Inseln jagen die Menschen die Hirsche ganz aus; die Chronik nennt dann die Jagd als Ursache („Menschen haben 548 erlegt“). Danach fehlt das Fleisch, und auch den Wölfen die Beute.
+- Ein Hirsch kann sich wehren: Selten wird ein Jäger verletzt.
+- **Fenster „Bewohner“** zeigt auch das Können beim Jagen.
+
+**Ergebnis:** Im Langlauf mit Hirschen und Kaninchen (16 Inseln, 120 Jahre) leben am Ende zusammen rund 490 Menschen, auf 5 Inseln sind die Hirsche ausgejagt.
+
+**Spielstände** aus 0.13 lassen sich laden.
+
 ## 0.13.0 – Werkzeuge und Umzüge
 
 **Neu**
