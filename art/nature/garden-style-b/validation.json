@@ -1,0 +1,200 @@
+{
+  "status": "passed",
+  "images": 20,
+  "stages": [
+    "bare",
+    "sprout",
+    "growing",
+    "ripe",
+    "stubble"
+  ],
+  "variants": 4,
+  "common_alpha_mask": true,
+  "outside_diamond_transparent": true,
+  "unchanged_parent_pngs": 1373,
+  "stage_color_measurements": {
+    "bare": {
+      "green_fractions": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mean_rgb": [
+        [
+          96.93,
+          62.12,
+          37.89
+        ],
+        [
+          92.57,
+          59.56,
+          36.85
+        ],
+        [
+          94.08,
+          60.24,
+          36.7
+        ],
+        [
+          91.73,
+          58.77,
+          36.11
+        ]
+      ]
+    },
+    "sprout": {
+      "green_fractions": [
+        0.05548469387755102,
+        0.05229591836734694,
+        0.009566326530612245,
+        0.04751275510204082
+      ],
+      "mean_rgb": [
+        [
+          99.11,
+          67.73,
+          37.47
+        ],
+        [
+          95.37,
+          65.28,
+          36.52
+        ],
+        [
+          96.24,
+          63.89,
+          35.57
+        ],
+        [
+          96.81,
+          66.06,
+          36.28
+        ]
+      ]
+    },
+    "growing": {
+      "green_fractions": [
+        0.7560586734693877,
+        0.6795280612244898,
+        0.7279974489795918,
+        0.7302295918367347
+      ],
+      "mean_rgb": [
+        [
+          73.65,
+          89.83,
+          27.56
+        ],
+        [
+          70.35,
+          82.6,
+          25.61
+        ],
+        [
+          75.09,
+          84.82,
+          20.97
+        ],
+        [
+          71.7,
+          85.4,
+          24.41
+        ]
+      ]
+    },
+    "ripe": {
+      "green_fractions": [
+        0.0012755102040816326,
+        0.0006377551020408163,
+        0.0,
+        0.0
+      ],
+      "mean_rgb": [
+        [
+          117.49,
+          94.69,
+          32.92
+        ],
+        [
+          107.19,
+          85.99,
+          31.7
+        ],
+        [
+          118.35,
+          90.24,
+          34.21
+        ],
+        [
+          115.63,
+          89.68,
+          32.97
+        ]
+      ]
+    },
+    "stubble": {
+      "green_fractions": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mean_rgb": [
+        [
+          113.39,
+          74.09,
+          43.54
+        ],
+        [
+          106.76,
+          69.21,
+          40.7
+        ],
+        [
+          109.0,
+          70.55,
+          41.22
+        ],
+        [
+          112.79,
+          73.48,
+          43.31
+        ]
+      ]
+    }
+  },
+  "visual_approval": "pending",
+  "verification": {
+    "base": "25ea9cb / v0.10.2",
+    "rust_workspace_tests_passed": 101,
+    "existing_python_tests_passed": 15,
+    "fmt": "passed",
+    "strict_release_clippy": "passed",
+    "release_build": "passed",
+    "full_atlas_limit": "<=8192, including fishing assets",
+    "byte_identical_export_paths": [
+      "garden",
+      "landscape"
+    ],
+    "native_embedded_game": {
+      "seed": 300,
+      "years": 10,
+      "people": true,
+      "after_years": 20,
+      "days": [
+        200,
+        260
+      ],
+      "select": "25,20",
+      "zoom": [
+        8,
+        32
+      ],
+      "overrides": false,
+      "visual_approval": "pending",
+      "comparison_base": "cc542e8 / v0.10.1",
+      "rebase_smoke": "v0.10.2, both day fixtures, Zoom 8, embedded without overrides"
+    }
+  }
+}

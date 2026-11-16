@@ -181,6 +181,9 @@ def export():
     from export_water_style_b import CONFIG as WATER_CONFIG, export as export_water
     if WATER_CONFIG.exists():
         export_water()
+    from export_gardens import ART as GARDEN_ART, export as export_gardens
+    if (GARDEN_ART / "config.json").exists():
+        export_gardens()
     print(f'{len(records)} Landschaftsbilder exportiert, Weltmaße erhalten, Materialkanten geprüft.')
 
 

@@ -592,7 +592,7 @@ Heutige Zeichenreihenfolge je Feld: Seitenwände (in 32-px-Streifen gekachelt, r
 
 000. **Fernansicht für Stil B** (nach dem Spielvergleich `art/nature/fox-ab/lod/`, 18.10.2026): Der Fuchs B ist ab Zoom 8 gut lesbar (bei Zoom 8 schon mit der berechneten Stufe), bei Zoom 4 nicht. Für jedes feine Tier im Stil B bitte eine `@fern`-Fassung (Weltmaß × 2 Bildpunkte, z. B. Fuchs 20 × 12) im selben Stil mit klarer Silhouette – Format in 16.6. Vor dem Einbau mit `--bilder` im Spiel prüfen.
 00. **Neuer Stil nach dem Fuchs-Entwurf** (Entscheidung Dennis, 18.10.2026): Der neue Fuchs-Entwurf (`art/nature/fox-ab/`) ist die verbindliche visuelle Referenz – plastischere Formen, warme natürliche Farben, erkennbare Anatomie, feinere Pixelstrukturen. Die Richtung gilt langfristig für Tiere, Menschen und Landschaft einschließlich Wasser. Codex überarbeitet dieses Dokument danach und prüft die eigenen Auflösungs- und Farbgrenzen (z. B. „höchstens sechs Farben“, Deckkraft-Stufen) – maßgeblich sind Lesbarkeit und die technischen Grenzen in 16.5. **Zuerst nur der Fuchs:** Entwurf als nutzbares Sprite, in Spielgröße und Nahansicht mit dem bisherigen Fuchs vergleichen, Weltmaß (Darstellungsbreite 10) und Fußpunkt beibehalten. Erst nach diesem Vergleich weitere Tiere und Animationen umstellen.
-0b. **Gärten** (17.9, seit v0.10.0): Beete in fünf Zuständen. Im Spiel steht umgegrabene Erde als Platzhalter.
+0b. **Gärten** (17.9, seit v0.10.0): Draft mit fünf Zuständen × vier Varianten auf `codex/garden-style-b`, [Prüfpaket](../art/nature/garden-style-b/README.md). Visuelle Abnahme offen; auf `main` bis zur Übernahme weiterhin Platzhalter.
 0a. **Lagerplätze** (17.8, seit v0.8.0): Einzelbild-Draft auf `codex/camp-sprites`: neun Lagerbilder und 40 `_build`-Phasen in `assets/nature/buildings/` und `people/`. Eigenes Gebäudemanifest, Spielvergleich Zoom 4/8/32 und Prüfbögen unter `art/nature/camp-review/`. Gestalterische Abnahme offen; im veröffentlichten Spiel weiterhin bisheriger Stand bis zur Übernahme.
 0. **Menschen** (Abschnitt 17): Die Simulation ist da (v0.6.0), im Spiel stehen Platzhalterfiguren. Bilder nach 17.3/17.4 ersetzen sie.
 1. ~~**Tiere neu zeichnen, größer und doppelt aufgelöst**~~ – erledigt (Runde 09), im Spiel ab v0.4.5. Maße 4.3 und 15.3.
@@ -1047,6 +1047,14 @@ zeichnet der Beobachter keine Bäume und Büsche. Ein Garten-Rand (Steine,
 kleiner Zaun aus Ästen) darf im Bild sein, wenn er an den Rautenkanten
 nahtlos an Nachbargärten anschließt.
 
+**Codex, Garten-Draft (16.11.2026):** Alle fünf Zustände mit je vier Varianten
+im Branch `codex/garden-style-b`, Basis v0.10.2 (Bildvergleich auf v0.10.1). Ganze 128×64-Bodenrauten,
+Weltmaß 64×32, gemeinsamer Anker und dieselbe transparente Beetmaske.
+Grüne Sommerreihen, goldene Reife, Keimlinge und geerntete Stoppeln getrennt;
+keine eingefassten Ränder, die bei Nachbarbeeten aneinanderstoßen.
+[Prüfpaket mit Sommer-/Erntevergleich](../art/nature/garden-style-b/README.md).
+Vorhandene Bilder und Simulation unverändert; visuelle Abnahme offen.
+
 ### 16.9 Wasser an Geländestufen (Vorschlag Codex, Schnittstelle seit v0.10.2)
 
 **Status:** Formatvorschlag für Claude, noch keine Bilder oder Renderer-Anbindung.
@@ -1092,7 +1100,7 @@ alle drei Stärken, Eckverbindungen, kurze/hohe Stufen und trockene Rinnen prüf
 Die tatsächlich nötige Geometrie für verdeckte Rückseiten legt Claude fest;
 das Format verspricht dort keine ohne Tiefenprüfung sichtbare Verbindung.
 
-### 17.9 Fischfangbilder (Codex-Draft)
+### 17.10 Fischfangbilder (Codex-Draft)
 
 Eigenständiger Erwachsenenzustand `person_<0…4>_fish_<l|r>_f0…f3`, 300 ms
 je Phase, ruhiges Speerabsenken und Zurücknehmen. Beide Richtungen separat
