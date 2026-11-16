@@ -1,0 +1,25 @@
+{
+  "base_commit": "d6fc0bf",
+  "sources": [
+    {
+      "id": "shrub",
+      "file": "sources/shrub.png",
+      "sha256": "44bbcd67c3917ee52b3e1733d6c4ed11013cf8d4eb385dd6541039d4073198f1"
+    },
+    {
+      "id": "tree_mid",
+      "file": "sources/tree_mid.png",
+      "sha256": "efee7f85a6e022393262585fbac1f60ba2dd8f682154b3e3d7bb787249636f8d"
+    },
+    {
+      "id": "tree_old",
+      "file": "sources/tree_old.png",
+      "sha256": "90660cce0bbb37cbb22edf5cbd3d3820ac7b54641d28147cde6754e5476bbe28"
+    },
+    {
+      "id": "tree_young",
+      "file": "sources/tree_young.png",
+      "sha256": "4b1623dad0d11d0c5afbf0b083425c0121dfc726fdb32c09f37533ac939d478f"
+    }
+  ]
+}

@@ -889,6 +889,64 @@ mod tests {
         assert_eq!(fern.entry.anchor, Vec2::new(9.0, 14.5));
     }
 
+    /// Breite Fernkronen müssen bei Zoom 4/8 tatsächlich gewählt werden;
+    /// der Wechsel zurück zur Nahfassung darf Weltmaß/Fußpunkt nicht ändern.
+    #[test]
+    fn embedded_vegetation_far_crowns_follow_zoom_and_anchor() {
+        let images = embedded::IMAGES
+            .iter()
+            .filter(|(_, group, _)| *group == "vegetation")
+            .map(|(name, group, bytes)| {
+                let (w, h, px) = decode(bytes).expect("Pflanzen-PNG lesbar");
+                RawImage {
+                    name: name.to_string(),
+                    group: group.to_string(),
+                    w,
+                    h,
+                    px,
+                }
+            })
+            .collect();
+        let info = parse_manifests(embedded::MANIFESTS.iter().copied());
+        let data = AtlasData::build(images, info);
+        for (id, width) in [
+            ("tree_young", 10.0),
+            ("tree_mid", 14.0),
+            ("tree_old", 18.0),
+            ("shrub", 10.0),
+        ] {
+            for variant in 0..4 {
+                for state in ["normal", "stressed"] {
+                    let name = format!("{id}_{variant}_{state}");
+                    let main = data.get(&name).expect("Nahbild vorhanden");
+                    for zoom in [2.0f32, 4.0, 8.0, 16.0, 32.0] {
+                        let screen = zoom / 4.0;
+                        let picked = data
+                            .pick(&name, &name, width, screen)
+                            .expect("Stufe vorhanden");
+                        assert_eq!(
+                            data.levels(&name)[picked.level].label == "@fern",
+                            zoom <= 8.0,
+                            "{name}, Zoom {zoom}"
+                        );
+                        let expected_scale = width * screen / main.size.x;
+                        assert!(
+                            (picked.entry.anchor * picked.px - main.anchor * expected_scale)
+                                .length()
+                                < 1e-4,
+                            "Fußpunkt {name}, Zoom {zoom}"
+                        );
+                        assert!(
+                            (picked.entry.size * picked.px - main.size * expected_scale).length()
+                                < 1e-4,
+                            "Weltmaß {name}, Zoom {zoom}"
+                        );
+                    }
+                }
+            }
+        }
+    }
+
     /// Alle eingebauten Bilder: Der Atlas passt in eine Textur, die jede
     /// Grafikkarte kann, und jedes Tier und jeder Mensch erscheint bei jedem
     /// Zoom in seiner Darstellungsbreite.

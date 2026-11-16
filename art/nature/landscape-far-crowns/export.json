@@ -1,0 +1,645 @@
+{
+  "files": [
+    {
+      "file": "vegetation/tree_young_0_normal@fern.png",
+      "size": [
+        20,
+        28
+      ],
+      "anchor": [
+        10.0,
+        26.0
+      ],
+      "sha256": "23b7ef1bd6c03541b1fbdc1d4e50cca0bfa92c32e36c85eb1085da244202fb12",
+      "opaque_bbox": [
+        1,
+        5,
+        19,
+        26
+      ],
+      "alpha_area": 228.7921568627451,
+      "factor": 0.07003891050583658
+    },
+    {
+      "file": "vegetation/tree_young_0_stressed@fern.png",
+      "size": [
+        20,
+        28
+      ],
+      "anchor": [
+        10.0,
+        26.0
+      ],
+      "sha256": "6a00b9108a0f2ebbb73d378f925c278ef1fa35a2607a3da4abaec0c167b6dabd",
+      "opaque_bbox": [
+        1,
+        5,
+        19,
+        26
+      ],
+      "alpha_area": 227.48235294117646,
+      "factor": 0.07003891050583658
+    },
+    {
+      "file": "vegetation/tree_young_1_normal@fern.png",
+      "size": [
+        20,
+        28
+      ],
+      "anchor": [
+        10.0,
+        26.0
+      ],
+      "sha256": "f38e65688b26e50880c3070d4fcfd57ebb74e29bcb9879d4788469956b3bd535",
+      "opaque_bbox": [
+        1,
+        2,
+        19,
+        26
+      ],
+      "alpha_area": 264.52156862745096,
+      "factor": 0.07346938775510205
+    },
+    {
+      "file": "vegetation/tree_young_1_stressed@fern.png",
+      "size": [
+        20,
+        28
+      ],
+      "anchor": [
+        10.0,
+        26.0
+      ],
+      "sha256": "46feb678154a56f812136b29bd7bd6c15fa2c0082411256889899b5a04c27add",
+      "opaque_bbox": [
+        1,
+        2,
+        19,
+        26
+      ],
+      "alpha_area": 264.45098039215685,
+      "factor": 0.07346938775510205
+    },
+    {
+      "file": "vegetation/tree_young_2_normal@fern.png",
+      "size": [
+        20,
+        28
+      ],
+      "anchor": [
+        10.0,
+        26.0
+      ],
+      "sha256": "837b77b8b657a649ee806d7aa15dde625461e6d5e0a192dd30a171a08cf3a460",
+      "opaque_bbox": [
+        1,
+        3,
+        19,
+        26
+      ],
+      "alpha_area": 246.05490196078432,
+      "factor": 0.07086614173228346
+    },
+    {
+      "file": "vegetation/tree_young_2_stressed@fern.png",
+      "size": [
+        20,
+        28
+      ],
+      "anchor": [
+        10.0,
+        26.0
+      ],
+      "sha256": "3c5f014ffc4e4ffcd945678830a0893d287c8bc4e2589273a4585dc29dc97b32",
+      "opaque_bbox": [
+        1,
+        3,
+        19,
+        26
+      ],
+      "alpha_area": 246.27843137254902,
+      "factor": 0.07086614173228346
+    },
+    {
+      "file": "vegetation/tree_young_3_normal@fern.png",
+      "size": [
+        20,
+        28
+      ],
+      "anchor": [
+        10.0,
+        26.0
+      ],
+      "sha256": "a0639a737ac0dc4f879b8ca760fa2c7005a3c1caa679d546efebfa7f21eab840",
+      "opaque_bbox": [
+        1,
+        5,
+        19,
+        27
+      ],
+      "alpha_area": 233.9686274509804,
+      "factor": 0.06741573033707865
+    },
+    {
+      "file": "vegetation/tree_young_3_stressed@fern.png",
+      "size": [
+        20,
+        28
+      ],
+      "anchor": [
+        10.0,
+        26.0
+      ],
+      "sha256": "66d73550be9ba6ebe51d1b7c6249cc4cae3924ef00c72c69934b5d85147bb705",
+      "opaque_bbox": [
+        1,
+        5,
+        19,
+        26
+      ],
+      "alpha_area": 223.6313725490196,
+      "factor": 0.06741573033707865
+    },
+    {
+      "file": "vegetation/tree_mid_0_normal@fern.png",
+      "size": [
+        28,
+        44
+      ],
+      "anchor": [
+        14.0,
+        42.0
+      ],
+      "sha256": "81eb244bbfd08de2f1718357b0b100129bd5c88cddcf70f582f8296d501c59a9",
+      "opaque_bbox": [
+        1,
+        10,
+        26,
+        43
+      ],
+      "alpha_area": 485.00392156862745,
+      "factor": 0.09252669039145907
+    },
+    {
+      "file": "vegetation/tree_mid_0_stressed@fern.png",
+      "size": [
+        28,
+        44
+      ],
+      "anchor": [
+        14.0,
+        42.0
+      ],
+      "sha256": "17e5a6939dd643ac45c690e387f014068552f19883697b76d0ca447f6f334151",
+      "opaque_bbox": [
+        1,
+        10,
+        26,
+        43
+      ],
+      "alpha_area": 484.9490196078431,
+      "factor": 0.09252669039145907
+    },
+    {
+      "file": "vegetation/tree_mid_1_normal@fern.png",
+      "size": [
+        28,
+        44
+      ],
+      "anchor": [
+        14.0,
+        42.0
+      ],
+      "sha256": "bfe8757623f09e53daae8cc2d3c5893a44b6585f90e693d91feef3199a4abbb4",
+      "opaque_bbox": [
+        1,
+        6,
+        26,
+        42
+      ],
+      "alpha_area": 552.2980392156862,
+      "factor": 0.09523809523809523
+    },
+    {
+      "file": "vegetation/tree_mid_1_stressed@fern.png",
+      "size": [
+        28,
+        44
+      ],
+      "anchor": [
+        14.0,
+        42.0
+      ],
+      "sha256": "7f11f89bb7e917c71a8ebe6263b61fcaf496a108bf170852b03e07da1743ac70",
+      "opaque_bbox": [
+        1,
+        6,
+        27,
+        42
+      ],
+      "alpha_area": 570.8666666666667,
+      "factor": 0.09523809523809523
+    },
+    {
+      "file": "vegetation/tree_mid_2_normal@fern.png",
+      "size": [
+        28,
+        44
+      ],
+      "anchor": [
+        14.0,
+        42.0
+      ],
+      "sha256": "f5805e8320bb2f4405a90c2e326ef0257f936cae74ab5892a740ffceb5c7c5e8",
+      "opaque_bbox": [
+        1,
+        7,
+        26,
+        43
+      ],
+      "alpha_area": 580.0274509803921,
+      "factor": 0.09059233449477352
+    },
+    {
+      "file": "vegetation/tree_mid_2_stressed@fern.png",
+      "size": [
+        28,
+        44
+      ],
+      "anchor": [
+        14.0,
+        42.0
+      ],
+      "sha256": "0c6366337670f95c1cf367592bf754dffc0a03e71a3f9284bc7b9954afc0f642",
+      "opaque_bbox": [
+        1,
+        7,
+        26,
+        43
+      ],
+      "alpha_area": 576.1803921568627,
+      "factor": 0.09059233449477352
+    },
+    {
+      "file": "vegetation/tree_mid_3_normal@fern.png",
+      "size": [
+        28,
+        44
+      ],
+      "anchor": [
+        14.0,
+        42.0
+      ],
+      "sha256": "e653c67f47cc348ddedf44d76d260230528aa032060fc783efbd1ee875d545d0",
+      "opaque_bbox": [
+        1,
+        9,
+        26,
+        42
+      ],
+      "alpha_area": 499.7019607843137,
+      "factor": 0.09187279151943463
+    },
+    {
+      "file": "vegetation/tree_mid_3_stressed@fern.png",
+      "size": [
+        28,
+        44
+      ],
+      "anchor": [
+        14.0,
+        42.0
+      ],
+      "sha256": "a6d8d63573b3d71280f0acc739e2bbb58685890128b28d0031cf0ba05add05ee",
+      "opaque_bbox": [
+        1,
+        9,
+        26,
+        42
+      ],
+      "alpha_area": 499.75686274509803,
+      "factor": 0.09187279151943463
+    },
+    {
+      "file": "vegetation/tree_old_0_normal@fern.png",
+      "size": [
+        36,
+        60
+      ],
+      "anchor": [
+        18.0,
+        58.0
+      ],
+      "sha256": "d863a9b53271a6f73596f19ef06a3047b1c76c8ac6e9276a6acfb25e9cde1a11",
+      "opaque_bbox": [
+        2,
+        16,
+        35,
+        59
+      ],
+      "alpha_area": 915.0980392156863,
+      "factor": 0.11683848797250859
+    },
+    {
+      "file": "vegetation/tree_old_0_stressed@fern.png",
+      "size": [
+        36,
+        60
+      ],
+      "anchor": [
+        18.0,
+        58.0
+      ],
+      "sha256": "9c0f374354b3e6aa80304ffe005b5a1ddb26cfe91dd61fc5d18f94ee48cd4116",
+      "opaque_bbox": [
+        3,
+        16,
+        34,
+        58
+      ],
+      "alpha_area": 905.086274509804,
+      "factor": 0.11683848797250859
+    },
+    {
+      "file": "vegetation/tree_old_1_normal@fern.png",
+      "size": [
+        36,
+        60
+      ],
+      "anchor": [
+        18.0,
+        58.0
+      ],
+      "sha256": "8c49fbea7ca0d7b0624e467d3eb5c995beed72b969923adf53961a73201203e0",
+      "opaque_bbox": [
+        1,
+        18,
+        34,
+        58
+      ],
+      "alpha_area": 842.7490196078431,
+      "factor": 0.1152542372881356
+    },
+    {
+      "file": "vegetation/tree_old_1_stressed@fern.png",
+      "size": [
+        36,
+        60
+      ],
+      "anchor": [
+        18.0,
+        58.0
+      ],
+      "sha256": "f5c8eb5d1fb079a19e798926fa5f9895699fb910b6755c6f7e18ead9f536940f",
+      "opaque_bbox": [
+        1,
+        19,
+        34,
+        59
+      ],
+      "alpha_area": 842.9764705882353,
+      "factor": 0.1152542372881356
+    },
+    {
+      "file": "vegetation/tree_old_2_normal@fern.png",
+      "size": [
+        36,
+        60
+      ],
+      "anchor": [
+        18.0,
+        58.0
+      ],
+      "sha256": "01ac548584600e22820a61e1bb5dd0eca5739f410d3b07d52b7d5cdedcf0e78f",
+      "opaque_bbox": [
+        2,
+        16,
+        35,
+        58
+      ],
+      "alpha_area": 916.035294117647,
+      "factor": 0.11764705882352941
+    },
+    {
+      "file": "vegetation/tree_old_2_stressed@fern.png",
+      "size": [
+        36,
+        60
+      ],
+      "anchor": [
+        18.0,
+        58.0
+      ],
+      "sha256": "1ec351a7132a340e33a1c3fcf5b3e8e904f57ef4081c1d18515eccfbbca934e7",
+      "opaque_bbox": [
+        2,
+        15,
+        35,
+        58
+      ],
+      "alpha_area": 910.9215686274509,
+      "factor": 0.11764705882352941
+    },
+    {
+      "file": "vegetation/tree_old_3_normal@fern.png",
+      "size": [
+        36,
+        60
+      ],
+      "anchor": [
+        18.0,
+        58.0
+      ],
+      "sha256": "db24e0e6010cda04f7ecb2489ce33d5e0ca74d488a38d1c6332499b3c9ab7936",
+      "opaque_bbox": [
+        1,
+        21,
+        33,
+        58
+      ],
+      "alpha_area": 779.3176470588236,
+      "factor": 0.10862619808306709
+    },
+    {
+      "file": "vegetation/tree_old_3_stressed@fern.png",
+      "size": [
+        36,
+        60
+      ],
+      "anchor": [
+        18.0,
+        58.0
+      ],
+      "sha256": "1b4d67c4b26a2e6661939a87d1b116b89b2b549430bbf22b3b4c44588ea5961f",
+      "opaque_bbox": [
+        1,
+        20,
+        33,
+        58
+      ],
+      "alpha_area": 779.4588235294118,
+      "factor": 0.10862619808306709
+    },
+    {
+      "file": "vegetation/shrub_0_normal@fern.png",
+      "size": [
+        20,
+        16
+      ],
+      "anchor": [
+        10.0,
+        14.0
+      ],
+      "sha256": "527592e3258ab10d0bf42891883864e49df1bede19e521d25ac6c492fbe857f8",
+      "opaque_bbox": [
+        1,
+        2,
+        19,
+        14
+      ],
+      "alpha_area": 154.34901960784313,
+      "factor": 0.0661764705882353
+    },
+    {
+      "file": "vegetation/shrub_0_stressed@fern.png",
+      "size": [
+        20,
+        16
+      ],
+      "anchor": [
+        10.0,
+        14.0
+      ],
+      "sha256": "172775e82edff59bffd99f60cab63a60cc2f27e55c3cdea002dc9da1da5b983a",
+      "opaque_bbox": [
+        1,
+        2,
+        19,
+        14
+      ],
+      "alpha_area": 151.89019607843136,
+      "factor": 0.0661764705882353
+    },
+    {
+      "file": "vegetation/shrub_1_normal@fern.png",
+      "size": [
+        20,
+        16
+      ],
+      "anchor": [
+        10.0,
+        14.0
+      ],
+      "sha256": "343307010373707224356f0a2ab0804572734050cf630d579d0b9b788dc31e9e",
+      "opaque_bbox": [
+        1,
+        2,
+        19,
+        14
+      ],
+      "alpha_area": 147.7058823529412,
+      "factor": 0.06382978723404255
+    },
+    {
+      "file": "vegetation/shrub_1_stressed@fern.png",
+      "size": [
+        20,
+        16
+      ],
+      "anchor": [
+        10.0,
+        14.0
+      ],
+      "sha256": "f4cd19ec8046d435715d110a8f0fad166604370baadaaf9bf308f4d0a2acee02",
+      "opaque_bbox": [
+        1,
+        2,
+        19,
+        14
+      ],
+      "alpha_area": 147.96470588235294,
+      "factor": 0.06382978723404255
+    },
+    {
+      "file": "vegetation/shrub_2_normal@fern.png",
+      "size": [
+        20,
+        16
+      ],
+      "anchor": [
+        10.0,
+        14.0
+      ],
+      "sha256": "218899b5263fe6af6ced6a4fbc5ff2c59cbb7a424a40422ae4f633bf1ed6542a",
+      "opaque_bbox": [
+        1,
+        3,
+        19,
+        14
+      ],
+      "alpha_area": 136.30588235294118,
+      "factor": 0.06405693950177936
+    },
+    {
+      "file": "vegetation/shrub_2_stressed@fern.png",
+      "size": [
+        20,
+        16
+      ],
+      "anchor": [
+        10.0,
+        14.0
+      ],
+      "sha256": "4fb7a60fcfafcc12c51b417e9d05feee915605261f7e52a6c17aa6e295bbe2b2",
+      "opaque_bbox": [
+        1,
+        3,
+        19,
+        14
+      ],
+      "alpha_area": 136.54117647058823,
+      "factor": 0.06405693950177936
+    },
+    {
+      "file": "vegetation/shrub_3_normal@fern.png",
+      "size": [
+        20,
+        16
+      ],
+      "anchor": [
+        10.0,
+        14.0
+      ],
+      "sha256": "b7808757e64648384ecd2bbb3cd166acf3f229dec63ebe09d4d94267c326a92e",
+      "opaque_bbox": [
+        1,
+        2,
+        19,
+        14
+      ],
+      "alpha_area": 153.67450980392158,
+      "factor": 0.0636042402826855
+    },
+    {
+      "file": "vegetation/shrub_3_stressed@fern.png",
+      "size": [
+        20,
+        16
+      ],
+      "anchor": [
+        10.0,
+        14.0
+      ],
+      "sha256": "2df1eefe6cf5235cfb81b46b0ec59d6ef8131757a22d04ab8ee52eee6dc4fa8a",
+      "opaque_bbox": [
+        1,
+        2,
+        19,
+        14
+      ],
+      "alpha_area": 152.48627450980393,
+      "factor": 0.0636042402826855
+    }
+  ],
+  "main_images": "unchanged"
+}
