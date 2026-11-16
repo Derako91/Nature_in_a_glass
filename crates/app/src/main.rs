@@ -1358,7 +1358,10 @@ impl App {
                             .role_label()
                             .map(|r| format!("{r} des Lagers · "))
                             .unwrap_or_default();
-                        ui.label(RichText::new(format!("{role}Kann: {}", can.join(" · "))).weak());
+                        // Eine feste Zeile (ruhiges Fenster); vollständig beim Darüberfahren
+                        let text = format!("{role}Kann: {}", can.join(" · "));
+                        ui.add(egui::Label::new(RichText::new(&text).weak()).truncate())
+                            .on_hover_text(&text);
                         ui.separator();
                         egui::ScrollArea::vertical()
                             .id_salt("bio")
