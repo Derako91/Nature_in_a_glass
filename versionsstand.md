@@ -23,5 +23,6 @@
 
 | Datum | Änderung | Code-Test |
 | --- | --- | --- |
+| 16.11.2026 | Codex: Cloud-Entwicklungsumgebung geprüft; erster Lager-Stilentwurf und Spielbild unter `art/nature/camp-review/`. Noch keine neuen Lagerbilder eingebaut; nächster Schritt: Einzelbilder, Maßstab und Spielvergleich. Branch `codex/camp-review`, Ausgangscommit `a289aa3`. | 89 Rust-Tests, 15 Python-Tests, fmt, Clippy und Release-Bau bestanden; 100 Jahre mit Speichern/Weiterladen und tatsächlicher Spielstart geprüft. ComfyUI nicht eingerichtet; Entwurfsintegration und Animationen ungeprüft. |
 | 16.11.2026 | v0.8.0 Lagerplätze (Claude) | fmt, clippy, alle Tests grün; Spielbild Zoom 8/2 angesehen |
 | 29.10.2026 | Erste gemeinsame, lesbare Übergabe aus den vorhandenen Projektberichten erstellt | Nicht ausgeführt |
