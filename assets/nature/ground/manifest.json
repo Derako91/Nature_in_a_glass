@@ -1,0 +1,135 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "id": "garden_bare",
+      "group": "ground",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ],
+      "variants": 4,
+      "resolution_scale": 2,
+      "frames": 1,
+      "status": "garden_style_b_draft",
+      "files": [
+        "garden_bare_0.png",
+        "garden_bare_1.png",
+        "garden_bare_2.png",
+        "garden_bare_3.png"
+      ]
+    },
+    {
+      "id": "garden_sprout",
+      "group": "ground",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ],
+      "variants": 4,
+      "resolution_scale": 2,
+      "frames": 1,
+      "status": "garden_style_b_draft",
+      "files": [
+        "garden_sprout_0.png",
+        "garden_sprout_1.png",
+        "garden_sprout_2.png",
+        "garden_sprout_3.png"
+      ]
+    },
+    {
+      "id": "garden_growing",
+      "group": "ground",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ],
+      "variants": 4,
+      "resolution_scale": 2,
+      "frames": 1,
+      "status": "garden_style_b_draft",
+      "files": [
+        "garden_growing_0.png",
+        "garden_growing_1.png",
+        "garden_growing_2.png",
+        "garden_growing_3.png"
+      ]
+    },
+    {
+      "id": "garden_ripe",
+      "group": "ground",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ],
+      "variants": 4,
+      "resolution_scale": 2,
+      "frames": 1,
+      "status": "garden_style_b_draft",
+      "files": [
+        "garden_ripe_0.png",
+        "garden_ripe_1.png",
+        "garden_ripe_2.png",
+        "garden_ripe_3.png"
+      ]
+    },
+    {
+      "id": "garden_stubble",
+      "group": "ground",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ],
+      "variants": 4,
+      "resolution_scale": 2,
+      "frames": 1,
+      "status": "garden_style_b_draft",
+      "files": [
+        "garden_stubble_0.png",
+        "garden_stubble_1.png",
+        "garden_stubble_2.png",
+        "garden_stubble_3.png"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "base_commit": "cc542e8",
+  "source": {
+    "file": "sources/materials.png",
+    "sha256": "b2b31f5bc63abc90404416e506d1f8525d00fe2b07412dd655cb92326bdd7157",
+    "producer": "image_gen",
+    "reference": "art/nature/landscape-style-b/sources/materials.png",
+    "generation": "exec-90c5b116-0109-45e0-8725-b1c9970defd7.png"
+  },
+  "rows": [
+    "bare",
+    "sprout",
+    "growing",
+    "ripe",
+    "stubble"
+  ],
+  "columns": 4,
+  "size": [
+    128,
+    64
+  ],
+  "display_size": [
+    64,
+    32
+  ],
+  "anchor": [
+    64,
+    32
+  ],
+  "bed_fraction": 0.9,
+  "edge_feather_uv": 0.025
+}

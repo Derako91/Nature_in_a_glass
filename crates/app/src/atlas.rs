@@ -1179,6 +1179,47 @@ mod tests {
         }
     }
 
+    /// Alle Jahreszustände und Varianten müssen als ganze Bodenrauten ankommen.
+    #[test]
+    fn embedded_gardens_complete_and_same_footprint() {
+        let images: BTreeMap<_, _> = embedded::IMAGES
+            .iter()
+            .filter(|(name, _, _)| name.starts_with("garden_"))
+            .map(|(name, _, bytes)| (name.to_string(), decode(bytes).expect("Garten-PNG")))
+            .collect();
+        assert_eq!(images.len(), 20);
+        let info = parse_manifests(embedded::MANIFESTS.iter().copied());
+        let reference: Vec<_> = images["garden_bare_0"]
+            .2
+            .as_chunks::<4>()
+            .0
+            .iter()
+            .map(|p| p[3])
+            .collect();
+        let mut unique = std::collections::BTreeSet::new();
+        for stage in ["bare", "sprout", "growing", "ripe", "stubble"] {
+            for variant in 0..4 {
+                let name = format!("garden_{stage}_{variant}");
+                let (w, h, px) = &images[&name];
+                assert_eq!((*w, *h), (128, 64));
+                assert_eq!(info.anchors[&name], Vec2::new(64.0, 32.0));
+                assert_eq!(info.display[&name], Vec2::new(64.0, 32.0));
+                assert!(
+                    px.as_chunks::<4>()
+                        .0
+                        .iter()
+                        .map(|p| p[3])
+                        .eq(reference.iter().copied())
+                );
+                assert_eq!(px[(32 * 128 + 64) * 4 + 3], 255);
+                for index in [0, 127, 63 * 128, 64 * 128 - 1] {
+                    assert_eq!(px[index * 4 + 3], 0);
+                }
+                assert!(unique.insert(px.clone()), "Gartenvariante doppelt: {name}");
+            }
+        }
+    }
+
     /// Alle eingebauten Bilder: Der Atlas passt in eine Textur, die jede
     /// Grafikkarte kann, und jedes Tier und jeder Mensch erscheint bei jedem
     /// Zoom in seiner Darstellungsbreite.
