@@ -19,9 +19,11 @@ pub enum Tool {
     Net,
     Basket,
     Axe,
+    /// Tongefäß (seit v0.15): Vorräte verderben langsamer.
+    Pot,
 }
 
-pub const TOOLS: [Tool; 3] = [Tool::Net, Tool::Basket, Tool::Axe];
+pub const TOOLS: [Tool; 4] = [Tool::Net, Tool::Basket, Tool::Axe, Tool::Pot];
 
 impl Tool {
     pub fn bit(self) -> u8 {
@@ -29,6 +31,7 @@ impl Tool {
             Tool::Net => 1,
             Tool::Basket => 2,
             Tool::Axe => 4,
+            Tool::Pot => 8,
         }
     }
     pub fn name(self) -> &'static str {
@@ -36,6 +39,7 @@ impl Tool {
             Tool::Net => "Netz",
             Tool::Basket => "Korb",
             Tool::Axe => "Steinbeil",
+            Tool::Pot => "Tongefäß",
         }
     }
     /// „ein Netz“, „einen Korb“, „ein Steinbeil“
@@ -44,6 +48,7 @@ impl Tool {
             Tool::Net => "ein Netz",
             Tool::Basket => "einen Korb",
             Tool::Axe => "ein Steinbeil",
+            Tool::Pot => "ein Tongefäß",
         }
     }
     /// „Netze knüpfen“, „Körbe flechten“, „Steinbeile schlagen“
@@ -52,6 +57,7 @@ impl Tool {
             Tool::Net => "Netze zu knüpfen",
             Tool::Basket => "Körbe zu flechten",
             Tool::Axe => "Steinbeile zu schlagen",
+            Tool::Pot => "Tongefäße zu brennen",
         }
     }
 }
@@ -61,6 +67,23 @@ impl Person {
         self.tools & t.bit() != 0
     }
 }
+
+/// Ein Tongefäß zu erfinden liegt nahe, wer am eigenen Lager steht, das einen
+/// Garten und gut gefüllten Vorrat hat, und Wasser (Lehm) daneben.
+fn pot_place(people: &People, world: &World, p: &Person) -> bool {
+    p.camp != 0
+        && people.gardens.iter().any(|g| g.camp == p.camp)
+        && people.camps.iter().any(|c| {
+            c.id == p.camp
+                && !c.abandoned
+                && c.store >= 50.0
+                && super::cheb(world, c.tile, p.tile) <= 1
+        })
+        && super::drinkable(world, p.tile as usize)
+}
+
+/// In Tongefäßen verderben Vorräte so viel langsamer (Faktor).
+pub const POT_SPOIL: f32 = 0.5;
 
 /// Mehr Fisch mit Netz.
 pub const NET_FACTOR: f32 = 1.6;
@@ -96,6 +119,8 @@ pub(super) fn tools_day(
                     0.0004
                 }
                 Tool::Axe if p.activity == Activity::Build => 0.003,
+                // Am Lager mit Garten und gefülltem Vorrat, Lehm vom Ufer
+                Tool::Pot if pot_place(people, world, p) => 0.0005,
                 _ => 0.0,
             }
         };
@@ -125,6 +150,10 @@ pub(super) fn tools_day(
                 ),
                 (Tool::Axe, true) => format!(
                     "{} schlägt bei ({x}, {y}) aus einem Feuerstein das erste Steinbeil der Insel – Holz zu holen geht nun viel schneller.",
+                    p.name
+                ),
+                (Tool::Pot, true) => format!(
+                    "{} formt bei ({x}, {y}) aus Lehm vom Ufer das erste Tongefäß der Insel und brennt es im Feuer – Vorräte halten darin viel länger.",
                     p.name
                 ),
                 (t, _) => format!(

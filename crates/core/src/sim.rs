@@ -19,7 +19,7 @@ pub const DAYS_PER_YEAR: u64 = 365;
 pub const HOURS_PER_YEAR: u64 = HOURS_PER_DAY * DAYS_PER_YEAR;
 
 /// Version des Spielstand-Formats. Erhöhen, wenn sich die Struktur ändert.
-pub const SAVE_FORMAT_VERSION: u32 = 15;
+pub const SAVE_FORMAT_VERSION: u32 = 16;
 pub const ENGINE_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 pub const DEFAULT_SIZE: u32 = 64;
@@ -1378,6 +1378,7 @@ impl Simulation {
             feed(p.settle as u64);
             feed(p.tools as u64);
             feed(p.hunting.to_bits() as u64);
+            feed(p.role as u64);
         }
         feed(self.people.departed.len() as u64);
         for c in &self.people.camps {
@@ -1633,7 +1634,7 @@ impl Simulation {
                 sim.migrate_from_v4();
             }
             4 => sim.migrate_from_v4(),
-            5..=14 => {}
+            5..=15 => {}
             other => {
                 return Err(format!(
                     "Spielstand-Format {other} wird nicht unterstützt (erwartet 1 bis {SAVE_FORMAT_VERSION})."

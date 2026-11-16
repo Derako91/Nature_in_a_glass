@@ -36,10 +36,12 @@ use crate::world::{POND_MM, World};
 mod camps;
 mod gardens;
 mod hunting;
+mod roles;
 mod tools;
 mod villages;
 pub use camps::{Camp, CampStage};
 pub use gardens::Garden;
+pub use roles::Role;
 pub use tools::{TOOLS, Tool};
 pub use villages::{Village, village_of};
 
@@ -267,6 +269,9 @@ pub struct Person {
     /// Können bei der Jagd 0..1 (seit Format 15).
     #[serde(default)]
     pub hunting: f32,
+    /// Rolle im Lager (0 = keine, sonst `Role`), seit Format 16.
+    #[serde(default)]
+    pub role: u8,
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq)]
@@ -853,6 +858,7 @@ impl People {
                 settle: 0,
                 tools: 0,
                 hunting: 0.0,
+                role: 0,
             };
             // Wer mit dem Boot kommt, hat schon ein wenig gejagt – etwa so viel,
             // wie er fischen kann (ohne eigenen Zufall, damit die Zufallsfolge
@@ -1417,8 +1423,14 @@ fn day(
                 } else {
                     1.0
                 };
-                let caught =
-                    (fish_i * p.fishing * (1.0 - people.fished[i]) * work * net).min(2.0 * net);
+                // Wer als Fischer gilt, ist mit mehr Hingabe dabei.
+                let focus = if p.role() == Some(Role::Fisher) {
+                    1.2
+                } else {
+                    1.0
+                };
+                let caught = (fish_i * p.fishing * (1.0 - people.fished[i]) * work * net * focus)
+                    .min(2.0 * net * focus);
                 people.fished[i] = clamp01(people.fished[i] + caught / (fish_i * 6.0));
                 food += caught;
                 fished = caught;
@@ -1580,6 +1592,7 @@ fn day(
     villages::village_day(people, world, now, rng, &mut news);
     tools::tools_day(people, world, now, rng, &mut news);
     hunting::hunting_day(people, animals, world, now, rng, &mut news);
+    roles::roles_day(people, now);
 
     // --- Gefahren durch andere: Wölfe, Feuer ---
     for k in 0..people.list.len() {
@@ -2158,6 +2171,7 @@ fn family_day(
             settle: 0,
             tools: 0,
             hunting: 0.0,
+            role: 0,
         };
         let parents = match &fname {
             Some(f) => format!("Mutter: {mname}, Vater: {f}."),

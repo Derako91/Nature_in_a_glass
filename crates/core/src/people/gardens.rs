@@ -245,6 +245,16 @@ pub(super) fn garden_day(
                 worked = true;
             }
             let tended = if day < g.tended_day + 20 { 1.0 } else { 0.4 };
+            // Eine Gärtnerin am Lager pflegt besser.
+            let tended = tended
+                * if workers
+                    .iter()
+                    .any(|&k| people.list[k].role() == Some(super::Role::Gardener))
+                {
+                    1.2
+                } else {
+                    1.0
+                };
             g.growth = (g.growth + 0.012 * water * warm * tended).min(1.0);
         } else if g.sown && doy == RIPE_DAY {
             g.ripe = g.growth * GARDEN_YIELD * (0.4 + 0.6 * skill.max(0.1));

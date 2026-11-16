@@ -28,3 +28,8 @@ Fischen und Gärtnern sind seit v0.9/v0.10 Können, das mit Übung wächst. Für
 - **Kaninchen** auf dem eigenen Feld (ab einem Tier): allein, 8 % × (0,5 + Können), eine Ration.
 - **Können** `hunting` wächst mit jedem Versuch (mehr bei Erfolg) und wird wie Fischen abgeschaut; wer mit dem Boot kommt, kann so viel jagen wie fischen × 0,8.
 - Aussterben durch Jagd wird am selben Tag erkannt und mit der Zahl der Erlegten in der Chronik begründet (`Animals.hunted`, `hunted_since`). Spielstand-Format 15.
+
+## Nachtrag v0.15.0 – Tongefäß und Rollen
+
+- **Tongefäß** (Bit 8): Erfindung mit 0,05 % je Tag für Erwachsene am eigenen Lager (Umkreis 1), das einen Garten und mindestens 50 Rationen Vorrat hat, an Wasser. Wirkung: Verderb des Lagervorrats × 0,5, wenn jemand im Lager es kann.
+- **Rollen** (`Person.role`): monatlich je Lager für Fischer, Gärtner, Jäger (in dieser Reihenfolge) die erwachsene Person mit dem höchsten Können ab 0,7, die noch keine Rolle hat. Wirkung: Fischer × 1,2 Fang; Gärtnerin am Lager: Wachstum × 1,2; Jäger jagen ab Hunger 0,1 statt 0,25. Spielstand-Format 16.

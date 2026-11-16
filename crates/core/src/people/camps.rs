@@ -536,10 +536,21 @@ pub(super) fn camp_day(
     split_camps(people, world, now, rng, news);
     move_camps(people, world, now, rng, news);
 
-    // --- Vorräte verderben ---
+    // --- Vorräte verderben (in Tongefäßen langsamer) ---
+    let potters: Vec<u32> = people
+        .list
+        .iter()
+        .filter(|p| p.knows(super::Tool::Pot))
+        .map(|p| p.camp)
+        .collect();
     for c in &mut people.camps {
         let temp = weather.temp_at(world.tiles[c.tile as usize].elevation);
-        let spoil = if temp < 0.0 { 0.004 } else { 0.01 };
+        let pots = if potters.contains(&c.id) {
+            super::tools::POT_SPOIL
+        } else {
+            1.0
+        };
+        let spoil = pots * if temp < 0.0 { 0.004 } else { 0.01 };
         c.store = (c.store * (1.0 - spoil)).max(0.0);
         if c.store < 0.05 {
             c.store = 0.0;

@@ -1354,7 +1354,11 @@ impl App {
                                 can.push(t.name().to_string());
                             }
                         }
-                        ui.label(RichText::new(format!("Kann: {}", can.join(" · "))).weak());
+                        let role = p
+                            .role_label()
+                            .map(|r| format!("{r} des Lagers · "))
+                            .unwrap_or_default();
+                        ui.label(RichText::new(format!("{role}Kann: {}", can.join(" · "))).weak());
                         ui.separator();
                         egui::ScrollArea::vertical()
                             .id_salt("bio")

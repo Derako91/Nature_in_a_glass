@@ -576,3 +576,36 @@ fn people_hunt_deer_and_rabbits() {
     assert!(with.animals.hunted[Species::Rabbit.index()] > 0);
     assert!(with.people.list.iter().any(|p| p.hunting > 0.3));
 }
+
+// ---------- v0.15: Tongefäß und Rollen ----------
+
+/// Wer etwas am besten kann, gilt im Lager als Fischerin, Gärtner … –
+/// höchstens eine Person je Rolle und Lager, jede mit höchstens einer Rolle.
+#[test]
+fn roles_follow_skill_and_pots_are_invented() {
+    use nig_core::people::Tool;
+    let sim = settled(5, 40);
+    let pe = &sim.people;
+    let with_role: Vec<_> = pe.list.iter().filter(|p| p.role().is_some()).collect();
+    assert!(!with_role.is_empty(), "keine Rollen");
+    for p in &with_role {
+        assert!(!p.is_child());
+        assert!(p.role_label().is_some());
+        // Niemand im selben Lager hat dieselbe Rolle.
+        assert_eq!(
+            pe.list
+                .iter()
+                .filter(|q| q.camp == p.camp && q.role() == p.role())
+                .count(),
+            1
+        );
+    }
+    assert!(
+        sim.journal
+            .events
+            .iter()
+            .any(|e| e.kind == EventKind::ToolInvented && e.message.contains("Tongefäß")),
+        "kein Tongefäß in 40 Jahren"
+    );
+    assert!(pe.list.iter().any(|p| p.knows(Tool::Pot)));
+}

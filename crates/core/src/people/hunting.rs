@@ -39,8 +39,10 @@ pub(super) fn hunting_day(
             && p.injury < 0.2
             && p.health > 0.6
             && p.thirst < 0.5
-            // Gejagt wird bei echtem Hunger oder leerem Beutel
-            && (p.hunger > 0.25 || p.pack < 0.5)
+            // Gejagt wird bei echtem Hunger oder leerem Beutel – wer als Jäger
+            // gilt, zieht schon früher los.
+            && (p.hunger > if p.role() == Some(super::Role::Hunter) { 0.1 } else { 0.25 }
+                || p.pack < 0.5)
             && p.settle == 0
             && p.activity != Activity::Run
     };

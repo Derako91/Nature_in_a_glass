@@ -163,10 +163,14 @@ Die Bewohner bauen selbst – der Beobachter gibt keine Bauaufträge (Prinzip 1)
 - [x] Jagd auf Hirsche (gemeinsam) und Kaninchen (allein), Können `hunting`, Fleisch für Jäger und Lager.
 - [x] Überjagung möglich; Aussterben mit Ursache „von Menschen gejagt“ in der Chronik.
 
+## ✅ v0.15 – Tongefäße und Rollen (v0.15.0)
+
+- [x] Tongefäß: Vorräte verderben halb so schnell.
+- [x] Rollen entstehen aus dem Können (Fischer, Gärtner, Jäger) und wirken auf das Tun.
+
 ## Als Nächstes (Ideen)
 
-- Weitere Erfindungen: Boot (Fischen auf dem Meer, andere Küsten), Tongefäß (Vorräte halten länger), Speerschleuder (Jagd).
-- Rollen im Dorf, die aus Können entstehen (wer am besten fischt, fischt öfter).
+- Weitere Erfindungen: Boot (Fischen auf dem Meer, andere Küsten), Speerschleuder (Jagd).
 
 - Mehrere Lager einer wachsenden Gruppe; Siedlungen entstehen dort, wo Wasser, Nahrung und Schutz zusammenkommen.
 - Werkzeuge und erstes Können (wer gut baut, baut öfter), weitergegeben an die Kinder.

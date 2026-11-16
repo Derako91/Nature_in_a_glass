@@ -1,5 +1,15 @@
 # Änderungen
 
+## 0.15.0 – Tongefäße und Rollen
+
+**Neu**
+- **Tongefäß als viertes Werkzeug:** Wer an einem Lager mit Garten und gefülltem Vorrat lebt, formt irgendwann aus Lehm vom Ufer ein Gefäß und brennt es im Feuer. In Gefäßen verderben Vorräte nur halb so schnell. Wie bei den anderen Werkzeugen geht das Wissen weiter – oder mit den Toten verloren.
+- **Rollen im Lager:** Einmal im Monat zeigt sich in jedem Lager, wer am besten fischt, gärtnert und jagt (ab 70 % Können). Diese Personen gelten als Fischerin, Gärtner, Jägerin … – je Rolle eine, jede mit höchstens einer Rolle. Niemand vergibt das; es ergibt sich aus dem Können und wechselt, wenn jemand stirbt oder überholt wird.
+- **Rollen wirken:** Fischer fangen mehr, Gärtnerinnen pflegen die Gärten besser, Jäger ziehen schon bei kleinem Hunger los.
+- **Fenster „Bewohner“** zeigt die Rolle; die Lebensgeschichte erzählt, wann jemand zur besten Fischerin am Lager wurde.
+
+**Spielstände** aus 0.14 lassen sich laden.
+
 ## 0.14.0 – Jagd
 
 **Neu**
