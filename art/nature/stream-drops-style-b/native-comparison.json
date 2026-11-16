@@ -1,0 +1,62 @@
+{
+  "before_base": "25ea9cb / v0.10.2",
+  "after_base": "3ac3bc1 / v0.10.3 plus sprites and atlas packing",
+  "cases": [
+    {
+      "days": 60,
+      "zoom": 8,
+      "changed_pixels": 171,
+      "difference_bbox": [
+        614,
+        433,
+        623,
+        460
+      ]
+    },
+    {
+      "days": 60,
+      "zoom": 16,
+      "changed_pixels": 680,
+      "difference_bbox": [
+        705,
+        395,
+        723,
+        449
+      ]
+    },
+    {
+      "days": 60,
+      "zoom": 32,
+      "changed_pixels": 2684,
+      "difference_bbox": [
+        888,
+        321,
+        924,
+        428
+      ]
+    },
+    {
+      "days": 240,
+      "zoom": 16,
+      "changed_pixels": 680,
+      "difference_bbox": [
+        705,
+        395,
+        723,
+        449
+      ]
+    },
+    {
+      "days": 240,
+      "zoom": 32,
+      "changed_pixels": 2684,
+      "difference_bbox": [
+        888,
+        321,
+        924,
+        428
+      ]
+    }
+  ],
+  "live_gif_frames": 8
+}

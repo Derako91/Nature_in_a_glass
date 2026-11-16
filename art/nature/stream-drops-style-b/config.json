@@ -1,0 +1,19 @@
+{
+  "base_commit": "3ac3bc1",
+  "source": {
+    "file": "sources/materials.png",
+    "sha256": "35090347e97463a9d10c19b349d9357284fc8a2eb0033ba891b3c61068c91e6c",
+    "producer": "image_gen",
+    "generation": "exec-80f27a0f-88cd-41c0-9246-84c1173b8fad.png"
+  },
+  "bed_config": "../stream-beds-style-b/config.json",
+  "frame_ms": 500,
+  "body_size": [
+    32,
+    64
+  ],
+  "cap_size": [
+    32,
+    16
+  ]
+}

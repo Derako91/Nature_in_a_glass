@@ -131,6 +131,9 @@ def export():
     from export_stream_beds import CONFIG as STREAM_CONFIG, export as export_streams
     if STREAM_CONFIG.exists():
         export_streams()
+    from export_stream_drops import ART as DROP_ART, export as export_drops
+    if (DROP_ART / "config.json").exists():
+        export_drops()
     print('48 Wasserphasen + 3 Standbilder, vier Varianten, kohärente 2-Sekunden-Schleifen exportiert.')
 
 

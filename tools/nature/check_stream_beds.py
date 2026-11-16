@@ -17,7 +17,7 @@ def main():
     cfg = json.loads((ART / 'config.json').read_text())
     report = json.loads((ART / 'export.json').read_text())
     manifest = json.loads((WATER / 'manifest.json').read_text())
-    files = {f for e in manifest['assets'] if e['id'].startswith('stream_') for f in e['files']}
+    files = {f for e in manifest['assets'] if e['id'].startswith(('stream_wet_', 'stream_dry_')) for f in e['files']}
     assert len(files) == len(report['files']) == 54
     images = {}
     for row in report['files']:
