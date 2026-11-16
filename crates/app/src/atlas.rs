@@ -1153,6 +1153,32 @@ mod tests {
         }
     }
 
+    /// Eigenständiger Fischfang: alle Aussehen und Richtungen ohne Phasenalias.
+    #[test]
+    fn embedded_fishing_people_complete_and_anchored() {
+        let info = parse_manifests(embedded::MANIFESTS.iter().copied());
+        let images: BTreeMap<_, _> = embedded::IMAGES
+            .iter()
+            .filter(|(name, _, _)| name.starts_with("person_") && name.contains("_fish_"))
+            .map(|(name, _, bytes)| (name.to_string(), decode(bytes).expect("Fischfang-PNG")))
+            .collect();
+        assert_eq!(images.len(), 40);
+        for look in 0..5 {
+            for dir in ["l", "r"] {
+                let mut phases = std::collections::BTreeSet::new();
+                for frame in 0..4 {
+                    let name = format!("person_{look}_fish_{dir}_f{frame}");
+                    let (w, h, px) = &images[&name];
+                    assert_eq!((*w, *h), (112, 120));
+                    assert_eq!(info.anchors[&name], Vec2::new(56.0, 112.0));
+                    assert_eq!(info.display[&name], Vec2::new(12.6, 13.5));
+                    assert!(px.as_chunks::<4>().0.iter().any(|p| p[3] > 128));
+                    assert!(phases.insert(px.clone()), "Doppelte Fischfangphase {name}");
+                }
+            }
+        }
+    }
+
     /// Alle eingebauten Bilder: Der Atlas passt in eine Textur, die jede
     /// Grafikkarte kann, und jedes Tier und jeder Mensch erscheint bei jedem
     /// Zoom in seiner Darstellungsbreite.

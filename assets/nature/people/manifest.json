@@ -3445,6 +3445,72 @@
         "person_marker_0.png"
       ],
       "tint": "renderer_recognition_color"
+    },
+    {
+      "id": "person",
+      "state": "fish",
+      "size": [
+        112,
+        120
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "appearances": 5,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 4,
+      "frame_ms": 300,
+      "status": "draft_pending_engine_state",
+      "files": [
+        "person_0_fish_r_f0.png",
+        "person_0_fish_r_f1.png",
+        "person_0_fish_r_f2.png",
+        "person_0_fish_r_f3.png",
+        "person_0_fish_l_f0.png",
+        "person_0_fish_l_f1.png",
+        "person_0_fish_l_f2.png",
+        "person_0_fish_l_f3.png",
+        "person_1_fish_r_f0.png",
+        "person_1_fish_r_f1.png",
+        "person_1_fish_r_f2.png",
+        "person_1_fish_r_f3.png",
+        "person_1_fish_l_f0.png",
+        "person_1_fish_l_f1.png",
+        "person_1_fish_l_f2.png",
+        "person_1_fish_l_f3.png",
+        "person_2_fish_r_f0.png",
+        "person_2_fish_r_f1.png",
+        "person_2_fish_r_f2.png",
+        "person_2_fish_r_f3.png",
+        "person_2_fish_l_f0.png",
+        "person_2_fish_l_f1.png",
+        "person_2_fish_l_f2.png",
+        "person_2_fish_l_f3.png",
+        "person_3_fish_r_f0.png",
+        "person_3_fish_r_f1.png",
+        "person_3_fish_r_f2.png",
+        "person_3_fish_r_f3.png",
+        "person_3_fish_l_f0.png",
+        "person_3_fish_l_f1.png",
+        "person_3_fish_l_f2.png",
+        "person_3_fish_l_f3.png",
+        "person_4_fish_r_f0.png",
+        "person_4_fish_r_f1.png",
+        "person_4_fish_r_f2.png",
+        "person_4_fish_r_f3.png",
+        "person_4_fish_l_f0.png",
+        "person_4_fish_l_f1.png",
+        "person_4_fish_l_f2.png",
+        "person_4_fish_l_f3.png"
+      ]
     }
   ],
   "frame_aliases": {}
