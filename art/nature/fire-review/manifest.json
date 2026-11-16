@@ -1,0 +1,67 @@
+{
+  "assets": [
+    {
+      "id": "fire_flame_small",
+      "files": [
+        "fire_flame_small_0_f0.png"
+      ],
+      "anchor": [
+        20,
+        62
+      ],
+      "display_size": [
+        10,
+        16
+      ],
+      "frame_duration_ms": 200
+    },
+    {
+      "id": "fire_flame_small",
+      "files": [
+        "fire_flame_small_0_f1.png"
+      ],
+      "anchor": [
+        20,
+        62
+      ],
+      "display_size": [
+        10,
+        16
+      ],
+      "frame_duration_ms": 200
+    },
+    {
+      "id": "fire_flame_small",
+      "files": [
+        "fire_flame_small_0_f2.png"
+      ],
+      "anchor": [
+        20,
+        62
+      ],
+      "display_size": [
+        10,
+        16
+      ],
+      "frame_duration_ms": 200
+    },
+    {
+      "id": "fire_flame_small",
+      "files": [
+        "fire_flame_small_0_f3.png"
+      ],
+      "anchor": [
+        20,
+        62
+      ],
+      "display_size": [
+        10,
+        16
+      ],
+      "frame_duration_ms": 200
+    }
+  ],
+  "frame_aliases": {},
+  "status": "review_only_not_installed",
+  "loop_ms": 800
+}

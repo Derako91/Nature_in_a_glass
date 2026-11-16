@@ -1,0 +1,30 @@
+{
+  "format": "RGBA8",
+  "size": [
+    64,
+    112
+  ],
+  "frames": 4,
+  "loop_ms": 800,
+  "anchor": [
+    32,
+    110
+  ],
+  "display_size": [
+    16,
+    28
+  ],
+  "source_sha256": "a329e281660be3973de07dca2ddf26c1e23c8038fa662cd656b9b98d5b701acd",
+  "common_scale": 0.14814814814814814,
+  "integrated_luminance": [
+    464456.65637490194,
+    457458.81377882353,
+    481034.7815090196,
+    459753.4246015686
+  ],
+  "max_min_luminance_change": 0.05153680947897269,
+  "brightness_limit_25_percent": true,
+  "visual_review": "pending",
+  "game_review": "pending",
+  "producer": "built-in image_gen"
+}
