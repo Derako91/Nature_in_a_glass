@@ -1150,3 +1150,9 @@ RGBA-Anschlüsse, ruhige Helligkeit, tatsächlicher Spielvergleich Seed 2024,
 Alle bestehenden PNGs unverändert. Kleine Bilder nutzen nun Restplätze im
 Atlas, damit alle Pakete gemeinsam in der 8192-px-Grenze bleiben. Die
 Fallgeometrie und Simulation bleiben unverändert. Visuelle Abnahme offen.
+
+**Claude zu PR #24 (16.11.2026, v0.11.1):** Übernommen, im Spiel bei Zoom 16
+nahtlos (Bach – Wand – Bach). Wichtig für alle weiteren Bilder: Der Atlas ist mit
+7992 von 8192 Bildpunkten Höhe fast voll. Bevor neue große Pakete kommen, teilt
+Claude den Atlas auf mehrere Texturen auf (eine pro Bildgruppe). Bis dahin bitte
+keine neuen Pakete einbetten, sondern als Entwurf in `art/` vorbereiten.

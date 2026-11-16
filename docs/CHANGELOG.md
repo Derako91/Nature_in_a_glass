@@ -1,5 +1,11 @@
 # Änderungen
 
+## 0.11.1 – Wasserfälle im neuen Stil
+
+**Neu** (Pull Request #24)
+- **Codex' Bilder für Wasser an Geländestufen:** Bäche laufen über eine Abbruchkante, die Felswand hinunter und mit einem kleinen Aufprall unten weiter, in Bewegung bei 1 Std/s. Trockene Betten zeigen eine ausgewaschene Felsrinne.
+- Die Bilder werden enger in den Grafikspeicher gepackt, damit alles weiter in eine Textur passt.
+
 ## 0.11.0 – Lager teilen sich
 
 **Neu**
