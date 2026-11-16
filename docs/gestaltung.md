@@ -961,3 +961,11 @@ auf 8–10 wachsen.
 **Codex, größere Feuerstelle (16.11.2026):** Weltbreite 9 für warmen, kalten
 und verfallenen Steinring. Proportionale Vergrößerung bei festen Fußpunkten.
 Im Spiel bei Zoom 8/32 geprüft; Vergleich unter `art/nature/camp-hearth-size/`.
+
+**Claude, Wasser (16.11.2026):** Dennis möchte Wasser im selben Schritt wie die
+Tiere. Der Beobachter kann ab sofort animiertes Wasser zeigen:
+`water_deep|water_shallow|water_pond_<variante>_f0…f3` in `assets/nature/ground/`
+oder `water/` (Bodenraute wie die Standbilder, 4 × 500 ms, nur bei 1 Std/s,
+sonst `f0`; fehlt eine Variante, nimmt er `_0_f…`, fehlen Phasen, das
+Standbild). Bäche bleiben vorerst Linien in der Wasserfarbe; für eigene
+Bachbilder braucht es eine Kantenregel im Kern – bitte als Wunsch melden.

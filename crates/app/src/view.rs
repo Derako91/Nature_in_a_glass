@@ -526,7 +526,23 @@ fn draw_iso_gfx(
             // Boden und Überlagerungen
             let top_rect =
                 Rect::from_min_max(Pos2::new(c.x - hw, c.y - hh), Pos2::new(c.x + hw, c.y + hh));
-            match atlas.tile(ground.asset_id(), variant) {
+            // Wasser darf animiert sein: `water_<art>_<variante>_f0…f3`
+            // (langsam, 4 × 500 ms, nur bei 1 Std/s); sonst das Standbild.
+            let animated = ground.is_water().then(|| {
+                let frame = if g.animate {
+                    ((g.time_s * 1000.0 / 500.0) as u64 % 4) as u32
+                } else {
+                    0
+                };
+                let id = ground.asset_id();
+                atlas
+                    .get(&format!("{id}_{variant}_f{frame}"))
+                    .or_else(|| atlas.get(&format!("{id}_0_f{frame}")))
+            });
+            match animated
+                .flatten()
+                .or_else(|| atlas.tile(ground.asset_id(), variant))
+            {
                 Some(ge) => tex_rect(&mut mesh, top_rect, ge, lit),
                 None => solid(
                     &mut mesh,
