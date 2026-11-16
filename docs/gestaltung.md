@@ -762,6 +762,27 @@ weiterhin offen. Glutsaum benötigt Bodenüberlagerung, keine Sprite-Skalierung.
 - Ein Bildschirmfoto vorher/nachher gehört in den Pull Request.
 
 
+### 16.10 Inselwelt: Beschriftungsoptik (Codex-Draft, v0.19.0)
+
+Inselnamen erhalten eine eigene eingebettete Seekartenschrift: IM FELL
+English Italic (SIL OFL 1.1), 22 Bildschirm-Pixel, warmes Elfenbein mit
+schmalem dunklem Rand. Oberfläche und Dorfnamen behalten ihre bisherigen
+Schriften. Namenspositionen und technische Auswahl-/Zoomregeln bleiben gleich.
+
+[Prüfpaket](../art/nature/islandworld-cartography/README.md), Branch
+`codex/islandworld-cartography`: echte Vorher-/Nachher-Aufnahmen von Seed 2024,
+`--groesse inselwelt`, +3 Jahre, Karte/Isometrie bei Zoom 1/2/8, zusätzliche
+Gesamtübersichten und zentrierte Namen-/Küstendetails. Alle sechs Namen lesbar,
+Umlaute und lange Namen geprüft. Karte zeigt Namen auch bei Zoom 8;
+isometrisch bleiben sie wie bisher oberhalb Zoom 2 ausgeblendet.
+
+Meeresstraßen und Küsten sind unterscheidbar. Im isometrischen Meer bei
+Zoom 1/2 bleibt das bereits vorher vorhandene feine Punktraster sichtbar;
+Wasser-Fernsicht gegebenenfalls als eigener Folgepunkt. Kamera und
+Randbeschnitt sind technische Bestandspunkte, keine Änderung dieses Pakets.
+Im Gesamt-Kartenvergleich null geänderte Pixel außerhalb der Namen und
+null Pixel Bewegung in der pausierten Ansicht. Visuelle Abnahme offen.
+
 ## 17. Menschen (v0.6) – Vorgaben für die ersten Bewohner
 
 Stand 18.10.2026. Die Simulation der Menschen ist noch nicht gebaut (`docs/ROADMAP.md`, v0.6: zunächst fünf Menschen mit Bewegung, Nahrungssuche, Durst, Müdigkeit, Ruhe; Verletzung und Tod). Dieser Abschnitt legt fest, was gezeichnet wird, damit Codex vorarbeiten kann. Ändert sich beim Bau der Simulation etwas an der Schnittstelle, wird er im selben Schritt angepasst.
