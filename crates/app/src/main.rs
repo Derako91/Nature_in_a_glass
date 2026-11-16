@@ -1155,8 +1155,15 @@ impl App {
                 let hint = match sp {
                     Species::Deer => "6 Hirsche (2 männlich, 4 weiblich).",
                     Species::Rabbit => "20 Kaninchen.",
-                    Species::Wolf => "Ein Rudel aus 4 Wölfen. Sie brauchen viele Hirsche.",
-                    Species::Fox => "4 Füchse. Sie brauchen Kaninchen.",
+                    Species::Wolf => {
+                        "Ein Rudel aus 4 Wölfen. Sie brauchen viele Hirsche – erst Hirsche \
+                         aussetzen und einige Jahre warten. Auf einer kleinen Insel hält \
+                         sich ein Rudel meist nur einige Jahre."
+                    }
+                    Species::Fox => {
+                        "4 Füchse. Sie brauchen viele Kaninchen – erst Kaninchen aussetzen \
+                         und einige Jahre warten."
+                    }
                 };
                 let place = if at.is_some() {
                     "Sie kommen auf das gewählte Feld."

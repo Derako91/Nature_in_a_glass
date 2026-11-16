@@ -274,12 +274,16 @@ const DEER_SEARCH_HUNGRY: i32 = 10;
 const FOX_SEARCH: i32 = 20;
 /// Bei so vielen Kaninchen im Revier (Feld und Nachbarn) gelingt jede zweite Jagd.
 const FOX_CATCH_HALF: f32 = 16.0;
+/// Bei so vielen Kaninchen auf der Insel gelingt die Hälfte der Jagden;
+/// darunter fällt der Erfolg mit dem Quadrat.
+const RABBIT_HALF: f32 = 150.0;
 /// Nebenbei gefundene Nahrung je Tag (Mäuse, Insekten, Beeren); im Winter die Hälfte.
 const FOX_SIDE_FOOD: f32 = 0.025;
 
 // --- Wölfe ---
-/// Bei so vielen Hirschen auf der Insel gelingt nur noch die Hälfte der Jagden.
-const PREY_HALF: f32 = 60.0;
+/// Bei so vielen Hirschen auf der Insel gelingt die Hälfte der Jagden;
+/// darunter fällt der Erfolg mit dem Quadrat (die letzten sind sehr scheu).
+const PREY_HALF: f32 = 40.0;
 /// Reviere: So viele Würfe im Jahr bietet die kleine Insel Platz – ein
 /// Wolfsrudel, einige Fuchsfamilien. Weitere Paare bekommen keine Jungen.
 pub const WOLF_LITTERS_PER_YEAR: u32 = 1;
@@ -672,6 +676,10 @@ fn step_individuals(a: &mut Animals, world: &mut World, weather: &Weather, rng: 
         .map(|x| x.tile)
         .collect();
     let deer_total = a.list.iter().filter(|x| x.species == Species::Deer).count() as f32;
+    // Wie scheu die Kaninchen sind: Sind nur noch wenige auf der Insel, finden
+    // die Füchse sie kaum noch (Rückzug in Baue und Dickicht).
+    let rt = a.rabbit_total();
+    let rabbit_shy = rt * rt / (rt * rt + RABBIT_HALF * RABBIT_HALF);
     let mut deer_on = vec![0u16; world.tiles.len()];
     for x in a.list.iter().filter(|x| x.species == Species::Deer) {
         deer_on[x.tile as usize] += 1;
@@ -894,7 +902,12 @@ fn step_individuals(a: &mut Animals, world: &mut World, weather: &Weather, rng: 
                     .min(0.8);
                     // Wenige Hirsche sind wachsam und verstecken sich gut:
                     // Je seltener die Beute, desto öfter misslingt die Jagd.
-                    let p = p * deer_total / (deer_total + PREY_HALF);
+                    // Wird die Beute knapp, wird sie sehr scheu (Rückzug in
+                    // Dickicht und steiles Gelände): Der Jagderfolg fällt mit
+                    // dem Quadrat – die letzten Hirsche überleben eher als die
+                    // Wölfe.
+                    let d2 = deer_total * deer_total;
+                    let p = p * d2 / (d2 + PREY_HALF * PREY_HALF);
                     activity = Activity::Run;
                     energy -= 0.01;
                     if rng.chance(p) {
@@ -928,7 +941,7 @@ fn step_individuals(a: &mut Animals, world: &mut World, weather: &Weather, rng: 
                         best_nb = (a.rabbits[j], j as u32);
                     }
                 }
-                let p = (around / FOX_CATCH_HALF).min(0.7);
+                let p = (around / FOX_CATCH_HALF).min(0.7) * rabbit_shy;
                 if best_nb.0 >= 1.0 && energy < 0.9 && rng.chance(p) {
                     a.rabbits[best_nb.1 as usize] -= 1.0;
                     tile = best_nb.1;

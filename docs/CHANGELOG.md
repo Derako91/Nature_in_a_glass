@@ -1,5 +1,12 @@
 # Änderungen
 
+## 0.17.0 – Seltene Beute ist scheu
+
+**Geändert**
+- **Räuber rotten ihre Beute nicht mehr so leicht aus:** Werden Hirsche oder Kaninchen selten, ziehen sie sich in Dickicht, Baue und steiles Gelände zurück – Wölfe und Füchse finden sie dann kaum noch. Die letzten Tiere überleben eher als ihre Jäger. Vorher fraßen Wölfe die Hirsche oft in wenigen Jahren restlos auf und verhungerten danach selbst; Füchse fraßen frisch ausgesetzte Kaninchen sofort weg.
+- **Ergebnis im Langlauf** (8 Inseln, 100 Jahre): Setzt man alle vier Arten zusammen aus, überleben jetzt überall Hirsche und Kaninchen (vorher Hirsche auf 3, Kaninchen auf keiner Insel). Räuber verhungern dann allerdings, weil zu Beginn zu wenig Beute da ist.
+- **Hinweis an den Knöpfen „Tiere aussetzen“:** Erst die Beute aussetzen und einige Jahre warten, dann die Räuber. Füchse halten sich so jahrzehntelang; ein Wolfsrudel hält sich auf der kleinen Insel meist nur einige Jahre.
+
 ## 0.16.1 – Flüssig auch mit großen Dörfern
 
 **Verbessert**

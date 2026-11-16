@@ -79,7 +79,7 @@ Umsetzungshinweise:
 - [x] Keine automatisch garantierte Stabilität und kein künstliches Wiedererscheinen ausgestorbener Populationen.
 - [x] Tierverhalten ohne LLM ausführbar.
 - [ ] Tier-Sprites von Codex einbinden (Schnittstelle steht, gestaltung.md 15.7); Kadaver und Spuren.
-- [ ] Abstimmung (0.4.1 verbessert): Füchse halten sich oft Jahrzehnte, Wölfe meist nur einige Jahre – die Insel (gut 4 km²) ist für ein Rudel zu klein. Idee: größere Inseln wählbar machen.
+- [x] Abstimmung (0.4.1, 0.17.0): Seltene Beute ist scheu (Jagderfolg fällt mit dem Quadrat der Häufigkeit) – Räuber rotten ihre Beute kaum noch aus. Füchse halten sich Jahrzehnte, Wölfe meist nur einige Jahre: Die Insel (gut 4 km²) ist für ein Rudel zu klein. Idee: größere Inseln wählbar machen.
 
 Entschieden (17.10.2026, Dennis):
 - **Erst Erosion (v0.3) abschließen**, dann Tiere.
