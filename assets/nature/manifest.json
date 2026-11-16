@@ -444,7 +444,26 @@
         10,
         14
       ],
-      "resolution_scale": 8
+      "resolution_scale": 8,
+      "levels": [
+        {
+          "label": "@fern",
+          "files": [
+            "vegetation/tree_young_0_normal@fern.png",
+            "vegetation/tree_young_0_stressed@fern.png",
+            "vegetation/tree_young_1_normal@fern.png",
+            "vegetation/tree_young_1_stressed@fern.png",
+            "vegetation/tree_young_2_normal@fern.png",
+            "vegetation/tree_young_2_stressed@fern.png",
+            "vegetation/tree_young_3_normal@fern.png",
+            "vegetation/tree_young_3_stressed@fern.png"
+          ],
+          "anchor": [
+            10.0,
+            26.0
+          ]
+        }
+      ]
     },
     {
       "id": "tree_mid",
@@ -477,7 +496,26 @@
         14,
         22
       ],
-      "resolution_scale": 8
+      "resolution_scale": 8,
+      "levels": [
+        {
+          "label": "@fern",
+          "files": [
+            "vegetation/tree_mid_0_normal@fern.png",
+            "vegetation/tree_mid_0_stressed@fern.png",
+            "vegetation/tree_mid_1_normal@fern.png",
+            "vegetation/tree_mid_1_stressed@fern.png",
+            "vegetation/tree_mid_2_normal@fern.png",
+            "vegetation/tree_mid_2_stressed@fern.png",
+            "vegetation/tree_mid_3_normal@fern.png",
+            "vegetation/tree_mid_3_stressed@fern.png"
+          ],
+          "anchor": [
+            14.0,
+            42.0
+          ]
+        }
+      ]
     },
     {
       "id": "tree_old",
@@ -510,7 +548,26 @@
         18,
         30
       ],
-      "resolution_scale": 8
+      "resolution_scale": 8,
+      "levels": [
+        {
+          "label": "@fern",
+          "files": [
+            "vegetation/tree_old_0_normal@fern.png",
+            "vegetation/tree_old_0_stressed@fern.png",
+            "vegetation/tree_old_1_normal@fern.png",
+            "vegetation/tree_old_1_stressed@fern.png",
+            "vegetation/tree_old_2_normal@fern.png",
+            "vegetation/tree_old_2_stressed@fern.png",
+            "vegetation/tree_old_3_normal@fern.png",
+            "vegetation/tree_old_3_stressed@fern.png"
+          ],
+          "anchor": [
+            18.0,
+            58.0
+          ]
+        }
+      ]
     },
     {
       "id": "shrub",
@@ -543,7 +600,26 @@
         10,
         8
       ],
-      "resolution_scale": 8
+      "resolution_scale": 8,
+      "levels": [
+        {
+          "label": "@fern",
+          "files": [
+            "vegetation/shrub_0_normal@fern.png",
+            "vegetation/shrub_0_stressed@fern.png",
+            "vegetation/shrub_1_normal@fern.png",
+            "vegetation/shrub_1_stressed@fern.png",
+            "vegetation/shrub_2_normal@fern.png",
+            "vegetation/shrub_2_stressed@fern.png",
+            "vegetation/shrub_3_normal@fern.png",
+            "vegetation/shrub_3_stressed@fern.png"
+          ],
+          "anchor": [
+            10.0,
+            14.0
+          ]
+        }
+      ]
     },
     {
       "id": "snag_standing",

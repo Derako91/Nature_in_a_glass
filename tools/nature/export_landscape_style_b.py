@@ -175,6 +175,9 @@ def export():
     (REVIEW / 'export.json').write_text(json.dumps(dict(files=records, periodic_edges=True,
             variant_edges_identical=True, visual_approval='pending'), indent=2) + '\n')
     contact_sheet(records)
+    from export_landscape_far import CONFIG as FAR_CONFIG, export as export_far
+    if FAR_CONFIG.exists():
+        export_far()
     print(f'{len(records)} Landschaftsbilder exportiert, Weltmaße erhalten, Materialkanten geprüft.')
 
 

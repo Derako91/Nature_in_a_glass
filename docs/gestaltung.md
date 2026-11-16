@@ -931,6 +931,12 @@ Je Schritt entsteht ein zusammenhängendes, im Spiel geprüftes Draft-Paket:
    91 Bilder einschließlich vier Varianten und Trockenheits-/Brandzuständen.
    [Quellen, Kontaktbögen und Spielvergleich](../art/nature/landscape-style-b/README.md);
    visuelle Abnahme dieses Landschaftspakets offen.
+   **Korrektur nach Spielprüfung:** PR #17 ist zusammengeführt, aber wegen
+   zu dünner Kronen bei Zoom 4/8 noch nicht als Version freigegeben. Eigene
+   `@fern`-Sätze mit breiten geschlossenen Kronen für Bäume/Büsche, einschließlich
+   Trockenheit; Nahfassungen unverändert.
+   [Fernkronen-Prüfpaket](../art/nature/landscape-far-crowns/README.md),
+   Branch `codex/landscape-far-crowns`; erneute Abnahme bei Zoom 4/8 offen.
 4. **Tiere:** Fuchs, Wolf, Hirsch und Kaninchen mit sämtlichen Zuständen,
    Richtungen, Spuren und Kadavern. Konsistente Nah-/Fernfassungen pro Satz.
 5. **Wasser und verbleibende Natur-Effekte:** ruhige Wasserflächen/Bäche,

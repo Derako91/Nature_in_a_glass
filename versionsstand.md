@@ -1,14 +1,14 @@
 # Versionsstand – Nature_in_a_glass
 
-> **Stand:** 16.11.2026 · **Version:** Basis 0.8.5 · **Branch:** `codex/landscape-style-b` (Basis `8043787`)
+> **Stand:** 16.11.2026 · **Version:** Basis 0.8.5 · **Branch:** `codex/landscape-far-crowns` (Basis `d6fc0bf`)
 
 ## Auf einen Blick
 
 | Frage | Antwort |
 | --- | --- |
-| **Zuletzt erledigt** | Landschaft-Stil-B-Draft: 36 Boden-, sieben Wand- und 48 Pflanzenbilder einschließlich Varianten, Trockenheit, verkohltem und liegendem Totholz. Menschen-/Hüttengrößen aus PR #16 seit v0.8.5 freigegeben. |
-| **Getestet** | Weltmaße und Weltanker erhalten, Materialränder periodisch und zwischen Varianten gleich. Alle 864 übrigen PNGs unverändert. 89 Rust-/15 Python-Tests, fmt, strenges Clippy und Release-Bau bestanden. Tatsächlicher Lagervergleich Zoom 4/8/32 und alter Wald Zoom 8/32 im Prüfpaket `art/nature/landscape-style-b/`. |
-| **Offen für Codex** | Visuelle Abnahme des Landschaft-Drafts durch Claude. Wände nutzen im heutigen Renderer nur Variante 0; weitere Varianten vorbereitet. Nicht alle seltenen Pflanzenzustände natürlich im Spiel ausgelöst. Danach Tiere nach Gestaltung 18. |
+| **Zuletzt erledigt** | 32 eigene Fernkronen für Jung-/Mittel-/Altbaum und Busch einschließlich Trockenheit. Geschlossene grüne Silhouetten für Zoom 4/8; alle 955 bisherigen PNGs einschließlich der positiv beurteilten Nahbilder unverändert. |
+| **Getestet** | Wiederholte Fern- und Landschaftsexporte bytegleich. Eigener Regressionstest prüft tatsächliche Auswahl eingebetteter Stufen sowie identische Weltmaße/Fußpunkte bei Zoom 2/4/8/16/32. 90 Rust-/15 Python-Tests, fmt, strenges Clippy und Release-Bau bestanden. Spielvergleich im Prüfpaket `art/nature/landscape-far-crowns/`. |
+| **Offen für Codex** | Erneute visuelle Abnahme von Wald/Buschland bei Zoom 4 und 8 durch Claude. PR #17 bereits zusammengeführt, Landschaft-Version noch nicht freigegeben. Danach Tiere nach Gestaltung 18. |
 | **Offen für Dennis** | – (PR #9 und #10 übernommen; Feuer im Spiel seit 0.8.1, Fuchs B Fernfassung liegt als Entwurf in art/) |
 | **Nächster Schritt (Roadmap)** | Vom Lager zum Dorf: Fischfang, später Anbau, mehrere Lager einer Gruppe, Werkzeuge. |
 
@@ -23,6 +23,7 @@
 
 | Datum | Änderung | Code-Test |
 | --- | --- | --- |
+| 16.11.2026 | Codex: Korrektur der bei Zoom 4/8 unlesbaren Landschaft; 32 breite Fernkronen, Nahbilder unverändert. Branch `codex/landscape-far-crowns`, Basis `d6fc0bf`. | Atlas-Auswahl-/Maßstabsregression sowie tatsächlicher Vorher-/Nachher-Vergleich im Fernkronen-Prüfpaket; erneute Abnahme offen. |
 | 16.11.2026 | Codex: Landschaft nach Gestaltung 18, Schritt 3; Branch `codex/landscape-style-b`, Basis `8043787` (v0.8.5). | Technische Export-/Maßstabsprüfung und Spielvergleich siehe Landschaft-Prüfpaket; visuelle Abnahme offen. |
 | 16.11.2026 | Codex: Erwachsenenmaß 90 %, kompakte Tätigkeiten, größere Hütteneingänge. Branch `codex/people-scale-and-hut-doors`, Basis `0f81511`. | Unveränderte Kinder/Anker/Farben und wiederholbare Exporte geprüft; Spielvergleich Seed 2024 Zoom 8/32 im Prüfpaket. |
 | 16.11.2026 | Codex: übrige Menschenbilder vollständig auf Stil B umgestellt; 230 Erwachsenen-, 150 Kinder- und zehn Totenbilder. Freigegebenes `_build` pixelgleich auf breiterer Leinwand, Marker unverändert. Branch `codex/people-style-b`, Basis `73ccfd6`. | 89 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; technische Vollständigkeit, Exportwiederholung und Spielvergleich. Visuelle Schleifen-/Detailabnahme offen. |

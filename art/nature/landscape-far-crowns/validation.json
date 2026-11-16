@@ -1,0 +1,164 @@
+{
+  "status": "passed",
+  "far_images": 32,
+  "all_existing_png_byte_identical": 955,
+  "only_far_manifest_levels_added": true,
+  "world_sizes_and_anchors_unchanged": true,
+  "silhouette_area_at_two_pixels_per_world_unit": {
+    "tree_young": [
+      {
+        "file": "vegetation/tree_young_0_normal@fern.png",
+        "fern": 228.7921568627451,
+        "thin_pr17": 128.15563725490196,
+        "legacy": 262.6823529411765
+      },
+      {
+        "file": "vegetation/tree_young_1_normal@fern.png",
+        "fern": 264.52156862745096,
+        "thin_pr17": 101.96642156862745,
+        "legacy": 266.6823529411765
+      },
+      {
+        "file": "vegetation/tree_young_2_normal@fern.png",
+        "fern": 246.05490196078432,
+        "thin_pr17": 132.88014705882352,
+        "legacy": 276.6823529411765
+      },
+      {
+        "file": "vegetation/tree_young_3_normal@fern.png",
+        "fern": 233.9686274509804,
+        "thin_pr17": 96.04411764705883,
+        "legacy": 266.6823529411765
+      }
+    ],
+    "tree_mid": [
+      {
+        "file": "vegetation/tree_mid_0_normal@fern.png",
+        "fern": 485.00392156862745,
+        "thin_pr17": 273.5605392156863,
+        "legacy": 636.8156862745099
+      },
+      {
+        "file": "vegetation/tree_mid_1_normal@fern.png",
+        "fern": 552.2980392156862,
+        "thin_pr17": 240.4046568627451,
+        "legacy": 646.8156862745099
+      },
+      {
+        "file": "vegetation/tree_mid_2_normal@fern.png",
+        "fern": 580.0274509803921,
+        "thin_pr17": 270.1747549019608,
+        "legacy": 656.8156862745099
+      },
+      {
+        "file": "vegetation/tree_mid_3_normal@fern.png",
+        "fern": 499.7019607843137,
+        "thin_pr17": 225.56911764705882,
+        "legacy": 646.8156862745099
+      }
+    ],
+    "tree_old": [
+      {
+        "file": "vegetation/tree_old_0_normal@fern.png",
+        "fern": 915.0980392156863,
+        "thin_pr17": 738.1571078431373,
+        "legacy": 1170.6470588235295
+      },
+      {
+        "file": "vegetation/tree_old_1_normal@fern.png",
+        "fern": 842.7490196078431,
+        "thin_pr17": 673.4759803921569,
+        "legacy": 1184.6470588235295
+      },
+      {
+        "file": "vegetation/tree_old_2_normal@fern.png",
+        "fern": 916.035294117647,
+        "thin_pr17": 718.0132352941176,
+        "legacy": 1193.6470588235295
+      },
+      {
+        "file": "vegetation/tree_old_3_normal@fern.png",
+        "fern": 779.3176470588236,
+        "thin_pr17": 690.5,
+        "legacy": 1184.6470588235295
+      }
+    ],
+    "shrub": [
+      {
+        "file": "vegetation/shrub_0_normal@fern.png",
+        "fern": 154.34901960784313,
+        "thin_pr17": 148.81617647058823,
+        "legacy": 142.58823529411765
+      },
+      {
+        "file": "vegetation/shrub_1_normal@fern.png",
+        "fern": 147.7058823529412,
+        "thin_pr17": 107.91053921568627,
+        "legacy": 140.17254901960786
+      },
+      {
+        "file": "vegetation/shrub_2_normal@fern.png",
+        "fern": 136.30588235294118,
+        "thin_pr17": 134.85735294117646,
+        "legacy": 146.28627450980392
+      },
+      {
+        "file": "vegetation/shrub_3_normal@fern.png",
+        "fern": 153.67450980392158,
+        "thin_pr17": 116.65857843137255,
+        "legacy": 140.17254901960786
+      }
+    ]
+  },
+  "visual_approval": "pending",
+  "rust_tests_passed": 90,
+  "python_tests_passed": 15,
+  "format": "passed",
+  "clippy": "passed",
+  "release_build": "passed",
+  "repeated_far_export_byte_identical": true,
+  "repeated_full_landscape_export_byte_identical": true,
+  "embedded_level_selection_regression": "passed_all_32_images_zoom2_4_8_16_32",
+  "game_review": {
+    "embedded_assets": true,
+    "scene": {
+      "seed": 2024,
+      "years": 10,
+      "menschen": true,
+      "danach": 3,
+      "days": 120,
+      "select": [
+        19,
+        34
+      ],
+      "speed": 0,
+      "zoom": [
+        4,
+        8,
+        32
+      ]
+    },
+    "old_forest": {
+      "seed": 42,
+      "years": 80,
+      "select": [
+        25,
+        11
+      ],
+      "zoom": [
+        8
+      ]
+    },
+    "matched_clocks": {
+      "nachher-wald-zoom8.png": "12:00",
+      "nachher-zoom32.png": "12:00",
+      "nachher-zoom4.png": "11:00",
+      "nachher-zoom8.png": "12:00",
+      "vorher-wald-zoom8.png": "12:00",
+      "vorher-zoom32.png": "12:00",
+      "vorher-zoom4.png": "11:00",
+      "vorher-zoom8.png": "12:00"
+    },
+    "rare_stressed_states": "not_all_naturally_exercised"
+  }
+}
