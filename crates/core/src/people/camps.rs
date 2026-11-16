@@ -41,10 +41,12 @@ pub const MAX_HUTS: u8 = 4;
 const FIRE_RESERVE: f32 = 4.0;
 /// Eine Tageslast Holz entspricht diesem Anteil eines vollen Waldfeldes.
 pub const WOOD_PER_LOAD: f32 = 0.004;
-/// Holz sucht man bis zu so weit vom Lager (Felder).
+/// Holz sucht man bis zu so weit vom Lager (Felder) …
 const WOOD_RANGE: i32 = 3;
+/// … und wenn dort nichts mehr ist, bis so weit.
+const WOOD_RANGE_FAR: i32 = 6;
 /// Höchstens so viel Nahrung lagert man (Rationen).
-pub const STORE_MAX: f32 = 40.0;
+pub const STORE_MAX: f32 = 150.0;
 /// Ungenutzt gilt ein Lager nach so vielen Tagen als verlassen.
 const ABANDON_DAYS: u64 = 2 * 365;
 /// So schnell verfällt ein ungenutztes Lager (Anteil je Tag).
@@ -117,6 +119,8 @@ pub struct Effects {
     cuts: Vec<(u32, f32, f32)>,
     /// Felder, die durch Funken Feuer fangen.
     ignitions: Vec<u32>,
+    /// Felder, die für einen Garten gerodet werden.
+    pub(super) clears: Vec<u32>,
 }
 
 impl Effects {
@@ -130,6 +134,14 @@ impl Effects {
                 t.forest_age = 0.0;
             }
         }
+        for i in self.clears {
+            let t = &mut world.tiles[i as usize];
+            t.forest = 0.0;
+            t.forest_age = 0.0;
+            t.deadwood = 0.0;
+            t.shrub *= 0.2;
+            t.grass *= 0.3;
+        }
         for i in self.ignitions {
             let t = &mut world.tiles[i as usize];
             if t.fire <= 0.0 {
@@ -139,16 +151,16 @@ impl Effects {
     }
 }
 
-fn adult(p: &Person) -> bool {
+pub(super) fn adult(p: &Person) -> bool {
     !p.is_child()
 }
 
 /// Nicht in Not: Man hat Zeit für Holz und Hütte.
-fn free(p: &Person) -> bool {
+pub(super) fn free(p: &Person) -> bool {
     adult(p) && p.hunger < 0.4 && p.thirst < 0.3 && p.injury < 0.2 && p.health > 0.6
 }
 
-fn xy_text(world: &World, tile: u32) -> String {
+pub(super) fn xy_text(world: &World, tile: u32) -> String {
     let (x, y) = world.xy(tile as usize);
     format!("({x}, {y})")
 }
@@ -466,7 +478,7 @@ pub(super) fn camp_day(
     // --- Vorräte verderben ---
     for c in &mut people.camps {
         let temp = weather.temp_at(world.tiles[c.tile as usize].elevation);
-        let spoil = if temp < 0.0 { 0.005 } else { 0.015 };
+        let spoil = if temp < 0.0 { 0.004 } else { 0.01 };
         c.store = (c.store * (1.0 - spoil)).max(0.0);
         if c.store < 0.05 {
             c.store = 0.0;
@@ -539,10 +551,16 @@ pub(super) fn decay_unused(
 /// Das Feld mit dem meisten Holz in der Nähe (Totholz zählt doppelt, es
 /// ist leichter zu holen). Feste Reihenfolge bei Gleichstand.
 fn wood_source(world: &World, camp: u32, effects: &Effects) -> Option<u32> {
+    // Erst in der Nähe suchen; ist dort alles abgeholzt, weiter weg.
+    wood_source_within(world, camp, effects, WOOD_RANGE)
+        .or_else(|| wood_source_within(world, camp, effects, WOOD_RANGE_FAR))
+}
+
+fn wood_source_within(world: &World, camp: u32, effects: &Effects, range: i32) -> Option<u32> {
     let (cx, cy) = world.xy(camp as usize);
     let mut best: Option<(u32, f32)> = None;
-    for dy in -WOOD_RANGE..=WOOD_RANGE {
-        for dx in -WOOD_RANGE..=WOOD_RANGE {
+    for dy in -range..=range {
+        for dx in -range..=range {
             let (x, y) = (cx as i32 + dx, cy as i32 + dy);
             if x < 0 || y < 0 || x >= world.width as i32 || y >= world.height as i32 {
                 continue;

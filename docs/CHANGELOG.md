@@ -1,5 +1,21 @@
 # Änderungen
 
+## 0.10.0 – Gärten
+
+**Neu**
+- **Die Menschen beginnen mit dem Anbau – von selbst:** Wer schon länger an einem Lager lebt, steckt irgendwann im Frühjahr zum ersten Mal Knollen und Samen in den Boden. Daraus wird ein Garten neben dem Lager; die Chronik meldet den ersten Garten der Insel als wichtiges Ereignis.
+- **Ein Jahr im Garten:** Aussaat im Frühjahr, Wachstum im Sommer – nur bei feuchtem Boden, Wärme und wenn jemand jätet –, Ernte im Herbst in den Vorrat des Lagers. In Dürrejahren fällt die Ernte schlecht aus.
+- **Gärtnern lernt man:** wie das Fischen durch Übung und durch Abschauen bei Erfahrenen. Wächst das Lager, kommen weitere Gärten dazu.
+- **Folgen für die Natur:** Für einen Garten wird ein Stück Land gerodet. Wird er zwei Jahre nicht gepflegt, verwildert er, und es wächst wieder Wiese oder Wald.
+- **Vorräte halten länger** (Knollen und Samen lassen sich lagern); ein Lager fasst mehr.
+- **Holz von weiter her:** Ist um ein Lager alles abgeholzt, holen die Menschen Holz aus bis zu sechs Feldern Entfernung (gefunden in Fables Probelauf).
+- **Anzeige:** Gärten im Bild (vorerst als umgegrabene Erde, bis Codex' Bilder kommen), im Feld-Kasten mit Zustand und Ernte, im Insel-Überblick mit der Zahl der Gärten.
+
+**Behoben**
+- Gärten verwilderten nicht, wenn niemand mehr auf der Insel lebte.
+
+**Spielstände** aus 0.9 lassen sich laden.
+
 ## 0.9.1 – Bäche und Bachbetten
 
 **Neu** (Pull Request #21)

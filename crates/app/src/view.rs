@@ -433,6 +433,11 @@ fn draw_iso_gfx(
             bodies_at[tile as usize].push((look, dir));
         }
     }
+    // Gärten: Zustand je Feld
+    let mut garden_at: Vec<Option<&'static str>> = vec![None; world.tiles.len()];
+    for (tile, stage) in ap::garden_tiles(&sim.people, sim.day_of_year()) {
+        garden_at[tile as usize] = Some(stage);
+    }
     // Lagerplätze: immer sichtbar (sie sind Teil der Landschaft)
     let camps = ap::camp_sprites(&sim.people);
     let mut camps_at: Vec<Vec<usize>> = vec![Vec::new(); world.tiles.len()];
@@ -567,6 +572,12 @@ fn draw_iso_gfx(
                     tex_rect(&mut mesh, top_rect, oe, with_alpha(lit, o.alpha));
                 }
             }
+            if let Some(stage) = garden_at[i] {
+                match atlas.tile(&format!("garden_{stage}"), variant) {
+                    Some(ge) => tex_rect(&mut mesh, top_rect, ge, lit),
+                    None => garden_placeholder(&mut mesh, white, c, hw, hh, stage, light),
+                }
+            }
             if t.fire > 0.0 {
                 // Glutsaum (Codex, Gruppe E): Bodenüberlagerung, 4 Bilder à 200 ms
                 let glow = atlas.get(&format!("fire_ground_0_f{}", fire_frame(&g, i, 0)));
@@ -664,9 +675,9 @@ fn draw_iso_gfx(
                 Camp(&'b ap::CampSprite, Option<usize>),
             }
             let mut plants = ap::sprites(world, i);
-            // Auf Lagerfeldern ist freigeräumt: keine Bäume und Büsche, die
-            // Hütten und Feuerstelle verdecken (Totholz und Feuer bleiben).
-            if !camps_at[i].is_empty() {
+            // Auf Lager- und Gartenfeldern ist freigeräumt: keine Bäume und
+            // Büsche, die Hütten oder Beete verdecken (Totholz und Feuer bleiben).
+            if !camps_at[i].is_empty() || garden_at[i].is_some() {
                 plants.retain(|p| !p.id.starts_with("tree") && p.id != "shrub");
             }
             let mut things: Vec<(f32, Thing)> = plants
@@ -1127,6 +1138,59 @@ fn camp_placeholder(
                     door,
                 );
             }
+        }
+    }
+}
+
+/// Platzhalter für Gärten (17.9): Beetreihen in Erde, je nach Zustand mit
+/// Grün oder reifem Gelb.
+fn garden_placeholder(
+    mesh: &mut Mesh,
+    white: Pos2,
+    c: Pos2,
+    hw: f32,
+    hh: f32,
+    stage: &str,
+    light: f32,
+) {
+    let soil = night_tint(Color32::from_rgb(112, 84, 56), light);
+    let plant = match stage {
+        "sprout" => Some(Color32::from_rgb(140, 178, 80)),
+        "growing" => Some(Color32::from_rgb(86, 150, 60)),
+        "ripe" => Some(Color32::from_rgb(206, 176, 72)),
+        "stubble" => Some(Color32::from_rgb(160, 140, 96)),
+        _ => None,
+    };
+    // Umgegrabene Erde auf fast der ganzen Raute
+    let k = 0.82;
+    tex_quad(
+        mesh,
+        [
+            c + Vec2::new(0.0, -hh * k),
+            c + Vec2::new(hw * k, 0.0),
+            c + Vec2::new(0.0, hh * k),
+            c + Vec2::new(-hw * k, 0.0),
+        ],
+        [white; 4],
+        night_tint(Color32::from_rgb(132, 100, 66), light),
+    );
+    // Vier Reihen von links oben nach rechts unten, innerhalb der Raute
+    for r in 0..4 {
+        let f = -0.6 + r as f32 * 0.4;
+        let a = c + Vec2::new((f - 0.25) * hw * 0.5, (f + 0.25) * hh * 0.5 - hh * 0.25);
+        let b = a + Vec2::new(hw * 0.5, hh * 0.5);
+        let n = Vec2::new(0.0, hh * 0.09);
+        tex_quad(mesh, [a - n, b - n, b + n, a + n], [white; 4], soil);
+        if let Some(pc) = plant {
+            let pc = night_tint(pc, light);
+            let n2 = Vec2::new(0.0, hh * 0.05);
+            let up = Vec2::new(0.0, -hh * 0.06);
+            tex_quad(
+                mesh,
+                [a - n2 + up, b - n2 + up, b + n2 + up, a + n2 + up],
+                [white; 4],
+                pc,
+            );
         }
     }
 }

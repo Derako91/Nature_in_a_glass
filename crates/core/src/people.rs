@@ -34,7 +34,9 @@ use crate::sim::RILL_FLOW;
 use crate::world::{POND_MM, World};
 
 mod camps;
+mod gardens;
 pub use camps::{Camp, CampStage};
+pub use gardens::Garden;
 
 /// Mindestabstand zwischen zwei bewohnten Lagerplätzen (Felder).
 pub fn camps_spacing() -> i32 {
@@ -243,6 +245,9 @@ pub struct Person {
     /// geht von den Erwachsenen auf die Kinder über.
     #[serde(default)]
     pub fishing: f32,
+    /// Können im Garten 0..1 (seit Format 11), wie beim Fischen.
+    #[serde(default)]
+    pub farming: f32,
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq)]
@@ -349,6 +354,12 @@ pub enum NewsKind {
     CampfireSpread,
     /// Zum ersten Mal ist jemand geschickt im Fischen.
     FirstFisher,
+    /// Der erste Garten der Insel (oder ein neuer).
+    GardenPlanted,
+    /// Ernte eines Gartens.
+    Harvest,
+    /// Ein Garten verwildert.
+    GardenLost,
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq)]
@@ -379,6 +390,14 @@ pub struct People {
     /// Ob es schon einen geschickten Fischer gab (für die Chronik).
     #[serde(default)]
     pub first_fisher: bool,
+    /// Gärten (seit Format 11), nach `id` sortiert.
+    #[serde(default)]
+    pub gardens: Vec<Garden>,
+    #[serde(default)]
+    next_garden: u32,
+    /// Ob es schon eine Ernte gab (für die Chronik).
+    #[serde(default)]
+    pub harvests: u32,
 }
 
 const FEMALE_NAMES: [&str; 30] = [
@@ -766,6 +785,7 @@ impl People {
                 camp: 0,
                 // Wer mit dem Boot kommt, kann schon ein wenig fischen.
                 fishing: 0.25 * rng.next_f32(),
+                farming: 0.0,
             };
             p.note(
                 now,
@@ -838,6 +858,7 @@ fn day(
     if people.list.is_empty() {
         // Verlassene Lager verfallen auch ohne Menschen.
         camps::decay_unused(people, world, now / 24, &mut news);
+        gardens::go_wild(people, world, now / 24, &mut news);
         return news;
     }
     people.ensure(world.tiles.len());
@@ -1453,6 +1474,7 @@ fn day(
 
     // --- Lagerplätze: anlegen, Holz holen, Hütten bauen, Vorräte, Verfall ---
     camps::camp_day(people, world, weather, now, rng, &mut news, effects);
+    gardens::garden_day(people, world, weather, doy, now, rng, &mut news, effects);
 
     // --- Gefahren durch andere: Wölfe, Feuer ---
     for k in 0..people.list.len() {
@@ -1764,24 +1786,25 @@ fn care_for_children(
 /// ab sechs Jahren schneller als Erwachsene (Prinzip 6). Ohne Lehrer bleibt
 /// das Können, wo es ist; stirbt der letzte Geübte, geht es verloren.
 fn learn_from_others(people: &mut People) {
-    let best: Vec<(u32, f32)> = people
+    let best: Vec<(u32, f32, f32)> = people
         .list
         .iter()
         .filter(|p| !p.is_child())
-        .map(|p| (p.tile, p.fishing))
+        .map(|p| (p.tile, p.fishing, p.farming))
         .collect();
     for p in &mut people.list {
         if p.age_days < 6 * 365 {
             continue;
         }
-        let teacher = best
-            .iter()
-            .filter(|b| b.0 == p.tile)
-            .map(|b| b.1)
-            .fold(0.0f32, f32::max);
-        if teacher > p.fishing {
-            let rate = if p.is_child() { 0.004 } else { 0.002 };
-            p.fishing += rate * (teacher - p.fishing);
+        let rate = if p.is_child() { 0.004 } else { 0.002 };
+        let here = best.iter().filter(|b| b.0 == p.tile);
+        let fish = here.clone().map(|b| b.1).fold(0.0f32, f32::max);
+        if fish > p.fishing {
+            p.fishing += rate * (fish - p.fishing);
+        }
+        let farm = here.map(|b| b.2).fold(0.0f32, f32::max);
+        if farm > p.farming {
+            p.farming += rate * (farm - p.farming);
         }
     }
 }
@@ -2013,6 +2036,7 @@ fn family_day(
             pregnant_days: 0,
             camp: mother_camp,
             fishing: 0.0,
+            farming: 0.0,
         };
         let parents = match &fname {
             Some(f) => format!("Mutter: {mname}, Vater: {f}."),

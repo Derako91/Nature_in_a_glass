@@ -347,3 +347,47 @@ fn thirsty_people_leave_a_dried_up_water_place() {
         "trockene Stelle nicht vergessen"
     );
 }
+
+// ---------- v0.10: Gärten ----------
+
+/// Wer lange an einem Lager lebt, legt irgendwann einen Garten an; die Ernte
+/// kommt in den Vorrat. Ohne Menschen verwildert er.
+#[test]
+fn gardens_grow_are_harvested_and_go_wild() {
+    let mut sim = settled(300, 20);
+    let pe = &sim.people;
+    assert!(!pe.gardens.is_empty(), "kein Garten in 20 Jahren");
+    assert!(pe.harvests >= 1, "keine Ernte");
+    assert!(
+        pe.list.iter().any(|p| p.farming > 0.2),
+        "niemand kann gärtnern"
+    );
+    let ev = &sim.journal.events;
+    assert!(ev.iter().any(|e| e.kind == EventKind::GardenPlanted));
+    assert!(ev.iter().any(|e| e.kind == EventKind::Harvest));
+    // Gärten liegen neben einem Lager
+    for g in &pe.gardens {
+        let c = pe.camps.iter().find(|c| c.id == g.camp).expect("Lager");
+        let (gx, gy) = sim.world.xy(g.tile as usize);
+        let (cx, cy) = sim.world.xy(c.tile as usize);
+        assert!(
+            (gx as i32 - cx as i32)
+                .abs()
+                .max((gy as i32 - cy as i32).abs())
+                <= 2
+        );
+    }
+    // Speichern und Laden
+    let b = Simulation::from_json(&sim.to_json()).unwrap();
+    assert_eq!(b.people.gardens, sim.people.gardens);
+    // Alle verlassen die Insel: die Gärten verwildern
+    sim.people.list.clear();
+    sim.advance_years(4);
+    assert!(sim.people.gardens.is_empty(), "Garten verwildert nicht");
+    assert!(
+        sim.journal
+            .events
+            .iter()
+            .any(|e| e.kind == EventKind::GardenLost)
+    );
+}

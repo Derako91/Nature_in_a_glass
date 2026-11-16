@@ -663,6 +663,17 @@ pub struct CampSprite {
     pub hut_pos: Vec<(f32, f32)>,
 }
 
+/// Gärten (v0.10, gestaltung.md 17.9): Feld und Zustand
+/// (`bare`, `sprout`, `growing`, `ripe`, `stubble`). Bild:
+/// `garden_<zustand>_<variante>` als Bodenüberlagerung auf der ganzen Raute.
+pub fn garden_tiles(people: &People, doy: u32) -> Vec<(u32, &'static str)> {
+    people
+        .gardens
+        .iter()
+        .map(|g| (g.tile, g.stage(doy)))
+        .collect()
+}
+
 /// Feste Plätze der Hütten rund um die Feuerstelle.
 const HUT_POS: [(f32, f32); 4] = [(-0.45, -0.2), (0.4, -0.3), (-0.2, 0.35), (0.5, 0.25)];
 

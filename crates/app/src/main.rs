@@ -815,14 +815,19 @@ impl App {
                 ui.end_row();
                 let lived: Vec<_> = pe.camps.iter().filter(|c| !c.abandoned).collect();
                 let huts: u32 = lived.iter().map(|c| c.huts as u32).sum();
+                let gardens = match pe.gardens.len() {
+                    0 => String::new(),
+                    1 => " · 1 Garten".to_string(),
+                    g => format!(" · {g} Gärten"),
+                };
                 row(
                     ui,
                     "Lagerplätze",
                     match (lived.len(), huts) {
                         (0, _) => "–".to_string(),
-                        (n, 0) => format!("{n} · noch keine Hütte"),
-                        (n, 1) => format!("{n} · 1 Hütte"),
-                        (n, h) => format!("{n} · {h} Hütten"),
+                        (n, 0) => format!("{n} · noch keine Hütte{gardens}"),
+                        (n, 1) => format!("{n} · 1 Hütte{gardens}"),
+                        (n, h) => format!("{n} · {h} Hütten{gardens}"),
                     },
                 );
                 row(
@@ -973,6 +978,17 @@ impl App {
                     .collect();
                 if here.is_empty() && self.sim.people.bodies.iter().any(|b| b.tile == i as u32) {
                     rows[16].1 = "ein Toter liegt hier".into();
+                }
+                if let Some(g) = self.sim.people.gardens.iter().find(|g| g.tile == i as u32) {
+                    let doy = self.sim.day_of_year();
+                    rows[17].1 = match g.stage(doy) {
+                        "ripe" => format!("Garten · reif, {:.0} Rationen", g.ripe),
+                        "growing" | "sprout" => {
+                            format!("Garten · wächst ({:.0} %)", g.growth * 100.0)
+                        }
+                        "stubble" => "Garten · abgeerntet".to_string(),
+                        _ => "Garten · wartet auf das Frühjahr".to_string(),
+                    };
                 }
                 if let Some(c) = self.sim.people.camps.iter().find(|c| c.tile == i as u32) {
                     rows[17].1 = if c.abandoned {

@@ -132,9 +132,17 @@ Die Bewohner bauen selbst – der Beobachter gibt keine Bauaufträge (Prinzip 1)
 - [x] Fehler behoben: Durstige blieben an ausgetrockneten Wasserstellen stehen.
 - Ergebnis (Langlauf, 8 Inseln, ein Boot, 120 Jahre): etwa die Hälfte der Gruppen überlebt mit 10–50 Menschen; vorher starben alle aus.
 
+## ✅ v0.10 – Gärten (v0.10.0)
+
+[ADR 0010](../decisions/0010-gardens-emerge-at-camps.md).
+- [x] Anbau entsteht von selbst am Lager; Jahreslauf mit Aussaat, Pflege, Ernte in den Vorrat.
+- [x] Können `farming`, Weitergabe wie beim Fischen.
+- [x] Rodung und Verwildern als Rückwirkung auf die Natur.
+- [x] Holz von weiter her, wenn es um das Lager knapp wird.
+- [ ] Bilder von Codex (gestaltung.md 17.9).
+
 ## Als Nächstes: Vom Lager zum Dorf
 
-- Anbau als Voraussetzung für größere, feste Siedlungen.
 - Mehrere Lager einer wachsenden Gruppe; Siedlungen entstehen dort, wo Wasser, Nahrung und Schutz zusammenkommen.
 - Werkzeuge und erstes Können (wer gut baut, baut öfter), weitergegeben an die Kinder.
 

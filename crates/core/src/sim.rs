@@ -19,7 +19,7 @@ pub const DAYS_PER_YEAR: u64 = 365;
 pub const HOURS_PER_YEAR: u64 = HOURS_PER_DAY * DAYS_PER_YEAR;
 
 /// Version des Spielstand-Formats. Erhöhen, wenn sich die Struktur ändert.
-pub const SAVE_FORMAT_VERSION: u32 = 10;
+pub const SAVE_FORMAT_VERSION: u32 = 11;
 pub const ENGINE_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 pub const DEFAULT_SIZE: u32 = 64;
@@ -1021,6 +1021,9 @@ impl Simulation {
                 NewsKind::CampAbandoned => (EventKind::CampAbandoned, "niemand kommt mehr"),
                 NewsKind::CampGone => (EventKind::CampGone, "Verfall"),
                 NewsKind::FirstFisher => (EventKind::FirstFisher, "Übung am Wasser"),
+                NewsKind::GardenPlanted => (EventKind::GardenPlanted, "sesshaft am Lager"),
+                NewsKind::Harvest => (EventKind::Harvest, "Garten gepflegt"),
+                NewsKind::GardenLost => (EventKind::GardenLost, "keine Pflege"),
                 NewsKind::CampfireSpread => {
                     // Wie ein Blitz: Der Brand wird verfolgt, bis er erlischt.
                     if !self.fire_tracker.active {
@@ -1335,6 +1338,7 @@ impl Simulation {
             feed(p.hunger.to_bits() as u64);
             feed(p.thirst.to_bits() as u64);
             feed(p.fishing.to_bits() as u64);
+            feed(p.farming.to_bits() as u64);
         }
         feed(self.people.departed.len() as u64);
         for c in &self.people.camps {
@@ -1342,6 +1346,11 @@ impl Simulation {
             feed(c.huts as u64);
             feed(c.wood.to_bits() as u64);
             feed(c.store.to_bits() as u64);
+        }
+        for g in &self.people.gardens {
+            feed(g.tile as u64);
+            feed(g.growth.to_bits() as u64);
+            feed(g.ripe.to_bits() as u64);
         }
         h
     }
@@ -1581,7 +1590,7 @@ impl Simulation {
                 sim.migrate_from_v4();
             }
             4 => sim.migrate_from_v4(),
-            5..=9 => {}
+            5..=10 => {}
             other => {
                 return Err(format!(
                     "Spielstand-Format {other} wird nicht unterstützt (erwartet 1 bis {SAVE_FORMAT_VERSION})."
