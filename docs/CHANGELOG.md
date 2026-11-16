@@ -1,5 +1,11 @@
 # Änderungen
 
+## 0.8.4 – Bewohner im neuen Stil
+
+**Neu**
+- **Alle Bewohner im neuen Stil:** Codex hat sämtliche Menschenbilder neu gezeichnet – Erwachsene, Kinder und Tote, alle Tätigkeiten, beide Richtungen. Sie passen jetzt zu den Hütten, zum Holztragen und zum Fuchs. Aussehen und Erkennungsfarben der fünf Bewohner bleiben gleich (Pull Request #15).
+- **Größere Feuerstelle** am Lager, sie ist neben den Menschen besser zu erkennen (Pull Request #14).
+
 ## 0.8.3 – Hütten in richtiger Form
 
 **Behoben**
