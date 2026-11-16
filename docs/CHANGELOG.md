@@ -1,5 +1,11 @@
 # Änderungen
 
+## 0.8.6 – Landschaft im neuen Stil
+
+**Neu** (Pull Requests #17 und #18)
+- **Böden, Felswände, Bäume und Büsche im neuen Stil** – passend zu Bewohnern, Hütten und Fuchs. In der Nahansicht sieht man einzelne Nadelbäume, Büsche und Bodenstruktur.
+- **Aus der Entfernung bleibt der Wald lesbar:** Bei Zoom 4 und 8 zeigt das Spiel eigene Fassungen mit breiten Kronen, sodass Wald als zusammenhängendes Grün erscheint.
+
 ## 0.8.5 – Stimmige Größen am Lager
 
 **Geändert** (Pull Request #16)
