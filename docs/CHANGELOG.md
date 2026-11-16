@@ -1,5 +1,11 @@
 # Änderungen
 
+## 0.8.9 – Wasser im neuen Stil
+
+**Neu** (Pull Request #20)
+- **Meer, Flachwasser und Teiche im neuen Stil**, je in vier Varianten, damit die Wasserflächen nicht gekachelt wirken.
+- **Das Wasser bewegt sich:** Bei 1 Std/s kräuselt es sich langsam. Bei schnellerer Zeit bleibt es ruhig.
+
 ## 0.8.8 – Trockene Bachbetten
 
 **Neu**
