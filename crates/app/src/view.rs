@@ -1105,10 +1105,29 @@ fn named_islands(world: &nig_core::world::World) -> Vec<&nig_core::world::Island
     if named.len() > 1 { named } else { Vec::new() }
 }
 
-/// Inselname: größer und kursiv, in hellem Blaugrau – wie auf alten Seekarten.
+/// Eigene Seekartenschrift nur für Inselnamen; die Oberfläche behält ihre Standardschrift.
+pub fn install_island_font(ctx: &egui::Context) {
+    let mut fonts = egui::FontDefinitions::default();
+    fonts.font_data.insert(
+        "island_chart".into(),
+        egui::FontData::from_static(include_bytes!("../../../assets/fonts/IMFeENit28P.ttf")).into(),
+    );
+    fonts.families.insert(
+        egui::FontFamily::Name("island_chart".into()),
+        vec!["island_chart".into()],
+    );
+    ctx.set_fonts(fonts);
+}
+
+/// Inselname wie auf einer alten Seekarte: kursive Serifenschrift,
+/// warmes Elfenbein und schmaler dunkler Rand auf Meer und Bewuchs.
 fn island_label(painter: &egui::Painter, p: Pos2, name: &str) {
-    let font = egui::FontId::proportional(19.0);
+    let font = egui::FontId::new(22.0, egui::FontFamily::Name("island_chart".into()));
     for d in [
+        Vec2::new(1.0, 0.0),
+        Vec2::new(-1.0, 0.0),
+        Vec2::new(0.0, 1.0),
+        Vec2::new(0.0, -1.0),
         Vec2::new(1.0, 1.0),
         Vec2::new(-1.0, 1.0),
         Vec2::new(1.0, -1.0),
@@ -1119,7 +1138,7 @@ fn island_label(painter: &egui::Painter, p: Pos2, name: &str) {
             egui::Align2::CENTER_CENTER,
             name,
             font.clone(),
-            Color32::from_black_alpha(170),
+            Color32::from_rgba_unmultiplied(19, 30, 38, 220),
         );
     }
     painter.text(
@@ -1127,7 +1146,7 @@ fn island_label(painter: &egui::Painter, p: Pos2, name: &str) {
         egui::Align2::CENTER_CENTER,
         name,
         font,
-        Color32::from_rgb(214, 228, 240),
+        Color32::from_rgb(244, 228, 184),
     );
 }
 
