@@ -41,6 +41,8 @@ pub const WHITE: &str = "_white";
 /// Ordner, deren Bilder Sprites sind (bekommen Detailstufen). Boden, Wände und
 /// Wasser werden auf feste Rauten gelegt und bleiben, wie sie sind.
 pub const SPRITE_GROUPS: [&str; 5] = ["vegetation", "animals", "people", "objects", "buildings"];
+/// Größte Kantenlänge der Atlas-Textur, die das Spiel voraussetzt.
+pub const MAX_TEXTURE: usize = 8192;
 /// Ab dieser Breite berechnet der Atlas verkleinerte Stufen.
 pub const AUTO_MIN_WIDTH: usize = 48;
 /// Kleinste berechnete Stufe (Breite in px).
@@ -332,39 +334,51 @@ impl AtlasData {
 
         // Regalpacken: nach Höhe sortiert in Reihen, 1 Pixel Abstand
         items.sort_by(|a, b| b.4.h.cmp(&a.4.h).then(a.0.cmp(&b.0)));
-        // Breit genug für die feinen Nahansicht-Bilder (ADR 0006)
-        const W: usize = 2048;
-        // Kleine Streifen und Detailstufen dürfen Restplätze früherer Reihen
-        // nutzen. Sonst erzeugen wenige neue Wasserbilder eine zweite, fast
-        // leere Atlas-Hälfte. Reihenfolge und ein Pixel Abstand bleiben fest.
-        struct Shelf {
-            top: usize,
-            height: usize,
-            next_x: usize,
-        }
-        let mut shelves: Vec<Shelf> = Vec::new();
-        let mut next_y = 1usize;
-        let mut places = Vec::with_capacity(items.len());
-        for it in &items {
-            let (w, h) = (it.4.w.min(W - 2), it.4.h);
-            if let Some(shelf) = shelves
-                .iter_mut()
-                .find(|s| h <= s.height && s.next_x + w < W)
-            {
-                places.push((shelf.next_x, shelf.top));
-                shelf.next_x += w + 1;
-            } else {
-                places.push((1, next_y));
-                shelves.push(Shelf {
-                    top: next_y,
-                    height: h,
-                    next_x: w + 2,
-                });
-                next_y += h + 1;
+        // Breite: zuerst 2048 (genug für die feinen Nahansicht-Bilder, ADR 0006).
+        // Würde die Textur höher als 8192, wird sie breiter (4096, dann 8192) –
+        // so bleibt es eine einzige Textur, die jede Grafikkarte mit 8192
+        // Bildpunkten Kantenlänge kann, und die Zeichenreihenfolge bleibt.
+        let pack = |width: usize| -> (Vec<(usize, usize)>, usize) {
+            // Kleine Streifen und Detailstufen dürfen Restplätze früherer
+            // Reihen nutzen. Reihenfolge und ein Pixel Abstand bleiben fest.
+            struct Shelf {
+                top: usize,
+                height: usize,
+                next_x: usize,
             }
+            let mut shelves: Vec<Shelf> = Vec::new();
+            let mut next_y = 1usize;
+            let mut places = Vec::with_capacity(items.len());
+            for it in &items {
+                let (w, h) = (it.4.w.min(width - 2), it.4.h);
+                if let Some(shelf) = shelves
+                    .iter_mut()
+                    .find(|s| h <= s.height && s.next_x + w < width)
+                {
+                    places.push((shelf.next_x, shelf.top));
+                    shelf.next_x += w + 1;
+                } else {
+                    places.push((1, next_y));
+                    shelves.push(Shelf {
+                        top: next_y,
+                        height: h,
+                        next_x: w + 2,
+                    });
+                    next_y += h + 1;
+                }
+            }
+            (places, next_y.next_power_of_two())
+        };
+        let (mut places, mut height) = pack(2048);
+        let mut atlas_w = 2048usize;
+        for wider in [4096usize, MAX_TEXTURE] {
+            if height <= MAX_TEXTURE {
+                break;
+            }
+            (places, height) = pack(wider);
+            atlas_w = wider;
         }
-        let height = next_y.next_power_of_two();
-        let mut pixels = vec![egui::Color32::TRANSPARENT; W * height];
+        let mut pixels = vec![egui::Color32::TRANSPARENT; atlas_w * height];
         let mut entries = HashMap::new();
         let mut levels: HashMap<String, Vec<Level>> = HashMap::new();
         // Fußpunkte der Hauptfassungen, um Stufen ohne eigenen Anker abzuleiten
@@ -383,11 +397,11 @@ impl AtlasData {
             }
         };
         for ((name, base, label, div, img), (ox, oy)) in items.into_iter().zip(places) {
-            let w = img.w.min(W - 2);
+            let w = img.w.min(atlas_w - 2);
             for row in 0..img.h {
                 for col in 0..w {
                     let k = (row * img.w + col) * 4;
-                    pixels[(oy + row) * W + ox + col] = egui::Color32::from_rgba_unmultiplied(
+                    pixels[(oy + row) * atlas_w + ox + col] = egui::Color32::from_rgba_unmultiplied(
                         img.px[k],
                         img.px[k + 1],
                         img.px[k + 2],
@@ -396,9 +410,9 @@ impl AtlasData {
                 }
             }
             let uv = Rect::from_min_max(
-                Pos2::new(ox as f32 / W as f32, oy as f32 / height as f32),
+                Pos2::new(ox as f32 / atlas_w as f32, oy as f32 / height as f32),
                 Pos2::new(
-                    (ox + w) as f32 / W as f32,
+                    (ox + w) as f32 / atlas_w as f32,
                     (oy + img.h) as f32 / height as f32,
                 ),
             );
@@ -441,7 +455,7 @@ impl AtlasData {
             }
         }
         AtlasData {
-            width: W,
+            width: atlas_w,
             height,
             pixels,
             entries,
@@ -701,6 +715,36 @@ mod tests {
             w,
             h,
             px: rgba.repeat(w * h),
+        }
+    }
+
+    /// Passt nicht mehr alles in 2048 × 8192, wird der Atlas breiter statt
+    /// höher – Bildpunkte und Anker bleiben unverändert.
+    #[test]
+    fn atlas_grows_wider_instead_of_taller() {
+        let inputs: Vec<RawImage> = (0..80)
+            .map(|k| {
+                img(
+                    &format!("wide_{k:02}"),
+                    "ground",
+                    1900,
+                    120,
+                    [k as u8, 1, 2, 255],
+                )
+            })
+            .collect();
+        let d = AtlasData::build(inputs.clone(), ManifestInfo::default());
+        assert_eq!(d.width, 4096);
+        assert!(d.height <= MAX_TEXTURE);
+        for source in &inputs {
+            let e = d.entries[&source.name];
+            let x = (e.uv.left() * d.width as f32).round() as usize;
+            let y = (e.uv.top() * d.height as f32).round() as usize;
+            assert_eq!(e.size, Vec2::new(1900.0, 120.0));
+            // Ecken des Bildes tragen seine Farbe (keine Überlappung)
+            for (cx, cy) in [(0, 0), (1899, 0), (0, 119), (1899, 119)] {
+                assert_eq!(d.pixels[(y + cy) * d.width + x + cx].r(), source.px[0]);
+            }
         }
     }
 
@@ -1334,7 +1378,8 @@ mod tests {
         }
         let info = parse_manifests(embedded::MANIFESTS.iter().copied());
         let d = AtlasData::build(images, info);
-        assert!(d.height <= 8192, "Atlas {} px hoch", d.height);
+        assert!(d.height <= MAX_TEXTURE, "Atlas {} px hoch", d.height);
+        assert!(d.width <= MAX_TEXTURE, "Atlas {} px breit", d.width);
         for (id, w) in [
             ("deer", 14.0),
             ("wolf", 13.0),

@@ -1156,3 +1156,9 @@ nahtlos (Bach – Wand – Bach). Wichtig für alle weiteren Bilder: Der Atlas i
 7992 von 8192 Bildpunkten Höhe fast voll. Bevor neue große Pakete kommen, teilt
 Claude den Atlas auf mehrere Texturen auf (eine pro Bildgruppe). Bis dahin bitte
 keine neuen Pakete einbetten, sondern als Entwurf in `art/` vorbereiten.
+
+**Claude, Atlas (16.11.2026):** Erledigt – der Atlas wächst jetzt in die Breite:
+Passt nicht mehr alles in 2048 × 8192, packt er auf 4096 bzw. 8192 Breite
+(höchstens 8192 × 8192, weiterhin eine einzige Textur). Damit ist etwa viermal
+so viel Platz wie bisher. Neue Pakete dürfen wieder eingebettet werden; der
+Test `embedded_assets_build_and_resolve_at_every_zoom` prüft beide Kanten.
