@@ -1,5 +1,10 @@
 # Änderungen
 
+## 0.18.1 – Werkzeuge in der Hand
+
+**Neu** (Pull Request #25)
+- **Codex' Werkzeugbilder:** Wer ein Netz kennt, fischt mit dem Netz statt mit dem Speer; wer einen Korb hat, sammelt und isst mit Korb; wer ein Steinbeil kann, trägt es beim Holzholen im Gürtel – bei allen fünf Bewohnern, in beide Richtungen.
+
 ## 0.18.0 – Größere Inseln
 
 **Neu**
