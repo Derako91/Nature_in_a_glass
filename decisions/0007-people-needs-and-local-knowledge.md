@@ -30,3 +30,10 @@ v0.6 bringt die ersten Bewohner. Die Prinzipien verlangen: keine Befehle (1), Be
 - Kinder unter 14 entscheiden nicht selbst, sondern ziehen mit ihrer Betreuerin (Mutter, sonst Vater, sonst nächster Erwachsener). Das spart Rechenzeit und verhindert, dass Kinder allein verhungern. Sie übernehmen das Wissen der Betreuerin über Wasser- und Küstenstellen (Prinzip 6).
 - Kleine Gruppen sind empfindlich: Ohne Partner außerhalb der eigenen Familie endet eine Linie. Das ist gewollt; neue Boote bringen neue Menschen.
 
+
+## Nachtrag v0.9.0 – Können und Fischfang
+
+- **Können ist eine Zahl je Person** (zuerst nur `fishing`, 0..1). Es wächst langsam durch Übung (je Tag am Wasser ein kleiner Schritt zum Maximum hin) und durch Abschauen bei Geübteren am selben Ort (Kinder ab sechs schneller als Erwachsene). Es gibt keine Lehrbefehle und keine Rollen; wer viel am Wasser ist, wird geschickt.
+- **Ertrag** = Fischgrund (Meer 1,3, See 1,0, größerer Bach 0,5 Rationen am Tag, bei Frost die Hälfte) × Können × (1 − befischter Anteil). Befischte Stellen erholen sich um 2 % am Tag.
+- **Wasser wiederfinden:** Durstige sehen sich jeden Tag um und streichen erinnerte Stellen ohne Wasser in ihrer Nähe sofort. Vorher konnten ganze Familien an einem ausgetrockneten Teich verdursten.
+- Spielstand-Format 10 (neue Felder mit `serde(default)`).

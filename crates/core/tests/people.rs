@@ -285,3 +285,65 @@ fn camps_survive_save_load() {
     b.advance_days(300);
     assert_eq!(a.state_hash(), b.state_hash());
 }
+
+// ---------- v0.9: Fischfang, Wasser wiederfinden ----------
+
+/// Wer am Wasser lebt, lernt zu fischen; das Können geht an Kinder weiter.
+#[test]
+fn people_learn_to_fish_and_teach_children() {
+    let sim = settled(5, 20);
+    let pe = &sim.people;
+    assert!(pe.first_fisher, "niemand ist geschickt im Fischen");
+    assert!(
+        sim.journal
+            .events
+            .iter()
+            .any(|e| e.kind == EventKind::FirstFisher)
+    );
+    // Auf der Insel geborene Erwachsene haben das Fischen von anderen gelernt.
+    let born_adults: Vec<_> = pe
+        .list
+        .iter()
+        .filter(|p| p.mother != 0 && !p.is_child())
+        .collect();
+    assert!(
+        born_adults.is_empty() || born_adults.iter().any(|p| p.fishing > 0.2),
+        "Können geht nicht weiter"
+    );
+}
+
+/// Ein ausgetrockneter Teich hält niemanden fest: Wer dort Durst hat, sucht
+/// weiter und findet anderes Wasser.
+#[test]
+fn thirsty_people_leave_a_dried_up_water_place() {
+    let mut sim = settled(5, 2);
+    let w = &sim.world;
+    // Eine Stelle ohne Wasser, die alle für eine sichere Wasserstelle halten
+    let dry = (0..w.tiles.len())
+        .find(|&i| {
+            let t = &w.tiles[i];
+            !t.is_ocean()
+                && t.surface_water < 1.0
+                && !nig_core::people::drinkable(w, i)
+                && w.neighbors(i).all(|j| !w.tiles[j].is_ocean())
+        })
+        .unwrap() as u32;
+    for p in &mut sim.people.list {
+        p.tile = dry;
+        p.thirst = 0.3;
+        p.memory.push(nig_core::people::Place {
+            tile: dry,
+            kind: PlaceKind::Water,
+            value: 1.0,
+            seen_day: 0,
+        });
+    }
+    sim.advance_days(1);
+    assert!(
+        sim.people.list.iter().filter(|p| !p.is_child()).all(|p| !p
+            .memory
+            .iter()
+            .any(|m| m.tile == dry && m.kind == PlaceKind::Water)),
+        "trockene Stelle nicht vergessen"
+    );
+}

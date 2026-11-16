@@ -125,9 +125,16 @@ Die Bewohner bauen selbst – der Beobachter gibt keine Bauaufträge (Prinzip 1)
 - [x] Verlassene Lager verfallen und verschwinden; sie können wieder bezogen werden.
 - [ ] Bilder von Codex (gestaltung.md 17.8).
 
+## ✅ v0.9 – Fischfang (v0.9.0)
+
+- [x] Fischen am Meer, an Seen und größeren Bächen; Können wächst mit Übung und geht an Kinder und Gefährten weiter (Prinzip 6).
+- [x] Befischte Stellen erholen sich langsam.
+- [x] Fehler behoben: Durstige blieben an ausgetrockneten Wasserstellen stehen.
+- Ergebnis (Langlauf, 8 Inseln, ein Boot, 120 Jahre): etwa die Hälfte der Gruppen überlebt mit 10–50 Menschen; vorher starben alle aus.
+
 ## Als Nächstes: Vom Lager zum Dorf
 
-- Fischfang und später Anbau als Voraussetzung für größere, feste Siedlungen – auf 4 km² können sonst nur wenige Sammler leben.
+- Anbau als Voraussetzung für größere, feste Siedlungen.
 - Mehrere Lager einer wachsenden Gruppe; Siedlungen entstehen dort, wo Wasser, Nahrung und Schutz zusammenkommen.
 - Werkzeuge und erstes Können (wer gut baut, baut öfter), weitergegeben an die Kinder.
 

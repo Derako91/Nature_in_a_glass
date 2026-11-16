@@ -77,6 +77,14 @@ pub const PREGNANCY_DAYS: u16 = 270;
 const PAIR_CHANCE: f32 = 0.004;
 /// Wahrscheinlichkeit je Tag für eine Empfängnis bei gut genährter Frau.
 const CONCEIVE_CHANCE: f32 = 0.012;
+/// So viel Fisch bringt ein Tag am Wasser bei vollem Können (Rationen).
+const FISH_SEA: f32 = 1.3;
+const FISH_LAKE: f32 = 1.0;
+const FISH_CREEK: f32 = 0.5;
+/// So schnell erholen sich befischte Stellen (Anteil je Tag).
+const FISH_REGROW: f32 = 0.02;
+/// Ab diesem Können gilt man als geschickt beim Fischen.
+pub const SKILLED_FISHER: f32 = 0.5;
 
 #[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq, Eq)]
 pub enum Sex {
@@ -231,6 +239,10 @@ pub struct Person {
     /// Lagerplatz, zu dem man gehört (0 = keiner), seit Format 9.
     #[serde(default)]
     pub camp: u32,
+    /// Können beim Fischen 0..1 (seit Format 10). Wächst mit Übung und
+    /// geht von den Erwachsenen auf die Kinder über.
+    #[serde(default)]
+    pub fishing: f32,
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq)]
@@ -335,6 +347,8 @@ pub enum NewsKind {
     CampGone,
     /// Funken vom Lagerfeuer setzen trockene Pflanzen in Brand.
     CampfireSpread,
+    /// Zum ersten Mal ist jemand geschickt im Fischen.
+    FirstFisher,
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq)]
@@ -359,6 +373,12 @@ pub struct People {
     /// Wie viele Hütten insgesamt schon gebaut wurden.
     #[serde(default)]
     pub huts_built: u32,
+    /// Befischter Anteil je Feld (0..1, seit Format 10), erholt sich langsam.
+    #[serde(default)]
+    pub fished: Vec<f32>,
+    /// Ob es schon einen geschickten Fischer gab (für die Chronik).
+    #[serde(default)]
+    pub first_fisher: bool,
 }
 
 const FEMALE_NAMES: [&str; 30] = [
@@ -470,6 +490,8 @@ struct TileInfo {
     drink: bool,
     reliable: f32,
     food: f32,
+    /// Fisch bei vollem Können (Rationen).
+    fish: f32,
     coast: bool,
 }
 
@@ -502,6 +524,11 @@ impl Scratch {
                 reliable: if d { water_reliability(world, i) } else { 0.0 },
                 food: if land {
                     forage_yield(world, i, self.doy, temp)
+                } else {
+                    0.0
+                },
+                fish: if land {
+                    fish_water(world, i, temp)
                 } else {
                     0.0
                 },
@@ -594,6 +621,26 @@ pub fn drinkable(world: &World, i: usize) -> bool {
     wet(i) || world.neighbors(i).any(wet)
 }
 
+/// Fisch, den ein Tag am Wasser bei vollem Können bringt: Meer, See oder
+/// größerer Bach am Feld. Bei Frost weniger (Eis, träge Fische).
+pub fn fish_water(world: &World, i: usize, temp_c: f32) -> f32 {
+    let mut best = 0.0f32;
+    for j in std::iter::once(i).chain(world.neighbors(i)) {
+        let t = &world.tiles[j];
+        let v = if t.is_ocean() {
+            FISH_SEA
+        } else if t.surface_water > 3.0 * POND_MM {
+            FISH_LAKE
+        } else if t.flow >= crate::sim::STREAM_FLOW {
+            FISH_CREEK
+        } else {
+            0.0
+        };
+        best = best.max(v);
+    }
+    if temp_c < 0.0 { best * 0.5 } else { best }
+}
+
 fn coastal(world: &World, i: usize) -> bool {
     world.neighbors(i).any(|j| world.tiles[j].is_ocean())
 }
@@ -665,6 +712,9 @@ impl People {
         if self.taken.len() != n {
             self.taken = vec![0.0; n];
         }
+        if self.fished.len() != n {
+            self.fished = vec![0.0; n];
+        }
     }
 
     /// Ein Boot landet an der Küste: fünf Menschen gehen an Land.
@@ -714,6 +764,8 @@ impl People {
                 children: Vec::new(),
                 pregnant_days: 0,
                 camp: 0,
+                // Wer mit dem Boot kommt, kann schon ein wenig fischen.
+                fishing: 0.25 * rng.next_f32(),
             };
             p.note(
                 now,
@@ -794,6 +846,9 @@ fn day(
     for v in &mut people.taken {
         *v = (*v - REGROW).max(0.0);
     }
+    for v in &mut people.fished {
+        *v = (*v - FISH_REGROW).max(0.0);
+    }
     let year = day / 365 + 1;
     let rained = weather.rain_mm >= 2.0;
 
@@ -845,7 +900,12 @@ fn day(
 
         // --- Umschauen und merken (nach einem Ortswechsel, sonst alle 5 Tage) ---
         let (px, py) = world.xy(start as usize);
-        let scan = p.flags.scan_tile != start || day >= p.flags.scan_day + 5 || p.memory.is_empty();
+        // Wer Durst hat, schaut jeden Tag genau hin: Ein Teich kann inzwischen
+        // ausgetrocknet sein.
+        let scan = p.flags.scan_tile != start
+            || day >= p.flags.scan_day + 5
+            || p.memory.is_empty()
+            || p.thirst >= 0.2;
         if scan {
             p.flags.scan_tile = start;
             p.flags.scan_day = day;
@@ -865,7 +925,8 @@ fn day(
                 }
                 let info = s.at(world, i);
                 let water = info.drink;
-                let food = info.food * (1.0 - people.taken[i]);
+                let food = info.food * (1.0 - people.taken[i])
+                    + info.fish * p.fishing * (1.0 - people.fished[i]);
                 // Trockene Stellen vergisst man erst, wenn man davorsteht:
                 // Ein Bach kann nach dem nächsten Regen wieder fließen.
                 if water && standable(world, i) {
@@ -944,7 +1005,13 @@ fn day(
                 && !someone_hurt
                 && reliable_known
                 && !p.is_child()
-                && s.at(world, start as usize).food * (1.0 - people.taken[start as usize]) > 0.5
+                && {
+                    let info = s.at(world, start as usize);
+                    let st = start as usize;
+                    info.food * (1.0 - people.taken[st])
+                        + info.fish * p.fishing * (1.0 - people.fished[st])
+                        > 0.5
+                }
         };
         if !content {
             // Wegsuche im Umkreis von zwei Tagesmärschen, durstig weiter.
@@ -1007,6 +1074,13 @@ fn day(
             // Bekannte Wasserstelle, sonst bergab suchen
             // Verlässliche Stellen zuerst: Ein Rinnsal ist nach ein paar
             // trockenen Tagen versiegt, ein See nicht.
+            // Erinnerte Stellen hier und gleich nebenan, an denen kein Wasser
+            // mehr ist, sind abgehakt.
+            p.memory.retain(|m| {
+                !(m.kind == PlaceKind::Water
+                    && cheb(world, m.tile, start) <= 1
+                    && !drinkable(world, m.tile as usize))
+            });
             let score = |m: &Place| s.cost[m.tile as usize] - 30.0 * m.value;
             let known = p
                 .memory
@@ -1021,7 +1095,12 @@ fn day(
         } else {
             // Sammeln: beste bekannte Stelle, abzüglich Weg
             let need = p.hunger >= 0.15 || p.pack < PACK_MAX * 0.5;
-            let here = s.at(world, start as usize).food * (1.0 - people.taken[start as usize]);
+            let here = {
+                let info = s.at(world, start as usize);
+                let st = start as usize;
+                info.food * (1.0 - people.taken[st])
+                    + info.fish * p.fishing * (1.0 - people.fished[st])
+            };
             let water_gap = |p: &Person, t: u32| -> f32 {
                 p.memory
                     .iter()
@@ -1221,6 +1300,35 @@ fn day(
             let cap = food_i.max(0.5) * 8.0;
             people.taken[i] = clamp01(people.taken[i] + got / cap);
             food += got;
+            // Fischen: bringt umso mehr, je geübter man ist; Übung macht geschickter.
+            let fish_i = s.at(world, i).fish;
+            if fish_i > 0.0 && !p.is_child() {
+                let caught = (fish_i * p.fishing * (1.0 - people.fished[i]) * work).min(2.0);
+                people.fished[i] = clamp01(people.fished[i] + caught / (fish_i * 6.0));
+                food += caught;
+                let before = p.fishing;
+                p.fishing = (p.fishing + 0.0015 * (1.0 - p.fishing)).min(1.0);
+                if before < SKILLED_FISHER && p.fishing >= SKILLED_FISHER {
+                    let (x, y) = world.xy(i);
+                    let who = if p.sex == Sex::Female {
+                        "eine geschickte Fischerin"
+                    } else {
+                        "ein geschickter Fischer"
+                    };
+                    p.note(now, format!("Ist {who} geworden (bei ({x}, {y}))."));
+                    if !people.first_fisher {
+                        people.first_fisher = true;
+                        news.push(PeopleNews {
+                            kind: NewsKind::FirstFisher,
+                            tile: i as u32,
+                            text: format!(
+                                "{} ist {who} geworden: Am Wasser bei ({x}, {y}) gibt es nun regelmäßig Fisch.",
+                                p.name
+                            ),
+                        });
+                    }
+                }
+            }
             // Fleisch von einem Kadaver
             if let Some(c) = animals
                 .carcasses
@@ -1336,6 +1444,9 @@ fn day(
 
     // --- Ältere Kinder: Erwachsene am selben Ort teilen mit ihnen ---
     share_with_children(people, now);
+
+    // --- Können geht weiter: Man schaut es den Geübteren ab ---
+    learn_from_others(people);
 
     // --- Paare, Schwangerschaft, Geburt ---
     family_day(people, world, now, rng, &mut news);
@@ -1649,6 +1760,32 @@ fn care_for_children(
     }
 }
 
+/// Wer mit Geübteren am selben Ort ist, schaut sich das Fischen ab – Kinder
+/// ab sechs Jahren schneller als Erwachsene (Prinzip 6). Ohne Lehrer bleibt
+/// das Können, wo es ist; stirbt der letzte Geübte, geht es verloren.
+fn learn_from_others(people: &mut People) {
+    let best: Vec<(u32, f32)> = people
+        .list
+        .iter()
+        .filter(|p| !p.is_child())
+        .map(|p| (p.tile, p.fishing))
+        .collect();
+    for p in &mut people.list {
+        if p.age_days < 6 * 365 {
+            continue;
+        }
+        let teacher = best
+            .iter()
+            .filter(|b| b.0 == p.tile)
+            .map(|b| b.1)
+            .fold(0.0f32, f32::max);
+        if teacher > p.fishing {
+            let rate = if p.is_child() { 0.004 } else { 0.002 };
+            p.fishing += rate * (teacher - p.fishing);
+        }
+    }
+}
+
 /// Ältere Kinder sammeln schon selbst, bekommen aber von Eltern (sonst
 /// anderen Erwachsenen) am selben Ort ab, wenn sie hungern.
 fn share_with_children(people: &mut People, now: u64) {
@@ -1705,7 +1842,7 @@ fn family_day(
             if pa.age_days < 16 * 365 || pb.age_days < 16 * 365 {
                 continue;
             }
-            if cheb(world, pa.tile, pb.tile) > 1 {
+            if cheb(world, pa.tile, pb.tile) > 2 {
                 continue;
             }
             // Keine engen Verwandten
@@ -1719,7 +1856,14 @@ fn family_day(
                 continue;
             }
             let gap = (pa.age_days as i64 - pb.age_days as i64).unsigned_abs() as f32 / 365.0;
-            let chance = PAIR_CHANCE * if gap > 15.0 { 0.25 } else { 1.0 };
+            let chance = PAIR_CHANCE
+                * if gap > 25.0 {
+                    0.1
+                } else if gap > 15.0 {
+                    0.5
+                } else {
+                    1.0
+                };
             if !rng.chance(chance) {
                 continue;
             }
@@ -1868,6 +2012,7 @@ fn family_day(
             children: Vec::new(),
             pregnant_days: 0,
             camp: mother_camp,
+            fishing: 0.0,
         };
         let parents = match &fname {
             Some(f) => format!("Mutter: {mname}, Vater: {f}."),

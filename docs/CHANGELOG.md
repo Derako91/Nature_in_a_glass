@@ -1,5 +1,20 @@
 # Änderungen
 
+## 0.9.0 – Fischfang
+
+**Neu**
+- **Die Menschen lernen zu fischen:** Wer am Meer, an einem See oder an einem größeren Bach sammelt, fängt auch Fisch – umso mehr, je geübter er ist. Wer mit dem Boot kommt, kann schon ein wenig; Übung macht geschickter. Die Chronik meldet, wenn zum ersten Mal jemand ein geschickter Fischer ist.
+- **Können geht weiter:** Kinder und Erwachsene schauen sich das Fischen bei Geübteren ab. Stirbt der letzte Geübte, geht das Können verloren.
+- Befischte Stellen geben eine Weile weniger her und erholen sich langsam.
+- Paare finden sich etwas leichter, auch mit größerem Altersunterschied.
+
+**Behoben**
+- **Verdursten an ausgetrockneten Teichen:** Wer Durst hatte und zu einer Wasserstelle ging, die inzwischen ausgetrocknet war, blieb dort stehen und verdurstete – mitsamt den Kindern –, obwohl in der Nähe ein Bach Wasser führte. Jetzt sehen sich Durstige jeden Tag um, streichen trockene Stellen und suchen weiter.
+
+**Ergebnis:** Vorher starb jede Gruppe nach 80 bis 140 Jahren aus. Jetzt bleibt auf etwa der Hälfte der Inseln eine Gruppe von 10 bis 50 Menschen über Generationen; Hungerjahre begrenzen ihr Wachstum. Ein einzelnes Boot kann weiterhin scheitern – ein zweites hilft.
+
+**Spielstände** aus 0.8 lassen sich laden; die Menschen dort fangen mit wenig Können an.
+
 ## 0.8.9 – Wasser im neuen Stil
 
 **Neu** (Pull Request #20)

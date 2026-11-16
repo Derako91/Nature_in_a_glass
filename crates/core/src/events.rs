@@ -43,6 +43,8 @@ pub enum EventKind {
     HutBuilt,
     CampAbandoned,
     CampGone,
+    // seit v0.9
+    FirstFisher,
 }
 
 impl EventKind {
@@ -80,6 +82,7 @@ impl EventKind {
             EventKind::HutBuilt => "Lager",
             EventKind::CampAbandoned => "Lager",
             EventKind::CampGone => "Lager",
+            EventKind::FirstFisher => "Fischfang",
         }
     }
 
