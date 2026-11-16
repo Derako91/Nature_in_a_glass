@@ -413,3 +413,65 @@ fn fishing_shows_as_its_own_activity() {
     assert!(seen, "niemand fischt sichtbar");
     assert_eq!(Activity::Fish.id(), "fish");
 }
+
+// ---------- v0.11: Lager teilen sich ----------
+
+/// Ist ein Lager zu eng, bricht ein junges Paar auf und legt anderswo ein
+/// neues Lager an.
+#[test]
+fn crowded_camps_split_and_a_new_camp_appears() {
+    use nig_core::people::Sex;
+    let mut sim = settled(42, 40);
+    let camp = sim
+        .people
+        .camps
+        .iter()
+        .find(|c| !c.abandoned)
+        .expect("Lager")
+        .clone();
+    // Das Lager ist voll: vier Hütten und viele junge Paare (nur im Test)
+    sim.people
+        .camps
+        .iter_mut()
+        .find(|c| c.id == camp.id)
+        .unwrap()
+        .huts = 4;
+    let model = sim
+        .people
+        .list
+        .iter()
+        .find(|p| !p.is_child() && p.camp == camp.id)
+        .expect("Bewohner")
+        .clone();
+    let mut next = sim.people.list.iter().map(|p| p.id).max().unwrap() + 1000;
+    for k in 0..12 {
+        let mut p = model.clone();
+        p.id = next;
+        next += 1;
+        p.name = format!("Test {k}");
+        p.sex = if k % 2 == 0 { Sex::Female } else { Sex::Male };
+        p.age_days = 25 * 365;
+        p.partner = if k % 2 == 0 { next } else { next - 2 };
+        p.mother = 0;
+        p.father = 0;
+        p.children.clear();
+        p.hunger = 0.0;
+        p.thirst = 0.0;
+        p.health = 1.0;
+        p.injury = 0.0;
+        p.tile = camp.tile;
+        sim.people.list.push(p);
+    }
+    sim.people.list.sort_by_key(|p| p.id);
+    let before = sim.people.camps.iter().filter(|c| !c.abandoned).count();
+    sim.advance_years(2);
+    assert!(
+        sim.journal
+            .events
+            .iter()
+            .any(|e| e.kind == EventKind::CampSplit),
+        "niemand bricht auf"
+    );
+    let after = sim.people.camps.iter().filter(|c| !c.abandoned).count();
+    assert!(after > before, "kein neues Lager ({before} → {after})");
+}

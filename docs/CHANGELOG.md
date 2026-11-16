@@ -1,5 +1,14 @@
 # Änderungen
 
+## 0.11.0 – Lager teilen sich
+
+**Neu**
+- **Aufbruch zu einem neuen Lager:** Wird ein Lager zu eng (alle vier Hütten voll und mehr als 20 Menschen) oder gibt es in der Umgebung seit Monaten kein Holz mehr, bricht mit etwas Zufall ein junges Paar mit seinen Kindern auf. Ziel ist eine gute Wasserstelle, die die Frau kennt, nicht zu nah und nicht zu weit. Dort legt es ein eigenes Lager an. Kleine Gruppen teilen sich wegen Holzmangel nicht.
+- **Die ersten Dörfer:** Auf wasserreichen Inseln wachsen so über Generationen mehrere Lager mit ihren Gärten nebeneinander – auf Insel 42 nach 130 Jahren acht Lager mit gut 40 Menschen.
+- **Chronik und Biografien** erzählen, wer warum aufbricht und wohin. Wer nach langer Suche keinen Platz findet, gibt auf.
+
+**Spielstände** aus 0.10 lassen sich laden.
+
 ## 0.10.3 – Gärten im neuen Stil
 
 **Neu** (Pull Request #23)

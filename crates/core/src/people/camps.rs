@@ -16,7 +16,7 @@
 
 use serde::{Deserialize, Serialize};
 
-use super::{NewsKind, People, PeopleNews, Person, cheb, drinkable, water_reliability};
+use super::{NewsKind, People, PeopleNews, Person, Sex, cheb, drinkable, water_reliability};
 use crate::climate::Weather;
 use crate::fire::flammability;
 use crate::math::clamp01;
@@ -81,6 +81,9 @@ pub struct Camp {
     pub abandoned: bool,
     /// Ob heute ein Feuer brennt (für die Darstellung).
     pub fire_today: bool,
+    /// Tage in Folge ohne erreichbares Holz (seit Format 12).
+    #[serde(default)]
+    pub no_wood_days: u16,
 }
 
 impl Camp {
@@ -199,6 +202,9 @@ pub(super) fn camp_day(
     for k in 0..people.list.len() {
         let (tile, camp, stay_tile, stay_days) = {
             let p = &people.list[k];
+            if p.settle != 0 {
+                continue;
+            }
             (p.tile, p.camp, p.flags.stay_tile, p.flags.stay_days)
         };
         let own = people.camps.iter().find(|c| c.id == camp && !c.abandoned);
@@ -251,7 +257,9 @@ pub(super) fn camp_day(
     // --- Neue Lager: viele Nächte an verlässlichem Wasser ---
     for k in 0..people.list.len() {
         let p = &people.list[k];
-        if !adult(p) || p.flags.stay_days < STAY_NIGHTS {
+        // Wer zu einem neuen Lager aufgebrochen ist, legt es am Ziel gleich an.
+        let arrived = p.settle != 0 && cheb(world, p.tile, p.settle - 1) <= 1;
+        if !adult(p) || (p.flags.stay_days < STAY_NIGHTS && !arrived) {
             continue;
         }
         if people.camps.iter().any(|c| c.id == p.camp && !c.abandoned) {
@@ -273,10 +281,11 @@ pub(super) fn camp_day(
         {
             continue;
         }
-        if !rng.chance(0.1) {
+        if !arrived && !rng.chance(0.1) {
             continue;
         }
         let name = p.name.clone();
+        let settle = p.settle;
         let at = xy_text(world, tile);
         // Ein verlassenes Lager in der Nähe wird wieder bezogen.
         let old = people
@@ -310,6 +319,7 @@ pub(super) fn camp_day(
                 last_used_day: day,
                 abandoned: false,
                 fire_today: false,
+                no_wood_days: 0,
             });
             let text = if first {
                 format!(
@@ -328,7 +338,17 @@ pub(super) fn camp_day(
         };
         let p = &mut people.list[k];
         p.camp = id;
+        p.settle = 0;
         p.note(now, bio);
+        // Wer mit aufgebrochen ist, gehört gleich dazu.
+        if settle != 0 {
+            for q in &mut people.list {
+                if q.settle == settle {
+                    q.settle = 0;
+                    q.camp = id;
+                }
+            }
+        }
         let tile = people.camps.iter().find(|c| c.id == id).unwrap().tile;
         news.push(PeopleNews {
             kind: NewsKind::CampFounded,
@@ -377,8 +397,10 @@ pub(super) fn camp_day(
                 continue;
             }
             let Some(src) = wood_source(world, ctile, effects) else {
+                people.camps[ci].no_wood_days = people.camps[ci].no_wood_days.saturating_add(1);
                 break;
             };
+            people.camps[ci].no_wood_days = 0;
             let t = &world.tiles[src as usize];
             let already: (f32, f32) = effects
                 .cuts
@@ -485,6 +507,8 @@ pub(super) fn camp_day(
         }
     }
 
+    split_camps(people, world, now, rng, news);
+
     // --- Vorräte verderben ---
     for c in &mut people.camps {
         let temp = weather.temp_at(world.tiles[c.tile as usize].elevation);
@@ -496,6 +520,133 @@ pub(super) fn camp_day(
     }
 
     decay_unused(people, world, day, news);
+}
+
+/// Ein Lager wird zu eng (alle Hütten voll und mehr Menschen, als darin
+/// Platz haben) oder es gibt seit Monaten kein Holz mehr: Dann bricht mit
+/// etwas Zufall ein junges Paar mit seinen Kindern zu einer guten
+/// Wasserstelle auf, die die Frau kennt – nicht zu nah und nicht zu weit.
+/// Dort legt es ein neues Lager an. Findet es nicht hin, gibt es auf.
+fn split_camps(
+    people: &mut People,
+    world: &World,
+    now: u64,
+    rng: &mut Rng,
+    news: &mut Vec<PeopleNews>,
+) {
+    let day = now / 24;
+    // Aufgeben nach langer Suche
+    for p in &mut people.list {
+        if p.settle != 0 && day > p.flags.settle_day + 150 {
+            p.settle = 0;
+            if adult(p) {
+                p.note(
+                    now,
+                    "Findet keinen guten Platz für ein neues Lager.".to_string(),
+                );
+            }
+        }
+    }
+    for ci in 0..people.camps.len() {
+        let c = &people.camps[ci];
+        if c.abandoned {
+            continue;
+        }
+        let (cid, ctile) = (c.id, c.tile);
+        let members = people.list.iter().filter(|p| p.camp == cid).count();
+        let crowded = c.huts >= MAX_HUTS && members > MAX_HUTS as usize * HUT_PEOPLE;
+        // Kleine Gruppen teilen sich wegen Holz nicht: Allein wären sie verloren.
+        let no_wood = c.no_wood_days >= 90 && members >= 16;
+        if !(crowded || no_wood) || !rng.chance(0.01) {
+            continue;
+        }
+        // Ein junges Paar aus diesem Lager
+        let Some(w) = (0..people.list.len()).find(|&k| {
+            let p = &people.list[k];
+            p.sex == Sex::Female
+                && p.camp == cid
+                && p.settle == 0
+                && p.partner != 0
+                && free(p)
+                && p.age_years() < 35
+                && people
+                    .list
+                    .iter()
+                    .any(|q| q.id == p.partner && q.camp == cid && free(q))
+        }) else {
+            continue;
+        };
+        // Ziel: eine verlässliche Wasserstelle, die sie kennt
+        let others: Vec<u32> = people
+            .camps
+            .iter()
+            .filter(|c| !c.abandoned)
+            .map(|c| c.tile)
+            .collect();
+        let target = people.list[w]
+            .memory
+            .iter()
+            .filter(|m| m.kind == super::PlaceKind::Water && m.value >= RELIABLE_WATER)
+            .filter(|m| {
+                let d = cheb(world, m.tile, ctile);
+                (CAMP_SPACING..=16).contains(&d)
+                    && others
+                        .iter()
+                        .all(|&o| cheb(world, o, m.tile) >= CAMP_SPACING)
+                    && super::standable(world, m.tile as usize)
+                    && drinkable(world, m.tile as usize)
+            })
+            .max_by(|a, b| {
+                let sa = a.value - 0.02 * cheb(world, a.tile, ctile) as f32;
+                let sb = b.value - 0.02 * cheb(world, b.tile, ctile) as f32;
+                sa.total_cmp(&sb).then(b.tile.cmp(&a.tile))
+            })
+            .map(|m| m.tile);
+        let Some(target) = target else {
+            continue;
+        };
+        let (wid, pid) = (people.list[w].id, people.list[w].partner);
+        let (wname, pname) = (
+            people.list[w].name.clone(),
+            people
+                .list
+                .iter()
+                .find(|q| q.id == pid)
+                .map(|q| q.name.clone())
+                .unwrap_or_default(),
+        );
+        let from = xy_text(world, ctile);
+        let to = xy_text(world, target);
+        let why = if crowded {
+            "es ist zu eng geworden"
+        } else {
+            "in der Nähe gibt es kein Holz mehr"
+        };
+        for p in &mut people.list {
+            // Das Paar und seine Kinder, die noch keine eigenen Wege gehen
+            let family = p.id == wid
+                || p.id == pid
+                || (p.is_child() && (p.mother == wid || p.father == pid));
+            if family && p.camp == cid {
+                p.camp = 0;
+                p.settle = target + 1;
+                p.flags.settle_day = day;
+                if adult(p) {
+                    p.note(
+                        now,
+                        format!("Bricht vom Lager bei {from} auf, {why}, und zieht nach {to}."),
+                    );
+                }
+            }
+        }
+        news.push(PeopleNews {
+            kind: NewsKind::CampSplit,
+            tile: ctile,
+            text: format!(
+                "{wname} und {pname} verlassen mit ihren Kindern das Lager bei {from} – {why} – und ziehen nach {to}, um dort ein eigenes Lager anzulegen."
+            ),
+        });
+    }
 }
 
 /// Ungenutzte Lager verfallen; verlassene verschwinden irgendwann.
@@ -616,6 +767,7 @@ mod tests {
             last_used_day: 0,
             abandoned: false,
             fire_today: false,
+            no_wood_days: 0,
         }
     }
 

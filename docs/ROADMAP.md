@@ -141,7 +141,15 @@ Die Bewohner bauen selbst – der Beobachter gibt keine Bauaufträge (Prinzip 1)
 - [x] Holz von weiter her, wenn es um das Lager knapp wird.
 - [ ] Bilder von Codex (gestaltung.md 17.9).
 
+## ✅ v0.11 – Lager teilen sich (v0.11.0)
+
+- [x] Zu enge Lager und Lager ohne Holz in der Nähe: ein junges Paar bricht mit seinen Kindern zu einer bekannten guten Wasserstelle auf und legt dort ein neues Lager an.
+- [x] So entstehen mehrere Lager nebeneinander (erste Dörfer).
+
 ## Als Nächstes: Vom Lager zum Dorf
+
+- Dorf als erkennbare Einheit (benannt, in der Chronik), Austausch zwischen benachbarten Lagern (Vorräte teilen, Partner finden).
+- Ein ganzes Lager zieht um, wenn Wasser oder Holz dauerhaft ausbleiben.
 
 - Mehrere Lager einer wachsenden Gruppe; Siedlungen entstehen dort, wo Wasser, Nahrung und Schutz zusammenkommen.
 - Werkzeuge und erstes Können (wer gut baut, baut öfter), weitergegeben an die Kinder.

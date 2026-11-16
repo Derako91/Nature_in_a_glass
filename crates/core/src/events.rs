@@ -49,6 +49,8 @@ pub enum EventKind {
     GardenPlanted,
     Harvest,
     GardenLost,
+    // seit v0.11
+    CampSplit,
 }
 
 impl EventKind {
@@ -90,6 +92,7 @@ impl EventKind {
             EventKind::GardenPlanted => "Garten",
             EventKind::Harvest => "Ernte",
             EventKind::GardenLost => "Garten",
+            EventKind::CampSplit => "Aufbruch",
         }
     }
 

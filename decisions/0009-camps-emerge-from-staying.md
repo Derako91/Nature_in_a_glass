@@ -22,3 +22,10 @@ Nach v0.7 ziehen Gruppen von 20–35 Menschen über die Insel, schlafen aber jed
 - Auf wasserreichen Inseln entsteht meist im ersten Jahr nach der Landung ein Lager mit ein, zwei Hütten; der Wald im Umkreis lichtet sich über Jahrzehnte. Auf kargen Inseln findet sich oft kein Ort, an dem man lange genug bleiben kann.
 - Brände durch Lagerfeuer sind selten (in Probeläufen etwa alle 10–20 Jahre je bewohntem Lager in trockenen Sommern) – ein neues, nachvollziehbares Risiko der Sesshaftigkeit.
 - Darauf bauen auf: Dörfer aus mehreren Lagern, Werkzeuge, Fischfang, Anbau, eigene Rollen beim Bauen.
+
+## Nachtrag v0.11.0 – Lager teilen sich
+
+- **Anlass:** Ein Lager ist zu eng (4 Hütten und mehr als 20 Zugehörige) oder findet seit mindestens 90 Tagen kein Holz im Umkreis von 6 Feldern und hat mindestens 16 Zugehörige. Dann bricht mit 1 % am Tag ein Paar auf (Frau unter 35, beide frei), mit den Kindern, die noch keine eigenen Wege gehen.
+- **Ziel:** die verlässlichste Wasserstelle (Verlässlichkeit ≥ 0,6), die die Frau kennt, 5–16 Felder vom alten Lager und mindestens 5 von jedem bewohnten Lager. Unterwegs ist das Ziel ihr „Zuhause“; am Ziel legen sie das Lager sofort an. Nach 150 Tagen ohne Ankunft geben sie auf.
+- Kleine Gruppen teilen sich wegen Holz nicht: Probeläufe zeigten, dass sich Gruppen mit 5–10 Menschen dadurch auslöschten.
+- Spielstand-Format 12.

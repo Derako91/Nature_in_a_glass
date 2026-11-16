@@ -252,6 +252,10 @@ pub struct Person {
     /// Können im Garten 0..1 (seit Format 11), wie beim Fischen.
     #[serde(default)]
     pub farming: f32,
+    /// Ziel eines Aufbruchs zu einem neuen Lager (Feld + 1, 0 = keins),
+    /// seit Format 12.
+    #[serde(default)]
+    pub settle: u32,
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq)]
@@ -271,6 +275,9 @@ struct Flags {
     stay_tile: u32,
     #[serde(default)]
     stay_days: u16,
+    /// Tag des Aufbruchs (für die Aufgabe nach langer Suche).
+    #[serde(default)]
+    settle_day: u64,
 }
 
 impl Person {
@@ -364,6 +371,8 @@ pub enum NewsKind {
     Harvest,
     /// Ein Garten verwildert.
     GardenLost,
+    /// Ein Paar bricht auf, um ein neues Lager anzulegen.
+    CampSplit,
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq)]
@@ -790,6 +799,7 @@ impl People {
                 // Wer mit dem Boot kommt, kann schon ein wenig fischen.
                 fishing: 0.25 * rng.next_f32(),
                 farming: 0.0,
+                settle: 0,
             };
             p.note(
                 now,
@@ -913,7 +923,12 @@ fn day(
 
     for k in 0..people.list.len() {
         let p = &mut people.list[k];
-        let home = homes.iter().find(|h| h.0 == p.camp).map(|h| h.1);
+        // Zuhause: das eigene Lager, auf dem Aufbruch das Ziel
+        let home = homes
+            .iter()
+            .find(|h| h.0 == p.camp)
+            .map(|h| h.1)
+            .or((p.settle != 0).then(|| p.settle - 1));
         p.harm = None;
         p.prev_tile = p.tile;
         p.age_days += 1;
@@ -2052,6 +2067,7 @@ fn family_day(
             camp: mother_camp,
             fishing: 0.0,
             farming: 0.0,
+            settle: 0,
         };
         let parents = match &fname {
             Some(f) => format!("Mutter: {mname}, Vater: {f}."),
