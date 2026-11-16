@@ -1,0 +1,23 @@
+{
+  "base_commit": "66d829e",
+  "screenshots": 24,
+  "seed": 2024,
+  "world_size": [
+    160,
+    160
+  ],
+  "requested_zooms": [
+    1,
+    2,
+    8
+  ],
+  "extra_overview_zooms": [
+    0.4,
+    0.45
+  ],
+  "font_sha256": "47cd75dce54b1f2e0831359d22d5e688f519d68ae45706b664fd310fd0e3ccf7",
+  "german_glyphs": "passed",
+  "paused_view_changed_pixels": 0,
+  "changed_pixels_outside_six_label_regions": 0,
+  "visual_approval": "pending"
+}

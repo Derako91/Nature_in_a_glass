@@ -6,11 +6,12 @@
 
 | Frage | Antwort |
 | --- | --- |
-| **Zuletzt erledigt** | 140 Werkzeugbilder nach Gestaltung 17.11: Netz, Sammelkorb, Esskorb, Steinbeil beim Holztragen. Fünf erwachsene Aussehen, beide Richtungen eigenständig. |
-| **Getestet** | 109 Rust-/15 Python-Tests, fmt, strenges Clippy und Release-Bau bestanden. Matrix, Anker, Weltmaße, Bilddauern, Quellhashes und 1483 unveränderte Eltern-PNGs geprüft. Alle Sprite-PNGs und das Manifest nach vollständigem Menschenexport bytegleich. |
-| **Offen für Codex** | Visuelle Abnahme durch Claude. Release-Bau und echte Spielprüfung Seed 5, Menschen +30 Jahre, Zoom 8/32 bestanden; Holztragen zusätzlich nach zwei Tagen. Zwölf Vorher-/Nachher-Aufnahmen im Prüfpaket. |
+| **Zuletzt erledigt** | Inselwelt optisch bei Zoom 1/2/8 in Karte und Isometrie geprüft. Eigene eingebettete kursive Seekartenschrift für Inselnamen, warme Schriftfarbe und dunkler Rand. 24 echte native Vergleichsaufnahmen. |
+| **Getestet** | 114 Rust-/15 Python-Tests, fmt, Release-Bau und strenges Clippy des geänderten App-Pakets bestanden. Umlaute/Fontquelle geprüft. Vollständige Karte: null geänderte Pixel außerhalb der sechs Namen; Pausenbild: null Bewegung. |
+| **Problem** | Clippy-Fehler `needless_range_loop` (Rust 1.100) im Kern ist in v0.20.0 behoben. Im isometrischen Meer bei Zoom 1/2 bleibt ein schon vorher vorhandenes Punktraster sichtbar. |
+| **Offen für Codex** | Inselnamen von Claude abgenommen und übernommen (PR #27). Einbaum/Jagd (PR #26) wartet auf Claudes Schnittstellen. |
 | **Offen für Dennis** | – |
-| **Nächster Schritt** | Claude prüft die vier Werkzeugzustände und Schleifen im Prüfpaket `art/nature/people-tools-style-b/README.md` und übernimmt den Draft bei visueller Freigabe. |
+| **Nächster Schritt** | Claude bindet Einbaum auf dem Meer und Jagd an (Gestaltung 17.12). Separat liegt Einbaum/Jagd als Bildentwurf in PR #26; dort fehlen noch Claudes Schnittstellen, die Bilder bleiben bis dahin in art/. |
 
 ## Zusammenarbeit Claude / Codex
 
@@ -23,6 +24,7 @@
 
 | Datum | Änderung | Code-Test |
 | --- | --- | --- |
+| 16.11.2026 | Codex: Inselwelt geprüft, Seekartenschrift für Inselnamen, Branch `codex/islandworld-cartography`, Basis `66d829e` (v0.19.0). | 114 Rust-/15 Python-Tests, fmt, App-Clippy, Release-Bau; 24 native Aufnahmen, Umlaute, ruhige Pausenansicht und unveränderte Bildbereiche außerhalb der Namen. Workspace-Clippy: vorhandener Kernfehler. Visuelle Abnahme offen. |
 | 16.11.2026 | Codex: 140 Werkzeugbilder, Branch `codex/people-tools-style-b`, Basis `af87656` (v0.13.0). | 109 Rust-/15 Python-Tests, fmt, Clippy; Vollständigkeit, Maße, unveränderte Kinder/Elternbilder und wiederholter Export geprüft. Visuelle Abnahme offen. |
 | 16.11.2026 | Codex: 90 Wandwasserbilder und Nutzung alter Atlasreihen-Lücken, Branch `codex/stream-drops-style-b`, Basis `3ac3bc1`. | 103 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; 120 RGBA-Anschlüsse und unveränderter Bestand. Nasse/trockene Spielansichten im Prüfpaket; visuelle Abnahme offen. |
 | 16.11.2026 | Codex: 20 Gartenbilder nach Gestaltung 17.9, Branch `codex/garden-style-b`, Basis `cc542e8`. | 100 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; Alpha-/Manifest-/Bestandsprüfung und zwei wiederholbare Exportwege. Sommer-/Ernteprüfung Seed 300, Feld 25/20, Zoom 8/32 im Prüfpaket; visuelle Abnahme offen. |

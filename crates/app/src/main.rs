@@ -190,6 +190,7 @@ fn main() -> eframe::Result {
         "Nature in a Glass",
         options,
         Box::new(move |cc| {
+            view::install_island_font(&cc.egui_ctx);
             let mut app = App::new(seed, size);
             app.world_size = size;
             app.atlas = atlas::Atlas::load(&cc.egui_ctx, extra_images.as_deref());
