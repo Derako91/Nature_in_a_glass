@@ -4,6 +4,7 @@
 //!   nig-sim --seed 42 --years 100
 //!   nig-sim --seed 42 --years 100 --map --save welt.json
 //!   nig-sim --load welt.json --years 10
+//!   nig-sim --seed 42 --size 128 --years 50   (große Insel)
 
 use std::process::ExitCode;
 use std::time::Instant;
@@ -13,6 +14,8 @@ use nig_core::{Simulation, Terrain};
 
 struct Args {
     seed: u64,
+    /// Kantenlänge der Karte in Feldern (64 = kleine Insel).
+    size: u32,
     years: u64,
     map: bool,
     events: bool,
@@ -23,6 +26,7 @@ struct Args {
 fn parse() -> Result<Args, String> {
     let mut a = Args {
         seed: 42,
+        size: nig_core::sim::DEFAULT_SIZE,
         years: 10,
         map: false,
         events: false,
@@ -38,6 +42,14 @@ fn parse() -> Result<Args, String> {
                     .parse()
                     .map_err(|_| "Seed muss eine Zahl sein")?
             }
+            "--size" => {
+                a.size = val("--size")?
+                    .parse()
+                    .map_err(|_| "Größe muss eine Zahl sein (z. B. 64, 96, 128)")?;
+                if !(16..=256).contains(&a.size) {
+                    return Err("Größe muss zwischen 16 und 256 liegen".into());
+                }
+            }
             "--years" => {
                 a.years = val("--years")?
                     .parse()
@@ -49,7 +61,7 @@ fn parse() -> Result<Args, String> {
             "--load" => a.load = Some(val("--load")?),
             "-h" | "--help" => {
                 println!(
-                    "nig-sim [--seed N] [--years N] [--map] [--events] [--save DATEI] [--load DATEI]"
+                    "nig-sim [--seed N] [--size 64|96|128] [--years N] [--map] [--events] [--save DATEI] [--load DATEI]"
                 );
                 std::process::exit(0);
             }
@@ -120,7 +132,7 @@ fn main() -> ExitCode {
                 }
             }
         }
-        None => Simulation::new(args.seed),
+        None => Simulation::with_size(args.seed, args.size, args.size),
     };
 
     println!(

@@ -278,6 +278,12 @@ impl World {
         }
     }
 
+    /// Kartenfläche im Verhältnis zur kleinen Insel (64 × 64 = 1). Damit
+    /// wachsen Quellen, Reviere usw. mit der Größe der Welt.
+    pub fn area_factor(&self) -> f32 {
+        (self.width * self.height) as f32 / 4096.0
+    }
+
     pub fn land_count(&self) -> usize {
         self.tiles.iter().filter(|t| !t.is_ocean()).count()
     }
@@ -404,7 +410,8 @@ impl World {
                 (0.3..0.65).contains(&rel)
             })
             .collect();
-        let wanted = 2;
+        // Zwei Quellen auf der kleinen Insel (64 × 64), mehr auf größeren
+        let wanted = (2.0 * self.area_factor()).round().max(2.0) as usize;
         while self.springs.len() < wanted && !candidates.is_empty() {
             let k = rng.below(candidates.len() as u32) as usize;
             let i = candidates.swap_remove(k);

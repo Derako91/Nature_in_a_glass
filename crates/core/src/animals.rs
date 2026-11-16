@@ -284,7 +284,8 @@ const FOX_SIDE_FOOD: f32 = 0.025;
 /// Bei so vielen Hirschen auf der Insel gelingt die Hälfte der Jagden;
 /// darunter fällt der Erfolg mit dem Quadrat (die letzten sind sehr scheu).
 const PREY_HALF: f32 = 40.0;
-/// Reviere: So viele Würfe im Jahr bietet die kleine Insel Platz – ein
+/// Reviere (auf der kleinen Insel 64 × 64; größere Welten entsprechend mehr):
+/// So viele Würfe im Jahr bietet die kleine Insel Platz – ein
 /// Wolfsrudel, einige Fuchsfamilien. Weitere Paare bekommen keine Jungen.
 pub const WOLF_LITTERS_PER_YEAR: u32 = 1;
 pub const FOX_LITTERS_PER_YEAR: u32 = 3;
@@ -1172,12 +1173,15 @@ fn births(a: &mut Animals, world: &World, doy: u32, rng: &mut Rng) {
             {
                 continue;
             }
+            // Reviere wachsen mit der Fläche der Welt
+            let area = world.area_factor();
             let max_litters = match s {
-                Species::Wolf => WOLF_LITTERS_PER_YEAR,
-                Species::Fox => FOX_LITTERS_PER_YEAR,
+                Species::Wolf => ((WOLF_LITTERS_PER_YEAR as f32 * area).floor() as u32).max(1),
+                Species::Fox => ((FOX_LITTERS_PER_YEAR as f32 * area).round() as u32).max(1),
                 _ => u32::MAX,
             };
-            if litters >= max_litters || (s == Species::Wolf && wolves_total >= WOLF_PACK_MAX) {
+            let pack_max = ((WOLF_PACK_MAX as f32 * area).floor() as u32).max(WOLF_PACK_MAX);
+            if litters >= max_litters || (s == Species::Wolf && wolves_total >= pack_max) {
                 continue;
             }
             let (min_energy, litter) = match s {

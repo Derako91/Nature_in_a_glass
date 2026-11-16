@@ -162,3 +162,18 @@ fn cross_platform_reference_hash() {
         sim.state_hash()
     );
 }
+
+/// Größere Inseln: mehr Land, mehr Quellen; Speichern und Laden behalten die
+/// Größe, und die kleine Insel bleibt unverändert (siehe Referenz-Prüfsumme).
+#[test]
+fn larger_islands_have_more_land_and_springs() {
+    let small = Simulation::new(42);
+    let mut large = Simulation::with_size(42, 128, 128);
+    assert_eq!(small.world.springs.len(), 2);
+    assert!(large.world.springs.len() >= 6);
+    assert!(large.world.land_count() > 2 * small.world.land_count());
+    large.advance_years(2);
+    let b = Simulation::from_json(&large.to_json()).unwrap();
+    assert_eq!((b.world.width, b.world.height), (128, 128));
+    assert_eq!(b.state_hash(), large.state_hash());
+}

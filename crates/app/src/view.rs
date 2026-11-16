@@ -62,6 +62,17 @@ impl Default for Camera {
     }
 }
 
+impl Camera {
+    /// Startansicht, in die die ganze Insel passt (größere Welten weiter weg).
+    pub fn for_world(world: &nig_core::world::World) -> Self {
+        let n = world.width.max(world.height) as f32;
+        Self {
+            pan: Vec2::new(0.0, 30.0 * 64.0 / n),
+            zoom: 1.4 * 64.0 / n,
+        }
+    }
+}
+
 // Grundmaße bei Zoom 1
 const ISO_TILE_W: f32 = 16.0;
 const ISO_TILE_H: f32 = 8.0;

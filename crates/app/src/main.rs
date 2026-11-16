@@ -103,6 +103,16 @@ impl EventReaction {
 
 /// Höchstens so viel Simulationszeit pro Bild, damit das Fenster reagiert.
 const MAX_HOURS_PER_FRAME: f64 = 24.0 * 365.0;
+/// Wählbare Inselgrößen (Kantenlänge der Karte in Feldern).
+const WORLD_SIZES: [u32; 3] = [64, 96, 128];
+
+fn size_label(n: u32) -> &'static str {
+    match n {
+        0..=64 => "klein",
+        65..=96 => "mittel",
+        _ => "groß",
+    }
+}
 /// Höchstens so lange rechnet der Zeitgeber am Stück, dann ist die Oberfläche dran.
 const CLOCK_SLICE: Duration = Duration::from_millis(25);
 
@@ -117,6 +127,17 @@ fn main() -> eframe::Result {
     // Optionale Startparameter, z. B. `--seed 7 --years 100 --view karte`
     let arg = |name: &str| std::env::args().skip_while(|a| a != name).nth(1);
     let seed = arg("--seed").and_then(|s| s.parse().ok()).unwrap_or(42);
+    // `--groesse klein|mittel|gross` (oder eine Zahl wie 96)
+    let size: u32 = match arg("--groesse").as_deref() {
+        Some("mittel") => 96,
+        Some("gross") | Some("groß") => 128,
+        Some(n) => n
+            .parse()
+            .ok()
+            .filter(|n| (16..=256).contains(n))
+            .unwrap_or(nig_core::sim::DEFAULT_SIZE),
+        None => nig_core::sim::DEFAULT_SIZE,
+    };
     let years: u64 = arg("--years").and_then(|s| s.parse().ok()).unwrap_or(0);
     let view = arg("--view");
     let layer = arg("--layer");
@@ -164,7 +185,8 @@ fn main() -> eframe::Result {
         "Nature in a Glass",
         options,
         Box::new(move |cc| {
-            let mut app = App::new(seed);
+            let mut app = App::new(seed, size);
+            app.world_size = size;
             app.atlas = atlas::Atlas::load(&cc.egui_ctx, extra_images.as_deref());
             app.graphics = app.atlas.is_some() && !no_graphics;
             app.sim.advance_years(years);
@@ -343,6 +365,8 @@ struct App {
     camera: Camera,
     selected: Option<usize>,
     seed_text: String,
+    /// Größe für die nächste neue Insel (Kantenlänge in Feldern).
+    world_size: u32,
     show_year_summaries: bool,
     /// Verlauf: Tierbestände statt Pflanzen.
     history_animals: bool,
@@ -363,8 +387,8 @@ struct App {
 }
 
 impl App {
-    fn new(seed: u64) -> Self {
-        let sim = Self::fresh(seed);
+    fn new(seed: u64, size: u32) -> Self {
+        let sim = Self::fresh(seed, size);
         // Platzhalter, den der Zeitgeber hält, solange die Oberfläche die
         // echte Simulation hat (winzige Insel, kostet nichts).
         let placeholder = Simulation::with_size(seed, 8, 8);
@@ -388,9 +412,10 @@ impl App {
             owed_hours: 0.0,
             mode: ViewMode::Iso,
             layer: Layer::Nature,
-            camera: Camera::default(),
+            camera: Camera::for_world(&sim.world),
             selected: None,
             seed_text: seed.to_string(),
+            world_size: nig_core::sim::DEFAULT_SIZE,
             show_year_summaries: false,
             history_animals: false,
             show_people: false,
@@ -412,8 +437,8 @@ impl App {
 
     /// Neue Insel, Uhr auf 10 Uhr morgens gestellt (innerhalb des ersten
     /// Tages läuft dabei noch kein Tagesprozess).
-    fn fresh(seed: u64) -> Simulation {
-        let mut sim = Simulation::new(seed);
+    fn fresh(seed: u64, size: u32) -> Simulation {
+        let mut sim = Simulation::with_size(seed, size, size);
         sim.advance_hours(10);
         sim
     }
@@ -607,12 +632,29 @@ impl App {
             ui.separator();
             ui.label("Seed");
             ui.add(egui::TextEdit::singleline(&mut self.seed_text).desired_width(70.0));
+            egui::ComboBox::from_id_salt("size")
+                .width(80.0)
+                .selected_text(size_label(self.world_size))
+                .show_ui(ui, |ui| {
+                    for s in WORLD_SIZES {
+                        ui.selectable_value(&mut self.world_size, s, size_label(s));
+                    }
+                })
+                .response
+                .on_hover_text(
+                    "Größe der nächsten neuen Insel: klein (etwa 4 km²), mittel (etwa 9 km²), \
+                     groß (etwa 14 km²). Größere Inseln haben mehr Quellen, Seen und Platz \
+                     für Tiere und Dörfer – und rechnen langsamer.",
+                );
             if ui.button("Neue Insel").clicked() {
                 match self.seed_text.trim().parse::<u64>() {
                     Ok(seed) => {
-                        self.replace_sim(Self::fresh(seed));
-                        self.camera = Camera::default();
-                        self.status = format!("Neue Insel aus Seed {seed}");
+                        self.replace_sim(Self::fresh(seed, self.world_size));
+                        self.camera = Camera::for_world(&self.sim.world);
+                        self.status = format!(
+                            "Neue Insel aus Seed {seed} ({})",
+                            size_label(self.world_size)
+                        );
                     }
                     Err(_) => self.status = "Seed muss eine ganze Zahl sein".into(),
                 }

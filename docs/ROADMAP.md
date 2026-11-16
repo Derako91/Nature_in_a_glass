@@ -173,6 +173,11 @@ Die Bewohner bauen selbst – der Beobachter gibt keine Bauaufträge (Prinzip 1)
 - [x] Einbaum: Fischen auf dem Meer, Gefahr bei Sturm.
 - Langlauf (32 Inseln): Überleben unverändert (20 von 32), mehr Geschichten und ein neues Risiko.
 
+## ✅ v0.18 – Größere Inseln (v0.18.0)
+
+- [x] Inselgröße wählbar (64, 96, 128 Felder Kantenlänge); Quellen und Reviere wachsen mit der Fläche (`World::area_factor`).
+- Erster Schritt zur ganzen Welt: Die Simulation richtet sich nach der Fläche statt nach festen Zahlen.
+
 ## Als Nächstes (Ideen)
 
 - Weitere Erfindungen: Speerschleuder (Jagd).

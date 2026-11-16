@@ -1,5 +1,13 @@
 # Änderungen
 
+## 0.18.0 – Größere Inseln
+
+**Neu**
+- **Inselgröße wählbar:** Neben „Neue Insel“ gibt es jetzt die Auswahl klein (wie bisher, etwa 4 km²), mittel (etwa 9 km²) und groß (etwa 14 km²). Größere Inseln haben höhere Berge, mehr Quellen und Seen, oft kleine Nebeninseln vor der Küste – und Platz für mehr Tiere und Dörfer. Sie rechnen langsamer (groß: etwa fünfmal so viel wie klein).
+- **Die Natur wächst mit:** Quellen sowie Reviere von Wölfen und Füchsen richten sich nach der Fläche. Auf der kleinen Insel bleibt alles genau wie bisher.
+- **Startansicht** zeigt immer die ganze Insel, egal wie groß.
+- Startoption `--groesse klein|mittel|gross`, für `nig-sim` `--size 64|96|128`.
+
 ## 0.17.0 – Seltene Beute ist scheu
 
 **Geändert**
