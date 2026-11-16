@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "status": "draft_interface_pending",
+  "assets": [
+    {
+      "id": "deer_hunted",
+      "group": "animals",
+      "state": "rest",
+      "variants": 2,
+      "frames": 1,
+      "frame_ms": null,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "size": [
+        192,
+        128
+      ],
+      "anchor": [
+        96,
+        64
+      ],
+      "display_size": [
+        21.6,
+        14.4
+      ],
+      "files": [
+        "deer_hunted_0_rest_r_f0.png",
+        "deer_hunted_0_rest_l_f0.png",
+        "deer_hunted_1_rest_r_f0.png",
+        "deer_hunted_1_rest_l_f0.png"
+      ],
+      "levels": [
+        {
+          "label": "@fern",
+          "anchor": [
+            24,
+            16
+          ],
+          "files": [
+            "deer_hunted_0_rest_r_f0@fern.png",
+            "deer_hunted_0_rest_l_f0@fern.png",
+            "deer_hunted_1_rest_r_f0@fern.png",
+            "deer_hunted_1_rest_l_f0@fern.png"
+          ]
+        }
+      ]
+    }
+  ]
+}

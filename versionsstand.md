@@ -1,16 +1,17 @@
 # Versionsstand – Nature_in_a_glass
 
-> **Stand:** 16.11.2026 · **Version:** Basis 0.13.0 · **Branch:** `codex/people-tools-style-b` (Basis `af87656`)
+> **Stand:** 16.11.2026 · **Version:** Basis 0.18.1 · **Branch:** `codex/canoe-and-hunt-style-b` (Basis `3390433`)
 
 ## Auf einen Blick
 
 | Frage | Antwort |
 | --- | --- |
-| **Zuletzt erledigt** | 140 Werkzeugbilder nach Gestaltung 17.11: Netz, Sammelkorb, Esskorb, Steinbeil beim Holztragen. Fünf erwachsene Aussehen, beide Richtungen eigenständig. |
-| **Getestet** | 109 Rust-/15 Python-Tests, fmt, strenges Clippy und Release-Bau bestanden. Matrix, Anker, Weltmaße, Bilddauern, Quellhashes und 1483 unveränderte Eltern-PNGs geprüft. Alle Sprite-PNGs und das Manifest nach vollständigem Menschenexport bytegleich. |
-| **Offen für Codex** | Visuelle Abnahme durch Claude. Release-Bau und echte Spielprüfung Seed 5, Menschen +30 Jahre, Zoom 8/32 bestanden; Holztragen zusätzlich nach zwei Tagen. Zwölf Vorher-/Nachher-Aufnahmen im Prüfpaket. |
+| **Zuletzt erledigt** | PR #25 laut Claude in v0.18.1 übernommen. Neuer Bildentwurf: 40 Einbaum-, 40 Jagd-, vier erlegte Hirschbilder und vier Fernstufen. Ausschließlich in art/, bis die Schnittstellen angebunden sind. |
+| **Getestet** | 113 Rust-/15 Python-Tests, fmt und Release-Bau bestanden. 88 Bilddateien, Quellen, Manifest, Phasen und Kalibrierfaktoren geprüft; 1672 produktive Assetdateien unverändert. Erneuter Export: 90 Sprite-/Manifestdateien bytegleich. Große Insel, Seed 5, Zoom 8/32: zwei unveränderte Spielaufnahmen und vier gekennzeichnete native Entwurfsaufnahmen. |
+| **Problem** | Strenges Clippy scheitert bereits auf der unveränderten Basis in `crates/core/src/people.rs:1119` (`needless_range_loop`, Rust 1.100.0). Kein Kerncode geändert und keine Warnung unterdrückt. |
+| **Offen für Codex** | Visuelle Abnahme durch Claude. Zusätzlich beauftragt: Inselwelt v0.19.0 bei Zoom 1/2/8 prüfen; eigener Branch `codex/islandworld-cartography`. |
 | **Offen für Dennis** | – |
-| **Nächster Schritt** | Claude prüft die vier Werkzeugzustände und Schleifen im Prüfpaket `art/nature/people-tools-style-b/README.md` und übernimmt den Draft bei visueller Freigabe. |
+| **Nächster Schritt** | Claude bindet Meer-Renderposition, echten hunt-Zustand und deer_hunted-Auswahl nach Gestaltung 17.12 an. Erst danach Bilder produktiv einbetten und echte Zustandsprüfung wiederholen. Prüfpaket: `art/nature/canoe-and-hunt-style-b/README.md`. |
 
 ## Zusammenarbeit Claude / Codex
 
@@ -23,6 +24,7 @@
 
 | Datum | Änderung | Code-Test |
 | --- | --- | --- |
+| 16.11.2026 | Codex: Einbaum-/Jagdentwurf mit 88 Bildern, Branch `codex/canoe-and-hunt-style-b`, Basis `3390433`. | 113 Rust-/15 Python-Tests, fmt, Release-Bau, Maß-/Bestands-/Exportprüfung und native Entwurfsansichten auf großer Insel. Clippy-Basisfehler dokumentiert. Schnittstellen und visuelle Abnahme offen. |
 | 16.11.2026 | Codex: 140 Werkzeugbilder, Branch `codex/people-tools-style-b`, Basis `af87656` (v0.13.0). | 109 Rust-/15 Python-Tests, fmt, Clippy; Vollständigkeit, Maße, unveränderte Kinder/Elternbilder und wiederholter Export geprüft. Visuelle Abnahme offen. |
 | 16.11.2026 | Codex: 90 Wandwasserbilder und Nutzung alter Atlasreihen-Lücken, Branch `codex/stream-drops-style-b`, Basis `3ac3bc1`. | 103 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; 120 RGBA-Anschlüsse und unveränderter Bestand. Nasse/trockene Spielansichten im Prüfpaket; visuelle Abnahme offen. |
 | 16.11.2026 | Codex: 20 Gartenbilder nach Gestaltung 17.9, Branch `codex/garden-style-b`, Basis `cc542e8`. | 100 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; Alpha-/Manifest-/Bestandsprüfung und zwei wiederholbare Exportwege. Sommer-/Ernteprüfung Seed 300, Feld 25/20, Zoom 8/32 im Prüfpaket; visuelle Abnahme offen. |

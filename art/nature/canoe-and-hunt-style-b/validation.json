@@ -1,0 +1,12 @@
+{
+  "base_commit": "3390433",
+  "new_draft_pngs": 88,
+  "production_assets_unchanged": 1672,
+  "embedded": false,
+  "source_hashes": "passed",
+  "matrix_and_manifests": "passed",
+  "phase_uniqueness": "passed",
+  "standing_calibration": "passed",
+  "directions_not_mirrored": true,
+  "visual_approval": "pending"
+}

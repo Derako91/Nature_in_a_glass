@@ -1,0 +1,2823 @@
+{
+  "base_commit": "3390433",
+  "embedded": false,
+  "files": [
+    {
+      "group": "people",
+      "file": "person_0_fish_boat_r_f0.png",
+      "kind": "boat",
+      "look": 0,
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.3212996389891697,
+      "opaque_box": [
+        36,
+        72,
+        190,
+        128
+      ],
+      "sha256": "30cf6cde29592c0eccb10076019cf000cbc985bf84a0c4151ed49f236ba7ec7a"
+    },
+    {
+      "group": "people",
+      "file": "person_0_fish_boat_r_f1.png",
+      "kind": "boat",
+      "look": 0,
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.3212996389891697,
+      "opaque_box": [
+        37,
+        72,
+        191,
+        128
+      ],
+      "sha256": "c41b6d0cc4f1101813524529d7e4e334a64f4eb8358807b56e058a7a9cad7180"
+    },
+    {
+      "group": "people",
+      "file": "person_0_fish_boat_r_f2.png",
+      "kind": "boat",
+      "look": 0,
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.3212996389891697,
+      "opaque_box": [
+        35,
+        72,
+        189,
+        128
+      ],
+      "sha256": "096f5b86a52ad0170aec8fe5a9a9e6ff75f6d71fa4d09c6a1ce32d05a3cd370f"
+    },
+    {
+      "group": "people",
+      "file": "person_0_fish_boat_r_f3.png",
+      "kind": "boat",
+      "look": 0,
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.3212996389891697,
+      "opaque_box": [
+        36,
+        73,
+        190,
+        128
+      ],
+      "sha256": "b69e62d8306401a888bcabdfe6505b7891b8ee0fabc622a9e31a3da5fc51d688"
+    },
+    {
+      "group": "people",
+      "file": "person_0_fish_boat_l_f0.png",
+      "kind": "boat",
+      "look": 0,
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.3212996389891697,
+      "opaque_box": [
+        37,
+        71,
+        190,
+        129
+      ],
+      "sha256": "4a492c2ca6cd37f3f0351ec10daf829a546834f23b2144bc7a003587c1a5de89"
+    },
+    {
+      "group": "people",
+      "file": "person_0_fish_boat_l_f1.png",
+      "kind": "boat",
+      "look": 0,
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.3212996389891697,
+      "opaque_box": [
+        37,
+        71,
+        190,
+        129
+      ],
+      "sha256": "707ffa85488570cc82f252bcf8daeda56c8b847113fe31caf0658fd5ab86206f"
+    },
+    {
+      "group": "people",
+      "file": "person_0_fish_boat_l_f2.png",
+      "kind": "boat",
+      "look": 0,
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.3212996389891697,
+      "opaque_box": [
+        37,
+        71,
+        190,
+        129
+      ],
+      "sha256": "93d21c1a78ac776fad017a9d1bb9b21b291fb27698e453f282bca205d88dd9d5"
+    },
+    {
+      "group": "people",
+      "file": "person_0_fish_boat_l_f3.png",
+      "kind": "boat",
+      "look": 0,
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.3212996389891697,
+      "opaque_box": [
+        37,
+        70,
+        190,
+        128
+      ],
+      "sha256": "ed9c3be75daa01202c59441a50165f9862d1d58f4149d1c630d0c0554361757c"
+    },
+    {
+      "group": "people",
+      "file": "person_1_fish_boat_r_f0.png",
+      "kind": "boat",
+      "look": 1,
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.3076923076923077,
+      "opaque_box": [
+        41,
+        71,
+        188,
+        128
+      ],
+      "sha256": "f3607817201b464e5155d5923af00aa25c879f66fb02da5b23758cc6c649d424"
+    },
+    {
+      "group": "people",
+      "file": "person_1_fish_boat_r_f1.png",
+      "kind": "boat",
+      "look": 1,
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.3076923076923077,
+      "opaque_box": [
+        41,
+        70,
+        189,
+        128
+      ],
+      "sha256": "a49a398ad4e4f8b5eef1a468d5c4b90d2cc7f217afad4fd7732c779b082a407d"
+    },
+    {
+      "group": "people",
+      "file": "person_1_fish_boat_r_f2.png",
+      "kind": "boat",
+      "look": 1,
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.3076923076923077,
+      "opaque_box": [
+        41,
+        71,
+        188,
+        129
+      ],
+      "sha256": "f0b7585b8072e7f691620e36dc0a241f26b3b7e70626c6c508d650233d6a15b2"
+    },
+    {
+      "group": "people",
+      "file": "person_1_fish_boat_r_f3.png",
+      "kind": "boat",
+      "look": 1,
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.3076923076923077,
+      "opaque_box": [
+        41,
+        71,
+        189,
+        128
+      ],
+      "sha256": "8e9c598b015da1d48214af3fdd6dddd69d9e3b1ea6c6a8011f7138f49c5309c0"
+    },
+    {
+      "group": "people",
+      "file": "person_1_fish_boat_l_f0.png",
+      "kind": "boat",
+      "look": 1,
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.3076923076923077,
+      "opaque_box": [
+        41,
+        69,
+        187,
+        128
+      ],
+      "sha256": "965974b6dbb059b3a9ccd13e1b8cda0c463d5ecf8b796ac2195b070bb1fb15dd"
+    },
+    {
+      "group": "people",
+      "file": "person_1_fish_boat_l_f1.png",
+      "kind": "boat",
+      "look": 1,
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.3076923076923077,
+      "opaque_box": [
+        40,
+        70,
+        188,
+        129
+      ],
+      "sha256": "c85f769b59eeb64fdf8a3ec7612b1d6a3977fc2e2ec946affc39405fd4691eef"
+    },
+    {
+      "group": "people",
+      "file": "person_1_fish_boat_l_f2.png",
+      "kind": "boat",
+      "look": 1,
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.3076923076923077,
+      "opaque_box": [
+        41,
+        70,
+        187,
+        128
+      ],
+      "sha256": "d78d49cae6aaf21387581f131372de58f0f50a3ea5d1c3adb66ebdf1b01a23f6"
+    },
+    {
+      "group": "people",
+      "file": "person_1_fish_boat_l_f3.png",
+      "kind": "boat",
+      "look": 1,
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.3076923076923077,
+      "opaque_box": [
+        41,
+        71,
+        188,
+        128
+      ],
+      "sha256": "c213884b27ae1962acc7af932050d86ac34d67f5d7af8684c9df9ed77bd5a617"
+    },
+    {
+      "group": "people",
+      "file": "person_2_fish_boat_r_f0.png",
+      "kind": "boat",
+      "look": 2,
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.31443298969072164,
+      "opaque_box": [
+        38,
+        72,
+        188,
+        128
+      ],
+      "sha256": "d71aea6d2b8a16e575a37a0b57f1f7ce119a58d7b5ee26b44eebf0cacff1e6a6"
+    },
+    {
+      "group": "people",
+      "file": "person_2_fish_boat_r_f1.png",
+      "kind": "boat",
+      "look": 2,
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.31443298969072164,
+      "opaque_box": [
+        38,
+        71,
+        188,
+        128
+      ],
+      "sha256": "8d2ad4547bfd21b83f326535be1c792da3ef2b81805dd31080e1f930506f6c09"
+    },
+    {
+      "group": "people",
+      "file": "person_2_fish_boat_r_f2.png",
+      "kind": "boat",
+      "look": 2,
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.31443298969072164,
+      "opaque_box": [
+        38,
+        70,
+        188,
+        129
+      ],
+      "sha256": "c7f1c893f605b170bfb4e3dca80df466acbd5a67f698f934d4b56f92e4ccb4e0"
+    },
+    {
+      "group": "people",
+      "file": "person_2_fish_boat_r_f3.png",
+      "kind": "boat",
+      "look": 2,
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.31443298969072164,
+      "opaque_box": [
+        38,
+        70,
+        188,
+        128
+      ],
+      "sha256": "d470b8f39d53e361e4b5cee0d8c9c10d61e6e33cfb5bcfc23ee148202bfc2fae"
+    },
+    {
+      "group": "people",
+      "file": "person_2_fish_boat_l_f0.png",
+      "kind": "boat",
+      "look": 2,
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.31443298969072164,
+      "opaque_box": [
+        39,
+        69,
+        189,
+        128
+      ],
+      "sha256": "9095997cafb05e3f9bfa589e4c95912a58e31f83cd40cbdffd49f95535f64049"
+    },
+    {
+      "group": "people",
+      "file": "person_2_fish_boat_l_f1.png",
+      "kind": "boat",
+      "look": 2,
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.31443298969072164,
+      "opaque_box": [
+        39,
+        69,
+        189,
+        128
+      ],
+      "sha256": "652bab32337bfaca2531ff96028e3500b3c6e95417e0ec8c70dfe231829f37d5"
+    },
+    {
+      "group": "people",
+      "file": "person_2_fish_boat_l_f2.png",
+      "kind": "boat",
+      "look": 2,
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.31443298969072164,
+      "opaque_box": [
+        39,
+        69,
+        189,
+        128
+      ],
+      "sha256": "f76c3ba863835d2eecfe7e04cd20b40126e013302e2d9677748db975d7f70466"
+    },
+    {
+      "group": "people",
+      "file": "person_2_fish_boat_l_f3.png",
+      "kind": "boat",
+      "look": 2,
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.31443298969072164,
+      "opaque_box": [
+        39,
+        69,
+        189,
+        128
+      ],
+      "sha256": "45e6f11fd72e4454f34862b878da99e602667f1ab0161cfc00e1d64811206dfe"
+    },
+    {
+      "group": "people",
+      "file": "person_3_fish_boat_r_f0.png",
+      "kind": "boat",
+      "look": 3,
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.28291814946619215,
+      "opaque_box": [
+        46,
+        79,
+        181,
+        128
+      ],
+      "sha256": "b80c18dc75be10fe8bc9973b13e9a0faffff55d22c9c11acf9023f3d8d4efe79"
+    },
+    {
+      "group": "people",
+      "file": "person_3_fish_boat_r_f1.png",
+      "kind": "boat",
+      "look": 3,
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.28291814946619215,
+      "opaque_box": [
+        46,
+        78,
+        181,
+        128
+      ],
+      "sha256": "da00ae1875a1138b0c04a9b3d2df4c7ae45c77285ec46c005f4f38eda6640728"
+    },
+    {
+      "group": "people",
+      "file": "person_3_fish_boat_r_f2.png",
+      "kind": "boat",
+      "look": 3,
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.28291814946619215,
+      "opaque_box": [
+        45,
+        77,
+        180,
+        128
+      ],
+      "sha256": "ff25aa31dbaec6450b307943b104ebca99062db77f1b5b138e367aabd1441f04"
+    },
+    {
+      "group": "people",
+      "file": "person_3_fish_boat_r_f3.png",
+      "kind": "boat",
+      "look": 3,
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.28291814946619215,
+      "opaque_box": [
+        45,
+        77,
+        180,
+        128
+      ],
+      "sha256": "ed987dd2eba3f3918f8402d873973407752c73537d58aaf1bdbbf6429acb7149"
+    },
+    {
+      "group": "people",
+      "file": "person_3_fish_boat_l_f0.png",
+      "kind": "boat",
+      "look": 3,
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.28291814946619215,
+      "opaque_box": [
+        45,
+        73,
+        180,
+        128
+      ],
+      "sha256": "25581deeb230223cbe93a592691e1b23ab91d1e55253bd200400510d90387bf9"
+    },
+    {
+      "group": "people",
+      "file": "person_3_fish_boat_l_f1.png",
+      "kind": "boat",
+      "look": 3,
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.28291814946619215,
+      "opaque_box": [
+        45,
+        72,
+        180,
+        128
+      ],
+      "sha256": "3c22c54c3da215eeee44f4d781b34c25cc90d266605360a454b107cf2a0020a4"
+    },
+    {
+      "group": "people",
+      "file": "person_3_fish_boat_l_f2.png",
+      "kind": "boat",
+      "look": 3,
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.28291814946619215,
+      "opaque_box": [
+        45,
+        73,
+        180,
+        128
+      ],
+      "sha256": "3482d38b3de1ca883cd0c3db72326470457d9bac5bcb9b9bf65486ea395ff3a4"
+    },
+    {
+      "group": "people",
+      "file": "person_3_fish_boat_l_f3.png",
+      "kind": "boat",
+      "look": 3,
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.28291814946619215,
+      "opaque_box": [
+        45,
+        72,
+        180,
+        128
+      ],
+      "sha256": "8a7ef215f76285147e9ebbf8e2c989b641413e628f6822e3732ccc483d4170b3"
+    },
+    {
+      "group": "people",
+      "file": "person_4_fish_boat_r_f0.png",
+      "kind": "boat",
+      "look": 4,
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.30491803278688523,
+      "opaque_box": [
+        39,
+        67,
+        187,
+        128
+      ],
+      "sha256": "b75d91c4e60be5231cef4877ecdec3954d66016ffcbf0e6555bbca5eca3303a4"
+    },
+    {
+      "group": "people",
+      "file": "person_4_fish_boat_r_f1.png",
+      "kind": "boat",
+      "look": 4,
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.30491803278688523,
+      "opaque_box": [
+        39,
+        67,
+        187,
+        128
+      ],
+      "sha256": "497b9b5171f49cf5a7820f219da369ed917a2dbb69cac44c067b9f44682438c4"
+    },
+    {
+      "group": "people",
+      "file": "person_4_fish_boat_r_f2.png",
+      "kind": "boat",
+      "look": 4,
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.30491803278688523,
+      "opaque_box": [
+        40,
+        70,
+        188,
+        128
+      ],
+      "sha256": "b49caaea0e35f405d44608644d531daea7436aa2dd696b62f853bd25b59293e2"
+    },
+    {
+      "group": "people",
+      "file": "person_4_fish_boat_r_f3.png",
+      "kind": "boat",
+      "look": 4,
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.30491803278688523,
+      "opaque_box": [
+        40,
+        70,
+        188,
+        128
+      ],
+      "sha256": "bb460875eddb696a0131abb233329f6906644c475b0b959c574504676c4bee04"
+    },
+    {
+      "group": "people",
+      "file": "person_4_fish_boat_l_f0.png",
+      "kind": "boat",
+      "look": 4,
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.30491803278688523,
+      "opaque_box": [
+        40,
+        66,
+        187,
+        128
+      ],
+      "sha256": "9caa38dce84938c424a444025a1e37930306941f459054176aeba53f310118bf"
+    },
+    {
+      "group": "people",
+      "file": "person_4_fish_boat_l_f1.png",
+      "kind": "boat",
+      "look": 4,
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.30491803278688523,
+      "opaque_box": [
+        40,
+        66,
+        188,
+        129
+      ],
+      "sha256": "1b458f139f4a9d6a8939058bf15860b9268209c9f8c07431424e9eb94df6e19d"
+    },
+    {
+      "group": "people",
+      "file": "person_4_fish_boat_l_f2.png",
+      "kind": "boat",
+      "look": 4,
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.30491803278688523,
+      "opaque_box": [
+        40,
+        66,
+        188,
+        128
+      ],
+      "sha256": "7c71eaf476f8185b37d87e91841f88586c0d67532a50cb488c3bc18f630efa66"
+    },
+    {
+      "group": "people",
+      "file": "person_4_fish_boat_l_f3.png",
+      "kind": "boat",
+      "look": 4,
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "source_box": null,
+      "factor": 0.30491803278688523,
+      "opaque_box": [
+        40,
+        67,
+        188,
+        128
+      ],
+      "sha256": "2491932a2b9ac5487380aadd9cbfc83411acf3f27d3c140435cf524c475f02a4"
+    },
+    {
+      "group": "people",
+      "file": "person_0_hunt_r_f0.png",
+      "kind": "hunt",
+      "look": 0,
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        81,
+        374,
+        302,
+        706
+      ],
+      "factor": 0.26646706586826346,
+      "opaque_box": [
+        62,
+        26,
+        119,
+        112
+      ],
+      "sha256": "17014f98ba0859ea41ac76da514aebf8e0fbb5adeb4e34fb4eac4da6ba3bcc7f"
+    },
+    {
+      "group": "people",
+      "file": "person_0_hunt_r_f1.png",
+      "kind": "hunt",
+      "look": 0,
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        441,
+        375,
+        671,
+        696
+      ],
+      "factor": 0.26646706586826346,
+      "opaque_box": [
+        50,
+        29,
+        109,
+        113
+      ],
+      "sha256": "800a6cb7b8d043afc4b240c1c542e995770d4b47d880e49bddea9b53b800ea70"
+    },
+    {
+      "group": "people",
+      "file": "person_0_hunt_r_f2.png",
+      "kind": "hunt",
+      "look": 0,
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        773,
+        384,
+        1039,
+        699
+      ],
+      "factor": 0.26646706586826346,
+      "opaque_box": [
+        38,
+        30,
+        107,
+        112
+      ],
+      "sha256": "367097d0aafb1118112e0ab351886f7ef6342dfeb10a990019aa627232fa6c79"
+    },
+    {
+      "group": "people",
+      "file": "person_0_hunt_r_f3.png",
+      "kind": "hunt",
+      "look": 0,
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        1166,
+        375,
+        1392,
+        706
+      ],
+      "factor": 0.26646706586826346,
+      "opaque_box": [
+        62,
+        26,
+        120,
+        112
+      ],
+      "sha256": "80c7aed1185afc645398e984be4f79ab9261cac2d42b72ab6a06ad370077ce7e"
+    },
+    {
+      "group": "people",
+      "file": "person_0_hunt_l_f0.png",
+      "kind": "hunt",
+      "look": 0,
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        50,
+        738,
+        275,
+        1071
+      ],
+      "factor": 0.26646706586826346,
+      "opaque_box": [
+        25,
+        25,
+        83,
+        112
+      ],
+      "sha256": "f6a10cd22241305e9f97ff0dee63d833dea845bc26898b799dc834438ef05699"
+    },
+    {
+      "group": "people",
+      "file": "person_0_hunt_l_f1.png",
+      "kind": "hunt",
+      "look": 0,
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        403,
+        743,
+        657,
+        1064
+      ],
+      "factor": 0.26646706586826346,
+      "opaque_box": [
+        39,
+        29,
+        104,
+        113
+      ],
+      "sha256": "c9c8eabf03e1a7d627f1f9419b77fbe3128e62547a4cf2c321f4ebdd8e55e122"
+    },
+    {
+      "group": "people",
+      "file": "person_0_hunt_l_f2.png",
+      "kind": "hunt",
+      "look": 0,
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        759,
+        755,
+        1032,
+        1064
+      ],
+      "factor": 0.26646706586826346,
+      "opaque_box": [
+        41,
+        32,
+        112,
+        112
+      ],
+      "sha256": "7a79365724d06085e52b31b7513453279c0b7f1a5770f9043d23cf881b836e9d"
+    },
+    {
+      "group": "people",
+      "file": "person_0_hunt_l_f3.png",
+      "kind": "hunt",
+      "look": 0,
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        1133,
+        741,
+        1360,
+        1071
+      ],
+      "factor": 0.26646706586826346,
+      "opaque_box": [
+        24,
+        26,
+        82,
+        112
+      ],
+      "sha256": "e3d89b52d7f497e446ca312e683167fd3efb7311b5a0e4cc27e0cdcf53c462cc"
+    },
+    {
+      "group": "people",
+      "file": "person_1_hunt_r_f0.png",
+      "kind": "hunt",
+      "look": 1,
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        90,
+        385,
+        326,
+        705
+      ],
+      "factor": 0.25768667642752563,
+      "opaque_box": [
+        60,
+        32,
+        119,
+        112
+      ],
+      "sha256": "63f1d11f47a842f3e2583eb794bf7651e170182383faf6accadb04c7a49298de"
+    },
+    {
+      "group": "people",
+      "file": "person_1_hunt_r_f1.png",
+      "kind": "hunt",
+      "look": 1,
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        429,
+        387,
+        676,
+        705
+      ],
+      "factor": 0.25768667642752563,
+      "opaque_box": [
+        63,
+        32,
+        125,
+        112
+      ],
+      "sha256": "fdacfa81a49f5c7f822e25975bc1ab0a100469d923effebba7612beb84ffee95"
+    },
+    {
+      "group": "people",
+      "file": "person_1_hunt_r_f2.png",
+      "kind": "hunt",
+      "look": 1,
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        777,
+        400,
+        1043,
+        699
+      ],
+      "factor": 0.25768667642752563,
+      "opaque_box": [
+        39,
+        37,
+        105,
+        112
+      ],
+      "sha256": "761e27e8f1f32e3e64d385b8ad695cb83893f30e278b968af1a5339170c95278"
+    },
+    {
+      "group": "people",
+      "file": "person_1_hunt_r_f3.png",
+      "kind": "hunt",
+      "look": 1,
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        1165,
+        387,
+        1395,
+        704
+      ],
+      "factor": 0.25768667642752563,
+      "opaque_box": [
+        61,
+        32,
+        118,
+        112
+      ],
+      "sha256": "499a02d66418b24937e8f668bf265790cc654e9a43d9a6fbf2bb6f84fbf92c13"
+    },
+    {
+      "group": "people",
+      "file": "person_1_hunt_l_f0.png",
+      "kind": "hunt",
+      "look": 1,
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        47,
+        746,
+        290,
+        1070
+      ],
+      "factor": 0.25768667642752563,
+      "opaque_box": [
+        23,
+        31,
+        84,
+        112
+      ],
+      "sha256": "8964af5925d6e52671988aa55a1b2002ac42f6bc9f7fff1b0bf3de346aa63f14"
+    },
+    {
+      "group": "people",
+      "file": "person_1_hunt_l_f1.png",
+      "kind": "hunt",
+      "look": 1,
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        397,
+        751,
+        646,
+        1058
+      ],
+      "factor": 0.25768667642752563,
+      "opaque_box": [
+        39,
+        35,
+        101,
+        112
+      ],
+      "sha256": "546a6cf3bce1dd0f18ad18d4b553ceec0ac11314be56579014371279052f0656"
+    },
+    {
+      "group": "people",
+      "file": "person_1_hunt_l_f2.png",
+      "kind": "hunt",
+      "look": 1,
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        756,
+        765,
+        1043,
+        1061
+      ],
+      "factor": 0.25768667642752563,
+      "opaque_box": [
+        38,
+        38,
+        109,
+        112
+      ],
+      "sha256": "8da80a6d51f8f1adcb571639deaa001fa4ae088f2fc9dcc318b86b264143148f"
+    },
+    {
+      "group": "people",
+      "file": "person_1_hunt_l_f3.png",
+      "kind": "hunt",
+      "look": 1,
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        1126,
+        751,
+        1375,
+        1068
+      ],
+      "factor": 0.25768667642752563,
+      "opaque_box": [
+        21,
+        32,
+        82,
+        112
+      ],
+      "sha256": "e6ebfe28fbfa1a868455df5352a3a58dd84903640e8581de7524500158f51a84"
+    },
+    {
+      "group": "people",
+      "file": "person_2_hunt_r_f0.png",
+      "kind": "hunt",
+      "look": 2,
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        92,
+        378,
+        312,
+        699
+      ],
+      "factor": 0.2756024096385542,
+      "opaque_box": [
+        61,
+        26,
+        119,
+        112
+      ],
+      "sha256": "fc3e1fdcc832ff7e2eae458a0c55c0ef967e668c6bb864161570700ec85f65cd"
+    },
+    {
+      "group": "people",
+      "file": "person_2_hunt_r_f1.png",
+      "kind": "hunt",
+      "look": 2,
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        451,
+        381,
+        674,
+        698
+      ],
+      "factor": 0.2756024096385542,
+      "opaque_box": [
+        60,
+        27,
+        118,
+        112
+      ],
+      "sha256": "a9db87fbb125fe6f882a45917db55e80537aebf5d4ea41a60a29bdd75d255bcd"
+    },
+    {
+      "group": "people",
+      "file": "person_2_hunt_r_f2.png",
+      "kind": "hunt",
+      "look": 2,
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        805,
+        390,
+        1038,
+        693
+      ],
+      "factor": 0.2756024096385542,
+      "opaque_box": [
+        59,
+        31,
+        120,
+        113
+      ],
+      "sha256": "1353712c440c1d9cd26b8d57c7097d6590246f00f824011e3169a9dc467d201b"
+    },
+    {
+      "group": "people",
+      "file": "person_2_hunt_r_f3.png",
+      "kind": "hunt",
+      "look": 2,
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        1176,
+        378,
+        1398,
+        698
+      ],
+      "factor": 0.2756024096385542,
+      "opaque_box": [
+        61,
+        26,
+        119,
+        112
+      ],
+      "sha256": "2cd1f77ff9b58a3fc1a954b493c16eb01a91650b2e3775a04bd30c45221d6f42"
+    },
+    {
+      "group": "people",
+      "file": "person_2_hunt_l_f0.png",
+      "kind": "hunt",
+      "look": 2,
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        49,
+        740,
+        271,
+        1064
+      ],
+      "factor": 0.2756024096385542,
+      "opaque_box": [
+        26,
+        25,
+        85,
+        112
+      ],
+      "sha256": "2d1b58ee37ec2e1fa35930cc1d2b7efe7b6f0c20df1f052f88379c2259b9bcff"
+    },
+    {
+      "group": "people",
+      "file": "person_2_hunt_l_f1.png",
+      "kind": "hunt",
+      "look": 2,
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        411,
+        742,
+        638,
+        1065
+      ],
+      "factor": 0.2756024096385542,
+      "opaque_box": [
+        25,
+        25,
+        85,
+        112
+      ],
+      "sha256": "8cf7f9f972a86ef02b1bc0a76f57aa3c6f00464e7ca11f13999aa7e8768bf2ef"
+    },
+    {
+      "group": "people",
+      "file": "person_2_hunt_l_f2.png",
+      "kind": "hunt",
+      "look": 2,
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        773,
+        749,
+        1008,
+        1062
+      ],
+      "factor": 0.2756024096385542,
+      "opaque_box": [
+        41,
+        28,
+        104,
+        112
+      ],
+      "sha256": "4e32b98f31b6ef2be966a9cee74457809a09ce5ee11e2f6e7ae1437672a250da"
+    },
+    {
+      "group": "people",
+      "file": "person_2_hunt_l_f3.png",
+      "kind": "hunt",
+      "look": 2,
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        1137,
+        741,
+        1353,
+        1066
+      ],
+      "factor": 0.2756024096385542,
+      "opaque_box": [
+        27,
+        25,
+        85,
+        113
+      ],
+      "sha256": "d5165806567a3b06241bb3c81dfc3ec1cdb01415d25079344c6aeeb29f5b2a5b"
+    },
+    {
+      "group": "people",
+      "file": "person_3_hunt_r_f0.png",
+      "kind": "hunt",
+      "look": 3,
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        60,
+        386,
+        333,
+        696
+      ],
+      "factor": 0.24386503067484663,
+      "opaque_box": [
+        61,
+        38,
+        126,
+        112
+      ],
+      "sha256": "c71968826e27b7fc078a6b39f65bd10d0b1de24b7ad49f14788bd91b8bd73f28"
+    },
+    {
+      "group": "people",
+      "file": "person_3_hunt_r_f1.png",
+      "kind": "hunt",
+      "look": 3,
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        420,
+        392,
+        701,
+        698
+      ],
+      "factor": 0.24386503067484663,
+      "opaque_box": [
+        63,
+        39,
+        130,
+        112
+      ],
+      "sha256": "1810708b91b91df1e8eae49fd6c0c3b41b516dae14f0c40a218244a3cb04854a"
+    },
+    {
+      "group": "people",
+      "file": "person_3_hunt_r_f2.png",
+      "kind": "hunt",
+      "look": 3,
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        778,
+        404,
+        1075,
+        695
+      ],
+      "factor": 0.24386503067484663,
+      "opaque_box": [
+        46,
+        43,
+        116,
+        112
+      ],
+      "sha256": "eb516906963c9803071566268423a4c4634bcfc858cb0dc49b5acbd190d7d634"
+    },
+    {
+      "group": "people",
+      "file": "person_3_hunt_r_f3.png",
+      "kind": "hunt",
+      "look": 3,
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        1144,
+        392,
+        1417,
+        697
+      ],
+      "factor": 0.24386503067484663,
+      "opaque_box": [
+        61,
+        40,
+        126,
+        112
+      ],
+      "sha256": "8157d50cd57d64c5f16b2d878006d93c7ef5742ed4cdc190fc2014ad76e36c97"
+    },
+    {
+      "group": "people",
+      "file": "person_3_hunt_l_f0.png",
+      "kind": "hunt",
+      "look": 3,
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        33,
+        746,
+        297,
+        1056
+      ],
+      "factor": 0.24386503067484663,
+      "opaque_box": [
+        20,
+        38,
+        82,
+        112
+      ],
+      "sha256": "fa78ac2084ee373eb9ff3b334e4d8e9abfa1a5d74c45515f6adc8c8157d1cfd0"
+    },
+    {
+      "group": "people",
+      "file": "person_3_hunt_l_f1.png",
+      "kind": "hunt",
+      "look": 3,
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        374,
+        753,
+        670,
+        1047
+      ],
+      "factor": 0.24386503067484663,
+      "opaque_box": [
+        17,
+        42,
+        87,
+        112
+      ],
+      "sha256": "554adbdc4a8a505a0546dc011b08c7c492c516dec8da6bc79186a07d8bf729cf"
+    },
+    {
+      "group": "people",
+      "file": "person_3_hunt_l_f2.png",
+      "kind": "hunt",
+      "look": 3,
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        731,
+        763,
+        1029,
+        1057
+      ],
+      "factor": 0.24386503067484663,
+      "opaque_box": [
+        33,
+        42,
+        104,
+        112
+      ],
+      "sha256": "d6d638c81d36393294f4507a60c525ee272d5ac2bbe3b32b47d05b2fe16d45b4"
+    },
+    {
+      "group": "people",
+      "file": "person_3_hunt_l_f3.png",
+      "kind": "hunt",
+      "look": 3,
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        1109,
+        748,
+        1378,
+        1058
+      ],
+      "factor": 0.24386503067484663,
+      "opaque_box": [
+        20,
+        38,
+        84,
+        112
+      ],
+      "sha256": "428457038bdcbb62f15f2b0a32ba11979bae4b8283bd1b98e8db6b7c43645677"
+    },
+    {
+      "group": "people",
+      "file": "person_4_hunt_r_f0.png",
+      "kind": "hunt",
+      "look": 4,
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        91,
+        376,
+        323,
+        709
+      ],
+      "factor": 0.27844311377245506,
+      "opaque_box": [
+        61,
+        21,
+        124,
+        112
+      ],
+      "sha256": "aea0f96de1993824ae23d24b8a867fbb5b407f56470ee042c524adc5df240c5e"
+    },
+    {
+      "group": "people",
+      "file": "person_4_hunt_r_f1.png",
+      "kind": "hunt",
+      "look": 4,
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        437,
+        384,
+        685,
+        708
+      ],
+      "factor": 0.27844311377245506,
+      "opaque_box": [
+        62,
+        24,
+        128,
+        112
+      ],
+      "sha256": "0d8d5f461e60f59d0d02c181ea5b826df910e6d38c5777f005c72f5216ed35bc"
+    },
+    {
+      "group": "people",
+      "file": "person_4_hunt_r_f2.png",
+      "kind": "hunt",
+      "look": 4,
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        774,
+        393,
+        1056,
+        700
+      ],
+      "factor": 0.27844311377245506,
+      "opaque_box": [
+        63,
+        29,
+        139,
+        112
+      ],
+      "sha256": "8b658f896ba7d05f236e0da68a1e74cac95826827a78d88df201d201c1785af6"
+    },
+    {
+      "group": "people",
+      "file": "person_4_hunt_r_f3.png",
+      "kind": "hunt",
+      "look": 4,
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        1177,
+        378,
+        1407,
+        709
+      ],
+      "factor": 0.27844311377245506,
+      "opaque_box": [
+        62,
+        22,
+        123,
+        112
+      ],
+      "sha256": "784fc5a9f9ab924618a094f04d556ee90ac6f1a670c3a7ab9c439701ab31530f"
+    },
+    {
+      "group": "people",
+      "file": "person_4_hunt_l_f0.png",
+      "kind": "hunt",
+      "look": 4,
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        49,
+        736,
+        288,
+        1070
+      ],
+      "factor": 0.27844311377245506,
+      "opaque_box": [
+        23,
+        21,
+        88,
+        112
+      ],
+      "sha256": "c8da80a718923b8e90cd85e5054270c0a5342fcef577bae5e6d31a842d8da155"
+    },
+    {
+      "group": "people",
+      "file": "person_4_hunt_l_f1.png",
+      "kind": "hunt",
+      "look": 4,
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        408,
+        744,
+        657,
+        1071
+      ],
+      "factor": 0.27844311377245506,
+      "opaque_box": [
+        14,
+        23,
+        81,
+        112
+      ],
+      "sha256": "14070c54e621ab4c6974d39b62041769e44a44ba789bcd8ce38205c051d1796f"
+    },
+    {
+      "group": "people",
+      "file": "person_4_hunt_l_f2.png",
+      "kind": "hunt",
+      "look": 4,
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        757,
+        755,
+        1038,
+        1062
+      ],
+      "factor": 0.27844311377245506,
+      "opaque_box": [
+        6,
+        29,
+        82,
+        112
+      ],
+      "sha256": "3761bf3dab1eab177078d8424cbbcc71a460328a8d173efe0c75b63dad7a003f"
+    },
+    {
+      "group": "people",
+      "file": "person_4_hunt_l_f3.png",
+      "kind": "hunt",
+      "look": 4,
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "source_box": [
+        1129,
+        737,
+        1367,
+        1071
+      ],
+      "factor": 0.27844311377245506,
+      "opaque_box": [
+        22,
+        21,
+        86,
+        112
+      ],
+      "sha256": "b8c7e4d8f2a7e811bc43f2626e68fcb9fffc8a3292adb3c4f596e9130577db56"
+    },
+    {
+      "group": "animals",
+      "file": "deer_hunted_0_rest_r_f0.png",
+      "kind": "deer",
+      "variant": 0,
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        192,
+        128
+      ],
+      "anchor": [
+        96,
+        64
+      ],
+      "display_size": [
+        21.6,
+        14.4
+      ],
+      "factor": 0.2384313725490196,
+      "opaque_box": [
+        20,
+        25,
+        173,
+        104
+      ],
+      "sha256": "1ddafb55c29cc50595a667c7a3c70ca144a3d197343f0bec0cb85f70a683a76b"
+    },
+    {
+      "group": "animals",
+      "file": "deer_hunted_0_rest_r_f0@fern.png",
+      "kind": "deer",
+      "variant": 0,
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        48,
+        32
+      ],
+      "anchor": [
+        24,
+        16
+      ],
+      "display_size": [
+        21.6,
+        14.4
+      ],
+      "factor": 0.2384313725490196,
+      "opaque_box": [
+        6,
+        8,
+        43,
+        26
+      ],
+      "sha256": "511514849127a09fdd31a3dd6216c4b6656b3a007bd4e2b52a1b774d313dc9bd"
+    },
+    {
+      "group": "animals",
+      "file": "deer_hunted_0_rest_l_f0.png",
+      "kind": "deer",
+      "variant": 0,
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        192,
+        128
+      ],
+      "anchor": [
+        96,
+        64
+      ],
+      "display_size": [
+        21.6,
+        14.4
+      ],
+      "factor": 0.2384313725490196,
+      "opaque_box": [
+        20,
+        25,
+        171,
+        103
+      ],
+      "sha256": "b39bbdd36865c42062a9f90c85a0844f8794ea742de1754de3a08b590a48f3c5"
+    },
+    {
+      "group": "animals",
+      "file": "deer_hunted_0_rest_l_f0@fern.png",
+      "kind": "deer",
+      "variant": 0,
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        48,
+        32
+      ],
+      "anchor": [
+        24,
+        16
+      ],
+      "display_size": [
+        21.6,
+        14.4
+      ],
+      "factor": 0.2384313725490196,
+      "opaque_box": [
+        5,
+        8,
+        43,
+        26
+      ],
+      "sha256": "195abc3997d1d355a99f51eaf7cfb09167ee4b2d2ca0c91479ac2f27ebf163fe"
+    },
+    {
+      "group": "animals",
+      "file": "deer_hunted_1_rest_r_f0.png",
+      "kind": "deer",
+      "variant": 1,
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        192,
+        128
+      ],
+      "anchor": [
+        96,
+        64
+      ],
+      "display_size": [
+        21.6,
+        14.4
+      ],
+      "factor": 0.2384313725490196,
+      "opaque_box": [
+        20,
+        25,
+        172,
+        103
+      ],
+      "sha256": "d256989019017eed52b806b55077cb5d67626b2174ecc3b4afa5acc43ace6c5d"
+    },
+    {
+      "group": "animals",
+      "file": "deer_hunted_1_rest_r_f0@fern.png",
+      "kind": "deer",
+      "variant": 1,
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        48,
+        32
+      ],
+      "anchor": [
+        24,
+        16
+      ],
+      "display_size": [
+        21.6,
+        14.4
+      ],
+      "factor": 0.2384313725490196,
+      "opaque_box": [
+        6,
+        7,
+        43,
+        26
+      ],
+      "sha256": "da4bb74f2b1f6d4c51ee6a36d2d1964cf120ac48a02b835fb2ecca751002da08"
+    },
+    {
+      "group": "animals",
+      "file": "deer_hunted_1_rest_l_f0.png",
+      "kind": "deer",
+      "variant": 1,
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        192,
+        128
+      ],
+      "anchor": [
+        96,
+        64
+      ],
+      "display_size": [
+        21.6,
+        14.4
+      ],
+      "factor": 0.2384313725490196,
+      "opaque_box": [
+        20,
+        24,
+        172,
+        104
+      ],
+      "sha256": "130d7846bcc741603fc1f73df9bda031afb3d94ff3b0e2550fe5a1cc2dfa0507"
+    },
+    {
+      "group": "animals",
+      "file": "deer_hunted_1_rest_l_f0@fern.png",
+      "kind": "deer",
+      "variant": 1,
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        48,
+        32
+      ],
+      "anchor": [
+        24,
+        16
+      ],
+      "display_size": [
+        21.6,
+        14.4
+      ],
+      "factor": 0.2384313725490196,
+      "opaque_box": [
+        5,
+        7,
+        43,
+        26
+      ],
+      "sha256": "cfa043c26d25a068c8e694cae329050bcf7cd955f0b291efaa1fd89cd53a5344"
+    }
+  ],
+  "scales": [
+    {
+      "kind": "boat",
+      "look": 0,
+      "factor": 0.3212996389891697,
+      "reference_height": 277.0,
+      "target_height": 89.0
+    },
+    {
+      "kind": "boat",
+      "look": 1,
+      "factor": 0.3076923076923077,
+      "reference_height": 286.0,
+      "target_height": 88.0
+    },
+    {
+      "kind": "boat",
+      "look": 2,
+      "factor": 0.31443298969072164,
+      "reference_height": 291.0,
+      "target_height": 91.5
+    },
+    {
+      "kind": "boat",
+      "look": 3,
+      "factor": 0.28291814946619215,
+      "reference_height": 281.0,
+      "target_height": 79.5
+    },
+    {
+      "kind": "boat",
+      "look": 4,
+      "factor": 0.30491803278688523,
+      "reference_height": 305.0,
+      "target_height": 93.0
+    },
+    {
+      "kind": "hunt",
+      "look": 0,
+      "factor": 0.26646706586826346,
+      "reference_height": 334.0,
+      "target_height": 89.0
+    },
+    {
+      "kind": "hunt",
+      "look": 1,
+      "factor": 0.25768667642752563,
+      "reference_height": 341.5,
+      "target_height": 88.0
+    },
+    {
+      "kind": "hunt",
+      "look": 2,
+      "factor": 0.2756024096385542,
+      "reference_height": 332.0,
+      "target_height": 91.5
+    },
+    {
+      "kind": "hunt",
+      "look": 3,
+      "factor": 0.24386503067484663,
+      "reference_height": 326.0,
+      "target_height": 79.5
+    },
+    {
+      "kind": "hunt",
+      "look": 4,
+      "factor": 0.27844311377245506,
+      "reference_height": 334.0,
+      "target_height": 93.0
+    }
+  ],
+  "visual_approval": "pending"
+}

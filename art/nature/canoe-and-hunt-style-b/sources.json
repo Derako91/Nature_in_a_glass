@@ -1,0 +1,81 @@
+{
+  "base_commit": "3390433",
+  "producer": "image_gen",
+  "people": [
+    {
+      "kind": "boat",
+      "look": 0,
+      "generation": "exec-092297ac-f0b2-409f-8658-3353fc125631.png",
+      "file": "sources/boat-0.png",
+      "sha256": "b09ec16fd478a6fdf5c0c2e0ad5b02162866bb5089d47ff7da6c230a14aef6a2"
+    },
+    {
+      "kind": "boat",
+      "look": 1,
+      "generation": "exec-3307013f-ee23-49e0-913f-f01034fb343a.png",
+      "file": "sources/boat-1.png",
+      "sha256": "2af4fbc6d58ad8c70c6c3b713c23318b1310caf5cc837edd043e7636ccb6bf78"
+    },
+    {
+      "kind": "boat",
+      "look": 2,
+      "generation": "exec-1ac78de9-991c-44e8-9aac-4cadbe27cdeb.png",
+      "file": "sources/boat-2.png",
+      "sha256": "0a9677fc6f94a4b9183c1697de26ab8fc0c19a5ca63e4d28aa9d26ea64110b69"
+    },
+    {
+      "kind": "boat",
+      "look": 3,
+      "generation": "exec-9f758f61-b6a6-4b57-8dd2-4649b03ef8fb.png",
+      "file": "sources/boat-3.png",
+      "sha256": "5e5a8a5f5ecddfea51395101b296a86d02120b3f3b3c9f622d1c4da385f19600"
+    },
+    {
+      "kind": "boat",
+      "look": 4,
+      "generation": "exec-c58ccd31-6dcc-42ed-8daf-3e069e525d28.png",
+      "file": "sources/boat-4.png",
+      "sha256": "71e05dd1c38aa0d6424e7bf07cbac8449e0c4a452d705315d7a0c70ab77197d6"
+    },
+    {
+      "kind": "hunt",
+      "look": 0,
+      "generation": "exec-11556bb7-d5e5-45d1-91ef-25ea8e51bc10.png",
+      "file": "sources/hunt-0.png",
+      "sha256": "821695a42927a08761f43ca870f517c0e68fffed0006970fbb854044f0dcfeb8"
+    },
+    {
+      "kind": "hunt",
+      "look": 1,
+      "generation": "exec-a6ed28ca-981b-485d-8786-0aefc3d5888b.png",
+      "file": "sources/hunt-1.png",
+      "sha256": "ad56523b62a0499a7d7a7f2d78ec52e062ac94c1bdc5dbd9a92eafe69994f44a"
+    },
+    {
+      "kind": "hunt",
+      "look": 2,
+      "generation": "exec-901fdfa7-597f-448c-91b6-5c6f76611eca.png",
+      "file": "sources/hunt-2.png",
+      "sha256": "45909a8e2ab3c0dfaf4e4c2e48fa17bbe99e659237fd89ea4568c457274d2789"
+    },
+    {
+      "kind": "hunt",
+      "look": 3,
+      "generation": "exec-64732d53-55e8-44c1-86fc-ce09e423ada0.png",
+      "file": "sources/hunt-3.png",
+      "sha256": "8a8771bb4a50f39a2733608fc255ce838d1b5b22441207d119d9b347e7e65128"
+    },
+    {
+      "kind": "hunt",
+      "look": 4,
+      "generation": "exec-9d30c6e2-cbca-41d2-b691-7a5ab0ee9840.png",
+      "file": "sources/hunt-4.png",
+      "sha256": "cba71f90df08e148b46026cec382daf80f67604a922e272d1512c4a60e29ede4"
+    }
+  ],
+  "deer": {
+    "generation": "exec-902b7aae-0ad4-480a-90c8-4ae82ad835bb.png",
+    "file": "sources/deer.png",
+    "sha256": "f86f65d1acd83a0693b8602d5225bc9ef12080efbbdc2dfc5d61533e4ae7ba08"
+  }
+}

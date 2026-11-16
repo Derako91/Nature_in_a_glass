@@ -1,0 +1,66 @@
+--- a/crates/app/src/view.rs
++++ b/crates/app/src/view.rs
+@@ -540,7 +540,21 @@
+     // Menschen: einzeln ab der Stufe Landschaft und bei langsamer Zeit,
+     // sonst nur als Zeichen (17.2).
+     let people_close = z >= OVERVIEW_ZOOM && detail;
+-    let persons = ap::person_sprites(&sim.people, world);
++    // ENTWURFSPROBE: nur lokale Renderkopien, keine Bewohnersteuerung.
++    let mut persons = ap::person_sprites(&sim.people, world);
++    for p in &mut persons {
++        if p.activity == "fish" && p.tool == Some("boat") {
++            if let Some(sea) = world.neighbors(p.tile as usize).find(|&j| world.tiles[j].is_ocean()) {
++                p.tile = sea as u32;
++                p.prev_tile = p.tile;
++            }
++        }
++        // Bildgalerie: Person 8 zeigt Jagdbilder, keine echte Jagdbehauptung.
++        if p.id == 8 && !p.child {
++            p.activity = "hunt";
++            p.tool = None;
++        }
++    }
+     let mut people_at: Vec<Vec<usize>> = vec![Vec::new(); world.tiles.len()];
+     let mut bodies_at: Vec<Vec<(u8, &'static str)>> = vec![Vec::new(); world.tiles.len()];
+     if people_close {
+@@ -979,6 +993,13 @@
+                                 p.weakness,
+                             ),
+                         }
++                        if p.id == 8 {
++                            let n = "deer_hunted_0_rest_r_f0";
++                            if let Some(pk) = atlas.pick(n, n, 21.6, scale) {
++                                let sample = foot + Vec2::new(18.0 * scale, 2.0 * scale);
++                                tex_rect(&mut mesh, pk.rect(sample), &pk.entry, tint);
++                            }
++                        }
+                     }
+                     Thing::Body(look, dir) => {
+                         let foot = c + Vec2::new(0.1 * hw, 0.2 * hh);
+@@ -1162,7 +1183,7 @@
+         "walk" => (4, 200.0),
+         "run" => (4, 100.0),
+         "gather" | "fish" => (4, 300.0),
+-        "hurt" | "build" => (4, 250.0),
++        "hurt" | "build" | "hunt" => (4, 250.0),
+         "eat" | "drink" => (2, 600.0),
+         "idle" => (2, 800.0),
+         _ => (1, 1000.0),
+--- a/crates/app/src/main.rs
++++ b/crates/app/src/main.rs
+@@ -1635,6 +1635,15 @@
+ 
+ impl eframe::App for App {
+     fn ui(&mut self, ui: &mut egui::Ui, _frame: &mut eframe::Frame) {
++        egui::Area::new(egui::Id::new("codex_art_preview"))
++            .fixed_pos(egui::pos2(12.0, 72.0))
++            .order(egui::Order::Foreground)
++            .show(ui.ctx(), |ui| {
++                egui::Frame::new().fill(Color32::from_rgb(45, 30, 10)).show(ui, |ui| {
++                    ui.label(RichText::new("ENTWURFSPROBE: Meerplatzierung vorläufig; Jagdfigur/Hirsch nur Bildgalerie")
++                        .color(Color32::from_rgb(255, 225, 130)));
++                });
++            });
+         self.take_from_clock();
+         let space = ui.input(|i| i.key_pressed(egui::Key::Space));
+         let typing = ui.ctx().memory(|m| m.focused().is_some());

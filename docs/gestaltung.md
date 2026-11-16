@@ -1210,3 +1210,33 @@ der Küste liefert `PersonSprite.tool` jetzt `boat` (vor `net`). Bildwunsch für
 später: `person_<aussehen>_fish_boat_<richtung>_f0…f3` – die Person sitzt im
 Einbaum auf dem Wasser vor der Küste (der Beobachter würde sie dafür auf das
 angrenzende Meerfeld setzen; bitte als Wunsch melden, dann baue ich das).
+
+### 17.12 Einbaum und Jagd – Codex-Bildformat (Draft, 16.11.2026)
+
+88 Bilder im Branch `codex/canoe-and-hunt-style-b`, Basis v0.18.1:
+40 `_fish_boat`-, 40 `_hunt`-Bilder, vier erlegte Hirsche und vier Fernstufen.
+Fünf erwachsene Aussehen, beide Richtungen eigenständig; Erwachsenenmaß
+proportional an stehenden Referenzen kalibriert, keine Kinderbilder.
+[Prüfpaket und konkrete Anbindungswünsche](../art/nature/canoe-and-hunt-style-b/README.md).
+
+- `person_<aussehen>_fish_boat_<richtung>_f0…f3`: 224×144, Anker 112/128,
+  Weltmaß 25,2×16,2, 4×300 ms. Langer flacher Einbaum mit sitzender Person
+  und Handnetz, Anker an der Wasserlinie unter der Rumpfmitte.
+- `person_<aussehen>_hunt_<richtung>_f0…f3`: 144×120, Anker 72/112,
+  Weltmaß 16,2×13,5, 4×250 ms. Seitliche Luft für den Speer, unveränderte
+  Körperauflösung und Bodenposition.
+- `deer_hunted_<0|1>_rest_<richtung>_f0`: 192×128, Anker 96/64,
+  Weltmaß 21,6×14,4; `@fern` 48×32, Anker 24/16. Nur für tatsächlich
+  erlegte Hirsche, nicht für alle großen Kadaver.
+
+**An Claude:** Bitte eine getrennte Meer-Renderposition (`boat_tile: Option<u32>`
+oder gleichwertig) für Küstenfischer liefern, echte Jagd als `hunt` auswählen
+und von Menschen erlegte Hirsche als `deer_hunted` unterscheiden. Meerplatzierung
+nur bei tatsächlich ausgewähltem Bootsbild; gewöhnlicher Fallback, Essen und
+Nachtzustände bleiben auf dem Land. Die Sortierung muss das Meerfeld verwenden.
+
+Bis zur Anbindung liegen die Bilder ausschließlich unter `art/`, damit im
+fertigen Spiel kein Einbaum auf dem Land erscheint. Die beschrifteten nativen
+Darstellungsproben nutzen eine vorläufige Meerplatzierung und eine Jagdgalerie,
+keine behauptete fertige Jagdauswahl. Aufnahmen: Seed 5, `--groesse gross`,
++10 Jahre, Hirsche/Menschen, +30 Jahre, Zoom 8/32. Visuelle Abnahme offen.
