@@ -252,6 +252,888 @@
         "w",
         "nw"
       ]
+    },
+    {
+      "id": "stream_drop_wet_0_left_head",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 4,
+      "frame_ms": 500,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_wet_0_left_head_f0.png",
+        "stream_drop_wet_0_left_head_f1.png",
+        "stream_drop_wet_0_left_head_f2.png",
+        "stream_drop_wet_0_left_head_f3.png"
+      ]
+    },
+    {
+      "id": "stream_drop_wet_0_left_body",
+      "group": "water",
+      "size": [
+        32,
+        64
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        16.0
+      ],
+      "resolution_scale": 4,
+      "frames": 4,
+      "frame_ms": 500,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_wet_0_left_body_f0.png",
+        "stream_drop_wet_0_left_body_f1.png",
+        "stream_drop_wet_0_left_body_f2.png",
+        "stream_drop_wet_0_left_body_f3.png"
+      ]
+    },
+    {
+      "id": "stream_drop_wet_0_left_foot",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 4,
+      "frame_ms": 500,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_wet_0_left_foot_f0.png",
+        "stream_drop_wet_0_left_foot_f1.png",
+        "stream_drop_wet_0_left_foot_f2.png",
+        "stream_drop_wet_0_left_foot_f3.png"
+      ]
+    },
+    {
+      "id": "stream_drop_wet_0_right_head",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 4,
+      "frame_ms": 500,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_wet_0_right_head_f0.png",
+        "stream_drop_wet_0_right_head_f1.png",
+        "stream_drop_wet_0_right_head_f2.png",
+        "stream_drop_wet_0_right_head_f3.png"
+      ]
+    },
+    {
+      "id": "stream_drop_wet_0_right_body",
+      "group": "water",
+      "size": [
+        32,
+        64
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        16.0
+      ],
+      "resolution_scale": 4,
+      "frames": 4,
+      "frame_ms": 500,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_wet_0_right_body_f0.png",
+        "stream_drop_wet_0_right_body_f1.png",
+        "stream_drop_wet_0_right_body_f2.png",
+        "stream_drop_wet_0_right_body_f3.png"
+      ]
+    },
+    {
+      "id": "stream_drop_wet_0_right_foot",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 4,
+      "frame_ms": 500,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_wet_0_right_foot_f0.png",
+        "stream_drop_wet_0_right_foot_f1.png",
+        "stream_drop_wet_0_right_foot_f2.png",
+        "stream_drop_wet_0_right_foot_f3.png"
+      ]
+    },
+    {
+      "id": "stream_drop_wet_1_left_head",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 4,
+      "frame_ms": 500,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_wet_1_left_head_f0.png",
+        "stream_drop_wet_1_left_head_f1.png",
+        "stream_drop_wet_1_left_head_f2.png",
+        "stream_drop_wet_1_left_head_f3.png"
+      ]
+    },
+    {
+      "id": "stream_drop_wet_1_left_body",
+      "group": "water",
+      "size": [
+        32,
+        64
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        16.0
+      ],
+      "resolution_scale": 4,
+      "frames": 4,
+      "frame_ms": 500,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_wet_1_left_body_f0.png",
+        "stream_drop_wet_1_left_body_f1.png",
+        "stream_drop_wet_1_left_body_f2.png",
+        "stream_drop_wet_1_left_body_f3.png"
+      ]
+    },
+    {
+      "id": "stream_drop_wet_1_left_foot",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 4,
+      "frame_ms": 500,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_wet_1_left_foot_f0.png",
+        "stream_drop_wet_1_left_foot_f1.png",
+        "stream_drop_wet_1_left_foot_f2.png",
+        "stream_drop_wet_1_left_foot_f3.png"
+      ]
+    },
+    {
+      "id": "stream_drop_wet_1_right_head",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 4,
+      "frame_ms": 500,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_wet_1_right_head_f0.png",
+        "stream_drop_wet_1_right_head_f1.png",
+        "stream_drop_wet_1_right_head_f2.png",
+        "stream_drop_wet_1_right_head_f3.png"
+      ]
+    },
+    {
+      "id": "stream_drop_wet_1_right_body",
+      "group": "water",
+      "size": [
+        32,
+        64
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        16.0
+      ],
+      "resolution_scale": 4,
+      "frames": 4,
+      "frame_ms": 500,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_wet_1_right_body_f0.png",
+        "stream_drop_wet_1_right_body_f1.png",
+        "stream_drop_wet_1_right_body_f2.png",
+        "stream_drop_wet_1_right_body_f3.png"
+      ]
+    },
+    {
+      "id": "stream_drop_wet_1_right_foot",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 4,
+      "frame_ms": 500,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_wet_1_right_foot_f0.png",
+        "stream_drop_wet_1_right_foot_f1.png",
+        "stream_drop_wet_1_right_foot_f2.png",
+        "stream_drop_wet_1_right_foot_f3.png"
+      ]
+    },
+    {
+      "id": "stream_drop_wet_2_left_head",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 4,
+      "frame_ms": 500,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_wet_2_left_head_f0.png",
+        "stream_drop_wet_2_left_head_f1.png",
+        "stream_drop_wet_2_left_head_f2.png",
+        "stream_drop_wet_2_left_head_f3.png"
+      ]
+    },
+    {
+      "id": "stream_drop_wet_2_left_body",
+      "group": "water",
+      "size": [
+        32,
+        64
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        16.0
+      ],
+      "resolution_scale": 4,
+      "frames": 4,
+      "frame_ms": 500,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_wet_2_left_body_f0.png",
+        "stream_drop_wet_2_left_body_f1.png",
+        "stream_drop_wet_2_left_body_f2.png",
+        "stream_drop_wet_2_left_body_f3.png"
+      ]
+    },
+    {
+      "id": "stream_drop_wet_2_left_foot",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 4,
+      "frame_ms": 500,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_wet_2_left_foot_f0.png",
+        "stream_drop_wet_2_left_foot_f1.png",
+        "stream_drop_wet_2_left_foot_f2.png",
+        "stream_drop_wet_2_left_foot_f3.png"
+      ]
+    },
+    {
+      "id": "stream_drop_wet_2_right_head",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 4,
+      "frame_ms": 500,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_wet_2_right_head_f0.png",
+        "stream_drop_wet_2_right_head_f1.png",
+        "stream_drop_wet_2_right_head_f2.png",
+        "stream_drop_wet_2_right_head_f3.png"
+      ]
+    },
+    {
+      "id": "stream_drop_wet_2_right_body",
+      "group": "water",
+      "size": [
+        32,
+        64
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        16.0
+      ],
+      "resolution_scale": 4,
+      "frames": 4,
+      "frame_ms": 500,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_wet_2_right_body_f0.png",
+        "stream_drop_wet_2_right_body_f1.png",
+        "stream_drop_wet_2_right_body_f2.png",
+        "stream_drop_wet_2_right_body_f3.png"
+      ]
+    },
+    {
+      "id": "stream_drop_wet_2_right_foot",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 4,
+      "frame_ms": 500,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_wet_2_right_foot_f0.png",
+        "stream_drop_wet_2_right_foot_f1.png",
+        "stream_drop_wet_2_right_foot_f2.png",
+        "stream_drop_wet_2_right_foot_f3.png"
+      ]
+    },
+    {
+      "id": "stream_drop_dry_0_left_head",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 1,
+      "frame_ms": null,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_dry_0_left_head_f0.png"
+      ]
+    },
+    {
+      "id": "stream_drop_dry_0_left_body",
+      "group": "water",
+      "size": [
+        32,
+        64
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        16.0
+      ],
+      "resolution_scale": 4,
+      "frames": 1,
+      "frame_ms": null,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_dry_0_left_body_f0.png"
+      ]
+    },
+    {
+      "id": "stream_drop_dry_0_left_foot",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 1,
+      "frame_ms": null,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_dry_0_left_foot_f0.png"
+      ]
+    },
+    {
+      "id": "stream_drop_dry_0_right_head",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 1,
+      "frame_ms": null,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_dry_0_right_head_f0.png"
+      ]
+    },
+    {
+      "id": "stream_drop_dry_0_right_body",
+      "group": "water",
+      "size": [
+        32,
+        64
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        16.0
+      ],
+      "resolution_scale": 4,
+      "frames": 1,
+      "frame_ms": null,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_dry_0_right_body_f0.png"
+      ]
+    },
+    {
+      "id": "stream_drop_dry_0_right_foot",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 1,
+      "frame_ms": null,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_dry_0_right_foot_f0.png"
+      ]
+    },
+    {
+      "id": "stream_drop_dry_1_left_head",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 1,
+      "frame_ms": null,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_dry_1_left_head_f0.png"
+      ]
+    },
+    {
+      "id": "stream_drop_dry_1_left_body",
+      "group": "water",
+      "size": [
+        32,
+        64
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        16.0
+      ],
+      "resolution_scale": 4,
+      "frames": 1,
+      "frame_ms": null,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_dry_1_left_body_f0.png"
+      ]
+    },
+    {
+      "id": "stream_drop_dry_1_left_foot",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 1,
+      "frame_ms": null,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_dry_1_left_foot_f0.png"
+      ]
+    },
+    {
+      "id": "stream_drop_dry_1_right_head",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 1,
+      "frame_ms": null,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_dry_1_right_head_f0.png"
+      ]
+    },
+    {
+      "id": "stream_drop_dry_1_right_body",
+      "group": "water",
+      "size": [
+        32,
+        64
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        16.0
+      ],
+      "resolution_scale": 4,
+      "frames": 1,
+      "frame_ms": null,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_dry_1_right_body_f0.png"
+      ]
+    },
+    {
+      "id": "stream_drop_dry_1_right_foot",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 1,
+      "frame_ms": null,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_dry_1_right_foot_f0.png"
+      ]
+    },
+    {
+      "id": "stream_drop_dry_2_left_head",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 1,
+      "frame_ms": null,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_dry_2_left_head_f0.png"
+      ]
+    },
+    {
+      "id": "stream_drop_dry_2_left_body",
+      "group": "water",
+      "size": [
+        32,
+        64
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        16.0
+      ],
+      "resolution_scale": 4,
+      "frames": 1,
+      "frame_ms": null,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_dry_2_left_body_f0.png"
+      ]
+    },
+    {
+      "id": "stream_drop_dry_2_left_foot",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 1,
+      "frame_ms": null,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_dry_2_left_foot_f0.png"
+      ]
+    },
+    {
+      "id": "stream_drop_dry_2_right_head",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 1,
+      "frame_ms": null,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_dry_2_right_head_f0.png"
+      ]
+    },
+    {
+      "id": "stream_drop_dry_2_right_body",
+      "group": "water",
+      "size": [
+        32,
+        64
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        16.0
+      ],
+      "resolution_scale": 4,
+      "frames": 1,
+      "frame_ms": null,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_dry_2_right_body_f0.png"
+      ]
+    },
+    {
+      "id": "stream_drop_dry_2_right_foot",
+      "group": "water",
+      "size": [
+        32,
+        16
+      ],
+      "anchor": [
+        16,
+        0
+      ],
+      "display_size": [
+        8,
+        4.0
+      ],
+      "resolution_scale": 4,
+      "frames": 1,
+      "frame_ms": null,
+      "status": "stream_drop_style_b_draft",
+      "files": [
+        "stream_drop_dry_2_right_foot_f0.png"
+      ]
     }
   ],
   "status": "stream_beds_style_b_draft"

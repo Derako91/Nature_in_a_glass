@@ -1,0 +1,11 @@
+{
+  "method": "dimensions-only model of actual AtlasData ordering and generated levels",
+  "embedded_pngs": 1307,
+  "packed_images_with_generated_levels": 3488,
+  "width": 2048,
+  "legacy_content_height": 8228,
+  "legacy_allocated_height": 16384,
+  "first_fit_content_height": 7992,
+  "first_fit_allocated_height": 8192,
+  "actual_runtime_check": "passed: Rust whole-atlas test <=8192 and native embedded game"
+}

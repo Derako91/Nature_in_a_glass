@@ -334,20 +334,36 @@ impl AtlasData {
         items.sort_by(|a, b| b.4.h.cmp(&a.4.h).then(a.0.cmp(&b.0)));
         // Breit genug für die feinen Nahansicht-Bilder (ADR 0006)
         const W: usize = 2048;
-        let (mut x, mut y, mut row_h) = (1usize, 1usize, 0usize);
+        // Kleine Streifen und Detailstufen dürfen Restplätze früherer Reihen
+        // nutzen. Sonst erzeugen wenige neue Wasserbilder eine zweite, fast
+        // leere Atlas-Hälfte. Reihenfolge und ein Pixel Abstand bleiben fest.
+        struct Shelf {
+            top: usize,
+            height: usize,
+            next_x: usize,
+        }
+        let mut shelves: Vec<Shelf> = Vec::new();
+        let mut next_y = 1usize;
         let mut places = Vec::with_capacity(items.len());
         for it in &items {
             let (w, h) = (it.4.w.min(W - 2), it.4.h);
-            if x + w + 1 > W {
-                x = 1;
-                y += row_h + 1;
-                row_h = 0;
+            if let Some(shelf) = shelves
+                .iter_mut()
+                .find(|s| h <= s.height && s.next_x + w < W)
+            {
+                places.push((shelf.next_x, shelf.top));
+                shelf.next_x += w + 1;
+            } else {
+                places.push((1, next_y));
+                shelves.push(Shelf {
+                    top: next_y,
+                    height: h,
+                    next_x: w + 2,
+                });
+                next_y += h + 1;
             }
-            places.push((x, y));
-            x += w + 1;
-            row_h = row_h.max(h);
         }
-        let height = (y + row_h + 1).next_power_of_two();
+        let height = next_y.next_power_of_two();
         let mut pixels = vec![egui::Color32::TRANSPARENT; W * height];
         let mut entries = HashMap::new();
         let mut levels: HashMap<String, Vec<Level>> = HashMap::new();
@@ -685,6 +701,45 @@ mod tests {
             w,
             h,
             px: rgba.repeat(w * h),
+        }
+    }
+
+    /// Schmale Wasserstreifen nutzen Lücken, ohne Pixel, Maße oder Anker zu ändern.
+    #[test]
+    fn small_images_fill_previous_shelves_without_overlap() {
+        let inputs = vec![
+            img("large_a", "ground", 1500, 300, [10, 20, 30, 255]),
+            img("large_b", "ground", 1500, 180, [40, 50, 60, 255]),
+            img("small_c", "water", 500, 100, [70, 80, 90, 255]),
+            img("small_d", "water", 500, 100, [100, 110, 120, 255]),
+        ];
+        let mut info = ManifestInfo::default();
+        info.anchors.insert("small_c".into(), Vec2::new(17.0, 84.0));
+        let d = AtlasData::build(inputs.clone(), info.clone());
+        assert_eq!((d.width, d.height), (2048, 512));
+        assert_eq!(d.entries["small_c"].anchor, Vec2::new(17.0, 84.0));
+        for source in &inputs {
+            let entry = d.entries[&source.name];
+            assert_eq!(entry.size, Vec2::new(source.w as f32, source.h as f32));
+            let x = (entry.uv.left() * d.width as f32).round() as usize;
+            let y = (entry.uv.top() * d.height as f32).round() as usize;
+            for row in 0..source.h {
+                for col in 0..source.w {
+                    let p = (row * source.w + col) * 4;
+                    let expected = egui::Color32::from_rgba_unmultiplied(
+                        source.px[p],
+                        source.px[p + 1],
+                        source.px[p + 2],
+                        source.px[p + 3],
+                    );
+                    assert_eq!(d.pixels[(y + row) * d.width + x + col], expected);
+                }
+            }
+        }
+        let reverse = AtlasData::build(inputs.into_iter().rev().collect(), info);
+        assert_eq!(d.pixels, reverse.pixels);
+        for name in ["large_a", "large_b", "small_c", "small_d"] {
+            assert_eq!(d.entries[name].uv, reverse.entries[name].uv);
         }
     }
 
@@ -1090,7 +1145,9 @@ mod tests {
     fn embedded_stream_beds_complete_and_matching_endpoints() {
         let images: BTreeMap<_, _> = embedded::IMAGES
             .iter()
-            .filter(|(name, _, _)| name.starts_with("stream_"))
+            .filter(|(name, _, _)| {
+                name.starts_with("stream_wet_") || name.starts_with("stream_dry_")
+            })
             .map(|(name, _, bytes)| (name.to_string(), decode(bytes).expect("Bach-PNG lesbar")))
             .collect();
         assert_eq!(images.len(), 54);
@@ -1216,6 +1273,41 @@ mod tests {
                     assert_eq!(px[index * 4 + 3], 0);
                 }
                 assert!(unique.insert(px.clone()), "Gartenvariante doppelt: {name}");
+            }
+        }
+    }
+
+    /// Alle Wandseiten, Stärken und Teile; jede Kappe passt an die kachelbare Rinne.
+    #[test]
+    fn embedded_stream_drops_complete_and_joined() {
+        let images: BTreeMap<_, _> = embedded::IMAGES
+            .iter()
+            .filter(|(name, _, _)| name.starts_with("stream_drop_"))
+            .map(|(name, _, bytes)| (name.to_string(), decode(bytes).expect("Wandwasser-PNG")))
+            .collect();
+        assert_eq!(images.len(), 90);
+        let info = parse_manifests(embedded::MANIFESTS.iter().copied());
+        for state in ["wet", "dry"] {
+            for strength in 0..3 {
+                for side in ["left", "right"] {
+                    for frame in 0..if state == "wet" { 4 } else { 1 } {
+                        let mut rows = BTreeMap::new();
+                        for part in ["head", "body", "foot"] {
+                            let name =
+                                format!("stream_drop_{state}_{strength}_{side}_{part}_f{frame}");
+                            let (w, h, px) = &images[&name];
+                            let height = if part == "body" { 64 } else { 16 };
+                            assert_eq!((*w, *h), (32, height));
+                            assert_eq!(info.anchors[&name], Vec2::new(16.0, 0.0));
+                            assert_eq!(info.display[&name], Vec2::new(8.0, height as f32 / 4.0));
+                            rows.insert(part, (&px[..128], &px[(height - 1) * 128..]));
+                        }
+                        assert_eq!(rows["head"].1, rows["body"].0);
+                        assert_eq!(rows["body"].1, rows["body"].0);
+                        assert_eq!(rows["foot"].0, rows["body"].1);
+                        assert_eq!(rows["head"].0, rows["foot"].1);
+                    }
+                }
             }
         }
     }

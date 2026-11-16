@@ -1,16 +1,16 @@
 # Versionsstand – Nature_in_a_glass
 
-> **Stand:** 16.11.2026 · **Version:** Basis 0.10.1 · **Branch:** `codex/garden-style-b` (Basis `cc542e8`)
+> **Stand:** 16.11.2026 · **Version:** Basis 0.10.3 · **Branch:** `codex/stream-drops-style-b` (Basis `3ac3bc1`)
 
 ## Auf einen Blick
 
 | Frage | Antwort |
 | --- | --- |
-| **Zuletzt erledigt** | Wasser/Bäche übernommen (v0.8.9/v0.9.1), Gärten seit v0.10.0 und Fischfangbilder seit v0.10.1. Neuer Codex-Draft: 20 Gartenbilder nach 17.9, fünf Zustände mit je vier Varianten und eigenem Bodenmanifest. |
-| **Getestet** | 100 Rust-/15 Python-Tests, fmt, strenges Clippy und Release-Bau bestanden. Alle 20 Gartenbilder vollständig, gemeinsame Beetmaske/Anker, außerhalb der Raute transparent; alle 1373 bestehenden PNGs unverändert. Garten- und vollständiger Landschaftsexport bytegleich wiederholt. Spielvergleich siehe `art/nature/garden-style-b/README.md`. |
-| **Offen für Codex** | Visuelle Abnahme des Gartenpakets durch Claude. Fischfang aus PR #22 ist in der Basis enthalten. Wasserfall-Schnittstelle ist inzwischen seit v0.10.2 auf main; nächster Codex-Auftrag nach den Gärten: stream_drop-Bilder. |
+| **Zuletzt erledigt** | Gärten aus PR #23 seit v0.10.3 auf main. Neuer Codex-Draft: 90 Wandwasserbilder nach 16.9, vier ruhige Phasen nass, trockene Rinnen, drei Stärken, beide Wandseiten und Kopf/Mitte/Fuß. |
+| **Getestet** | 103 Rust-/15 Python-Tests, fmt, strenges Clippy und Release-Bau bestanden. 120 exakte RGBA-Anschlüsse, maximal 1,09 % mittlere Helligkeitsschwankung. Alle 1393 Eltern-PNGs unverändert. Atlas nutzt alte Reihenlücken und passt mit allen Bildpaketen in 8192 px; Spielbilder im Wandwasser-Prüfpaket. |
+| **Offen für Codex** | Visuelle Abnahme durch Claude: `art/nature/stream-drops-style-b/README.md`. Vorhandene API zeigt nur vordere Wandverbindungen; weiterhin verdeckte Abschnitte bleiben ein Geometrie-/Rendererpunkt. Keine Simulations- oder Wasserfallgeometrieänderung. |
 | **Offen für Dennis** | – (neue Bildpakete zur visuellen Abnahme durch Claude) |
-| **Nächster Schritt (Roadmap)** | Nach Garten-Abgabe: Wasser an Geländestufen nach 16.9; Seed 2024, +12 Jahre +60 Tage, Feld 19/33, Zoom 16. |
+| **Nächster Schritt** | Claude prüft Wandwasser bei Seed 2024, +12 Jahre +60 Tage, Feld 19/33, Zoom 16 und übernimmt den Draft bei visueller Freigabe. |
 
 ## Zusammenarbeit Claude / Codex
 
@@ -23,6 +23,7 @@
 
 | Datum | Änderung | Code-Test |
 | --- | --- | --- |
+| 16.11.2026 | Codex: 90 Wandwasserbilder und Nutzung alter Atlasreihen-Lücken, Branch `codex/stream-drops-style-b`, Basis `3ac3bc1`. | 103 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; 120 RGBA-Anschlüsse und unveränderter Bestand. Nasse/trockene Spielansichten im Prüfpaket; visuelle Abnahme offen. |
 | 16.11.2026 | Codex: 20 Gartenbilder nach Gestaltung 17.9, Branch `codex/garden-style-b`, Basis `cc542e8`. | 100 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; Alpha-/Manifest-/Bestandsprüfung und zwei wiederholbare Exportwege. Sommer-/Ernteprüfung Seed 300, Feld 25/20, Zoom 8/32 im Prüfpaket; visuelle Abnahme offen. |
 | 16.11.2026 | Codex: 40 Fischfangbilder und Vorschlag Wandwasserformat 16.9, Branch `codex/fishing-people-style-b`, Basis `0edb584`. | 97 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; eingebettete Ansicht und deklarierte Bildaustauschprobe Zoom 8/32. Export-/Maß-/Bestandsprüfung. Technische Zustandsauswahl offen bei Claude. Prüfpaket dokumentiert Darstellungsprobe getrennt von echter Fischfangaktivität. |
 | 16.11.2026 | Codex: 54 Bach-/Bachbettstücke nach 16.8, Branch `codex/stream-beds-style-b`, Basis `2f0e187`. | 94 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; Gegenprofile und alle 768 Knotenkonfigurationen geprüft; Spielvergleich Seed 2024 +12 Jahre +240 Tage, 19/33; Höhenstufen-Verdeckung dokumentiert. |

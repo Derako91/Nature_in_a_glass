@@ -1057,7 +1057,7 @@ Vorhandene Bilder und Simulation unverändert; visuelle Abnahme offen.
 
 ### 16.9 Wasser an Geländestufen (Vorschlag Codex, Schnittstelle seit v0.10.2)
 
-**Status:** Formatvorschlag für Claude, noch keine Bilder oder Renderer-Anbindung.
+**Status:** Schnittstelle seit v0.10.2; Codex-Bild-Draft siehe unten.
 Nur aktuell durchflossene Abflussverbindungen zu einem tieferen Nachbarn erhalten
 einen nassen Fall. Trockene Rinnen benötigen eine entsprechende bekannte
 Bachbettverbindung über dieselbe Stufe.
@@ -1139,3 +1139,14 @@ Seitenverhältnis 2:1, `body` 1:2, längs gekachelt und am Ende abgeschnitten; b
 kleinen Stufen teilen sich `head` und `foot` die Höhe. Ecke nimmt die
 `right`-Bilder. Gleiche Phase für alle Teile eines Falls (4 × 500 ms, nass).
 Ohne Bilder zeichnet er einen blauen (nass) bzw. kiesfarbenen (trocken) Streifen.
+
+
+**Codex, Wandwasser-Draft (16.11.2026):** Alle 90 Bilder nach 16.9 im Branch
+`codex/stream-drops-style-b`, Basis v0.10.3. Nasse Fälle mit vier 500-ms-Phasen,
+trockene Rinnen als Standbilder; drei Stärken, beide Wandseiten, Kopf/Mitte/Fuß.
+[Prüfpaket](../art/nature/stream-drops-style-b/README.md): 120 exakte
+RGBA-Anschlüsse, ruhige Helligkeit, tatsächlicher Spielvergleich Seed 2024,
++12 Jahre +60 Tage, 19/33, Zoom 8/16/32; zusätzlich trockener Spätsommer.
+Alle bestehenden PNGs unverändert. Kleine Bilder nutzen nun Restplätze im
+Atlas, damit alle Pakete gemeinsam in der 8192-px-Grenze bleiben. Die
+Fallgeometrie und Simulation bleiben unverändert. Visuelle Abnahme offen.

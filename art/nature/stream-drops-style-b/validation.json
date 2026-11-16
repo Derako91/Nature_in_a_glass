@@ -1,0 +1,269 @@
+{
+  "status": "passed",
+  "png_files": 90,
+  "wet_frames": 72,
+  "dry_frames": 18,
+  "matching_rgba_profiles": 120,
+  "unique_animation_phases": true,
+  "unchanged_parent_pngs": 1393,
+  "luma_checks": [
+    {
+      "strength": 0,
+      "side": "left",
+      "part": "head",
+      "mean_luma": [
+        105.99547833333332,
+        105.74863708333332,
+        105.56072249999998,
+        105.77656541666667
+      ],
+      "spread": 0.004110375260250422
+    },
+    {
+      "strength": 0,
+      "side": "left",
+      "part": "body",
+      "mean_luma": [
+        96.79702593360996,
+        96.99199636929461,
+        96.74610612033194,
+        96.55218112033195
+      ],
+      "spread": 0.004544868696225304
+    },
+    {
+      "strength": 0,
+      "side": "left",
+      "part": "foot",
+      "mean_luma": [
+        108.70381249999998,
+        108.47837291666666,
+        108.28939958333333,
+        108.50498833333334
+      ],
+      "spread": 0.003819680066908516
+    },
+    {
+      "strength": 0,
+      "side": "right",
+      "part": "head",
+      "mean_luma": [
+        110.53510583333333,
+        110.29316666666666,
+        110.09884333333333,
+        110.32005875
+      ],
+      "spread": 0.003954812858910271
+    },
+    {
+      "strength": 0,
+      "side": "right",
+      "part": "body",
+      "mean_luma": [
+        105.60898236514524,
+        105.80870446058091,
+        105.5611458506224,
+        105.36788184647304
+      ],
+      "spread": 0.004174983244332096
+    },
+    {
+      "strength": 0,
+      "side": "right",
+      "part": "foot",
+      "mean_luma": [
+        113.24760416666666,
+        113.02217541666666,
+        112.82678833333333,
+        113.04625125
+      ],
+      "spread": 0.0037228576060009634
+    },
+    {
+      "strength": 1,
+      "side": "left",
+      "part": "head",
+      "mean_luma": [
+        106.88694833333332,
+        106.53836041666666,
+        106.31071458333332,
+        106.63575166666666
+      ],
+      "spread": 0.005405927725867878
+    },
+    {
+      "strength": 1,
+      "side": "left",
+      "part": "body",
+      "mean_luma": [
+        99.36928713692946,
+        99.51967168049792,
+        98.87776078838175,
+        98.74266016597511
+      ],
+      "spread": 0.007838518372201234
+    },
+    {
+      "strength": 1,
+      "side": "left",
+      "part": "foot",
+      "mean_luma": [
+        110.75659833333333,
+        110.43092958333334,
+        110.17287291666668,
+        110.50107625000001
+      ],
+      "spread": 0.005284239038168645
+    },
+    {
+      "strength": 1,
+      "side": "right",
+      "part": "head",
+      "mean_luma": [
+        109.95857933884297,
+        109.61451239669421,
+        109.38502520661157,
+        109.70428801652892
+      ],
+      "spread": 0.00523002770009819
+    },
+    {
+      "strength": 1,
+      "side": "right",
+      "part": "body",
+      "mean_luma": [
+        105.52641754932503,
+        105.67392689511942,
+        105.03587133956387,
+        104.89825887850466
+      ],
+      "spread": 0.007367414099606646
+    },
+    {
+      "strength": 1,
+      "side": "right",
+      "part": "foot",
+      "mean_luma": [
+        113.82623099173553,
+        113.49424669421487,
+        113.23758512396695,
+        113.56736818181818
+      ],
+      "spread": 0.005184874729284115
+    },
+    {
+      "strength": 2,
+      "side": "left",
+      "part": "head",
+      "mean_luma": [
+        111.77258842975206,
+        111.34780289256197,
+        111.09471570247935,
+        111.49096611570248
+      ],
+      "spread": 0.006083585287463958
+    },
+    {
+      "strength": 2,
+      "side": "left",
+      "part": "body",
+      "mean_luma": [
+        104.82884340602283,
+        105.2998903426791,
+        104.61976002076842,
+        104.16444704049844
+      ],
+      "spread": 0.010841806891764002
+    },
+    {
+      "strength": 2,
+      "side": "left",
+      "part": "foot",
+      "mean_luma": [
+        116.43108099173551,
+        116.03062479338843,
+        115.74459008264462,
+        116.14768181818182
+      ],
+      "spread": 0.005913513759584302
+    },
+    {
+      "strength": 2,
+      "side": "right",
+      "part": "head",
+      "mean_luma": [
+        114.53951776859503,
+        114.12287727272727,
+        113.87006363636362,
+        114.26942685950414
+      ],
+      "spread": 0.005862096050187211
+    },
+    {
+      "strength": 2,
+      "side": "right",
+      "part": "body",
+      "mean_luma": [
+        109.68485788381741,
+        110.1543692946058,
+        109.47313195020746,
+        109.01965798755187
+      ],
+      "spread": 0.010354811081511043
+    },
+    {
+      "strength": 2,
+      "side": "right",
+      "part": "foot",
+      "mean_luma": [
+        119.19391280991735,
+        118.79213305785123,
+        118.50460991735538,
+        118.90829834710743
+      ],
+      "spread": 0.005799784678282994
+    }
+  ],
+  "maximum_luma_spread": 0.010841806891764002,
+  "visual_approval": "pending",
+  "verification": {
+    "base": "3ac3bc1 / v0.10.3",
+    "rust_workspace_tests_passed": 103,
+    "existing_python_tests_passed": 15,
+    "fmt": "passed",
+    "strict_release_clippy": "passed",
+    "release_build": "passed",
+    "full_atlas_limit": "passed <=8192, gardens and fishing included",
+    "packing_regression": "every packed pixel preserved; deterministic input order; 512 instead of 1024 px example",
+    "old_stream_checker": "54 pieces, 24 pairs, 768 junctions passed",
+    "byte_identical_export_paths": [
+      "drops",
+      "stream_beds",
+      "water",
+      "landscape"
+    ],
+    "native_embedded_game": {
+      "seed": 2024,
+      "years": 12,
+      "days": [
+        60,
+        240
+      ],
+      "select": "19,33",
+      "zooms": {
+        "60": [
+          8,
+          16,
+          32
+        ],
+        "240": [
+          16,
+          32
+        ]
+      },
+      "overrides": false,
+      "live_animation": "8 actual game frames, 500 ms intervals, 1 Std/s"
+    },
+    "visual_approval": "pending"
+  }
+}

@@ -133,10 +133,12 @@ def export():
                                state=state, strength=strength, frames=1, files=files,
                                parts=['c'] + list(ENDPOINTS)))
     manifest_path = WATER / 'manifest.json'
-    # Dieser Gruppenordner hat bislang kein eigenes Manifest. Eventuell
-    # später ergänzte fremde Einträge bei einer Wiederholung erhalten.
+    # Gemeinsames Wassermanifest: andere Familien bei Wiederholung erhalten.
     previous = json.loads(manifest_path.read_text()) if manifest_path.exists() else dict(version=1, assets=[])
-    previous['assets'] = [e for e in previous['assets'] if not e['id'].startswith('stream_')] + assets
+    # Vorhandene Reihenfolge und andere Familien (z. B. stream_drop) erhalten.
+    replacements = {e['id']: e for e in assets}
+    previous['assets'] = [replacements.pop(e['id'], e) for e in previous['assets']]
+    previous['assets'].extend(replacements.values())
     previous['status'] = 'stream_beds_style_b_draft'
     manifest_path.write_text(json.dumps(previous, ensure_ascii=False, indent=2) + '\n')
     (ART / 'export.json').write_text(json.dumps(dict(files=records, visual_approval='pending',
