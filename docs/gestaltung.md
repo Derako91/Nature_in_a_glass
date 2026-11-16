@@ -939,6 +939,10 @@ Je Schritt entsteht ein zusammenhängendes, im Spiel geprüftes Draft-Paket:
    Branch `codex/landscape-far-crowns`; erneute Abnahme bei Zoom 4/8 offen.
 4. **Tiere:** Fuchs, Wolf, Hirsch und Kaninchen mit sämtlichen Zuständen,
    Richtungen, Spuren und Kadavern. Konsistente Nah-/Fernfassungen pro Satz.
+   Vollständiger Stil-B-Draft: `codex/animals-style-b`, 220 Nah-/220 Fernphasen
+   einschließlich Hirschkalb, zwei Fellvarianten und beide Richtungen sowie
+   acht Nah-/acht Fernkadaver und 16 Spurenvarianten.
+   [Tier-Prüfpaket](../art/nature/animals-style-b/README.md); visuelle Abnahme offen.
 5. **Wasser und verbleibende Natur-Effekte:** ruhige Wasserflächen/Bäche,
    Übergänge sowie bisher nicht freigegebene Effekte. Rauch und Biom-Bilder
    bleiben an die passenden Simulations-/Renderer-Schnittstellen gebunden.

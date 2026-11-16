@@ -1,15 +1,15 @@
 # Versionsstand – Nature_in_a_glass
 
-> **Stand:** 16.11.2026 · **Version:** Basis 0.8.5 · **Branch:** `codex/landscape-far-crowns` (Basis `d6fc0bf`)
+> **Stand:** 16.11.2026 · **Version:** Basis 0.8.6 · **Branch:** `codex/animals-style-b` (Basis `7d9dcc5`)
 
 ## Auf einen Blick
 
 | Frage | Antwort |
 | --- | --- |
-| **Zuletzt erledigt** | 32 eigene Fernkronen für Jung-/Mittel-/Altbaum und Busch einschließlich Trockenheit. Geschlossene grüne Silhouetten für Zoom 4/8; alle 955 bisherigen PNGs einschließlich der positiv beurteilten Nahbilder unverändert. |
-| **Getestet** | Wiederholte Fern- und Landschaftsexporte bytegleich. Eigener Regressionstest prüft tatsächliche Auswahl eingebetteter Stufen sowie identische Weltmaße/Fußpunkte bei Zoom 2/4/8/16/32. 90 Rust-/15 Python-Tests, fmt, strenges Clippy und Release-Bau bestanden. Spielvergleich im Prüfpaket `art/nature/landscape-far-crowns/`. |
-| **Offen für Codex** | Erneute visuelle Abnahme von Wald/Buschland bei Zoom 4 und 8 durch Claude. PR #17 bereits zusammengeführt, Landschaft-Version noch nicht freigegeben. Danach Tiere nach Gestaltung 18. |
-| **Offen für Dennis** | – (PR #9 und #10 übernommen; Feuer im Spiel seit 0.8.1, Fuchs B Fernfassung liegt als Entwurf in art/) |
+| **Zuletzt erledigt** | Tier-Stil-B-Draft: 220 Nah-, 220 eigene Fernphasen, 16 Kadaverbilder und 16 Spurenvarianten. Alle vier Arten einschließlich Hirschkalb, zwei Fellvarianten und beide Richtungen vollständig. Landschaft samt Fernkronen seit v0.8.6 freigegeben. |
+| **Getestet** | 472 Dateien/Manifestverweise, unterscheidbare Phasen, proportionale Referenzbreiten und Exportwiederholung geprüft. 755 andere PNGs bytegleich. 91 Rust-/15 Python-Tests, fmt, strenges Clippy und Release-Bau bestanden. Atlas-/Spielvergleich im Prüfpaket `art/nature/animals-style-b/`. |
+| **Offen für Codex** | Visuelle Abnahme der vollständigen Tier- und Fernzyklen durch Claude. Nicht alle seltenen Zustände natürlich im Spiel ausgelöst. Wasserbilder mit ruhigen vier Phasen folgen in eigenem PR; Bäche bleiben Linien. |
+| **Offen für Dennis** | – (neue Bildpakete zur visuellen Abnahme durch Claude) |
 | **Nächster Schritt (Roadmap)** | Vom Lager zum Dorf: Fischfang, später Anbau, mehrere Lager einer Gruppe, Werkzeuge. |
 
 ## Zusammenarbeit Claude / Codex
@@ -23,6 +23,7 @@
 
 | Datum | Änderung | Code-Test |
 | --- | --- | --- |
+| 16.11.2026 | Codex: vollständiges Tierpaket mit eigenen Fernzyklen, Spuren und Kadavern; Branch `codex/animals-style-b`, Basis `7d9dcc5`. | Export-/Referenzmaß-/Phasenprüfung und Atlas-/Spielvergleich im Tier-Prüfpaket; visuelle Abnahme offen. |
 | 16.11.2026 | Codex: Korrektur der bei Zoom 4/8 unlesbaren Landschaft; 32 breite Fernkronen, Nahbilder unverändert. Branch `codex/landscape-far-crowns`, Basis `d6fc0bf`. | Atlas-Auswahl-/Maßstabsregression sowie tatsächlicher Vorher-/Nachher-Vergleich im Fernkronen-Prüfpaket; erneute Abnahme offen. |
 | 16.11.2026 | Codex: Landschaft nach Gestaltung 18, Schritt 3; Branch `codex/landscape-style-b`, Basis `8043787` (v0.8.5). | Technische Export-/Maßstabsprüfung und Spielvergleich siehe Landschaft-Prüfpaket; visuelle Abnahme offen. |
 | 16.11.2026 | Codex: Erwachsenenmaß 90 %, kompakte Tätigkeiten, größere Hütteneingänge. Branch `codex/people-scale-and-hut-doors`, Basis `0f81511`. | Unveränderte Kinder/Anker/Farben und wiederholbare Exporte geprüft; Spielvergleich Seed 2024 Zoom 8/32 im Prüfpaket. |
