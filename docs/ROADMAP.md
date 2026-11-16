@@ -146,10 +146,15 @@ Die Bewohner bauen selbst – der Beobachter gibt keine Bauaufträge (Prinzip 1)
 - [x] Zu enge Lager und Lager ohne Holz in der Nähe: ein junges Paar bricht mit seinen Kindern zu einer bekannten guten Wasserstelle auf und legt dort ein neues Lager an.
 - [x] So entstehen mehrere Lager nebeneinander (erste Dörfer).
 
-## Als Nächstes: Vom Lager zum Dorf
+## ✅ v0.12 – Dörfer (v0.12.0)
 
-- Dorf als erkennbare Einheit (benannt, in der Chronik), Austausch zwischen benachbarten Lagern (Vorräte teilen, Partner finden).
+- [x] Dorf als erkennbare Einheit: entsteht aus nahen Lagern, Name aus der Umgebung, in der Chronik.
+- [x] Austausch zwischen Lagern eines Dorfes: Vorräte in Hungerzeiten, Partner aus dem Nachbarlager.
+
+## Als Nächstes
+
 - Ein ganzes Lager zieht um, wenn Wasser oder Holz dauerhaft ausbleiben.
+- Werkzeuge und Können über Fischen und Gärtnern hinaus (Steinwerkzeug, Netze, Körbe), Weitergabe im Dorf.
 
 - Mehrere Lager einer wachsenden Gruppe; Siedlungen entstehen dort, wo Wasser, Nahrung und Schutz zusammenkommen.
 - Werkzeuge und erstes Können (wer gut baut, baut öfter), weitergegeben an die Kinder.

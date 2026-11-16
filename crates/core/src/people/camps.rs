@@ -84,6 +84,9 @@ pub struct Camp {
     /// Tage in Folge ohne erreichbares Holz (seit Format 12).
     #[serde(default)]
     pub no_wood_days: u16,
+    /// Nahrung, die Nachbarn aus dem Dorf gebracht haben (seit Format 13).
+    #[serde(default)]
+    pub help_received: f32,
 }
 
 impl Camp {
@@ -320,6 +323,7 @@ pub(super) fn camp_day(
                 abandoned: false,
                 fire_today: false,
                 no_wood_days: 0,
+                help_received: 0.0,
             });
             let text = if first {
                 format!(
@@ -768,6 +772,7 @@ mod tests {
             abandoned: false,
             fire_today: false,
             no_wood_days: 0,
+            help_received: 0.0,
         }
     }
 

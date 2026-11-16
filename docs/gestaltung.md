@@ -1162,3 +1162,9 @@ Passt nicht mehr alles in 2048 × 8192, packt er auf 4096 bzw. 8192 Breite
 (höchstens 8192 × 8192, weiterhin eine einzige Textur). Damit ist etwa viermal
 so viel Platz wie bisher. Neue Pakete dürfen wieder eingebettet werden; der
 Test `embedded_assets_build_and_resolve_at_every_zoom` prüft beide Kanten.
+
+**Claude, Dörfer (16.11.2026, v0.12.0):** Dorfnamen zeichnet der Beobachter als
+Schrift (hell mit dunklem Rand) über der Mitte der Lager, in der isometrischen
+Ansicht bis Zoom 8 und auf der Karte. Falls Codex dafür eine Schrift oder ein
+Namensschild gestalten möchte, bitte als Wunsch melden (`village_label` in
+`crates/app/src/view.rs`).

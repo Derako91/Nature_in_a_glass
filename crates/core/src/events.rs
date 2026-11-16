@@ -51,6 +51,9 @@ pub enum EventKind {
     GardenLost,
     // seit v0.11
     CampSplit,
+    // seit v0.12
+    VillageFounded,
+    VillageGone,
 }
 
 impl EventKind {
@@ -93,6 +96,8 @@ impl EventKind {
             EventKind::Harvest => "Ernte",
             EventKind::GardenLost => "Garten",
             EventKind::CampSplit => "Aufbruch",
+            EventKind::VillageFounded => "Dorf",
+            EventKind::VillageGone => "Dorf",
         }
     }
 
@@ -115,6 +120,7 @@ impl EventKind {
                 | EventKind::FirstBorn
                 | EventKind::CampFounded
                 | EventKind::GardenPlanted
+                | EventKind::VillageFounded
         )
     }
 }

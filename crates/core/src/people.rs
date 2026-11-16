@@ -35,8 +35,10 @@ use crate::world::{POND_MM, World};
 
 mod camps;
 mod gardens;
+mod villages;
 pub use camps::{Camp, CampStage};
 pub use gardens::Garden;
+pub use villages::{Village, village_of};
 
 /// Mindestabstand zwischen zwei bewohnten Lagerplätzen (Felder).
 pub fn camps_spacing() -> i32 {
@@ -373,6 +375,10 @@ pub enum NewsKind {
     GardenLost,
     /// Ein Paar bricht auf, um ein neues Lager anzulegen.
     CampSplit,
+    /// Mehrere Lager bilden ein Dorf.
+    VillageFounded,
+    /// Ein Dorf zerfällt.
+    VillageGone,
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq)]
@@ -411,6 +417,17 @@ pub struct People {
     /// Ob es schon eine Ernte gab (für die Chronik).
     #[serde(default)]
     pub harvests: u32,
+    /// Dörfer (seit Format 13), nach `id` sortiert.
+    #[serde(default)]
+    pub villages: Vec<Village>,
+    #[serde(default)]
+    next_village: u32,
+    /// Alle je vergebenen Dorfnamen (damit keiner doppelt vorkommt).
+    #[serde(default)]
+    village_names: Vec<String>,
+    /// Zerfallene Dörfer: Name und Mitte (für die Wiederkehr am selben Ort).
+    #[serde(default)]
+    former_villages: Vec<(String, u32)>,
 }
 
 const FEMALE_NAMES: [&str; 30] = [
@@ -873,6 +890,7 @@ fn day(
         // Verlassene Lager verfallen auch ohne Menschen.
         camps::decay_unused(people, world, now / 24, &mut news);
         gardens::go_wild(people, world, now / 24, &mut news);
+        villages::village_day(people, world, now, rng, &mut news);
         return news;
     }
     people.ensure(world.tiles.len());
@@ -1505,6 +1523,7 @@ fn day(
     // --- Lagerplätze: anlegen, Holz holen, Hütten bauen, Vorräte, Verfall ---
     camps::camp_day(people, world, weather, now, rng, &mut news, effects);
     gardens::garden_day(people, world, weather, doy, now, rng, &mut news, effects);
+    villages::village_day(people, world, now, rng, &mut news);
 
     // --- Gefahren durch andere: Wölfe, Feuer ---
     for k in 0..people.list.len() {
@@ -1895,7 +1914,15 @@ fn family_day(
             if pa.age_days < 16 * 365 || pb.age_days < 16 * 365 {
                 continue;
             }
-            if cheb(world, pa.tile, pb.tile) > 2 {
+            // Nah beieinander – oder aus Lagern desselben Dorfes
+            let near = cheb(world, pa.tile, pb.tile) <= 2;
+            let same_village = !near
+                && pa.camp != 0
+                && pb.camp != 0
+                && village_of(people, pa.camp).map(|v| v.id)
+                    == village_of(people, pb.camp).map(|v| v.id)
+                && village_of(people, pa.camp).is_some();
+            if !near && !same_village {
                 continue;
             }
             // Keine engen Verwandten
@@ -1910,6 +1937,7 @@ fn family_day(
             }
             let gap = (pa.age_days as i64 - pb.age_days as i64).unsigned_abs() as f32 / 365.0;
             let chance = PAIR_CHANCE
+                * if same_village { 0.3 } else { 1.0 }
                 * if gap > 25.0 {
                     0.1
                 } else if gap > 15.0 {

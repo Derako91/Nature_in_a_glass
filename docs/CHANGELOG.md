@@ -1,5 +1,17 @@
 # Änderungen
 
+## 0.12.0 – Dörfer
+
+**Neu**
+- **Dörfer entstehen von selbst:** Liegen mindestens drei bewohnte Lager mit zusammen zehn Menschen nah beieinander, gelten sie als Dorf. Es bekommt einen Namen aus seiner Umgebung – „Möwenbucht“ an der Küste, „Reihersee“ an einem See, „Haselhain“ im Wald, „Felshöhe“ in den Bergen, „Kleeau“ auf der Wiese. Die Chronik meldet das erste Dorf der Insel als wichtiges Ereignis.
+- **Nachbarn helfen sich:** Hungert ein Lager, bringen Lager mit vollem Vorrat aus demselben Dorf etwas vorbei.
+- **Partner aus dem Nachbarlager:** Junge Leute finden auch in anderen Lagern ihres Dorfes einen Partner, nicht nur bei denen, mit denen sie täglich zusammen sind.
+- **Ein Dorf hält sich:** Es bleibt ein Dorf, solange noch zwei bewohnte Lager mit sechs Menschen da sind. Zerfällt es und entsteht später am selben Ort neu, bekommt es seinen alten Namen zurück.
+- **Anzeige:** Dorfnamen über den Lagern (bis Zoom 8) und auf der Karte, im Feld-Kasten beim Lager und im Insel-Überblick.
+- **Mehr Platz für Bilder:** Der Bildspeicher wächst bei Bedarf in die Breite (bis 8192 × 8192).
+
+**Spielstände** aus 0.11 lassen sich laden.
+
 ## 0.11.1 – Wasserfälle im neuen Stil
 
 **Neu** (Pull Request #24)

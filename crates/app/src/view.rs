@@ -1044,7 +1044,55 @@ fn draw_iso_gfx(
     if !people_close {
         draw_person_markers(painter, sim, &persons, origin, z, light, Some(atlas));
     }
+    // Dorfnamen aus der Ferne (bis Zoom 8), über der Dorfmitte
+    if z <= 8.0 {
+        for v in &sim.people.villages {
+            // Über den Lagern selbst: Mitte ihrer Bildschirmorte
+            let pts: Vec<Pos2> = v
+                .camps
+                .iter()
+                .filter_map(|id| sim.people.camps.iter().find(|c| c.id == *id))
+                .map(|c| {
+                    let (x, y) = world.xy(c.tile as usize);
+                    let e = world.tiles[c.tile as usize].elevation;
+                    origin + iso_center(x, y, w, h, z).to_vec2() - Vec2::new(0.0, iso_lift(e, z))
+                })
+                .collect();
+            if pts.is_empty() {
+                continue;
+            }
+            let cx = pts.iter().map(|p| p.x).sum::<f32>() / pts.len() as f32;
+            let cy = pts.iter().map(|p| p.y).sum::<f32>() / pts.len() as f32;
+            village_label(painter, Pos2::new(cx, cy - hh * 2.0), &v.name);
+        }
+    }
     hovered
+}
+
+/// Dorfname als Schrift mit dunklem Rand, gut lesbar auf jedem Untergrund.
+pub fn village_label(painter: &egui::Painter, p: Pos2, name: &str) {
+    let font = egui::FontId::proportional(15.0);
+    for d in [
+        Vec2::new(1.0, 1.0),
+        Vec2::new(-1.0, 1.0),
+        Vec2::new(1.0, -1.0),
+        Vec2::new(-1.0, -1.0),
+    ] {
+        painter.text(
+            p + d,
+            egui::Align2::CENTER_BOTTOM,
+            name,
+            font.clone(),
+            Color32::from_black_alpha(200),
+        );
+    }
+    painter.text(
+        p,
+        egui::Align2::CENTER_BOTTOM,
+        name,
+        font,
+        Color32::from_rgb(250, 240, 210),
+    );
 }
 
 /// Weltmaß eines Bildes: aus dem Manifest (`display_size`, Codex), sonst
@@ -1768,6 +1816,13 @@ pub fn draw(
                     night_tint(person_color(p.look), light),
                     Stroke::new(1.0, Color32::from_rgb(245, 240, 225)),
                 );
+            }
+            for v in &sim.people.villages {
+                let (x, y) = world.xy(v.center as usize);
+                let c = top_left + Vec2::new(x as f32 + 0.5, y as f32 - 1.0) * cell;
+                if rect.contains(c) {
+                    village_label(&painter, c, &v.name);
+                }
             }
             let cell_rect = |i: usize| {
                 let (x, y) = world.xy(i);

@@ -475,3 +475,34 @@ fn crowded_camps_split_and_a_new_camp_appears() {
     let after = sim.people.camps.iter().filter(|c| !c.abandoned).count();
     assert!(after > before, "kein neues Lager ({before} → {after})");
 }
+
+// ---------- v0.12: Dörfer ----------
+
+/// Mehrere bewohnte Lager nah beieinander bilden ein Dorf mit Namen; die
+/// Chronik meldet es. Ohne Menschen zerfällt es.
+#[test]
+fn camps_close_together_become_a_named_village() {
+    let mut sim = settled(42, 90);
+    let pe = &sim.people;
+    assert!(!pe.villages.is_empty(), "kein Dorf");
+    let v = &pe.villages[0];
+    assert!(v.camps.len() >= 2);
+    assert!(!v.name.is_empty());
+    assert!(
+        sim.journal
+            .events
+            .iter()
+            .any(|e| e.kind == EventKind::VillageFounded && e.message.contains(&v.name))
+    );
+    for id in &v.camps {
+        assert_eq!(
+            nig_core::people::village_of(pe, *id).map(|x| x.id),
+            Some(v.id)
+        );
+    }
+    let b = Simulation::from_json(&sim.to_json()).unwrap();
+    assert_eq!(b.people.villages, sim.people.villages);
+    sim.people.list.clear();
+    sim.advance_days(60);
+    assert!(sim.people.villages.is_empty(), "Dorf ohne Menschen");
+}

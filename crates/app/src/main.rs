@@ -819,6 +819,10 @@ impl App {
                     0 => String::new(),
                     1 => " · 1 Garten".to_string(),
                     g => format!(" · {g} Gärten"),
+                } + &match pe.villages.len() {
+                    0 => String::new(),
+                    1 => format!(" · Dorf {}", pe.villages[0].name),
+                    v => format!(" · {v} Dörfer"),
                 };
                 row(
                     ui,
@@ -991,11 +995,14 @@ impl App {
                     };
                 }
                 if let Some(c) = self.sim.people.camps.iter().find(|c| c.tile == i as u32) {
+                    let village = nig_core::people::village_of(&self.sim.people, c.id)
+                        .map(|v| format!("{} · ", v.name))
+                        .unwrap_or_default();
                     rows[17].1 = if c.abandoned {
                         c.describe()
                     } else {
                         format!(
-                            "{} · Holz {:.0} · Vorrat {:.0}",
+                            "{village}{} · Holz {:.0} · Vorrat {:.0}",
                             c.describe(),
                             c.wood,
                             c.store
