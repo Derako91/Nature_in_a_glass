@@ -182,7 +182,7 @@ Die Bewohner bauen selbst – der Beobachter gibt keine Bauaufträge (Prinzip 1)
 
 Richtung festgehalten in [ADR 0012](../decisions/0012-from-one-island-to-a-world.md). Etappen:
 
-1. **Archipel:** mehrere Inseln in einer Welt, Eingriffe je Insel.
+1. ✅ **Archipel** (v0.19.0): Inselwelt aus fünf bis sechs benannten Inseln (Karte 160 × 160), Eingriffe je Insel über das gewählte Feld.
 2. **Küsten sehen, übers Meer fahren:** Wissen um ferne Küsten, seetüchtiges Boot, Überfahrten mit Gefahren.
 3. **Ferne Siedlungen:** zusammengefasste Rechnung für Siedlungen, auf die man nicht schaut; Übergang Nah ↔ Fern; mehrere Prozessorkerne.
 4. **Festland:** große, aus Regionen zusammengesetzte Welt.

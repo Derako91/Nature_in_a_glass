@@ -33,3 +33,9 @@ Stand v0.18: eine Insel (wählbar bis 128 × 128 Felder, etwa 14 km²), Menschen
 - Bevor Etappe 3 steht, bleiben Inseln klein genug, dass alle Menschen einzeln gerechnet werden können (Grenze heute etwa 150–200 Menschen bei flüssiger Darstellung).
 - Neue Systeme werden so gebaut, dass sie später auch in zusammengefasster Form rechenbar sind (Können, Werkzeuge, Rollen, Vorräte sind schon Zahlen – das hilft).
 - Codex' Bildwelt braucht für ferne Siedlungen Überblicksbilder (Dorf, Stadt, Felder als Fläche) – Auftrag folgt mit Etappe 3.
+
+## Nachtrag v0.19.0 – Etappe 1: Inselwelt
+
+- `World::generate_shaped(seed, w, h, Shape::Archipelago)`: ein großer Inselkern (Größe 0,55–0,65) und weitere kleinere (0,2–0,38) mit Abstand, aus dem eigenen Zufallsstrom `archipel`; dieselbe Geländeformel wie die einzelne Insel, nur mit dem Abstand zum nächsten Kern.
+- Inseln = zusammenhängendes Land (8 Nachbarn, wie Menschen und Tiere gehen) mit Namen aus dem Strom `inselnamen`, gespeichert in `World.islands`; Zuordnung je Feld abgeleitet (`island_at`). Spielstand-Format 17.
+- Die Inselwelt hat 160 × 160 Felder: etwa eine halbe Sekunde Rechenzeit je Spieljahr ohne Menschen.

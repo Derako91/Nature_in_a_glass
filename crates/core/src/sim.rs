@@ -19,7 +19,7 @@ pub const DAYS_PER_YEAR: u64 = 365;
 pub const HOURS_PER_YEAR: u64 = HOURS_PER_DAY * DAYS_PER_YEAR;
 
 /// Version des Spielstand-Formats. Erhöhen, wenn sich die Struktur ändert.
-pub const SAVE_FORMAT_VERSION: u32 = 16;
+pub const SAVE_FORMAT_VERSION: u32 = 17;
 pub const ENGINE_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 pub const DEFAULT_SIZE: u32 = 64;
@@ -313,7 +313,12 @@ impl Simulation {
     }
 
     pub fn with_size(seed: u64, width: u32, height: u32) -> Self {
-        let world = World::generate(seed, width, height);
+        Self::with_shape(seed, width, height, crate::world::Shape::Island)
+    }
+
+    /// Neue Welt mit Grundform (eine Insel oder Inselwelt).
+    pub fn with_shape(seed: u64, width: u32, height: u32, shape: crate::world::Shape) -> Self {
+        let world = World::generate_shaped(seed, width, height, shape);
         let aquifer_ref: f32 = world.springs.iter().map(|s| s.base_rate).sum::<f32>() * 300.0;
         let mut sim = Simulation {
             world,
@@ -360,12 +365,31 @@ impl Simulation {
             0,
             EventKind::WorldCreated,
             None,
-            format!(
-                "Eine Insel entsteht: {} Landfelder, höchster Punkt {:.0} m, {} Quellen.",
-                land,
-                sim.world.max_elevation,
-                sim.world.springs.len()
-            ),
+            if sim.world.shape == crate::world::Shape::Archipelago {
+                let named: Vec<&str> = sim
+                    .world
+                    .islands
+                    .iter()
+                    .filter(|i| i.tiles >= 40)
+                    .map(|i| i.name.as_str())
+                    .collect();
+                format!(
+                    "Eine Inselwelt entsteht: {} Inseln ({}) und {} kleinere Felsen, zusammen {} Landfelder, höchster Punkt {:.0} m, {} Quellen.",
+                    named.len(),
+                    named.join(", "),
+                    sim.world.islands.len() - named.len(),
+                    land,
+                    sim.world.max_elevation,
+                    sim.world.springs.len()
+                )
+            } else {
+                format!(
+                    "Eine Insel entsteht: {} Landfelder, höchster Punkt {:.0} m, {} Quellen.",
+                    land,
+                    sim.world.max_elevation,
+                    sim.world.springs.len()
+                )
+            },
             vec![format!("Seed {}", seed)],
         );
         sim.run_day();
@@ -1634,7 +1658,7 @@ impl Simulation {
                 sim.migrate_from_v4();
             }
             4 => sim.migrate_from_v4(),
-            5..=15 => {}
+            5..=16 => {}
             other => {
                 return Err(format!(
                     "Spielstand-Format {other} wird nicht unterstützt (erwartet 1 bis {SAVE_FORMAT_VERSION})."
@@ -1642,6 +1666,7 @@ impl Simulation {
             }
         }
         sim.world.rebuild_drainage();
+        sim.world.find_islands();
         if file.format_version < 6 {
             sim.rng_animals = Rng::stream(sim.world.seed ^ sim.time_hours, "tiere");
         }

@@ -1065,6 +1065,15 @@ fn draw_iso_gfx(
     if !people_close {
         draw_person_markers(painter, sim, &persons, origin, z, light, Some(atlas));
     }
+    // Inselnamen im Überblick, wenn es mehrere Inseln gibt
+    if z <= 2.0 {
+        for isl in named_islands(world) {
+            let (x, y) = world.xy(isl.center as usize);
+            let e = world.tiles[isl.center as usize].elevation;
+            let p = origin + iso_center(x, y, w, h, z).to_vec2() - Vec2::new(0.0, iso_lift(e, z));
+            island_label(painter, p, &isl.name);
+        }
+    }
     // Dorfnamen aus der Ferne (bis Zoom 8), über der Dorfmitte
     if z <= 8.0 {
         for v in &sim.people.villages {
@@ -1088,6 +1097,38 @@ fn draw_iso_gfx(
         }
     }
     hovered
+}
+
+/// Inseln mit Namen auf der Karte: nur, wenn die Welt mehrere hat.
+fn named_islands(world: &nig_core::world::World) -> Vec<&nig_core::world::Island> {
+    let named: Vec<_> = world.islands.iter().filter(|i| i.tiles >= 40).collect();
+    if named.len() > 1 { named } else { Vec::new() }
+}
+
+/// Inselname: größer und kursiv, in hellem Blaugrau – wie auf alten Seekarten.
+fn island_label(painter: &egui::Painter, p: Pos2, name: &str) {
+    let font = egui::FontId::proportional(19.0);
+    for d in [
+        Vec2::new(1.0, 1.0),
+        Vec2::new(-1.0, 1.0),
+        Vec2::new(1.0, -1.0),
+        Vec2::new(-1.0, -1.0),
+    ] {
+        painter.text(
+            p + d,
+            egui::Align2::CENTER_CENTER,
+            name,
+            font.clone(),
+            Color32::from_black_alpha(170),
+        );
+    }
+    painter.text(
+        p,
+        egui::Align2::CENTER_CENTER,
+        name,
+        font,
+        Color32::from_rgb(214, 228, 240),
+    );
 }
 
 /// Dorfname als Schrift mit dunklem Rand, gut lesbar auf jedem Untergrund.
@@ -1843,6 +1884,14 @@ pub fn draw(
                 let c = top_left + Vec2::new(x as f32 + 0.5, y as f32 - 1.0) * cell;
                 if rect.contains(c) {
                     village_label(&painter, c, &v.name);
+                }
+            }
+            // Inselnamen, wenn es mehrere Inseln gibt
+            for isl in named_islands(world) {
+                let (x, y) = world.xy(isl.center as usize);
+                let c = top_left + Vec2::new(x as f32 + 0.5, y as f32 + 0.5) * cell;
+                if rect.contains(c) {
+                    island_label(&painter, c, &isl.name);
                 }
             }
             let cell_rect = |i: usize| {

@@ -103,12 +103,16 @@ impl EventReaction {
 
 /// Höchstens so viel Simulationszeit pro Bild, damit das Fenster reagiert.
 const MAX_HOURS_PER_FRAME: f64 = 24.0 * 365.0;
-/// Wählbare Inselgrößen (Kantenlänge der Karte in Feldern).
-const WORLD_SIZES: [u32; 3] = [64, 96, 128];
+/// Wählbare Welten: Kantenlänge der Karte in Feldern; 0 steht für die
+/// Inselwelt (160 Felder, mehrere Inseln).
+const WORLD_SIZES: [u32; 4] = [64, 96, 128, 0];
+/// Kartengröße der Inselwelt.
+const ARCHIPELAGO_SIZE: u32 = 160;
 
 fn size_label(n: u32) -> &'static str {
     match n {
-        0..=64 => "klein",
+        0 => "Inselwelt",
+        1..=64 => "klein",
         65..=96 => "mittel",
         _ => "groß",
     }
@@ -129,6 +133,7 @@ fn main() -> eframe::Result {
     let seed = arg("--seed").and_then(|s| s.parse().ok()).unwrap_or(42);
     // `--groesse klein|mittel|gross` (oder eine Zahl wie 96)
     let size: u32 = match arg("--groesse").as_deref() {
+        Some("inselwelt") => 0,
         Some("mittel") => 96,
         Some("gross") | Some("groß") => 128,
         Some(n) => n
@@ -438,7 +443,16 @@ impl App {
     /// Neue Insel, Uhr auf 10 Uhr morgens gestellt (innerhalb des ersten
     /// Tages läuft dabei noch kein Tagesprozess).
     fn fresh(seed: u64, size: u32) -> Simulation {
-        let mut sim = Simulation::with_size(seed, size, size);
+        let mut sim = if size == 0 {
+            Simulation::with_shape(
+                seed,
+                ARCHIPELAGO_SIZE,
+                ARCHIPELAGO_SIZE,
+                nig_core::world::Shape::Archipelago,
+            )
+        } else {
+            Simulation::with_size(seed, size, size)
+        };
         sim.advance_hours(10);
         sim
     }
@@ -633,7 +647,7 @@ impl App {
             ui.label("Seed");
             ui.add(egui::TextEdit::singleline(&mut self.seed_text).desired_width(70.0));
             egui::ComboBox::from_id_salt("size")
-                .width(80.0)
+                .width(90.0)
                 .selected_text(size_label(self.world_size))
                 .show_ui(ui, |ui| {
                     for s in WORLD_SIZES {
@@ -643,8 +657,9 @@ impl App {
                 .response
                 .on_hover_text(
                     "Größe der nächsten neuen Insel: klein (etwa 4 km²), mittel (etwa 9 km²), \
-                     groß (etwa 14 km²). Größere Inseln haben mehr Quellen, Seen und Platz \
-                     für Tiere und Dörfer – und rechnen langsamer.",
+                     groß (etwa 14 km²) – oder eine Inselwelt mit mehreren Inseln \
+                     (zusammen etwa 12–17 km²). Pflanzen und Tiere kommen nicht über das \
+                     Meer. Größere Welten rechnen langsamer.",
                 );
             if ui.button("Neue Insel").clicked() {
                 match self.seed_text.trim().parse::<u64>() {
@@ -949,6 +964,12 @@ impl App {
                 }
             }
             rows[0].1 = format!("{x}, {y}");
+            // Name der Insel (auf der Inselwelt besonders wichtig)
+            if let Some(isl) = world.island_at(i)
+                && isl.tiles >= 40
+            {
+                kind.push_str(&format!(" · {}", isl.name));
+            }
             rows[1].1 = kind;
             rows[2].1 = format!("{:.0} m", t.elevation);
             if !t.is_ocean() {

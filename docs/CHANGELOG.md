@@ -1,5 +1,15 @@
 # Änderungen
 
+## 0.19.0 – Die Inselwelt
+
+**Neu** (erste Etappe zur ganzen Welt, ADR 0012)
+- **Inselwelt:** In der Größenauswahl neben „Neue Insel“ gibt es jetzt „Inselwelt“ – eine Welt aus fünf bis sechs Inseln verschiedener Größe (zusammen etwa 12–17 km²), jede mit eigenem Gelände, eigenen Bächen und Seen. Pflanzen und Tiere kommen nicht über das Meer.
+- **Inseln haben Namen** – „Lerchenland“, „Möweneiland“, „Sonnenwerder“ … Die Namen stehen auf der Karte und im Überblick, im Feld-Kasten beim Gelände, und die Chronik nennt beim Start alle Inseln.
+- **Eingriffe je Insel:** Wähle ein Feld auf einer Insel, dann landet das Boot oder werden die Tiere genau dort ausgesetzt.
+- Startoption `--groesse inselwelt`.
+
+**Spielstände** aus 0.18 lassen sich laden; ihre Insel bekommt beim Laden einen Namen.
+
 ## 0.18.1 – Werkzeuge in der Hand
 
 **Neu** (Pull Request #25)
