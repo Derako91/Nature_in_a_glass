@@ -8,7 +8,8 @@
 4. Den Zustand aus Git/Code/Tests prüfen. Dokumentierte Heimserver-Tests nicht als selbst ausgeführte Tests ausgeben.
 5. **Nur eine verantwortliche Person/ein Agent pro Aufgabe und Branch.** Bei Übergabe Commit und offenen Punkt angeben; nicht unkoordiniert dieselbe Datei parallel bearbeiten.
 6. Am Ende `versionsstand.md` aktualisieren: **funktioniert / Problem / nächster Schritt / Branch+Commit / ausgeführte Tests / noch ungeprüft**. Keine pauschale Aussage „fertig“ ohne Beleg.
-7. Keine Passwörter, Tokens, privaten Rohdaten oder echten Testbücher in Git übernehmen.
+7. **Selbst hochladen, ohne zu fragen:** Am Ende jeder Aufgabe den eigenen Zweig (Codex: `codex/<thema>`) committen, auf GitHub pushen und einen Draft-Pull-Request öffnen. Dennis programmiert nicht und soll weder zum Hochladen auffordern noch Pull Requests übernehmen müssen; Claude prüft und übernimmt Codex-Zweige selbst (Freigabe in CLAUDE.md). Geht das Hochladen technisch nicht, das am Ende in einem Satz sagen statt nachzufragen.
+8. Keine Passwörter, Tokens, privaten Rohdaten oder echten Testbücher in Git übernehmen.
 
 ## Dateizweck
 
@@ -16,7 +17,9 @@
 - `AUFGABE.md`: ursprünglicher Auftrag und Zielbild.
 - `NACHTRAG-*.md`: unveränderte Beobachtungen, Messungen, Fehler und Folgeaufträge.
 - `SCHNITTSTELLEN.md`: technische Schnittstellen und lokale Abhängigkeiten.
-- `CLAUDE.md`: bestehende verbindliche Projekt- und Rollenregeln.\n- `docs/gestaltung.md`: visuelle Spezifikation und Abnahmekriterien; kein Ersatz für den Versionsstand.\n
+- `CLAUDE.md`: bestehende verbindliche Projekt- und Rollenregeln.
+- `docs/gestaltung.md`: visuelle Spezifikation und Abnahmekriterien; kein Ersatz für den Versionsstand.
+
 ## Vorlage für die nächste Übergabe
 
 - **Problem:** Was ist reproduzierbar falsch? Welche Auswirkung?
