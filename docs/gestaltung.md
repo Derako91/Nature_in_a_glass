@@ -782,9 +782,9 @@ Stand 18.10.2026. Die Simulation der Menschen ist noch nicht gebaut (`docs/ROADM
 
 | ID | Darstellung B × H (px) | Datei (8-fach) | Fußpunkt | Bemerkung |
 | --- | --- | --- | --- | --- |
-| `person` | 7 × 15 | 112 × 120 mit Seitenrand | Mitte zwischen den Füßen | Stil-B-Draft: sichtbare Größe an `_build` kalibriert; `display_size` 14×15 kompensiert die doppelte transparente Breite |
-| `person_child` | 5 × 10 | 80 × 80 mit Seitenrand | wie oben | Eigene Kinderbilder im Stil-B-Draft; `display_size` 10×10 kompensiert den Seitenrand. Ohne Kinderbilder weiter Erwachsenen-Rückfall auf 65 % |
-| `person_dead` | 15 × 5 | 120 × 40 | Mitte | liegend, entsättigt; bleibt einige Tage wie ein Kadaver |
+| `person` | stehend rund 11 hoch | 112 × 120 mit Seitenrand | Mitte zwischen den Füßen | Stil-B-Draft: sichtbare Größe an `_build` kalibriert; `display_size` 12,6×13,5 einschließlich 10 % Verkleinerung |
+| `person_child` | sichtbar rund 8 hoch | 80 × 80 mit Seitenrand | wie oben | Eigene Kinderbilder im Stil-B-Draft; `display_size` 10×10 kompensiert den Seitenrand. Ohne Kinderbilder weiter Erwachsenen-Rückfall auf 65 % |
+| `person_dead` | 13,5 × 4,5 | 120 × 40 | Mitte | liegend, entsättigt; bleibt einige Tage wie ein Kadaver |
 | `person_marker` | 8 × 8 | 16 × 16 | Mitte unten | Überblickszeichen, einfarbig in der Erkennungsfarbe (die Farbe setzt der Renderer; Bild weiß bzw. hell) |
 
 Schlagschatten wie bei Tieren (15.3), in der Datei mit 8-fachem Versatz.
@@ -793,11 +793,20 @@ Schlagschatten wie bei Tieren (15.3), in der Datei mit 8-fachem Versatz.
 auf `codex/people-style-b` umgestellt: 230 Erwachsenenphasen, 150 Kinderphasen
 (einschließlich Trinken) und zehn Tote. Die 40 vorhandenen Holztragebilder
 werden nur von 56 auf 112 px Leinwandbreite gepolstert, nicht skaliert oder
-neu gezeichnet. Der Marker bleibt bytegleich. Es gelten weiterhin acht Pixel
-je Welteinheit; dadurch verdoppelt der Seitenrand nicht die sichtbare Figur.
+neu gezeichnet. Der Marker bleibt bytegleich. Kinder bleiben bei acht Dateipixeln
+je Welteinheit; Erwachsene einschließlich Toten werden inzwischen proportional
+auf 90 % dargestellt (rund 8,89 Dateipixel je Welteinheit).
 Pro Aussehen/Richtung wird derselbe proportionale Faktor für alle Phasen und
 Tätigkeiten verwendet. Details, Quellen, Kontaktbögen und Spielvergleich:
 [Menschen-Prüfpaket](../art/nature/people-style-b/README.md).
+
+**Größenkorrektur (16.11.2026):** Alle Erwachsenenphasen, beide Richtungen und
+Tote auf 90 %; Kinder, Fußpunkte und Erkennungsfarben unverändert. `_gather`
+neu kompakt gezeichnet: Ausgangshocke etwa 5–6 Welteinheiten breit, einzelne
+Armphasen schmaler; Kopf/Schultern am Stehen kalibriert. `_eat` und `_drink`
+ebenfalls kompakt, ohne zusätzliche Gefäße. Beide Hütteneingänge rund 4,5×9
+Welteinheiten; Hüttenmaß, Silhouette und Fußpunkte bleiben gleich.
+[Prüfpaket mit Spielvergleich](../art/nature/people-hut-adjustments/README.md).
 
 ### 17.4 Aussehen, Zustände, Richtungen
 

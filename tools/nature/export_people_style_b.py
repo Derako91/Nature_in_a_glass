@@ -195,6 +195,10 @@ def export():
               "scales": scales, "files": files, "mirrored_directions": False,
               "visual_approval": "pending", "game_review": "pending"}
     (REVIEW / "export.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
+    from refine_people_and_huts import CONFIG, apply_people
+    if CONFIG.exists():
+        apply_people(split, place)
+        images = {name: Image.open(PEOPLE / (name + ".png")).convert("RGBA") for name in images}
     boards_and_animations(images)
     print("390 neue Tätigkeits-/Kinder-/Totenbilder, 40 Holztragebilder nur gepolstert.")
 
@@ -238,6 +242,9 @@ def scale_sheet(images):
     font = load_font
     sheet = Image.new("RGB", (1720, 940), "#30402f")
     draw = ImageDraw.Draw(sheet)
+    manifest = json.loads((PEOPLE / "manifest.json").read_text())
+    adult_width = next(a["display_size"][0] for a in manifest["assets"]
+                       if a["id"] == "person" and a["state"] == "idle")
     draw.text((20, 16), "Menschen Stil B / synthetischer Maßvergleich – tatsächliche Spielaufnahmen separat", font=font(22), fill="#eee2ca")
     for row, zoom in enumerate((4, 8, 32)):
         y = 80 + row * 260
@@ -252,7 +259,7 @@ def scale_sheet(images):
                 tile = ground.resize((16 * zoom, 8 * zoom), Image.Resampling.NEAREST)
                 sheet.paste(tile, (foot[0] - tile.width // 2, foot[1] - tile.height // 2), tile)
                 image = images[f"person_{look}_{state}_{direction}_f0"]
-                factor = zoom / 32
+                factor = adult_width / image.width * zoom / 4
                 shown = image.resize((round(image.width * factor), round(image.height * factor)), Image.Resampling.NEAREST)
                 foreground.append((shown, (foot[0] - round(56 * factor), foot[1] - round(112 * factor))))
         # Alle Böden vor sämtlichen Figuren zeichnen; große Rauten dürfen

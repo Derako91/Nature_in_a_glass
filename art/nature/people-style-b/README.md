@@ -27,18 +27,20 @@ weiterhin nicht zur bestehenden Schnittstelle.
 Die **sichtbare Figur** bleibt an den bisherigen Holztragebildern ausgerichtet.
 Für ausgestreckte Beine, Arme und liegende Posen sind die Leinwände doppelt so
 breit. Das zugehörige `display_size` verdoppelt nur diese transparente Breite;
-es bleiben durchgehend acht Dateipixel je Welteinheit. Das vergrößert die Figur
-nicht. Kein Motiv wird auf eine bestimmte Breite/Höhe verzerrt.
+Kinder behalten acht Dateipixel je Welteinheit. Erwachsene einschließlich Toten
+werden nach der [Größenkorrektur](../people-hut-adjustments/README.md) auf 90 %
+dargestellt; dafür gelten rund 8,89 Dateipixel je Welteinheit. Kein Motiv wird auf eine bestimmte Breite/Höhe verzerrt.
 
 | Gruppe | Leinwand | `display_size` | Fußpunkt |
 | --- | --- | --- | --- |
-| Erwachsene, einschließlich `_build` | 112×120 | 14×15 | 56/112 |
+| Erwachsene, einschließlich `_build` | 112×120 | 12,6×13,5 | 56/112 |
 | Kinder | 80×80 | 10×10 | 40/76 |
-| Tote | 120×40 | 15×5 | 60/20 |
+| Tote | 120×40 | 13,5×4,5 | 60/20 |
 | Überblickszeichen | 16×16, unverändert | bestehende feste Bildschirmgröße | unverändert |
 
 Pro Aussehen/Richtung gibt es einen proportionalen Faktor für sämtliche
-Tätigkeiten und Phasen, an der jeweiligen Holztragehöhe kalibriert. Separat
+ursprünglichen Tätigkeiten und Phasen, an der jeweiligen Holztragehöhe kalibriert.
+Die überarbeiteten kompakten Posen werden separat am Stehen kalibriert. Separat
 generierte Richtungen werden so trotz unterschiedlicher Quellgröße gleich hoch.
 Kinder haben einen gemeinsamen proportionalen Faktor je Aussehen. Die bekannten
 Animationstakte kommen unverändert aus dem Beobachter, Animationen laufen nur
