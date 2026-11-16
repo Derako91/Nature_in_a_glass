@@ -1,0 +1,127 @@
+{
+  "base_commit": "af87656",
+  "producer": "image_gen",
+  "calibration": "four plain standing references per source, not exported",
+  "sources": [
+    {
+      "kind": "net",
+      "look": 0,
+      "file": "sources/net-0.png",
+      "sha256": "bb37c9234d6591d6e4fa6ae0a51b9d638bf6d873217f9c2bf49dc3a8cb215be8",
+      "generation": "exec-8872d713-c9ac-403b-b848-8f7c0ea8bae2.png",
+      "reference": "art/nature/fishing-people-style-b/sources/fishing-0.png"
+    },
+    {
+      "kind": "net",
+      "look": 1,
+      "file": "sources/net-1.png",
+      "sha256": "446fb3d75b6800a1184aa91a8726d433755bba400afe0c2537b5077e58583fa9",
+      "generation": "exec-df032798-3d7b-4c07-a983-73e6fdda66b3.png",
+      "reference": "art/nature/fishing-people-style-b/sources/fishing-1.png"
+    },
+    {
+      "kind": "net",
+      "look": 2,
+      "file": "sources/net-2.png",
+      "sha256": "590476c821f85130e305fdc47bb58624ea7aa1d578b8e157169643cc36dd01e0",
+      "generation": "exec-64a25d01-d235-464b-805c-23ef09710cb3.png",
+      "reference": "art/nature/fishing-people-style-b/sources/fishing-2.png"
+    },
+    {
+      "kind": "net",
+      "look": 3,
+      "file": "sources/net-3.png",
+      "sha256": "c8e656a69a1bd4ce4602b4f0877fba138adf0dfa58db5b15773365e11ffd7d02",
+      "generation": "exec-7771744a-2bf5-49c7-807b-07ea1409a732.png",
+      "reference": "art/nature/fishing-people-style-b/sources/fishing-3.png"
+    },
+    {
+      "kind": "net",
+      "look": 4,
+      "file": "sources/net-4.png",
+      "sha256": "ee2a10ebd74ad3e0d3a918c7f833669e912b5e2048e0d3182d71ac9906723582",
+      "generation": "exec-e7dfb583-536a-4926-ae96-c299c68226f8.png",
+      "reference": "art/nature/fishing-people-style-b/sources/fishing-4.png"
+    },
+    {
+      "kind": "basket",
+      "look": 0,
+      "file": "sources/basket-0.png",
+      "sha256": "a5d248e70bce27df1e86aa1591cb4bb4781c6dc01a86629bf7d9c1b1f1fcd046",
+      "generation": "exec-d45d45f2-d802-4af3-bb29-c49a5549340e.png",
+      "reference": "art/nature/fishing-people-style-b/sources/fishing-0.png"
+    },
+    {
+      "kind": "basket",
+      "look": 1,
+      "file": "sources/basket-1.png",
+      "sha256": "1abc2f8e5f05f70b66f7e84246ed1dd40276768cecdfcee061523638e7fd4ad7",
+      "generation": "exec-fe465668-7394-4ff2-8284-249ae232ad45.png",
+      "reference": "art/nature/fishing-people-style-b/sources/fishing-1.png"
+    },
+    {
+      "kind": "basket",
+      "look": 2,
+      "file": "sources/basket-2.png",
+      "sha256": "7efb35f4fa307713a550ef293039dd16e78751fe3574c7e59eaea238e6e8988c",
+      "generation": "exec-7484c8d7-4569-45df-bd9b-e8df4abb96f0.png",
+      "reference": "art/nature/fishing-people-style-b/sources/fishing-2.png"
+    },
+    {
+      "kind": "basket",
+      "look": 3,
+      "file": "sources/basket-3.png",
+      "sha256": "ed4c81e97668c8baf731b1bb73d020f8933a1140ab767fdea95141ce70bd3323",
+      "generation": "exec-13a029ec-335b-44a6-9951-c0f24f22cd0e.png",
+      "reference": "art/nature/fishing-people-style-b/sources/fishing-3.png"
+    },
+    {
+      "kind": "basket",
+      "look": 4,
+      "file": "sources/basket-4.png",
+      "sha256": "d9506b3c1b2fe7626ee005ede635a2e72512f12c9f4d037c0799b1c7d5a933be",
+      "generation": "exec-89aecdf7-a73c-4af1-8acf-216352dabb2c.png",
+      "reference": "art/nature/fishing-people-style-b/sources/fishing-4.png"
+    },
+    {
+      "kind": "axe",
+      "look": 0,
+      "file": "sources/axe-0.png",
+      "sha256": "4035009f1f62acff3cd0c89b633f305d070f4007d6b81a6b56fad6ee03e56b2e",
+      "generation": "exec-f6bc7c93-82fb-4ccb-aca9-9f6715d91a97.png",
+      "reference": "art/nature/fishing-people-style-b/sources/fishing-0.png"
+    },
+    {
+      "kind": "axe",
+      "look": 1,
+      "file": "sources/axe-1.png",
+      "sha256": "fe7387f8124364ff803a6e4fbe60b5c80f2a80497f7e35595f3f53a088baa30e",
+      "generation": "exec-8222dd4f-2997-4a9a-9548-145f1a1997c4.png",
+      "reference": "art/nature/fishing-people-style-b/sources/fishing-1.png"
+    },
+    {
+      "kind": "axe",
+      "look": 2,
+      "file": "sources/axe-2.png",
+      "sha256": "794dfd329be3ab0025af40ee3bdce7df695426a1fa3d49c7d5a215befd95c90b",
+      "generation": "exec-77180348-784a-4532-8b46-5203b7a2ae46.png",
+      "reference": "art/nature/fishing-people-style-b/sources/fishing-2.png"
+    },
+    {
+      "kind": "axe",
+      "look": 3,
+      "file": "sources/axe-3.png",
+      "sha256": "942024491f06493bb0507427a9efb7509d5798424ffc81c03d4ac86010150072",
+      "generation": "exec-01732159-415a-49c4-b8d9-40c2ad0e0b35.png",
+      "reference": "art/nature/fishing-people-style-b/sources/fishing-3.png"
+    },
+    {
+      "kind": "axe",
+      "look": 4,
+      "file": "sources/axe-4.png",
+      "sha256": "249307b459253b6151af366672da4f3aab3c17a239d9229bb77c75db398465cf",
+      "generation": "exec-1e2ce7cc-a667-4daa-ba45-f3bf40108a5f.png",
+      "reference": "art/nature/fishing-people-style-b/sources/fishing-4.png"
+    }
+  ]
+}

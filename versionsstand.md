@@ -1,16 +1,16 @@
 # Versionsstand – Nature_in_a_glass
 
-> **Stand:** 16.11.2026 · **Version:** Basis 0.10.3 · **Branch:** `codex/stream-drops-style-b` (Basis `3ac3bc1`)
+> **Stand:** 16.11.2026 · **Version:** Basis 0.13.0 · **Branch:** `codex/people-tools-style-b` (Basis `af87656`)
 
 ## Auf einen Blick
 
 | Frage | Antwort |
 | --- | --- |
-| **Zuletzt erledigt** | Gärten aus PR #23 seit v0.10.3 auf main. Neuer Codex-Draft: 90 Wandwasserbilder nach 16.9, vier ruhige Phasen nass, trockene Rinnen, drei Stärken, beide Wandseiten und Kopf/Mitte/Fuß. |
-| **Getestet** | 103 Rust-/15 Python-Tests, fmt, strenges Clippy und Release-Bau bestanden. 120 exakte RGBA-Anschlüsse, maximal 1,09 % mittlere Helligkeitsschwankung. Alle 1393 Eltern-PNGs unverändert. Atlas nutzt alte Reihenlücken und passt mit allen Bildpaketen in 8192 px; Spielbilder im Wandwasser-Prüfpaket. |
-| **Offen für Codex** | Visuelle Abnahme durch Claude: `art/nature/stream-drops-style-b/README.md`. Vorhandene API zeigt nur vordere Wandverbindungen; weiterhin verdeckte Abschnitte bleiben ein Geometrie-/Rendererpunkt. Keine Simulations- oder Wasserfallgeometrieänderung. |
-| **Offen für Dennis** | – (neue Bildpakete zur visuellen Abnahme durch Claude) |
-| **Nächster Schritt** | Claude prüft Wandwasser bei Seed 2024, +12 Jahre +60 Tage, Feld 19/33, Zoom 16 und übernimmt den Draft bei visueller Freigabe. |
+| **Zuletzt erledigt** | 140 Werkzeugbilder nach Gestaltung 17.11: Netz, Sammelkorb, Esskorb, Steinbeil beim Holztragen. Fünf erwachsene Aussehen, beide Richtungen eigenständig. |
+| **Getestet** | 109 Rust-/15 Python-Tests, fmt, strenges Clippy und Release-Bau bestanden. Matrix, Anker, Weltmaße, Bilddauern, Quellhashes und 1483 unveränderte Eltern-PNGs geprüft. Alle Sprite-PNGs und das Manifest nach vollständigem Menschenexport bytegleich. |
+| **Offen für Codex** | Visuelle Abnahme durch Claude. Release-Bau und echte Spielprüfung Seed 5, Menschen +30 Jahre, Zoom 8/32 bestanden; Holztragen zusätzlich nach zwei Tagen. Zwölf Vorher-/Nachher-Aufnahmen im Prüfpaket. |
+| **Offen für Dennis** | – |
+| **Nächster Schritt** | Claude prüft die vier Werkzeugzustände und Schleifen im Prüfpaket `art/nature/people-tools-style-b/README.md` und übernimmt den Draft bei visueller Freigabe. |
 
 ## Zusammenarbeit Claude / Codex
 
@@ -23,6 +23,7 @@
 
 | Datum | Änderung | Code-Test |
 | --- | --- | --- |
+| 16.11.2026 | Codex: 140 Werkzeugbilder, Branch `codex/people-tools-style-b`, Basis `af87656` (v0.13.0). | 109 Rust-/15 Python-Tests, fmt, Clippy; Vollständigkeit, Maße, unveränderte Kinder/Elternbilder und wiederholter Export geprüft. Visuelle Abnahme offen. |
 | 16.11.2026 | Codex: 90 Wandwasserbilder und Nutzung alter Atlasreihen-Lücken, Branch `codex/stream-drops-style-b`, Basis `3ac3bc1`. | 103 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; 120 RGBA-Anschlüsse und unveränderter Bestand. Nasse/trockene Spielansichten im Prüfpaket; visuelle Abnahme offen. |
 | 16.11.2026 | Codex: 20 Gartenbilder nach Gestaltung 17.9, Branch `codex/garden-style-b`, Basis `cc542e8`. | 100 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; Alpha-/Manifest-/Bestandsprüfung und zwei wiederholbare Exportwege. Sommer-/Ernteprüfung Seed 300, Feld 25/20, Zoom 8/32 im Prüfpaket; visuelle Abnahme offen. |
 | 16.11.2026 | Codex: 40 Fischfangbilder und Vorschlag Wandwasserformat 16.9, Branch `codex/fishing-people-style-b`, Basis `0edb584`. | 97 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; eingebettete Ansicht und deklarierte Bildaustauschprobe Zoom 8/32. Export-/Maß-/Bestandsprüfung. Technische Zustandsauswahl offen bei Claude. Prüfpaket dokumentiert Darstellungsprobe getrennt von echter Fischfangaktivität. |

@@ -3511,6 +3511,856 @@
         "person_4_fish_l_f2.png",
         "person_4_fish_l_f3.png"
       ]
+    },
+    {
+      "id": "person",
+      "state": "fish_net",
+      "size": [
+        112,
+        120
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "appearances": 5,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 4,
+      "frame_ms": 300,
+      "status": "tools_style_b_draft",
+      "files": [
+        "person_0_fish_net_r_f0.png",
+        "person_0_fish_net_r_f1.png",
+        "person_0_fish_net_r_f2.png",
+        "person_0_fish_net_r_f3.png",
+        "person_0_fish_net_l_f0.png",
+        "person_0_fish_net_l_f1.png",
+        "person_0_fish_net_l_f2.png",
+        "person_0_fish_net_l_f3.png",
+        "person_1_fish_net_r_f0.png",
+        "person_1_fish_net_r_f1.png",
+        "person_1_fish_net_r_f2.png",
+        "person_1_fish_net_r_f3.png",
+        "person_1_fish_net_l_f0.png",
+        "person_1_fish_net_l_f1.png",
+        "person_1_fish_net_l_f2.png",
+        "person_1_fish_net_l_f3.png",
+        "person_2_fish_net_r_f0.png",
+        "person_2_fish_net_r_f1.png",
+        "person_2_fish_net_r_f2.png",
+        "person_2_fish_net_r_f3.png",
+        "person_2_fish_net_l_f0.png",
+        "person_2_fish_net_l_f1.png",
+        "person_2_fish_net_l_f2.png",
+        "person_2_fish_net_l_f3.png",
+        "person_3_fish_net_r_f0.png",
+        "person_3_fish_net_r_f1.png",
+        "person_3_fish_net_r_f2.png",
+        "person_3_fish_net_r_f3.png",
+        "person_3_fish_net_l_f0.png",
+        "person_3_fish_net_l_f1.png",
+        "person_3_fish_net_l_f2.png",
+        "person_3_fish_net_l_f3.png",
+        "person_4_fish_net_r_f0.png",
+        "person_4_fish_net_r_f1.png",
+        "person_4_fish_net_r_f2.png",
+        "person_4_fish_net_r_f3.png",
+        "person_4_fish_net_l_f0.png",
+        "person_4_fish_net_l_f1.png",
+        "person_4_fish_net_l_f2.png",
+        "person_4_fish_net_l_f3.png"
+      ]
+    },
+    {
+      "id": "person",
+      "state": "gather_basket",
+      "size": [
+        112,
+        120
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "appearances": 5,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 4,
+      "frame_ms": 300,
+      "status": "tools_style_b_draft",
+      "files": [
+        "person_0_gather_basket_r_f0.png",
+        "person_0_gather_basket_r_f1.png",
+        "person_0_gather_basket_r_f2.png",
+        "person_0_gather_basket_r_f3.png",
+        "person_0_gather_basket_l_f0.png",
+        "person_0_gather_basket_l_f1.png",
+        "person_0_gather_basket_l_f2.png",
+        "person_0_gather_basket_l_f3.png",
+        "person_1_gather_basket_r_f0.png",
+        "person_1_gather_basket_r_f1.png",
+        "person_1_gather_basket_r_f2.png",
+        "person_1_gather_basket_r_f3.png",
+        "person_1_gather_basket_l_f0.png",
+        "person_1_gather_basket_l_f1.png",
+        "person_1_gather_basket_l_f2.png",
+        "person_1_gather_basket_l_f3.png",
+        "person_2_gather_basket_r_f0.png",
+        "person_2_gather_basket_r_f1.png",
+        "person_2_gather_basket_r_f2.png",
+        "person_2_gather_basket_r_f3.png",
+        "person_2_gather_basket_l_f0.png",
+        "person_2_gather_basket_l_f1.png",
+        "person_2_gather_basket_l_f2.png",
+        "person_2_gather_basket_l_f3.png",
+        "person_3_gather_basket_r_f0.png",
+        "person_3_gather_basket_r_f1.png",
+        "person_3_gather_basket_r_f2.png",
+        "person_3_gather_basket_r_f3.png",
+        "person_3_gather_basket_l_f0.png",
+        "person_3_gather_basket_l_f1.png",
+        "person_3_gather_basket_l_f2.png",
+        "person_3_gather_basket_l_f3.png",
+        "person_4_gather_basket_r_f0.png",
+        "person_4_gather_basket_r_f1.png",
+        "person_4_gather_basket_r_f2.png",
+        "person_4_gather_basket_r_f3.png",
+        "person_4_gather_basket_l_f0.png",
+        "person_4_gather_basket_l_f1.png",
+        "person_4_gather_basket_l_f2.png",
+        "person_4_gather_basket_l_f3.png"
+      ],
+      "frame_map": [
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_0_gather_l_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_0_gather_l_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_0_gather_l_f2.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_0_gather_l_f3.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_0_gather_r_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_0_gather_r_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_0_gather_r_f2.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_0_gather_r_f3.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_1_gather_l_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_1_gather_l_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_1_gather_l_f2.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_1_gather_l_f3.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_1_gather_r_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_1_gather_r_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_1_gather_r_f2.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_1_gather_r_f3.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_2_gather_l_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_2_gather_l_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_2_gather_l_f2.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_2_gather_l_f3.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_2_gather_r_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_2_gather_r_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_2_gather_r_f2.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_2_gather_r_f3.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_3_gather_l_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_3_gather_l_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_3_gather_l_f2.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_3_gather_l_f3.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_3_gather_r_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_3_gather_r_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_3_gather_r_f2.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_3_gather_r_f3.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_4_gather_l_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_4_gather_l_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_4_gather_l_f2.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_4_gather_l_f3.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_4_gather_r_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_4_gather_r_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_4_gather_r_f2.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_4_gather_r_f3.png"
+        }
+      ]
+    },
+    {
+      "id": "person",
+      "state": "eat_basket",
+      "size": [
+        112,
+        120
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "appearances": 5,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 2,
+      "frame_ms": 600,
+      "status": "tools_style_b_draft",
+      "files": [
+        "person_0_eat_basket_r_f0.png",
+        "person_0_eat_basket_r_f1.png",
+        "person_0_eat_basket_l_f0.png",
+        "person_0_eat_basket_l_f1.png",
+        "person_1_eat_basket_r_f0.png",
+        "person_1_eat_basket_r_f1.png",
+        "person_1_eat_basket_l_f0.png",
+        "person_1_eat_basket_l_f1.png",
+        "person_2_eat_basket_r_f0.png",
+        "person_2_eat_basket_r_f1.png",
+        "person_2_eat_basket_l_f0.png",
+        "person_2_eat_basket_l_f1.png",
+        "person_3_eat_basket_r_f0.png",
+        "person_3_eat_basket_r_f1.png",
+        "person_3_eat_basket_l_f0.png",
+        "person_3_eat_basket_l_f1.png",
+        "person_4_eat_basket_r_f0.png",
+        "person_4_eat_basket_r_f1.png",
+        "person_4_eat_basket_l_f0.png",
+        "person_4_eat_basket_l_f1.png"
+      ],
+      "frame_map": [
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_0_eat_l_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_0_eat_l_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_0_eat_r_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_0_eat_r_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_1_eat_l_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_1_eat_l_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_1_eat_r_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_1_eat_r_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_2_eat_l_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_2_eat_l_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_2_eat_r_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_2_eat_r_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_3_eat_l_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_3_eat_l_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_3_eat_r_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_3_eat_r_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_4_eat_l_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_4_eat_l_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_4_eat_r_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_4_eat_r_f1.png"
+        }
+      ]
+    },
+    {
+      "id": "person",
+      "state": "build_axe",
+      "size": [
+        112,
+        120
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "appearances": 5,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 4,
+      "frame_ms": 250,
+      "status": "tools_style_b_draft",
+      "files": [
+        "person_0_build_axe_r_f0.png",
+        "person_0_build_axe_r_f1.png",
+        "person_0_build_axe_r_f2.png",
+        "person_0_build_axe_r_f3.png",
+        "person_0_build_axe_l_f0.png",
+        "person_0_build_axe_l_f1.png",
+        "person_0_build_axe_l_f2.png",
+        "person_0_build_axe_l_f3.png",
+        "person_1_build_axe_r_f0.png",
+        "person_1_build_axe_r_f1.png",
+        "person_1_build_axe_r_f2.png",
+        "person_1_build_axe_r_f3.png",
+        "person_1_build_axe_l_f0.png",
+        "person_1_build_axe_l_f1.png",
+        "person_1_build_axe_l_f2.png",
+        "person_1_build_axe_l_f3.png",
+        "person_2_build_axe_r_f0.png",
+        "person_2_build_axe_r_f1.png",
+        "person_2_build_axe_r_f2.png",
+        "person_2_build_axe_r_f3.png",
+        "person_2_build_axe_l_f0.png",
+        "person_2_build_axe_l_f1.png",
+        "person_2_build_axe_l_f2.png",
+        "person_2_build_axe_l_f3.png",
+        "person_3_build_axe_r_f0.png",
+        "person_3_build_axe_r_f1.png",
+        "person_3_build_axe_r_f2.png",
+        "person_3_build_axe_r_f3.png",
+        "person_3_build_axe_l_f0.png",
+        "person_3_build_axe_l_f1.png",
+        "person_3_build_axe_l_f2.png",
+        "person_3_build_axe_l_f3.png",
+        "person_4_build_axe_r_f0.png",
+        "person_4_build_axe_r_f1.png",
+        "person_4_build_axe_r_f2.png",
+        "person_4_build_axe_r_f3.png",
+        "person_4_build_axe_l_f0.png",
+        "person_4_build_axe_l_f1.png",
+        "person_4_build_axe_l_f2.png",
+        "person_4_build_axe_l_f3.png"
+      ],
+      "frame_map": [
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_0_build_l_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_0_build_l_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_0_build_l_f2.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_0_build_l_f3.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_0_build_r_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_0_build_r_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_0_build_r_f2.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_0_build_r_f3.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_1_build_l_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_1_build_l_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_1_build_l_f2.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_1_build_l_f3.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_1_build_r_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_1_build_r_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_1_build_r_f2.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_1_build_r_f3.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_2_build_l_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_2_build_l_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_2_build_l_f2.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_2_build_l_f3.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_2_build_r_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_2_build_r_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_2_build_r_f2.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_2_build_r_f3.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_3_build_l_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_3_build_l_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_3_build_l_f2.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_3_build_l_f3.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_3_build_r_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_3_build_r_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_3_build_r_f2.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_3_build_r_f3.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_4_build_l_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_4_build_l_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_4_build_l_f2.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_4_build_l_f3.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_4_build_r_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_4_build_r_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_4_build_r_f2.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_4_build_r_f3.png"
+        }
+      ]
     }
   ],
   "frame_aliases": {}

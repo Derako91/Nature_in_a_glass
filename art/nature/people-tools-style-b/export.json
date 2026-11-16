@@ -1,0 +1,4890 @@
+{
+  "files": [
+    {
+      "file": "person_0_fish_net_r_f0.png",
+      "look": 0,
+      "state": "fish_net",
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        34,
+        81
+      ],
+      "parent_max_width": 60,
+      "parent_max_height": 89,
+      "source_box": [
+        114,
+        385,
+        254,
+        710
+      ],
+      "source_factor": 0.2564841498559078,
+      "detached_parts": 0,
+      "sha256": "92ce3f875652e279683606eb1d13ae8f14b46c8941feb7f451d2748e092094a9"
+    },
+    {
+      "file": "person_0_fish_net_r_f1.png",
+      "look": 0,
+      "state": "fish_net",
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        45,
+        81
+      ],
+      "parent_max_width": 60,
+      "parent_max_height": 89,
+      "source_box": [
+        447,
+        387,
+        629,
+        710
+      ],
+      "source_factor": 0.2564841498559078,
+      "detached_parts": 0,
+      "sha256": "abec65d89101d8bcca38bb9d1b0b949c1ce82157ec3fd9e0cfcea7b80e643ea3"
+    },
+    {
+      "file": "person_0_fish_net_r_f2.png",
+      "look": 0,
+      "state": "fish_net",
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        36,
+        81
+      ],
+      "parent_max_width": 60,
+      "parent_max_height": 89,
+      "source_box": [
+        814,
+        385,
+        964,
+        710
+      ],
+      "source_factor": 0.2564841498559078,
+      "detached_parts": 0,
+      "sha256": "cc279c254f0e645f03de12a56626a6143e099de7267ee316d8fee654d0cf290c"
+    },
+    {
+      "file": "person_0_fish_net_r_f3.png",
+      "look": 0,
+      "state": "fish_net",
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        35,
+        81
+      ],
+      "parent_max_width": 60,
+      "parent_max_height": 89,
+      "source_box": [
+        1172,
+        386,
+        1316,
+        710
+      ],
+      "source_factor": 0.2564841498559078,
+      "detached_parts": 0,
+      "sha256": "93c25c1534d22d1d2dbf6d7f284afa76c98da8c2085ed20560493ed06ca8a927"
+    },
+    {
+      "file": "person_0_fish_net_l_f0.png",
+      "look": 0,
+      "state": "fish_net",
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        35,
+        83
+      ],
+      "parent_max_width": 60,
+      "parent_max_height": 89,
+      "source_box": [
+        126,
+        741,
+        270,
+        1074
+      ],
+      "source_factor": 0.2564841498559078,
+      "detached_parts": 0,
+      "sha256": "3338d23bebc3f1e69518dd4f98cebb5d51f52783dece8e64013d50c561eacbab"
+    },
+    {
+      "file": "person_0_fish_net_l_f1.png",
+      "look": 0,
+      "state": "fish_net",
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        47,
+        82
+      ],
+      "parent_max_width": 60,
+      "parent_max_height": 89,
+      "source_box": [
+        432,
+        746,
+        623,
+        1074
+      ],
+      "source_factor": 0.2564841498559078,
+      "detached_parts": 0,
+      "sha256": "7d9b71941c085326d62b9cb43e9d265ed43020787d22fcc65950abaeaa6f6413"
+    },
+    {
+      "file": "person_0_fish_net_l_f2.png",
+      "look": 0,
+      "state": "fish_net",
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        39,
+        83
+      ],
+      "parent_max_width": 60,
+      "parent_max_height": 89,
+      "source_box": [
+        823,
+        742,
+        982,
+        1074
+      ],
+      "source_factor": 0.2564841498559078,
+      "detached_parts": 0,
+      "sha256": "0c8fe7801a0d36d9d3f93d8b72fc989c2cc950cb2b59c674a6b693892cf9b92f"
+    },
+    {
+      "file": "person_0_fish_net_l_f3.png",
+      "look": 0,
+      "state": "fish_net",
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        36,
+        83
+      ],
+      "parent_max_width": 60,
+      "parent_max_height": 89,
+      "source_box": [
+        1181,
+        744,
+        1328,
+        1074
+      ],
+      "source_factor": 0.2564841498559078,
+      "detached_parts": 0,
+      "sha256": "89de64df5194cc754dce2b5d93695940b413c37a049e7e52003f0fc87c9638a5"
+    },
+    {
+      "file": "person_1_fish_net_r_f0.png",
+      "look": 1,
+      "state": "fish_net",
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        37,
+        82
+      ],
+      "parent_max_width": 66,
+      "parent_max_height": 88,
+      "source_box": [
+        97,
+        389,
+        246,
+        712
+      ],
+      "source_factor": 0.2607407407407407,
+      "detached_parts": 0,
+      "sha256": "7119f1f5f7b731244e3d974eeb2278f45e29a9388efbdf87c7dcfe1671ddc9eb"
+    },
+    {
+      "file": "person_1_fish_net_r_f1.png",
+      "look": 1,
+      "state": "fish_net",
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        55,
+        83
+      ],
+      "parent_max_width": 66,
+      "parent_max_height": 88,
+      "source_box": [
+        457,
+        386,
+        674,
+        711
+      ],
+      "source_factor": 0.2607407407407407,
+      "detached_parts": 0,
+      "sha256": "91c292f0a11dce409f9e4083738ce834be611d7c0adfa4471644974728d43be0"
+    },
+    {
+      "file": "person_1_fish_net_r_f2.png",
+      "look": 1,
+      "state": "fish_net",
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        41,
+        85
+      ],
+      "parent_max_width": 66,
+      "parent_max_height": 88,
+      "source_box": [
+        826,
+        378,
+        990,
+        712
+      ],
+      "source_factor": 0.2607407407407407,
+      "detached_parts": 0,
+      "sha256": "86a6e1670d1a84d58a96e63998d6daca118004f751f5d068ac33e9061db66675"
+    },
+    {
+      "file": "person_1_fish_net_r_f3.png",
+      "look": 1,
+      "state": "fish_net",
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        37,
+        81
+      ],
+      "parent_max_width": 66,
+      "parent_max_height": 88,
+      "source_box": [
+        1182,
+        392,
+        1333,
+        712
+      ],
+      "source_factor": 0.2607407407407407,
+      "detached_parts": 0,
+      "sha256": "720dd5f2cb3d7f18b6e129508b9f41fcd37fb6b7badf9750f25aa27e85215b6e"
+    },
+    {
+      "file": "person_1_fish_net_l_f0.png",
+      "look": 1,
+      "state": "fish_net",
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        38,
+        82
+      ],
+      "parent_max_width": 66,
+      "parent_max_height": 88,
+      "source_box": [
+        117,
+        751,
+        269,
+        1074
+      ],
+      "source_factor": 0.2607407407407407,
+      "detached_parts": 0,
+      "sha256": "57f6dda5d8438f48d3780d6eae1cce344b1b8e3a063b2be82ce0f04ade747905"
+    },
+    {
+      "file": "person_1_fish_net_l_f1.png",
+      "look": 1,
+      "state": "fish_net",
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        56,
+        83
+      ],
+      "parent_max_width": 66,
+      "parent_max_height": 88,
+      "source_box": [
+        406,
+        749,
+        630,
+        1074
+      ],
+      "source_factor": 0.2607407407407407,
+      "detached_parts": 0,
+      "sha256": "788e0bbdc850f868ffc34b17af6647fbfd3b14364e3a3832bd1ee7cd7fc54c15"
+    },
+    {
+      "file": "person_1_fish_net_l_f2.png",
+      "look": 1,
+      "state": "fish_net",
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        41,
+        85
+      ],
+      "parent_max_width": 66,
+      "parent_max_height": 88,
+      "source_box": [
+        816,
+        741,
+        981,
+        1074
+      ],
+      "source_factor": 0.2607407407407407,
+      "detached_parts": 0,
+      "sha256": "1eff6e5cd5bf76c1f65acea1c23a6f971abeebe980d8f153c7f191f98f539b1c"
+    },
+    {
+      "file": "person_1_fish_net_l_f3.png",
+      "look": 1,
+      "state": "fish_net",
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        38,
+        82
+      ],
+      "parent_max_width": 66,
+      "parent_max_height": 88,
+      "source_box": [
+        1199,
+        752,
+        1353,
+        1075
+      ],
+      "source_factor": 0.2607407407407407,
+      "detached_parts": 0,
+      "sha256": "0a15a611b02e4a63c6a553d2f2b49a9287a51ef09f67e48d6303b651201dd34e"
+    },
+    {
+      "file": "person_2_fish_net_r_f0.png",
+      "look": 2,
+      "state": "fish_net",
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        38,
+        87
+      ],
+      "parent_max_width": 59,
+      "parent_max_height": 91,
+      "source_box": [
+        104,
+        381,
+        250,
+        707
+      ],
+      "source_factor": 0.27232142857142855,
+      "detached_parts": 0,
+      "sha256": "7f03af65c6affa0b8ab53f65321703374c0b00c7de2815e05976db5f866ab1d0"
+    },
+    {
+      "file": "person_2_fish_net_r_f1.png",
+      "look": 2,
+      "state": "fish_net",
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        50,
+        87
+      ],
+      "parent_max_width": 59,
+      "parent_max_height": 91,
+      "source_box": [
+        461,
+        382,
+        652,
+        707
+      ],
+      "source_factor": 0.27232142857142855,
+      "detached_parts": 0,
+      "sha256": "a1e29920ebd5eaa1ec1600bc6e4017b0a9aed4f1853537a413f612d2b895d5c6"
+    },
+    {
+      "file": "person_2_fish_net_r_f2.png",
+      "look": 2,
+      "state": "fish_net",
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        37,
+        89
+      ],
+      "parent_max_width": 59,
+      "parent_max_height": 91,
+      "source_box": [
+        828,
+        374,
+        972,
+        707
+      ],
+      "source_factor": 0.27232142857142855,
+      "detached_parts": 0,
+      "sha256": "bd017b1994fd8c1d60d38d0dd3c027de775cbf552114f7eaf4edc1c98b63b646"
+    },
+    {
+      "file": "person_2_fish_net_r_f3.png",
+      "look": 2,
+      "state": "fish_net",
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        38,
+        86
+      ],
+      "parent_max_width": 59,
+      "parent_max_height": 91,
+      "source_box": [
+        1185,
+        384,
+        1332,
+        707
+      ],
+      "source_factor": 0.27232142857142855,
+      "detached_parts": 0,
+      "sha256": "e3768a672ab28ef6eeee37975ed5f9fb19dcb88321c51d58bceae163217a6117"
+    },
+    {
+      "file": "person_2_fish_net_l_f0.png",
+      "look": 2,
+      "state": "fish_net",
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        39,
+        87
+      ],
+      "parent_max_width": 59,
+      "parent_max_height": 91,
+      "source_box": [
+        109,
+        745,
+        261,
+        1072
+      ],
+      "source_factor": 0.27232142857142855,
+      "detached_parts": 0,
+      "sha256": "75dfe19b829241e60993f55db542179cd643ce03cb675074c3d20284af92e3e3"
+    },
+    {
+      "file": "person_2_fish_net_l_f1.png",
+      "look": 2,
+      "state": "fish_net",
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        52,
+        87
+      ],
+      "parent_max_width": 59,
+      "parent_max_height": 91,
+      "source_box": [
+        431,
+        745,
+        629,
+        1072
+      ],
+      "source_factor": 0.27232142857142855,
+      "detached_parts": 0,
+      "sha256": "1278224a0fbc0c8189f9c9f4d796f3d4fa66ee8d22a75fd4bb5872a06b7cc774"
+    },
+    {
+      "file": "person_2_fish_net_l_f2.png",
+      "look": 2,
+      "state": "fish_net",
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        39,
+        88
+      ],
+      "parent_max_width": 59,
+      "parent_max_height": 91,
+      "source_box": [
+        832,
+        740,
+        982,
+        1072
+      ],
+      "source_factor": 0.27232142857142855,
+      "detached_parts": 0,
+      "sha256": "e1c2e0ef4f381bcb411149b1d00f0d4c622900008fe9e1edb47b681ad0884f59"
+    },
+    {
+      "file": "person_2_fish_net_l_f3.png",
+      "look": 2,
+      "state": "fish_net",
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        40,
+        87
+      ],
+      "parent_max_width": 59,
+      "parent_max_height": 91,
+      "source_box": [
+        1195,
+        746,
+        1348,
+        1072
+      ],
+      "source_factor": 0.27232142857142855,
+      "detached_parts": 0,
+      "sha256": "515fe4cf2a129c9775911043f4c022320e7298840228ab42ef85d9b664594263"
+    },
+    {
+      "file": "person_3_fish_net_r_f0.png",
+      "look": 3,
+      "state": "fish_net",
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        36,
+        72
+      ],
+      "parent_max_width": 70,
+      "parent_max_height": 79,
+      "source_box": [
+        47,
+        476,
+        236,
+        844
+      ],
+      "source_factor": 0.19974874371859297,
+      "detached_parts": 0,
+      "sha256": "46f621fbbe5b1e2e636ada2b843162950c37a202bd0d6a8d78c0043868256d29"
+    },
+    {
+      "file": "person_3_fish_net_r_f1.png",
+      "look": 3,
+      "state": "fish_net",
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        48,
+        71
+      ],
+      "parent_max_width": 70,
+      "parent_max_height": 79,
+      "source_box": [
+        329,
+        478,
+        580,
+        844
+      ],
+      "source_factor": 0.19974874371859297,
+      "detached_parts": 0,
+      "sha256": "d1724d556a5eb382f7b28af80aeb5b8a0c22a6cb68c3eccac59c3bc7d9cf9188"
+    },
+    {
+      "file": "person_3_fish_net_r_f2.png",
+      "look": 3,
+      "state": "fish_net",
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        41,
+        72
+      ],
+      "parent_max_width": 70,
+      "parent_max_height": 79,
+      "source_box": [
+        629,
+        475,
+        846,
+        844
+      ],
+      "source_factor": 0.19974874371859297,
+      "detached_parts": 0,
+      "sha256": "24dbc9dde1906f971de0a007560d1ae75663f9c528682bcc326c44160dfa5707"
+    },
+    {
+      "file": "person_3_fish_net_r_f3.png",
+      "look": 3,
+      "state": "fish_net",
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        37,
+        71
+      ],
+      "parent_max_width": 70,
+      "parent_max_height": 79,
+      "source_box": [
+        926,
+        477,
+        1122,
+        844
+      ],
+      "source_factor": 0.19974874371859297,
+      "detached_parts": 0,
+      "sha256": "e8dffb1749f919dcadc9539c93348404223b7dbfd46f69df8e4dc309b698b858"
+    },
+    {
+      "file": "person_3_fish_net_l_f0.png",
+      "look": 3,
+      "state": "fish_net",
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        36,
+        73
+      ],
+      "parent_max_width": 70,
+      "parent_max_height": 79,
+      "source_box": [
+        60,
+        918,
+        249,
+        1295
+      ],
+      "source_factor": 0.19974874371859297,
+      "detached_parts": 0,
+      "sha256": "80399c6949a73e3d02a678074e1c33ec9694167d30d2b7c4f051580a150c7f7e"
+    },
+    {
+      "file": "person_3_fish_net_l_f1.png",
+      "look": 3,
+      "state": "fish_net",
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        49,
+        73
+      ],
+      "parent_max_width": 70,
+      "parent_max_height": 79,
+      "source_box": [
+        310,
+        919,
+        563,
+        1295
+      ],
+      "source_factor": 0.19974874371859297,
+      "detached_parts": 0,
+      "sha256": "f8b3f34f1296bc59e0d1a7893b486c85860ecba9bdce6b7a919241b95bf2a500"
+    },
+    {
+      "file": "person_3_fish_net_l_f2.png",
+      "look": 3,
+      "state": "fish_net",
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        42,
+        73
+      ],
+      "parent_max_width": 70,
+      "parent_max_height": 79,
+      "source_box": [
+        620,
+        918,
+        842,
+        1295
+      ],
+      "source_factor": 0.19974874371859297,
+      "detached_parts": 0,
+      "sha256": "8d079bb063cf3445d7ecc23e7a9d069734b88f51e1c66cdbe72fcf573a71071d"
+    },
+    {
+      "file": "person_3_fish_net_l_f3.png",
+      "look": 3,
+      "state": "fish_net",
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        37,
+        74
+      ],
+      "parent_max_width": 70,
+      "parent_max_height": 79,
+      "source_box": [
+        942,
+        917,
+        1138,
+        1295
+      ],
+      "source_factor": 0.19974874371859297,
+      "detached_parts": 0,
+      "sha256": "a7df06aae08c7f1b19b7a3cbbaad8067bd83aa03cfd174ce640f7644e2c85e37"
+    },
+    {
+      "file": "person_4_fish_net_r_f0.png",
+      "look": 4,
+      "state": "fish_net",
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        35,
+        89
+      ],
+      "parent_max_width": 68,
+      "parent_max_height": 94,
+      "source_box": [
+        99,
+        381,
+        237,
+        717
+      ],
+      "source_factor": 0.2703488372093023,
+      "detached_parts": 0,
+      "sha256": "80688930d5e0a6dd38d01ed1cf8553eb0f95a88462b31e248cab74f917e786aa"
+    },
+    {
+      "file": "person_4_fish_net_r_f1.png",
+      "look": 4,
+      "state": "fish_net",
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        49,
+        89
+      ],
+      "parent_max_width": 68,
+      "parent_max_height": 94,
+      "source_box": [
+        444,
+        381,
+        634,
+        717
+      ],
+      "source_factor": 0.2703488372093023,
+      "detached_parts": 0,
+      "sha256": "b9e4257fc09169ca51c87c0c80bec7bd1370199d6e549232a48b18ffcbc75092"
+    },
+    {
+      "file": "person_4_fish_net_r_f2.png",
+      "look": 4,
+      "state": "fish_net",
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        41,
+        89
+      ],
+      "parent_max_width": 68,
+      "parent_max_height": 94,
+      "source_box": [
+        816,
+        378,
+        975,
+        716
+      ],
+      "source_factor": 0.2703488372093023,
+      "detached_parts": 0,
+      "sha256": "999ac3fdf25022b714d5f6a904d99a9e98ec183752ff992ad6696937d2675f3b"
+    },
+    {
+      "file": "person_4_fish_net_r_f3.png",
+      "look": 4,
+      "state": "fish_net",
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        36,
+        89
+      ],
+      "parent_max_width": 68,
+      "parent_max_height": 94,
+      "source_box": [
+        1183,
+        381,
+        1325,
+        717
+      ],
+      "source_factor": 0.2703488372093023,
+      "detached_parts": 0,
+      "sha256": "7e759ad4c6f0a99c84af5e4adee6b5838e2df7fbb34c953f1183be962982b600"
+    },
+    {
+      "file": "person_4_fish_net_l_f0.png",
+      "look": 4,
+      "state": "fish_net",
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        37,
+        89
+      ],
+      "parent_max_width": 68,
+      "parent_max_height": 94,
+      "source_box": [
+        125,
+        743,
+        269,
+        1079
+      ],
+      "source_factor": 0.2703488372093023,
+      "detached_parts": 0,
+      "sha256": "0ec4c512faca74380731b46265b9c124f28cc0d72197c700dc3096fec5950dc4"
+    },
+    {
+      "file": "person_4_fish_net_l_f1.png",
+      "look": 4,
+      "state": "fish_net",
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        52,
+        89
+      ],
+      "parent_max_width": 68,
+      "parent_max_height": 94,
+      "source_box": [
+        447,
+        742,
+        645,
+        1079
+      ],
+      "source_factor": 0.2703488372093023,
+      "detached_parts": 0,
+      "sha256": "3efb1e73b150fabd152429c2da655a655fd890e11b06c15e4beb05ee7aade8e0"
+    },
+    {
+      "file": "person_4_fish_net_l_f2.png",
+      "look": 4,
+      "state": "fish_net",
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        42,
+        90
+      ],
+      "parent_max_width": 68,
+      "parent_max_height": 94,
+      "source_box": [
+        836,
+        738,
+        999,
+        1079
+      ],
+      "source_factor": 0.2703488372093023,
+      "detached_parts": 0,
+      "sha256": "fd842051c652dee6266ca940b39efc1d184ba79fea6eabfb4ea57e8871391581"
+    },
+    {
+      "file": "person_4_fish_net_l_f3.png",
+      "look": 4,
+      "state": "fish_net",
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        37,
+        89
+      ],
+      "parent_max_width": 68,
+      "parent_max_height": 94,
+      "source_box": [
+        1208,
+        742,
+        1352,
+        1078
+      ],
+      "source_factor": 0.2703488372093023,
+      "detached_parts": 0,
+      "sha256": "98787dc44e4920ffe40d29221145f94b1bb0763929946d68bafe0b78fee58c47"
+    },
+    {
+      "file": "person_0_gather_basket_r_f0.png",
+      "look": 0,
+      "state": "gather_basket",
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        46,
+        51
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 63,
+      "source_box": [
+        65,
+        459,
+        266,
+        683
+      ],
+      "source_factor": 0.2376502002670227,
+      "detached_parts": 0,
+      "sha256": "0a5b95bfd4e79eaa45e62fc0d834303e97de2960aa80208041ac25e211a75e75"
+    },
+    {
+      "file": "person_0_gather_basket_r_f1.png",
+      "look": 0,
+      "state": "gather_basket",
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        41,
+        51
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 63,
+      "source_box": [
+        388,
+        460,
+        567,
+        683
+      ],
+      "source_factor": 0.2376502002670227,
+      "detached_parts": 0,
+      "sha256": "50de1b1a64a314e3e52a06241483de8fd767f185ac416633b4a5a47e94f5ddf0"
+    },
+    {
+      "file": "person_0_gather_basket_r_f2.png",
+      "look": 0,
+      "state": "gather_basket",
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        39,
+        51
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 63,
+      "source_box": [
+        716,
+        459,
+        889,
+        683
+      ],
+      "source_factor": 0.2376502002670227,
+      "detached_parts": 0,
+      "sha256": "024da1f3c3e12146757a5799788f8d8f714af453311db146017e2b0617373686"
+    },
+    {
+      "file": "person_0_gather_basket_r_f3.png",
+      "look": 0,
+      "state": "gather_basket",
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        44,
+        51
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 63,
+      "source_box": [
+        1037,
+        459,
+        1229,
+        683
+      ],
+      "source_factor": 0.2376502002670227,
+      "detached_parts": 0,
+      "sha256": "3d7b06341866bac52658367f4f316a3899693a24cad7f7ed877deb7eb1d25821"
+    },
+    {
+      "file": "person_0_gather_basket_l_f0.png",
+      "look": 0,
+      "state": "gather_basket",
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        45,
+        50
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 63,
+      "source_box": [
+        62,
+        733,
+        260,
+        951
+      ],
+      "source_factor": 0.2376502002670227,
+      "detached_parts": 0,
+      "sha256": "90de7d02ab0461b2b7bcdc51587ec12ef468bfb6da14f1f813ee30989689adba"
+    },
+    {
+      "file": "person_0_gather_basket_l_f1.png",
+      "look": 0,
+      "state": "gather_basket",
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        39,
+        50
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 63,
+      "source_box": [
+        408,
+        733,
+        582,
+        951
+      ],
+      "source_factor": 0.2376502002670227,
+      "detached_parts": 0,
+      "sha256": "562900a448b8ed9894b8e495715d706225443188f30999544c31cc2a9338da3b"
+    },
+    {
+      "file": "person_0_gather_basket_l_f2.png",
+      "look": 0,
+      "state": "gather_basket",
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        37,
+        50
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 63,
+      "source_box": [
+        740,
+        733,
+        904,
+        951
+      ],
+      "source_factor": 0.2376502002670227,
+      "detached_parts": 0,
+      "sha256": "2fcde6c6ab52de24d3e9f226bfb7ec552cdcdc5dd9dea72b17ec33e20be71188"
+    },
+    {
+      "file": "person_0_gather_basket_l_f3.png",
+      "look": 0,
+      "state": "gather_basket",
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        41,
+        50
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 63,
+      "source_box": [
+        1057,
+        733,
+        1240,
+        951
+      ],
+      "source_factor": 0.2376502002670227,
+      "detached_parts": 0,
+      "sha256": "5d14658572a5ff19896a5fa26950074160fcf687181fb549c5e9540e42c5728e"
+    },
+    {
+      "file": "person_0_eat_basket_r_f0.png",
+      "look": 0,
+      "state": "eat_basket",
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        37,
+        49
+      ],
+      "parent_max_width": 40,
+      "parent_max_height": 64,
+      "source_box": [
+        86,
+        992,
+        251,
+        1208
+      ],
+      "source_factor": 0.2376502002670227,
+      "detached_parts": 0,
+      "sha256": "1eae9f7d809612a6c750e098c619cfe48e4653ad318bb2ec052a6ef28177bef3"
+    },
+    {
+      "file": "person_0_eat_basket_r_f1.png",
+      "look": 0,
+      "state": "eat_basket",
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        37,
+        50
+      ],
+      "parent_max_width": 40,
+      "parent_max_height": 64,
+      "source_box": [
+        412,
+        991,
+        577,
+        1208
+      ],
+      "source_factor": 0.2376502002670227,
+      "detached_parts": 0,
+      "sha256": "30e678439f56c8a79b0a29a4f6a07a16e3764b550a1db15cfbcbb1c546d31e97"
+    },
+    {
+      "file": "person_0_eat_basket_l_f0.png",
+      "look": 0,
+      "state": "eat_basket",
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        37,
+        49
+      ],
+      "parent_max_width": 40,
+      "parent_max_height": 64,
+      "source_box": [
+        724,
+        993,
+        887,
+        1208
+      ],
+      "source_factor": 0.2376502002670227,
+      "detached_parts": 0,
+      "sha256": "56bdbb98fe8783ddce10a145353cf0ee1741fd2d8d1855b55fc8269fb4a4cdae"
+    },
+    {
+      "file": "person_0_eat_basket_l_f1.png",
+      "look": 0,
+      "state": "eat_basket",
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        37,
+        49
+      ],
+      "parent_max_width": 40,
+      "parent_max_height": 64,
+      "source_box": [
+        1050,
+        992,
+        1213,
+        1208
+      ],
+      "source_factor": 0.2376502002670227,
+      "detached_parts": 0,
+      "sha256": "6e8c8e5d25071b7ae56b7052d41df87e9c110186a9d468d0b2f2c4577a26fe2f"
+    },
+    {
+      "file": "person_1_gather_basket_r_f0.png",
+      "look": 1,
+      "state": "gather_basket",
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        52,
+        56
+      ],
+      "parent_max_width": 54,
+      "parent_max_height": 63,
+      "source_box": [
+        61,
+        445,
+        279,
+        677
+      ],
+      "source_factor": 0.24788732394366197,
+      "detached_parts": 0,
+      "sha256": "fe35b9fad0c9801a7782b4ccffeb67e00225316115b6d2018247004a82b6d2e6"
+    },
+    {
+      "file": "person_1_gather_basket_r_f1.png",
+      "look": 1,
+      "state": "gather_basket",
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        43,
+        56
+      ],
+      "parent_max_width": 54,
+      "parent_max_height": 63,
+      "source_box": [
+        370,
+        443,
+        553,
+        675
+      ],
+      "source_factor": 0.24788732394366197,
+      "detached_parts": 0,
+      "sha256": "3e3249bc6c7ac2a70c65f755892b045a543f6fb2a7e9926737658ba9a1901442"
+    },
+    {
+      "file": "person_1_gather_basket_r_f2.png",
+      "look": 1,
+      "state": "gather_basket",
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        44,
+        57
+      ],
+      "parent_max_width": 54,
+      "parent_max_height": 63,
+      "source_box": [
+        690,
+        437,
+        875,
+        677
+      ],
+      "source_factor": 0.24788732394366197,
+      "detached_parts": 0,
+      "sha256": "9e43d560dcf4e9f61f230b98749b0e64d22b0de94c8e37a69ed8e83969524e59"
+    },
+    {
+      "file": "person_1_gather_basket_r_f3.png",
+      "look": 1,
+      "state": "gather_basket",
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        44,
+        56
+      ],
+      "parent_max_width": 54,
+      "parent_max_height": 63,
+      "source_box": [
+        1002,
+        441,
+        1186,
+        676
+      ],
+      "source_factor": 0.24788732394366197,
+      "detached_parts": 0,
+      "sha256": "a471ce8244495f9b734184f33164f42531b437f4308fc88fa783c0d97e0d6381"
+    },
+    {
+      "file": "person_1_gather_basket_l_f0.png",
+      "look": 1,
+      "state": "gather_basket",
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        53,
+        56
+      ],
+      "parent_max_width": 54,
+      "parent_max_height": 63,
+      "source_box": [
+        60,
+        720,
+        280,
+        953
+      ],
+      "source_factor": 0.24788732394366197,
+      "detached_parts": 0,
+      "sha256": "af4d6191e4355a887129c130d9317c06c9a7950db1457f017b7f97510c42829a"
+    },
+    {
+      "file": "person_1_gather_basket_l_f1.png",
+      "look": 1,
+      "state": "gather_basket",
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        49,
+        56
+      ],
+      "parent_max_width": 54,
+      "parent_max_height": 63,
+      "source_box": [
+        383,
+        719,
+        590,
+        954
+      ],
+      "source_factor": 0.24788732394366197,
+      "detached_parts": 0,
+      "sha256": "ee127e7a85aad287f4d4b31489e9f4baf104553b0cf34afb2ff57370276809af"
+    },
+    {
+      "file": "person_1_gather_basket_l_f2.png",
+      "look": 1,
+      "state": "gather_basket",
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        45,
+        57
+      ],
+      "parent_max_width": 54,
+      "parent_max_height": 63,
+      "source_box": [
+        704,
+        716,
+        893,
+        954
+      ],
+      "source_factor": 0.24788732394366197,
+      "detached_parts": 0,
+      "sha256": "050ba286992018d59e35f0e88f1e3f0312e8559c5fd09fd181755829240df0b2"
+    },
+    {
+      "file": "person_1_gather_basket_l_f3.png",
+      "look": 1,
+      "state": "gather_basket",
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        46,
+        56
+      ],
+      "parent_max_width": 54,
+      "parent_max_height": 63,
+      "source_box": [
+        1023,
+        718,
+        1216,
+        953
+      ],
+      "source_factor": 0.24788732394366197,
+      "detached_parts": 0,
+      "sha256": "b243267d3ff6e663d2f57a0104c1d62c2b37dd0fe3298ebc9e4b6c384b97437e"
+    },
+    {
+      "file": "person_1_eat_basket_r_f0.png",
+      "look": 1,
+      "state": "eat_basket",
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        43,
+        55
+      ],
+      "parent_max_width": 42,
+      "parent_max_height": 68,
+      "source_box": [
+        80,
+        996,
+        260,
+        1227
+      ],
+      "source_factor": 0.24788732394366197,
+      "detached_parts": 0,
+      "sha256": "dfddf908b51b14d245eb445a5c87e5b3d17c0e2914a4060bb265063ed6049bc3"
+    },
+    {
+      "file": "person_1_eat_basket_r_f1.png",
+      "look": 1,
+      "state": "eat_basket",
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        40,
+        55
+      ],
+      "parent_max_width": 42,
+      "parent_max_height": 68,
+      "source_box": [
+        393,
+        996,
+        563,
+        1227
+      ],
+      "source_factor": 0.24788732394366197,
+      "detached_parts": 0,
+      "sha256": "09ac09baf2781e43b84c3f9ad426c83c23b4395d72ee842f83eff6091c735f72"
+    },
+    {
+      "file": "person_1_eat_basket_l_f0.png",
+      "look": 1,
+      "state": "eat_basket",
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        42,
+        55
+      ],
+      "parent_max_width": 42,
+      "parent_max_height": 68,
+      "source_box": [
+        700,
+        998,
+        879,
+        1227
+      ],
+      "source_factor": 0.24788732394366197,
+      "detached_parts": 0,
+      "sha256": "4aee6fc007ef9cc55636effa22bffeb43c36e999db23a4f43bdab6c5952c78d5"
+    },
+    {
+      "file": "person_1_eat_basket_l_f1.png",
+      "look": 1,
+      "state": "eat_basket",
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        43,
+        55
+      ],
+      "parent_max_width": 42,
+      "parent_max_height": 68,
+      "source_box": [
+        1009,
+        998,
+        1190,
+        1227
+      ],
+      "source_factor": 0.24788732394366197,
+      "detached_parts": 0,
+      "sha256": "8e8a8d4a4f6c8e7c64b61a654bbcdb2a4684d05857d2edf5c27cd36abf0ccf7d"
+    },
+    {
+      "file": "person_2_gather_basket_r_f0.png",
+      "look": 2,
+      "state": "gather_basket",
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        40,
+        62
+      ],
+      "parent_max_width": 54,
+      "parent_max_height": 64,
+      "source_box": [
+        76,
+        420,
+        240,
+        671
+      ],
+      "source_factor": 0.25558659217877094,
+      "detached_parts": 0,
+      "sha256": "228722cff4b94b89fcf656fda9ea8bedc1a6f75dad2c8ac14d860537d4c474d5"
+    },
+    {
+      "file": "person_2_gather_basket_r_f1.png",
+      "look": 2,
+      "state": "gather_basket",
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        42,
+        60
+      ],
+      "parent_max_width": 54,
+      "parent_max_height": 64,
+      "source_box": [
+        378,
+        430,
+        550,
+        671
+      ],
+      "source_factor": 0.25558659217877094,
+      "detached_parts": 0,
+      "sha256": "e6800d8ec45157cf47946ee5bf09f0e888418da53e6f854be6cd8ce4115e5436"
+    },
+    {
+      "file": "person_2_gather_basket_r_f2.png",
+      "look": 2,
+      "state": "gather_basket",
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        42,
+        61
+      ],
+      "parent_max_width": 54,
+      "parent_max_height": 64,
+      "source_box": [
+        689,
+        424,
+        860,
+        671
+      ],
+      "source_factor": 0.25558659217877094,
+      "detached_parts": 0,
+      "sha256": "21affc612c44bf037193eb1bb7d256b669ab2378add15ff46fd3c81735ab9b34"
+    },
+    {
+      "file": "person_2_gather_basket_r_f3.png",
+      "look": 2,
+      "state": "gather_basket",
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        40,
+        61
+      ],
+      "parent_max_width": 54,
+      "parent_max_height": 64,
+      "source_box": [
+        990,
+        423,
+        1154,
+        671
+      ],
+      "source_factor": 0.25558659217877094,
+      "detached_parts": 0,
+      "sha256": "ed2e529d14a1acb00f2fcc7123ca0062e0e5d85d97c66e5cf56ab1ef1af4f27d"
+    },
+    {
+      "file": "person_2_gather_basket_l_f0.png",
+      "look": 2,
+      "state": "gather_basket",
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        42,
+        59
+      ],
+      "parent_max_width": 54,
+      "parent_max_height": 64,
+      "source_box": [
+        75,
+        701,
+        248,
+        938
+      ],
+      "source_factor": 0.25558659217877094,
+      "detached_parts": 0,
+      "sha256": "6d814c26b5e4505c8ce0ac5d6dffa581f1a51b81befce934e80efd6bbf36bae9"
+    },
+    {
+      "file": "person_2_gather_basket_l_f1.png",
+      "look": 2,
+      "state": "gather_basket",
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        42,
+        56
+      ],
+      "parent_max_width": 54,
+      "parent_max_height": 64,
+      "source_box": [
+        385,
+        713,
+        557,
+        939
+      ],
+      "source_factor": 0.25558659217877094,
+      "detached_parts": 0,
+      "sha256": "83dc1ccdca7871b5eccdff33d479790d16c9bf98edc8ea9575f91622c903199c"
+    },
+    {
+      "file": "person_2_gather_basket_l_f2.png",
+      "look": 2,
+      "state": "gather_basket",
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        41,
+        59
+      ],
+      "parent_max_width": 54,
+      "parent_max_height": 64,
+      "source_box": [
+        682,
+        701,
+        851,
+        938
+      ],
+      "source_factor": 0.25558659217877094,
+      "detached_parts": 0,
+      "sha256": "56adb48dcb5f039bc1e755ff32ac3565860a021379b034e450c10b4a6f0b7b20"
+    },
+    {
+      "file": "person_2_gather_basket_l_f3.png",
+      "look": 2,
+      "state": "gather_basket",
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        41,
+        59
+      ],
+      "parent_max_width": 54,
+      "parent_max_height": 64,
+      "source_box": [
+        987,
+        701,
+        1156,
+        939
+      ],
+      "source_factor": 0.25558659217877094,
+      "detached_parts": 0,
+      "sha256": "4cf97894f5efcddae69cf49d9d2508e856b3bbbf31d9332569c259bd4532fd37"
+    },
+    {
+      "file": "person_2_eat_basket_r_f0.png",
+      "look": 2,
+      "state": "eat_basket",
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        39,
+        61
+      ],
+      "parent_max_width": 44,
+      "parent_max_height": 69,
+      "source_box": [
+        74,
+        971,
+        235,
+        1219
+      ],
+      "source_factor": 0.25558659217877094,
+      "detached_parts": 0,
+      "sha256": "36d369837e243b67370fbed6f3fabbb3d5df1d474b5c525f4b02c727972abbf9"
+    },
+    {
+      "file": "person_2_eat_basket_r_f1.png",
+      "look": 2,
+      "state": "eat_basket",
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        38,
+        61
+      ],
+      "parent_max_width": 44,
+      "parent_max_height": 69,
+      "source_box": [
+        378,
+        971,
+        534,
+        1218
+      ],
+      "source_factor": 0.25558659217877094,
+      "detached_parts": 0,
+      "sha256": "8b888705cf100fd159f291bb5df52251d2d43755f655ef1013d0c597be323e76"
+    },
+    {
+      "file": "person_2_eat_basket_l_f0.png",
+      "look": 2,
+      "state": "eat_basket",
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        40,
+        61
+      ],
+      "parent_max_width": 44,
+      "parent_max_height": 69,
+      "source_box": [
+        702,
+        971,
+        865,
+        1218
+      ],
+      "source_factor": 0.25558659217877094,
+      "detached_parts": 0,
+      "sha256": "08e2f51a4071f72e159ab55172c985e7af496491821a02e39405384ebfe6db73"
+    },
+    {
+      "file": "person_2_eat_basket_l_f1.png",
+      "look": 2,
+      "state": "eat_basket",
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        41,
+        61
+      ],
+      "parent_max_width": 44,
+      "parent_max_height": 69,
+      "source_box": [
+        1007,
+        971,
+        1175,
+        1219
+      ],
+      "source_factor": 0.25558659217877094,
+      "detached_parts": 0,
+      "sha256": "ad6ecaf834f92761622c7ad5bc931e120f3edcdfe75a5615a3c7ecfc4529ba9f"
+    },
+    {
+      "file": "person_3_gather_basket_r_f0.png",
+      "look": 3,
+      "state": "gather_basket",
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        49,
+        51
+      ],
+      "parent_max_width": 53,
+      "parent_max_height": 53,
+      "source_box": [
+        55,
+        431,
+        276,
+        659
+      ],
+      "source_factor": 0.2324561403508772,
+      "detached_parts": 0,
+      "sha256": "fbcda248426c50dac49ea4035a4df9514bec2be74a29d7360be8e1d80142b18e"
+    },
+    {
+      "file": "person_3_gather_basket_r_f1.png",
+      "look": 3,
+      "state": "gather_basket",
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        43,
+        48
+      ],
+      "parent_max_width": 53,
+      "parent_max_height": 53,
+      "source_box": [
+        372,
+        444,
+        564,
+        659
+      ],
+      "source_factor": 0.2324561403508772,
+      "detached_parts": 0,
+      "sha256": "dc5f38415d43e78c23743831b41edc333cabf52feb0342f34e6a8a97aa029c53"
+    },
+    {
+      "file": "person_3_gather_basket_r_f2.png",
+      "look": 3,
+      "state": "gather_basket",
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        37,
+        51
+      ],
+      "parent_max_width": 53,
+      "parent_max_height": 53,
+      "source_box": [
+        694,
+        431,
+        863,
+        659
+      ],
+      "source_factor": 0.2324561403508772,
+      "detached_parts": 0,
+      "sha256": "a61e8fee8b91d508c424c660a808e6faf75d1cdf28f6c53a78c0f0445338468f"
+    },
+    {
+      "file": "person_3_gather_basket_r_f3.png",
+      "look": 3,
+      "state": "gather_basket",
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        41,
+        49
+      ],
+      "parent_max_width": 53,
+      "parent_max_height": 53,
+      "source_box": [
+        1007,
+        438,
+        1190,
+        659
+      ],
+      "source_factor": 0.2324561403508772,
+      "detached_parts": 0,
+      "sha256": "bee8f8a1a1f9266453652d4ef2e90502bcbba7d71d6ae528c4a7f81f793a6f1e"
+    },
+    {
+      "file": "person_3_gather_basket_l_f0.png",
+      "look": 3,
+      "state": "gather_basket",
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        51,
+        50
+      ],
+      "parent_max_width": 53,
+      "parent_max_height": 53,
+      "source_box": [
+        34,
+        709,
+        261,
+        932
+      ],
+      "source_factor": 0.2324561403508772,
+      "detached_parts": 0,
+      "sha256": "650ec743ecc6eb54638e30df498d3b23c95c20ce1284ecfeaa4344744b3f4f89"
+    },
+    {
+      "file": "person_3_gather_basket_l_f1.png",
+      "look": 3,
+      "state": "gather_basket",
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        43,
+        47
+      ],
+      "parent_max_width": 53,
+      "parent_max_height": 53,
+      "source_box": [
+        382,
+        721,
+        576,
+        932
+      ],
+      "source_factor": 0.2324561403508772,
+      "detached_parts": 0,
+      "sha256": "d7135ce7cd91c789290a94a130ba2f3f1f716f12c7d24b3090c181f8a36fff56"
+    },
+    {
+      "file": "person_3_gather_basket_l_f2.png",
+      "look": 3,
+      "state": "gather_basket",
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        37,
+        50
+      ],
+      "parent_max_width": 53,
+      "parent_max_height": 53,
+      "source_box": [
+        707,
+        708,
+        873,
+        932
+      ],
+      "source_factor": 0.2324561403508772,
+      "detached_parts": 0,
+      "sha256": "1dae13c20e96b87f8527740213ec0dd87fa60eac4816b5246623e7be8c907cf4"
+    },
+    {
+      "file": "person_3_gather_basket_l_f3.png",
+      "look": 3,
+      "state": "gather_basket",
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        41,
+        49
+      ],
+      "parent_max_width": 53,
+      "parent_max_height": 53,
+      "source_box": [
+        1010,
+        714,
+        1194,
+        932
+      ],
+      "source_factor": 0.2324561403508772,
+      "detached_parts": 0,
+      "sha256": "c888d409f9385bc1ead4ba9ed2139b437f93d5bbed53dc567e7081ca37b1e3df"
+    },
+    {
+      "file": "person_3_eat_basket_r_f0.png",
+      "look": 3,
+      "state": "eat_basket",
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        38,
+        53
+      ],
+      "parent_max_width": 44,
+      "parent_max_height": 63,
+      "source_box": [
+        69,
+        999,
+        243,
+        1234
+      ],
+      "source_factor": 0.2324561403508772,
+      "detached_parts": 0,
+      "sha256": "9f96cab64ac876705ac7349c3f9f3b407798a3abcec77efabf20e238adcd4bd5"
+    },
+    {
+      "file": "person_3_eat_basket_r_f1.png",
+      "look": 3,
+      "state": "eat_basket",
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        38,
+        52
+      ],
+      "parent_max_width": 44,
+      "parent_max_height": 63,
+      "source_box": [
+        378,
+        1000,
+        552,
+        1234
+      ],
+      "source_factor": 0.2324561403508772,
+      "detached_parts": 0,
+      "sha256": "d34bcccf56eac13d513060ab069b4ebe1652833c13f2cba4bcd8a41db77915c8"
+    },
+    {
+      "file": "person_3_eat_basket_l_f0.png",
+      "look": 3,
+      "state": "eat_basket",
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        37,
+        52
+      ],
+      "parent_max_width": 44,
+      "parent_max_height": 63,
+      "source_box": [
+        710,
+        1001,
+        878,
+        1234
+      ],
+      "source_factor": 0.2324561403508772,
+      "detached_parts": 0,
+      "sha256": "2830971c9ba5ed542061cce3e84f327e4baa551a6c1e88b16535f8a717bd5082"
+    },
+    {
+      "file": "person_3_eat_basket_l_f1.png",
+      "look": 3,
+      "state": "eat_basket",
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        38,
+        52
+      ],
+      "parent_max_width": 44,
+      "parent_max_height": 63,
+      "source_box": [
+        1020,
+        1001,
+        1190,
+        1234
+      ],
+      "source_factor": 0.2324561403508772,
+      "detached_parts": 0,
+      "sha256": "2c92f223503a35e81a2a4969e4963c015d9376a2c35e5d35dd26008608860d9b"
+    },
+    {
+      "file": "person_4_gather_basket_r_f0.png",
+      "look": 4,
+      "state": "gather_basket",
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        50,
+        62
+      ],
+      "parent_max_width": 53,
+      "parent_max_height": 74,
+      "source_box": [
+        112,
+        343,
+        285,
+        555
+      ],
+      "source_factor": 0.3,
+      "detached_parts": 0,
+      "sha256": "8f5f3aa3fe721452260e4fae0a873621b12c63d12145d6da7104550ac8ed3e4e"
+    },
+    {
+      "file": "person_4_gather_basket_r_f1.png",
+      "look": 4,
+      "state": "gather_basket",
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        45,
+        61
+      ],
+      "parent_max_width": 53,
+      "parent_max_height": 74,
+      "source_box": [
+        465,
+        344,
+        622,
+        555
+      ],
+      "source_factor": 0.3,
+      "detached_parts": 0,
+      "sha256": "a3bd0f12e906d22bedaf5a91060558cbd36059b53513721812a1f11863e3099d"
+    },
+    {
+      "file": "person_4_gather_basket_r_f2.png",
+      "look": 4,
+      "state": "gather_basket",
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        42,
+        61
+      ],
+      "parent_max_width": 53,
+      "parent_max_height": 74,
+      "source_box": [
+        882,
+        344,
+        1029,
+        555
+      ],
+      "source_factor": 0.3,
+      "detached_parts": 0,
+      "sha256": "91acc071bc99c322bb635a98ae78aa0fad8a6c262fca47fa59fe4014e3074dbc"
+    },
+    {
+      "file": "person_4_gather_basket_r_f3.png",
+      "look": 4,
+      "state": "gather_basket",
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        43,
+        61
+      ],
+      "parent_max_width": 53,
+      "parent_max_height": 74,
+      "source_box": [
+        1265,
+        344,
+        1414,
+        555
+      ],
+      "source_factor": 0.3,
+      "detached_parts": 0,
+      "sha256": "acd71a757b987641ba1b557a003847fa3975b8d440e99ac152e66a227379a1d4"
+    },
+    {
+      "file": "person_4_gather_basket_l_f0.png",
+      "look": 4,
+      "state": "gather_basket",
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        52,
+        61
+      ],
+      "parent_max_width": 53,
+      "parent_max_height": 74,
+      "source_box": [
+        97,
+        578,
+        276,
+        788
+      ],
+      "source_factor": 0.3,
+      "detached_parts": 0,
+      "sha256": "f3afb56a03671add7fc280d85095b26a88d84d7ebc94ac7cd9eaa905937bc508"
+    },
+    {
+      "file": "person_4_gather_basket_l_f1.png",
+      "look": 4,
+      "state": "gather_basket",
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        46,
+        61
+      ],
+      "parent_max_width": 53,
+      "parent_max_height": 74,
+      "source_box": [
+        467,
+        577,
+        627,
+        788
+      ],
+      "source_factor": 0.3,
+      "detached_parts": 0,
+      "sha256": "6ea797d8ac49326a5a2e8214fa085b9823a1166cf326da902f305783c5a65e32"
+    },
+    {
+      "file": "person_4_gather_basket_l_f2.png",
+      "look": 4,
+      "state": "gather_basket",
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        42,
+        62
+      ],
+      "parent_max_width": 53,
+      "parent_max_height": 74,
+      "source_box": [
+        892,
+        576,
+        1039,
+        788
+      ],
+      "source_factor": 0.3,
+      "detached_parts": 0,
+      "sha256": "432b1ff2a089018087c5ef19ad69d55ec7e223d2bafe49da49c2331ce760f800"
+    },
+    {
+      "file": "person_4_gather_basket_l_f3.png",
+      "look": 4,
+      "state": "gather_basket",
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        43,
+        61
+      ],
+      "parent_max_width": 53,
+      "parent_max_height": 74,
+      "source_box": [
+        1277,
+        577,
+        1426,
+        788
+      ],
+      "source_factor": 0.3,
+      "detached_parts": 0,
+      "sha256": "eeed782775f6f393867d11fdee425b726fbf652e1933a39670bd3e5e2402d405"
+    },
+    {
+      "file": "person_4_eat_basket_r_f0.png",
+      "look": 4,
+      "state": "eat_basket",
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        44,
+        62
+      ],
+      "parent_max_width": 44,
+      "parent_max_height": 73,
+      "source_box": [
+        123,
+        811,
+        277,
+        1024
+      ],
+      "source_factor": 0.3,
+      "detached_parts": 0,
+      "sha256": "1faebd442fff52806f4358f2498299db840f237117392be277eec9447eeb57c8"
+    },
+    {
+      "file": "person_4_eat_basket_r_f1.png",
+      "look": 4,
+      "state": "eat_basket",
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        44,
+        62
+      ],
+      "parent_max_width": 44,
+      "parent_max_height": 73,
+      "source_box": [
+        476,
+        812,
+        628,
+        1024
+      ],
+      "source_factor": 0.3,
+      "detached_parts": 0,
+      "sha256": "e88b7ee89444bdc56eb46db4dd352a6460b547486124bfea52ef0ffaf9eb3d23"
+    },
+    {
+      "file": "person_4_eat_basket_l_f0.png",
+      "look": 4,
+      "state": "eat_basket",
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        44,
+        61
+      ],
+      "parent_max_width": 44,
+      "parent_max_height": 73,
+      "source_box": [
+        875,
+        814,
+        1028,
+        1024
+      ],
+      "source_factor": 0.3,
+      "detached_parts": 0,
+      "sha256": "f850f859f952937e61fd9a12a80e9bcc76b7532a3c2ec01206083026c2d31e42"
+    },
+    {
+      "file": "person_4_eat_basket_l_f1.png",
+      "look": 4,
+      "state": "eat_basket",
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        44,
+        61
+      ],
+      "parent_max_width": 44,
+      "parent_max_height": 73,
+      "source_box": [
+        1260,
+        814,
+        1413,
+        1024
+      ],
+      "source_factor": 0.3,
+      "detached_parts": 0,
+      "sha256": "9266b5b66311ed637fbbe933308ec4c1cf43538463026234165fa3b496aa4e4c"
+    },
+    {
+      "file": "person_0_build_axe_r_f0.png",
+      "look": 0,
+      "state": "build_axe",
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        40,
+        87
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 89,
+      "source_box": [
+        107,
+        369,
+        272,
+        716
+      ],
+      "source_factor": 0.25722543352601157,
+      "detached_parts": 0,
+      "sha256": "c1637b78ce3a4883a9c868be6385d5b767e990e87dcaffd6e2e572d7b2a00d47"
+    },
+    {
+      "file": "person_0_build_axe_r_f1.png",
+      "look": 0,
+      "state": "build_axe",
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        35,
+        87
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 89,
+      "source_box": [
+        476,
+        370,
+        619,
+        717
+      ],
+      "source_factor": 0.25722543352601157,
+      "detached_parts": 0,
+      "sha256": "170ee2c5f690be71f7ac6f9bcba847164edcaeb17285f37ed4c82c9116dc4f3e"
+    },
+    {
+      "file": "person_0_build_axe_r_f2.png",
+      "look": 0,
+      "state": "build_axe",
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        40,
+        87
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 89,
+      "source_box": [
+        821,
+        370,
+        984,
+        715
+      ],
+      "source_factor": 0.25722543352601157,
+      "detached_parts": 0,
+      "sha256": "b1881b7ef2982f2ab590c3a4944700cfdd2cf6491798be13689e3511ad2041a5"
+    },
+    {
+      "file": "person_0_build_axe_r_f3.png",
+      "look": 0,
+      "state": "build_axe",
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        33,
+        86
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 89,
+      "source_box": [
+        1207,
+        370,
+        1344,
+        714
+      ],
+      "source_factor": 0.25722543352601157,
+      "detached_parts": 0,
+      "sha256": "0de3a426a397aaf2ca7bbf5f4f663da2b818ad1bce55282a283d1ca5aac04aa1"
+    },
+    {
+      "file": "person_0_build_axe_l_f0.png",
+      "look": 0,
+      "state": "build_axe",
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        42,
+        87
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 89,
+      "source_box": [
+        93,
+        729,
+        264,
+        1076
+      ],
+      "source_factor": 0.25722543352601157,
+      "detached_parts": 0,
+      "sha256": "99fb3bd5e651801c4b823d264b80902ec4795dd6fcb2e9ec166c6dee6a50f05f"
+    },
+    {
+      "file": "person_0_build_axe_l_f1.png",
+      "look": 0,
+      "state": "build_axe",
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        35,
+        87
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 89,
+      "source_box": [
+        455,
+        730,
+        598,
+        1075
+      ],
+      "source_factor": 0.25722543352601157,
+      "detached_parts": 0,
+      "sha256": "254557161be0734536aeba7af6d74169e060dd0302bdac611d98641674f0b59a"
+    },
+    {
+      "file": "person_0_build_axe_l_f2.png",
+      "look": 0,
+      "state": "build_axe",
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        41,
+        87
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 89,
+      "source_box": [
+        810,
+        731,
+        977,
+        1076
+      ],
+      "source_factor": 0.25722543352601157,
+      "detached_parts": 0,
+      "sha256": "d113938da44bbc7146ea637dc5a034748707aff50cb509e52752b11feb376305"
+    },
+    {
+      "file": "person_0_build_axe_l_f3.png",
+      "look": 0,
+      "state": "build_axe",
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        35,
+        86
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 89,
+      "source_box": [
+        1179,
+        732,
+        1321,
+        1073
+      ],
+      "source_factor": 0.25722543352601157,
+      "detached_parts": 0,
+      "sha256": "e330204dace656dcd3d99bd773869b2751f2462451d0911bf6d33cb11a4bde1d"
+    },
+    {
+      "file": "person_1_build_axe_r_f0.png",
+      "look": 1,
+      "state": "build_axe",
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        35,
+        87
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 90,
+      "source_box": [
+        117,
+        350,
+        254,
+        674
+      ],
+      "source_factor": 0.2732919254658385,
+      "detached_parts": 0,
+      "sha256": "54f7049b8f84aa1dec573a9a38d21eec8a485c968c52136bf8044958d3b7ca95"
+    },
+    {
+      "file": "person_1_build_axe_r_f1.png",
+      "look": 1,
+      "state": "build_axe",
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        35,
+        85
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 90,
+      "source_box": [
+        444,
+        353,
+        579,
+        672
+      ],
+      "source_factor": 0.2732919254658385,
+      "detached_parts": 0,
+      "sha256": "96cc2db404005387b15dd65eca814e0797a408b05edeb006cbebcd0ef8070b4f"
+    },
+    {
+      "file": "person_1_build_axe_r_f2.png",
+      "look": 1,
+      "state": "build_axe",
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        39,
+        83
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 90,
+      "source_box": [
+        850,
+        361,
+        999,
+        673
+      ],
+      "source_factor": 0.2732919254658385,
+      "detached_parts": 0,
+      "sha256": "29b2010f23eb063f3654818808dfb6b42810e0b056062f962b952cc1e6b19e00"
+    },
+    {
+      "file": "person_1_build_axe_r_f3.png",
+      "look": 1,
+      "state": "build_axe",
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        33,
+        84
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 90,
+      "source_box": [
+        1219,
+        354,
+        1348,
+        669
+      ],
+      "source_factor": 0.2732919254658385,
+      "detached_parts": 0,
+      "sha256": "e4cb2c2de52879be28e2c7fc9b60a26d1d2156f6622a0cab5865c9d724037fc2"
+    },
+    {
+      "file": "person_1_build_axe_l_f0.png",
+      "look": 1,
+      "state": "build_axe",
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        35,
+        87
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 90,
+      "source_box": [
+        122,
+        689,
+        258,
+        1015
+      ],
+      "source_factor": 0.2732919254658385,
+      "detached_parts": 0,
+      "sha256": "8313b90d4fdb476ac3f4ce432ce37ef883240e0dc5f1e4707eab26403fe4f92f"
+    },
+    {
+      "file": "person_1_build_axe_l_f1.png",
+      "look": 1,
+      "state": "build_axe",
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        40,
+        85
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 90,
+      "source_box": [
+        438,
+        695,
+        590,
+        1013
+      ],
+      "source_factor": 0.2732919254658385,
+      "detached_parts": 0,
+      "sha256": "b1e6737daefc102a2e0dd4b490e64103106c0444db4ee9950eac93af74d19dd2"
+    },
+    {
+      "file": "person_1_build_axe_l_f2.png",
+      "look": 1,
+      "state": "build_axe",
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        41,
+        82
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 90,
+      "source_box": [
+        854,
+        706,
+        1010,
+        1014
+      ],
+      "source_factor": 0.2732919254658385,
+      "detached_parts": 0,
+      "sha256": "4914b3fcfbebf6b8633d325525550d6e0dd48f0110405e4107d95d0b38846739"
+    },
+    {
+      "file": "person_1_build_axe_l_f3.png",
+      "look": 1,
+      "state": "build_axe",
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        35,
+        85
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 90,
+      "source_box": [
+        1209,
+        693,
+        1343,
+        1012
+      ],
+      "source_factor": 0.2732919254658385,
+      "detached_parts": 0,
+      "sha256": "5655fc8fae486cd015e979712166e1a7a622626144d13f1a8e7fb346a49f7ac9"
+    },
+    {
+      "file": "person_2_build_axe_r_f0.png",
+      "look": 2,
+      "state": "build_axe",
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        39,
+        89
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 93,
+      "source_box": [
+        110,
+        367,
+        267,
+        712
+      ],
+      "source_factor": 0.26406926406926406,
+      "detached_parts": 0,
+      "sha256": "f209deea1637b13e5003e435b84b11ee0d5466011d46a1c6a1b37a0ddf6b1580"
+    },
+    {
+      "file": "person_2_build_axe_r_f1.png",
+      "look": 2,
+      "state": "build_axe",
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        39,
+        89
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 93,
+      "source_box": [
+        471,
+        367,
+        625,
+        711
+      ],
+      "source_factor": 0.26406926406926406,
+      "detached_parts": 0,
+      "sha256": "a5a715cd054f50c309470340585af748600b3548c5e599668db8d463116b4bcf"
+    },
+    {
+      "file": "person_2_build_axe_r_f2.png",
+      "look": 2,
+      "state": "build_axe",
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        38,
+        89
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 93,
+      "source_box": [
+        837,
+        367,
+        990,
+        712
+      ],
+      "source_factor": 0.26406926406926406,
+      "detached_parts": 0,
+      "sha256": "93092d6edb7363f0b746bc1b6c928c37c0a803f2c1f548793f12f5b1cdf48ead"
+    },
+    {
+      "file": "person_2_build_axe_r_f3.png",
+      "look": 2,
+      "state": "build_axe",
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        39,
+        89
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 93,
+      "source_box": [
+        1196,
+        367,
+        1350,
+        711
+      ],
+      "source_factor": 0.26406926406926406,
+      "detached_parts": 0,
+      "sha256": "6ef63a379d3304165cd5bc547a66c5e3bb9d55ea10a21fa845304d00b31043ab"
+    },
+    {
+      "file": "person_2_build_axe_l_f0.png",
+      "look": 2,
+      "state": "build_axe",
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        38,
+        88
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 93,
+      "source_box": [
+        100,
+        729,
+        250,
+        1069
+      ],
+      "source_factor": 0.26406926406926406,
+      "detached_parts": 0,
+      "sha256": "8b0bd06f4ca42d2e633de1cd4af4c5d3e4afc5eec5279634452907b2cd747862"
+    },
+    {
+      "file": "person_2_build_axe_l_f1.png",
+      "look": 2,
+      "state": "build_axe",
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        37,
+        88
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 93,
+      "source_box": [
+        460,
+        729,
+        609,
+        1070
+      ],
+      "source_factor": 0.26406926406926406,
+      "detached_parts": 0,
+      "sha256": "93367ad3180223d5b0c2dcd278fa663c8a0018995648dab8e37be348430e2b46"
+    },
+    {
+      "file": "person_2_build_axe_l_f2.png",
+      "look": 2,
+      "state": "build_axe",
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        38,
+        88
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 93,
+      "source_box": [
+        824,
+        729,
+        974,
+        1069
+      ],
+      "source_factor": 0.26406926406926406,
+      "detached_parts": 0,
+      "sha256": "9c60fa7f9445384971cc838c9d04cd5ba78543caa67c70d0f2419444bbf31b51"
+    },
+    {
+      "file": "person_2_build_axe_l_f3.png",
+      "look": 2,
+      "state": "build_axe",
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        38,
+        88
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 93,
+      "source_box": [
+        1184,
+        729,
+        1334,
+        1070
+      ],
+      "source_factor": 0.26406926406926406,
+      "detached_parts": 0,
+      "sha256": "f9536311e14980f19e11a16185b96809b10cde45965cab8e2c21e72f561284fa"
+    },
+    {
+      "file": "person_3_build_axe_r_f0.png",
+      "look": 3,
+      "state": "build_axe",
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        44,
+        78
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 79,
+      "source_box": [
+        97,
+        375,
+        289,
+        712
+      ],
+      "source_factor": 0.2383808095952024,
+      "detached_parts": 0,
+      "sha256": "51d7fe09b78649d0160c141f6617aeef7fc22f7f47f5caaf760518d4decb358a"
+    },
+    {
+      "file": "person_3_build_axe_r_f1.png",
+      "look": 3,
+      "state": "build_axe",
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        47,
+        77
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 79,
+      "source_box": [
+        437,
+        380,
+        642,
+        710
+      ],
+      "source_factor": 0.2383808095952024,
+      "detached_parts": 0,
+      "sha256": "4125e12fbb6437146aa3b490809a31e97555fa8a1c7601eea9bc04e1152c2bc5"
+    },
+    {
+      "file": "person_3_build_axe_r_f2.png",
+      "look": 3,
+      "state": "build_axe",
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        44,
+        77
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 79,
+      "source_box": [
+        819,
+        382,
+        1010,
+        712
+      ],
+      "source_factor": 0.2383808095952024,
+      "detached_parts": 0,
+      "sha256": "a2bbe1a681e6539ec18b24b61cfff90f34d194c6182e7ec74481d070e0fc5398"
+    },
+    {
+      "file": "person_3_build_axe_r_f3.png",
+      "look": 3,
+      "state": "build_axe",
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        40,
+        77
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 79,
+      "source_box": [
+        1188,
+        376,
+        1363,
+        709
+      ],
+      "source_factor": 0.2383808095952024,
+      "detached_parts": 0,
+      "sha256": "1adccaad1d1c63bc124f872ce8cec85d951a3887379a5a3936d557a2f1e46111"
+    },
+    {
+      "file": "person_3_build_axe_l_f0.png",
+      "look": 3,
+      "state": "build_axe",
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        46,
+        77
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 79,
+      "source_box": [
+        74,
+        738,
+        274,
+        1071
+      ],
+      "source_factor": 0.2383808095952024,
+      "detached_parts": 0,
+      "sha256": "cb804ba139fd13c4e53e16e55efe6928a1f340de9d44f552297a76d0db50d7d5"
+    },
+    {
+      "file": "person_3_build_axe_l_f1.png",
+      "look": 3,
+      "state": "build_axe",
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        48,
+        77
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 79,
+      "source_box": [
+        435,
+        741,
+        644,
+        1073
+      ],
+      "source_factor": 0.2383808095952024,
+      "detached_parts": 0,
+      "sha256": "930a3066aab4a23e4b90fe7d6a6656e43e3b97df7af98df787790ac1bcfc60a9"
+    },
+    {
+      "file": "person_3_build_axe_l_f2.png",
+      "look": 3,
+      "state": "build_axe",
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        46,
+        76
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 79,
+      "source_box": [
+        796,
+        744,
+        998,
+        1073
+      ],
+      "source_factor": 0.2383808095952024,
+      "detached_parts": 0,
+      "sha256": "1e4fd4f53f35c9975b1d27a2a387ea41aaa7a309e54a4e13cc872264c08b2bb5"
+    },
+    {
+      "file": "person_3_build_axe_l_f3.png",
+      "look": 3,
+      "state": "build_axe",
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        40,
+        77
+      ],
+      "parent_max_width": 49,
+      "parent_max_height": 79,
+      "source_box": [
+        1164,
+        739,
+        1341,
+        1071
+      ],
+      "source_factor": 0.2383808095952024,
+      "detached_parts": 0,
+      "sha256": "014180f15a13a026631a26660235588454fc46e6a0afb16fc4a448c24d95d7cc"
+    },
+    {
+      "file": "person_4_build_axe_r_f0.png",
+      "look": 4,
+      "state": "build_axe",
+      "direction": "r",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        39,
+        91
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 95,
+      "source_box": [
+        113,
+        363,
+        265,
+        710
+      ],
+      "source_factor": 0.2672413793103448,
+      "detached_parts": 0,
+      "sha256": "a145e2ae92dc907f192b534c1ad933d8d9cc9f2a69e8efbb2fb12d855d49d691"
+    },
+    {
+      "file": "person_4_build_axe_r_f1.png",
+      "look": 4,
+      "state": "build_axe",
+      "direction": "r",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        39,
+        89
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 95,
+      "source_box": [
+        474,
+        369,
+        629,
+        710
+      ],
+      "source_factor": 0.2672413793103448,
+      "detached_parts": 0,
+      "sha256": "932ffe799d3d122e2adc8a691b2c11ab94d0224ae03a38e78dda5cccb68aca58"
+    },
+    {
+      "file": "person_4_build_axe_r_f2.png",
+      "look": 4,
+      "state": "build_axe",
+      "direction": "r",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        38,
+        89
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 95,
+      "source_box": [
+        838,
+        369,
+        989,
+        710
+      ],
+      "source_factor": 0.2672413793103448,
+      "detached_parts": 0,
+      "sha256": "71865e090d9a9e895755ad7f98421f755d3d1bb7ea875bfd3ec423cb186df788"
+    },
+    {
+      "file": "person_4_build_axe_r_f3.png",
+      "look": 4,
+      "state": "build_axe",
+      "direction": "r",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        39,
+        89
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 95,
+      "source_box": [
+        1190,
+        371,
+        1343,
+        711
+      ],
+      "source_factor": 0.2672413793103448,
+      "detached_parts": 0,
+      "sha256": "9c1950b8a5f62e0f781f3d656220aa639315bcb2f33e50ad603e78502915ac56"
+    },
+    {
+      "file": "person_4_build_axe_l_f0.png",
+      "look": 4,
+      "state": "build_axe",
+      "direction": "l",
+      "frame": 0,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        38,
+        90
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 95,
+      "source_box": [
+        121,
+        726,
+        272,
+        1069
+      ],
+      "source_factor": 0.2672413793103448,
+      "detached_parts": 0,
+      "sha256": "756aba50fd7429ded811a2580cefe790dc6ec90cf0efadaffd894008617b2a90"
+    },
+    {
+      "file": "person_4_build_axe_l_f1.png",
+      "look": 4,
+      "state": "build_axe",
+      "direction": "l",
+      "frame": 1,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        37,
+        90
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 95,
+      "source_box": [
+        471,
+        727,
+        618,
+        1070
+      ],
+      "source_factor": 0.2672413793103448,
+      "detached_parts": 0,
+      "sha256": "a6e18a031e8df1fe7a7620735d4a5db6e067e594d8d911a893bef6a9a2ac7032"
+    },
+    {
+      "file": "person_4_build_axe_l_f2.png",
+      "look": 4,
+      "state": "build_axe",
+      "direction": "l",
+      "frame": 2,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        38,
+        90
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 95,
+      "source_box": [
+        828,
+        726,
+        979,
+        1070
+      ],
+      "source_factor": 0.2672413793103448,
+      "detached_parts": 0,
+      "sha256": "d41d8bae7af9d4adae17b1e529d96b2759c9114b48b7621849670414d7f8f7b8"
+    },
+    {
+      "file": "person_4_build_axe_l_f3.png",
+      "look": 4,
+      "state": "build_axe",
+      "direction": "l",
+      "frame": 3,
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "opaque_size": [
+        37,
+        90
+      ],
+      "parent_max_width": 50,
+      "parent_max_height": 95,
+      "source_box": [
+        1186,
+        724,
+        1331,
+        1070
+      ],
+      "source_factor": 0.2672413793103448,
+      "detached_parts": 0,
+      "sha256": "49fbf788f81d4db6bfa942964ed1d854d41266c7fdf9e53f991294bbe3847b0e"
+    }
+  ],
+  "scales": [
+    {
+      "kind": "net",
+      "look": 0,
+      "factor": 0.2564841498559078,
+      "old_idle_height": 89.0,
+      "source_standing_height": 347.0,
+      "calibration_cells": 4
+    },
+    {
+      "kind": "net",
+      "look": 1,
+      "factor": 0.2607407407407407,
+      "old_idle_height": 88.0,
+      "source_standing_height": 337.5,
+      "calibration_cells": 4
+    },
+    {
+      "kind": "net",
+      "look": 2,
+      "factor": 0.27232142857142855,
+      "old_idle_height": 91.5,
+      "source_standing_height": 336.0,
+      "calibration_cells": 4
+    },
+    {
+      "kind": "net",
+      "look": 3,
+      "factor": 0.19974874371859297,
+      "old_idle_height": 79.5,
+      "source_standing_height": 398.0,
+      "calibration_cells": 4
+    },
+    {
+      "kind": "net",
+      "look": 4,
+      "factor": 0.2703488372093023,
+      "old_idle_height": 93.0,
+      "source_standing_height": 344.0,
+      "calibration_cells": 4
+    },
+    {
+      "kind": "basket",
+      "look": 0,
+      "factor": 0.2376502002670227,
+      "old_idle_height": 89.0,
+      "source_standing_height": 374.5,
+      "calibration_cells": 4
+    },
+    {
+      "kind": "basket",
+      "look": 1,
+      "factor": 0.24788732394366197,
+      "old_idle_height": 88.0,
+      "source_standing_height": 355.0,
+      "calibration_cells": 4
+    },
+    {
+      "kind": "basket",
+      "look": 2,
+      "factor": 0.25558659217877094,
+      "old_idle_height": 91.5,
+      "source_standing_height": 358.0,
+      "calibration_cells": 4
+    },
+    {
+      "kind": "basket",
+      "look": 3,
+      "factor": 0.2324561403508772,
+      "old_idle_height": 79.5,
+      "source_standing_height": 342.0,
+      "calibration_cells": 4
+    },
+    {
+      "kind": "basket",
+      "look": 4,
+      "factor": 0.3,
+      "old_idle_height": 93.0,
+      "source_standing_height": 310.0,
+      "calibration_cells": 4
+    },
+    {
+      "kind": "axe",
+      "look": 0,
+      "factor": 0.25722543352601157,
+      "old_idle_height": 89.0,
+      "source_standing_height": 346.0,
+      "calibration_cells": 4
+    },
+    {
+      "kind": "axe",
+      "look": 1,
+      "factor": 0.2732919254658385,
+      "old_idle_height": 88.0,
+      "source_standing_height": 322.0,
+      "calibration_cells": 4
+    },
+    {
+      "kind": "axe",
+      "look": 2,
+      "factor": 0.26406926406926406,
+      "old_idle_height": 91.5,
+      "source_standing_height": 346.5,
+      "calibration_cells": 4
+    },
+    {
+      "kind": "axe",
+      "look": 3,
+      "factor": 0.2383808095952024,
+      "old_idle_height": 79.5,
+      "source_standing_height": 333.5,
+      "calibration_cells": 4
+    },
+    {
+      "kind": "axe",
+      "look": 4,
+      "factor": 0.2672413793103448,
+      "old_idle_height": 93.0,
+      "source_standing_height": 348.0,
+      "calibration_cells": 4
+    }
+  ],
+  "visual_approval": "pending",
+  "proportional_scaling": true,
+  "unchanged_foot_points": true,
+  "mirrored_directions": false
+}

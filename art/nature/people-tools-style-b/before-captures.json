@@ -1,0 +1,110 @@
+[
+  {
+    "image": "before-camp-zoom8.png",
+    "args": [
+      "--seed",
+      "5",
+      "--years",
+      "10",
+      "--menschen",
+      "--danach",
+      "30",
+      "--days",
+      "0",
+      "--select",
+      "19,44",
+      "--zoom",
+      "8"
+    ]
+  },
+  {
+    "image": "before-camp-zoom32.png",
+    "args": [
+      "--seed",
+      "5",
+      "--years",
+      "10",
+      "--menschen",
+      "--danach",
+      "30",
+      "--days",
+      "0",
+      "--select",
+      "19,44",
+      "--zoom",
+      "32"
+    ]
+  },
+  {
+    "image": "before-net-zoom8.png",
+    "args": [
+      "--seed",
+      "5",
+      "--years",
+      "10",
+      "--menschen",
+      "--danach",
+      "30",
+      "--days",
+      "0",
+      "--select",
+      "22,48",
+      "--zoom",
+      "8"
+    ]
+  },
+  {
+    "image": "before-net-zoom32.png",
+    "args": [
+      "--seed",
+      "5",
+      "--years",
+      "10",
+      "--menschen",
+      "--danach",
+      "30",
+      "--days",
+      "0",
+      "--select",
+      "22,48",
+      "--zoom",
+      "32"
+    ]
+  },
+  {
+    "image": "before-axe-zoom8.png",
+    "args": [
+      "--seed",
+      "5",
+      "--years",
+      "10",
+      "--menschen",
+      "--danach",
+      "30",
+      "--days",
+      "2",
+      "--select",
+      "19,44",
+      "--zoom",
+      "8"
+    ]
+  },
+  {
+    "image": "before-axe-zoom32.png",
+    "args": [
+      "--seed",
+      "5",
+      "--years",
+      "10",
+      "--menschen",
+      "--danach",
+      "30",
+      "--days",
+      "2",
+      "--select",
+      "19,44",
+      "--zoom",
+      "32"
+    ]
+  }
+]

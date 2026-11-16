@@ -1,0 +1,17 @@
+adults=9 all_three=true
+id=1 name=Greta look=0 child=false activity=gather tool=Some("basket") xy=19,44
+id=3 name=Maren look=2 child=false activity=eat tool=Some("basket") xy=19,44
+id=5 name=Lone look=4 child=false activity=gather tool=Some("basket") xy=19,44
+id=6 name=Dagny look=0 child=false activity=eat tool=Some("basket") xy=19,44
+id=10 name=Knut look=1 child=false activity=eat tool=Some("basket") xy=19,41
+id=11 name=Ingo look=1 child=false activity=gather tool=Some("basket") xy=19,44
+id=12 name=Gorm look=1 child=false activity=eat tool=Some("basket") xy=19,43
+id=13 name=Nils look=3 child=false activity=fish tool=Some("net") xy=22,48
+id=14 name=Brin look=4 child=false activity=gather tool=Some("basket") xy=19,44
+id=15 name=Liv look=2 child=true activity=walk tool=None xy=19,44
+case days=0 tool=net activity=fish look=3 dir=l xy=22,48
+case days=0 tool=basket activity=gather look=0 dir=l xy=19,44
+case days=1 tool=net activity=fish look=0 dir=r xy=17,35
+case days=1 tool=basket activity=eat look=2 dir=r xy=19,41
+case days=2 tool=net activity=fish look=3 dir=r xy=17,38
+case days=2 tool=basket activity=eat look=2 dir=l xy=19,44

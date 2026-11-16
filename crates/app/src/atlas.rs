@@ -1260,7 +1260,11 @@ mod tests {
         let info = parse_manifests(embedded::MANIFESTS.iter().copied());
         let images: BTreeMap<_, _> = embedded::IMAGES
             .iter()
-            .filter(|(name, _, _)| name.starts_with("person_") && name.contains("_fish_"))
+            .filter(|(name, _, _)| {
+                name.starts_with("person_")
+                    && name.contains("_fish_")
+                    && !name.contains("_fish_net_")
+            })
             .map(|(name, _, bytes)| (name.to_string(), decode(bytes).expect("Fischfang-PNG")))
             .collect();
         assert_eq!(images.len(), 40);
@@ -1275,6 +1279,44 @@ mod tests {
                     assert_eq!(info.display[&name], Vec2::new(12.6, 13.5));
                     assert!(px.as_chunks::<4>().0.iter().any(|p| p[3] > 128));
                     assert!(phases.insert(px.clone()), "Doppelte Fischfangphase {name}");
+                }
+            }
+        }
+    }
+
+    /// Werkzeugbilder müssen vollständig eingebettet sein und die Erwachsenenanker erben.
+    #[test]
+    fn embedded_people_tools_complete_and_anchored() {
+        let info = parse_manifests(embedded::MANIFESTS.iter().copied());
+        let states = [
+            ("fish_net", 4),
+            ("gather_basket", 4),
+            ("eat_basket", 2),
+            ("build_axe", 4),
+        ];
+        let images: BTreeMap<_, _> = embedded::IMAGES
+            .iter()
+            .filter(|(name, _, _)| {
+                states
+                    .iter()
+                    .any(|(state, _)| name.contains(&format!("_{state}_")))
+            })
+            .map(|(name, _, bytes)| (name.to_string(), decode(bytes).expect("Werkzeug-PNG")))
+            .collect();
+        assert_eq!(images.len(), 140);
+        for look in 0..5 {
+            for (state, count) in states {
+                for dir in ["l", "r"] {
+                    let mut phases = std::collections::BTreeSet::new();
+                    for frame in 0..count {
+                        let name = format!("person_{look}_{state}_{dir}_f{frame}");
+                        let (w, h, px) = &images[&name];
+                        assert_eq!((*w, *h), (112, 120));
+                        assert_eq!(info.anchors[&name], Vec2::new(56.0, 112.0));
+                        assert_eq!(info.display[&name], Vec2::new(12.6, 13.5));
+                        assert!(px.as_chunks::<4>().0.iter().any(|p| p[3] > 128));
+                        assert!(phases.insert(px.clone()), "Doppelte Werkzeugphase {name}");
+                    }
                 }
             }
         }

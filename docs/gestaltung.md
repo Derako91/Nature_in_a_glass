@@ -592,7 +592,7 @@ Heutige Zeichenreihenfolge je Feld: Seitenwände (in 32-px-Streifen gekachelt, r
 
 000. **Fernansicht für Stil B** (nach dem Spielvergleich `art/nature/fox-ab/lod/`, 18.10.2026): Der Fuchs B ist ab Zoom 8 gut lesbar (bei Zoom 8 schon mit der berechneten Stufe), bei Zoom 4 nicht. Für jedes feine Tier im Stil B bitte eine `@fern`-Fassung (Weltmaß × 2 Bildpunkte, z. B. Fuchs 20 × 12) im selben Stil mit klarer Silhouette – Format in 16.6. Vor dem Einbau mit `--bilder` im Spiel prüfen.
 00. **Neuer Stil nach dem Fuchs-Entwurf** (Entscheidung Dennis, 18.10.2026): Der neue Fuchs-Entwurf (`art/nature/fox-ab/`) ist die verbindliche visuelle Referenz – plastischere Formen, warme natürliche Farben, erkennbare Anatomie, feinere Pixelstrukturen. Die Richtung gilt langfristig für Tiere, Menschen und Landschaft einschließlich Wasser. Codex überarbeitet dieses Dokument danach und prüft die eigenen Auflösungs- und Farbgrenzen (z. B. „höchstens sechs Farben“, Deckkraft-Stufen) – maßgeblich sind Lesbarkeit und die technischen Grenzen in 16.5. **Zuerst nur der Fuchs:** Entwurf als nutzbares Sprite, in Spielgröße und Nahansicht mit dem bisherigen Fuchs vergleichen, Weltmaß (Darstellungsbreite 10) und Fußpunkt beibehalten. Erst nach diesem Vergleich weitere Tiere und Animationen umstellen.
-0c. **Werkzeuge in der Hand** (17.11, seit v0.13.0): Netz, Korb, Steinbeil als eigene Fassungen von `_fish`, `_gather`/`_eat`, `_build`.
+0c. **Werkzeuge in der Hand** (17.11, seit v0.13.0): Netz, Korb, Steinbeil als eigene Fassungen von `_fish`, `_gather`/`_eat`, `_build`. 140 Bilder im Codex-Draft `codex/people-tools-style-b`, visuelle Abnahme offen.
 0b. **Gärten** (17.9, seit v0.10.0): Draft mit fünf Zuständen × vier Varianten auf `codex/garden-style-b`, [Prüfpaket](../art/nature/garden-style-b/README.md). Visuelle Abnahme offen; auf `main` bis zur Übernahme weiterhin Platzhalter.
 0a. **Lagerplätze** (17.8, seit v0.8.0): Einzelbild-Draft auf `codex/camp-sprites`: neun Lagerbilder und 40 `_build`-Phasen in `assets/nature/buildings/` und `people/`. Eigenes Gebäudemanifest, Spielvergleich Zoom 4/8/32 und Prüfbögen unter `art/nature/camp-review/`. Gestalterische Abnahme offen; im veröffentlichten Spiel weiterhin bisheriger Stand bis zur Übernahme.
 0. **Menschen** (Abschnitt 17): Die Simulation ist da (v0.6.0), im Spiel stehen Platzhalterfiguren. Bilder nach 17.3/17.4 ersetzen sie.
@@ -1171,6 +1171,15 @@ Namensschild gestalten möchte, bitte als Wunsch melden (`village_label` in
 `crates/app/src/view.rs`).
 
 ### 17.11 Werkzeuge in der Hand (v0.13) – Auftrag für Codex
+
+**Codex-Draft (16.11.2026):** 140 Werkzeugbilder im Branch
+`codex/people-tools-style-b`: 40 Netz-, 40 Sammelkorb-, 20 Esskorb- und
+40 Beil-/Holztragebilder. Fünf erwachsene Aussehen, beide Richtungen
+eigenständig, unveränderte Leinwände, Fußpunkte und Bilddauern.
+[Prüfpaket](../art/nature/people-tools-style-b/README.md) mit Quellen,
+Animationsschleifen, Maß-/Bestandsprüfung und echtem Spielvergleich
+Seed 5, +10 Jahre, Menschen +30 Jahre, Zoom 8/32.
+Einbettung gemäß wieder freigegebenem Atlas; visuelle Abnahme offen.
 
 Seit v0.13.0 erfinden die Bewohner selbst drei Werkzeuge und geben sie weiter
 (ADR 0011): **Netz** (aus Pflanzenfasern geknüpft), **Korb** (aus Weiden und
