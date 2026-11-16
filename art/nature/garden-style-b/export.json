@@ -1,0 +1,445 @@
+{
+  "files": [
+    {
+      "file": "garden_bare_0.png",
+      "sha256": "b95e22d71580b3a34e018a409858225e145610c8acdae14305ab46ba62e9736b",
+      "source_box": [
+        3,
+        3,
+        277,
+        277
+      ],
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "garden_bare_1.png",
+      "sha256": "aa18dc1a399c91af06f0fd2027f2338d58a9515c19f890dddc9a79094f96c42d",
+      "source_box": [
+        283,
+        3,
+        558,
+        277
+      ],
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "garden_bare_2.png",
+      "sha256": "f1be6925cc173c4134330ead5acd1e50106854671c17c705432e5cb1d0d05c3a",
+      "source_box": [
+        564,
+        3,
+        839,
+        277
+      ],
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "garden_bare_3.png",
+      "sha256": "8276c61ede9cc1b933b30a6b4e1c101dfc368fd33fb537ee0eee3a17ad2bfb36",
+      "source_box": [
+        845,
+        3,
+        1119,
+        277
+      ],
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "garden_sprout_0.png",
+      "sha256": "88001223a61def3f6763d3dfad67db97da981a8c0874b5531f54f66d22f42e68",
+      "source_box": [
+        3,
+        283,
+        277,
+        558
+      ],
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "garden_sprout_1.png",
+      "sha256": "a5091ca87d00b9f69367b9a89c9e40bbe03412151dcb6048b4690b93fecbbe5c",
+      "source_box": [
+        283,
+        283,
+        558,
+        558
+      ],
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "garden_sprout_2.png",
+      "sha256": "222bc58a5bd9de8e6743d401fd9a417fb562afcf74c7a3c668ebe65d833a5a3b",
+      "source_box": [
+        564,
+        283,
+        839,
+        558
+      ],
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "garden_sprout_3.png",
+      "sha256": "7c00f32c40833379d016b540c0844577cae934e608ed34a3928a8f35e74c5464",
+      "source_box": [
+        845,
+        283,
+        1119,
+        558
+      ],
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "garden_growing_0.png",
+      "sha256": "551924f8e16cb96c2f1a5c321c8f7365a66cc46e0964c32610d042eb47935706",
+      "source_box": [
+        3,
+        564,
+        277,
+        838
+      ],
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "garden_growing_1.png",
+      "sha256": "fb2bdcce5e9d557a53f42940eacd0502d2f3251c39b6d338cd435eafe9b36685",
+      "source_box": [
+        283,
+        564,
+        558,
+        838
+      ],
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "garden_growing_2.png",
+      "sha256": "ab8f871e33d6efb71d1728465ee01a4409f96d5c5dbeca570528852862a10734",
+      "source_box": [
+        564,
+        564,
+        839,
+        838
+      ],
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "garden_growing_3.png",
+      "sha256": "ffae15ae929eeba7eff176d13c45854a6e0e5b5bf34e9427fd7d7e21a062a089",
+      "source_box": [
+        845,
+        564,
+        1119,
+        838
+      ],
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "garden_ripe_0.png",
+      "sha256": "999c4f18253f7484e2be19d969c76a040b69052126dfa323e2d755d989045d7f",
+      "source_box": [
+        3,
+        844,
+        277,
+        1119
+      ],
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "garden_ripe_1.png",
+      "sha256": "d0bd86834b635d1fe63e3f940913d043aa3879d1aa6c7502b836727827af111c",
+      "source_box": [
+        283,
+        844,
+        558,
+        1119
+      ],
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "garden_ripe_2.png",
+      "sha256": "853f345ac2c88829f5e5255fbb7c64bdebf92d517da491e6995654239e4e6a46",
+      "source_box": [
+        564,
+        844,
+        839,
+        1119
+      ],
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "garden_ripe_3.png",
+      "sha256": "20527e330bd3445476079fbd22399baa3585ce6b41cce8be3ec954a8e0c5f36e",
+      "source_box": [
+        845,
+        844,
+        1119,
+        1119
+      ],
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "garden_stubble_0.png",
+      "sha256": "5d0d27c4fe20e75ad36b87b208ef5577d5f31070eeaa1d4906eb859300b5e956",
+      "source_box": [
+        3,
+        1125,
+        277,
+        1399
+      ],
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "garden_stubble_1.png",
+      "sha256": "87d02d0d8ce3ed91020eab09de9b0b1ddcaa8365d06573d36c473d8f2a304c18",
+      "source_box": [
+        283,
+        1125,
+        558,
+        1399
+      ],
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "garden_stubble_2.png",
+      "sha256": "1be4bf5cdd1a3112cf2358cff546428fa4ed7fa3c732d1ca3938840b0d53a480",
+      "source_box": [
+        564,
+        1125,
+        839,
+        1399
+      ],
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    },
+    {
+      "file": "garden_stubble_3.png",
+      "sha256": "772f58ff51704a7afe44031e76a4962ef705ee193d9478a393b3964df36602a7",
+      "source_box": [
+        845,
+        1125,
+        1119,
+        1399
+      ],
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ]
+    }
+  ],
+  "visual_approval": "pending"
+}

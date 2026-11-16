@@ -1,16 +1,16 @@
 # Versionsstand – Nature_in_a_glass
 
-> **Stand:** 16.11.2026 · **Version:** Basis 0.9.1 · **Branch:** `codex/fishing-people-style-b` (Basis `0edb584`)
+> **Stand:** 16.11.2026 · **Version:** Basis 0.10.1 · **Branch:** `codex/garden-style-b` (Basis `cc542e8`)
 
 ## Auf einen Blick
 
 | Frage | Antwort |
 | --- | --- |
-| **Zuletzt erledigt** | Wasser/Bäche aus PR #20/#21 übernommen (v0.8.9/v0.9.1). Neuer Draft: 40 eigenständige `_fish`-Bilder, fünf Erwachsenen-Aussehen × zwei Richtungen × vier Phasen; Formatvorschlag für Wandrinnen/Wasserfälle in Gestaltung 16.9. |
-| **Getestet** | 97 Rust-/15 Python-Tests, fmt, strenges Clippy und Release-Bau bestanden; 40 Bilder vollständig, Phasen unterschiedlich, Proportionen/Fußpunkte passend; alle 1333 bisherigen PNGs bytegleich. Wiederholter Export bytegleich. Vollatlas-/Rust-/Spielprüfung siehe `art/nature/fishing-people-style-b/README.md`. |
-| **Offen für Codex** | Visuelle Abnahme durch Claude. Fischfangbilder sind vorbereitet, normale Spielauswahl noch nicht angebunden: Claude ergänzt tatsächliche Fischfang-Aktivität und vier 300-ms-Phasen. Wasserfallformat 16.9 ist ein Vorschlag; Geometrieschnittstelle und Wasserfallbilder fehlen noch. |
+| **Zuletzt erledigt** | Wasser/Bäche übernommen (v0.8.9/v0.9.1), Gärten seit v0.10.0 und Fischfangbilder seit v0.10.1. Neuer Codex-Draft: 20 Gartenbilder nach 17.9, fünf Zustände mit je vier Varianten und eigenem Bodenmanifest. |
+| **Getestet** | 100 Rust-/15 Python-Tests, fmt, strenges Clippy und Release-Bau bestanden. Alle 20 Gartenbilder vollständig, gemeinsame Beetmaske/Anker, außerhalb der Raute transparent; alle 1373 bestehenden PNGs unverändert. Garten- und vollständiger Landschaftsexport bytegleich wiederholt. Spielvergleich siehe `art/nature/garden-style-b/README.md`. |
+| **Offen für Codex** | Visuelle Abnahme des Gartenpakets durch Claude. Fischfang aus PR #22 ist in der Basis enthalten. Wasserfall-Schnittstelle ist inzwischen seit v0.10.2 auf main; nächster Codex-Auftrag nach den Gärten: stream_drop-Bilder. |
 | **Offen für Dennis** | – (neue Bildpakete zur visuellen Abnahme durch Claude) |
-| **Nächster Schritt (Roadmap)** | Vom Lager zum Dorf: Fischfang, später Anbau, mehrere Lager einer Gruppe, Werkzeuge. |
+| **Nächster Schritt (Roadmap)** | Nach Garten-Abgabe: Wasser an Geländestufen nach 16.9; Seed 2024, +12 Jahre +60 Tage, Feld 19/33, Zoom 16. |
 
 ## Zusammenarbeit Claude / Codex
 
@@ -23,6 +23,7 @@
 
 | Datum | Änderung | Code-Test |
 | --- | --- | --- |
+| 16.11.2026 | Codex: 20 Gartenbilder nach Gestaltung 17.9, Branch `codex/garden-style-b`, Basis `cc542e8`. | 100 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; Alpha-/Manifest-/Bestandsprüfung und zwei wiederholbare Exportwege. Sommer-/Ernteprüfung Seed 300, Feld 25/20, Zoom 8/32 im Prüfpaket; visuelle Abnahme offen. |
 | 16.11.2026 | Codex: 40 Fischfangbilder und Vorschlag Wandwasserformat 16.9, Branch `codex/fishing-people-style-b`, Basis `0edb584`. | 97 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; eingebettete Ansicht und deklarierte Bildaustauschprobe Zoom 8/32. Export-/Maß-/Bestandsprüfung. Technische Zustandsauswahl offen bei Claude. Prüfpaket dokumentiert Darstellungsprobe getrennt von echter Fischfangaktivität. |
 | 16.11.2026 | Codex: 54 Bach-/Bachbettstücke nach 16.8, Branch `codex/stream-beds-style-b`, Basis `2f0e187`. | 94 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; Gegenprofile und alle 768 Knotenkonfigurationen geprüft; Spielvergleich Seed 2024 +12 Jahre +240 Tage, 19/33; Höhenstufen-Verdeckung dokumentiert. |
 | 16.11.2026 | Codex: Meer-/Flachwasser-/Teichanimation mit vier Varianten, 4×500 ms, Branch `codex/water-style-b`, Basis `0d959fe`. | 93 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; Vollatlasgrenze und Wasser-/Spielvergleich geprüft. Visuelle Abnahme offen. |
