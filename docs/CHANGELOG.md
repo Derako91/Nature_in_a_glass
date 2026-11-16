@@ -1,5 +1,13 @@
 # Änderungen
 
+## 0.10.3 – Gärten im neuen Stil
+
+**Neu** (Pull Request #23)
+- **Codex' Gartenbilder:** umgegrabene Erde im Winter, helle Keimlinge im Frühjahr, grüne Reihen im Sommer, goldene reife Beete im Herbst und Stoppeln nach der Ernte – je in vier Varianten.
+
+**Behoben**
+- **Ernte verdarb auf dem Feld:** Im Sommer füllten Gesammeltes den Vorrat so sehr, dass im Herbst kein Platz für die Ernte blieb. Jetzt fasst jede Hütte zusätzlichen Vorrat, und Gesammeltes belegt höchstens die Hälfte.
+
 ## 0.10.2 – Wasser fällt über Stufen
 
 **Neu**

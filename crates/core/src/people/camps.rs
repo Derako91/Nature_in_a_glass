@@ -46,7 +46,9 @@ const WOOD_RANGE: i32 = 3;
 /// … und wenn dort nichts mehr ist, bis so weit.
 const WOOD_RANGE_FAR: i32 = 6;
 /// Höchstens so viel Nahrung lagert man (Rationen).
-pub const STORE_MAX: f32 = 150.0;
+/// Vorrat am Lager: so viel ohne Hütte, dazu je Hütte (Rationen).
+pub const STORE_BASE: f32 = 100.0;
+pub const STORE_PER_HUT: f32 = 100.0;
 /// Ungenutzt gilt ein Lager nach so vielen Tagen als verlassen.
 const ABANDON_DAYS: u64 = 2 * 365;
 /// So schnell verfällt ein ungenutztes Lager (Anteil je Tag).
@@ -95,6 +97,11 @@ impl Camp {
         let base: f32 = if self.huts > 0 { 0.85 } else { 0.5 };
         let fire = if self.wood >= 0.2 { 0.3 } else { 0.0 };
         (base + fire).min(0.95) * (0.4 + 0.6 * self.condition)
+    }
+
+    /// So viel Vorrat fasst das Lager (Rationen).
+    pub fn store_cap(&self) -> f32 {
+        STORE_BASE + STORE_PER_HUT * self.huts as f32
     }
 
     /// Kurzbeschreibung für die Oberfläche.
@@ -439,7 +446,10 @@ pub(super) fn camp_day(
             }
             let camp = &mut people.camps[ci];
             if p.hunger < 0.2 && p.pack > super::PACK_MAX - 0.3 {
-                let put = (p.pack - 1.5).min(STORE_MAX - camp.store).max(0.0);
+                // Gesammeltes nur bis zur Hälfte: Der Rest bleibt für die Ernte.
+                let put = (p.pack - 1.5)
+                    .min(camp.store_cap() * 0.5 - camp.store)
+                    .max(0.0);
                 p.pack -= put;
                 camp.store += put;
             } else if p.hunger > 0.25 && p.pack < 1.0 && camp.store > 0.0 {

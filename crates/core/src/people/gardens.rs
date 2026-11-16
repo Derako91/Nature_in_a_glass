@@ -254,7 +254,7 @@ pub(super) fn garden_day(
             let camp = &mut people.camps[camp_idx];
             let take = (workers.len() as f32 * HARVEST_PER_DAY)
                 .min(g.ripe)
-                .min(super::camps::STORE_MAX - camp.store)
+                .min(camp.store_cap() - camp.store)
                 .max(0.0);
             g.ripe -= take;
             camp.store += take;
