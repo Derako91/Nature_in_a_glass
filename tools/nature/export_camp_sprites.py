@@ -130,11 +130,11 @@ def export(camp_source, right_source, left_source):
     camp = cells(camp_source, 3, 3)
     # Hütten: Weltbreite 20 nach Korrekturauftrag, Höhe proportional zum Motiv.
     specs = [
-        ("camp_hearth", (48, 32), (6, 4), (24, 30)),
+        ("camp_hearth", (48, 32), (9, 6), (24, 30)),
         ("camp_windbreak", (96, 112), (12, 14), (48, 108)),
         ("camp_hut_0", *hut_layout(camp[2][0])),
         ("camp_hut_1", *hut_layout(camp[3][0])),
-        ("camp_ruin", (48, 40), (6, 5), (24, 38)),
+        ("camp_ruin", (48, 40), (9, 7.5), (24, 38)),
     ]
     images, entries, records = {}, [], []
 
@@ -166,7 +166,7 @@ def export(camp_source, right_source, left_source):
         image.alpha_composite(flame, (14, 10))
         save(name, image, BUILDINGS)
     entries.append({"id": "camp_fire", "files": [f"camp_fire_f{i}.png" for i in range(4)],
-                    "size": [48, 56], "display_size": [6, 7], "anchor": [24, 52],
+                    "size": [48, 56], "display_size": [9, 10.5], "anchor": [24, 52],
                     "frames": 4, "frame_ms": 200})
     (BUILDINGS / "manifest.json").write_text(json.dumps({
         "version": 1, "status": "draft_visual_review", "base_tile": [64, 32],

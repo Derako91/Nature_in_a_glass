@@ -1,0 +1,41 @@
+{
+  "world_width": 9,
+  "states": [
+    {
+      "id": "camp_hearth",
+      "display_size": [
+        9.0,
+        6.0
+      ],
+      "anchor": [
+        24,
+        30
+      ]
+    },
+    {
+      "id": "camp_ruin",
+      "display_size": [
+        9.0,
+        7.5
+      ],
+      "anchor": [
+        24,
+        38
+      ]
+    },
+    {
+      "id": "camp_fire",
+      "display_size": [
+        9.0,
+        10.5
+      ],
+      "anchor": [
+        24,
+        52
+      ]
+    }
+  ],
+  "rust_tests_passed": 89,
+  "game_review": "passed_zoom8_zoom32",
+  "visual_approval": "pending"
+}

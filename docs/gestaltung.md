@@ -848,11 +848,11 @@ Stand 16.11.2026. Seit v0.8.0 legen die Menschen selbst Lagerplätze an (niemand
 
 | ID | Breite | Bedeutung |
 | --- | --- | --- |
-| `camp_hearth` | 6 | Steinring mit Asche, kalt |
-| `camp_fire_f0` … `f3` | 6 | Steinring mit kleinem Feuer, 4 Bilder à 200 ms (Animation nur bei 1 Std/s, sonst `f0`) – Rauch gehört später zum Feuerpaket |
+| `camp_hearth` | 9 | Steinring mit Asche, kalt |
+| `camp_fire_f0` … `f3` | 9 | Steinring mit kleinem Feuer, 4 Bilder à 200 ms (Animation nur bei 1 Std/s, sonst `f0`) – Rauch gehört später zum Feuerpaket |
 | `camp_windbreak` | 12 | Windschutz aus schräg gestellten Ästen; steht nur, solange es noch keine Hütte gibt |
 | `camp_hut_0`, `camp_hut_1` | 20 | Hütte (zwei Varianten), proportional zur Quellform; Eingang zur Feuerstelle. Korrigiertes Weltmaß 20×23,25 bzw. 20×21,25, keine erzwungene Höhe. |
-| `camp_ruin` | 6 | verfallenes Lager: verstreute Steine, umgefallene Stangen (ersetzt Feuerstelle; Hütten werden niedrig und dunkel gezeichnet, bis es ein eigenes `camp_hut_ruin` gibt) |
+| `camp_ruin` | 9 | verfallenes Lager: verstreute Steine, umgefallene Stangen (ersetzt Feuerstelle; Hütten werden niedrig und dunkel gezeichnet, bis es ein eigenes `camp_hut_ruin` gibt) |
 | `camp_store` | 6 | (optional) Vorräte: Körbe, Bündel neben der Feuerstelle |
 
 **Neuer Zustand bei Menschen:** `_build` – trägt Holz bzw. baut (4 Bilder, 1,0 s). Bis es ihn gibt, nimmt der Beobachter `_idle`.
@@ -925,3 +925,7 @@ jetzt keine Bäume und Büsche mehr (Totholz und Feuer bleiben) – die Hütten 
 frei sichtbar. Beobachtung: Die Feuerstelle (Weltmaß 6) ist neben den Hütten
 sehr klein und wird von Menschen leicht verdeckt; falls gewünscht, darf sie
 auf 8–10 wachsen.
+
+**Codex, größere Feuerstelle (16.11.2026):** Weltbreite 9 für warmen, kalten
+und verfallenen Steinring. Proportionale Vergrößerung bei festen Fußpunkten.
+Im Spiel bei Zoom 8/32 geprüft; Vergleich unter `art/nature/camp-hearth-size/`.

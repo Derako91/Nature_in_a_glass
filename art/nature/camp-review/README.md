@@ -26,12 +26,12 @@ Paket. Der Beobachter zeichnet alte Hütten beim Verfall selbst niedrig/dunkel.
 
 | Motiv | Dateimaß | Weltmaß | Fußpunkt in Dateipixeln |
 | --- | --- | --- | --- |
-| kalte Feuerstelle | 48×32 | 6×4 | 24/30 |
-| Feuer, alle vier Phasen | 48×56 | 6×7 | 24/52 |
+| kalte Feuerstelle | 48×32 | 9×6 | 24/30 |
+| Feuer, alle vier Phasen | 48×56 | 9×10,5 | 24/52 |
 | Windschutz | 96×112 | 12×14 | 48/108 |
 | Hütte 0 | 160×186 | 20×23,25 | 80/182 |
 | Hütte 1 | 160×170 | 20×21,25 | 80/166 |
-| Ruine | 48×40 | 6×5 | 24/38 |
+| Ruine | 48×40 | 9×7,5 | 24/38 |
 | Menschen `_build` | 56×120 | 7×15 | 28/112 |
 
 Die Hütten werden proportional aus dem Quellmotiv skaliert. Die frühere

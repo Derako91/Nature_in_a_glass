@@ -6,7 +6,7 @@
 
 | Frage | Antwort |
 | --- | --- |
-| **Zuletzt erledigt** | Codex: gestreckte Hütten korrigiert. Proportionaler Export, Weltbreite 20, Höhe aus Quellform und Fußpunkt unten mittig. Neuer Draft auf `codex/camp-hut-proportions`, Basis `7b20283`; Vergleich in `art/nature/camp-hut-proportions/`. |
+| **Zuletzt erledigt** | Feuerstelle auf Weltbreite 9 vergrößert, warme/kalte/verfallene Fassung einheitlich. Draft auf `codex/camp-hearth-size`, Basis `73ccfd6`; Zoom-8/32-Vergleich unter `art/nature/camp-hearth-size/`. |
 | **Getestet** | Aktuelle Hütten-Korrektur: 89 Rust-Tests, Formatprüfung, strenges Clippy und Release-Bau bestanden. Proportions-/Hashvergleich, wiederholter Export und tatsächliche Spielbilder Zoom 8/32 geprüft. |
 | **Offen für Codex** | Nach Abnahme des Lager-Drafts übrige Menschenzustände stilistisch angleichen. Dennis hat die schrittweise Umstellung aller Spielbilder beauftragt; Reihenfolge in Gestaltung 18. Ruine noch nicht an einem natürlich verlassenen Lager geprüft. |
 | **Offen für Dennis** | – (PR #9 und #10 übernommen; Feuer im Spiel seit 0.8.1, Fuchs B Fernfassung liegt als Entwurf in art/) |
@@ -23,6 +23,7 @@
 
 | Datum | Änderung | Code-Test |
 | --- | --- | --- |
+| 16.11.2026 | Codex: Feuerstelle 6→9 im Weltmaß, proportional und mit festen Fußpunkten; nächster Auftrag: übrige Menschenbilder im neuen Stil. | 89 Rust-Tests, fmt, Clippy und Release-Bau bestanden; tatsächlicher Vergleich Zoom 8/32 geprüft. |
 | 16.11.2026 | Codex: feste 120×232-Skalierung entfernt; beide Hütten proportional neu exportiert, Leinwand/Manifest angepasst. Die übrigen 47 Motive bleiben bytegleich. | Quell-/Exportproportionen und wiederholter Export geprüft; tatsächlicher Vorher-/Nachher-Spielvergleich bei Zoom 8/32, ohne `--bilder`. Visuelle Abnahme durch Claude noch offen. |
 | 16.11.2026 | Codex: Lager-Draft mit neun Einzelbildern, 40 `_build`-Phasen, Manifesten und Prüfpaket; Übergabe an Claude: Bewuchs auf Lagerfeldern verdeckt teilweise Hütten. Stilumstellung aller Bildgruppen in Gestaltung 18 festgehalten. | 89 Rust-Tests, fmt, strenges Clippy und Release-Bau bestanden; Dateiprüfung aller 49 PNGs; eingebettete Bilder ohne `--bilder` bei Zoom 4/8/32, Windschutz, Holztragen und kalter Feuerstelle angesehen. Keine Änderungen am Kern/Renderer, visuelle Freigabe offen. |
 | 16.11.2026 | v0.8.1 Flammen und Glutsaum aus PR #10 eingebunden | Spielbild Seed 7 Zoom 8 |
