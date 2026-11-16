@@ -17,7 +17,7 @@
   "mirrored_frames": false,
   "building_count": 9,
   "build_frame_count": 40,
-  "hut_export": "Hüllmaß beider Hütten auf 120×232 px normiert; Leinwand 128×240, Weltmaß 16×30",
+  "hut_export": "Proportional aus dem ursprünglichen Rasterbogen; Weltbreite 20, Höhe aus Motivform, Fußpunkt unten mittig.",
   "fire_source_files": [
     {
       "file": "assets/nature/objects/fire_flame_small_0_f0.png",
@@ -70,32 +70,32 @@
     },
     {
       "file": "assets/nature/buildings/camp_hut_0.png",
-      "sha256": "925ce2daac264a101744670a8fb4cee909cf8220f25c7621df9885d180c5b327",
+      "sha256": "c22d3b6c837c31dcd256cc765d0b5b3abe1cf2542fe5184697f3a313c8c7b56b",
       "size": [
-        128,
-        240
+        160,
+        186
       ],
       "mode": "RGBA",
       "bbox": [
-        4,
-        4,
-        124,
-        236
+        2,
+        5,
+        158,
+        182
       ]
     },
     {
       "file": "assets/nature/buildings/camp_hut_1.png",
-      "sha256": "9f794932b5d0c2d09a32982dcad4af1b955f951b54e7cb50433be5d3a011afc2",
+      "sha256": "54bf58e15b6f4cb60dafe658b53e14965ccc2ef89e7cb4573883bacbc1c3a12d",
       "size": [
-        128,
-        240
+        160,
+        170
       ],
       "mode": "RGBA",
       "bbox": [
+        2,
         4,
-        4,
-        124,
-        236
+        158,
+        166
       ]
     },
     {
@@ -775,5 +775,45 @@
     }
   ],
   "visual_approval": "pending",
-  "game_review": "pending"
+  "game_review": "pending",
+  "hut_layouts": [
+    {
+      "id": "camp_hut_0",
+      "source_size": [
+        330,
+        375
+      ],
+      "size": [
+        160,
+        186
+      ],
+      "display_size": [
+        20,
+        23.25
+      ],
+      "anchor": [
+        80,
+        182
+      ]
+    },
+    {
+      "id": "camp_hut_1",
+      "source_size": [
+        345,
+        358
+      ],
+      "size": [
+        160,
+        170
+      ],
+      "display_size": [
+        20,
+        21.25
+      ],
+      "anchor": [
+        80,
+        166
+      ]
+    }
+  ]
 }
