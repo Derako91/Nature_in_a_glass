@@ -1,14 +1,14 @@
 # Versionsstand – Nature_in_a_glass
 
-> **Stand:** 16.11.2026 · **Version:** Basis 0.8.8 · **Branch:** `codex/water-style-b` (Basis `0d959fe`)
+> **Stand:** 16.11.2026 · **Version:** Basis 0.8.9 · **Branch:** `codex/stream-beds-style-b` (Basis `2f0e187`)
 
 ## Auf einen Blick
 
 | Frage | Antwort |
 | --- | --- |
-| **Zuletzt erledigt** | Tiere aus PR #19 seit v0.8.7 freigegeben. Wasser-Draft: Meer, Flachwasser und Teiche, vier Varianten mit je vier ruhigen 500-ms-Phasen plus Standbilder. 48 Phasen/3 Standbilder; neue Bach-Schnittstelle seit v0.8.8 vorhanden. |
-| **Getestet** | 93 Rust-/15 Python-Tests, fmt, strenges Clippy und Release-Bau bestanden. Vollständiger Atlas ≤8192 px, 1228 andere PNGs unverändert, zwei Exportwege bytegleich. Küste/Teich bei Zoom 4/8/32 und laufende Animation im Wasser-Prüfpaket. |
-| **Offen für Codex** | Visuelle Abnahme des Wasserpakets durch Claude. Nächster Auftrag: Bachstücke/Bachbetten nach Gestaltung 16.8 (54 statische Mittel-/Halbstücke), exakt passende Endbreiten, Spielprüfung Seed 2024, zwölf Jahre +240 Tage, Feld 19/33, Zoom 16. |
+| **Zuletzt erledigt** | Wasser aus PR #20 seit v0.8.9 übernommen. Bach-Draft: alle 54 nassen/trockenen Mittel-/Halbstücke in drei Stärken mit Kies-/Erdmaterial und gemeinsamen Endbreiten nach Gestaltung 16.8. |
+| **Getestet** | 94 Rust-/15 Python-Tests, fmt, strenges Clippy und Release-Bau bestanden. 24 Gegenprofile, 768 tatsächlich zusammengesetzte Knotenkombinationen, unveränderte 1279 Eltern-PNGs sowie drei bytegleiche Exportwege geprüft. Vollatlas-/Rust-/Spielprüfung im Bach-Prüfpaket `art/nature/stream-beds-style-b/`. |
+| **Offen für Codex** | Visuelle Abnahme des Bachpakets durch Claude. Im vorgegebenen Fall verdecken höhere Vordergrundplatten Teile tieferer Betten; Verbindungen über Höhenstufen benötigen eigene Wand-/Gefälleschnittstelle. Auf gleicher Höhe passen die Endprofile; keine Änderungen an Kern/Renderer. |
 | **Offen für Dennis** | – (neue Bildpakete zur visuellen Abnahme durch Claude) |
 | **Nächster Schritt (Roadmap)** | Vom Lager zum Dorf: Fischfang, später Anbau, mehrere Lager einer Gruppe, Werkzeuge. |
 
@@ -23,6 +23,7 @@
 
 | Datum | Änderung | Code-Test |
 | --- | --- | --- |
+| 16.11.2026 | Codex: 54 Bach-/Bachbettstücke nach 16.8, Branch `codex/stream-beds-style-b`, Basis `2f0e187`. | 94 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; Gegenprofile und alle 768 Knotenkonfigurationen geprüft; Spielvergleich Seed 2024 +12 Jahre +240 Tage, 19/33; Höhenstufen-Verdeckung dokumentiert. |
 | 16.11.2026 | Codex: Meer-/Flachwasser-/Teichanimation mit vier Varianten, 4×500 ms, Branch `codex/water-style-b`, Basis `0d959fe`. | 93 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; Vollatlasgrenze und Wasser-/Spielvergleich geprüft. Visuelle Abnahme offen. |
 | 16.11.2026 | Codex: vollständiges Tierpaket mit eigenen Fernzyklen, Spuren und Kadavern; Branch `codex/animals-style-b`, Basis `7d9dcc5`. | Export-/Referenzmaß-/Phasenprüfung und Atlas-/Spielvergleich im Tier-Prüfpaket; visuelle Abnahme offen. |
 | 16.11.2026 | Codex: Korrektur der bei Zoom 4/8 unlesbaren Landschaft; 32 breite Fernkronen, Nahbilder unverändert. Branch `codex/landscape-far-crowns`, Basis `d6fc0bf`. | Atlas-Auswahl-/Maßstabsregression sowie tatsächlicher Vorher-/Nachher-Vergleich im Fernkronen-Prüfpaket; erneute Abnahme offen. |

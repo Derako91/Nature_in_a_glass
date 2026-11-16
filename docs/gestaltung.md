@@ -1014,4 +1014,13 @@ fließenden Wassers ist später möglich (`…_f0…f3`), zuerst Standbilder.
 Varianten und vier ruhigen Phasen à 500 ms; Weltmaß 64×32, Datei 128×64.
 [Wasser-Prüfpaket](../art/nature/water-style-b/README.md), Branch
 `codex/water-style-b`. Animation/Küste/Teich und kombinierter Tier-/Wasseratlas
-geprüft; visuelle Abnahme offen. Bachstücke nach 16.8 folgen separat.
+geprüft; PR #20 übernommen und als v0.8.9 freigegeben. Bachstücke nach 16.8 folgen separat.
+
+**Codex, Bachstücke-Draft (16.11.2026):** Alle 54 statischen Stücke in
+`codex/stream-beds-style-b`,
+[Prüfpaket](../art/nature/stream-beds-style-b/README.md). Gemeinsame Endbreiten
+für Kanten/Ecken, nasse/trockene Bettmasken gleich, alle 768 Knotenbelegungen
+auf durchgehendes Wasser geprüft. Spätsommerfall 19/33 im Spiel verglichen.
+Beobachtet: Höhere Vordergrundplatten verdecken weiterhin tieferliegende Betten;
+Wand-/Gefällestücke zum Verbinden verschiedener Höhen sind in 16.8 nicht
+enthalten und bleiben ein technischer Folgepunkt. Visuelle Abnahme offen.

@@ -128,6 +128,9 @@ def export():
         periodic_edges=True, variant_edges_identical_per_phase=True, frame_ms=500,
         loop_ms=2000, flow='small_periodic_texture_displacement_not_simulated_current',
         visual_approval='pending'), indent=2) + '\n')
+    from export_stream_beds import CONFIG as STREAM_CONFIG, export as export_streams
+    if STREAM_CONFIG.exists():
+        export_streams()
     print('48 Wasserphasen + 3 Standbilder, vier Varianten, kohärente 2-Sekunden-Schleifen exportiert.')
 
 
