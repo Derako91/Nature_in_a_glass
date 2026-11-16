@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "status": "landscape_detail_review",
+  "status": "landscape_style_b_draft",
   "base_tile": {
     "width": 64,
     "height": 32
@@ -10,12 +10,12 @@
       "id": "ground_soil",
       "group": "ground",
       "size": [
-        128,
-        64
+        256,
+        128
       ],
       "anchor": [
-        64,
-        32
+        128,
+        64
       ],
       "variants": 4,
       "states": [
@@ -32,18 +32,18 @@
         64,
         32
       ],
-      "resolution_scale": 2
+      "resolution_scale": 4
     },
     {
       "id": "ground_sand",
       "group": "ground",
       "size": [
-        128,
-        64
+        256,
+        128
       ],
       "anchor": [
-        64,
-        32
+        128,
+        64
       ],
       "variants": 4,
       "states": [
@@ -60,18 +60,18 @@
         64,
         32
       ],
-      "resolution_scale": 2
+      "resolution_scale": 4
     },
     {
       "id": "ground_rock",
       "group": "ground",
       "size": [
-        128,
-        64
+        256,
+        128
       ],
       "anchor": [
-        64,
-        32
+        128,
+        64
       ],
       "variants": 4,
       "states": [
@@ -88,18 +88,18 @@
         64,
         32
       ],
-      "resolution_scale": 2
+      "resolution_scale": 4
     },
     {
       "id": "ground_grass_wet",
       "group": "ground",
       "size": [
-        128,
-        64
+        256,
+        128
       ],
       "anchor": [
-        64,
-        32
+        128,
+        64
       ],
       "variants": 4,
       "states": [
@@ -116,18 +116,18 @@
         64,
         32
       ],
-      "resolution_scale": 2
+      "resolution_scale": 4
     },
     {
       "id": "ground_grass_dry",
       "group": "ground",
       "size": [
-        128,
-        64
+        256,
+        128
       ],
       "anchor": [
-        64,
-        32
+        128,
+        64
       ],
       "variants": 4,
       "states": [
@@ -144,18 +144,18 @@
         64,
         32
       ],
-      "resolution_scale": 2
+      "resolution_scale": 4
     },
     {
       "id": "ground_burnt",
       "group": "ground",
       "size": [
-        128,
-        64
+        256,
+        128
       ],
       "anchor": [
-        64,
-        32
+        128,
+        64
       ],
       "variants": 4,
       "states": [
@@ -172,18 +172,18 @@
         64,
         32
       ],
-      "resolution_scale": 2
+      "resolution_scale": 4
     },
     {
       "id": "ground_shrub_floor",
       "group": "ground",
       "size": [
-        128,
-        64
+        256,
+        128
       ],
       "anchor": [
-        64,
-        32
+        128,
+        64
       ],
       "variants": 4,
       "states": [
@@ -200,18 +200,18 @@
         64,
         32
       ],
-      "resolution_scale": 2
+      "resolution_scale": 4
     },
     {
       "id": "ground_forest_floor",
       "group": "ground",
       "size": [
-        128,
-        64
+        256,
+        128
       ],
       "anchor": [
-        64,
-        32
+        128,
+        64
       ],
       "variants": 4,
       "states": [
@@ -228,82 +228,86 @@
         64,
         32
       ],
-      "resolution_scale": 2
+      "resolution_scale": 4
     },
     {
       "id": "wall_soil",
       "group": "walls",
       "size": [
+        128,
+        128
+      ],
+      "anchor": [
         64,
         64
       ],
-      "anchor": [
-        32,
-        32
-      ],
-      "variants": 1,
+      "variants": 2,
       "states": [
         "normal"
       ],
       "frames": 1,
       "files": [
-        "walls/wall_soil_0.png"
+        "walls/wall_soil_0.png",
+        "walls/wall_soil_1.png"
       ],
       "display_size": [
         32,
         32
       ],
-      "resolution_scale": 2
+      "resolution_scale": 4
     },
     {
       "id": "wall_sand",
       "group": "walls",
       "size": [
+        128,
+        128
+      ],
+      "anchor": [
         64,
         64
       ],
-      "anchor": [
-        32,
-        32
-      ],
-      "variants": 1,
+      "variants": 2,
       "states": [
         "normal"
       ],
       "frames": 1,
       "files": [
-        "walls/wall_sand_0.png"
+        "walls/wall_sand_0.png",
+        "walls/wall_sand_1.png"
       ],
       "display_size": [
         32,
         32
       ],
-      "resolution_scale": 2
+      "resolution_scale": 4
     },
     {
       "id": "wall_rock",
       "group": "walls",
       "size": [
+        128,
+        128
+      ],
+      "anchor": [
         64,
         64
       ],
-      "anchor": [
-        32,
-        32
-      ],
-      "variants": 1,
+      "variants": 3,
       "states": [
         "normal"
       ],
       "frames": 1,
       "files": [
-        "walls/wall_rock_0.png"
+        "walls/wall_rock_0.png",
+        "walls/wall_rock_1.png",
+        "walls/wall_rock_2.png"
       ],
       "display_size": [
         32,
         32
       ],
-      "resolution_scale": 2
+      "resolution_scale": 4
     },
     {
       "id": "water_shallow",
@@ -413,141 +417,166 @@
       "id": "tree_young",
       "group": "vegetation",
       "size": [
-        20,
-        28
+        80,
+        112
       ],
       "anchor": [
-        10,
-        26
+        40,
+        104
       ],
       "variants": 4,
       "states": [
-        "normal"
+        "normal",
+        "stressed"
       ],
       "frames": 1,
       "files": [
         "vegetation/tree_young_0_normal.png",
+        "vegetation/tree_young_0_stressed.png",
         "vegetation/tree_young_1_normal.png",
+        "vegetation/tree_young_1_stressed.png",
         "vegetation/tree_young_2_normal.png",
-        "vegetation/tree_young_3_normal.png"
+        "vegetation/tree_young_2_stressed.png",
+        "vegetation/tree_young_3_normal.png",
+        "vegetation/tree_young_3_stressed.png"
       ],
       "display_size": [
         10,
         14
       ],
-      "resolution_scale": 2
+      "resolution_scale": 8
     },
     {
       "id": "tree_mid",
       "group": "vegetation",
       "size": [
-        28,
-        44
+        112,
+        176
       ],
       "anchor": [
-        14,
-        42
+        56,
+        168
       ],
       "variants": 4,
       "states": [
-        "normal"
+        "normal",
+        "stressed"
       ],
       "frames": 1,
       "files": [
         "vegetation/tree_mid_0_normal.png",
+        "vegetation/tree_mid_0_stressed.png",
         "vegetation/tree_mid_1_normal.png",
+        "vegetation/tree_mid_1_stressed.png",
         "vegetation/tree_mid_2_normal.png",
-        "vegetation/tree_mid_3_normal.png"
+        "vegetation/tree_mid_2_stressed.png",
+        "vegetation/tree_mid_3_normal.png",
+        "vegetation/tree_mid_3_stressed.png"
       ],
       "display_size": [
         14,
         22
       ],
-      "resolution_scale": 2
+      "resolution_scale": 8
     },
     {
       "id": "tree_old",
       "group": "vegetation",
       "size": [
-        36,
-        60
+        144,
+        240
       ],
       "anchor": [
-        18,
-        58
+        72,
+        232
       ],
       "variants": 4,
       "states": [
-        "normal"
+        "normal",
+        "stressed"
       ],
       "frames": 1,
       "files": [
         "vegetation/tree_old_0_normal.png",
+        "vegetation/tree_old_0_stressed.png",
         "vegetation/tree_old_1_normal.png",
+        "vegetation/tree_old_1_stressed.png",
         "vegetation/tree_old_2_normal.png",
-        "vegetation/tree_old_3_normal.png"
+        "vegetation/tree_old_2_stressed.png",
+        "vegetation/tree_old_3_normal.png",
+        "vegetation/tree_old_3_stressed.png"
       ],
       "display_size": [
         18,
         30
       ],
-      "resolution_scale": 2
+      "resolution_scale": 8
     },
     {
       "id": "shrub",
       "group": "vegetation",
       "size": [
-        20,
-        16
+        80,
+        64
       ],
       "anchor": [
-        10,
-        14
+        40,
+        56
       ],
       "variants": 4,
       "states": [
-        "normal"
+        "normal",
+        "stressed"
       ],
       "frames": 1,
       "files": [
         "vegetation/shrub_0_normal.png",
+        "vegetation/shrub_0_stressed.png",
         "vegetation/shrub_1_normal.png",
+        "vegetation/shrub_1_stressed.png",
         "vegetation/shrub_2_normal.png",
-        "vegetation/shrub_3_normal.png"
+        "vegetation/shrub_2_stressed.png",
+        "vegetation/shrub_3_normal.png",
+        "vegetation/shrub_3_stressed.png"
       ],
       "display_size": [
         10,
         8
       ],
-      "resolution_scale": 2
+      "resolution_scale": 8
     },
     {
       "id": "snag_standing",
       "group": "vegetation",
       "size": [
-        12,
-        44
+        48,
+        176
       ],
       "anchor": [
-        6,
-        42
+        24,
+        168
       ],
       "variants": 4,
       "states": [
-        "normal"
+        "normal",
+        "charred"
       ],
       "frames": 1,
       "files": [
         "vegetation/snag_standing_0_normal.png",
+        "vegetation/snag_standing_0_charred.png",
         "vegetation/snag_standing_1_normal.png",
+        "vegetation/snag_standing_1_charred.png",
         "vegetation/snag_standing_2_normal.png",
-        "vegetation/snag_standing_3_normal.png"
+        "vegetation/snag_standing_2_charred.png",
+        "vegetation/snag_standing_3_normal.png",
+        "vegetation/snag_standing_3_charred.png"
       ],
       "display_size": [
         6,
         22
       ],
-      "resolution_scale": 2
+      "resolution_scale": 8
     },
     {
       "id": "fire_flame_small",
@@ -635,6 +664,67 @@
         32
       ],
       "source": "art/nature/fire-ground-review"
+    },
+    {
+      "id": "ground_silt",
+      "group": "ground",
+      "states": [
+        "normal"
+      ],
+      "frames": 1,
+      "size": [
+        256,
+        128
+      ],
+      "anchor": [
+        128,
+        64
+      ],
+      "display_size": [
+        64,
+        32
+      ],
+      "variants": 4,
+      "resolution_scale": 4,
+      "files": [
+        "ground/ground_silt_0.png",
+        "ground/ground_silt_1.png",
+        "ground/ground_silt_2.png",
+        "ground/ground_silt_3.png"
+      ]
+    },
+    {
+      "id": "log_fallen",
+      "group": "vegetation",
+      "display_size": [
+        16,
+        5
+      ],
+      "frames": 1,
+      "size": [
+        128,
+        40
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "resolution_scale": 8,
+      "variants": 4,
+      "states": [
+        "normal",
+        "charred"
+      ],
+      "files": [
+        "vegetation/log_fallen_0_normal.png",
+        "vegetation/log_fallen_0_charred.png",
+        "vegetation/log_fallen_1_normal.png",
+        "vegetation/log_fallen_1_charred.png",
+        "vegetation/log_fallen_2_normal.png",
+        "vegetation/log_fallen_2_charred.png",
+        "vegetation/log_fallen_3_normal.png",
+        "vegetation/log_fallen_3_charred.png"
+      ]
     }
   ]
 }

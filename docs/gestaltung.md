@@ -923,10 +923,14 @@ Je Schritt entsteht ein zusammenhängendes, im Spiel geprüftes Draft-Paket:
    sämtliche Zustände, Richtungen, Tote und Kinder. 390 neue Bilder, 40
    Holztragebilder nur gepolstert; keine alten Tätigkeitsbilder mehr im Paket.
    Vorher-/Nachher-Spielvergleich und Animationsbögen liegen unter
-   `art/nature/people-style-b/`. Visuelle Abnahme noch offen.
+   `art/nature/people-style-b/`. Mit PR #15 und #16 übernommen, Größenkorrektur
+   im Spiel freigegeben als v0.8.5.
 3. **Landschaft:** Böden, Seitenwände und Vegetation einschließlich Trockenheit,
    verkohlter/liegender Stämme und Varianten. Kleine Figuren dürfen nicht vom
-   neuen Detailgrad des Bodens verschluckt werden.
+   neuen Detailgrad des Bodens verschluckt werden. Draft: `codex/landscape-style-b`,
+   91 Bilder einschließlich vier Varianten und Trockenheits-/Brandzuständen.
+   [Quellen, Kontaktbögen und Spielvergleich](../art/nature/landscape-style-b/README.md);
+   visuelle Abnahme dieses Landschaftspakets offen.
 4. **Tiere:** Fuchs, Wolf, Hirsch und Kaninchen mit sämtlichen Zuständen,
    Richtungen, Spuren und Kadavern. Konsistente Nah-/Fernfassungen pro Satz.
 5. **Wasser und verbleibende Natur-Effekte:** ruhige Wasserflächen/Bäche,

@@ -1,0 +1,640 @@
+{
+  "version": 1,
+  "status": "landscape_detail_review",
+  "base_tile": {
+    "width": 64,
+    "height": 32
+  },
+  "assets": [
+    {
+      "id": "ground_soil",
+      "group": "ground",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "variants": 4,
+      "states": [
+        "normal"
+      ],
+      "frames": 1,
+      "files": [
+        "ground/ground_soil_0.png",
+        "ground/ground_soil_1.png",
+        "ground/ground_soil_2.png",
+        "ground/ground_soil_3.png"
+      ],
+      "display_size": [
+        64,
+        32
+      ],
+      "resolution_scale": 2
+    },
+    {
+      "id": "ground_sand",
+      "group": "ground",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "variants": 4,
+      "states": [
+        "normal"
+      ],
+      "frames": 1,
+      "files": [
+        "ground/ground_sand_0.png",
+        "ground/ground_sand_1.png",
+        "ground/ground_sand_2.png",
+        "ground/ground_sand_3.png"
+      ],
+      "display_size": [
+        64,
+        32
+      ],
+      "resolution_scale": 2
+    },
+    {
+      "id": "ground_rock",
+      "group": "ground",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "variants": 4,
+      "states": [
+        "normal"
+      ],
+      "frames": 1,
+      "files": [
+        "ground/ground_rock_0.png",
+        "ground/ground_rock_1.png",
+        "ground/ground_rock_2.png",
+        "ground/ground_rock_3.png"
+      ],
+      "display_size": [
+        64,
+        32
+      ],
+      "resolution_scale": 2
+    },
+    {
+      "id": "ground_grass_wet",
+      "group": "ground",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "variants": 4,
+      "states": [
+        "normal"
+      ],
+      "frames": 1,
+      "files": [
+        "ground/ground_grass_wet_0.png",
+        "ground/ground_grass_wet_1.png",
+        "ground/ground_grass_wet_2.png",
+        "ground/ground_grass_wet_3.png"
+      ],
+      "display_size": [
+        64,
+        32
+      ],
+      "resolution_scale": 2
+    },
+    {
+      "id": "ground_grass_dry",
+      "group": "ground",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "variants": 4,
+      "states": [
+        "normal"
+      ],
+      "frames": 1,
+      "files": [
+        "ground/ground_grass_dry_0.png",
+        "ground/ground_grass_dry_1.png",
+        "ground/ground_grass_dry_2.png",
+        "ground/ground_grass_dry_3.png"
+      ],
+      "display_size": [
+        64,
+        32
+      ],
+      "resolution_scale": 2
+    },
+    {
+      "id": "ground_burnt",
+      "group": "ground",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "variants": 4,
+      "states": [
+        "normal"
+      ],
+      "frames": 1,
+      "files": [
+        "ground/ground_burnt_0.png",
+        "ground/ground_burnt_1.png",
+        "ground/ground_burnt_2.png",
+        "ground/ground_burnt_3.png"
+      ],
+      "display_size": [
+        64,
+        32
+      ],
+      "resolution_scale": 2
+    },
+    {
+      "id": "ground_shrub_floor",
+      "group": "ground",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "variants": 4,
+      "states": [
+        "normal"
+      ],
+      "frames": 1,
+      "files": [
+        "ground/ground_shrub_floor_0.png",
+        "ground/ground_shrub_floor_1.png",
+        "ground/ground_shrub_floor_2.png",
+        "ground/ground_shrub_floor_3.png"
+      ],
+      "display_size": [
+        64,
+        32
+      ],
+      "resolution_scale": 2
+    },
+    {
+      "id": "ground_forest_floor",
+      "group": "ground",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "variants": 4,
+      "states": [
+        "normal"
+      ],
+      "frames": 1,
+      "files": [
+        "ground/ground_forest_floor_0.png",
+        "ground/ground_forest_floor_1.png",
+        "ground/ground_forest_floor_2.png",
+        "ground/ground_forest_floor_3.png"
+      ],
+      "display_size": [
+        64,
+        32
+      ],
+      "resolution_scale": 2
+    },
+    {
+      "id": "wall_soil",
+      "group": "walls",
+      "size": [
+        64,
+        64
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "variants": 1,
+      "states": [
+        "normal"
+      ],
+      "frames": 1,
+      "files": [
+        "walls/wall_soil_0.png"
+      ],
+      "display_size": [
+        32,
+        32
+      ],
+      "resolution_scale": 2
+    },
+    {
+      "id": "wall_sand",
+      "group": "walls",
+      "size": [
+        64,
+        64
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "variants": 1,
+      "states": [
+        "normal"
+      ],
+      "frames": 1,
+      "files": [
+        "walls/wall_sand_0.png"
+      ],
+      "display_size": [
+        32,
+        32
+      ],
+      "resolution_scale": 2
+    },
+    {
+      "id": "wall_rock",
+      "group": "walls",
+      "size": [
+        64,
+        64
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "variants": 1,
+      "states": [
+        "normal"
+      ],
+      "frames": 1,
+      "files": [
+        "walls/wall_rock_0.png"
+      ],
+      "display_size": [
+        32,
+        32
+      ],
+      "resolution_scale": 2
+    },
+    {
+      "id": "water_shallow",
+      "group": "water",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "variants": 1,
+      "states": [
+        "normal"
+      ],
+      "frames": 1,
+      "files": [
+        "water/water_shallow_0.png"
+      ],
+      "preview_static": true,
+      "display_size": [
+        64,
+        32
+      ],
+      "resolution_scale": 2
+    },
+    {
+      "id": "water_deep",
+      "group": "water",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "variants": 1,
+      "states": [
+        "normal"
+      ],
+      "frames": 1,
+      "files": [
+        "water/water_deep_0.png"
+      ],
+      "preview_static": true,
+      "display_size": [
+        64,
+        32
+      ],
+      "resolution_scale": 2
+    },
+    {
+      "id": "water_pond",
+      "group": "water",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "variants": 1,
+      "states": [
+        "normal"
+      ],
+      "frames": 1,
+      "files": [
+        "water/water_pond_0.png"
+      ],
+      "preview_static": true,
+      "display_size": [
+        64,
+        32
+      ],
+      "resolution_scale": 2
+    },
+    {
+      "id": "water_stream",
+      "group": "water",
+      "size": [
+        32,
+        64
+      ],
+      "anchor": [
+        16,
+        32
+      ],
+      "variants": 1,
+      "states": [
+        "normal"
+      ],
+      "frames": 1,
+      "files": [
+        "water/water_stream_0.png"
+      ],
+      "preview_static": true,
+      "display_size": [
+        16,
+        32
+      ],
+      "resolution_scale": 2
+    },
+    {
+      "id": "tree_young",
+      "group": "vegetation",
+      "size": [
+        20,
+        28
+      ],
+      "anchor": [
+        10,
+        26
+      ],
+      "variants": 4,
+      "states": [
+        "normal"
+      ],
+      "frames": 1,
+      "files": [
+        "vegetation/tree_young_0_normal.png",
+        "vegetation/tree_young_1_normal.png",
+        "vegetation/tree_young_2_normal.png",
+        "vegetation/tree_young_3_normal.png"
+      ],
+      "display_size": [
+        10,
+        14
+      ],
+      "resolution_scale": 2
+    },
+    {
+      "id": "tree_mid",
+      "group": "vegetation",
+      "size": [
+        28,
+        44
+      ],
+      "anchor": [
+        14,
+        42
+      ],
+      "variants": 4,
+      "states": [
+        "normal"
+      ],
+      "frames": 1,
+      "files": [
+        "vegetation/tree_mid_0_normal.png",
+        "vegetation/tree_mid_1_normal.png",
+        "vegetation/tree_mid_2_normal.png",
+        "vegetation/tree_mid_3_normal.png"
+      ],
+      "display_size": [
+        14,
+        22
+      ],
+      "resolution_scale": 2
+    },
+    {
+      "id": "tree_old",
+      "group": "vegetation",
+      "size": [
+        36,
+        60
+      ],
+      "anchor": [
+        18,
+        58
+      ],
+      "variants": 4,
+      "states": [
+        "normal"
+      ],
+      "frames": 1,
+      "files": [
+        "vegetation/tree_old_0_normal.png",
+        "vegetation/tree_old_1_normal.png",
+        "vegetation/tree_old_2_normal.png",
+        "vegetation/tree_old_3_normal.png"
+      ],
+      "display_size": [
+        18,
+        30
+      ],
+      "resolution_scale": 2
+    },
+    {
+      "id": "shrub",
+      "group": "vegetation",
+      "size": [
+        20,
+        16
+      ],
+      "anchor": [
+        10,
+        14
+      ],
+      "variants": 4,
+      "states": [
+        "normal"
+      ],
+      "frames": 1,
+      "files": [
+        "vegetation/shrub_0_normal.png",
+        "vegetation/shrub_1_normal.png",
+        "vegetation/shrub_2_normal.png",
+        "vegetation/shrub_3_normal.png"
+      ],
+      "display_size": [
+        10,
+        8
+      ],
+      "resolution_scale": 2
+    },
+    {
+      "id": "snag_standing",
+      "group": "vegetation",
+      "size": [
+        12,
+        44
+      ],
+      "anchor": [
+        6,
+        42
+      ],
+      "variants": 4,
+      "states": [
+        "normal"
+      ],
+      "frames": 1,
+      "files": [
+        "vegetation/snag_standing_0_normal.png",
+        "vegetation/snag_standing_1_normal.png",
+        "vegetation/snag_standing_2_normal.png",
+        "vegetation/snag_standing_3_normal.png"
+      ],
+      "display_size": [
+        6,
+        22
+      ],
+      "resolution_scale": 2
+    },
+    {
+      "id": "fire_flame_small",
+      "group": "objects",
+      "size": [
+        40,
+        64
+      ],
+      "anchor": [
+        20,
+        62
+      ],
+      "variants": 1,
+      "states": [
+        "normal"
+      ],
+      "frames": 4,
+      "frame_duration_ms": 200,
+      "files": [
+        "objects/fire_flame_small_0_f0.png",
+        "objects/fire_flame_small_0_f1.png",
+        "objects/fire_flame_small_0_f2.png",
+        "objects/fire_flame_small_0_f3.png"
+      ],
+      "display_size": [
+        10,
+        16
+      ],
+      "source": "art/nature/fire-review"
+    },
+    {
+      "id": "fire_flame_large",
+      "group": "objects",
+      "size": [
+        64,
+        112
+      ],
+      "anchor": [
+        32,
+        110
+      ],
+      "variants": 1,
+      "states": [
+        "normal"
+      ],
+      "frames": 4,
+      "frame_duration_ms": 200,
+      "files": [
+        "objects/fire_flame_large_0_f0.png",
+        "objects/fire_flame_large_0_f1.png",
+        "objects/fire_flame_large_0_f2.png",
+        "objects/fire_flame_large_0_f3.png"
+      ],
+      "display_size": [
+        16,
+        28
+      ],
+      "source": "art/nature/fire-large-review"
+    },
+    {
+      "id": "fire_ground",
+      "group": "ground",
+      "size": [
+        256,
+        128
+      ],
+      "anchor": [
+        128,
+        64
+      ],
+      "variants": 1,
+      "states": [
+        "normal"
+      ],
+      "frames": 4,
+      "frame_duration_ms": 200,
+      "files": [
+        "ground/fire_ground_0_f0.png",
+        "ground/fire_ground_0_f1.png",
+        "ground/fire_ground_0_f2.png",
+        "ground/fire_ground_0_f3.png"
+      ],
+      "display_size": [
+        64,
+        32
+      ],
+      "source": "art/nature/fire-ground-review"
+    }
+  ]
+}

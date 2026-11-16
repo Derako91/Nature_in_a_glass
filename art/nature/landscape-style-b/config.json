@@ -1,0 +1,104 @@
+{
+  "base_commit": "8043787",
+  "means": {
+    "ground_soil": [
+      149.927,
+      125.795,
+      87.873
+    ],
+    "ground_sand": [
+      222.04,
+      208.143,
+      154.018
+    ],
+    "ground_rock": [
+      135.778,
+      130.085,
+      122.177
+    ],
+    "ground_grass_wet": [
+      104.549,
+      164.61,
+      68.332
+    ],
+    "ground_grass_dry": [
+      186.724,
+      172.714,
+      92.376
+    ],
+    "ground_burnt": [
+      46.87,
+      40.94,
+      37.01
+    ],
+    "ground_shrub_floor": [
+      118.261,
+      130.208,
+      59.947
+    ],
+    "ground_forest_floor": [
+      121.527,
+      103.863,
+      83.986
+    ],
+    "wall_soil": [
+      149.993,
+      125.852,
+      87.913
+    ],
+    "wall_sand": [
+      222.085,
+      208.18,
+      154.049
+    ],
+    "wall_rock": [
+      135.763,
+      130.069,
+      122.164
+    ],
+    "fire_ground": [
+      93.105,
+      35.945,
+      18.094
+    ],
+    "ground_silt": [
+      140,
+      129,
+      108
+    ]
+  },
+  "sources": [
+    {
+      "file": "sources/log_fallen.png",
+      "sha256": "c6a815a487394fde54b9433fe69830b5ac31a05fdb982196b58f6b1c29d9a2e1"
+    },
+    {
+      "file": "sources/materials.png",
+      "sha256": "6abd84aa85969b124968dffe68457dedd5fefa00c19f05792da8b4c9587db245"
+    },
+    {
+      "file": "sources/shrub.png",
+      "sha256": "8d2c6c9631dd857e8ee53c266b7b6f760324501167a00eff65c1dfec59e1f7cf"
+    },
+    {
+      "file": "sources/snag_standing.png",
+      "sha256": "822277c425771691dfb30953460e5504b3a4fa0d80f2583a7854bf2f89902ed9"
+    },
+    {
+      "file": "sources/tree_mid.png",
+      "sha256": "67e68010edb6211539c9ef465e0f34d5e268b48fec91f17c709e3ece231e4595"
+    },
+    {
+      "file": "sources/tree_old.png",
+      "sha256": "583f8f04aaaa69c3e2990b866ebad070d53fcc2dcc183f44a9c9e1ba8f0bf3c0"
+    },
+    {
+      "file": "sources/tree_young.png",
+      "sha256": "a65bb13cdd520023a815a4635f4cb1ca102aa281f8b63e9353b88362a2fa0ce9"
+    },
+    {
+      "file": "sources/walls.png",
+      "sha256": "968d233a629b87851551a481c9a9a5bf12b743b1f57186ef7abc4d83160d6378"
+    }
+  ]
+}
