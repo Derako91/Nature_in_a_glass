@@ -615,6 +615,10 @@ pub struct PersonSprite {
     pub weakness: f32,
     /// Kind (unter 14): `person_child_<aussehen>_…`, sonst kleiner gezeichnet.
     pub child: bool,
+    /// Werkzeug zur Tätigkeit (gestaltung.md 17.11): `net` beim Fischen,
+    /// `basket` beim Sammeln und Essen, `axe` beim Holzholen – nur, wenn die
+    /// Person es kann. Bild: `person_<aussehen>_<zustand>_<werkzeug>_…`.
+    pub tool: Option<&'static str>,
 }
 
 /// Alle lebenden Menschen.
@@ -633,8 +637,23 @@ pub fn person_sprites(people: &People, world: &World) -> Vec<PersonSprite> {
             pos: person_pos(p.id, world.seed),
             weakness: p.weakness(),
             child: p.is_child(),
+            tool: person_tool(p),
         })
         .collect()
+}
+
+/// Werkzeug, das zur heutigen Tätigkeit passt und das die Person kann.
+fn person_tool(p: &crate::people::Person) -> Option<&'static str> {
+    use crate::people::{Activity, Tool};
+    if p.is_child() {
+        return None;
+    }
+    match p.activity {
+        Activity::Fish if p.knows(Tool::Net) => Some("net"),
+        Activity::Gather | Activity::Eat if p.knows(Tool::Basket) => Some("basket"),
+        Activity::Build if p.knows(Tool::Axe) => Some("axe"),
+        _ => None,
+    }
 }
 
 /// Fester Platz je Person, damit mehrere auf einem Feld nebeneinander stehen.
@@ -905,6 +924,7 @@ mod tests {
             pos: (0.0, 0.0),
             weakness: 0.0,
             child: false,
+            tool: None,
         };
         assert_eq!(person_state_at(&s, 2.0).0, "sleep");
         assert_eq!(person_state_at(&s, 23.0).0, "sleep");

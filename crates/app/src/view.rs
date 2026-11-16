@@ -932,8 +932,18 @@ fn draw_iso_gfx(
                             _ => ("person", PERSON_WIDTH),
                         };
                         let idle = format!("{id}_{}_idle_{}_f0", p.look, p.dir);
-                        let name = atlas
-                            .first_of(&[format!("{id}_{}_{state}_{}_f{frame}", p.look, p.dir)])
+                        // Mit Werkzeug eigenes Bild (17.11), sonst das gewöhnliche
+                        let with_tool = p
+                            .tool
+                            .map(|t| format!("{id}_{}_{state}_{t}_{}_f{frame}", p.look, p.dir));
+                        let name = with_tool
+                            .and_then(|n| atlas.first_of(&[n]))
+                            .or_else(|| {
+                                atlas.first_of(&[format!(
+                                    "{id}_{}_{state}_{}_f{frame}",
+                                    p.look, p.dir
+                                )])
+                            })
                             .or_else(|| atlas.first_of(std::slice::from_ref(&idle)));
                         let measured = |n: &str| {
                             if child_art || !p.child {
