@@ -609,3 +609,28 @@ fn roles_follow_skill_and_pots_are_invented() {
     );
     assert!(pe.list.iter().any(|p| p.knows(Tool::Pot)));
 }
+
+// ---------- v0.16: Einbaum ----------
+
+/// Wer geschickt fischt und Netz und Beil kennt, baut irgendwann einen
+/// Einbaum; das Wissen geht weiter.
+#[test]
+fn skilled_fishers_build_a_dugout() {
+    use nig_core::people::Tool;
+    let sim = settled(7, 40);
+    assert!(
+        sim.journal
+            .events
+            .iter()
+            .any(|e| e.kind == EventKind::ToolInvented && e.message.contains("Einbaum")),
+        "kein Einbaum in 40 Jahren"
+    );
+    assert!(
+        sim.people
+            .list
+            .iter()
+            .filter(|p| p.knows(Tool::Boat))
+            .count()
+            >= 2
+    );
+}

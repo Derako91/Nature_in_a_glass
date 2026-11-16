@@ -168,9 +168,15 @@ Die Bewohner bauen selbst – der Beobachter gibt keine Bauaufträge (Prinzip 1)
 - [x] Tongefäß: Vorräte verderben halb so schnell.
 - [x] Rollen entstehen aus dem Können (Fischer, Gärtner, Jäger) und wirken auf das Tun.
 
+## ✅ v0.16 – Einbaum (v0.16.0)
+
+- [x] Einbaum: Fischen auf dem Meer, Gefahr bei Sturm.
+- Langlauf (32 Inseln): Überleben unverändert (20 von 32), mehr Geschichten und ein neues Risiko.
+
 ## Als Nächstes (Ideen)
 
-- Weitere Erfindungen: Boot (Fischen auf dem Meer, andere Küsten), Speerschleuder (Jagd).
+- Weitere Erfindungen: Speerschleuder (Jagd).
+- Mehrere Inseln: Fahrten mit dem Einbaum zu anderen Inseln (große Erweiterung der Welt).
 
 - Mehrere Lager einer wachsenden Gruppe; Siedlungen entstehen dort, wo Wasser, Nahrung und Schutz zusammenkommen.
 - Werkzeuge und erstes Können (wer gut baut, baut öfter), weitergegeben an die Kinder.

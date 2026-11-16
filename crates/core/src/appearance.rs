@@ -637,18 +637,22 @@ pub fn person_sprites(people: &People, world: &World) -> Vec<PersonSprite> {
             pos: person_pos(p.id, world.seed),
             weakness: p.weakness(),
             child: p.is_child(),
-            tool: person_tool(p),
+            tool: person_tool(p, world),
         })
         .collect()
 }
 
 /// Werkzeug, das zur heutigen Tätigkeit passt und das die Person kann.
-fn person_tool(p: &crate::people::Person) -> Option<&'static str> {
+fn person_tool(p: &crate::people::Person, world: &World) -> Option<&'static str> {
     use crate::people::{Activity, Tool};
     if p.is_child() {
         return None;
     }
+    let coastal = world
+        .neighbors(p.tile as usize)
+        .any(|j| world.tiles[j].is_ocean());
     match p.activity {
+        Activity::Fish if p.knows(Tool::Boat) && coastal => Some("boat"),
         Activity::Fish if p.knows(Tool::Net) => Some("net"),
         Activity::Gather | Activity::Eat if p.knows(Tool::Basket) => Some("basket"),
         Activity::Build if p.knows(Tool::Axe) => Some("axe"),

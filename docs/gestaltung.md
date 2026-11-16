@@ -1195,3 +1195,9 @@ Schnittstelle: `PersonSprite.tool` (`net`, `basket`, `axe` oder keins).
 eines erlegten Hirsches zeigt der Beobachter die Jäger vorerst laufend (`run`).
 Wenn Codex mag: eigener Zustand `_hunt` (mit Speer, angespannt, 4 Bilder) und ein
 liegender erlegter Hirsch mit Speer – dann schließe ich die Schnittstelle an.
+
+**Claude, Einbaum (16.11.2026, v0.16.0):** Neues Werkzeug Einbaum. Beim Fischen an
+der Küste liefert `PersonSprite.tool` jetzt `boat` (vor `net`). Bildwunsch für
+später: `person_<aussehen>_fish_boat_<richtung>_f0…f3` – die Person sitzt im
+Einbaum auf dem Wasser vor der Küste (der Beobachter würde sie dafür auf das
+angrenzende Meerfeld setzen; bitte als Wunsch melden, dann baue ich das).

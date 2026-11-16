@@ -21,9 +21,11 @@ pub enum Tool {
     Axe,
     /// Tongefäß (seit v0.15): Vorräte verderben langsamer.
     Pot,
+    /// Einbaum (seit v0.16): Fischen auf dem Meer.
+    Boat,
 }
 
-pub const TOOLS: [Tool; 4] = [Tool::Net, Tool::Basket, Tool::Axe, Tool::Pot];
+pub const TOOLS: [Tool; 5] = [Tool::Net, Tool::Basket, Tool::Axe, Tool::Pot, Tool::Boat];
 
 impl Tool {
     pub fn bit(self) -> u8 {
@@ -32,6 +34,7 @@ impl Tool {
             Tool::Basket => 2,
             Tool::Axe => 4,
             Tool::Pot => 8,
+            Tool::Boat => 16,
         }
     }
     pub fn name(self) -> &'static str {
@@ -40,6 +43,7 @@ impl Tool {
             Tool::Basket => "Korb",
             Tool::Axe => "Steinbeil",
             Tool::Pot => "Tongefäß",
+            Tool::Boat => "Einbaum",
         }
     }
     /// „ein Netz“, „einen Korb“, „ein Steinbeil“
@@ -49,6 +53,7 @@ impl Tool {
             Tool::Basket => "einen Korb",
             Tool::Axe => "ein Steinbeil",
             Tool::Pot => "ein Tongefäß",
+            Tool::Boat => "einen Einbaum",
         }
     }
     /// „Netze knüpfen“, „Körbe flechten“, „Steinbeile schlagen“
@@ -58,6 +63,7 @@ impl Tool {
             Tool::Basket => "Körbe zu flechten",
             Tool::Axe => "Steinbeile zu schlagen",
             Tool::Pot => "Tongefäße zu brennen",
+            Tool::Boat => "Einbäume zu bauen",
         }
     }
 }
@@ -81,6 +87,11 @@ fn pot_place(people: &People, world: &World, p: &Person) -> bool {
         })
         && super::drinkable(world, p.tile as usize)
 }
+
+/// Mehr Fisch auf dem Meer mit Einbaum (Rationen je Tag bei vollem Können).
+pub const BOAT_FISH: f32 = 1.5;
+/// Gefahr zu kentern je Bootstag bei Sturm (bei stärkstem Wind).
+pub const BOAT_RISK: f32 = 0.01;
 
 /// In Tongefäßen verderben Vorräte so viel langsamer (Faktor).
 pub const POT_SPOIL: f32 = 0.5;
@@ -121,6 +132,16 @@ pub(super) fn tools_day(
                 Tool::Axe if p.activity == Activity::Build => 0.003,
                 // Am Lager mit Garten und gefülltem Vorrat, Lehm vom Ufer
                 Tool::Pot if pot_place(people, world, p) => 0.0005,
+                // Geschickt fischen, Netz und Beil kennen, an der Küste
+                Tool::Boat
+                    if p.activity == Activity::Fish
+                        && p.fishing >= 0.7
+                        && p.knows(Tool::Net)
+                        && p.knows(Tool::Axe)
+                        && super::coastal(world, p.tile as usize) =>
+                {
+                    0.002
+                }
                 _ => 0.0,
             }
         };
@@ -154,6 +175,10 @@ pub(super) fn tools_day(
                 ),
                 (Tool::Pot, true) => format!(
                     "{} formt bei ({x}, {y}) aus Lehm vom Ufer das erste Tongefäß der Insel und brennt es im Feuer – Vorräte halten darin viel länger.",
+                    p.name
+                ),
+                (Tool::Boat, true) => format!(
+                    "{} höhlt bei ({x}, {y}) mit Feuer und Steinbeil einen Baumstamm aus – der erste Einbaum der Insel. Damit fährt man zum Fischen aufs Meer hinaus.",
                     p.name
                 ),
                 (t, _) => format!(

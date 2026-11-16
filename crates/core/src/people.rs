@@ -160,6 +160,8 @@ pub enum Cause {
     Age,
     Illness,
     Childbirth,
+    /// Mit dem Boot gekentert (seit v0.16).
+    Drowned,
 }
 
 impl Cause {
@@ -174,6 +176,7 @@ impl Cause {
             Cause::Age => "an Altersschwäche gestorben",
             Cause::Illness => "an einer Krankheit gestorben",
             Cause::Childbirth => "bei einer Geburt gestorben",
+            Cause::Drowned => "beim Fischen auf dem Meer ertrunken",
         }
     }
 }
@@ -729,7 +732,7 @@ pub fn fish_water(world: &World, i: usize, temp_c: f32) -> f32 {
     if temp_c < 0.0 { best * 0.5 } else { best }
 }
 
-fn coastal(world: &World, i: usize) -> bool {
+pub(crate) fn coastal(world: &World, i: usize) -> bool {
     world.neighbors(i).any(|j| world.tiles[j].is_ocean())
 }
 
@@ -1429,11 +1432,32 @@ fn day(
                 } else {
                     1.0
                 };
-                let caught = (fish_i * p.fishing * (1.0 - people.fished[i]) * work * net * focus)
-                    .min(2.0 * net * focus);
-                people.fished[i] = clamp01(people.fished[i] + caught / (fish_i * 6.0));
+                // Mit dem Einbaum hinaus aufs Meer: mehr Fisch, und draußen
+                // erschöpft er sich nicht so schnell wie am Ufer.
+                let boat = p.knows(Tool::Boat) && coastal(world, i);
+                let (ground, stock) = if boat {
+                    (fish_i + tools::BOAT_FISH, 2.0)
+                } else {
+                    (fish_i, 1.0)
+                };
+                let caught = (ground * p.fishing * (1.0 - people.fished[i]) * work * net * focus)
+                    .min(2.0 * net * focus * stock);
+                people.fished[i] = clamp01(people.fished[i] + caught / (ground * 6.0 * stock));
                 food += caught;
                 fished = caught;
+                // Bei starkem Wind kann ein Boot kentern.
+                if boat && caught > 0.0 && weather.wind_speed > 0.6 {
+                    let risk = tools::BOAT_RISK * (weather.wind_speed - 0.6) / 0.4;
+                    if rng.chance(risk) {
+                        p.health = 0.0;
+                        p.harm = Some(Cause::Drowned);
+                        let (x, y) = world.xy(i);
+                        p.note(
+                            now,
+                            format!("Kentert bei Sturm vor der Küste bei ({x}, {y})."),
+                        );
+                    }
+                }
                 let before = p.fishing;
                 p.fishing = (p.fishing + 0.0015 * (1.0 - p.fishing)).min(1.0);
                 if before < SKILLED_FISHER && p.fishing >= SKILLED_FISHER {

@@ -1,5 +1,15 @@
 # Änderungen
 
+## 0.16.0 – Der Einbaum
+
+**Neu**
+- **Einbaum als fünftes Werkzeug:** Wer geschickt fischt und Netz und Steinbeil kennt, höhlt an der Küste irgendwann mit Feuer und Beil einen Baumstamm aus. Mit dem Einbaum fährt man zum Fischen aufs Meer: Dort gibt es mehr Fisch, und er wird nicht so schnell weniger wie am Ufer.
+- **Gefahr auf dem Meer:** Bei starkem Wind kann ein Boot kentern – die Chronik meldet dann, wer beim Fischen ertrunken ist.
+- Wie die anderen Werkzeuge wird der Einbaum abgeschaut, oder das Wissen geht verloren.
+- **Fenster „Bewohner“:** Rolle und Können stehen in einer festen Zeile; der vollständige Text erscheint beim Darüberfahren.
+
+**Spielstände** aus 0.15 lassen sich laden.
+
 ## 0.15.0 – Tongefäße und Rollen
 
 **Neu**

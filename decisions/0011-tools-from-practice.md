@@ -33,3 +33,11 @@ Fischen und Gärtnern sind seit v0.9/v0.10 Können, das mit Übung wächst. Für
 
 - **Tongefäß** (Bit 8): Erfindung mit 0,05 % je Tag für Erwachsene am eigenen Lager (Umkreis 1), das einen Garten und mindestens 50 Rationen Vorrat hat, an Wasser. Wirkung: Verderb des Lagervorrats × 0,5, wenn jemand im Lager es kann.
 - **Rollen** (`Person.role`): monatlich je Lager für Fischer, Gärtner, Jäger (in dieser Reihenfolge) die erwachsene Person mit dem höchsten Können ab 0,7, die noch keine Rolle hat. Wirkung: Fischer × 1,2 Fang; Gärtnerin am Lager: Wachstum × 1,2; Jäger jagen ab Hunger 0,1 statt 0,25. Spielstand-Format 16.
+
+## Nachtrag v0.16.0 – Einbaum
+
+- **Einbaum** (Bit 16): Erfindung mit 0,2 % je Fischtag für Erwachsene mit Fischen ≥ 0,7, die Netz und Steinbeil kennen, an der Küste.
+- Wirkung an Küstenfeldern: Fischgrund + 1,5 Rationen, doppelter Bestand vor Erschöpfung.
+- Gefahr: an Bootstagen mit Wind über 0,6 Kentern mit bis zu 1 % (linear bis Wind 1,0) – Todesursache „beim Fischen auf dem Meer ertrunken“.
+- Bild: `PersonSprite.tool = "boat"` beim Fischen an der Küste (vor `net`).
+- Langlauf 32 Inseln: Überleben gleich mit und ohne Einbaum.

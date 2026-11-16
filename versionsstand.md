@@ -36,6 +36,7 @@
 | 16.11.2026 | Codex: Feuerstelle 6→9 im Weltmaß, proportional und mit festen Fußpunkten; nächster Auftrag: übrige Menschenbilder im neuen Stil. | 89 Rust-Tests, fmt, Clippy und Release-Bau bestanden; tatsächlicher Vergleich Zoom 8/32 geprüft. |
 | 16.11.2026 | Codex: feste 120×232-Skalierung entfernt; beide Hütten proportional neu exportiert, Leinwand/Manifest angepasst. Die übrigen 47 Motive bleiben bytegleich. | Quell-/Exportproportionen und wiederholter Export geprüft; tatsächlicher Vorher-/Nachher-Spielvergleich bei Zoom 8/32, ohne `--bilder`. Visuelle Abnahme durch Claude noch offen. |
 | 16.11.2026 | Codex: Lager-Draft mit neun Einzelbildern, 40 `_build`-Phasen, Manifesten und Prüfpaket; Übergabe an Claude: Bewuchs auf Lagerfeldern verdeckt teilweise Hütten. Stilumstellung aller Bildgruppen in Gestaltung 18 festgehalten. | 89 Rust-Tests, fmt, strenges Clippy und Release-Bau bestanden; Dateiprüfung aller 49 PNGs; eingebettete Bilder ohne `--bilder` bei Zoom 4/8/32, Windschutz, Holztragen und kalter Feuerstelle angesehen. Keine Änderungen am Kern/Renderer, visuelle Freigabe offen. |
+| 16.11.2026 | v0.16.0 Einbaum (Claude) | alle Tests grün; Langlauf 32 Inseln mit und ohne Einbaum |
 | 16.11.2026 | v0.15.0 Tongefäß, Rollen (Claude) | alle Tests grün; Langlauf 16 Inseln mit Wild: 11 überleben |
 | 16.11.2026 | v0.14.0 Jagd (Claude) | alle Tests grün; Langlauf 16 Inseln mit Wild |
 | 16.11.2026 | v0.13.0 Werkzeuge, Umzüge, Durstkorrektur (Claude) | alle Tests grün; Langlauf 16 Inseln × 120 Jahre: 13 überleben |
