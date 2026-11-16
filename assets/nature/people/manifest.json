@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "status": "section_17_preproduction",
+  "status": "style_b_draft",
   "base_tile": [
     64,
     32
@@ -42,15 +42,15 @@
       "id": "person",
       "state": "idle",
       "size": [
-        56,
+        112,
         120
       ],
       "display_size": [
-        7,
+        14,
         15
       ],
       "anchor": [
-        28,
+        56,
         112
       ],
       "appearances": 5,
@@ -60,6 +60,7 @@
       ],
       "frames": 2,
       "frame_ms": 800,
+      "status": "style_b_draft",
       "files": [
         "person_0_idle_l_f0.png",
         "person_0_idle_l_f1.png",
@@ -209,15 +210,15 @@
       "id": "person",
       "state": "walk",
       "size": [
-        56,
+        112,
         120
       ],
       "display_size": [
-        7,
+        14,
         15
       ],
       "anchor": [
-        28,
+        56,
         112
       ],
       "appearances": 5,
@@ -227,6 +228,7 @@
       ],
       "frames": 4,
       "frame_ms": 200,
+      "status": "style_b_draft",
       "files": [
         "person_0_walk_l_f0.png",
         "person_0_walk_l_f1.png",
@@ -516,15 +518,15 @@
       "id": "person",
       "state": "run",
       "size": [
-        56,
+        112,
         120
       ],
       "display_size": [
-        7,
+        14,
         15
       ],
       "anchor": [
-        28,
+        56,
         112
       ],
       "appearances": 5,
@@ -534,6 +536,7 @@
       ],
       "frames": 4,
       "frame_ms": 100,
+      "status": "style_b_draft",
       "files": [
         "person_0_run_l_f0.png",
         "person_0_run_l_f1.png",
@@ -823,15 +826,15 @@
       "id": "person",
       "state": "gather",
       "size": [
-        56,
+        112,
         120
       ],
       "display_size": [
-        7,
+        14,
         15
       ],
       "anchor": [
-        28,
+        56,
         112
       ],
       "appearances": 5,
@@ -841,6 +844,7 @@
       ],
       "frames": 4,
       "frame_ms": 300,
+      "status": "style_b_draft",
       "files": [
         "person_0_gather_l_f0.png",
         "person_0_gather_l_f1.png",
@@ -1130,15 +1134,15 @@
       "id": "person",
       "state": "eat",
       "size": [
-        56,
+        112,
         120
       ],
       "display_size": [
-        7,
+        14,
         15
       ],
       "anchor": [
-        28,
+        56,
         112
       ],
       "appearances": 5,
@@ -1148,6 +1152,7 @@
       ],
       "frames": 2,
       "frame_ms": 600,
+      "status": "style_b_draft",
       "files": [
         "person_0_eat_l_f0.png",
         "person_0_eat_l_f1.png",
@@ -1297,15 +1302,15 @@
       "id": "person",
       "state": "drink",
       "size": [
-        56,
+        112,
         120
       ],
       "display_size": [
-        7,
+        14,
         15
       ],
       "anchor": [
-        28,
+        56,
         112
       ],
       "appearances": 5,
@@ -1315,6 +1320,7 @@
       ],
       "frames": 2,
       "frame_ms": 600,
+      "status": "style_b_draft",
       "files": [
         "person_0_drink_l_f0.png",
         "person_0_drink_l_f1.png",
@@ -1464,15 +1470,15 @@
       "id": "person",
       "state": "sleep",
       "size": [
-        56,
+        112,
         120
       ],
       "display_size": [
-        7,
+        14,
         15
       ],
       "anchor": [
-        28,
+        56,
         112
       ],
       "appearances": 5,
@@ -1482,6 +1488,7 @@
       ],
       "frames": 1,
       "frame_ms": null,
+      "status": "style_b_draft",
       "files": [
         "person_0_sleep_l_f0.png",
         "person_0_sleep_r_f0.png",
@@ -1561,15 +1568,15 @@
       "id": "person",
       "state": "hurt",
       "size": [
-        56,
+        112,
         120
       ],
       "display_size": [
-        7,
+        14,
         15
       ],
       "anchor": [
-        28,
+        56,
         112
       ],
       "appearances": 5,
@@ -1579,6 +1586,7 @@
       ],
       "frames": 4,
       "frame_ms": 250,
+      "status": "style_b_draft",
       "files": [
         "person_0_hurt_l_f0.png",
         "person_0_hurt_l_f1.png",
@@ -1865,128 +1873,18 @@
       ]
     },
     {
-      "id": "person_dead",
-      "size": [
-        120,
-        40
-      ],
-      "display_size": [
-        15,
-        5
-      ],
-      "anchor": [
-        60,
-        20
-      ],
-      "frames": 1,
-      "files": [
-        "person_dead_0_l_f0.png",
-        "person_dead_0_r_f0.png",
-        "person_dead_1_l_f0.png",
-        "person_dead_1_r_f0.png",
-        "person_dead_2_l_f0.png",
-        "person_dead_2_r_f0.png",
-        "person_dead_3_l_f0.png",
-        "person_dead_3_r_f0.png",
-        "person_dead_4_l_f0.png",
-        "person_dead_4_r_f0.png"
-      ],
-      "frame_map": [
-        {
-          "appearance": 0,
-          "direction": "l",
-          "frame": 0,
-          "file": "person_dead_0_l_f0.png"
-        },
-        {
-          "appearance": 0,
-          "direction": "r",
-          "frame": 0,
-          "file": "person_dead_0_r_f0.png"
-        },
-        {
-          "appearance": 1,
-          "direction": "l",
-          "frame": 0,
-          "file": "person_dead_1_l_f0.png"
-        },
-        {
-          "appearance": 1,
-          "direction": "r",
-          "frame": 0,
-          "file": "person_dead_1_r_f0.png"
-        },
-        {
-          "appearance": 2,
-          "direction": "l",
-          "frame": 0,
-          "file": "person_dead_2_l_f0.png"
-        },
-        {
-          "appearance": 2,
-          "direction": "r",
-          "frame": 0,
-          "file": "person_dead_2_r_f0.png"
-        },
-        {
-          "appearance": 3,
-          "direction": "l",
-          "frame": 0,
-          "file": "person_dead_3_l_f0.png"
-        },
-        {
-          "appearance": 3,
-          "direction": "r",
-          "frame": 0,
-          "file": "person_dead_3_r_f0.png"
-        },
-        {
-          "appearance": 4,
-          "direction": "l",
-          "frame": 0,
-          "file": "person_dead_4_l_f0.png"
-        },
-        {
-          "appearance": 4,
-          "direction": "r",
-          "frame": 0,
-          "file": "person_dead_4_r_f0.png"
-        }
-      ]
-    },
-    {
-      "id": "person_marker",
-      "size": [
-        16,
-        16
-      ],
-      "display_size": [
-        8,
-        8
-      ],
-      "anchor": [
-        8,
-        14
-      ],
-      "frames": 1,
-      "files": [
-        "person_marker_0.png"
-      ],
-      "tint": "renderer_recognition_color"
-    },
-    {
       "id": "person",
       "state": "build",
       "size": [
-        56,
+        112,
         120
       ],
       "display_size": [
-        7,
+        14,
         15
       ],
       "anchor": [
-        28,
+        56,
         112
       ],
       "appearances": 5,
@@ -1996,7 +1894,7 @@
       ],
       "frames": 4,
       "frame_ms": 250,
-      "status": "draft_visual_review",
+      "status": "style_b_draft",
       "files": [
         "person_0_build_l_f0.png",
         "person_0_build_l_f1.png",
@@ -2281,6 +2179,1272 @@
           "file": "person_4_build_r_f3.png"
         }
       ]
+    },
+    {
+      "id": "person_child",
+      "state": "idle",
+      "size": [
+        80,
+        80
+      ],
+      "display_size": [
+        10,
+        10
+      ],
+      "anchor": [
+        40,
+        76
+      ],
+      "appearances": 5,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 2,
+      "frame_ms": 800,
+      "status": "style_b_draft",
+      "files": [
+        "person_child_0_idle_l_f0.png",
+        "person_child_0_idle_l_f1.png",
+        "person_child_0_idle_r_f0.png",
+        "person_child_0_idle_r_f1.png",
+        "person_child_1_idle_l_f0.png",
+        "person_child_1_idle_l_f1.png",
+        "person_child_1_idle_r_f0.png",
+        "person_child_1_idle_r_f1.png",
+        "person_child_2_idle_l_f0.png",
+        "person_child_2_idle_l_f1.png",
+        "person_child_2_idle_r_f0.png",
+        "person_child_2_idle_r_f1.png",
+        "person_child_3_idle_l_f0.png",
+        "person_child_3_idle_l_f1.png",
+        "person_child_3_idle_r_f0.png",
+        "person_child_3_idle_r_f1.png",
+        "person_child_4_idle_l_f0.png",
+        "person_child_4_idle_l_f1.png",
+        "person_child_4_idle_r_f0.png",
+        "person_child_4_idle_r_f1.png"
+      ],
+      "frame_map": [
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_0_idle_l_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_0_idle_l_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_0_idle_r_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_0_idle_r_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_1_idle_l_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_1_idle_l_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_1_idle_r_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_1_idle_r_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_2_idle_l_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_2_idle_l_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_2_idle_r_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_2_idle_r_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_3_idle_l_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_3_idle_l_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_3_idle_r_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_3_idle_r_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_4_idle_l_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_4_idle_l_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_4_idle_r_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_4_idle_r_f1.png"
+        }
+      ]
+    },
+    {
+      "id": "person_child",
+      "state": "walk",
+      "size": [
+        80,
+        80
+      ],
+      "display_size": [
+        10,
+        10
+      ],
+      "anchor": [
+        40,
+        76
+      ],
+      "appearances": 5,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 4,
+      "frame_ms": 200,
+      "status": "style_b_draft",
+      "files": [
+        "person_child_0_walk_l_f0.png",
+        "person_child_0_walk_l_f1.png",
+        "person_child_0_walk_l_f2.png",
+        "person_child_0_walk_l_f3.png",
+        "person_child_0_walk_r_f0.png",
+        "person_child_0_walk_r_f1.png",
+        "person_child_0_walk_r_f2.png",
+        "person_child_0_walk_r_f3.png",
+        "person_child_1_walk_l_f0.png",
+        "person_child_1_walk_l_f1.png",
+        "person_child_1_walk_l_f2.png",
+        "person_child_1_walk_l_f3.png",
+        "person_child_1_walk_r_f0.png",
+        "person_child_1_walk_r_f1.png",
+        "person_child_1_walk_r_f2.png",
+        "person_child_1_walk_r_f3.png",
+        "person_child_2_walk_l_f0.png",
+        "person_child_2_walk_l_f1.png",
+        "person_child_2_walk_l_f2.png",
+        "person_child_2_walk_l_f3.png",
+        "person_child_2_walk_r_f0.png",
+        "person_child_2_walk_r_f1.png",
+        "person_child_2_walk_r_f2.png",
+        "person_child_2_walk_r_f3.png",
+        "person_child_3_walk_l_f0.png",
+        "person_child_3_walk_l_f1.png",
+        "person_child_3_walk_l_f2.png",
+        "person_child_3_walk_l_f3.png",
+        "person_child_3_walk_r_f0.png",
+        "person_child_3_walk_r_f1.png",
+        "person_child_3_walk_r_f2.png",
+        "person_child_3_walk_r_f3.png",
+        "person_child_4_walk_l_f0.png",
+        "person_child_4_walk_l_f1.png",
+        "person_child_4_walk_l_f2.png",
+        "person_child_4_walk_l_f3.png",
+        "person_child_4_walk_r_f0.png",
+        "person_child_4_walk_r_f1.png",
+        "person_child_4_walk_r_f2.png",
+        "person_child_4_walk_r_f3.png"
+      ],
+      "frame_map": [
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_0_walk_l_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_0_walk_l_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_child_0_walk_l_f2.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_child_0_walk_l_f3.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_0_walk_r_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_0_walk_r_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_child_0_walk_r_f2.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_child_0_walk_r_f3.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_1_walk_l_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_1_walk_l_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_child_1_walk_l_f2.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_child_1_walk_l_f3.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_1_walk_r_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_1_walk_r_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_child_1_walk_r_f2.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_child_1_walk_r_f3.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_2_walk_l_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_2_walk_l_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_child_2_walk_l_f2.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_child_2_walk_l_f3.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_2_walk_r_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_2_walk_r_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_child_2_walk_r_f2.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_child_2_walk_r_f3.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_3_walk_l_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_3_walk_l_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_child_3_walk_l_f2.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_child_3_walk_l_f3.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_3_walk_r_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_3_walk_r_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_child_3_walk_r_f2.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_child_3_walk_r_f3.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_4_walk_l_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_4_walk_l_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_child_4_walk_l_f2.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_child_4_walk_l_f3.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_4_walk_r_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_4_walk_r_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_child_4_walk_r_f2.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_child_4_walk_r_f3.png"
+        }
+      ]
+    },
+    {
+      "id": "person_child",
+      "state": "gather",
+      "size": [
+        80,
+        80
+      ],
+      "display_size": [
+        10,
+        10
+      ],
+      "anchor": [
+        40,
+        76
+      ],
+      "appearances": 5,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 4,
+      "frame_ms": 300,
+      "status": "style_b_draft",
+      "files": [
+        "person_child_0_gather_l_f0.png",
+        "person_child_0_gather_l_f1.png",
+        "person_child_0_gather_l_f2.png",
+        "person_child_0_gather_l_f3.png",
+        "person_child_0_gather_r_f0.png",
+        "person_child_0_gather_r_f1.png",
+        "person_child_0_gather_r_f2.png",
+        "person_child_0_gather_r_f3.png",
+        "person_child_1_gather_l_f0.png",
+        "person_child_1_gather_l_f1.png",
+        "person_child_1_gather_l_f2.png",
+        "person_child_1_gather_l_f3.png",
+        "person_child_1_gather_r_f0.png",
+        "person_child_1_gather_r_f1.png",
+        "person_child_1_gather_r_f2.png",
+        "person_child_1_gather_r_f3.png",
+        "person_child_2_gather_l_f0.png",
+        "person_child_2_gather_l_f1.png",
+        "person_child_2_gather_l_f2.png",
+        "person_child_2_gather_l_f3.png",
+        "person_child_2_gather_r_f0.png",
+        "person_child_2_gather_r_f1.png",
+        "person_child_2_gather_r_f2.png",
+        "person_child_2_gather_r_f3.png",
+        "person_child_3_gather_l_f0.png",
+        "person_child_3_gather_l_f1.png",
+        "person_child_3_gather_l_f2.png",
+        "person_child_3_gather_l_f3.png",
+        "person_child_3_gather_r_f0.png",
+        "person_child_3_gather_r_f1.png",
+        "person_child_3_gather_r_f2.png",
+        "person_child_3_gather_r_f3.png",
+        "person_child_4_gather_l_f0.png",
+        "person_child_4_gather_l_f1.png",
+        "person_child_4_gather_l_f2.png",
+        "person_child_4_gather_l_f3.png",
+        "person_child_4_gather_r_f0.png",
+        "person_child_4_gather_r_f1.png",
+        "person_child_4_gather_r_f2.png",
+        "person_child_4_gather_r_f3.png"
+      ],
+      "frame_map": [
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_0_gather_l_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_0_gather_l_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_child_0_gather_l_f2.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_child_0_gather_l_f3.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_0_gather_r_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_0_gather_r_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_child_0_gather_r_f2.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_child_0_gather_r_f3.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_1_gather_l_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_1_gather_l_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_child_1_gather_l_f2.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_child_1_gather_l_f3.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_1_gather_r_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_1_gather_r_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_child_1_gather_r_f2.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_child_1_gather_r_f3.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_2_gather_l_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_2_gather_l_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_child_2_gather_l_f2.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_child_2_gather_l_f3.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_2_gather_r_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_2_gather_r_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_child_2_gather_r_f2.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_child_2_gather_r_f3.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_3_gather_l_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_3_gather_l_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_child_3_gather_l_f2.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_child_3_gather_l_f3.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_3_gather_r_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_3_gather_r_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_child_3_gather_r_f2.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_child_3_gather_r_f3.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_4_gather_l_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_4_gather_l_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 2,
+          "file": "person_child_4_gather_l_f2.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 3,
+          "file": "person_child_4_gather_l_f3.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_4_gather_r_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_4_gather_r_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 2,
+          "file": "person_child_4_gather_r_f2.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 3,
+          "file": "person_child_4_gather_r_f3.png"
+        }
+      ]
+    },
+    {
+      "id": "person_child",
+      "state": "eat",
+      "size": [
+        80,
+        80
+      ],
+      "display_size": [
+        10,
+        10
+      ],
+      "anchor": [
+        40,
+        76
+      ],
+      "appearances": 5,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 2,
+      "frame_ms": 600,
+      "status": "style_b_draft",
+      "files": [
+        "person_child_0_eat_l_f0.png",
+        "person_child_0_eat_l_f1.png",
+        "person_child_0_eat_r_f0.png",
+        "person_child_0_eat_r_f1.png",
+        "person_child_1_eat_l_f0.png",
+        "person_child_1_eat_l_f1.png",
+        "person_child_1_eat_r_f0.png",
+        "person_child_1_eat_r_f1.png",
+        "person_child_2_eat_l_f0.png",
+        "person_child_2_eat_l_f1.png",
+        "person_child_2_eat_r_f0.png",
+        "person_child_2_eat_r_f1.png",
+        "person_child_3_eat_l_f0.png",
+        "person_child_3_eat_l_f1.png",
+        "person_child_3_eat_r_f0.png",
+        "person_child_3_eat_r_f1.png",
+        "person_child_4_eat_l_f0.png",
+        "person_child_4_eat_l_f1.png",
+        "person_child_4_eat_r_f0.png",
+        "person_child_4_eat_r_f1.png"
+      ],
+      "frame_map": [
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_0_eat_l_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_0_eat_l_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_0_eat_r_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_0_eat_r_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_1_eat_l_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_1_eat_l_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_1_eat_r_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_1_eat_r_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_2_eat_l_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_2_eat_l_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_2_eat_r_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_2_eat_r_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_3_eat_l_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_3_eat_l_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_3_eat_r_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_3_eat_r_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_4_eat_l_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_4_eat_l_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_4_eat_r_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_4_eat_r_f1.png"
+        }
+      ]
+    },
+    {
+      "id": "person_child",
+      "state": "drink",
+      "size": [
+        80,
+        80
+      ],
+      "display_size": [
+        10,
+        10
+      ],
+      "anchor": [
+        40,
+        76
+      ],
+      "appearances": 5,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 2,
+      "frame_ms": 600,
+      "status": "style_b_draft",
+      "files": [
+        "person_child_0_drink_l_f0.png",
+        "person_child_0_drink_l_f1.png",
+        "person_child_0_drink_r_f0.png",
+        "person_child_0_drink_r_f1.png",
+        "person_child_1_drink_l_f0.png",
+        "person_child_1_drink_l_f1.png",
+        "person_child_1_drink_r_f0.png",
+        "person_child_1_drink_r_f1.png",
+        "person_child_2_drink_l_f0.png",
+        "person_child_2_drink_l_f1.png",
+        "person_child_2_drink_r_f0.png",
+        "person_child_2_drink_r_f1.png",
+        "person_child_3_drink_l_f0.png",
+        "person_child_3_drink_l_f1.png",
+        "person_child_3_drink_r_f0.png",
+        "person_child_3_drink_r_f1.png",
+        "person_child_4_drink_l_f0.png",
+        "person_child_4_drink_l_f1.png",
+        "person_child_4_drink_r_f0.png",
+        "person_child_4_drink_r_f1.png"
+      ],
+      "frame_map": [
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_0_drink_l_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_0_drink_l_f1.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_0_drink_r_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_0_drink_r_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_1_drink_l_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_1_drink_l_f1.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_1_drink_r_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_1_drink_r_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_2_drink_l_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_2_drink_l_f1.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_2_drink_r_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_2_drink_r_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_3_drink_l_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_3_drink_l_f1.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_3_drink_r_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_3_drink_r_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_4_drink_l_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 1,
+          "file": "person_child_4_drink_l_f1.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_4_drink_r_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 1,
+          "file": "person_child_4_drink_r_f1.png"
+        }
+      ]
+    },
+    {
+      "id": "person_child",
+      "state": "sleep",
+      "size": [
+        80,
+        80
+      ],
+      "display_size": [
+        10,
+        10
+      ],
+      "anchor": [
+        40,
+        76
+      ],
+      "appearances": 5,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "frames": 1,
+      "frame_ms": null,
+      "status": "style_b_draft",
+      "files": [
+        "person_child_0_sleep_l_f0.png",
+        "person_child_0_sleep_r_f0.png",
+        "person_child_1_sleep_l_f0.png",
+        "person_child_1_sleep_r_f0.png",
+        "person_child_2_sleep_l_f0.png",
+        "person_child_2_sleep_r_f0.png",
+        "person_child_3_sleep_l_f0.png",
+        "person_child_3_sleep_r_f0.png",
+        "person_child_4_sleep_l_f0.png",
+        "person_child_4_sleep_r_f0.png"
+      ],
+      "frame_map": [
+        {
+          "appearance": 0,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_0_sleep_l_f0.png"
+        },
+        {
+          "appearance": 0,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_0_sleep_r_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_1_sleep_l_f0.png"
+        },
+        {
+          "appearance": 1,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_1_sleep_r_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_2_sleep_l_f0.png"
+        },
+        {
+          "appearance": 2,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_2_sleep_r_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_3_sleep_l_f0.png"
+        },
+        {
+          "appearance": 3,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_3_sleep_r_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "l",
+          "frame": 0,
+          "file": "person_child_4_sleep_l_f0.png"
+        },
+        {
+          "appearance": 4,
+          "direction": "r",
+          "frame": 0,
+          "file": "person_child_4_sleep_r_f0.png"
+        }
+      ]
+    },
+    {
+      "id": "person_dead",
+      "size": [
+        120,
+        40
+      ],
+      "display_size": [
+        15,
+        5
+      ],
+      "anchor": [
+        60,
+        20
+      ],
+      "frames": 1,
+      "files": [
+        "person_dead_0_l_f0.png",
+        "person_dead_0_r_f0.png",
+        "person_dead_1_l_f0.png",
+        "person_dead_1_r_f0.png",
+        "person_dead_2_l_f0.png",
+        "person_dead_2_r_f0.png",
+        "person_dead_3_l_f0.png",
+        "person_dead_3_r_f0.png",
+        "person_dead_4_l_f0.png",
+        "person_dead_4_r_f0.png"
+      ]
+    },
+    {
+      "id": "person_marker",
+      "size": [
+        16,
+        16
+      ],
+      "display_size": [
+        8,
+        8
+      ],
+      "anchor": [
+        8,
+        14
+      ],
+      "frames": 1,
+      "files": [
+        "person_marker_0.png"
+      ],
+      "tint": "renderer_recognition_color"
     }
   ],
   "frame_aliases": {}

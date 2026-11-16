@@ -1,0 +1,6130 @@
+{
+  "producer": "image_gen; proportionaler technischer Rasterexport",
+  "new_adult_frames": 230,
+  "new_child_frames": 150,
+  "new_dead_frames": 10,
+  "build_frames_padded_without_resizing": 40,
+  "marker_unchanged": true,
+  "scales": [
+    {
+      "look": 0,
+      "direction": "l",
+      "kind": "adult",
+      "factor": 0.38362068965517243,
+      "build_reference_height": 89.0
+    },
+    {
+      "look": 0,
+      "direction": "r",
+      "kind": "adult",
+      "factor": 0.4168618266978923,
+      "build_reference_height": 89.0
+    },
+    {
+      "look": 0,
+      "kind": "child",
+      "factor": 0.3441988950276243
+    },
+    {
+      "look": 1,
+      "direction": "l",
+      "kind": "adult",
+      "factor": 0.4009111617312073,
+      "build_reference_height": 88.0
+    },
+    {
+      "look": 1,
+      "direction": "r",
+      "kind": "adult",
+      "factor": 0.4036697247706422,
+      "build_reference_height": 88.0
+    },
+    {
+      "look": 1,
+      "kind": "child",
+      "factor": 0.33569482288828334
+    },
+    {
+      "look": 2,
+      "direction": "l",
+      "kind": "adult",
+      "factor": 0.3796680497925311,
+      "build_reference_height": 91.5
+    },
+    {
+      "look": 2,
+      "direction": "r",
+      "kind": "adult",
+      "factor": 0.4236111111111111,
+      "build_reference_height": 91.5
+    },
+    {
+      "look": 2,
+      "kind": "child",
+      "factor": 0.34715447154471546
+    },
+    {
+      "look": 3,
+      "direction": "l",
+      "kind": "adult",
+      "factor": 0.34801762114537443,
+      "build_reference_height": 79.0
+    },
+    {
+      "look": 3,
+      "direction": "r",
+      "kind": "adult",
+      "factor": 0.3574660633484163,
+      "build_reference_height": 79.0
+    },
+    {
+      "look": 3,
+      "kind": "child",
+      "factor": 0.3089385474860335
+    },
+    {
+      "look": 4,
+      "direction": "l",
+      "kind": "adult",
+      "factor": 0.4418052256532066,
+      "build_reference_height": 93.0
+    },
+    {
+      "look": 4,
+      "direction": "r",
+      "kind": "adult",
+      "factor": 0.4142538975501114,
+      "build_reference_height": 93.0
+    },
+    {
+      "look": 4,
+      "kind": "child",
+      "factor": 0.35094339622641507
+    }
+  ],
+  "files": [
+    {
+      "file": "person_0_idle_l_f0.png",
+      "sha256": "c3f6d000b355c331adb077083bd24d24c0313b9731fba3ab40e8d0f3f62a111f",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        38,
+        20,
+        73,
+        112
+      ]
+    },
+    {
+      "file": "person_0_idle_l_f1.png",
+      "sha256": "50994f413ed847ba74be392b8da7a143442f0ed114cf5f47954e1b54d36bcd21",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        38,
+        20,
+        74,
+        112
+      ]
+    },
+    {
+      "file": "person_0_walk_l_f0.png",
+      "sha256": "6c0a37bb8c0573ec3026a8854c2aecb12916bdaca7d19a8d7a1eb4a30b174429",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        21,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_0_walk_l_f1.png",
+      "sha256": "2c313ce871ae46a26cb9d942d70a9bd5290aa8439d63b3c47a64c9c1888cf26a",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        38,
+        21,
+        73,
+        112
+      ]
+    },
+    {
+      "file": "person_0_walk_l_f2.png",
+      "sha256": "14187fca74f2b9b59f5932833b542d5c5309a72aba05311323ddb0c56f3b8fc0",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        24,
+        83,
+        112
+      ]
+    },
+    {
+      "file": "person_0_walk_l_f3.png",
+      "sha256": "92e3ea05d528f84a983369b6403b86ba0fbf9714773325c7745d25b438970a64",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        38,
+        22,
+        75,
+        112
+      ]
+    },
+    {
+      "file": "person_0_run_l_f0.png",
+      "sha256": "9d8d2797a99fed2695cbca57b96ceb97fac51477c3e0afc5dcd1e88d290acfb1",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        25,
+        84,
+        112
+      ]
+    },
+    {
+      "file": "person_0_run_l_f1.png",
+      "sha256": "22eefe8cc8d50d3a5d570626810fd0141fa9d1003894272999214270f63b82dc",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        29,
+        25,
+        83,
+        112
+      ]
+    },
+    {
+      "file": "person_0_run_l_f2.png",
+      "sha256": "4f5aad07bb7fb27089f303dc28469fbfce82ce518ba388e9bfd4b94fd15cd2cf",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        22,
+        28,
+        89,
+        112
+      ]
+    },
+    {
+      "file": "person_0_run_l_f3.png",
+      "sha256": "b7a7a194079ed534b6b210d2c1338c1be22d3276e69e4a2aaf2ae3ec5201e504",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        29,
+        31,
+        83,
+        112
+      ]
+    },
+    {
+      "file": "person_0_gather_l_f0.png",
+      "sha256": "73273c671878639b6013a003c3a64ea243a842a816f49281c4232917a2628871",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        27,
+        37,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_0_gather_l_f1.png",
+      "sha256": "2ee5c6a3e829471d2d24de7a313bfa12c9446658a773177ceda752440244eb81",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        24,
+        43,
+        87,
+        112
+      ]
+    },
+    {
+      "file": "person_0_gather_l_f2.png",
+      "sha256": "0295fb188e03232e1733a9664f4f645087f13253f06c15a60c46465fdb26a5f0",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        24,
+        47,
+        88,
+        112
+      ]
+    },
+    {
+      "file": "person_0_gather_l_f3.png",
+      "sha256": "cd7f24f947ce49b9c240b4c945db90494a9546cf69588c80b0a790bd927809a7",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        27,
+        38,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_0_eat_l_f0.png",
+      "sha256": "8cdd9246403a17dbcc0c0e8d4a834c952787b0ee0c49c533b44cc6bea558abc7",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        26,
+        43,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_0_eat_l_f1.png",
+      "sha256": "a7cc88034844ec4ea85f88ae24ac614f2a27a4cef71dc24a7c89761b50497409",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        26,
+        43,
+        87,
+        112
+      ]
+    },
+    {
+      "file": "person_0_drink_l_f0.png",
+      "sha256": "621b3dd3c744534b22ae355214ad0fb015b42b0a42df3344b931670716d48ce4",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        24,
+        46,
+        87,
+        112
+      ]
+    },
+    {
+      "file": "person_0_drink_l_f1.png",
+      "sha256": "d4683fc58c075a5ff399f9eeee9589271fd96fad33d54bb85deb2ccae74b9e52",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        27,
+        41,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_0_sleep_l_f0.png",
+      "sha256": "419b4fafc0d52c1b4261c8c1699d6736340a058857b613fd1e621b12e201058e",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        16,
+        78,
+        95,
+        112
+      ]
+    },
+    {
+      "file": "person_0_hurt_l_f0.png",
+      "sha256": "dc5e7eb111cbee6dccc032f4c679ebc0dd2b3011b89236711af16e68cbd6e8af",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        31,
+        80,
+        112
+      ]
+    },
+    {
+      "file": "person_0_hurt_l_f1.png",
+      "sha256": "864fe5e58bfbc9d0a2d3fb2442cf24663a5e9bf4f99f1388ad47f187ffaacb45",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        33,
+        31,
+        79,
+        112
+      ]
+    },
+    {
+      "file": "person_0_hurt_l_f2.png",
+      "sha256": "07a0db6756ab6f5710e937ae2d977d2c680f8b6b0666b2e58cbaf984cc1b350f",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        33,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_0_hurt_l_f3.png",
+      "sha256": "e54848a47b0dd75e4a6f2f0cc4a7af28341b0bc89f12998b9bf81e38162f17f9",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        30,
+        80,
+        112
+      ]
+    },
+    {
+      "file": "person_dead_0_l_f0.png",
+      "sha256": "dd9995896b57b08222547924e7e2ac644fa88a28c132b9b889c05aca199c2860",
+      "size": [
+        120,
+        40
+      ],
+      "bbox": [
+        11,
+        4,
+        110,
+        36
+      ]
+    },
+    {
+      "file": "person_0_idle_r_f0.png",
+      "sha256": "b2196e465229293de15000b0f6574ab1f114014e4320c44f707b8317ffd4e343",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        40,
+        19,
+        72,
+        112
+      ]
+    },
+    {
+      "file": "person_0_idle_r_f1.png",
+      "sha256": "38aece8a900530b3c1349871408625792cf3ca1be8e572829797f870f5c6c429",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        40,
+        20,
+        72,
+        112
+      ]
+    },
+    {
+      "file": "person_0_walk_r_f0.png",
+      "sha256": "450f27a5e006d82b13dff3eaee469d45c2170f0ba9db0e556640802c7f5faa50",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        31,
+        22,
+        81,
+        111
+      ]
+    },
+    {
+      "file": "person_0_walk_r_f1.png",
+      "sha256": "54542cae06aa204d1e83ac99484472ee02f9a5a0cf5e3ffe612e7324bb9cf9e8",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        40,
+        23,
+        73,
+        112
+      ]
+    },
+    {
+      "file": "person_0_walk_r_f2.png",
+      "sha256": "9d691fb56d742c9d94d3a981cce82442c92b2b5eeedb640dfc56045d6a1298d9",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        24,
+        84,
+        112
+      ]
+    },
+    {
+      "file": "person_0_walk_r_f3.png",
+      "sha256": "949c3b7003f2305356995c9ca0a37818f7bcea37da533b5763c980fdad7a15b8",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        40,
+        24,
+        72,
+        112
+      ]
+    },
+    {
+      "file": "person_0_run_r_f0.png",
+      "sha256": "80bc9c7b7e202e0967661fc2a5d0c4ba418c74ee372c06a6abb4ad17b17392b2",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        27,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_0_run_r_f1.png",
+      "sha256": "7c90d2f186ce9308e29d96f18fa04a00ca10a1f17c63d652225581adec91baad",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        31,
+        27,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_0_run_r_f2.png",
+      "sha256": "899579c92e2fcc26a32d682a0d7c31314d00dcd20065fa6880c5aeb739258975",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        26,
+        26,
+        86,
+        112
+      ]
+    },
+    {
+      "file": "person_0_run_r_f3.png",
+      "sha256": "695b4ec868e85fe950463b6fd0155ee293e88833ea5534018d566ed3df2d101c",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        34,
+        83,
+        112
+      ]
+    },
+    {
+      "file": "person_0_gather_r_f0.png",
+      "sha256": "664abef0a6ce53c3595764a5129c0cf16615114e47476801ee06700afff87c4f",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        27,
+        40,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_0_gather_r_f1.png",
+      "sha256": "a7b457b7c89ebdca410fc9a236b62b65eef3a1eb691b724bfd0f8325fefcf658",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        22,
+        48,
+        90,
+        112
+      ]
+    },
+    {
+      "file": "person_0_gather_r_f2.png",
+      "sha256": "967f96b64ab852998d12f9228475a442dff3f11346afb26bccf9a0ecd276d32e",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        45,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_0_gather_r_f3.png",
+      "sha256": "9fdc716ef306d445f00d4293bdccce66a352c34ca14e214af3a26d9218e9c611",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        31,
+        29,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_0_eat_r_f0.png",
+      "sha256": "ad2327687c88a1e9f2522b61dc75364e03f420e01951db6f04d1548e722bc49b",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        26,
+        39,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_0_eat_r_f1.png",
+      "sha256": "11c7d021e458d2a979df1ec9613b708e504f019806a254458ca481ffc46b9365",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        27,
+        39,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_0_drink_r_f0.png",
+      "sha256": "f21554bca1c24f9cb6f5c9969c233896f3a9daef0617181612d977683bd27145",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        26,
+        47,
+        86,
+        112
+      ]
+    },
+    {
+      "file": "person_0_drink_r_f1.png",
+      "sha256": "7d05abbda98a8ebc67207469fa403e339057f75d1c823f0671d3194c802a58e0",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        34,
+        83,
+        112
+      ]
+    },
+    {
+      "file": "person_0_sleep_r_f0.png",
+      "sha256": "f19c82e407d8e8f12e04c39c2770223f60cdf22bea98829c9b83b5c8cb7a3e55",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        14,
+        73,
+        97,
+        112
+      ]
+    },
+    {
+      "file": "person_0_hurt_r_f0.png",
+      "sha256": "d7e6d71164ec9fb150f0e57645c5e1795cef77ea7bea94bca3a592445bab76bf",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        18,
+        80,
+        112
+      ]
+    },
+    {
+      "file": "person_0_hurt_r_f1.png",
+      "sha256": "ec444c1d2f6b25a3b46f50bdea8db9f630fa0d9685340d58ac64da7778d359db",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        34,
+        22,
+        78,
+        112
+      ]
+    },
+    {
+      "file": "person_0_hurt_r_f2.png",
+      "sha256": "6eee0d837fb94ff4b1755eb4957d2cecd8a10b7ab8061a89c67e8f8e0bb59bad",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        34,
+        24,
+        78,
+        112
+      ]
+    },
+    {
+      "file": "person_0_hurt_r_f3.png",
+      "sha256": "36295c8d081ba68c034f9777c2dfff14b42ed0ee14ea1adbdf5022bbbe62ffe1",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        36,
+        18,
+        76,
+        112
+      ]
+    },
+    {
+      "file": "person_dead_0_r_f0.png",
+      "sha256": "03a443112b8547d183b6c1336c862e9d9ca32d3a07c4d5be0adc7d3d7a23cb98",
+      "size": [
+        120,
+        40
+      ],
+      "bbox": [
+        8,
+        4,
+        113,
+        36
+      ]
+    },
+    {
+      "file": "person_0_build_l_f0.png",
+      "sha256": "de4d0c12c621127184e9d0979c7c62c643b97cc035a71b1e92264d0f47491c41",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        23,
+        82,
+        112
+      ]
+    },
+    {
+      "file": "person_0_build_l_f1.png",
+      "sha256": "8497281cc586172b27d4827bd25218511fee48089ba71a118fe8873de031c2f7",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        23,
+        80,
+        112
+      ]
+    },
+    {
+      "file": "person_0_build_l_f2.png",
+      "sha256": "706256a2b14dcf97b0f7af2ee508e4fb3c574fc497c6937c8a60cf9c46332a0c",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        23,
+        80,
+        112
+      ]
+    },
+    {
+      "file": "person_0_build_l_f3.png",
+      "sha256": "d0b96e76068e80955b03f548b07469429f9257523e9a4503969a4d8e90548cde",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        24,
+        79,
+        112
+      ]
+    },
+    {
+      "file": "person_0_build_r_f0.png",
+      "sha256": "dc07cef1c19344b397bf2c2f459323f4ac38dcaf7eac5510a946956f39d68528",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        31,
+        23,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_0_build_r_f1.png",
+      "sha256": "df56fd87f65b947ad32fb5d548628a3bcfdc353db425b703b0011e613f6e4847",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        24,
+        82,
+        112
+      ]
+    },
+    {
+      "file": "person_0_build_r_f2.png",
+      "sha256": "4428980c04e87cc121bc7f2fb44ae0048ac5f30a48c3788506daa4f3ac0a48ff",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        23,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_0_build_r_f3.png",
+      "sha256": "3a9976b9f34f328fab27404ebc90c63820bcba5d37f982441485399905c8db86",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        31,
+        24,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_child_0_idle_r_f0.png",
+      "sha256": "85161bdc4a62a4095f50de19cede96627728f2bd1061d29a90862fd88d7c0b72",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        26,
+        12,
+        53,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_idle_r_f1.png",
+      "sha256": "dc6f56b2bd30b6d9f14905f8fb729683c81a2ef34ea12aa48f25440f5b2ff4b2",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        26,
+        10,
+        53,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_idle_l_f0.png",
+      "sha256": "e5bc16308a012abbf3b6c7e14e4aa1ff9498899e49a22b9e6aec7de4d45e2cdb",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        27,
+        11,
+        53,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_idle_l_f1.png",
+      "sha256": "c726c2dd0898bd7cdd881e84bcdac38c6f5dbbbb1e73a31a8fbe36679861e7bb",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        27,
+        11,
+        53,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_walk_r_f0.png",
+      "sha256": "07a17e1bd7add55008ac648ffc8037b1532501640baf49949d9fe16949efd913",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        13,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_walk_r_f1.png",
+      "sha256": "53c505eaff06fba112dace01aa96274549c920484283561b2469f5f626a378c3",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        26,
+        11,
+        53,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_walk_r_f2.png",
+      "sha256": "ac5bb401ef5b5eb548b9fdb865ef947cb0efb64a78a367d281b85c96baf9eaae",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        12,
+        61,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_walk_r_f3.png",
+      "sha256": "ceb9bcfe6de1f47dff9f24e388f802a0f9d29873b64e485707f069ff3a7f7548",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        25,
+        11,
+        55,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_walk_l_f0.png",
+      "sha256": "b3398d088fd41f83d037075bce56ef3ad06ccb562d928ec7d21b3f15035bde4a",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        12,
+        60,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_walk_l_f1.png",
+      "sha256": "504439492e39ed422270db8b1835ecde3d1922d1c2b1adebe1bf3ede728be464",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        28,
+        12,
+        53,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_walk_l_f2.png",
+      "sha256": "71f0bf241330a14ba0377ee420f5f66309612f3eb48b184aec967f1f37c2f7f1",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        18,
+        13,
+        61,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_walk_l_f3.png",
+      "sha256": "a1e2145c7af79d8f37f34c334e05b741b13e923d33f8c543cab3d779aaafd727",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        26,
+        13,
+        55,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_gather_r_f0.png",
+      "sha256": "f31b0d33e1eb82d90a730059611b744ecb836d6233de7c92425187a92038c02a",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        18,
+        22,
+        63,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_gather_r_f1.png",
+      "sha256": "1dccd178d31b3b85f29079e27a09cea551b4f3c77ccdfebfd3728bcf31edb509",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        18,
+        27,
+        61,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_gather_r_f2.png",
+      "sha256": "a47bdb816062d873c3902deead8fb47afd7d5dddadf827dc878da0a6a56d77f9",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        18,
+        28,
+        62,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_gather_r_f3.png",
+      "sha256": "5b33eb8f0c29830062ebbd97a90e04bd6c92953622ea1015a1520f9117fa057a",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        23,
+        14,
+        57,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_gather_l_f0.png",
+      "sha256": "26c4f7f95ee2697adba68470a6412797f99b122ee4ead6a0fe54a700977b5a21",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        16,
+        25,
+        63,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_gather_l_f1.png",
+      "sha256": "4870c6309e95a7877fb34b00dcdce2be4c07ed9311981f916231c2d027b6aee8",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        19,
+        30,
+        61,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_gather_l_f2.png",
+      "sha256": "57a25a459738814ff52b196a75274a643c8f5c98db55b468a09b67734edeb678",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        18,
+        30,
+        62,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_gather_l_f3.png",
+      "sha256": "d62973d80f716d40f225fef0e8aea22b08e9488aeeb16998b0beef6ab617d1c6",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        23,
+        13,
+        57,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_eat_r_f0.png",
+      "sha256": "7731110f6d3caf83ed49f148c22fe02d0bf39b2f2324210546aa80e3ab098ebf",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        26,
+        60,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_eat_r_f1.png",
+      "sha256": "342707c1416e0c8b398dd376d3d7ca0e60ad04cf3997f39f2b9a7d2e7bf9aa66",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        25,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_eat_l_f0.png",
+      "sha256": "dfe00dcba1b1249de1e9ad338dbe0d26e88a1ef01cb79d2e56db7075fce3972f",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        26,
+        60,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_eat_l_f1.png",
+      "sha256": "29cd5b014dce62ec418da46a020fe3623787b964e7c99dea8d43a02fe5e68e03",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        27,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_drink_r_f0.png",
+      "sha256": "7f5e5a38b9cfac5987feafc0fb344572109edade4f8100e9629c31e222b0697d",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        20,
+        61,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_drink_r_f1.png",
+      "sha256": "6a345bdd1fdfb71bc5591aa2cf90b5a6dc7232d98001bc7c02af7b1b50e68f87",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        21,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_drink_l_f0.png",
+      "sha256": "6da65d383a4c94602a9f508eedbff45f14042c9608b1c0eec88ca82168bac1a9",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        21,
+        60,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_drink_l_f1.png",
+      "sha256": "86bb29f8caa30b24a99381b9d068db85859067fe642fe7dc92123496355e0c35",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        20,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_sleep_r_f0.png",
+      "sha256": "836af6e2c4a48c3dbb05678d707cd7372530bdf4dad9685e0f2a7c8bf392392b",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        10,
+        45,
+        71,
+        76
+      ]
+    },
+    {
+      "file": "person_child_0_sleep_l_f0.png",
+      "sha256": "1471108463f8be8480842e2a33ce1f1a11e8401eebf63bb9bce3da14c7c83372",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        10,
+        45,
+        71,
+        76
+      ]
+    },
+    {
+      "file": "person_1_idle_l_f0.png",
+      "sha256": "6fc1b92eddad8309451a9feb8928dde8e16d92e241749f039009b3d01d32fa33",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        40,
+        21,
+        72,
+        112
+      ]
+    },
+    {
+      "file": "person_1_idle_l_f1.png",
+      "sha256": "617465fbc02ec60072b63fd37d88f6133de986f3c128516110bbd5ae272eb053",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        39,
+        21,
+        73,
+        112
+      ]
+    },
+    {
+      "file": "person_1_walk_l_f0.png",
+      "sha256": "8eee60a9ebd3ea56af458ab0b889ca6a273755488caed7f30654d60ba5d69d38",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        29,
+        21,
+        83,
+        112
+      ]
+    },
+    {
+      "file": "person_1_walk_l_f1.png",
+      "sha256": "78f3a49ea13119c1513eec7f07e34322f380895074570ce028b7b77072adbe68",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        38,
+        23,
+        75,
+        112
+      ]
+    },
+    {
+      "file": "person_1_walk_l_f2.png",
+      "sha256": "37ede6454a887a444d03223c359b004351f38c8c6454a8557881cd1db490e11c",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        22,
+        84,
+        112
+      ]
+    },
+    {
+      "file": "person_1_walk_l_f3.png",
+      "sha256": "4881758200183f67c2b9333cc6d01516c3dfa82ff758a42c3425665648c913c8",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        38,
+        23,
+        75,
+        112
+      ]
+    },
+    {
+      "file": "person_1_run_l_f0.png",
+      "sha256": "34e6e837b96e53185606e8dfbf99c5934de38257bd81a002f1359eb3ad34f9a8",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        23,
+        25,
+        89,
+        112
+      ]
+    },
+    {
+      "file": "person_1_run_l_f1.png",
+      "sha256": "fa37d54818b83f6846f922bf05a1815d40d1aaeca180919dcd920f1aa2877f91",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        25,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_1_run_l_f2.png",
+      "sha256": "e4cdf034d0d414591937fbbb426b025f517deecf8c9ca4074d4d72fb6ed9d0d9",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        22,
+        26,
+        91,
+        112
+      ]
+    },
+    {
+      "file": "person_1_run_l_f3.png",
+      "sha256": "200cb9200035155a0ea4d8e3f9bbda72af4c353a458e50490ff223743414a310",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        35,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_1_gather_l_f0.png",
+      "sha256": "abe42ae8a9d632dae54b866c3b25d23a0a9718371e1c538dd672a99fe9e20c63",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        24,
+        42,
+        89,
+        112
+      ]
+    },
+    {
+      "file": "person_1_gather_l_f1.png",
+      "sha256": "da6c621540285eec39788aa58edf204dee5f1259dd73ea0fed9a664ff35095f8",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        20,
+        44,
+        92,
+        112
+      ]
+    },
+    {
+      "file": "person_1_gather_l_f2.png",
+      "sha256": "1467bed2ef99f35ff8618170a7506197eac3c8a77bb20ea793f6a06d1463ab4d",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        25,
+        44,
+        87,
+        112
+      ]
+    },
+    {
+      "file": "person_1_gather_l_f3.png",
+      "sha256": "bbb987ed4186107f159da764e8e23b2ab1b3c606c691814931f45b271261aea8",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        32,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_1_eat_l_f0.png",
+      "sha256": "ea5d179e72c25a2f4481781ae114fbe49a81a97589552df5e397d83082bb480c",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        41,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_1_eat_l_f1.png",
+      "sha256": "aa03fec2fc40b471470af7ba5271516b1e08151bb6debee9e975c794103a5392",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        42,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_1_drink_l_f0.png",
+      "sha256": "ce82a50ef3524a0e2198fbe58965a2f69d846fb9186181ee6e6d74139270e3c5",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        26,
+        48,
+        86,
+        112
+      ]
+    },
+    {
+      "file": "person_1_drink_l_f1.png",
+      "sha256": "9a0e3f6c6caa54d54931763c5f9fd17e55de1b70c509d9b04a39e5c30812b003",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        41,
+        84,
+        112
+      ]
+    },
+    {
+      "file": "person_1_sleep_l_f0.png",
+      "sha256": "6c8ef3cb561a397c158e5d19bd1580ca15eca7ca923dc3a3589ab7c4a407a8df",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        16,
+        74,
+        97,
+        112
+      ]
+    },
+    {
+      "file": "person_1_hurt_l_f0.png",
+      "sha256": "38d3ca5ce30c50ca1c42839e21c8e4e4df25af4be48409337a6820bd114e08f5",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        23,
+        82,
+        112
+      ]
+    },
+    {
+      "file": "person_1_hurt_l_f1.png",
+      "sha256": "1c52b8d09e37a08c5fc1a1dd6346794d4ae34507627010860ae952ebd52a01f1",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        25,
+        80,
+        112
+      ]
+    },
+    {
+      "file": "person_1_hurt_l_f2.png",
+      "sha256": "76287021f76debaca21911d727132b81232359321e1163aa31b156bd0f3af682",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        31,
+        27,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_1_hurt_l_f3.png",
+      "sha256": "987e10704052e785d008c70e8af1f65eaa7d3fe9c710c0d2a2452478d06a6676",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        34,
+        23,
+        77,
+        112
+      ]
+    },
+    {
+      "file": "person_dead_1_l_f0.png",
+      "sha256": "145684b4d51dbbab4c6d1726ba0bbc84a5caad192f8155f35529924db31d86fa",
+      "size": [
+        120,
+        40
+      ],
+      "bbox": [
+        7,
+        4,
+        114,
+        36
+      ]
+    },
+    {
+      "file": "person_1_idle_r_f0.png",
+      "sha256": "0400edf1b6c8f7d515733f4dd2210580fa264847a04d5be347ad0b825d980f50",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        40,
+        21,
+        72,
+        112
+      ]
+    },
+    {
+      "file": "person_1_idle_r_f1.png",
+      "sha256": "4ef2345b1016d60c54a2c4a1f119b160922473c1a81d4f7054a36514933badec",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        40,
+        21,
+        71,
+        112
+      ]
+    },
+    {
+      "file": "person_1_walk_r_f0.png",
+      "sha256": "a1aa43c678b1d8f9683517761134878c2e069adae630add059f1ef6538b22a8f",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        33,
+        25,
+        79,
+        112
+      ]
+    },
+    {
+      "file": "person_1_walk_r_f1.png",
+      "sha256": "1f529fc64593d9cef48c613d0b23b5db1c8aa73565c26c524b757cd906b7df62",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        40,
+        24,
+        72,
+        112
+      ]
+    },
+    {
+      "file": "person_1_walk_r_f2.png",
+      "sha256": "5b77a5dd8cd39431e273df52f260274f565d936d3837eaa708e342d1e5c28f4e",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        24,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_1_walk_r_f3.png",
+      "sha256": "22e97533d09ca586b0aa69d73ae1d2c182dd1611e59fc2d8ebb22f95b5dc5026",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        40,
+        22,
+        73,
+        112
+      ]
+    },
+    {
+      "file": "person_1_run_r_f0.png",
+      "sha256": "2d97511ba0d10c8593d927ad32c25831c1d2ecffc7cc0b545e3d3f7073f9e218",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        26,
+        27,
+        87,
+        112
+      ]
+    },
+    {
+      "file": "person_1_run_r_f1.png",
+      "sha256": "e9a023e18156201411b30c2cfcf50c848cdafe05787c63b02aa36df560ed0455",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        26,
+        80,
+        112
+      ]
+    },
+    {
+      "file": "person_1_run_r_f2.png",
+      "sha256": "87cfe7abb6465f4136c0699fa26c7fbce0467a0107db12afc320cc5e5600a311",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        26,
+        25,
+        87,
+        112
+      ]
+    },
+    {
+      "file": "person_1_run_r_f3.png",
+      "sha256": "f24501e99995ec1969c52dec7274c7505dbbd123460ae0edbc3f51af72cb49ee",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        25,
+        38,
+        87,
+        112
+      ]
+    },
+    {
+      "file": "person_1_gather_r_f0.png",
+      "sha256": "3cb524d9f57be3e8458475a6984f1ba2bf608f425fcb772bb4d12f95e22a528c",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        25,
+        45,
+        87,
+        112
+      ]
+    },
+    {
+      "file": "person_1_gather_r_f1.png",
+      "sha256": "ad6f953cdfa80c088375df80a44af1e77fb914decbc48f89a4c6e73a1484b6ae",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        21,
+        50,
+        91,
+        112
+      ]
+    },
+    {
+      "file": "person_1_gather_r_f2.png",
+      "sha256": "99c42d4d4f6b9c80b519e14d5bea9a4b700b73cb2629f6764db2e0feaa78647c",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        27,
+        45,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_1_gather_r_f3.png",
+      "sha256": "e0ac35730e01c290651bc208c1b7838dee3db665f6f61b93e2093d2c7af702a5",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        29,
+        37,
+        83,
+        112
+      ]
+    },
+    {
+      "file": "person_1_eat_r_f0.png",
+      "sha256": "45088cdf7e53feddcb756f02f96f56bfeff40a84b7822589768cc583f37ce771",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        43,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_1_eat_r_f1.png",
+      "sha256": "3822a1047e08de3722b91f7e2aee647ba291ad2c129aa2960bbc0e91a4c48b0e",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        43,
+        83,
+        112
+      ]
+    },
+    {
+      "file": "person_1_drink_r_f0.png",
+      "sha256": "a2e55e4fd31f3787a4b471b5ad52012aa7447bbf7ad911d3ebd303970fa6ef49",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        31,
+        43,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_1_drink_r_f1.png",
+      "sha256": "171313dbd69b72f8667cd11972f7cf9f03ef7a158bc219b3eb4ffe50ef7360cd",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        38,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_1_sleep_r_f0.png",
+      "sha256": "f4a424aab14fe30e791125662628bee93ac3bb99565500d37e42e5edc2ee749a",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        18,
+        72,
+        94,
+        112
+      ]
+    },
+    {
+      "file": "person_1_hurt_r_f0.png",
+      "sha256": "c524841938f15a83eb2cfc55bf53326bae9870cb9699f1d52732bbfafaad1f44",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        34,
+        23,
+        79,
+        112
+      ]
+    },
+    {
+      "file": "person_1_hurt_r_f1.png",
+      "sha256": "6cc224a5f836d0c3a7230166f6ced117aff1c8e9d765842dda135e15109739ed",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        34,
+        22,
+        78,
+        112
+      ]
+    },
+    {
+      "file": "person_1_hurt_r_f2.png",
+      "sha256": "50254e4fe58390a5262602f47a27f30b739de0e1781cbb4bb1aeadf8ee30c57b",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        21,
+        82,
+        112
+      ]
+    },
+    {
+      "file": "person_1_hurt_r_f3.png",
+      "sha256": "7ca67afb229b7f09b89e6c2ae697e5f36bc89dbce5e97e8eb403b1b9c032e88f",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        34,
+        19,
+        77,
+        112
+      ]
+    },
+    {
+      "file": "person_dead_1_r_f0.png",
+      "sha256": "5454dcf4b44fc145bc8bfe54b6b825b66e87bff4440dc6dc22e0610569f104f3",
+      "size": [
+        120,
+        40
+      ],
+      "bbox": [
+        4,
+        5,
+        116,
+        35
+      ]
+    },
+    {
+      "file": "person_1_build_l_f0.png",
+      "sha256": "32227aae30810f1ea801650138abf879491aa2c0d5115bb05889ad03b0954808",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        23,
+        82,
+        112
+      ]
+    },
+    {
+      "file": "person_1_build_l_f1.png",
+      "sha256": "b38b899dff485314bc1e97d87f4ef369366a1441cdd4445d5e3a7e3e2e3855bc",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        23,
+        79,
+        112
+      ]
+    },
+    {
+      "file": "person_1_build_l_f2.png",
+      "sha256": "d587b2eca8b42f55a9e0400067b6be1d3c3bc52b1ad33ef005456e92518c6e42",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        23,
+        79,
+        112
+      ]
+    },
+    {
+      "file": "person_1_build_l_f3.png",
+      "sha256": "6887b3e9e4be4d8d81e49336220a74f6316a9967a165bd11b21657770d5f4a7e",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        23,
+        79,
+        112
+      ]
+    },
+    {
+      "file": "person_1_build_r_f0.png",
+      "sha256": "40959054dcf0412657a32f01253176631740a4036c8aaa0b389373297e1243ec",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        22,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_1_build_r_f1.png",
+      "sha256": "6f157af87f39977f0f88b8cac2efe4f7f61445ac897080c77f60ab221fd4d6c0",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        31,
+        24,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_1_build_r_f2.png",
+      "sha256": "1512e6e38ad8c731ffac7326595ce357d1d03432212908ad92fcaa834beeb932",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        31,
+        22,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_1_build_r_f3.png",
+      "sha256": "b5a9f67dba763407f80f25d9511f4eb0d4ea25b9970b4dcc007c0a55a24c018f",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        31,
+        22,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_child_1_idle_r_f0.png",
+      "sha256": "dcf8915ae6fa388fa0652c0f0b06b5ec0e377911894d8b7a5e6e097b04f75e4f",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        28,
+        12,
+        51,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_idle_r_f1.png",
+      "sha256": "186f7f126840d9655e4fd42556e70793b4e5a463b01d675ec4b8eee2eae91442",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        30,
+        12,
+        51,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_idle_l_f0.png",
+      "sha256": "79d1986521963ea1dc51afaf12b7b301d206859418828ba6e7c42871e0f717d1",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        30,
+        12,
+        51,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_idle_l_f1.png",
+      "sha256": "73e3bab26e59a091f6421c80b5df58b1c4cb2c72db7be226d36c79134ad8f174",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        30,
+        12,
+        51,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_walk_r_f0.png",
+      "sha256": "e7b21761fbcf6509e69c93f7158dac6c504ccef385028159e9eae1d61eb90c00",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        22,
+        14,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_walk_r_f1.png",
+      "sha256": "8c20ca4659d72bdf9e8b97faef179b7bbb9efcd30d06f211efe387bee31bf8b7",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        28,
+        14,
+        53,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_walk_r_f2.png",
+      "sha256": "8d3a375ed701b0d5ccc91b3978cc298961c4025b21aa2f64ce55bc6e7cebef9c",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        15,
+        60,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_walk_r_f3.png",
+      "sha256": "22c78fa3337b0664f0b34ba5e8c4a32273b584525d837302b6cce0f39bce7b78",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        26,
+        14,
+        53,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_walk_l_f0.png",
+      "sha256": "115acd59ca77d8d6fd1fea123c1a43245018bf1a308759a76282c43f1239dc7e",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        19,
+        15,
+        61,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_walk_l_f1.png",
+      "sha256": "726f14b2fdb2b08c4acc3de4d83b9c0dbd24626cc6e78acc7a5b4c53be1f2d24",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        26,
+        13,
+        53,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_walk_l_f2.png",
+      "sha256": "9a14117476835bed50efb9c60845a276ccfbc9ad5404ebd6b7b2b265ea2518e4",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        15,
+        61,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_walk_l_f3.png",
+      "sha256": "cb4354ad51a57f131131619250235b229d65a8b8f9ac8d366e22d64bed4c420d",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        25,
+        14,
+        55,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_gather_r_f0.png",
+      "sha256": "7cdb04b516595f8fef4924f59a59acd5e2a65e46e40d0bdf31dd807501521ce0",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        18,
+        25,
+        62,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_gather_r_f1.png",
+      "sha256": "632b9dec51c7017d6c38dbf25e615488276d2beb166434022d194d8bba9d8f6c",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        27,
+        60,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_gather_r_f2.png",
+      "sha256": "31102c1a39ad3d5c0c12bde77feca57df22aa8fa558f686fed549afd968153a0",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        21,
+        27,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_gather_r_f3.png",
+      "sha256": "de2bbd19d1575ae3cb8b9ff69b855b317ba49caa4597999618407b2c6e58d7b9",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        24,
+        13,
+        56,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_gather_l_f0.png",
+      "sha256": "f26afdff0a8c20bd4c88dc9310b269317542634c7248cdab89b3fa8951181757",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        17,
+        27,
+        63,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_gather_l_f1.png",
+      "sha256": "e876331d59d6535cf137619ccc754a7133dd9aae0c434bd083097caaa4b25591",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        29,
+        60,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_gather_l_f2.png",
+      "sha256": "d4aefc139332ccc1e7c40c0b56b74d2235c93d99a2362c230e3d6b58f557faf5",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        28,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_gather_l_f3.png",
+      "sha256": "6e64d802db16ce3dcf88558d72b6b5073951a8d8aeee888d82e7283bace2a0bf",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        24,
+        12,
+        57,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_eat_r_f0.png",
+      "sha256": "6bb1c4514c8c718e5bbc384c1b193ad9335dbfd6d434a777d0b2d9d002fece72",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        22,
+        27,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_eat_r_f1.png",
+      "sha256": "24ddf60c8d0331437799c034b107c5d98fd0b1e82653b9e25e6ce3230001cdd9",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        22,
+        27,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_eat_l_f0.png",
+      "sha256": "e21f1dcd16c764492ca8da874913747d4b76c7c23985d3521a5982a1c4f12c08",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        22,
+        28,
+        58,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_eat_l_f1.png",
+      "sha256": "87af1e213517fb3b3687a0be5bbc8f41a4595c33ac2dec8fce872c758facbeb3",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        22,
+        27,
+        58,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_drink_r_f0.png",
+      "sha256": "137d7f0b5056503b8ea13f6a4ecf2a5fa24eb3392210dce75f8fc3d8caa36efc",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        19,
+        30,
+        61,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_drink_r_f1.png",
+      "sha256": "aacfe8854c9f00123123af499eae2897bbcab4c84ddc7a89fef41f2e4496cae9",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        21,
+        28,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_drink_l_f0.png",
+      "sha256": "442d37c532a47050cb843f8933525a74baf21fcf74e84590ca00d4ef19fb7b3b",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        30,
+        60,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_drink_l_f1.png",
+      "sha256": "2384b6434ad70860c9640c3e1a70d3c89ff79ceb2d92ca45a672842dfc56d1c6",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        22,
+        28,
+        58,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_sleep_r_f0.png",
+      "sha256": "42bada3e23d328b7806afbf24061faa46a383e08e875ed4df0c014238e71215c",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        14,
+        48,
+        66,
+        76
+      ]
+    },
+    {
+      "file": "person_child_1_sleep_l_f0.png",
+      "sha256": "6f4c25f36979f25c8c9de9e919906e943d8ff86587fa312572db740c0969f740",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        12,
+        48,
+        67,
+        76
+      ]
+    },
+    {
+      "file": "person_2_idle_l_f0.png",
+      "sha256": "0cf0cdfbd085f283f2c69480eaf6fe930856e0a18f6c7a1964d1803319149ea8",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        38,
+        17,
+        73,
+        112
+      ]
+    },
+    {
+      "file": "person_2_idle_l_f1.png",
+      "sha256": "f5e76e2576e7b0c271240858ed0dbcf4965c0fefcc9c439b3380149d3c50cd5e",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        38,
+        17,
+        75,
+        112
+      ]
+    },
+    {
+      "file": "person_2_walk_l_f0.png",
+      "sha256": "2adf9efd47ae5ffc24cf7f2ab04ec1a3d1bbbbee1e37904d33a6cbfa0d276985",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        29,
+        19,
+        83,
+        112
+      ]
+    },
+    {
+      "file": "person_2_walk_l_f1.png",
+      "sha256": "cabdadf5a4ae33a6836178f8e2ccaddf0650368454ad55ffacd7921866cbdb81",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        38,
+        19,
+        75,
+        112
+      ]
+    },
+    {
+      "file": "person_2_walk_l_f2.png",
+      "sha256": "1475d6be24f8449ac32cbcd90a116147de3029a5d4dd2ada1329174ed671eed0",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        24,
+        83,
+        112
+      ]
+    },
+    {
+      "file": "person_2_walk_l_f3.png",
+      "sha256": "98e720b5dce70f5b1abc9dc113a3c9db56dab0aed2c485ce0f3ffd1d86ebdd20",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        38,
+        23,
+        74,
+        112
+      ]
+    },
+    {
+      "file": "person_2_run_l_f0.png",
+      "sha256": "aae9bddae10d8d75097daec9f454e2c57ea667c93fc77b4457531956f5ae582e",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        24,
+        24,
+        88,
+        112
+      ]
+    },
+    {
+      "file": "person_2_run_l_f1.png",
+      "sha256": "92231d5ee2a227b89080f3e31a45153892a32638aaa98a68e96c0a9fb0cc3bcb",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        23,
+        80,
+        112
+      ]
+    },
+    {
+      "file": "person_2_run_l_f2.png",
+      "sha256": "68eeecee1d9b07ab10f33d798cd8b0dc761daa4fec1d6d9d782c48fc0a5770c3",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        26,
+        28,
+        87,
+        111
+      ]
+    },
+    {
+      "file": "person_2_run_l_f3.png",
+      "sha256": "2eac5dfb72795bf66556d3c6719934bd5622c0b38d1cbb19b520bf15f3e5f263",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        22,
+        39,
+        90,
+        112
+      ]
+    },
+    {
+      "file": "person_2_gather_l_f0.png",
+      "sha256": "57fdad989d524910ac0148921f50739569f25c5b75e6c10d2a41052e4b9a35b0",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        24,
+        42,
+        88,
+        112
+      ]
+    },
+    {
+      "file": "person_2_gather_l_f1.png",
+      "sha256": "c25f7176832affd1aa69c53afb614d6aad1805f7660193d20d28ddfc6bf75d98",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        22,
+        42,
+        90,
+        112
+      ]
+    },
+    {
+      "file": "person_2_gather_l_f2.png",
+      "sha256": "90cd3e2945eeed3f91c09ce409310a9a734a88e80a1acfc12229537b62e82909",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        24,
+        41,
+        87,
+        112
+      ]
+    },
+    {
+      "file": "person_2_gather_l_f3.png",
+      "sha256": "1193817c104986820b4b117d6fe7818bc2ed71644cca7a044afa74c21c4699ed",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        36,
+        84,
+        112
+      ]
+    },
+    {
+      "file": "person_2_eat_l_f0.png",
+      "sha256": "1ac65749a78be8df7a24b43f014fbe4224ee37c5874445937396b094166859c3",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        26,
+        39,
+        87,
+        112
+      ]
+    },
+    {
+      "file": "person_2_eat_l_f1.png",
+      "sha256": "5a893f68d8ec682cbd3d523cafeb942670883ffcc90301566c6054bc0fe8010f",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        27,
+        38,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_2_drink_l_f0.png",
+      "sha256": "83e799c16deb0576b0d7b5323409c1d7828f49823efc2a12688136cdd2ffc7dc",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        26,
+        50,
+        87,
+        112
+      ]
+    },
+    {
+      "file": "person_2_drink_l_f1.png",
+      "sha256": "b38b3775daa5bc1d234e5cb2f916f50d33910d04bcc7a841498415b4942f6571",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        45,
+        84,
+        112
+      ]
+    },
+    {
+      "file": "person_2_sleep_l_f0.png",
+      "sha256": "ed3288704bb2306e807a03f44515df80b7e56108517833e0c36ce849416b7d0d",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        16,
+        76,
+        95,
+        112
+      ]
+    },
+    {
+      "file": "person_2_hurt_l_f0.png",
+      "sha256": "4c7ac00d43a5d4ea78a54e8403fee74619f79d86cefe106b951bfad5d60c1e66",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        31,
+        30,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_2_hurt_l_f1.png",
+      "sha256": "09834f4850f5b12de66ad7f1adc8a32b6f6e6d436d83ccd0881f18656057b68c",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        34,
+        35,
+        78,
+        112
+      ]
+    },
+    {
+      "file": "person_2_hurt_l_f2.png",
+      "sha256": "c84253570287dfcbec6f0ba70b5ea52c82c947f8dc952a827ef03be0f5175eb0",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        33,
+        33,
+        79,
+        112
+      ]
+    },
+    {
+      "file": "person_2_hurt_l_f3.png",
+      "sha256": "b369da9cd3ae533a81ef7e199ae46763b0fb245c75233ab2baad695998019adb",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        36,
+        33,
+        77,
+        112
+      ]
+    },
+    {
+      "file": "person_dead_2_l_f0.png",
+      "sha256": "60e263085552e0ed23a3800bdd6f12711edb00c94ff2164250baa31d5f3bc2a2",
+      "size": [
+        120,
+        40
+      ],
+      "bbox": [
+        4,
+        6,
+        116,
+        34
+      ]
+    },
+    {
+      "file": "person_2_idle_r_f0.png",
+      "sha256": "9ae6aac0f56f907238b2d4e698af1513faddf6a84c4eaa3b2ee16877ea6ca47b",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        37,
+        17,
+        75,
+        112
+      ]
+    },
+    {
+      "file": "person_2_idle_r_f1.png",
+      "sha256": "f5fa51c855459e7e7bc338add6ba97424fcee4cc6f1bf2fb121b20307943c689",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        37,
+        17,
+        75,
+        112
+      ]
+    },
+    {
+      "file": "person_2_walk_r_f0.png",
+      "sha256": "93340cadc6489080f07dd2186ab4e0ba9baee205d1f5244d2f610b3caf3a7f22",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        20,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_2_walk_r_f1.png",
+      "sha256": "647cf45225b7377a511dc72e76020a6274a46e068982bbcadd9adaeb16b65ea8",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        38,
+        20,
+        75,
+        112
+      ]
+    },
+    {
+      "file": "person_2_walk_r_f2.png",
+      "sha256": "f3329006849ab3b5b890b669d77c6a5f80ddc0a292419d46908c2e4e1a8ebae2",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        20,
+        82,
+        112
+      ]
+    },
+    {
+      "file": "person_2_walk_r_f3.png",
+      "sha256": "f7457c37b07491f92b3556b5ecea501600ac524eb29139cb3d46d7d1cce48e66",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        38,
+        21,
+        75,
+        112
+      ]
+    },
+    {
+      "file": "person_2_run_r_f0.png",
+      "sha256": "c1664b7359f66c95ab3573717657668c9d65d8c7492dcea0e6ba3792695e381d",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        24,
+        22,
+        87,
+        112
+      ]
+    },
+    {
+      "file": "person_2_run_r_f1.png",
+      "sha256": "199bab9e04546f4e0e9cbd2b32686a4da74d6f648d21b1bc5dd969095c91e1cb",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        22,
+        79,
+        112
+      ]
+    },
+    {
+      "file": "person_2_run_r_f2.png",
+      "sha256": "7079929940672c573410460d48810fdb7e461441f1ced6db2f34d5ceeedfaf8e",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        21,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_2_run_r_f3.png",
+      "sha256": "48fe51a7547cc60e16195a6bbff90dc9fdea29eb24490e7f0b0fb4094929e4da",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        33,
+        83,
+        112
+      ]
+    },
+    {
+      "file": "person_2_gather_r_f0.png",
+      "sha256": "3e3dabd40e838182b6fc36525204d3f6b55f7774941766b696d969f6e2afbd7d",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        24,
+        40,
+        89,
+        112
+      ]
+    },
+    {
+      "file": "person_2_gather_r_f1.png",
+      "sha256": "dad9015159a145481c71abf7d7e8852d2beb3956e52d774c818885430844fa7c",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        24,
+        45,
+        87,
+        112
+      ]
+    },
+    {
+      "file": "person_2_gather_r_f2.png",
+      "sha256": "b9fa263f9faa3d8dad1016b35716bef3d7774bfbd9e2311a684a2831827cce03",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        26,
+        43,
+        86,
+        112
+      ]
+    },
+    {
+      "file": "person_2_gather_r_f3.png",
+      "sha256": "3d2287087713733867c14f85e7c1b76a58c2f0144f950e15a5fdc5dd51322457",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        26,
+        84,
+        112
+      ]
+    },
+    {
+      "file": "person_2_eat_r_f0.png",
+      "sha256": "74ba87386a4c8df0580e84b16eef33fa08228a52b2929600810238a7966e7a3e",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        38,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_2_eat_r_f1.png",
+      "sha256": "01da7f3e97aa8d1fb163c87f2298c2601ff5d253ffb962367fe73f406aeeba35",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        38,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_2_drink_r_f0.png",
+      "sha256": "e930cc7c0df8e8f1d10c7ac0420554c0553c212aeb081fd2b15b1dc7f4ce39f2",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        31,
+        37,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_2_drink_r_f1.png",
+      "sha256": "41dfbd03027ada2331666606aae4bc039d3cf2b8e7101e7e7cb723a984918453",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        35,
+        79,
+        112
+      ]
+    },
+    {
+      "file": "person_2_sleep_r_f0.png",
+      "sha256": "487bfeddca9ce00a58d589030bacd6aaa0cd8e85a72001ac327fb4c1312e93c8",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        18,
+        74,
+        93,
+        112
+      ]
+    },
+    {
+      "file": "person_2_hurt_r_f0.png",
+      "sha256": "07bd33a680a7751f00719ec581b7506df1e4f3bed8e4ab25d2321795f88b8e63",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        29,
+        20,
+        83,
+        112
+      ]
+    },
+    {
+      "file": "person_2_hurt_r_f1.png",
+      "sha256": "9dca2eadbbcce3c7980208b681dcf3b7d84c86ebff60629b0ce45bc811b4cf13",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        33,
+        22,
+        79,
+        112
+      ]
+    },
+    {
+      "file": "person_2_hurt_r_f2.png",
+      "sha256": "ba6fabb25707d965362e79af4790834514b38ab21c72a2d49915642d037965ef",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        21,
+        79,
+        112
+      ]
+    },
+    {
+      "file": "person_2_hurt_r_f3.png",
+      "sha256": "986bea93195dea94ca08bef6dfb378a85d3be1e6311af6b4ccbc23a85ea1943d",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        18,
+        80,
+        112
+      ]
+    },
+    {
+      "file": "person_dead_2_r_f0.png",
+      "sha256": "c9a708e69f7a7b8834b2a3d3be5c6d7cf95bfbf666ccecc1637b2ddf8b3a3814",
+      "size": [
+        120,
+        40
+      ],
+      "bbox": [
+        6,
+        4,
+        114,
+        36
+      ]
+    },
+    {
+      "file": "person_2_build_l_f0.png",
+      "sha256": "22fed3dbf5b2caa62f5866745b6059d0e740e88deac7f2d23e287577019473f6",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        21,
+        82,
+        112
+      ]
+    },
+    {
+      "file": "person_2_build_l_f1.png",
+      "sha256": "a57bbf548d623fbf5eeabb8d6ace9a3d075f5348bdc894f7e901c9d8b4c64cd8",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        21,
+        80,
+        112
+      ]
+    },
+    {
+      "file": "person_2_build_l_f2.png",
+      "sha256": "7cb3cc77d3fe6766c0bac91345c66833fd0b2ff43fd2234f406d1daf9e5a7009",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        22,
+        80,
+        112
+      ]
+    },
+    {
+      "file": "person_2_build_l_f3.png",
+      "sha256": "4c9d024d00f961c199ff326729b7f04266a332d70226d6a80b26cce539502d35",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        22,
+        79,
+        112
+      ]
+    },
+    {
+      "file": "person_2_build_r_f0.png",
+      "sha256": "9456849367a950db367de36222a00a5de17a9794c8acc0b690a19985bf054032",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        19,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_2_build_r_f1.png",
+      "sha256": "60cb66e90d74c08302bfab33fb39486f054349922a55bda70f761872984bbdd0",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        20,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_2_build_r_f2.png",
+      "sha256": "f9f7736588aaed867e8132c8dd700205e7e9717bf8f2f51e4c807625223c3597",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        19,
+        82,
+        112
+      ]
+    },
+    {
+      "file": "person_2_build_r_f3.png",
+      "sha256": "5647f86a2987677241b1be526894514e974424bb2c9fbf5e9a3a901904912cf1",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        31,
+        19,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_child_2_idle_r_f0.png",
+      "sha256": "947d6b59bc2d27866d51027a641a0f91566bbe40e151b30655db289ecfa2a309",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        26,
+        9,
+        54,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_idle_r_f1.png",
+      "sha256": "59188a59bf6371f50639a26c22542640b09240a96434311272007633911cd970",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        26,
+        8,
+        53,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_idle_l_f0.png",
+      "sha256": "83cf3699ca54de31d33c6938d242aff16516122c853b2f6f0844ac81ec057981",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        26,
+        11,
+        53,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_idle_l_f1.png",
+      "sha256": "b3c64335753f8c68a6abfd35451bdee0022b396f33380c0a7a801a4611854f52",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        26,
+        9,
+        53,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_walk_r_f0.png",
+      "sha256": "0b5cf4c81a11b480b9cfa9e1c0bdac5a4a46d14bb34be069a72e5afe4d7c5332",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        21,
+        12,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_walk_r_f1.png",
+      "sha256": "6419ba7a17d6e73449f8a15c9f4c53185e58314e7bac837cca11a77b92fa6638",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        26,
+        11,
+        54,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_walk_r_f2.png",
+      "sha256": "3a829ca80a013297fd2a8744ce0218da65d34fa9239314d2dbe378bdce51dd6c",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        12,
+        60,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_walk_r_f3.png",
+      "sha256": "79c8acfdf7f4d128fb50d538d4439af76e261c6f6c8d921004cc497ce42d5966",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        26,
+        11,
+        54,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_walk_l_f0.png",
+      "sha256": "146fbccd08c1cbe770a9d4b4a0b64afb55eaff57ff77d31ecbb12a4d3d5aa7f2",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        13,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_walk_l_f1.png",
+      "sha256": "e8369bd08865080d0d429d6cb6ca717c58eb85e82d44da0c3f43a494a8c195ff",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        26,
+        12,
+        53,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_walk_l_f2.png",
+      "sha256": "957201c36c6f198268380cfc13b026556c9dae156130e2b4c857ab4ecfccec9b",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        13,
+        60,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_walk_l_f3.png",
+      "sha256": "a2583b959f5635cab7006d4dff4bd5e82c8733966e2a2e2aa19c8163af444aec",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        26,
+        12,
+        53,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_gather_r_f0.png",
+      "sha256": "721cf4e0891d80411790635316775148c4db0db9b61a13ae9110a0ad6d07c60d",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        18,
+        24,
+        61,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_gather_r_f1.png",
+      "sha256": "370b16bafdb48c3736a229be6455bb03df4d677bd4edd1a08fc7ea8aad20ec41",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        19,
+        28,
+        61,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_gather_r_f2.png",
+      "sha256": "fb10112598eb454850dc324a09f287ec6c47fe2d80c089023499998a49a41d6e",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        29,
+        61,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_gather_r_f3.png",
+      "sha256": "e6084bfc018825f590fc594172a2fa5eff7b6048463747d9acb5fd16bb0ab7d8",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        22,
+        15,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_gather_l_f0.png",
+      "sha256": "263a8234e81eb4772eb3e91476d97abb2b1d0f8579d5621eb9cac254f6365580",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        18,
+        26,
+        62,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_gather_l_f1.png",
+      "sha256": "8f4d45c0cbbfe168b3d29a4531ea4797612677253ec1b9739a4c7d7392db8228",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        19,
+        31,
+        61,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_gather_l_f2.png",
+      "sha256": "b2ae0948b9f4f0584624a1fcf90cf2e68b9f432e010cea5a2cd6394cc11897dd",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        19,
+        31,
+        61,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_gather_l_f3.png",
+      "sha256": "6673398ad09a62f79587dfdfa8605753e292ccb3b34eaea3b3d854a3cd584fbe",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        22,
+        11,
+        58,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_eat_r_f0.png",
+      "sha256": "0e39e3d41eeabe3b92ce38e5c1b270659067a3a9fe341a2f8aa2ea47b565a0eb",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        27,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_eat_r_f1.png",
+      "sha256": "0be6fab1dcff53c14ffe0b4d62f760229f3f0b818e3393f2f6b8d83602c85dba",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        27,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_eat_l_f0.png",
+      "sha256": "7c0529451931e73ea0fb59f67ee09b7e2652af6a01c7fbd40af49124c36ee904",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        27,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_eat_l_f1.png",
+      "sha256": "d2fe1b5c180524365c89f3f8d040e64c974e5aa997e7d2e4ebedf11cc1f470e0",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        27,
+        60,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_drink_r_f0.png",
+      "sha256": "eef38ecd247e003aac96d36c28b2f11bb700ad6d71803c58f1c3efa29e1f377e",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        22,
+        24,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_drink_r_f1.png",
+      "sha256": "51a001f1ac153e4769b1f93bbd72f42a7b8344ad6d0bae1c762a5172fa4460a6",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        22,
+        22,
+        57,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_drink_l_f0.png",
+      "sha256": "8db68279f9e93650401581d33139f6a94ce0d87d88da780b1588434b2940072a",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        22,
+        26,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_drink_l_f1.png",
+      "sha256": "67c5785b4ea8b65d42245a31deac33057f5ba4afd9f3727f122f0fd9075b8326",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        23,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_sleep_r_f0.png",
+      "sha256": "145cad0353ce8234a61d9a8ff9817631465eab33045ad04a8dad3a9660d25083",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        12,
+        48,
+        67,
+        76
+      ]
+    },
+    {
+      "file": "person_child_2_sleep_l_f0.png",
+      "sha256": "b7b6835f0a3d9c0814d3a83e0d2d5cc4e53356a18f456d68cd0193b39b26da6d",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        12,
+        49,
+        67,
+        76
+      ]
+    },
+    {
+      "file": "person_3_idle_l_f0.png",
+      "sha256": "86e56fe47fbcdbefcd298f310b76bf4f627e81ce11379f76c73afebf8262a9b4",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        36,
+        30,
+        75,
+        112
+      ]
+    },
+    {
+      "file": "person_3_idle_l_f1.png",
+      "sha256": "21262692b2c94610ac8b3ea0fa06fa0f888e9199c6a18db5aecb783ba946f1b5",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        35,
+        31,
+        77,
+        112
+      ]
+    },
+    {
+      "file": "person_3_walk_l_f0.png",
+      "sha256": "520d4e2c6454603408c25b199bddd2a6ad3e51082fd82716482558d3e361df92",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        31,
+        32,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_3_walk_l_f1.png",
+      "sha256": "9767346d58219b65501b51eeb013f250c6663b790b3637d3fbe5bdde2f65693c",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        38,
+        30,
+        74,
+        112
+      ]
+    },
+    {
+      "file": "person_3_walk_l_f2.png",
+      "sha256": "5aa1445c73d406837cddabb04a8673f1a11d5b757fe5e8138f2d5d861107e22d",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        32,
+        84,
+        112
+      ]
+    },
+    {
+      "file": "person_3_walk_l_f3.png",
+      "sha256": "7811dd790bf001d2c50db8ee7e21bd4c65b959599aad9c6e7ab1ecbdc8db0e41",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        38,
+        32,
+        75,
+        112
+      ]
+    },
+    {
+      "file": "person_3_run_l_f0.png",
+      "sha256": "37a43a03d933fbed6aaea19d29f56f31c1e6ac63d4fa8ce9e7db66fdb25ee245",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        26,
+        35,
+        86,
+        112
+      ]
+    },
+    {
+      "file": "person_3_run_l_f1.png",
+      "sha256": "03de9bdb5a6fb17c947e933f577cf3b81acbab1e41af8d0f07c4945d890f0199",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        32,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_3_run_l_f2.png",
+      "sha256": "fc9598d9f1e75d332eda308a25ce054d56dae2c78c9b6814131e065889ac19d6",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        26,
+        37,
+        87,
+        112
+      ]
+    },
+    {
+      "file": "person_3_run_l_f3.png",
+      "sha256": "7cdbe176b5ce9a914ed7f2b31f50675fdb4ae101119cb92f196af6582876bb39",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        27,
+        46,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_3_gather_l_f0.png",
+      "sha256": "a1b7c193a0281609b97233d4f5645c611d9092987685765617d09d950692abc8",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        23,
+        49,
+        89,
+        112
+      ]
+    },
+    {
+      "file": "person_3_gather_l_f1.png",
+      "sha256": "06601d876c209598ec24fed5c527a50bfabe1859fe74e421e5b727665049b92a",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        22,
+        52,
+        89,
+        112
+      ]
+    },
+    {
+      "file": "person_3_gather_l_f2.png",
+      "sha256": "7c04663e3051428906673f39029a7ad69f7f847b39c39648f710e8b47da41530",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        23,
+        57,
+        89,
+        112
+      ]
+    },
+    {
+      "file": "person_3_gather_l_f3.png",
+      "sha256": "ada5285b6ff0bd536eddae7ab8e5a364bc7bd756e8ab58f4949aab0e71c0d795",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        46,
+        84,
+        112
+      ]
+    },
+    {
+      "file": "person_3_eat_l_f0.png",
+      "sha256": "572903c7cfc81cbaea7bc91bc8bebb9771f0373e640f5f989523c18dea1d486b",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        27,
+        47,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_3_eat_l_f1.png",
+      "sha256": "10a28d1f96219d35ad944dac952bdd6c45e3c5c7411668f06d017a0850644dae",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        26,
+        47,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_3_drink_l_f0.png",
+      "sha256": "518fe2d9ecd00848977a4d450ca2336935797bb004188165fb0743655dd43c59",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        49,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_3_drink_l_f1.png",
+      "sha256": "6625dbf116aa3a55188754451a76d42f8fe09a2e272bd7561cb1491199cb15cd",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        46,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_3_sleep_l_f0.png",
+      "sha256": "8a7ee13c827f1c34a74d4ae271905be22ee8be5dbc66dff8154e5d6122fb7b2b",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        15,
+        74,
+        97,
+        112
+      ]
+    },
+    {
+      "file": "person_3_hurt_l_f0.png",
+      "sha256": "04acce2d2f4f732bd7956575637cc6cf96b5dd33dc18e6023fbf4600d5d8f8be",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        39,
+        82,
+        112
+      ]
+    },
+    {
+      "file": "person_3_hurt_l_f1.png",
+      "sha256": "d7e40d9f35309f703b5d930f08ef24a4cb96aca46fce9a22192abb33903448db",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        34,
+        39,
+        79,
+        112
+      ]
+    },
+    {
+      "file": "person_3_hurt_l_f2.png",
+      "sha256": "4ebca05f27d9c32ab13a2d1ed9ff237c3b131c7a843a9376a5a5083737683d88",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        41,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_3_hurt_l_f3.png",
+      "sha256": "9756807b97683e1ca9a9acef9c922b2c4a7c16fe3bda71f687c735d49e4e6b07",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        34,
+        39,
+        77,
+        112
+      ]
+    },
+    {
+      "file": "person_dead_3_l_f0.png",
+      "sha256": "30f357b74fe84cd05558c06d6687a89879c86a468589d03c57f774362a6d8c22",
+      "size": [
+        120,
+        40
+      ],
+      "bbox": [
+        10,
+        4,
+        111,
+        36
+      ]
+    },
+    {
+      "file": "person_3_idle_r_f0.png",
+      "sha256": "23926026bf5d9f1272f4f3ce6f7d2085d00a719d450d576e2553a0349dd09279",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        36,
+        30,
+        76,
+        112
+      ]
+    },
+    {
+      "file": "person_3_idle_r_f1.png",
+      "sha256": "6a07487f5b6d981bfcaa250ae76d36482792ccfd1df6adb69ebc7b8bd0074711",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        36,
+        30,
+        75,
+        112
+      ]
+    },
+    {
+      "file": "person_3_walk_r_f0.png",
+      "sha256": "4259a4b948dc36b2a60b16a9f98d56ccd575e9c183d52289871d6ded8041e1d9",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        31,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_3_walk_r_f1.png",
+      "sha256": "a84e122a92902624508385cb69b38624d68f2f0ad3ef66c79489a4e8a22a99c1",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        39,
+        30,
+        73,
+        112
+      ]
+    },
+    {
+      "file": "person_3_walk_r_f2.png",
+      "sha256": "7c930c52f63785bcdda7de43a8b896bda76139abd1e776470521e031f1268720",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        32,
+        83,
+        112
+      ]
+    },
+    {
+      "file": "person_3_walk_r_f3.png",
+      "sha256": "a3b0fede9c9c5d39360d17470ff3ebe14f0c4f2a4a58e96f588c9ce499cfa018",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        40,
+        31,
+        73,
+        112
+      ]
+    },
+    {
+      "file": "person_3_run_r_f0.png",
+      "sha256": "7f0a041803cb2278da562165a9d36d71f2d78c55d3c1c05f6c065615609a6d0f",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        35,
+        84,
+        112
+      ]
+    },
+    {
+      "file": "person_3_run_r_f1.png",
+      "sha256": "c30a3641ab0e9b4f5d06b11f4bc94ba06804f63aed9b50412c24874089e15799",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        31,
+        37,
+        81,
+        111
+      ]
+    },
+    {
+      "file": "person_3_run_r_f2.png",
+      "sha256": "e332a965af0745083e8e842d6adf714d6142538a55068c8795e01701cc2c5bba",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        26,
+        36,
+        86,
+        112
+      ]
+    },
+    {
+      "file": "person_3_run_r_f3.png",
+      "sha256": "1f693ac7bab4bb81294073bad8a8b37f307e99a9a9fa3e1e838497d362a245db",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        29,
+        46,
+        83,
+        112
+      ]
+    },
+    {
+      "file": "person_3_gather_r_f0.png",
+      "sha256": "e0e28d7cb71f66a6e36eb3403bde883e87f42c1152a221a20a8cf9046bb557fa",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        22,
+        47,
+        89,
+        112
+      ]
+    },
+    {
+      "file": "person_3_gather_r_f1.png",
+      "sha256": "baf81c1c093e357624ebabd90e29ff7305c914837a0197ffd074c5be3faf5d5c",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        22,
+        53,
+        90,
+        112
+      ]
+    },
+    {
+      "file": "person_3_gather_r_f2.png",
+      "sha256": "657c8e092fc2df2843607e7d627e63dee924f72a09da20d07e81f38623ad40d7",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        53,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_3_gather_r_f3.png",
+      "sha256": "c31520c1207353b9dbeb0faef8320cf28ba178dac004eb914b35cdbaf34a7101",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        38,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_3_eat_r_f0.png",
+      "sha256": "9edcec251549349535f09a3617d4f9ba3ad2d23723a7cd237360c34df546d3ba",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        27,
+        48,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_3_eat_r_f1.png",
+      "sha256": "4b3a059e34ac7dc52324f54c6ee66e4fca4a03776e7042494a43d1c59b11a55e",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        27,
+        48,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_3_drink_r_f0.png",
+      "sha256": "f219e0c7bcdb7d31d53c53da9e28a4ba5a8cfdbb6a51b13789b8b02ef5c85db0",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        52,
+        84,
+        112
+      ]
+    },
+    {
+      "file": "person_3_drink_r_f1.png",
+      "sha256": "7d735f2b348b1b51d3d3a10780fd334e642cc80d43ba49d5a92adb48de9146eb",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        47,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_3_sleep_r_f0.png",
+      "sha256": "3f28e1baafa491dfb33bb62221bfda12826064dead7a12bea3146c7dbb4532ad",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        16,
+        71,
+        97,
+        112
+      ]
+    },
+    {
+      "file": "person_3_hurt_r_f0.png",
+      "sha256": "721aa392b895d96f29a71b2aa966281e61786535de759f03e0f2a64056d209c7",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        36,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_3_hurt_r_f1.png",
+      "sha256": "dd27649af6b4f6b2fc6eaa63bded1054f51748a4b0a5ebe92fe46294a5607e82",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        34,
+        79,
+        112
+      ]
+    },
+    {
+      "file": "person_3_hurt_r_f2.png",
+      "sha256": "0a4661f10036e5871fb1eb62e67cfdc380cd23d80bf80b60c8797390ee9f63f1",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        29,
+        36,
+        83,
+        112
+      ]
+    },
+    {
+      "file": "person_3_hurt_r_f3.png",
+      "sha256": "e5cddd4c4bba300bec984e05bba05dcd7021d594a240ec0dfd9fb22ea6514e6b",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        34,
+        33,
+        78,
+        112
+      ]
+    },
+    {
+      "file": "person_dead_3_r_f0.png",
+      "sha256": "f9b0ef083b087eeb7a87f319e71b19d1c2c044a2ef7b693fe46d25d20fd01e66",
+      "size": [
+        120,
+        40
+      ],
+      "bbox": [
+        19,
+        4,
+        102,
+        36
+      ]
+    },
+    {
+      "file": "person_3_build_l_f0.png",
+      "sha256": "0b6fc59a980b458a0171c5f374f23ec523b413bb40caa3c62340e523dac12baa",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        33,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_3_build_l_f1.png",
+      "sha256": "edcff21b105327dca45e9d81c3ca19c30bb1af3430c1bc7da714941f6a3fe78a",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        33,
+        79,
+        112
+      ]
+    },
+    {
+      "file": "person_3_build_l_f2.png",
+      "sha256": "6aec3d36d0720f02e52e9721c163bbc86c1680106cd6f69449b1afe8e7569aaa",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        33,
+        34,
+        79,
+        112
+      ]
+    },
+    {
+      "file": "person_3_build_l_f3.png",
+      "sha256": "823c2f4b4bca79677001e269d1c3451e2094db9bcfd949c332eea3e6a2f33f2b",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        34,
+        79,
+        112
+      ]
+    },
+    {
+      "file": "person_3_build_r_f0.png",
+      "sha256": "982c0c1c6dbe50aed882686b6f15c5b7bb25ca73ebab3e8246b9e810c923f2b1",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        33,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_3_build_r_f1.png",
+      "sha256": "8d28c16ec3f9d71b198c53d8159ee7b8d42c3ce4baad5fdf79042287d6554ab8",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        33,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_3_build_r_f2.png",
+      "sha256": "06c7d49f9b39ff11a09c6f1463d6af6738cca56bb25301969283756a57afda7b",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        31,
+        33,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_3_build_r_f3.png",
+      "sha256": "fe9c1e286d21ffa3f23a24137f8626268c854ae24b46a17ce1c1785bcb832c66",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        34,
+        82,
+        112
+      ]
+    },
+    {
+      "file": "person_child_3_idle_r_f0.png",
+      "sha256": "dddb286bda604a0042f0db6aa6e9be09dbb954d90485efeadf6ba79c93aedc28",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        27,
+        18,
+        53,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_idle_r_f1.png",
+      "sha256": "d65e025b7635f8d9bf65b7a58598e42212073f2ca403880b243d0138c43ef6c9",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        28,
+        17,
+        53,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_idle_l_f0.png",
+      "sha256": "1fe6069f1c4553d66799f8debf85f1025a488f08d9b8994b684bf702cbc617e2",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        28,
+        19,
+        53,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_idle_l_f1.png",
+      "sha256": "9a59fbf97fc9cf8fb693e31497450c78c9f37caf7bebef27c029830b3761618e",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        28,
+        19,
+        52,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_walk_r_f0.png",
+      "sha256": "3d6f1f126dfe06c7f18ab702f0d087aac407b8145fcd01cd0334c69557435d01",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        23,
+        20,
+        57,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_walk_r_f1.png",
+      "sha256": "9975348206335540cc08430ac9776ccf4718531e41edf344ae4f60ab86b9a145",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        28,
+        20,
+        52,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_walk_r_f2.png",
+      "sha256": "2d3756b08c9b292e3274c0bc3f0e0b7d8f35b339fa7cdd918f0090f29a568230",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        21,
+        21,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_walk_r_f3.png",
+      "sha256": "0175d2471a0042b0201b5815f8e4e41ef58eacb30ca98c4f61305c509352bbc6",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        28,
+        20,
+        52,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_walk_l_f0.png",
+      "sha256": "36415818abe27a9e562b22190c4f32bac2112d05556c318f172fe2acba0ad032",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        21,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_walk_l_f1.png",
+      "sha256": "0b0f0c8a7129151bdfb44ad7d41f440624e4caf530d1b78317caadfe759837e5",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        28,
+        20,
+        52,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_walk_l_f2.png",
+      "sha256": "669cf41aee3ec0e38b8bde27c1df08797d51834489ca28363eafea90a2ca1c45",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        22,
+        21,
+        58,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_walk_l_f3.png",
+      "sha256": "df9ec2b364db12b187ddf824df4a3c1435da7e4aab32c1864a0a46157392f053",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        27,
+        19,
+        53,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_gather_r_f0.png",
+      "sha256": "56d840d28e681cc42c040c95dc2c1e48c8dce786fd1ab47dfee9c759b2beefd9",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        30,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_gather_r_f1.png",
+      "sha256": "8fa3a8780be4b8d3a7dd1e3da4ca3600ad9be9327cc5fde83efbe23c5a10c586",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        22,
+        34,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_gather_r_f2.png",
+      "sha256": "16f07bf5ef34e6a341fa49e27be947f29a49f3902e1f601623cb11cba133b5fa",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        22,
+        30,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_gather_r_f3.png",
+      "sha256": "ee093e9b75f4373dae501a50feff4b3f9ea21d7689964fd3de757920f7a0f631",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        24,
+        19,
+        56,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_gather_l_f0.png",
+      "sha256": "903816e795f7a27bcca60e96b64dd997980a36b6dd6162ff31be702745844de5",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        31,
+        60,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_gather_l_f1.png",
+      "sha256": "edc733e0dede49456a22ab656d5b6e45be4b8491104154789fd1f77e4399ced4",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        34,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_gather_l_f2.png",
+      "sha256": "395b4345388f37c3a41022f25f33b0215a69fc4e5a2d3476a29db8e41dbfff4a",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        21,
+        32,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_gather_l_f3.png",
+      "sha256": "9cba7000245aad83356128efb656276c66e0de7a64edb5020306675215efb04d",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        24,
+        21,
+        56,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_eat_r_f0.png",
+      "sha256": "f944a540128ad30b0110e5c11f489278fdcc19e7d78a22f60fc6f02011d1371b",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        22,
+        32,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_eat_r_f1.png",
+      "sha256": "ebba6e2545f0fd6eea7d417b96207797bfceac873800ad3bed875bd3d502189c",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        22,
+        32,
+        58,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_eat_l_f0.png",
+      "sha256": "fa9d868716c3f083f79683ee3a57cf9c942fc7d4b3f89907cb47f6aa21fb8371",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        22,
+        32,
+        58,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_eat_l_f1.png",
+      "sha256": "dbcd4e86c0dafa094a793562f318ef66cca27d63afb32d6465692f133da46dc5",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        22,
+        32,
+        58,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_drink_r_f0.png",
+      "sha256": "35d7d15ef90e9b50f76c84da73a173fcf18c405b0e6409b3ec983e04e7bc02e3",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        22,
+        31,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_drink_r_f1.png",
+      "sha256": "12f766b3d866810c24259329d9a932b95cda11fe354cb6d2c36807b6baa7d3ac",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        23,
+        28,
+        57,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_drink_l_f0.png",
+      "sha256": "3c0d85171794f45c03752300348cfd7b7611838ae9cf3c2e3dd0b8c3e3a5bc3a",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        22,
+        32,
+        58,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_drink_l_f1.png",
+      "sha256": "c931261c5b0c869d0f78277cdd7ca49c4d4323d3e27dd836dba541be7c0dcce8",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        24,
+        28,
+        56,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_sleep_r_f0.png",
+      "sha256": "b04f967b6e6388605bc21b76c539fe6008ccc9ea3325c492ec41cdde5d652abf",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        14,
+        49,
+        65,
+        76
+      ]
+    },
+    {
+      "file": "person_child_3_sleep_l_f0.png",
+      "sha256": "7c7fd12506e614d3174751f86d3f82a401a6ba3f4e884c5962e18119bc38362b",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        14,
+        49,
+        67,
+        76
+      ]
+    },
+    {
+      "file": "person_4_idle_l_f0.png",
+      "sha256": "236d7eb64dab137fc10543b17b58b20f01d0c7db2e54e95ded8944502236a817",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        38,
+        16,
+        74,
+        112
+      ]
+    },
+    {
+      "file": "person_4_idle_l_f1.png",
+      "sha256": "c886c902f290942b94b560f867438eeb47e7d506108d88bc6b5de3894418be15",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        36,
+        15,
+        75,
+        112
+      ]
+    },
+    {
+      "file": "person_4_walk_l_f0.png",
+      "sha256": "0bb73521131068d398fca6810ab1ac74894a32cd79effa7a80f9caa0d624e4e5",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        31,
+        16,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_4_walk_l_f1.png",
+      "sha256": "1d8f864ba0392fb47130ca594b9208df27c88e4c4396cee39d3889632534050e",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        36,
+        16,
+        77,
+        112
+      ]
+    },
+    {
+      "file": "person_4_walk_l_f2.png",
+      "sha256": "8b22c22b884dfe51aac6192c777b292ec4c1b0cf0a637255dcac2dc1b4c843b6",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        26,
+        16,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_4_walk_l_f3.png",
+      "sha256": "aea85e26cfb5ce8be0ba54dbe3cabbca9bb50437e6b5e021e55ff72dea141c4f",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        38,
+        17,
+        73,
+        112
+      ]
+    },
+    {
+      "file": "person_4_run_l_f0.png",
+      "sha256": "41531d46b48776587fa9b7fc3acc060254d82f57f20d5075a43ad7a944def97d",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        24,
+        17,
+        89,
+        112
+      ]
+    },
+    {
+      "file": "person_4_run_l_f1.png",
+      "sha256": "000ea27a6f85180ccbef16ebebe24cfd14c7fbb1da84d6c2b31c03f826aa711b",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        19,
+        83,
+        112
+      ]
+    },
+    {
+      "file": "person_4_run_l_f2.png",
+      "sha256": "02f92de00024f004dd43c6d6c2737d35225f572d7ecef28fcf3c6039616d10b4",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        19,
+        19,
+        93,
+        112
+      ]
+    },
+    {
+      "file": "person_4_run_l_f3.png",
+      "sha256": "4cd5154d8a2f046aa842979ec9a4219857633081d9ea9992e169c86d743b8a1a",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        15,
+        28,
+        97,
+        112
+      ]
+    },
+    {
+      "file": "person_4_gather_l_f0.png",
+      "sha256": "e6d36003e1f7da2cf790afdec03f2b46eaca189c4fcfc9e3854e11bd0c7e892d",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        21,
+        32,
+        92,
+        112
+      ]
+    },
+    {
+      "file": "person_4_gather_l_f1.png",
+      "sha256": "51a58c7a49660a9a096490d9657b548daf24beb0e74db85a70391c5e9b02dd37",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        20,
+        37,
+        90,
+        112
+      ]
+    },
+    {
+      "file": "person_4_gather_l_f2.png",
+      "sha256": "f10d6e195056db015d858bb292fcf1cc8977e3e378c9af15ab0a9ddaa5338c4d",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        22,
+        41,
+        89,
+        112
+      ]
+    },
+    {
+      "file": "person_4_gather_l_f3.png",
+      "sha256": "846c199edee60832e336ae7a0ebdd76374798f7d94e9bd5451fc64ffb10ea947",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        25,
+        32,
+        87,
+        112
+      ]
+    },
+    {
+      "file": "person_4_eat_l_f0.png",
+      "sha256": "828af7815f4fcf152854eabc7858670672708c362d7e71d081882129cc604417",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        26,
+        35,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_4_eat_l_f1.png",
+      "sha256": "0c08c5e7b4f4a178438cf9a7ce75afb9d658562d9e7d1c01ce5a40f4effc821d",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        26,
+        33,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_4_drink_l_f0.png",
+      "sha256": "94914d57d8f371afacd4cc66c4c40532895ef4c3bc7ebf6f3058aa56b1880f99",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        32,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_4_drink_l_f1.png",
+      "sha256": "2e671e9d1773dab5e37981ecd3e04733e0966ebc7739a9d97402d70884f5d57a",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        29,
+        31,
+        83,
+        112
+      ]
+    },
+    {
+      "file": "person_4_sleep_l_f0.png",
+      "sha256": "67b35d71346991fb06638f76e0cd32b886a31ed2ba7994e44c21f91ff7d73f71",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        12,
+        70,
+        101,
+        112
+      ]
+    },
+    {
+      "file": "person_4_hurt_l_f0.png",
+      "sha256": "fe2e1151bf25b924d57acaaea89caf170627f65ae33f90f6517ee756392b3ee7",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        19,
+        83,
+        112
+      ]
+    },
+    {
+      "file": "person_4_hurt_l_f1.png",
+      "sha256": "2ae91c9cd4195eb557d0906580c3e4387d5b19eaa5360bcd9bd285f3c6ca9737",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        16,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_4_hurt_l_f2.png",
+      "sha256": "5978f436844ec08c5e9ef2f97dfd780ca018440a59671b603373e9ced99e1794",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        29,
+        16,
+        83,
+        112
+      ]
+    },
+    {
+      "file": "person_4_hurt_l_f3.png",
+      "sha256": "ed2ea4fa6468853b66b889bb0d136b11af235fc253845eca691d0944b6423871",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        15,
+        80,
+        112
+      ]
+    },
+    {
+      "file": "person_dead_4_l_f0.png",
+      "sha256": "54b7818a347dbbec79a822671e0b8294c7d8440fc59d992a9d9b64d93aba4bc4",
+      "size": [
+        120,
+        40
+      ],
+      "bbox": [
+        6,
+        4,
+        115,
+        36
+      ]
+    },
+    {
+      "file": "person_4_idle_r_f0.png",
+      "sha256": "aa61c0d119fc5392ef036d3e57cc69d77fd2afda4a610669bd939b4bc497c410",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        38,
+        15,
+        74,
+        112
+      ]
+    },
+    {
+      "file": "person_4_idle_r_f1.png",
+      "sha256": "1f1bb91e6113d02a22564bccfb04d49e0067f10ea77e24cb3a3d12b3fcb70261",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        38,
+        16,
+        74,
+        112
+      ]
+    },
+    {
+      "file": "person_4_walk_r_f0.png",
+      "sha256": "03df2c9c2f11e68253c04f3330c5a425cc8726eaf7a1cbe2d759eec421035d42",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        20,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_4_walk_r_f1.png",
+      "sha256": "8fca08f9f3e6b0e1c15b6f8a4a5a95b2d05a4469cb96cd1155b1520cb5d5a302",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        38,
+        20,
+        73,
+        112
+      ]
+    },
+    {
+      "file": "person_4_walk_r_f2.png",
+      "sha256": "0431f9e15cc4fda726cf258967540635e420670513c8785bb6dab58c3cc882dc",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        20,
+        83,
+        112
+      ]
+    },
+    {
+      "file": "person_4_walk_r_f3.png",
+      "sha256": "a0211c8d6bbdd4c1090c98d0e5aaba699dd8a5a894d10a05479766625a914752",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        37,
+        20,
+        75,
+        112
+      ]
+    },
+    {
+      "file": "person_4_run_r_f0.png",
+      "sha256": "93dcf39915cf25f943e854a4707d1348b3da1369ba4bdc3b9a674926392dfaf9",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        26,
+        21,
+        85,
+        112
+      ]
+    },
+    {
+      "file": "person_4_run_r_f1.png",
+      "sha256": "c06517b47d7fd430c7afd3cd5d24fb92f7a714e2405b5860eea808117e4a9aaa",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        23,
+        83,
+        112
+      ]
+    },
+    {
+      "file": "person_4_run_r_f2.png",
+      "sha256": "ec267806b4a5b86dba3815c605db2504224aba3654a81ecd8fea004209acfda0",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        20,
+        84,
+        111
+      ]
+    },
+    {
+      "file": "person_4_run_r_f3.png",
+      "sha256": "45d78bfd0511aea362515d88876cbf80019e6d40572bb6405dc333ce903f33b0",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        24,
+        30,
+        89,
+        112
+      ]
+    },
+    {
+      "file": "person_4_gather_r_f0.png",
+      "sha256": "8bfc765aaf8b21a267dc9042e2d9f9c9dce06087481798aebbf6591f798087d0",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        26,
+        37,
+        87,
+        112
+      ]
+    },
+    {
+      "file": "person_4_gather_r_f1.png",
+      "sha256": "eec85956d1aba963a20de725e44f075580e8ad361a530ac22bce2c45099dc589",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        20,
+        42,
+        91,
+        112
+      ]
+    },
+    {
+      "file": "person_4_gather_r_f2.png",
+      "sha256": "1281d120e5c913399d55469258b4f0a0349ba537dc24522effe81632d4210cf5",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        25,
+        40,
+        87,
+        112
+      ]
+    },
+    {
+      "file": "person_4_gather_r_f3.png",
+      "sha256": "c3021b0ac5fb338a3472f2678f5ff57f41e2a43f4fc2271bfacb8dee25ccb8d7",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        28,
+        30,
+        83,
+        112
+      ]
+    },
+    {
+      "file": "person_4_eat_r_f0.png",
+      "sha256": "5e07dca800f747f0dbf31ea8b7aa09a81b607b13adb77de7766a060c1135594f",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        38,
+        82,
+        112
+      ]
+    },
+    {
+      "file": "person_4_eat_r_f1.png",
+      "sha256": "73cc047fcb8b0402ae97d7c9d6fcf7c22cdcf78582027e3c744d63f0d7bca662",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        38,
+        82,
+        112
+      ]
+    },
+    {
+      "file": "person_4_drink_r_f0.png",
+      "sha256": "534f148f00aa0dc39086d9f98023ac23361721eba02b2351068712aacd6df343",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        35,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_4_drink_r_f1.png",
+      "sha256": "c82d5be2d489cfaade25fe18136927649375fd7d31394155916784110a9b3861",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        33,
+        33,
+        79,
+        112
+      ]
+    },
+    {
+      "file": "person_4_sleep_r_f0.png",
+      "sha256": "f4f95b0d5828788654b7331dbabb93999144162ea5a2018ee3f388a1b584bfa3",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        19,
+        71,
+        93,
+        112
+      ]
+    },
+    {
+      "file": "person_4_hurt_r_f0.png",
+      "sha256": "623f5b2676e30909704f367141e21b3f5c5d93441556f49d977b05b1daba8437",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        31,
+        21,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_4_hurt_r_f1.png",
+      "sha256": "abbe492f580e687d99d18935c228f5b577191a4487ec6c9e9fb157339cdbc7b9",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        34,
+        17,
+        79,
+        112
+      ]
+    },
+    {
+      "file": "person_4_hurt_r_f2.png",
+      "sha256": "effb256fd6df79c460c8c0a29d0913f8e5b8789e65814fe621aef9898f732d2c",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        31,
+        20,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_4_hurt_r_f3.png",
+      "sha256": "f5df1b9a1b22c8674c7afd930a5ad06aa681fb85dbc855911383b9743d00935d",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        33,
+        18,
+        79,
+        112
+      ]
+    },
+    {
+      "file": "person_dead_4_r_f0.png",
+      "sha256": "f3dbbc3de133630f977f2e9ec0488201f00417d7791d0e529f92872f96847980",
+      "size": [
+        120,
+        40
+      ],
+      "bbox": [
+        5,
+        4,
+        116,
+        36
+      ]
+    },
+    {
+      "file": "person_4_build_l_f0.png",
+      "sha256": "139b286e9744ff3d18ad9e28994bf515416a6ecb2802ee4bbe3759d4ec06614f",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        19,
+        82,
+        112
+      ]
+    },
+    {
+      "file": "person_4_build_l_f1.png",
+      "sha256": "0654dee06ff3efcaffed2de09162e0d0cc531514d28db219840097fa8f662752",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        19,
+        80,
+        112
+      ]
+    },
+    {
+      "file": "person_4_build_l_f2.png",
+      "sha256": "5477f3a153545c806ab8e14832cb8a004aa6d45c74e68777cbf0bbf7c3eebfcd",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        31,
+        19,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_4_build_l_f3.png",
+      "sha256": "f6c3bbfb629a010c87231c23719b0b07fe51b75db71d8a0fdddc8269ea23102d",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        32,
+        20,
+        80,
+        112
+      ]
+    },
+    {
+      "file": "person_4_build_r_f0.png",
+      "sha256": "30573770294a22f93f66bf6dc1071340a5b9006b50d7dc810c87880d5b2aca8d",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        17,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_4_build_r_f1.png",
+      "sha256": "473679eb27c43947bae52c484053a9e595a2b0ce2e5eaeb867f89fe95d3073ce",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        19,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_4_build_r_f2.png",
+      "sha256": "c3d6cde0facc751ab04ebc792dc62b157e98e4ab41a69033658bac31358d4000",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        18,
+        82,
+        112
+      ]
+    },
+    {
+      "file": "person_4_build_r_f3.png",
+      "sha256": "df9641ff5806874f25f17fb5c647d4b43f9156850e680407f43d3d5f2b7b9812",
+      "size": [
+        112,
+        120
+      ],
+      "bbox": [
+        30,
+        19,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "person_child_4_idle_r_f0.png",
+      "sha256": "66ae54c93771332bd2b66321888fea933c3490dabba20276d6afe0d4b2a4e119",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        26,
+        8,
+        55,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_idle_r_f1.png",
+      "sha256": "ea5b1d8794c361bb7eec6dca7f6c7a6434fce425c1a94482ecd6dbc5b95187ae",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        26,
+        8,
+        55,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_idle_l_f0.png",
+      "sha256": "b159fbe981a1307b74382fdcd615c6d0dd2758ee9d6831ceb00790a3da04b080",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        26,
+        8,
+        53,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_idle_l_f1.png",
+      "sha256": "3b4c85a6616edc6e2f10a2c57d57821c4175fafd96fdc0c694bb5ab73cf2a7f6",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        26,
+        8,
+        53,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_walk_r_f0.png",
+      "sha256": "3ab5188e3bac6152a67827bd34ce8873a7f9323eb9d0d249faec2ff7e1de20e0",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        8,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_walk_r_f1.png",
+      "sha256": "0d7d61804a57d11a97d5d2019ae0ab05339100c71f1e35023f438be4ce2e7652",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        26,
+        8,
+        53,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_walk_r_f2.png",
+      "sha256": "addb2c7db1fa0199b16ac42fecd0e5e8f66f5ccf4103e839b71ab0d49a0044d2",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        19,
+        9,
+        61,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_walk_r_f3.png",
+      "sha256": "0b241e4ae6ddc524571d4084f282d750a7437f847493b43d4ea20e03a3366194",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        26,
+        9,
+        55,
+        75
+      ]
+    },
+    {
+      "file": "person_child_4_walk_l_f0.png",
+      "sha256": "d517014c5b802e78678417a60e1507d44ae88603134726cade7ad62d0bb10138",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        9,
+        60,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_walk_l_f1.png",
+      "sha256": "504aa893e0657a2581f61f8a65b7c1d44b4b3a48a806d6e3137fe24cfbaef578",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        26,
+        9,
+        53,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_walk_l_f2.png",
+      "sha256": "c67ac83d36df65428b12a2457e3b9bee2242347aab1c2a00efe4458ff31e0876",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        19,
+        9,
+        61,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_walk_l_f3.png",
+      "sha256": "f00e3eb55fcbb625db0e5e2fd6957dee26cd8ffc7000e47dacc312106dfedc72",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        25,
+        10,
+        55,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_gather_r_f0.png",
+      "sha256": "db01fc9915e89d8cec270bd80ae182a219bf6234d20b1ee38ccd252b811f16f4",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        17,
+        18,
+        63,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_gather_r_f1.png",
+      "sha256": "55eadca087e7398d1f8866477aa3011051afb989fa80f96b6c6a3f5b64d45492",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        19,
+        25,
+        61,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_gather_r_f2.png",
+      "sha256": "11746b0de49d1bff73fd7f6a6e7d9bf70dee7aa534c7bef2e222059b25bffdf8",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        18,
+        25,
+        61,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_gather_r_f3.png",
+      "sha256": "88fb08c154beb4edf902d5a15e71e055750fc7d3a37a2e4bf8d94f813675005f",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        23,
+        8,
+        57,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_gather_l_f0.png",
+      "sha256": "3a091130eff77c4263c4e43132616633255dba96f9292a8d7dd247a2fac0d7ce",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        17,
+        19,
+        63,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_gather_l_f1.png",
+      "sha256": "82f550d6f3f6ea028d88097dbbdb61cc20581a5b4899aa88248f002416a1e9fe",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        19,
+        25,
+        61,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_gather_l_f2.png",
+      "sha256": "eaec6d94096e0a1d8c698572dda58f7b6d1c2ca3654d0a84c0de03e17433fbc8",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        19,
+        24,
+        61,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_gather_l_f3.png",
+      "sha256": "3ae44605121e57d747c084c5e7a13f928e4d6f72f8e573ccd9ca6d6cd6358fae",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        22,
+        8,
+        57,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_eat_r_f0.png",
+      "sha256": "ad9f5f19f9dccb2f1455c7ee37d9ec37c8abe6c8db7eb8f4288796eca9d1f297",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        24,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_eat_r_f1.png",
+      "sha256": "5ce6bda3be005c2ae4e1453d20db57c6d1bab1250fc798c9fdf9c91d4e5cbe94",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        23,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_eat_l_f0.png",
+      "sha256": "d1f9bbce14c975855ab9ffcc4fa55b39a0438454c07788311d3f492e175461ba",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        24,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_eat_l_f1.png",
+      "sha256": "7ff78f65832da9e0647b847cac18f6960353aea484b3763cc0c7587a5b898a47",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        23,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_drink_r_f0.png",
+      "sha256": "22db296b03cd873d05a03a2050349a27cb8eeb1f96a9bc7d17bc371141683eed",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        18,
+        27,
+        62,
+        75
+      ]
+    },
+    {
+      "file": "person_child_4_drink_r_f1.png",
+      "sha256": "6374e7ef1e351dd15cd9e5fa91cd4edd6ed8555e27b825e67bd106aa30c0efc2",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        23,
+        60,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_drink_l_f0.png",
+      "sha256": "725e26686a117505eeaa73c260a0acb7db278d3107b6c34c3f3675bf69a71523",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        19,
+        26,
+        61,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_drink_l_f1.png",
+      "sha256": "8bfe0247e821bab0f99c18c03e0e3f1897c2269bde29896cba5550379535ce48",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        20,
+        24,
+        59,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_sleep_r_f0.png",
+      "sha256": "9d84407ef2026b0a7aeb5c85d9e3a11a1653cc01bc21291bc83b584903d20e5e",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        13,
+        46,
+        67,
+        76
+      ]
+    },
+    {
+      "file": "person_child_4_sleep_l_f0.png",
+      "sha256": "24f73a6b9919870ea40e2dfd3cff2676122c8dc54f03afcf4d5e466d9911e9db",
+      "size": [
+        80,
+        80
+      ],
+      "bbox": [
+        14,
+        46,
+        67,
+        76
+      ]
+    }
+  ],
+  "mirrored_directions": false,
+  "visual_approval": "pending",
+  "game_review": "pending"
+}
