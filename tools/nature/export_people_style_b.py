@@ -203,6 +203,9 @@ def export():
     from export_fishing_people import REVIEW as FISH_REVIEW, export as export_fishing
     if (FISH_REVIEW / "sources.json").exists():
         export_fishing()
+    from export_people_tools import ART as TOOLS_REVIEW, export as export_tools
+    if (TOOLS_REVIEW / "sources.json").exists():
+        export_tools()
     print("390 neue Tätigkeits-/Kinder-/Totenbilder, 40 Holztragebilder nur gepolstert.")
 
 
