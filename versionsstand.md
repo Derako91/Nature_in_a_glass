@@ -1,6 +1,6 @@
 # Versionsstand – Nature_in_a_glass
 
-> **Stand:** 16.11.2026 · **Version:** Basis 0.13.0 · **Branch:** `codex/people-tools-style-b` (Basis `af87656`)
+> **Stand:** 16.11.2026 · **Version:** 0.20.0 (Überfahrten) · **Branch:** `main`
 
 ## Auf einen Blick
 

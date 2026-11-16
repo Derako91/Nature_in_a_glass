@@ -19,7 +19,7 @@ pub const DAYS_PER_YEAR: u64 = 365;
 pub const HOURS_PER_YEAR: u64 = HOURS_PER_DAY * DAYS_PER_YEAR;
 
 /// Version des Spielstand-Formats. Erhöhen, wenn sich die Struktur ändert.
-pub const SAVE_FORMAT_VERSION: u32 = 17;
+pub const SAVE_FORMAT_VERSION: u32 = 18;
 pub const ENGINE_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 pub const DEFAULT_SIZE: u32 = 64;
@@ -1074,6 +1074,7 @@ impl Simulation {
                 NewsKind::ToolInvented => (EventKind::ToolInvented, "Übung"),
                 NewsKind::ToolLost => (EventKind::ToolLost, "Wissen verloren"),
                 NewsKind::FirstHunt => (EventKind::FirstHunt, "Wild in der Nähe"),
+                NewsKind::Crossing => (EventKind::Crossing, "Land in Sicht"),
                 NewsKind::CampfireSpread => {
                     // Wie ein Blitz: Der Brand wird verfolgt, bis er erlischt.
                     if !self.fire_tracker.active {
@@ -1403,6 +1404,7 @@ impl Simulation {
             feed(p.tools as u64);
             feed(p.hunting.to_bits() as u64);
             feed(p.role as u64);
+            feed(p.seen as u64);
         }
         feed(self.people.departed.len() as u64);
         for c in &self.people.camps {
@@ -1658,7 +1660,7 @@ impl Simulation {
                 sim.migrate_from_v4();
             }
             4 => sim.migrate_from_v4(),
-            5..=16 => {}
+            5..=17 => {}
             other => {
                 return Err(format!(
                     "Spielstand-Format {other} wird nicht unterstützt (erwartet 1 bis {SAVE_FORMAT_VERSION})."

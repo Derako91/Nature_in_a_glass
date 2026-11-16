@@ -1435,7 +1435,21 @@ impl App {
                             .map(|r| format!("{r} des Lagers · "))
                             .unwrap_or_default();
                         // Eine feste Zeile (ruhiges Fenster); vollständig beim Darüberfahren
-                        let text = format!("{role}Kann: {}", can.join(" · "));
+                        // Gesehene andere Inseln (Überfahrten, v0.20)
+                        let seen: Vec<&str> = self
+                            .sim
+                            .world
+                            .islands
+                            .iter()
+                            .filter(|i| i.id < 32 && p.seen & (1 << i.id) != 0)
+                            .map(|i| i.name.as_str())
+                            .collect();
+                        let seen = if seen.is_empty() {
+                            String::new()
+                        } else {
+                            format!(" · Hat gesehen: {}", seen.join(", "))
+                        };
+                        let text = format!("{role}Kann: {}{seen}", can.join(" · "));
                         ui.add(egui::Label::new(RichText::new(&text).weak()).truncate())
                             .on_hover_text(&text);
                         ui.separator();
