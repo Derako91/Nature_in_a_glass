@@ -19,7 +19,7 @@ pub const DAYS_PER_YEAR: u64 = 365;
 pub const HOURS_PER_YEAR: u64 = HOURS_PER_DAY * DAYS_PER_YEAR;
 
 /// Version des Spielstand-Formats. Erhöhen, wenn sich die Struktur ändert.
-pub const SAVE_FORMAT_VERSION: u32 = 8;
+pub const SAVE_FORMAT_VERSION: u32 = 9;
 pub const ENGINE_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 pub const DEFAULT_SIZE: u32 = 64;
@@ -475,7 +475,7 @@ impl Simulation {
         self.report_extinctions(&animal_day.extinct);
         let news = people::step_day(
             &mut self.people,
-            &self.world,
+            &mut self.world,
             &mut self.animals,
             &self.weather,
             &self.lakes,
@@ -1016,14 +1016,36 @@ impl Simulation {
                 NewsKind::AllGone => (EventKind::PeopleGone, "letzter Mensch"),
                 NewsKind::Born => (EventKind::PersonBorn, "Geburt"),
                 NewsKind::FirstBorn => (EventKind::FirstBorn, "erste Geburt"),
+                NewsKind::CampFounded => (EventKind::CampFounded, "verlässliches Wasser"),
+                NewsKind::HutBuilt => (EventKind::HutBuilt, "Holz aus dem Wald"),
+                NewsKind::CampAbandoned => (EventKind::CampAbandoned, "niemand kommt mehr"),
+                NewsKind::CampGone => (EventKind::CampGone, "Verfall"),
+                NewsKind::CampfireSpread => {
+                    // Wie ein Blitz: Der Brand wird verfolgt, bis er erlischt.
+                    if !self.fire_tracker.active {
+                        self.fire_tracker = FireTracker {
+                            active: true,
+                            since_hours: self.time_hours,
+                            origin: (x, y),
+                            burned: 0,
+                            doused: false,
+                        };
+                        self.year.fires += 1;
+                    }
+                    (EventKind::FireStart, "Lagerfeuer")
+                }
             };
-            self.journal.push(
-                self.time_hours,
-                kind,
-                Some((x, y)),
-                n.text,
-                vec![cause.into()],
-            );
+            let mut causes = vec![cause.to_string()];
+            if n.kind == NewsKind::CampfireSpread {
+                let t = &self.world.tiles[n.tile as usize];
+                causes.push(format!(
+                    "Bodenfeuchte {:.0} %",
+                    t.moisture_fraction() * 100.0
+                ));
+                causes.push(self.weather.wind_text().to_string());
+            }
+            self.journal
+                .push(self.time_hours, kind, Some((x, y)), n.text, causes);
         }
     }
 
@@ -1313,6 +1335,12 @@ impl Simulation {
             feed(p.thirst.to_bits() as u64);
         }
         feed(self.people.departed.len() as u64);
+        for c in &self.people.camps {
+            feed(c.tile as u64);
+            feed(c.huts as u64);
+            feed(c.wood.to_bits() as u64);
+            feed(c.store.to_bits() as u64);
+        }
         h
     }
 
@@ -1551,7 +1579,7 @@ impl Simulation {
                 sim.migrate_from_v4();
             }
             4 => sim.migrate_from_v4(),
-            5..=7 => {}
+            5..=8 => {}
             other => {
                 return Err(format!(
                     "Spielstand-Format {other} wird nicht unterstützt (erwartet 1 bis {SAVE_FORMAT_VERSION})."

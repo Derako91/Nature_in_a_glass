@@ -540,6 +540,50 @@ pub fn person_bodies(people: &People) -> Vec<(u32, u8, &'static str)> {
         .collect()
 }
 
+// ---------- Lagerplätze (v0.8, gestaltung.md 17.8) ----------
+
+/// Was der Renderer für einen Lagerplatz zeichnet. Bildnamen:
+/// `camp_hearth` (Steinring, kalt), `camp_fire_f0…f3` (brennendes Feuer),
+/// `camp_windbreak` (Windschutz aus Ästen), `camp_hut_<variante>` (Hütte),
+/// `camp_store` (Vorräte), `camp_ruin` (verfallenes Lager).
+#[derive(Debug, Clone, PartialEq)]
+pub struct CampSprite {
+    pub tile: u32,
+    /// Hütten 0–4; bei 0 steht nur der Windschutz.
+    pub huts: u8,
+    /// Feuer brennt heute.
+    pub fire: bool,
+    /// Vorräte liegen bereit.
+    pub store: bool,
+    /// Niemand kommt mehr; das Lager verfällt.
+    pub ruin: bool,
+    /// Zustand 1 = gut erhalten … 0 = fast verschwunden.
+    pub condition: f32,
+    /// Fußpunkte (−1…1 in der Raute): Feuerstelle, dann je Hütte einer.
+    pub hearth_pos: (f32, f32),
+    pub hut_pos: Vec<(f32, f32)>,
+}
+
+/// Feste Plätze der Hütten rund um die Feuerstelle.
+const HUT_POS: [(f32, f32); 4] = [(-0.45, -0.2), (0.4, -0.3), (-0.2, 0.35), (0.5, 0.25)];
+
+pub fn camp_sprites(people: &People) -> Vec<CampSprite> {
+    people
+        .camps
+        .iter()
+        .map(|c| CampSprite {
+            tile: c.tile,
+            huts: c.huts,
+            fire: c.fire_today,
+            store: c.store >= 1.0,
+            ruin: c.abandoned,
+            condition: c.condition,
+            hearth_pos: (0.05, 0.05),
+            hut_pos: HUT_POS[..c.huts as usize].to_vec(),
+        })
+        .collect()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

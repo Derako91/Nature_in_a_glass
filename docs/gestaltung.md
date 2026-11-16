@@ -592,6 +592,7 @@ Heutige Zeichenreihenfolge je Feld: Seitenwände (in 32-px-Streifen gekachelt, r
 
 000. **Fernansicht für Stil B** (nach dem Spielvergleich `art/nature/fox-ab/lod/`, 18.10.2026): Der Fuchs B ist ab Zoom 8 gut lesbar (bei Zoom 8 schon mit der berechneten Stufe), bei Zoom 4 nicht. Für jedes feine Tier im Stil B bitte eine `@fern`-Fassung (Weltmaß × 2 Bildpunkte, z. B. Fuchs 20 × 12) im selben Stil mit klarer Silhouette – Format in 16.6. Vor dem Einbau mit `--bilder` im Spiel prüfen.
 00. **Neuer Stil nach dem Fuchs-Entwurf** (Entscheidung Dennis, 18.10.2026): Der neue Fuchs-Entwurf (`art/nature/fox-ab/`) ist die verbindliche visuelle Referenz – plastischere Formen, warme natürliche Farben, erkennbare Anatomie, feinere Pixelstrukturen. Die Richtung gilt langfristig für Tiere, Menschen und Landschaft einschließlich Wasser. Codex überarbeitet dieses Dokument danach und prüft die eigenen Auflösungs- und Farbgrenzen (z. B. „höchstens sechs Farben“, Deckkraft-Stufen) – maßgeblich sind Lesbarkeit und die technischen Grenzen in 16.5. **Zuerst nur der Fuchs:** Entwurf als nutzbares Sprite, in Spielgröße und Nahansicht mit dem bisherigen Fuchs vergleichen, Weltmaß (Darstellungsbreite 10) und Fußpunkt beibehalten. Erst nach diesem Vergleich weitere Tiere und Animationen umstellen.
+0a. **Lagerplätze** (17.8, seit v0.8.0): Feuerstelle, Feuer, Windschutz, Hütte, verfallenes Lager und der Menschenzustand `_build`. Im Spiel stehen Platzhalter.
 0. **Menschen** (Abschnitt 17): Die Simulation ist da (v0.6.0), im Spiel stehen Platzhalterfiguren. Bilder nach 17.3/17.4 ersetzen sie.
 1. ~~**Tiere neu zeichnen, größer und doppelt aufgelöst**~~ – erledigt (Runde 09), im Spiel ab v0.4.5. Maße 4.3 und 15.3.
 2. **Feuer** (Gruppe E): `fire_ground` als Überlagerung und `fire_flame_small`, `fire_flame_large` als Sprites (`appearance::sprites` liefert sie schon bei brennenden Feldern), dazu `smoke`. Heute: nur eine orange Fläche.
@@ -802,3 +803,24 @@ Der Beobachter (`crates/app/src/view.rs`, `draw_iso_gfx`):
 3. Danach die Nahansicht-Landschaft (17.2) rund um die Menschen.
 
 Abnahme zusätzlich zu Abschnitt 11: Die fünf Aussehen sind bei Zoom 8 als Silhouette bzw. an der Erkennungsfarbe auseinanderzuhalten; bei Zoom 32 erkennt man die Tätigkeit ohne Erklärung.
+
+### 17.8 Lagerplätze (v0.8) – Auftrag für Codex
+
+Stand 16.11.2026. Seit v0.8.0 legen die Menschen selbst Lagerplätze an (niemand gibt einen Auftrag): eine **Feuerstelle mit Windschutz** an verlässlichem Wasser, später **Hütten** aus Stangen, Ästen und Rinde (bis vier je Lager), dazu abgelegte **Vorräte**. Kommt zwei Jahre niemand, ist das Lager **verlassen** und zerfällt in etwa vier Jahren ganz. Im Spiel stehen Platzhalter (brauner Kegel, Steinring mit Flamme).
+
+**Bilder** (Ablage `assets/nature/buildings/`, Manifest wie bei den Tieren; Darstellungsbreite im Grundmaß, Fußpunkt Mitte unten):
+
+| ID | Breite | Bedeutung |
+| --- | --- | --- |
+| `camp_hearth` | 6 | Steinring mit Asche, kalt |
+| `camp_fire_f0` … `f3` | 6 | Steinring mit kleinem Feuer, 4 Bilder à 200 ms (Animation nur bei 1 Std/s, sonst `f0`) – Rauch gehört später zum Feuerpaket |
+| `camp_windbreak` | 12 | Windschutz aus schräg gestellten Ästen; steht nur, solange es noch keine Hütte gibt |
+| `camp_hut_0`, `camp_hut_1` | 16 | Hütte (zwei Varianten), etwa doppelt so hoch wie ein Mensch, Eingang zur Feuerstelle |
+| `camp_ruin` | 6 | verfallenes Lager: verstreute Steine, umgefallene Stangen (ersetzt Feuerstelle; Hütten werden niedrig und dunkel gezeichnet, bis es ein eigenes `camp_hut_ruin` gibt) |
+| `camp_store` | 6 | (optional) Vorräte: Körbe, Bündel neben der Feuerstelle |
+
+**Neuer Zustand bei Menschen:** `_build` – trägt Holz bzw. baut (4 Bilder, 1,0 s). Bis es ihn gibt, nimmt der Beobachter `_idle`.
+
+**Schnittstelle:** `appearance::camp_sprites(&sim.people)` liefert je Lager `tile`, `huts` (0–4), `fire` (heute brennt Feuer), `store`, `ruin`, `condition` (1 = gut erhalten … 0 = fast verschwunden; der Beobachter dunkelt bis 55 % ab), `hearth_pos` und `hut_pos` (feste Fußpunkte in der Raute). Lager werden zusammen mit Pflanzen und Menschen nach Fußpunkt gezeichnet, in allen Zoomstufen der isometrischen Ansicht; auf der Karte als braunes Quadrat (mit hellem Rand, sobald eine Hütte steht).
+
+**Offen zur Gestaltung:** Auf dem Lagerfeld wachsen weiter Büsche und Bäume und verdecken die Hütten teilweise. Wenn das stört, bitte als Wunsch an Claude (z. B. weniger Pflanzen auf Lagerfeldern zeichnen) – nicht im Kern ändern.

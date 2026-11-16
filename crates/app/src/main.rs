@@ -813,6 +813,18 @@ impl App {
                     }
                 }
                 ui.end_row();
+                let lived: Vec<_> = pe.camps.iter().filter(|c| !c.abandoned).collect();
+                let huts: u32 = lived.iter().map(|c| c.huts as u32).sum();
+                row(
+                    ui,
+                    "Lagerplätze",
+                    match (lived.len(), huts) {
+                        (0, _) => "–".to_string(),
+                        (n, 0) => format!("{n} · noch keine Hütte"),
+                        (n, 1) => format!("{n} · 1 Hütte"),
+                        (n, h) => format!("{n} · {h} Hütten"),
+                    },
+                );
                 row(
                     ui,
                     "Feuer",
@@ -850,6 +862,7 @@ impl App {
             ("Boden", dash()),
             ("Tiere", dash()),
             ("Menschen", dash()),
+            ("Lager", dash()),
         ];
         let mut here: Vec<(u32, String)> = Vec::new();
         if let Some(i) = self.selected {
@@ -960,6 +973,18 @@ impl App {
                     .collect();
                 if here.is_empty() && self.sim.people.bodies.iter().any(|b| b.tile == i as u32) {
                     rows[16].1 = "ein Toter liegt hier".into();
+                }
+                if let Some(c) = self.sim.people.camps.iter().find(|c| c.tile == i as u32) {
+                    rows[17].1 = if c.abandoned {
+                        c.describe()
+                    } else {
+                        format!(
+                            "{} · Holz {:.0} · Vorrat {:.0}",
+                            c.describe(),
+                            c.wood,
+                            c.store
+                        )
+                    };
                 }
             }
         }

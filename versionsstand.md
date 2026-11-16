@@ -1,42 +1,27 @@
 # Versionsstand – Nature_in_a_glass
 
-> **Stand der Dokumentation:** 29.10.2026 · **Bezugs-Commit:** `f24cbd9559e432d5a69b8411a513c661d2e0d864` · **Prüfstatus:** aus vorhandenen Projektdateien rekonstruiert; Code, CI und Heimserver wurden für diese Übersicht **nicht erneut getestet**.
->
-> **Wichtig:** „Offen“ bedeutet hier *zu prüfen bzw. laut letztem Praxisbericht noch zu bearbeiten* – nicht automatisch, dass der Fehler im aktuellen Code weiterhin existiert.
+> **Stand:** 16.11.2026 · **Version:** 0.8.0 (Lagerplätze) · **Branch:** `claude/vibrant-meitner-8r0hoc` → `main`
 
 ## Auf einen Blick
 
 | Frage | Antwort |
 | --- | --- |
-| **Hauptthema / Problem** | Gestaltung und Integration |
-| **Was nachweislich bereits lief** | Claude: Simulation, Tests und Integration; Codex: Texturen, Sprites und Darstellung |
-| **Was jetzt geklärt werden muss** | Gestaltungsaufgaben aus Abschnitt 16 gegen Implementierung, offene PRs und Bildprüfung abgleichen. Nicht behaupten, ein offener Punkt sei ein Laufzeitfehler. |
-| **Nächster sinnvoller Test** | Codex/Claude-Übergabe nach Änderungen an Assets oder Renderer |
-| **Letzter eigener Test dieser Datei** | Keiner – Dokumentationsübergabe, keine Codeausführung |
-
-## Offene Punkte – zuerst prüfen
-
-1. **Ist das gemeldete Problem noch vorhanden?** Prüfe den aktuellen Code, den letzten Commit und gegebenenfalls den Livebetrieb, bevor du etwas änderst.
-2. **Falls ja:** Gestaltungsaufgaben aus Abschnitt 16 gegen Implementierung, offene PRs und Bildprüfung abgleichen. Nicht behaupten, ein offener Punkt sei ein Laufzeitfehler.
-3. **Nach der Änderung:** Codex/Claude-Übergabe nach Änderungen an Assets oder Renderer. Ergebnis mit Datum, Commit und konkretem Test protokollieren.
+| **Zuletzt erledigt** | v0.8.0: Menschen legen selbst Lagerplätze an, bauen Hütten mit Holz aus dem Wald, legen Vorräte an; Lagerfeuer können Brände auslösen; verlassene Lager verfallen. ADR 0009. |
+| **Getestet** | `cargo fmt`, `cargo clippy -D warnings`, `cargo test --release --workspace` grün; vier neue Tests in `crates/core/tests/people.rs` (Lager an Wasser + Hütten, Holzschlag lichtet Wald, Verfall, Speichern/Laden). Bildschirmfotos Seed 2024, Zoom 8 und 2: Lager mit zwei Hütten und Feuer sichtbar (Platzhalter). |
+| **Offen für Codex** | Bilder für Lagerplätze und Zustand `_build` (gestaltung.md 16.3 Punkt 0a, Abschnitt 17.8). |
+| **Offen für Dennis** | Auswahl zu Codex' Entwürfen: Fuchs B Fernansicht (PR #9), Feuerpaket (PR #10) – beide Entwürfe, noch nicht im Spiel. |
+| **Nächster Schritt (Roadmap)** | Vom Lager zum Dorf: Fischfang, später Anbau, mehrere Lager einer Gruppe, Werkzeuge. |
 
 ## Zusammenarbeit Claude / Codex
 
-- **Claude:** Simulation, technische Schnittstellen, Tests und Integration.\n- **Codex:** Assets, Sprites, Texturen und visuelle Darstellung gemäß `docs/gestaltung.md`.\n- `docs/gestaltung.md` bleibt verbindliche Gestaltungsspezifikation, **nicht** das laufende Statusprotokoll.
-- **Vor Arbeitsbeginn:** diese Datei, `AUFGABE.md` (falls vorhanden), die relevanten `NACHTRAG-*.md` und die betroffenen Quelldateien lesen.
-- **Nach Arbeitsende:** diese Datei mit tatsächlich erledigter Änderung, offenem Problem, Branch/Commit, Testbefehl und Ergebnis aktualisieren.
-- **Bei Unklarheit:** keine Erfolgsmeldung erfinden; Status `ungeprüft` setzen und konkrete Prüfung nennen.
-
-## Letzte Übergabe
-
-- **Von:** Dokumentationsanalyse (kein ausführender Coding-Agent)
-- **An:** nächster bearbeitender Agent
-- **Auftrag:** den oben genannten Problemstand mit dem aktuellen Code abgleichen und erst dann gezielt korrigieren.
-- **Quellen:** CLAUDE.md; docs/gestaltung.md; docs/PRINCIPLES.md
-- **Nicht verändern:** bestehende Aufgaben-/Nachtragshistorie; keine Funktionalität ohne gesonderten Auftrag umbauen.
+- **Claude:** Simulation, technische Schnittstellen, Tests und Integration.
+- **Codex:** Assets, Sprites, Texturen und visuelle Darstellung gemäß `docs/gestaltung.md`.
+- `docs/gestaltung.md` bleibt verbindliche Gestaltungsspezifikation, **nicht** das laufende Statusprotokoll.
+- **Nach Arbeitsende:** diese Datei mit erledigter Änderung, offenem Problem, Branch/Commit, Testbefehl und Ergebnis aktualisieren. Bei Unklarheit keine Erfolgsmeldung erfinden; Status `ungeprüft` setzen.
 
 ## Änderungsprotokoll
 
 | Datum | Änderung | Code-Test |
 | --- | --- | --- |
+| 16.11.2026 | v0.8.0 Lagerplätze (Claude) | fmt, clippy, alle Tests grün; Spielbild Zoom 8/2 angesehen |
 | 29.10.2026 | Erste gemeinsame, lesbare Übergabe aus den vorhandenen Projektberichten erstellt | Nicht ausgeführt |
