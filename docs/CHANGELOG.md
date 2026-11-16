@@ -1,5 +1,10 @@
 # Änderungen
 
+## 0.8.3 – Hütten in richtiger Form
+
+**Behoben**
+- Die Hütten wirkten in die Höhe gestreckt. Codex hat sie neu zugeschnitten: Spitzhütte und Kuppelhütte haben jetzt ihre natürliche, breitere Form (Pull Request #13).
+
 ## 0.8.2 – Lager in Codex' neuem Stil
 
 **Neu**

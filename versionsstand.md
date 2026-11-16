@@ -1,6 +1,6 @@
 # Versionsstand – Nature_in_a_glass
 
-> **Stand:** 16.11.2026 · **Version:** 0.8.2 (Lagerbilder von Codex) · **Branch:** `claude/vibrant-meitner-8r0hoc` → `main`
+> **Stand:** 16.11.2026 · **Version:** 0.8.3 (Hütten in richtiger Form) · **Branch:** `claude/vibrant-meitner-8r0hoc` → `main`
 
 ## Auf einen Blick
 
