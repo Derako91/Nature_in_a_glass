@@ -641,15 +641,8 @@ impl Atlas {
                 })
             })
             .collect();
-        let mut manifests: Vec<String> = [
-            embedded::MANIFEST,
-            embedded::ANIMAL_MANIFEST,
-            embedded::PEOPLE_MANIFEST,
-        ]
-        .into_iter()
-        .flatten()
-        .map(|s| s.to_string())
-        .collect();
+        let mut manifests: Vec<String> =
+            embedded::MANIFESTS.iter().map(|s| s.to_string()).collect();
         if let Some(dir) = extra {
             let (imgs, mans) = load_dir(dir);
             // Gleichnamige Bilder werden ersetzt; neue Stufen kommen dazu.
@@ -916,15 +909,7 @@ mod tests {
         if images.is_empty() {
             return;
         }
-        let info = parse_manifests(
-            [
-                embedded::MANIFEST,
-                embedded::ANIMAL_MANIFEST,
-                embedded::PEOPLE_MANIFEST,
-            ]
-            .into_iter()
-            .flatten(),
-        );
+        let info = parse_manifests(embedded::MANIFESTS.iter().copied());
         let d = AtlasData::build(images, info);
         assert!(d.height <= 8192, "Atlas {} px hoch", d.height);
         for (id, w) in [

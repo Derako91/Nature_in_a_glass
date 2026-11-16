@@ -1,6 +1,7 @@
 //! Bettet die Natur-Assets (PNG und Manifeste) in das Programm ein, damit der
 //! Download ohne zusätzlichen Ordner auskommt. Prüfblätter (`_*.png`) und
-//! Entwürfe bleiben draußen.
+//! Entwürfe bleiben draußen. Jeder Bildordner darf ein eigenes `manifest.json`
+//! haben; alle werden eingebettet.
 
 use std::fs;
 use std::path::Path;
@@ -40,24 +41,25 @@ fn main() {
             ));
         }
     }
-    let manifest = |p: &str| {
-        let f = root.join(p);
+    // Manifeste: das Hauptmanifest und je Ordner ein eigenes, falls vorhanden
+    // (z. B. `animals/`, `people/`, `buildings/`, `objects/`).
+    let mut manifests = Vec::new();
+    for p in std::iter::once("manifest.json".to_string())
+        .chain(GROUPS.iter().map(|g| format!("{g}/manifest.json")))
+    {
+        let f = root.join(&p);
+        println!("cargo:rerun-if-changed={}", f.display());
         if f.exists() {
-            format!("Some(include_str!({:?}))", f.display().to_string())
-        } else {
-            "None".to_string()
+            manifests.push(format!("    include_str!({:?}),", f.display().to_string()));
         }
-    };
+    }
     let code = format!(
         "/// Eingebettete Bilder: (Dateiname ohne Endung, Ordner, PNG-Daten).\n\
          pub static IMAGES: &[(&str, &str, &[u8])] = &[\n{}\n];\n\
-         pub static MANIFEST: Option<&str> = {};\n\
-         pub static ANIMAL_MANIFEST: Option<&str> = {};\n\
-         pub static PEOPLE_MANIFEST: Option<&str> = {};\n",
+         /// Alle eingebetteten Manifeste.\n\
+         pub static MANIFESTS: &[&str] = &[\n{}\n];\n",
         entries.join("\n"),
-        manifest("manifest.json"),
-        manifest("animals/manifest.json"),
-        manifest("people/manifest.json"),
+        manifests.join("\n"),
     );
     let out = Path::new(&std::env::var("OUT_DIR").unwrap()).join("assets.rs");
     fs::write(out, code).unwrap();
