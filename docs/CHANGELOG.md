@@ -1,5 +1,11 @@
 # Änderungen
 
+## 0.8.7 – Tiere im neuen Stil
+
+**Neu** (Pull Request #19)
+- **Hirsche, Kitze, Kaninchen, Wölfe und Füchse im neuen Stil** – in allen Haltungen (grasen, gehen, rennen, ruhen), beide Richtungen, dazu Kadaver und Spuren.
+- Eigene Fassungen für die Entfernung, damit die Tiere auch bei Zoom 4 und 8 gut zu erkennen sind.
+
 ## 0.8.6 – Landschaft im neuen Stil
 
 **Neu** (Pull Requests #17 und #18)
