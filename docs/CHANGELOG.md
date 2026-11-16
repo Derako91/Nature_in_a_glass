@@ -1,5 +1,11 @@
 # Änderungen
 
+## 0.8.8 – Trockene Bachbetten
+
+**Neu**
+- **Bachbetten bleiben sichtbar:** Wo ein Bach in trockenen Zeiten versiegt, sieht man weiter sein Bett als helle Kieslinie. Wenn es wieder regnet, füllt es sich mit Wasser.
+- Vorbereitet für Codex' Bachbilder: Das Spiel weiß jetzt für jedes Feld, wohin der Bach weiterläuft, und setzt die Stücke zusammen, sobald es sie gibt.
+
 ## 0.8.7 – Tiere im neuen Stil
 
 **Neu** (Pull Request #19)

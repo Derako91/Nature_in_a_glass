@@ -258,6 +258,18 @@ fn iso_lift(elevation: f32, zoom: f32) -> f32 {
 }
 
 /// Breite eines Wasserlaufs in Bildpunkten, wächst mit der Wassermenge.
+/// Kartenversatz je Bildschirmrichtung (Reihenfolge wie `appearance::STREAM_DIRS`).
+const DIR_OFFSETS: [(i32, i32); 8] = [
+    (-1, -1),
+    (0, -1),
+    (1, -1),
+    (1, 0),
+    (1, 1),
+    (0, 1),
+    (-1, 1),
+    (-1, 0),
+];
+
 fn stream_width(flow: f32, zoom: f32) -> f32 {
     (flow.sqrt() * 0.32).clamp(0.8, 5.0) * zoom * 0.55
 }
@@ -598,35 +610,45 @@ fn draw_iso_gfx(
                 }
             }
 
-            // Wasserläufe als Linien
-            if !t.is_ocean() {
-                let flat = iso_center(x, y, w, h, z);
-                let mut line = |a: Pos2, b: Pos2, flow: f32| {
-                    let d = b - a;
-                    let len = d.length();
-                    if len < 0.01 {
-                        return;
+            // Bachläufe und trockene Bachbetten (gestaltung.md 16.8): Codex'
+            // Bachstücke, sonst Linien – Wasser blau, trockenes Bett erdfarben.
+            if let Some(piece) = ap::stream_piece(world, i) {
+                let state = if piece.wet { "wet" } else { "dry" };
+                let base = format!("stream_{state}_{}", piece.size);
+                if let Some(ce) = atlas.get(&format!("{base}_c")) {
+                    tex_rect(&mut mesh, top_rect, ce, lit);
+                    for &d in &piece.dirs {
+                        if let Some(de) = atlas.get(&format!("{base}_{}", ap::STREAM_DIRS[d])) {
+                            tex_rect(&mut mesh, top_rect, de, lit);
+                        }
                     }
-                    let nn = Vec2::new(-d.y, d.x) / len * (stream_width(flow, z) * 0.5);
-                    solid(
-                        &mut mesh,
-                        [a + nn, b + nn, b - nn, a - nn],
-                        stream_color(flow, light),
-                    );
-                };
-                if t.flow >= RILL_FLOW
-                    && let Some(d) = world.downstream[i]
-                {
-                    let (dx, dy) = world.xy(d as usize);
-                    let dir = iso_center(dx, dy, w, h, z) - flat;
-                    line(c, c + dir * 0.5, t.flow);
-                }
-                for nb in world.neighbors(i) {
-                    let up = &world.tiles[nb];
-                    if up.flow >= RILL_FLOW && world.downstream[nb] == Some(i as u32) {
-                        let (ux, uy) = world.xy(nb);
-                        let dir = iso_center(ux, uy, w, h, z) - flat;
-                        line(c + dir * 0.5, c, up.flow);
+                } else {
+                    let flat = iso_center(x, y, w, h, z);
+                    let width = stream_width(piece.flow.max(RILL_FLOW), z);
+                    let color = if piece.wet {
+                        stream_color(piece.flow, light)
+                    } else {
+                        let c = night_tint(Color32::from_rgb(186, 170, 134), light);
+                        Color32::from_rgba_unmultiplied(c.r(), c.g(), c.b(), 210)
+                    };
+                    let centers: Vec<Vec2> = piece
+                        .dirs
+                        .iter()
+                        .map(|&d| {
+                            let (dx, dy) = DIR_OFFSETS[d];
+                            iso_center((x as i32 + dx) as u32, (y as i32 + dy) as u32, w, h, z)
+                                - flat
+                        })
+                        .collect();
+                    for dir in centers {
+                        let b = c + dir * 0.5;
+                        let dd = b - c;
+                        let len = dd.length();
+                        if len < 0.01 {
+                            continue;
+                        }
+                        let nn = Vec2::new(-dd.y, dd.x) / len * (width * 0.5);
+                        solid(&mut mesh, [c + nn, b + nn, b - nn, c - nn], color);
                     }
                 }
             }

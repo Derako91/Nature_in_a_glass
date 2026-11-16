@@ -599,6 +599,7 @@ Heutige Zeichenreihenfolge je Feld: Seitenwände (in 32-px-Streifen gekachelt, r
 3. ~~**Spuren und Kadaver**~~ – erledigt (Runde 06), im Spiel ab v0.4.5. Kadaver heißen wie Tiere `carcass_<large|small>_<variante>_rest_<richtung>_f0`, Spuren `tracks_<art>` (Varianten `_0` bis `_3` möglich). Spuren erscheinen im Überblick (Zoom unter 1,5) und ab 1 Monat/s mit Deckkraft nach Dichte; Kadaver in den Stufen Landschaft und Nah. Offen: Feinabstimmung der Deckkraft im laufenden Spiel.
 4. **Zustände der Pflanzen:** `stressed` (Trockenheit) für Bäume und Büsche, `charred` für Totholz, `log_fallen` (liegendes Totholz). Bis dahin erscheinen die normalen Bilder.
 5. **Varianten:** je Boden- und Pflanzenart 3 weitere Varianten (`_1` bis `_3`), damit Wald und Wiese nicht gekachelt wirken.
+5a. **Bachläufe und Bachbetten** (16.8, seit v0.8.8): Bachstücke für fließendes Wasser und trockene Bachbetten. Im Spiel stehen Linien.
 6. **Wasser:** Animation (`water_*_f0…f3`, langsam, 15.5 bzw. 8 Gruppe C) und eine Lösung für Bäche – heute sind sie blaue Linien; `water_stream_0.png` ist noch nicht eingebunden.
 7. **Neue Bilder aus der Erosion:** `ground_silt` (7.1, Abschnitt 8 Gruppe A).
 8. **Übergänge zwischen Feldern** (`assets/nature/transitions/`): Die Kantenbilder liegen vor, aber der Beobachter weiß noch nicht, welche Kante wohin gehört. Das braucht eine Regel im Kern (Nachbarvergleich) – bitte als Wunsch an Claude, sobald die Kanten feststehen.
@@ -973,3 +974,37 @@ oder `water/` (Bodenraute wie die Standbilder, 4 × 500 ms, nur bei 1 Std/s,
 sonst `f0`; fehlt eine Variante, nimmt er `_0_f…`, fehlen Phasen, das
 Standbild). Bäche bleiben vorerst Linien in der Wasserfarbe; für eigene
 Bachbilder braucht es eine Kantenregel im Kern – bitte als Wunsch melden.
+
+### 16.8 Bachläufe und Bachbetten (Schnittstelle seit v0.8.8)
+
+Wunsch von Dennis (16.11.2026): richtige Bäche und sichtbare Flussbetten statt
+blauer Linien. Der Kern sagt jetzt für jedes Feld, ob es ein **Bachbett** hat und
+in welche Richtungen es weiterläuft (`appearance::stream_piece`):
+
+- **Bachbett:** wo gerade Wasser fließt oder wo in mindestens einem Viertel der
+  Tage Wasser fließt (dauerhafte und zeitweise Bäche) – auch wenn es heute trocken
+  liegt. Regenrinnen haben nur ein Bett, solange Wasser fließt.
+- **Zustand:** `wet` (Wasser fließt) oder `dry` (trockenes Bett: Kies, Steine,
+  ausgewaschene Erde, vielleicht etwas Schlamm).
+- **Stärke:** `0` Rinnsal, `1` Bach, `2` großer Bach (nach der Wassermenge; beim
+  trockenen Bett nach der mittleren Menge im Jahr).
+- **Richtungen** auf dem Bildschirm: `n`, `ne`, `e`, `se`, `s`, `sw`, `w`, `nw`.
+  `ne`, `se`, `sw`, `nw` enden in der **Mitte einer Rautenkante**, `n`, `e`, `s`, `w`
+  in einer **Ecke** der Raute. Verbunden wird mit dem Feld, in das das Wasser
+  fließt (auch Meer oder See: Mündung), und mit jedem Nachbarn mit Bett, der
+  hierher fließt. Verbindungen sind immer gegenseitig.
+
+**Bilder** (Ablage `assets/nature/water/`, jedes auf einer ganzen Bodenraute wie
+die Bodenbilder, transparent außerhalb des Bachs; Licht von rechts oben):
+
+| Name | Inhalt |
+| --- | --- |
+| `stream_<wet\|dry>_<0\|1\|2>_c` | Mittelstück (kleine Mulde in der Rautenmitte) |
+| `stream_<wet\|dry>_<0\|1\|2>_<richtung>` | halbes Stück von der Mitte bis zur Kante bzw. Ecke |
+
+Zusammen 2 × 3 × 9 = 54 Bilder. Der Beobachter legt Mittelstück und alle
+verbundenen Halbstücke übereinander, direkt über den Boden (unter Pflanzen und
+Tieren). Damit benachbarte Felder nahtlos anschließen, muss die Bachbreite am
+Kantenende bzw. an der Ecke je Stärke immer gleich sein. Fehlt das Mittelstück,
+zeichnet er Linien: Wasser blau, trockenes Bett kiesfarben. Animation des
+fließenden Wassers ist später möglich (`…_f0…f3`), zuerst Standbilder.

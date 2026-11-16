@@ -208,6 +208,105 @@ pub fn stream(t: &Tile) -> Stream {
     }
 }
 
+// ---------- Bachläufe und Bachbetten (gestaltung.md 16.8) ----------
+
+/// Bildschirmrichtungen in der isometrischen Ansicht: `n` = oben, `e` =
+/// rechts usw. Die vier geraden Kartennachbarn liegen an den Kanten der
+/// Raute (`ne`, `se`, `sw`, `nw`), die schrägen an ihren Ecken (`n`, `e`,
+/// `s`, `w`).
+pub const STREAM_DIRS: [&str; 8] = ["n", "ne", "e", "se", "s", "sw", "w", "nw"];
+
+/// Bildschirmrichtung zu einem Kartennachbarn (dx, dy je −1…1).
+pub fn screen_dir(dx: i32, dy: i32) -> usize {
+    match (dx, dy) {
+        (-1, -1) => 0,
+        (0, -1) => 1,
+        (1, -1) => 2,
+        (1, 0) => 3,
+        (1, 1) => 4,
+        (0, 1) => 5,
+        (-1, 1) => 6,
+        _ => 7, // (-1, 0)
+    }
+}
+
+/// Was auf einem Feld von einem Bach zu zeichnen ist: ein Mittelstück und je
+/// verbundener Richtung ein halbes Stück von der Mitte bis zur Kante bzw.
+/// Ecke der Raute. Bilder: `stream_<wet|dry>_<stärke>_c` und
+/// `stream_<wet|dry>_<stärke>_<richtung>`.
+#[derive(Debug, Clone, PartialEq)]
+pub struct StreamPiece {
+    /// Wasser fließt (sonst trockenes Bachbett).
+    pub wet: bool,
+    /// 0 Rinnsal, 1 Bach, 2 großer Bach.
+    pub size: u8,
+    /// Verbundene Richtungen (Index in [`STREAM_DIRS`]), aufsteigend.
+    pub dirs: Vec<usize>,
+    /// Wassermenge (mm/Tag) für die Breite der Ersatzlinien.
+    pub flow: f32,
+}
+
+/// Hat das Feld ein Bachbett? Fließendes Wasser oder ein Lauf, der in
+/// mindestens einem Viertel der Tage Wasser führt (auch wenn er gerade
+/// trocken liegt). Teiche und Seen zeichnen ihr Wasser selbst.
+pub fn has_bed(t: &Tile) -> bool {
+    use crate::hydro::{CourseKind, watercourse};
+    if t.is_ocean() || t.surface_water > POND_MM {
+        return false;
+    }
+    let wc = watercourse(t);
+    wc.flowing || matches!(wc.kind, CourseKind::Permanent | CourseKind::Seasonal)
+}
+
+fn stream_size(flow: f32) -> u8 {
+    if flow < STREAM_FLOW {
+        0
+    } else if flow < 4.0 * STREAM_FLOW {
+        1
+    } else {
+        2
+    }
+}
+
+/// Bachstück eines Feldes, `None` ohne Bachbett. Verbunden wird mit dem
+/// Feld, in das das Wasser abfließt (auch Meer oder See: Mündung), und mit
+/// jedem Nachbarn mit Bachbett, der hierher abfließt.
+pub fn stream_piece(world: &World, i: usize) -> Option<StreamPiece> {
+    let t = &world.tiles[i];
+    if !has_bed(t) {
+        return None;
+    }
+    let wet = t.flow >= RILL_FLOW;
+    let flow = if wet { t.flow } else { t.flow_year };
+    let (x, y) = world.xy(i);
+    let dir_to = |j: usize| {
+        let (jx, jy) = world.xy(j);
+        screen_dir(jx as i32 - x as i32, jy as i32 - y as i32)
+    };
+    let mut dirs = Vec::with_capacity(3);
+    if let Some(d) = world.downstream.get(i).copied().flatten() {
+        let dt = &world.tiles[d as usize];
+        if has_bed(dt) || dt.is_ocean() || dt.surface_water > POND_MM {
+            dirs.push(dir_to(d as usize));
+        }
+    }
+    for nb in world.neighbors(i) {
+        if world.downstream.get(nb).copied().flatten() == Some(i as u32)
+            && has_bed(&world.tiles[nb])
+        {
+            dirs.push(dir_to(nb));
+        }
+    }
+    dirs.sort_unstable();
+    dirs.dedup();
+    Some(StreamPiece {
+        wet,
+        size: stream_size(flow),
+        dirs,
+        flow,
+    })
+}
+
 /// Feste Pseudozufallszahl für Feld, Seed und laufende Nummer.
 fn fixed(x: u32, y: u32, seed: u64, salt: u64) -> u64 {
     hash2(
@@ -662,6 +761,47 @@ mod tests {
                 .all(|s| s.id == "deer" && s.pos.0.abs() + s.pos.1.abs() <= 0.86)
         );
         assert_eq!(a, animal_sprites(&sim.animals, &sim.world));
+    }
+
+    #[test]
+    fn stream_pieces_connect_both_ways() {
+        let mut sim = crate::Simulation::new(42);
+        sim.advance_years(2);
+        let w = &sim.world;
+        let mut wet = 0;
+        for i in 0..w.tiles.len() {
+            let Some(p) = stream_piece(w, i) else {
+                continue;
+            };
+            if p.wet {
+                wet += 1;
+            }
+            // Jede Verbindung zu einem Nachbarn mit Bachbett ist gegenseitig.
+            let (x, y) = w.xy(i);
+            for &d in &p.dirs {
+                let (dx, dy) = [
+                    (-1, -1),
+                    (0, -1),
+                    (1, -1),
+                    (1, 0),
+                    (1, 1),
+                    (0, 1),
+                    (-1, 1),
+                    (-1, 0),
+                ][d];
+                let j = w.idx((x as i32 + dx) as u32, (y as i32 + dy) as u32);
+                if let Some(q) = stream_piece(w, j) {
+                    assert!(q.dirs.contains(&((d + 4) % 8)), "Lücke bei ({x}, {y})");
+                }
+            }
+        }
+        assert!(wet > 10, "kaum Bäche");
+        for (dx, dy) in [(0, -1), (1, 0), (0, 1), (-1, 0)] {
+            assert!(
+                STREAM_DIRS[screen_dir(dx, dy)].len() == 2,
+                "gerade Nachbarn an Kanten"
+            );
+        }
     }
 
     #[test]
