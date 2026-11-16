@@ -80,8 +80,9 @@ def write_board(images, icc):
         x = 30 + look * 294
         draw.text((x, 735), f"Aussehen {look} / Holz tragen", font=font(17), fill="#f1e4c9")
         for index, direction in enumerate(("l", "r")):
-            im = images[f"person_{look}_build_{direction}_f0"].resize((112, 240), Image.Resampling.NEAREST)
-            board.paste(im, (x + index * 130, 780), im)
+            source = images[f"person_{look}_build_{direction}_f0"]
+            im = source.resize((source.width * 2, source.height * 2), Image.Resampling.NEAREST)
+            board.paste(im, (x + index * 130 - (source.width - 56), 780), im)
     board.save(REVIEW / "einzelbilder.png", icc_profile=icc)
 
 
@@ -115,6 +116,9 @@ def refresh_huts(camp_source):
     report["hut_layouts"] = layouts
     manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    from refine_people_and_huts import CONFIG, apply_hut_doors
+    if CONFIG.exists():
+        apply_hut_doors()
     images = {Path(r["file"]).stem: Image.open(ROOT / r["file"]).convert("RGBA")
               for r in report["files"]}
     write_board(images, icc)
@@ -229,6 +233,13 @@ def export(camp_source, right_source, left_source):
         "files": records,
         "visual_approval": "pending", "game_review": "pending"}
     (REVIEW / "export.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    from refine_people_and_huts import CONFIG, apply_hut_doors
+    if CONFIG.exists():
+        apply_hut_doors()
+        for variant in range(2):
+            name = f"camp_hut_{variant}"
+            images[name] = Image.open(BUILDINGS / (name + ".png")).convert("RGBA")
+        write_board(images, icc)
     print("Exportiert: 9 Lagerbilder, 40 Bauphasen, Manifeste und Prüfbögen.")
 
 

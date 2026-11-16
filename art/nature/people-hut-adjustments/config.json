@@ -1,0 +1,95 @@
+{
+  "base_commit": "0f81511",
+  "adult_scale": 0.9,
+  "gather_max_world_width": 6,
+  "door_opening_world": [
+    4.5,
+    9
+  ],
+  "sources": [
+    {
+      "kind": "compact",
+      "look": 0,
+      "file": "sources/compact-0.png",
+      "sha256": "30c57d3c0141d85dfcec240f622cef67f76290d98238b0a9020ba3abd6e8d877"
+    },
+    {
+      "kind": "compact",
+      "look": 1,
+      "file": "sources/compact-1.png",
+      "sha256": "ef5f8f3b98a700f5e22ddf06d68900180cdb72773c4abfbacc6ba3f4b9fe92a7"
+    },
+    {
+      "kind": "compact",
+      "look": 2,
+      "file": "sources/compact-2.png",
+      "sha256": "00acbac94d84ae811314c0bb6b347c56bc044bbbafdd27af40df61651f42bc71"
+    },
+    {
+      "kind": "compact",
+      "look": 3,
+      "file": "sources/compact-3.png",
+      "sha256": "a98118e82d9e1b4c30cf2a918a29abbd8db72556211c1557cbce40894c4e9f0b"
+    },
+    {
+      "kind": "compact",
+      "look": 4,
+      "file": "sources/compact-4.png",
+      "sha256": "ee148cacafff5801f7420f6075f272c617631b66d4c66a177f5280bf8c3e0736"
+    },
+    {
+      "kind": "door",
+      "variant": 0,
+      "file": "sources/door-0.png",
+      "sha256": "b97e771c489022977de61990f9138c62e828044c934d963f1864d984f2bcc273"
+    },
+    {
+      "kind": "door",
+      "variant": 1,
+      "file": "sources/door-1.png",
+      "sha256": "722dfe5f2502db338baffe248d45244476cc8f942526af6a1abe0a0716eb816c"
+    },
+    {
+      "kind": "hut_original",
+      "variant": 0,
+      "file": "sources/hut-original-0.png",
+      "sha256": "c22d3b6c837c31dcd256cc765d0b5b3abe1cf2542fe5184697f3a313c8c7b56b"
+    },
+    {
+      "kind": "hut_original",
+      "variant": 1,
+      "file": "sources/hut-original-1.png",
+      "sha256": "54bf58e15b6f4cb60dafe658b53e14965ccc2ef89e7cb4573883bacbc1c3a12d"
+    },
+    {
+      "kind": "hands",
+      "look": 0,
+      "file": "sources/hands-0.png",
+      "sha256": "8d68da82850b2f9282416262847dd8dbf9e73b4ece870163785c874acadfdcb5"
+    },
+    {
+      "kind": "hands",
+      "look": 1,
+      "file": "sources/hands-1.png",
+      "sha256": "59eb3c6f7d9dbce4923286a7565e36915f2b7da9783f201f8bfbd819cf27cbbb"
+    },
+    {
+      "kind": "hands",
+      "look": 2,
+      "file": "sources/hands-2.png",
+      "sha256": "ca8d866c98ed81e5f67f6de633c0f3b604b36a095c78ca847fecc391d0c60512"
+    },
+    {
+      "kind": "hands",
+      "look": 3,
+      "file": "sources/hands-3.png",
+      "sha256": "79802eb8cc0bf2bb2da4ed31412a924e7ddfc0167975e492f0c85c56ea68110b"
+    },
+    {
+      "kind": "hands",
+      "look": 4,
+      "file": "sources/hands-4.png",
+      "sha256": "1cdf8a383b24122689b136fb3ea0c9972683a6abce44e856a96a36dcee976b6c"
+    }
+  ]
+}

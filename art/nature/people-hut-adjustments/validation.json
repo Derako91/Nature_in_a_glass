@@ -1,0 +1,61 @@
+{
+  "children_png_byte_identical": 150,
+  "adult_and_dead_frames_scaled": 280,
+  "scale": 0.9,
+  "all_anchors_unchanged": true,
+  "appearance_metadata_unchanged": true,
+  "buildings_manifest_unchanged": true,
+  "hut_alpha_and_pixels_outside_door_unchanged": true,
+  "door_world": [
+    [
+      4.5,
+      8.875
+    ],
+    [
+      4.5,
+      8.875
+    ]
+  ],
+  "compact_world_width_range": {
+    "gather": [
+      4.275,
+      6.075
+    ],
+    "eat": [
+      4.275,
+      4.95
+    ],
+    "drink": [
+      4.612,
+      5.4
+    ]
+  },
+  "rust_tests_passed": 89,
+  "python_tests_passed": 15,
+  "format": "passed",
+  "clippy": "passed",
+  "release_build": "passed",
+  "repeated_refinement_byte_identical": true,
+  "repeated_people_export_byte_identical": true,
+  "repeated_huts_only_export_byte_identical": true,
+  "visual_approval": "pending",
+  "game_review": {
+    "seed": 2024,
+    "years": 10,
+    "menschen": true,
+    "danach": 3,
+    "days": 120,
+    "select": [
+      19,
+      34
+    ],
+    "speed": 0,
+    "zoom": [
+      8,
+      32
+    ],
+    "embedded_assets": true,
+    "capture": "paused_after_first_render",
+    "rare_states": "contact_sheet_only"
+  }
+}

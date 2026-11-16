@@ -1,0 +1,1127 @@
+{
+  "adult_scale": 0.9,
+  "children": "unchanged",
+  "anchors": "unchanged",
+  "frames": [
+    {
+      "file": "person_0_gather_r_f0.png",
+      "state": "gather",
+      "look": 0,
+      "direction": "r",
+      "frame": 0,
+      "opaque_size": [
+        46,
+        56
+      ],
+      "world_width": 5.175,
+      "factor": 0.30584192439862545,
+      "sha256": "29bbee567ad8c5569390b6c05203c352b5d4744b67379e44d9f4d2d7eb743d9d"
+    },
+    {
+      "file": "person_0_gather_r_f1.png",
+      "state": "gather",
+      "look": 0,
+      "direction": "r",
+      "frame": 1,
+      "opaque_size": [
+        45,
+        57
+      ],
+      "world_width": 5.0625,
+      "factor": 0.30584192439862545,
+      "sha256": "35a61e9986d8bcdb8341eca90d639c11c2d31c221365683ea018b58a7da15690"
+    },
+    {
+      "file": "person_0_gather_r_f2.png",
+      "state": "gather",
+      "look": 0,
+      "direction": "r",
+      "frame": 2,
+      "opaque_size": [
+        43,
+        58
+      ],
+      "world_width": 4.8375,
+      "factor": 0.30584192439862545,
+      "sha256": "b6546d0a24938be39311fe497254f4a060f7fa5c6953e2d86e2aad81f62b7be1"
+    },
+    {
+      "file": "person_0_gather_r_f3.png",
+      "state": "gather",
+      "look": 0,
+      "direction": "r",
+      "frame": 3,
+      "opaque_size": [
+        41,
+        63
+      ],
+      "world_width": 4.6125,
+      "factor": 0.30584192439862545,
+      "sha256": "2f3cec9754990a3ee34f01ab00ddb34048263bb65fbd13feb2e9673c169cd4b7"
+    },
+    {
+      "file": "person_0_eat_r_f0.png",
+      "state": "eat",
+      "look": 0,
+      "direction": "r",
+      "frame": 0,
+      "opaque_size": [
+        40,
+        63
+      ],
+      "world_width": 4.5,
+      "factor": 0.3011844331641286,
+      "sha256": "902ec1092f5b430b7610d90a270464ec2c76af019fe939604a607cb756edd9dc"
+    },
+    {
+      "file": "person_0_eat_r_f1.png",
+      "state": "eat",
+      "look": 0,
+      "direction": "r",
+      "frame": 1,
+      "opaque_size": [
+        38,
+        63
+      ],
+      "world_width": 4.275,
+      "factor": 0.3011844331641286,
+      "sha256": "5cd3bb2f9710f25bb37c0c02bc683d0f4c88c07575cbf3c3237216cc1c2bb186"
+    },
+    {
+      "file": "person_0_drink_r_f0.png",
+      "state": "drink",
+      "look": 0,
+      "direction": "r",
+      "frame": 0,
+      "opaque_size": [
+        43,
+        59
+      ],
+      "world_width": 4.8375,
+      "factor": 0.3011844331641286,
+      "sha256": "866a686c57fe7fb34feb4e284aa5c7f1839eaa4a60d2f4245c6020960901ec31"
+    },
+    {
+      "file": "person_0_drink_r_f1.png",
+      "state": "drink",
+      "look": 0,
+      "direction": "r",
+      "frame": 1,
+      "opaque_size": [
+        41,
+        60
+      ],
+      "world_width": 4.6125,
+      "factor": 0.3011844331641286,
+      "sha256": "885e7fd82dc35aa0c0f874670f2a0b1d303aef7980615f91c2e4e9f682638b68"
+    },
+    {
+      "file": "person_0_gather_l_f0.png",
+      "state": "gather",
+      "look": 0,
+      "direction": "l",
+      "frame": 0,
+      "opaque_size": [
+        49,
+        55
+      ],
+      "world_width": 5.5125,
+      "factor": 0.3079584775086505,
+      "sha256": "6bc66dc5174cbf3f3338f1ee886c02917111c8a8894f88ce89703a718888e818"
+    },
+    {
+      "file": "person_0_gather_l_f1.png",
+      "state": "gather",
+      "look": 0,
+      "direction": "l",
+      "frame": 1,
+      "opaque_size": [
+        45,
+        57
+      ],
+      "world_width": 5.0625,
+      "factor": 0.3079584775086505,
+      "sha256": "251eda3e5380cb5bfa28a794f500432ec84af25131b4b1e447b5957de85fa8d2"
+    },
+    {
+      "file": "person_0_gather_l_f2.png",
+      "state": "gather",
+      "look": 0,
+      "direction": "l",
+      "frame": 2,
+      "opaque_size": [
+        42,
+        58
+      ],
+      "world_width": 4.7250000000000005,
+      "factor": 0.3079584775086505,
+      "sha256": "32e2a2bc711f2fa6a23b1b81f2899248fda709e5647f45c43af6531d7f4485c5"
+    },
+    {
+      "file": "person_0_gather_l_f3.png",
+      "state": "gather",
+      "look": 0,
+      "direction": "l",
+      "frame": 3,
+      "opaque_size": [
+        43,
+        62
+      ],
+      "world_width": 4.8375,
+      "factor": 0.3079584775086505,
+      "sha256": "7f204679335354c2b5a91f38d78326f73ccb408a577ed194026e0acb1fd56965"
+    },
+    {
+      "file": "person_0_eat_l_f0.png",
+      "state": "eat",
+      "look": 0,
+      "direction": "l",
+      "frame": 0,
+      "opaque_size": [
+        38,
+        63
+      ],
+      "world_width": 4.275,
+      "factor": 0.30272108843537415,
+      "sha256": "9e7ce7e0168b1951850d09fe8c56bda70a3dd553e8319eae580d39d681d94532"
+    },
+    {
+      "file": "person_0_eat_l_f1.png",
+      "state": "eat",
+      "look": 0,
+      "direction": "l",
+      "frame": 1,
+      "opaque_size": [
+        40,
+        64
+      ],
+      "world_width": 4.5,
+      "factor": 0.30272108843537415,
+      "sha256": "3b7be3d0ed310ed6d93744ed8ee94942e29c69bf3ee1ff3f4cad1b97948597ae"
+    },
+    {
+      "file": "person_0_drink_l_f0.png",
+      "state": "drink",
+      "look": 0,
+      "direction": "l",
+      "frame": 0,
+      "opaque_size": [
+        44,
+        59
+      ],
+      "world_width": 4.95,
+      "factor": 0.30272108843537415,
+      "sha256": "208d216e65fca076890e56a8be8453670c428c57728be3e87cd9b32c29323fcc"
+    },
+    {
+      "file": "person_0_drink_l_f1.png",
+      "state": "drink",
+      "look": 0,
+      "direction": "l",
+      "frame": 1,
+      "opaque_size": [
+        41,
+        60
+      ],
+      "world_width": 4.6125,
+      "factor": 0.30272108843537415,
+      "sha256": "6c3f9e9831add8f68bb9f30aa18f03b64c8b440a3ca717976b9b03c04312696d"
+    },
+    {
+      "file": "person_1_gather_r_f0.png",
+      "state": "gather",
+      "look": 1,
+      "direction": "r",
+      "frame": 0,
+      "opaque_size": [
+        54,
+        55
+      ],
+      "world_width": 6.075,
+      "factor": 0.29962546816479396,
+      "sha256": "6b373d9379c4f8462b1f11ff36d1d5821c3e3f95eb98b5d0f5022cb6fe1a1e57"
+    },
+    {
+      "file": "person_1_gather_r_f1.png",
+      "state": "gather",
+      "look": 1,
+      "direction": "r",
+      "frame": 1,
+      "opaque_size": [
+        53,
+        56
+      ],
+      "world_width": 5.9625,
+      "factor": 0.29962546816479396,
+      "sha256": "136ea264695f4a8bb8be596b5e80a6ba18d82fe48c730046ca9b85d1d14f845c"
+    },
+    {
+      "file": "person_1_gather_r_f2.png",
+      "state": "gather",
+      "look": 1,
+      "direction": "r",
+      "frame": 2,
+      "opaque_size": [
+        43,
+        58
+      ],
+      "world_width": 4.8375,
+      "factor": 0.29962546816479396,
+      "sha256": "b3ef28da3f6920569dad1ce99d8a1309a9eeaa021d815d2d4173e9a81ee245ec"
+    },
+    {
+      "file": "person_1_gather_r_f3.png",
+      "state": "gather",
+      "look": 1,
+      "direction": "r",
+      "frame": 3,
+      "opaque_size": [
+        41,
+        63
+      ],
+      "world_width": 4.6125,
+      "factor": 0.29962546816479396,
+      "sha256": "0e8d7258d9b9212c4360d1a9d69e34e270e5b4f48e7189c7d50a043c5b37260d"
+    },
+    {
+      "file": "person_1_eat_r_f0.png",
+      "state": "eat",
+      "look": 1,
+      "direction": "r",
+      "frame": 0,
+      "opaque_size": [
+        42,
+        67
+      ],
+      "world_width": 4.7250000000000005,
+      "factor": 0.2957983193277311,
+      "sha256": "c443ecac52ebb51785f1c9073b2086b405c156d81ce837646986ca9712f4e9ff"
+    },
+    {
+      "file": "person_1_eat_r_f1.png",
+      "state": "eat",
+      "look": 1,
+      "direction": "r",
+      "frame": 1,
+      "opaque_size": [
+        42,
+        67
+      ],
+      "world_width": 4.7250000000000005,
+      "factor": 0.2957983193277311,
+      "sha256": "c1a077261d503ca6510b28982fb7a40079f38063abe81524424d995f69f42d37"
+    },
+    {
+      "file": "person_1_drink_r_f0.png",
+      "state": "drink",
+      "look": 1,
+      "direction": "r",
+      "frame": 0,
+      "opaque_size": [
+        44,
+        65
+      ],
+      "world_width": 4.95,
+      "factor": 0.2957983193277311,
+      "sha256": "94fca9f7f4508f0297d073271c33007d2b1149114e6392ea1de69173be6ed28a"
+    },
+    {
+      "file": "person_1_drink_r_f1.png",
+      "state": "drink",
+      "look": 1,
+      "direction": "r",
+      "frame": 1,
+      "opaque_size": [
+        42,
+        65
+      ],
+      "world_width": 4.7250000000000005,
+      "factor": 0.2957983193277311,
+      "sha256": "73ecdba2bea182da324219f6838c32dc3d381cc27e3e394de8502f130e35cc72"
+    },
+    {
+      "file": "person_1_gather_l_f0.png",
+      "state": "gather",
+      "look": 1,
+      "direction": "l",
+      "frame": 0,
+      "opaque_size": [
+        53,
+        55
+      ],
+      "world_width": 5.9625,
+      "factor": 0.30584192439862545,
+      "sha256": "75b3129c3442da2b87f3132d159f05c7db1f0bd6617d59a817aa6ba87bafeec1"
+    },
+    {
+      "file": "person_1_gather_l_f1.png",
+      "state": "gather",
+      "look": 1,
+      "direction": "l",
+      "frame": 1,
+      "opaque_size": [
+        53,
+        56
+      ],
+      "world_width": 5.9625,
+      "factor": 0.30584192439862545,
+      "sha256": "dd41e75ca1298dbf67bdd64556480fde72c680123f35abef5542a8e847c43e7c"
+    },
+    {
+      "file": "person_1_gather_l_f2.png",
+      "state": "gather",
+      "look": 1,
+      "direction": "l",
+      "frame": 2,
+      "opaque_size": [
+        46,
+        57
+      ],
+      "world_width": 5.175,
+      "factor": 0.30584192439862545,
+      "sha256": "eb98a2177d35bd4cb6c4a87a68505d869d3661bd1f59ff904cf0f7f38ece6330"
+    },
+    {
+      "file": "person_1_gather_l_f3.png",
+      "state": "gather",
+      "look": 1,
+      "direction": "l",
+      "frame": 3,
+      "opaque_size": [
+        44,
+        62
+      ],
+      "world_width": 4.95,
+      "factor": 0.30584192439862545,
+      "sha256": "1989035c19e16d99fd1445a3cdb4630363af84dedc532822e309a0d201b30828"
+    },
+    {
+      "file": "person_1_eat_l_f0.png",
+      "state": "eat",
+      "look": 1,
+      "direction": "l",
+      "frame": 0,
+      "opaque_size": [
+        42,
+        67
+      ],
+      "world_width": 4.7250000000000005,
+      "factor": 0.2991596638655462,
+      "sha256": "97cf824e6a2b01a0528a4a8ec316e3466acd143bb1d098351adc20ded010ffef"
+    },
+    {
+      "file": "person_1_eat_l_f1.png",
+      "state": "eat",
+      "look": 1,
+      "direction": "l",
+      "frame": 1,
+      "opaque_size": [
+        42,
+        68
+      ],
+      "world_width": 4.7250000000000005,
+      "factor": 0.2991596638655462,
+      "sha256": "e615f348bd4dab768af43d21f054faf5e9cf7e0643ce1442dcc79e84da2b03af"
+    },
+    {
+      "file": "person_1_drink_l_f0.png",
+      "state": "drink",
+      "look": 1,
+      "direction": "l",
+      "frame": 0,
+      "opaque_size": [
+        44,
+        66
+      ],
+      "world_width": 4.95,
+      "factor": 0.2991596638655462,
+      "sha256": "9eefaa2cb05ab87152bd1dc9ee27291857cd4f5b73b550ac087cbf47e82c0008"
+    },
+    {
+      "file": "person_1_drink_l_f1.png",
+      "state": "drink",
+      "look": 1,
+      "direction": "l",
+      "frame": 1,
+      "opaque_size": [
+        42,
+        66
+      ],
+      "world_width": 4.7250000000000005,
+      "factor": 0.2991596638655462,
+      "sha256": "fe203b220d045706455b2f27b12493e02c5fd1e2f92aa3fd143c1b33d9adfe52"
+    },
+    {
+      "file": "person_2_gather_r_f0.png",
+      "state": "gather",
+      "look": 2,
+      "direction": "r",
+      "frame": 0,
+      "opaque_size": [
+        54,
+        53
+      ],
+      "world_width": 6.075,
+      "factor": 0.321285140562249,
+      "sha256": "9e9d0e292c8102c33d533e424a8a7a3fe67719460675fe404fdc616152c5ee77"
+    },
+    {
+      "file": "person_2_gather_r_f1.png",
+      "state": "gather",
+      "look": 2,
+      "direction": "r",
+      "frame": 1,
+      "opaque_size": [
+        45,
+        55
+      ],
+      "world_width": 5.0625,
+      "factor": 0.321285140562249,
+      "sha256": "bd72a24b3272eb5698d5cf1d445d81be4bc8b950117287b5b75aa9b3a939fac1"
+    },
+    {
+      "file": "person_2_gather_r_f2.png",
+      "state": "gather",
+      "look": 2,
+      "direction": "r",
+      "frame": 2,
+      "opaque_size": [
+        43,
+        58
+      ],
+      "world_width": 4.8375,
+      "factor": 0.321285140562249,
+      "sha256": "7db426231cf5c4234e8c1775ce887cc7b215f14b1d9d952866b707969d409b46"
+    },
+    {
+      "file": "person_2_gather_r_f3.png",
+      "state": "gather",
+      "look": 2,
+      "direction": "r",
+      "frame": 3,
+      "opaque_size": [
+        41,
+        63
+      ],
+      "world_width": 4.6125,
+      "factor": 0.321285140562249,
+      "sha256": "d300e887510165526a972e12eb8c3abf4de8eb307674ff3bb63b25fd8ff518de"
+    },
+    {
+      "file": "person_2_eat_r_f0.png",
+      "state": "eat",
+      "look": 2,
+      "direction": "r",
+      "frame": 0,
+      "opaque_size": [
+        44,
+        68
+      ],
+      "world_width": 4.95,
+      "factor": 0.3479923518164436,
+      "sha256": "6d9bf2f4119a96f800a8280f34011dea2601361b566944550b8dc573d31ecc2d"
+    },
+    {
+      "file": "person_2_eat_r_f1.png",
+      "state": "eat",
+      "look": 2,
+      "direction": "r",
+      "frame": 1,
+      "opaque_size": [
+        44,
+        69
+      ],
+      "world_width": 4.95,
+      "factor": 0.3479923518164436,
+      "sha256": "4f947a787db9e0cae072bcdb301817f6f27a8867dbc284b4912bbdff01e70e59"
+    },
+    {
+      "file": "person_2_drink_r_f0.png",
+      "state": "drink",
+      "look": 2,
+      "direction": "r",
+      "frame": 0,
+      "opaque_size": [
+        45,
+        69
+      ],
+      "world_width": 5.0625,
+      "factor": 0.3479923518164436,
+      "sha256": "f98c8f3d2f47c515e49f8cee9f79db6ebf2c9187589a7de8aa9568cd0fec5012"
+    },
+    {
+      "file": "person_2_drink_r_f1.png",
+      "state": "drink",
+      "look": 2,
+      "direction": "r",
+      "frame": 1,
+      "opaque_size": [
+        46,
+        69
+      ],
+      "world_width": 5.175,
+      "factor": 0.3479923518164436,
+      "sha256": "95c825a948fea0cd18f9c6ff67522f87b8a5e0686bb635ea9d4163ecc1fa5fc3"
+    },
+    {
+      "file": "person_2_gather_l_f0.png",
+      "state": "gather",
+      "look": 2,
+      "direction": "l",
+      "frame": 0,
+      "opaque_size": [
+        54,
+        55
+      ],
+      "world_width": 6.075,
+      "factor": 0.3271983640081799,
+      "sha256": "9409f1b96030f301675f5235c9ddb2720b8b7bb2ad87664f3b3240da27ff1db5"
+    },
+    {
+      "file": "person_2_gather_l_f1.png",
+      "state": "gather",
+      "look": 2,
+      "direction": "l",
+      "frame": 1,
+      "opaque_size": [
+        48,
+        57
+      ],
+      "world_width": 5.4,
+      "factor": 0.3271983640081799,
+      "sha256": "68b9e34a28db72ba6aeb7c529a471a0dd55398f2ef70d5387ef2ff877ce0678a"
+    },
+    {
+      "file": "person_2_gather_l_f2.png",
+      "state": "gather",
+      "look": 2,
+      "direction": "l",
+      "frame": 2,
+      "opaque_size": [
+        46,
+        60
+      ],
+      "world_width": 5.175,
+      "factor": 0.3271983640081799,
+      "sha256": "8230246e9aeca78963f4bb74e33e380bb446cce7c85a20dc2a8cc7830cfb56a9"
+    },
+    {
+      "file": "person_2_gather_l_f3.png",
+      "state": "gather",
+      "look": 2,
+      "direction": "l",
+      "frame": 3,
+      "opaque_size": [
+        44,
+        64
+      ],
+      "world_width": 4.95,
+      "factor": 0.3271983640081799,
+      "sha256": "3667fdc810719c594f0978289bf87090329eb925711b0396d4661ce74676e0cb"
+    },
+    {
+      "file": "person_2_eat_l_f0.png",
+      "state": "eat",
+      "look": 2,
+      "direction": "l",
+      "frame": 0,
+      "opaque_size": [
+        44,
+        68
+      ],
+      "world_width": 4.95,
+      "factor": 0.3504761904761905,
+      "sha256": "ba2e4aeeb0529f3819a5b4edb786164ccc3ea741f58e767029731135291b50e9"
+    },
+    {
+      "file": "person_2_eat_l_f1.png",
+      "state": "eat",
+      "look": 2,
+      "direction": "l",
+      "frame": 1,
+      "opaque_size": [
+        44,
+        69
+      ],
+      "world_width": 4.95,
+      "factor": 0.3504761904761905,
+      "sha256": "9b48c6687e69616a9a62c1e4d51b71882f4c11ef3bd575fb182d23ebbae191f5"
+    },
+    {
+      "file": "person_2_drink_l_f0.png",
+      "state": "drink",
+      "look": 2,
+      "direction": "l",
+      "frame": 0,
+      "opaque_size": [
+        48,
+        68
+      ],
+      "world_width": 5.4,
+      "factor": 0.3504761904761905,
+      "sha256": "1cfa4af9bb24b23bf82692d69a997189059283417d28034d69d962b8085fab14"
+    },
+    {
+      "file": "person_2_drink_l_f1.png",
+      "state": "drink",
+      "look": 2,
+      "direction": "l",
+      "frame": 1,
+      "opaque_size": [
+        47,
+        68
+      ],
+      "world_width": 5.2875000000000005,
+      "factor": 0.3504761904761905,
+      "sha256": "30ecc3c88e83ace4bc51f4d71911cd5cbafa0a07a8120d5ceb6c86a3a11c8111"
+    },
+    {
+      "file": "person_3_gather_r_f0.png",
+      "state": "gather",
+      "look": 3,
+      "direction": "r",
+      "frame": 0,
+      "opaque_size": [
+        53,
+        46
+      ],
+      "world_width": 5.9625,
+      "factor": 0.2576489533011272,
+      "sha256": "7fa64aa306ddab304431828d97ac84b299c553f7cfe18091bacfb1f2db0db123"
+    },
+    {
+      "file": "person_3_gather_r_f1.png",
+      "state": "gather",
+      "look": 3,
+      "direction": "r",
+      "frame": 1,
+      "opaque_size": [
+        48,
+        46
+      ],
+      "world_width": 5.4,
+      "factor": 0.2576489533011272,
+      "sha256": "b703e5c75ad22c587a48fa8cc3e661d221d391eebaa5ebdce266d328ec476a63"
+    },
+    {
+      "file": "person_3_gather_r_f2.png",
+      "state": "gather",
+      "look": 3,
+      "direction": "r",
+      "frame": 2,
+      "opaque_size": [
+        41,
+        49
+      ],
+      "world_width": 4.6125,
+      "factor": 0.2576489533011272,
+      "sha256": "20fef83d5c1e3b10d7b8781ad718c65de2c4b720d5e35bb28f1ebe72f8cf53bc"
+    },
+    {
+      "file": "person_3_gather_r_f3.png",
+      "state": "gather",
+      "look": 3,
+      "direction": "r",
+      "frame": 3,
+      "opaque_size": [
+        38,
+        53
+      ],
+      "world_width": 4.275,
+      "factor": 0.2576489533011272,
+      "sha256": "c81b6fd47b0966eceefaf548e8610a47c5018e70e715a682af23ee3bbe806e54"
+    },
+    {
+      "file": "person_3_eat_r_f0.png",
+      "state": "eat",
+      "look": 3,
+      "direction": "r",
+      "frame": 0,
+      "opaque_size": [
+        43,
+        63
+      ],
+      "world_width": 4.8375,
+      "factor": 0.2957486136783734,
+      "sha256": "c2c78ae54661420ac2778a6a3621bfb5a3ae87909f1db8fdfd77611efacb58be"
+    },
+    {
+      "file": "person_3_eat_r_f1.png",
+      "state": "eat",
+      "look": 3,
+      "direction": "r",
+      "frame": 1,
+      "opaque_size": [
+        44,
+        62
+      ],
+      "world_width": 4.95,
+      "factor": 0.2957486136783734,
+      "sha256": "6b82e0737ef88e374ecac782881663cbbeb756549816f630ec1dc22e519f176d"
+    },
+    {
+      "file": "person_3_drink_r_f0.png",
+      "state": "drink",
+      "look": 3,
+      "direction": "r",
+      "frame": 0,
+      "opaque_size": [
+        42,
+        60
+      ],
+      "world_width": 4.7250000000000005,
+      "factor": 0.2957486136783734,
+      "sha256": "4e41dd985fa158b94d26ac79455149dd5a7bf46817a53c6ed01bc3dae0e77d87"
+    },
+    {
+      "file": "person_3_drink_r_f1.png",
+      "state": "drink",
+      "look": 3,
+      "direction": "r",
+      "frame": 1,
+      "opaque_size": [
+        41,
+        60
+      ],
+      "world_width": 4.6125,
+      "factor": 0.2957486136783734,
+      "sha256": "732dcb8f902e4ea96be2e51f8238a8ef158f2bd5c17fefe6af9dac3a6bed7911"
+    },
+    {
+      "file": "person_3_gather_l_f0.png",
+      "state": "gather",
+      "look": 3,
+      "direction": "l",
+      "frame": 0,
+      "opaque_size": [
+        53,
+        49
+      ],
+      "world_width": 5.9625,
+      "factor": 0.26800670016750416,
+      "sha256": "f001b85cf89076c2272d62307b6cb452978cef05f89fa291fbaa00c3afff62f8"
+    },
+    {
+      "file": "person_3_gather_l_f1.png",
+      "state": "gather",
+      "look": 3,
+      "direction": "l",
+      "frame": 1,
+      "opaque_size": [
+        52,
+        48
+      ],
+      "world_width": 5.8500000000000005,
+      "factor": 0.26800670016750416,
+      "sha256": "0e7b459c08fb36e51ab312298215213b20e7b4036ba149f213e47ad1ab505481"
+    },
+    {
+      "file": "person_3_gather_l_f2.png",
+      "state": "gather",
+      "look": 3,
+      "direction": "l",
+      "frame": 2,
+      "opaque_size": [
+        44,
+        50
+      ],
+      "world_width": 4.95,
+      "factor": 0.26800670016750416,
+      "sha256": "0ac48321574e73c729b732c992a7cefc611dbfeccd8aec4988081f2b4d6e1df9"
+    },
+    {
+      "file": "person_3_gather_l_f3.png",
+      "state": "gather",
+      "look": 3,
+      "direction": "l",
+      "frame": 3,
+      "opaque_size": [
+        40,
+        53
+      ],
+      "world_width": 4.5,
+      "factor": 0.26800670016750416,
+      "sha256": "037d1996934b740cc0b46313ede499fbd345e942a5e01bc034f8882bee9735fb"
+    },
+    {
+      "file": "person_3_eat_l_f0.png",
+      "state": "eat",
+      "look": 3,
+      "direction": "l",
+      "frame": 0,
+      "opaque_size": [
+        42,
+        62
+      ],
+      "world_width": 4.7250000000000005,
+      "factor": 0.2920517560073937,
+      "sha256": "26875390e1ea2e2f7f5ff75763b3df818e8133c49257753e730b36ed58edf54a"
+    },
+    {
+      "file": "person_3_eat_l_f1.png",
+      "state": "eat",
+      "look": 3,
+      "direction": "l",
+      "frame": 1,
+      "opaque_size": [
+        43,
+        62
+      ],
+      "world_width": 4.8375,
+      "factor": 0.2920517560073937,
+      "sha256": "84266b0314645ecda74e650f9d82493be5eef139036411cd9a1673bd8525c23e"
+    },
+    {
+      "file": "person_3_drink_l_f0.png",
+      "state": "drink",
+      "look": 3,
+      "direction": "l",
+      "frame": 0,
+      "opaque_size": [
+        42,
+        59
+      ],
+      "world_width": 4.7250000000000005,
+      "factor": 0.2920517560073937,
+      "sha256": "da6bcb15865b9f55dc4796743268d6df2892e335ba66d9d97d757c2cf77f6e00"
+    },
+    {
+      "file": "person_3_drink_l_f1.png",
+      "state": "drink",
+      "look": 3,
+      "direction": "l",
+      "frame": 1,
+      "opaque_size": [
+        42,
+        60
+      ],
+      "world_width": 4.7250000000000005,
+      "factor": 0.2920517560073937,
+      "sha256": "c36b09921e716b3f8de62d3542cbff0a1c9a8888d8f1180effff97df8457cdc6"
+    },
+    {
+      "file": "person_4_gather_r_f0.png",
+      "state": "gather",
+      "look": 4,
+      "direction": "r",
+      "frame": 0,
+      "opaque_size": [
+        52,
+        65
+      ],
+      "world_width": 5.8500000000000005,
+      "factor": 0.3463203463203463,
+      "sha256": "f688b2eb915cae69ec18c83d95c053dfc86e3732116ef31cefcd48d82cdc1800"
+    },
+    {
+      "file": "person_4_gather_r_f1.png",
+      "state": "gather",
+      "look": 4,
+      "direction": "r",
+      "frame": 1,
+      "opaque_size": [
+        49,
+        65
+      ],
+      "world_width": 5.5125,
+      "factor": 0.3463203463203463,
+      "sha256": "f9785546a4756d82bbd2c31d81f8300625446d1672d57bfc2e943cabdb6697b4"
+    },
+    {
+      "file": "person_4_gather_r_f2.png",
+      "state": "gather",
+      "look": 4,
+      "direction": "r",
+      "frame": 2,
+      "opaque_size": [
+        46,
+        67
+      ],
+      "world_width": 5.175,
+      "factor": 0.3463203463203463,
+      "sha256": "a3130e4a29620ae7b71e91a6aa8e6f2822340835f3622c7d674d245fac881b4f"
+    },
+    {
+      "file": "person_4_gather_r_f3.png",
+      "state": "gather",
+      "look": 4,
+      "direction": "r",
+      "frame": 3,
+      "opaque_size": [
+        47,
+        74
+      ],
+      "world_width": 5.2875000000000005,
+      "factor": 0.3463203463203463,
+      "sha256": "e2950acd61fc0f2c77e2e2dda1cdb5e54cc738c1956d7baff2980dab779cbcfa"
+    },
+    {
+      "file": "person_4_eat_r_f0.png",
+      "state": "eat",
+      "look": 4,
+      "direction": "r",
+      "frame": 0,
+      "opaque_size": [
+        42,
+        73
+      ],
+      "world_width": 4.7250000000000005,
+      "factor": 0.3424408014571949,
+      "sha256": "b982b78e4591a4cf06bad9aabd98133f922dae1089f4bd8f7ae991264d8a306c"
+    },
+    {
+      "file": "person_4_eat_r_f1.png",
+      "state": "eat",
+      "look": 4,
+      "direction": "r",
+      "frame": 1,
+      "opaque_size": [
+        44,
+        71
+      ],
+      "world_width": 4.95,
+      "factor": 0.3424408014571949,
+      "sha256": "65cce078357bb4086093e0d766daf9fe6713e50e78ad8505ef596edb91e23149"
+    },
+    {
+      "file": "person_4_drink_r_f0.png",
+      "state": "drink",
+      "look": 4,
+      "direction": "r",
+      "frame": 0,
+      "opaque_size": [
+        46,
+        70
+      ],
+      "world_width": 5.175,
+      "factor": 0.3424408014571949,
+      "sha256": "e08cc4139cb110493c26a28603d4fb7a9cf50b4c3de2dae8a5af2bb95e048611"
+    },
+    {
+      "file": "person_4_drink_r_f1.png",
+      "state": "drink",
+      "look": 4,
+      "direction": "r",
+      "frame": 1,
+      "opaque_size": [
+        45,
+        70
+      ],
+      "world_width": 5.0625,
+      "factor": 0.3424408014571949,
+      "sha256": "09eb3167f0b6d31c96318157810045e53020baee1927df0af24729347bdb7707"
+    },
+    {
+      "file": "person_4_gather_l_f0.png",
+      "state": "gather",
+      "look": 4,
+      "direction": "l",
+      "frame": 0,
+      "opaque_size": [
+        53,
+        60
+      ],
+      "world_width": 5.9625,
+      "factor": 0.321285140562249,
+      "sha256": "69e315ec83c96a065aaea02bfc95209c00d1c6584fa98b982920b553345e6675"
+    },
+    {
+      "file": "person_4_gather_l_f1.png",
+      "state": "gather",
+      "look": 4,
+      "direction": "l",
+      "frame": 1,
+      "opaque_size": [
+        53,
+        62
+      ],
+      "world_width": 5.9625,
+      "factor": 0.321285140562249,
+      "sha256": "edb526fef7758114b9aa42f1f3ff2932261426c7642cdad31e02d9dafb28fdc9"
+    },
+    {
+      "file": "person_4_gather_l_f2.png",
+      "state": "gather",
+      "look": 4,
+      "direction": "l",
+      "frame": 2,
+      "opaque_size": [
+        46,
+        63
+      ],
+      "world_width": 5.175,
+      "factor": 0.321285140562249,
+      "sha256": "1973782fd4e6443ad650c73019415bd9a5c14163933a9ef60d5b2a37fa23bbf4"
+    },
+    {
+      "file": "person_4_gather_l_f3.png",
+      "state": "gather",
+      "look": 4,
+      "direction": "l",
+      "frame": 3,
+      "opaque_size": [
+        43,
+        69
+      ],
+      "world_width": 4.8375,
+      "factor": 0.321285140562249,
+      "sha256": "8e65d7cc0d53941b0defe55ed0f76db69df036ab00b9cab8f5f324d86b67ed58"
+    },
+    {
+      "file": "person_4_eat_l_f0.png",
+      "state": "eat",
+      "look": 4,
+      "direction": "l",
+      "frame": 0,
+      "opaque_size": [
+        42,
+        73
+      ],
+      "world_width": 4.7250000000000005,
+      "factor": 0.34191176470588236,
+      "sha256": "8b3a39cdc99294abb133df1ea634744bbf523f0d38f828a2dcfaccc83beb55f2"
+    },
+    {
+      "file": "person_4_eat_l_f1.png",
+      "state": "eat",
+      "look": 4,
+      "direction": "l",
+      "frame": 1,
+      "opaque_size": [
+        43,
+        72
+      ],
+      "world_width": 4.8375,
+      "factor": 0.34191176470588236,
+      "sha256": "3a823c929a581270ed43dd0d5f2bd7cd9905a2c0ff661fd7688390347217a544"
+    },
+    {
+      "file": "person_4_drink_l_f0.png",
+      "state": "drink",
+      "look": 4,
+      "direction": "l",
+      "frame": 0,
+      "opaque_size": [
+        42,
+        70
+      ],
+      "world_width": 4.7250000000000005,
+      "factor": 0.34191176470588236,
+      "sha256": "c0fec9bba085eb93c463615403a7c7ecdab4d5aa9a3b0900dee9b2651cbcf155"
+    },
+    {
+      "file": "person_4_drink_l_f1.png",
+      "state": "drink",
+      "look": 4,
+      "direction": "l",
+      "frame": 1,
+      "opaque_size": [
+        43,
+        70
+      ],
+      "world_width": 4.8375,
+      "factor": 0.34191176470588236,
+      "sha256": "974d66f4ba560f7ae4f230096e2b80c7aa4ef684705c22ca3d9df8cc824a0ded"
+    }
+  ]
+}

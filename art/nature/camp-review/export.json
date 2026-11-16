@@ -70,7 +70,7 @@
     },
     {
       "file": "assets/nature/buildings/camp_hut_0.png",
-      "sha256": "c22d3b6c837c31dcd256cc765d0b5b3abe1cf2542fe5184697f3a313c8c7b56b",
+      "sha256": "47f3b36858a1103eb5f7adac71c4003af42e20b2028c992e773c70954df83ab9",
       "size": [
         160,
         186
@@ -85,7 +85,7 @@
     },
     {
       "file": "assets/nature/buildings/camp_hut_1.png",
-      "sha256": "54bf58e15b6f4cb60dafe658b53e14965ccc2ef89e7cb4573883bacbc1c3a12d",
+      "sha256": "288addf2abb36beb437663803883d63285879199713f8fdefe740f3b3241b90f",
       "size": [
         160,
         170
@@ -175,601 +175,601 @@
     },
     {
       "file": "assets/nature/people/person_0_build_l_f0.png",
-      "sha256": "0624d123f344b99a46e7f928bc208d2034137341f6af187884ab497414050ac9",
+      "sha256": "de4d0c12c621127184e9d0979c7c62c643b97cc035a71b1e92264d0f47491c41",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        2,
+        30,
         23,
-        54,
+        82,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_0_build_l_f1.png",
-      "sha256": "9266c5a0339b960fa6dd2dd1aab94febccd89ba45fd279daf6753bfbbaab0e01",
+      "sha256": "8497281cc586172b27d4827bd25218511fee48089ba71a118fe8873de031c2f7",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        4,
+        32,
         23,
-        52,
+        80,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_0_build_l_f2.png",
-      "sha256": "5541f6551b633cbf86ac6ed76fd8d5a6a249214e6b07d39ad940335bd54b541a",
+      "sha256": "706256a2b14dcf97b0f7af2ee508e4fb3c574fc497c6937c8a60cf9c46332a0c",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        4,
+        32,
         23,
-        52,
+        80,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_0_build_l_f3.png",
-      "sha256": "da9e6d9d74a1060f3e636c66a043f906242c8b24fb846e5bb4f1460b20139f9c",
+      "sha256": "d0b96e76068e80955b03f548b07469429f9257523e9a4503969a4d8e90548cde",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        4,
+        32,
         24,
-        51,
+        79,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_0_build_r_f0.png",
-      "sha256": "bab3f9c377a5cdb70e2fef86056721e7d0616640dde6a50217ed5f461b8841fc",
+      "sha256": "dc07cef1c19344b397bf2c2f459323f4ac38dcaf7eac5510a946956f39d68528",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        3,
+        31,
         23,
-        53,
+        81,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_0_build_r_f1.png",
-      "sha256": "26bd159b948eddbf36669d33bb8c3dcb4e8b9de9b33a37fbe1326e0419114894",
+      "sha256": "df56fd87f65b947ad32fb5d548628a3bcfdc353db425b703b0011e613f6e4847",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        2,
+        30,
         24,
-        54,
+        82,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_0_build_r_f2.png",
-      "sha256": "58eaf18d19dc2645ac5bf6a9dc9d3d2d4e82548f57bb29b0898b861ca5bacb43",
+      "sha256": "4428980c04e87cc121bc7f2fb44ae0048ac5f30a48c3788506daa4f3ac0a48ff",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        4,
+        32,
         23,
-        53,
+        81,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_0_build_r_f3.png",
-      "sha256": "4c5adff1d0b4dac7162e6cbf250b03f9453eab03380e1e253c9445b3fc21095d",
+      "sha256": "3a9976b9f34f328fab27404ebc90c63820bcba5d37f982441485399905c8db86",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        3,
+        31,
         24,
-        53,
+        81,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_1_build_l_f0.png",
-      "sha256": "343ccbee5158d3474a09f74a71fe99fec72e90940df304ebeff5aa62ba53e810",
+      "sha256": "32227aae30810f1ea801650138abf879491aa2c0d5115bb05889ad03b0954808",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        2,
+        30,
         23,
-        54,
+        82,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_1_build_l_f1.png",
-      "sha256": "c3d3f78de0a756c447fd9fc6b0a72e1a426af6023094166164a18ef982652da0",
+      "sha256": "b38b899dff485314bc1e97d87f4ef369366a1441cdd4445d5e3a7e3e2e3855bc",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        4,
+        32,
         23,
-        51,
+        79,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_1_build_l_f2.png",
-      "sha256": "81dcd5bc086cc2a19c5e77ebad6ea6c773956adda3a77dd2a68fc849c64a7d32",
+      "sha256": "d587b2eca8b42f55a9e0400067b6be1d3c3bc52b1ad33ef005456e92518c6e42",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        4,
+        32,
         23,
-        51,
+        79,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_1_build_l_f3.png",
-      "sha256": "73be96686f80e4323890c380ca0f29d2bc17a61634b70e12caa23fd61ace87ca",
+      "sha256": "6887b3e9e4be4d8d81e49336220a74f6316a9967a165bd11b21657770d5f4a7e",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        4,
+        32,
         23,
-        51,
+        79,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_1_build_r_f0.png",
-      "sha256": "ae13fb22111a55a96b342803470b290e9585f1159e0f4a1dfcabf72949d4ea96",
+      "sha256": "40959054dcf0412657a32f01253176631740a4036c8aaa0b389373297e1243ec",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        2,
+        30,
         22,
-        53,
+        81,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_1_build_r_f1.png",
-      "sha256": "7e566b3b44eb1ca6a893554be5a10d7fc4874e3ae0e85bf48b8575af6318ca56",
+      "sha256": "6f157af87f39977f0f88b8cac2efe4f7f61445ac897080c77f60ab221fd4d6c0",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        3,
+        31,
         24,
-        53,
+        81,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_1_build_r_f2.png",
-      "sha256": "efbcf015be2804ed8c1672a88a4e6491203e83ee44867df04aabb7c078980163",
+      "sha256": "1512e6e38ad8c731ffac7326595ce357d1d03432212908ad92fcaa834beeb932",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        3,
+        31,
         22,
-        53,
+        81,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_1_build_r_f3.png",
-      "sha256": "1557f906744d857f1c4240aea6e8c79df5ce636df54181686f6b7acb402111e7",
+      "sha256": "b5a9f67dba763407f80f25d9511f4eb0d4ea25b9970b4dcc007c0a55a24c018f",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        3,
+        31,
         22,
-        53,
+        81,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_2_build_l_f0.png",
-      "sha256": "ee23ac086288e95020ff21cdc38069b15a6dd8f552a87bd3b93beb229a668e21",
+      "sha256": "22fed3dbf5b2caa62f5866745b6059d0e740e88deac7f2d23e287577019473f6",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        2,
+        30,
         21,
-        54,
+        82,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_2_build_l_f1.png",
-      "sha256": "e6e2a2aa2d7a2de68fdbb7fa33f8cf18326df0912edc5e36392a7446564df518",
+      "sha256": "a57bbf548d623fbf5eeabb8d6ace9a3d075f5348bdc894f7e901c9d8b4c64cd8",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        4,
+        32,
         21,
-        52,
+        80,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_2_build_l_f2.png",
-      "sha256": "337559180b3bc72b1f1418e175d44f091b39d11333df2f1dcdb82871223d6cf5",
+      "sha256": "7cb3cc77d3fe6766c0bac91345c66833fd0b2ff43fd2234f406d1daf9e5a7009",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        4,
+        32,
         22,
-        52,
+        80,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_2_build_l_f3.png",
-      "sha256": "9fd0341e45f2e349ff8c383146d38f8cb023e10ec3d33e6f2df7499c4e14ef9d",
+      "sha256": "4c9d024d00f961c199ff326729b7f04266a332d70226d6a80b26cce539502d35",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        4,
+        32,
         22,
-        51,
+        79,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_2_build_r_f0.png",
-      "sha256": "45d2c219c9ab0400d45f7bb3319246c64ca398a990ff139352618a5719158855",
+      "sha256": "9456849367a950db367de36222a00a5de17a9794c8acc0b690a19985bf054032",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        2,
+        30,
         19,
-        53,
+        81,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_2_build_r_f1.png",
-      "sha256": "e9130f7afca189c3c571e4f0e8e4236c2a087c076babfed5c986cb3f3146e961",
+      "sha256": "60cb66e90d74c08302bfab33fb39486f054349922a55bda70f761872984bbdd0",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        2,
+        30,
         20,
-        53,
+        81,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_2_build_r_f2.png",
-      "sha256": "c09a638ac331396e08bcdae58ba1abf89283f11ee279413ebcc458ed05a5a04b",
+      "sha256": "f9f7736588aaed867e8132c8dd700205e7e9717bf8f2f51e4c807625223c3597",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        2,
+        30,
         19,
-        54,
+        82,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_2_build_r_f3.png",
-      "sha256": "2924cee9700a48686daef9951402d019e20ee57c68c7e002dd6b38ef8ec5e4ba",
+      "sha256": "5647f86a2987677241b1be526894514e974424bb2c9fbf5e9a3a901904912cf1",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        3,
+        31,
         19,
-        53,
+        81,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_3_build_l_f0.png",
-      "sha256": "7188ff536f238df3e65752bc719cc29aa96e0829e86c6f46e96f28695be80f2c",
+      "sha256": "0b6fc59a980b458a0171c5f374f23ec523b413bb40caa3c62340e523dac12baa",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        4,
+        32,
         33,
-        53,
+        81,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_3_build_l_f1.png",
-      "sha256": "ee619abcb34e214896e17723c8ae8c3a6fd775ef0cbb5050600354cb03ef9910",
+      "sha256": "edcff21b105327dca45e9d81c3ca19c30bb1af3430c1bc7da714941f6a3fe78a",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        4,
+        32,
         33,
-        51,
+        79,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_3_build_l_f2.png",
-      "sha256": "93405da5d8e2e83dcd1f856439849e5da472167c15c219b424d0744441534c32",
+      "sha256": "6aec3d36d0720f02e52e9721c163bbc86c1680106cd6f69449b1afe8e7569aaa",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        5,
+        33,
         34,
-        51,
+        79,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_3_build_l_f3.png",
-      "sha256": "ea2f1eabe5bc7967823abfbe95747fe36ae50c433bfde9aa7a7c2b0391836173",
+      "sha256": "823c2f4b4bca79677001e269d1c3451e2094db9bcfd949c332eea3e6a2f33f2b",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        4,
+        32,
         34,
-        51,
+        79,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_3_build_r_f0.png",
-      "sha256": "ab7fb3d14d6acf4844d85ffa95f0576551b1b6958ed78bb6359d7588f158666e",
+      "sha256": "982c0c1c6dbe50aed882686b6f15c5b7bb25ca73ebab3e8246b9e810c923f2b1",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        2,
+        30,
         33,
-        53,
+        81,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_3_build_r_f1.png",
-      "sha256": "2589763e7db2f12a1abaf3344b714f554fdf4bf5ccb46b83f8d976066f90abb7",
+      "sha256": "8d28c16ec3f9d71b198c53d8159ee7b8d42c3ce4baad5fdf79042287d6554ab8",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        2,
+        30,
         33,
-        53,
+        81,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_3_build_r_f2.png",
-      "sha256": "a6d5de8e8efccdfe964d4aa08a62685cb46d250c89b51b04a5596a024aca36c0",
+      "sha256": "06c7d49f9b39ff11a09c6f1463d6af6738cca56bb25301969283756a57afda7b",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        3,
+        31,
         33,
-        53,
+        81,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_3_build_r_f3.png",
-      "sha256": "727fb23f1c37be8f0cf94ab38f25154990363192bdc0fdcbeba9414ed0352e89",
+      "sha256": "fe9c1e286d21ffa3f23a24137f8626268c854ae24b46a17ce1c1785bcb832c66",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        2,
+        30,
         34,
-        54,
+        82,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_4_build_l_f0.png",
-      "sha256": "37d818700ebbc09482489f11e6cb1b9c560903b6127bb3cfda4fe984d7fb61e0",
+      "sha256": "139b286e9744ff3d18ad9e28994bf515416a6ecb2802ee4bbe3759d4ec06614f",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        2,
+        30,
         19,
-        54,
+        82,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_4_build_l_f1.png",
-      "sha256": "c02cfb553357c12aeb20a5800c65605df2be12aabf1b6b3717f4fabf99a27c6c",
+      "sha256": "0654dee06ff3efcaffed2de09162e0d0cc531514d28db219840097fa8f662752",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        4,
+        32,
         19,
-        52,
+        80,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_4_build_l_f2.png",
-      "sha256": "f7de6f49a0c09f5c3daa9bb591b808ac7738ad127ec5cb5d5e6afa46f713aaec",
+      "sha256": "5477f3a153545c806ab8e14832cb8a004aa6d45c74e68777cbf0bbf7c3eebfcd",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        3,
+        31,
         19,
-        53,
+        81,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_4_build_l_f3.png",
-      "sha256": "2265cdc2387c8e668ca54ec359faf51cab5128e4452ba02463e2885ed0fa8463",
+      "sha256": "f6c3bbfb629a010c87231c23719b0b07fe51b75db71d8a0fdddc8269ea23102d",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        4,
+        32,
         20,
-        52,
+        80,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_4_build_r_f0.png",
-      "sha256": "c866e71271a215cf013eb14b9f003cd307f8d191d38114e7e034d0fc2ad683ae",
+      "sha256": "30573770294a22f93f66bf6dc1071340a5b9006b50d7dc810c87880d5b2aca8d",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        2,
+        30,
         17,
-        53,
+        81,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_4_build_r_f1.png",
-      "sha256": "9cc840c05591af5d343e4de3d58bcff0c28ad49cdee79da53e98092ad5e83637",
+      "sha256": "473679eb27c43947bae52c484053a9e595a2b0ce2e5eaeb867f89fe95d3073ce",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        2,
+        30,
         19,
-        53,
+        81,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_4_build_r_f2.png",
-      "sha256": "dede52479fc0a2336b8bec0c7f62e487e164ea2e18e6aedb5d806c0a70bd799e",
+      "sha256": "c3d6cde0facc751ab04ebc792dc62b157e98e4ab41a69033658bac31358d4000",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        2,
+        30,
         18,
-        54,
+        82,
         112
       ]
     },
     {
       "file": "assets/nature/people/person_4_build_r_f3.png",
-      "sha256": "46084e705b1ef0957aa71a4dddff763bd10a32d191814dd501c0081f1a2241e1",
+      "sha256": "df9641ff5806874f25f17fb5c647d4b43f9156850e680407f43d3d5f2b7b9812",
       "size": [
-        56,
+        112,
         120
       ],
       "mode": "RGBA",
       "bbox": [
-        2,
+        30,
         19,
-        53,
+        81,
         112
       ]
     }
@@ -815,5 +815,6 @@
         166
       ]
     }
-  ]
+  ],
+  "door_refinement": "art/nature/people-hut-adjustments/config.json"
 }
