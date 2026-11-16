@@ -1,0 +1,29 @@
+{
+  "base_commit": "0d959fe",
+  "source": {
+    "file": "sources/materials.png",
+    "sha256": "bc865552fb1209c1ca233d52248f1cebfe5fc6fcd083e75de6ea1e5d1068f463"
+  },
+  "mean_colors": {
+    "water_deep": [
+      17.686,
+      45.5771,
+      103.1963
+    ],
+    "water_shallow": [
+      73.3623,
+      148.6172,
+      194.1943
+    ],
+    "water_pond": [
+      57.3706,
+      116.8823,
+      184.4009
+    ]
+  },
+  "motion_uv_pixels": {
+    "water_deep": 3.0,
+    "water_shallow": 2.0,
+    "water_pond": 1.0
+  }
+}

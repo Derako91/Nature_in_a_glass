@@ -178,6 +178,9 @@ def export():
     from export_landscape_far import CONFIG as FAR_CONFIG, export as export_far
     if FAR_CONFIG.exists():
         export_far()
+    from export_water_style_b import CONFIG as WATER_CONFIG, export as export_water
+    if WATER_CONFIG.exists():
+        export_water()
     print(f'{len(records)} Landschaftsbilder exportiert, Weltmaße erhalten, Materialkanten geprüft.')
 
 

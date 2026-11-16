@@ -943,7 +943,8 @@ Je Schritt entsteht ein zusammenhängendes, im Spiel geprüftes Draft-Paket:
    Vollständiger Stil-B-Draft: `codex/animals-style-b`, 220 Nah-/220 Fernphasen
    einschließlich Hirschkalb, zwei Fellvarianten und beide Richtungen sowie
    acht Nah-/acht Fernkadaver und 16 Spurenvarianten.
-   [Tier-Prüfpaket](../art/nature/animals-style-b/README.md); visuelle Abnahme offen.
+   [Tier-Prüfpaket](../art/nature/animals-style-b/README.md); PR #19 übernommen,
+   von Claude im Spiel freigegeben als v0.8.7.
 5. **Wasser und verbleibende Natur-Effekte:** ruhige Wasserflächen/Bäche,
    Übergänge sowie bisher nicht freigegebene Effekte. Rauch und Biom-Bilder
    bleiben an die passenden Simulations-/Renderer-Schnittstellen gebunden.
@@ -1008,3 +1009,9 @@ Tieren). Damit benachbarte Felder nahtlos anschließen, muss die Bachbreite am
 Kantenende bzw. an der Ecke je Stärke immer gleich sein. Fehlt das Mittelstück,
 zeichnet er Linien: Wasser blau, trockenes Bett kiesfarben. Animation des
 fließenden Wassers ist später möglich (`…_f0…f3`), zuerst Standbilder.
+
+**Codex, Wasser-Draft (16.11.2026):** Meer, Flachwasser und Teiche mit je vier
+Varianten und vier ruhigen Phasen à 500 ms; Weltmaß 64×32, Datei 128×64.
+[Wasser-Prüfpaket](../art/nature/water-style-b/README.md), Branch
+`codex/water-style-b`. Animation/Küste/Teich und kombinierter Tier-/Wasseratlas
+geprüft; visuelle Abnahme offen. Bachstücke nach 16.8 folgen separat.

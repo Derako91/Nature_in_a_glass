@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "animated_pngs": 48,
+  "replaced_static_pngs": 3,
+  "unchanged_other_pngs": 1228,
+  "all_phases_and_variants_distinct": true,
+  "alpha_geometry_fixed": true,
+  "world_tile_size_unchanged": true,
+  "static_matches_phase_zero": true,
+  "periodic_uv_edges": true,
+  "common_variant_edges_per_phase": true,
+  "maximum_loop_mean_luma_spread": 0.0005547531809222593,
+  "frame_ms": 500,
+  "loop_ms": 2000,
+  "visual_approval": "pending",
+  "rust_tests_passed": 93,
+  "python_tests_passed": 15,
+  "format": "passed",
+  "clippy": "passed",
+  "release_build": "passed",
+  "combined_atlas_limit": "passed_8192px",
+  "repeated_water_export_byte_identical": true,
+  "repeated_landscape_export_byte_identical": true,
+  "game_review": {
+    "base_version": "0.8.8",
+    "seed": 2024,
+    "years": 10,
+    "coast": [
+      21,
+      11
+    ],
+    "coast_zoom": [
+      4,
+      8,
+      32
+    ],
+    "pond": [
+      20,
+      35
+    ],
+    "pond_zoom": [
+      8,
+      32
+    ],
+    "speed": 0,
+    "after": "embedded_assets_without_extra_images",
+    "before": "same_binary_parent_water_static_images_only_overlay",
+    "live_clip": true
+  }
+}

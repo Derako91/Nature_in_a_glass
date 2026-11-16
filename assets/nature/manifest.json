@@ -320,20 +320,38 @@
         64,
         32
       ],
-      "variants": 1,
+      "variants": 4,
       "states": [
         "normal"
       ],
-      "frames": 1,
+      "frames": 4,
       "files": [
-        "water/water_shallow_0.png"
+        "water/water_shallow_0.png",
+        "water/water_shallow_0_f0.png",
+        "water/water_shallow_0_f1.png",
+        "water/water_shallow_0_f2.png",
+        "water/water_shallow_0_f3.png",
+        "water/water_shallow_1_f0.png",
+        "water/water_shallow_1_f1.png",
+        "water/water_shallow_1_f2.png",
+        "water/water_shallow_1_f3.png",
+        "water/water_shallow_2_f0.png",
+        "water/water_shallow_2_f1.png",
+        "water/water_shallow_2_f2.png",
+        "water/water_shallow_2_f3.png",
+        "water/water_shallow_3_f0.png",
+        "water/water_shallow_3_f1.png",
+        "water/water_shallow_3_f2.png",
+        "water/water_shallow_3_f3.png"
       ],
-      "preview_static": true,
+      "preview_static": false,
       "display_size": [
         64,
         32
       ],
-      "resolution_scale": 2
+      "resolution_scale": 2,
+      "frame_ms": 500,
+      "status": "water_style_b_draft"
     },
     {
       "id": "water_deep",
@@ -346,20 +364,38 @@
         64,
         32
       ],
-      "variants": 1,
+      "variants": 4,
       "states": [
         "normal"
       ],
-      "frames": 1,
+      "frames": 4,
       "files": [
-        "water/water_deep_0.png"
+        "water/water_deep_0.png",
+        "water/water_deep_0_f0.png",
+        "water/water_deep_0_f1.png",
+        "water/water_deep_0_f2.png",
+        "water/water_deep_0_f3.png",
+        "water/water_deep_1_f0.png",
+        "water/water_deep_1_f1.png",
+        "water/water_deep_1_f2.png",
+        "water/water_deep_1_f3.png",
+        "water/water_deep_2_f0.png",
+        "water/water_deep_2_f1.png",
+        "water/water_deep_2_f2.png",
+        "water/water_deep_2_f3.png",
+        "water/water_deep_3_f0.png",
+        "water/water_deep_3_f1.png",
+        "water/water_deep_3_f2.png",
+        "water/water_deep_3_f3.png"
       ],
-      "preview_static": true,
+      "preview_static": false,
       "display_size": [
         64,
         32
       ],
-      "resolution_scale": 2
+      "resolution_scale": 2,
+      "frame_ms": 500,
+      "status": "water_style_b_draft"
     },
     {
       "id": "water_pond",
@@ -372,20 +408,38 @@
         64,
         32
       ],
-      "variants": 1,
+      "variants": 4,
       "states": [
         "normal"
       ],
-      "frames": 1,
+      "frames": 4,
       "files": [
-        "water/water_pond_0.png"
+        "water/water_pond_0.png",
+        "water/water_pond_0_f0.png",
+        "water/water_pond_0_f1.png",
+        "water/water_pond_0_f2.png",
+        "water/water_pond_0_f3.png",
+        "water/water_pond_1_f0.png",
+        "water/water_pond_1_f1.png",
+        "water/water_pond_1_f2.png",
+        "water/water_pond_1_f3.png",
+        "water/water_pond_2_f0.png",
+        "water/water_pond_2_f1.png",
+        "water/water_pond_2_f2.png",
+        "water/water_pond_2_f3.png",
+        "water/water_pond_3_f0.png",
+        "water/water_pond_3_f1.png",
+        "water/water_pond_3_f2.png",
+        "water/water_pond_3_f3.png"
       ],
-      "preview_static": true,
+      "preview_static": false,
       "display_size": [
         64,
         32
       ],
-      "resolution_scale": 2
+      "resolution_scale": 2,
+      "frame_ms": 500,
+      "status": "water_style_b_draft"
     },
     {
       "id": "water_stream",
