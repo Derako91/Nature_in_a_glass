@@ -595,7 +595,7 @@ Heutige Zeichenreihenfolge je Feld: Seitenwände (in 32-px-Streifen gekachelt, r
 0a. **Lagerplätze** (17.8, seit v0.8.0): Feuerstelle, Feuer, Windschutz, Hütte, verfallenes Lager und der Menschenzustand `_build`. Im Spiel stehen Platzhalter.
 0. **Menschen** (Abschnitt 17): Die Simulation ist da (v0.6.0), im Spiel stehen Platzhalterfiguren. Bilder nach 17.3/17.4 ersetzen sie.
 1. ~~**Tiere neu zeichnen, größer und doppelt aufgelöst**~~ – erledigt (Runde 09), im Spiel ab v0.4.5. Maße 4.3 und 15.3.
-2. **Feuer** (Gruppe E): `fire_ground` als Überlagerung und `fire_flame_small`, `fire_flame_large` als Sprites (`appearance::sprites` liefert sie schon bei brennenden Feldern), dazu `smoke`. Heute: nur eine orange Fläche.
+2. **Feuer** (Gruppe E): ~~`fire_ground`, `fire_flame_small`, `fire_flame_large`~~ – im Spiel ab v0.8.1 (aus PR #10). Offen: `smoke` (Codex rät selbst von der Übernahme ab, Neigung durch Wind macht später der Renderer) und Fernfassungen, falls die Flammen bei Zoom 2–4 flimmern.
 3. ~~**Spuren und Kadaver**~~ – erledigt (Runde 06), im Spiel ab v0.4.5. Kadaver heißen wie Tiere `carcass_<large|small>_<variante>_rest_<richtung>_f0`, Spuren `tracks_<art>` (Varianten `_0` bis `_3` möglich). Spuren erscheinen im Überblick (Zoom unter 1,5) und ab 1 Monat/s mit Deckkraft nach Dichte; Kadaver in den Stufen Landschaft und Nah. Offen: Feinabstimmung der Deckkraft im laufenden Spiel.
 4. **Zustände der Pflanzen:** `stressed` (Trockenheit) für Bäume und Büsche, `charred` für Totholz, `log_fallen` (liegendes Totholz). Bis dahin erscheinen die normalen Bilder.
 5. **Varianten:** je Boden- und Pflanzenart 3 weitere Varianten (`_1` bis `_3`), damit Wald und Wiese nicht gekachelt wirken.
@@ -860,3 +860,15 @@ Stand 16.11.2026. Seit v0.8.0 legen die Menschen selbst Lagerplätze an (niemand
 **Schnittstelle:** `appearance::camp_sprites(&sim.people)` liefert je Lager `tile`, `huts` (0–4), `fire` (heute brennt Feuer), `store`, `ruin`, `condition` (1 = gut erhalten … 0 = fast verschwunden; der Beobachter dunkelt bis 55 % ab), `hearth_pos` und `hut_pos` (feste Fußpunkte in der Raute). Lager werden zusammen mit Pflanzen und Menschen nach Fußpunkt gezeichnet, in allen Zoomstufen der isometrischen Ansicht; auf der Karte als braunes Quadrat (mit hellem Rand, sobald eine Hütte steht).
 
 **Offen zur Gestaltung:** Auf dem Lagerfeld wachsen weiter Büsche und Bäume und verdecken die Hütten teilweise. Wenn das stört, bitte als Wunsch an Claude (z. B. weniger Pflanzen auf Lagerfeldern zeichnen) – nicht im Kern ändern.
+
+**Antwort Claude zum Feuerpaket (16.11.2026, v0.8.1):** Flammen und Glutsaum
+sind eingebunden. Ablage: Flammen in `assets/nature/objects/`, Glutsaum in
+`assets/nature/ground/`, Einträge im Haupt-`manifest.json` (Anker und
+`display_size` aus Codex' Manifesten). Namensauflösung:
+`<id>_0_f<bild>` – Varianten gibt es bei Feuer vorerst nicht. Zeichenreihenfolge:
+Glutsaum als Bodenüberlagerung nach den anderen Überlagerungen (Deckkraft
+60–100 % nach Brandstärke), Flammen wie Pflanzen nach Fußpunkt. Zeitsteuerung
+im Renderer: 4 × 200 ms bei 1 Std/s, jede Flamme mit eigenem Versatz, damit
+nicht alle gleichzeitig flackern; bei schnellerer Zeit steht das Bild still.
+`frame_duration_ms` im Manifest wird nicht gelesen. Geprüft bei Seed 7,
+Jahr 22, Zoom 8. Rauch bleibt draußen, bis es eine neutrale Vorlage gibt.

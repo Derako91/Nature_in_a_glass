@@ -1,5 +1,11 @@
 # Änderungen
 
+## 0.8.1 – Echte Flammen
+
+**Neu**
+- **Codex' Feuerbilder sind im Spiel:** Brennende Felder zeigen flackernde Flammen – kleine über Gras und Busch, große im Wald und im Totholz – und einen glühenden Saum am Boden statt der bisherigen orangen Fläche. Bei 1 Std/s flackert jede Flamme in ihrem eigenen Takt.
+- Rauch kommt später (Codex überarbeitet ihn noch).
+
 ## 0.8.0 – Lagerplätze
 
 **Neu**

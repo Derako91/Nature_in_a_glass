@@ -548,6 +548,93 @@
         22
       ],
       "resolution_scale": 2
+    },
+    {
+      "id": "fire_flame_small",
+      "group": "objects",
+      "size": [
+        40,
+        64
+      ],
+      "anchor": [
+        20,
+        62
+      ],
+      "variants": 1,
+      "states": [
+        "normal"
+      ],
+      "frames": 4,
+      "frame_duration_ms": 200,
+      "files": [
+        "objects/fire_flame_small_0_f0.png",
+        "objects/fire_flame_small_0_f1.png",
+        "objects/fire_flame_small_0_f2.png",
+        "objects/fire_flame_small_0_f3.png"
+      ],
+      "display_size": [
+        10,
+        16
+      ],
+      "source": "art/nature/fire-review"
+    },
+    {
+      "id": "fire_flame_large",
+      "group": "objects",
+      "size": [
+        64,
+        112
+      ],
+      "anchor": [
+        32,
+        110
+      ],
+      "variants": 1,
+      "states": [
+        "normal"
+      ],
+      "frames": 4,
+      "frame_duration_ms": 200,
+      "files": [
+        "objects/fire_flame_large_0_f0.png",
+        "objects/fire_flame_large_0_f1.png",
+        "objects/fire_flame_large_0_f2.png",
+        "objects/fire_flame_large_0_f3.png"
+      ],
+      "display_size": [
+        16,
+        28
+      ],
+      "source": "art/nature/fire-large-review"
+    },
+    {
+      "id": "fire_ground",
+      "group": "ground",
+      "size": [
+        256,
+        128
+      ],
+      "anchor": [
+        128,
+        64
+      ],
+      "variants": 1,
+      "states": [
+        "normal"
+      ],
+      "frames": 4,
+      "frame_duration_ms": 200,
+      "files": [
+        "ground/fire_ground_0_f0.png",
+        "ground/fire_ground_0_f1.png",
+        "ground/fire_ground_0_f2.png",
+        "ground/fire_ground_0_f3.png"
+      ],
+      "display_size": [
+        64,
+        32
+      ],
+      "source": "art/nature/fire-ground-review"
     }
   ]
 }

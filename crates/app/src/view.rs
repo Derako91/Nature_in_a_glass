@@ -540,12 +540,18 @@ fn draw_iso_gfx(
                 }
             }
             if t.fire > 0.0 {
-                let fc = Color32::from_rgb(245, 110, 30);
-                solid(
-                    &mut mesh,
-                    [n, east, south, west],
-                    with_alpha(fc, 0.35 + 0.4 * t.fire),
-                );
+                // Glutsaum (Codex, Gruppe E): Bodenüberlagerung, 4 Bilder à 200 ms
+                let glow = atlas.get(&format!("fire_ground_0_f{}", fire_frame(&g, i, 0)));
+                match glow {
+                    Some(ge) => {
+                        tex_rect(&mut mesh, top_rect, ge, with_alpha(lit, 0.6 + 0.4 * t.fire))
+                    }
+                    None => solid(
+                        &mut mesh,
+                        [n, east, south, west],
+                        with_alpha(Color32::from_rgb(245, 110, 30), 0.35 + 0.4 * t.fire),
+                    ),
+                }
             }
 
             // Spuren statt Einzeltieren (15.5, 4.3)
@@ -658,8 +664,15 @@ fn draw_iso_gfx(
             for (_, th) in things {
                 match th {
                     Thing::Plant(p) => {
-                        let Some(name) = atlas.sprite_name(p.id, p.variant_seed % 4, p.state)
-                        else {
+                        // Flammen sind animiert (`fire_flame_*_0_f0…f3`), jede
+                        // Flamme in eigenem Takt.
+                        let name = if p.id.starts_with("fire_flame") {
+                            let f = fire_frame(&g, i, p.variant_seed as usize);
+                            atlas.first_of(&[format!("{}_0_f{f}", p.id)])
+                        } else {
+                            atlas.sprite_name(p.id, p.variant_seed % 4, p.state)
+                        };
+                        let Some(name) = name else {
                             continue;
                         };
                         let foot = c + Vec2::new(p.u * hw, p.v * hh);
@@ -867,6 +880,17 @@ fn display_width(atlas: &Atlas, name: &str, table: f32) -> f32 {
         .map(|d| d.x)
         .filter(|w| *w > 0.0)
         .unwrap_or(table)
+}
+
+/// Bild 0…3 einer Feueranimation (200 ms je Bild). Bei schneller Zeit steht
+/// sie still; der Versatz je Feld und Flamme verhindert gleichen Takt.
+fn fire_frame(g: &Gfx<'_>, tile: usize, k: usize) -> u32 {
+    let offset = (tile * 7 + k * 3) as u64;
+    if g.animate {
+        (((g.time_s * 1000.0 / 200.0) as u64 + offset) % 4) as u32
+    } else {
+        (offset % 4) as u32
+    }
 }
 
 /// Darstellungsbreite der Pflanzen im Grundmaß (gestaltung.md 4.2).
