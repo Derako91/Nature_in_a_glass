@@ -1,0 +1,40 @@
+{
+  "producer": "image_gen",
+  "sources": [
+    {
+      "look": 0,
+      "file": "sources/fishing-0.png",
+      "sha256": "e940610729bc56c35403389cae0d2b24ebcce37b477755b814cb74054b6040bc",
+      "reference": "art/nature/people-hut-adjustments/sources/compact-0.png",
+      "generator_source": "exec-88c884e3-2775-4484-9bf9-5180f75bf99d.png"
+    },
+    {
+      "look": 1,
+      "file": "sources/fishing-1.png",
+      "sha256": "72c85a735d0d89a4669818da327ef2720a83a709f0bc3dc6c64b6ac4038f916f",
+      "reference": "art/nature/people-hut-adjustments/sources/compact-1.png",
+      "generator_source": "exec-fb554f9f-2c0b-4f88-b974-686c2fe553bf.png"
+    },
+    {
+      "look": 2,
+      "file": "sources/fishing-2.png",
+      "sha256": "2fd06aa6bef8a1a9fb2d789879271ea904190c0d3134a9c4ca5cac2d629d36d7",
+      "reference": "art/nature/people-hut-adjustments/sources/compact-2.png",
+      "generator_source": "exec-af35bcb0-d9b9-4be1-8c6a-3bc5c31f5fac.png"
+    },
+    {
+      "look": 3,
+      "file": "sources/fishing-3.png",
+      "sha256": "fe55fe41509898740eecc1ec2fcc75bfc4dfd8311d6d9664d0c4b15f555d5c8e",
+      "reference": "art/nature/people-hut-adjustments/sources/compact-3.png",
+      "generator_source": "exec-6dc60a10-ef6b-4d19-b33b-deb329fb34ea.png"
+    },
+    {
+      "look": 4,
+      "file": "sources/fishing-4.png",
+      "sha256": "d57765edd8083b9d6a9efe4bad279f2c350c6361dd97c4edc2eb0c29b9fbae0c",
+      "reference": "art/nature/people-hut-adjustments/sources/compact-4.png",
+      "generator_source": "exec-670f3bbb-92c0-447d-844d-71fdfcf59065.png"
+    }
+  ]
+}

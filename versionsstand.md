@@ -1,14 +1,14 @@
 # Versionsstand – Nature_in_a_glass
 
-> **Stand:** 16.11.2026 · **Version:** Basis 0.8.9 · **Branch:** `codex/stream-beds-style-b` (Basis `2f0e187`)
+> **Stand:** 16.11.2026 · **Version:** Basis 0.9.1 · **Branch:** `codex/fishing-people-style-b` (Basis `0edb584`)
 
 ## Auf einen Blick
 
 | Frage | Antwort |
 | --- | --- |
-| **Zuletzt erledigt** | Wasser aus PR #20 seit v0.8.9 übernommen. Bach-Draft: alle 54 nassen/trockenen Mittel-/Halbstücke in drei Stärken mit Kies-/Erdmaterial und gemeinsamen Endbreiten nach Gestaltung 16.8. |
-| **Getestet** | 94 Rust-/15 Python-Tests, fmt, strenges Clippy und Release-Bau bestanden. 24 Gegenprofile, 768 tatsächlich zusammengesetzte Knotenkombinationen, unveränderte 1279 Eltern-PNGs sowie drei bytegleiche Exportwege geprüft. Vollatlas-/Rust-/Spielprüfung im Bach-Prüfpaket `art/nature/stream-beds-style-b/`. |
-| **Offen für Codex** | Visuelle Abnahme des Bachpakets durch Claude. Im vorgegebenen Fall verdecken höhere Vordergrundplatten Teile tieferer Betten; Verbindungen über Höhenstufen benötigen eigene Wand-/Gefälleschnittstelle. Auf gleicher Höhe passen die Endprofile; keine Änderungen an Kern/Renderer. |
+| **Zuletzt erledigt** | Wasser/Bäche aus PR #20/#21 übernommen (v0.8.9/v0.9.1). Neuer Draft: 40 eigenständige `_fish`-Bilder, fünf Erwachsenen-Aussehen × zwei Richtungen × vier Phasen; Formatvorschlag für Wandrinnen/Wasserfälle in Gestaltung 16.9. |
+| **Getestet** | 97 Rust-/15 Python-Tests, fmt, strenges Clippy und Release-Bau bestanden; 40 Bilder vollständig, Phasen unterschiedlich, Proportionen/Fußpunkte passend; alle 1333 bisherigen PNGs bytegleich. Wiederholter Export bytegleich. Vollatlas-/Rust-/Spielprüfung siehe `art/nature/fishing-people-style-b/README.md`. |
+| **Offen für Codex** | Visuelle Abnahme durch Claude. Fischfangbilder sind vorbereitet, normale Spielauswahl noch nicht angebunden: Claude ergänzt tatsächliche Fischfang-Aktivität und vier 300-ms-Phasen. Wasserfallformat 16.9 ist ein Vorschlag; Geometrieschnittstelle und Wasserfallbilder fehlen noch. |
 | **Offen für Dennis** | – (neue Bildpakete zur visuellen Abnahme durch Claude) |
 | **Nächster Schritt (Roadmap)** | Vom Lager zum Dorf: Fischfang, später Anbau, mehrere Lager einer Gruppe, Werkzeuge. |
 
@@ -23,6 +23,7 @@
 
 | Datum | Änderung | Code-Test |
 | --- | --- | --- |
+| 16.11.2026 | Codex: 40 Fischfangbilder und Vorschlag Wandwasserformat 16.9, Branch `codex/fishing-people-style-b`, Basis `0edb584`. | 97 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; eingebettete Ansicht und deklarierte Bildaustauschprobe Zoom 8/32. Export-/Maß-/Bestandsprüfung. Technische Zustandsauswahl offen bei Claude. Prüfpaket dokumentiert Darstellungsprobe getrennt von echter Fischfangaktivität. |
 | 16.11.2026 | Codex: 54 Bach-/Bachbettstücke nach 16.8, Branch `codex/stream-beds-style-b`, Basis `2f0e187`. | 94 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; Gegenprofile und alle 768 Knotenkonfigurationen geprüft; Spielvergleich Seed 2024 +12 Jahre +240 Tage, 19/33; Höhenstufen-Verdeckung dokumentiert. |
 | 16.11.2026 | Codex: Meer-/Flachwasser-/Teichanimation mit vier Varianten, 4×500 ms, Branch `codex/water-style-b`, Basis `0d959fe`. | 93 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; Vollatlasgrenze und Wasser-/Spielvergleich geprüft. Visuelle Abnahme offen. |
 | 16.11.2026 | Codex: vollständiges Tierpaket mit eigenen Fernzyklen, Spuren und Kadavern; Branch `codex/animals-style-b`, Basis `7d9dcc5`. | Export-/Referenzmaß-/Phasenprüfung und Atlas-/Spielvergleich im Tier-Prüfpaket; visuelle Abnahme offen. |

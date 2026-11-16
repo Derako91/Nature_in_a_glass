@@ -1024,3 +1024,68 @@ auf durchgehendes Wasser geprüft. Spätsommerfall 19/33 im Spiel verglichen.
 Beobachtet: Höhere Vordergrundplatten verdecken weiterhin tieferliegende Betten;
 Wand-/Gefällestücke zum Verbinden verschiedener Höhen sind in 16.8 nicht
 enthalten und bleiben ein technischer Folgepunkt. Visuelle Abnahme offen.
+
+
+### 16.9 Vorschlag: Wasser an Geländestufen (Codex, noch keine Schnittstelle)
+
+**Status:** Formatvorschlag für Claude, noch keine Bilder oder Renderer-Anbindung.
+Nur aktuell durchflossene Abflussverbindungen zu einem tieferen Nachbarn erhalten
+einen nassen Fall. Trockene Rinnen benötigen eine entsprechende bekannte
+Bachbettverbindung über dieselbe Stufe.
+Keine zusätzliche Wassermenge und keine dekorativen Wasserfälle. Der bestehende
+Bach auf der Oberseite bleibt unverändert; ergänzt wird die Strecke an der Wand.
+
+Ablage `assets/nature/water/`, transparente RGBA-Streifen, ungeschert:
+`stream_drop_<wet|dry>_<0|1|2>_<left|right>_<head|body|foot>_f<phase>.png`.
+`left` = sichtbare linke Wand (S–W), `right` = rechte Wand (E–S), also
+Bildschirmseiten und keine Flussrichtungen. Beide Lichtfassungen werden separat
+gemalt, Licht rechts oben. `wet` vier Phasen f0…f3 mit 500 ms, `dry` nur f0.
+Damit zunächst 72 nasse und 18 trockene Bilder. Stärke und Trockenstatus kommen
+von derselben Verbindung wie beim anschließenden Bachbett, nicht vom Nachbarbild.
+
+- `body`: Datei 32×64 px, normierter Streifen Weltmaß 8×16.
+  `head`/`foot`: je 32×16 px, Weltmaß 8×4. Alle Anker oben mittig (16/0).
+  `head`: obere Umbruchkante, `body`: senkrechte feuchte Rinne bzw. Fall,
+  `foot`: unterer Übergang mit kleinem Aufprallsaum; trocken ausgewaschener Stein.
+- Der Renderer legt den Streifen in die tatsächliche Wandgeometrie. Er liefert
+  oberen/unteren Anschlusspunkt, sichtbare Wandseite, Fallhöhe und Bettbreite.
+  Oberer Anschluss ist genau der Endpunkt des vorhandenen Bach-Halbstücks,
+  unterer Anschluss der entsprechende Punkt des tieferen Nachbarn. Bei
+  Eckanschlüssen gibt es eine einzige Verbindung, keine zwei überlagerten Fälle.
+- Breite und Wasseranteil müssen den Endprofilen in
+  `art/nature/stream-beds-style-b/config.json` entsprechen: Bett-Radien in UV
+  0,035/0,055/0,085, Wasser-Radien 0,012/0,027/0,050. Die Projektion dieser
+  Querschnitte an der jeweiligen Wand bestimmt die tatsächliche Bildschirmbreite;
+  das normierte Bildmaß ist ausdrücklich keine zusätzliche feste Bachbreite.
+- `body` wird längs gekachelt und am Ende abgeschnitten, damit Steine und Tropfen
+  bei großen Höhenunterschieden nicht langgezogen werden. Seine obere/untere
+  Texturzeile und sämtliche Phasen passen zusammen. `head`/`foot` bleiben kurz;
+  bei sehr kleinen Stufen werden ihre Höhen gemeinsam begrenzt und `body` entfällt.
+- Nach Wandmaterial, vor verdeckenden Vordergrundflächen/Pflanzen zeichnen und
+  auf sichtbare Wandteile begrenzen. Keine Wasserstreifen über eine Vordergrundplatte.
+  Alle Teile einer Verbindung nutzen dieselbe Animationsphase.
+
+**Abnahme nach Anbindung:** Seed 2024, +12 Jahre +240 Tage, Feld 19/33,
+Zoom 8/16/32. Oben–Wand–unten ohne sichtbare Lücke auf beiden Wandseiten,
+alle drei Stärken, Eckverbindungen, kurze/hohe Stufen und trockene Rinnen prüfen.
+Die tatsächlich nötige Geometrie für verdeckte Rückseiten legt Claude fest;
+das Format verspricht dort keine ohne Tiefenprüfung sichtbare Verbindung.
+
+### 17.9 Fischfangbilder (Codex-Draft)
+
+Eigenständiger Erwachsenenzustand `person_<0…4>_fish_<l|r>_f0…f3`, 300 ms
+je Phase, ruhiges Speerabsenken und Zurücknehmen. Beide Richtungen separat
+gemalt; Erkennungsfarben, Haarformen und Erwachsenenmaß wie bisher. Kein
+sichtbarer Fang in jeder Schleife: Können und Erfolg bleiben Simulationswerte.
+Kinder fischen laut v0.9.0 noch nicht selbst und bekommen keine neuen Zustände.
+
+Leinwand 112×120 px, Anker 56/112, Weltmaß 12,6×13,5: derselbe Rahmen,
+dieselbe Auflösung und Fußhöhe wie bei den vorhandenen Erwachsenen.
+[Prüfpaket](../art/nature/fishing-people-style-b/README.md).
+
+**Technische Übergabe an Claude:** Die Simulation führt Fischfang bisher als
+Teil der Nahrungsgewinnung aus; es gibt noch keine eigene `fish`-Aktivität.
+Den Zustand nur dann setzen, wenn tatsächlich gefischt wird (nicht bei jedem
+Sammeln am Ufer), in `appearance` durchreichen und in `person_frames` mit
+(4, 300 ms) aufnehmen. Die Bilder allein können diese Auswahl nicht bewirken.
+Bis zur Anbindung bleibt im unveränderten Spiel das Sammelbild sichtbar.

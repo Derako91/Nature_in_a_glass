@@ -200,6 +200,9 @@ def export():
         apply_people(split, place)
         images = {name: Image.open(PEOPLE / (name + ".png")).convert("RGBA") for name in images}
     boards_and_animations(images)
+    from export_fishing_people import REVIEW as FISH_REVIEW, export as export_fishing
+    if (FISH_REVIEW / "sources.json").exists():
+        export_fishing()
     print("390 neue Tätigkeits-/Kinder-/Totenbilder, 40 Holztragebilder nur gepolstert.")
 
 

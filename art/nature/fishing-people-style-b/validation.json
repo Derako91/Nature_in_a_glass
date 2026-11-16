@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "new_frames": 40,
+  "unchanged_parent_pngs": 1333,
+  "unique_phases": true,
+  "separately_drawn_directions": true,
+  "engine_state_selection": "pending Claude",
+  "visual_approval": "pending",
+  "verification": {
+    "rust_tests_passed": 97,
+    "python_tests_passed": 15,
+    "fmt": "passed",
+    "strict_release_clippy": "passed",
+    "release_build": "passed",
+    "full_atlas_limit": "passed, <=8192",
+    "repeat_export": "40 PNGs and manifest byte-identical",
+    "native_views": "Zoom 8/32, embedded and explicitly renamed gather overlay; not true fishing selection"
+  }
+}

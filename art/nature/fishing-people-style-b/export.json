@@ -1,0 +1,887 @@
+{
+  "files": [
+    {
+      "file": "person_0_fish_r_f0.png",
+      "sha256": "fc23c49abb018db2738c111a5914d414475a9c460efdc40d9552b20ebf422cd2",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.21975308641975308,
+      "source_foot": [
+        63.0,
+        409.0
+      ],
+      "body_world_height": 10.013
+    },
+    {
+      "file": "person_0_fish_r_f1.png",
+      "sha256": "e0c2cd203a8669b5f1b955a81a63515368cf9a195db5006d77d32b75da21d2fe",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.21975308641975308,
+      "source_foot": [
+        87.0,
+        388.0
+      ],
+      "body_world_height": 9.493
+    },
+    {
+      "file": "person_0_fish_r_f2.png",
+      "sha256": "815848f47498c9e9bfc159a26e9f086a075faf70a0007b7c2dd768b34f5b489d",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.21975308641975308,
+      "source_foot": [
+        94.0,
+        360.0
+      ],
+      "body_world_height": 8.801
+    },
+    {
+      "file": "person_0_fish_r_f3.png",
+      "sha256": "3c1ce10a156996099b1e3a1f0eef2df5d9fa2b39b5d8051e55a61a163b8cfa57",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.21975308641975308,
+      "source_foot": [
+        90.0,
+        388.0
+      ],
+      "body_world_height": 9.493
+    },
+    {
+      "file": "person_0_fish_l_f0.png",
+      "sha256": "02672e43ed6852cccebaa2afbbdebae95c2a70cd8d2f18386cb501c581dd391e",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.21975308641975308,
+      "source_foot": [
+        174.0,
+        409.0
+      ],
+      "body_world_height": 10.013
+    },
+    {
+      "file": "person_0_fish_l_f1.png",
+      "sha256": "983bb3670a9eba17c40f8046ff633fded55942e67fdc26f72dc6f59027d40f8f",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.21975308641975308,
+      "source_foot": [
+        180.0,
+        388.0
+      ],
+      "body_world_height": 9.493
+    },
+    {
+      "file": "person_0_fish_l_f2.png",
+      "sha256": "4b977f8ae6eabbe76c43607c0068b7734a8df5e2c14526e53865d56b0b983a55",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.21975308641975308,
+      "source_foot": [
+        188.0,
+        360.0
+      ],
+      "body_world_height": 8.801
+    },
+    {
+      "file": "person_0_fish_l_f3.png",
+      "sha256": "8bf95e133ae214aba55ae7edfe875cc3e8baa1f4d14e9bb94ac0ce47745708d0",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.21975308641975308,
+      "source_foot": [
+        174.0,
+        392.0
+      ],
+      "body_world_height": 9.592
+    },
+    {
+      "file": "person_1_fish_r_f0.png",
+      "sha256": "6d4ba19bf4a8a32e519ebf77cd4ab527fd6d5c921be56095c9fcad99b3f49e6f",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.22916666666666666,
+      "source_foot": [
+        70.0,
+        386.0
+      ],
+      "body_world_height": 9.848
+    },
+    {
+      "file": "person_1_fish_r_f1.png",
+      "sha256": "410f667ab30d0b6f263e91e57924f0d3e7311fadaf39cd1d264dfb24cd259a9c",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.22916666666666666,
+      "source_foot": [
+        83.0,
+        374.0
+      ],
+      "body_world_height": 9.539
+    },
+    {
+      "file": "person_1_fish_r_f2.png",
+      "sha256": "e9d94739bb57d4b41075b98bc2c0bc56538294b49f133aa380c20131a35d15f9",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.22916666666666666,
+      "source_foot": [
+        93.0,
+        348.0
+      ],
+      "body_world_height": 8.869
+    },
+    {
+      "file": "person_1_fish_r_f3.png",
+      "sha256": "a7296c264f15b938092f5ea11076caa816cd8ed5f8b937119418cac56ff3ec23",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.22916666666666666,
+      "source_foot": [
+        81.0,
+        377.0
+      ],
+      "body_world_height": 9.616
+    },
+    {
+      "file": "person_1_fish_l_f0.png",
+      "sha256": "c69afae861cb1fa4c1b13fd332452a64e962f07dba0f3cccb971108abd6168f6",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.22916666666666666,
+      "source_foot": [
+        179.0,
+        388.0
+      ],
+      "body_world_height": 9.9
+    },
+    {
+      "file": "person_1_fish_l_f1.png",
+      "sha256": "36562123c9d984555d52d5ca8a752bd75a7c6c5525ac727cea02b7bd77eb763a",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.22916666666666666,
+      "source_foot": [
+        198.0,
+        372.0
+      ],
+      "body_world_height": 9.513
+    },
+    {
+      "file": "person_1_fish_l_f2.png",
+      "sha256": "8d7ef211a696426f2eb55ca3e1b42bec352662fe89be7fe5338bc3bf822836c9",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.22916666666666666,
+      "source_foot": [
+        213.0,
+        343.0
+      ],
+      "body_world_height": 8.74
+    },
+    {
+      "file": "person_1_fish_l_f3.png",
+      "sha256": "83d109e57389ff708d885f5cd06de0ae286eaed7d121e1df49b245ee03ec8ba7",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.22916666666666666,
+      "source_foot": [
+        193.0,
+        377.0
+      ],
+      "body_world_height": 9.616
+    },
+    {
+      "file": "person_2_fish_r_f0.png",
+      "sha256": "22a64c0fd263825670d1097fb432763738a454f94c156fea46b9b3c1f5b741ed",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.23636363636363636,
+      "source_foot": [
+        66.0,
+        389.0
+      ],
+      "body_world_height": 10.238
+    },
+    {
+      "file": "person_2_fish_r_f1.png",
+      "sha256": "f04693a759fbeaebe2b08845d6e4662270974494790aa7b61b1014cdbc6858d3",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.23636363636363636,
+      "source_foot": [
+        78.0,
+        372.0
+      ],
+      "body_world_height": 9.785
+    },
+    {
+      "file": "person_2_fish_r_f2.png",
+      "sha256": "a1eded0c59769b746bd3b7b216af951ff91d268dcf557e6441965b99dd64ece9",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.23636363636363636,
+      "source_foot": [
+        81.0,
+        349.0
+      ],
+      "body_world_height": 9.174
+    },
+    {
+      "file": "person_2_fish_r_f3.png",
+      "sha256": "d6e3129a494194883a17fec44d9b3eb067a21ed81e3ed6c9bce64f7280116083",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.23636363636363636,
+      "source_foot": [
+        75.0,
+        377.0
+      ],
+      "body_world_height": 9.945
+    },
+    {
+      "file": "person_2_fish_l_f0.png",
+      "sha256": "b9988e2e4b0d7b24ea81758e6358e56fe61efced89b84b1df2c53bc99debec40",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.23636363636363636,
+      "source_foot": [
+        173.0,
+        389.0
+      ],
+      "body_world_height": 10.238
+    },
+    {
+      "file": "person_2_fish_l_f1.png",
+      "sha256": "89a4fc42af4af11534d562bbcc63f7e227c965cf65cd1aacef4bff1e43d5ea6c",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.23636363636363636,
+      "source_foot": [
+        171.0,
+        372.0
+      ],
+      "body_world_height": 9.785
+    },
+    {
+      "file": "person_2_fish_l_f2.png",
+      "sha256": "b6a3e50d7fdc6887a12023f03fb36c16c5d2715d83b7f07ff29c1df867141d2f",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.23636363636363636,
+      "source_foot": [
+        175.0,
+        348.0
+      ],
+      "body_world_height": 9.147
+    },
+    {
+      "file": "person_2_fish_l_f3.png",
+      "sha256": "8938984fbb9cec67bf55f2d1cc21411470121cfe0c2301ca654c29a828bf8355",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.23636363636363636,
+      "source_foot": [
+        167.0,
+        377.0
+      ],
+      "body_world_height": 9.945
+    },
+    {
+      "file": "person_3_fish_r_f0.png",
+      "sha256": "ca3eed9b56779d48a700e48288a4eb067e44615cf1e015cd857a87cf55ba5f6b",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.2099737532808399,
+      "source_foot": [
+        78.0,
+        385.0
+      ],
+      "body_world_height": 9.0
+    },
+    {
+      "file": "person_3_fish_r_f1.png",
+      "sha256": "d5b9918916dc3f6425f8472d80d0d3abad21d76c7502edf512aea5e71e5d8ddd",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.2099737532808399,
+      "source_foot": [
+        92.0,
+        357.0
+      ],
+      "body_world_height": 8.339
+    },
+    {
+      "file": "person_3_fish_r_f2.png",
+      "sha256": "f43063dfe7a0534b633f9d285ddb5c94e162e27d7f5e1e60605c74a8d8e0c494",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.2099737532808399,
+      "source_foot": [
+        104.0,
+        328.0
+      ],
+      "body_world_height": 7.677
+    },
+    {
+      "file": "person_3_fish_r_f3.png",
+      "sha256": "a72dac4e962eb46e7ba969ef74790cc75fa03ea7306f49f41f6aaa771b8a307d",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.2099737532808399,
+      "source_foot": [
+        89.0,
+        372.0
+      ],
+      "body_world_height": 8.693
+    },
+    {
+      "file": "person_3_fish_l_f0.png",
+      "sha256": "2d48139957ebc16e39f5d8c769ee975f7169ac4cadc077b5b8107cc3d1aad1d0",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.2099737532808399,
+      "source_foot": [
+        207.0,
+        382.0
+      ],
+      "body_world_height": 8.953
+    },
+    {
+      "file": "person_3_fish_l_f1.png",
+      "sha256": "28f027b402c26cdf339f44a873a6876f34a812caa7af930534b86d674cf617d1",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.2099737532808399,
+      "source_foot": [
+        232.0,
+        354.0
+      ],
+      "body_world_height": 8.291
+    },
+    {
+      "file": "person_3_fish_l_f2.png",
+      "sha256": "572a2a69b9c53baec8e217db75386239c2321daf84eca1d5015d5fa6c8e5c980",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.2099737532808399,
+      "source_foot": [
+        240.0,
+        324.0
+      ],
+      "body_world_height": 7.583
+    },
+    {
+      "file": "person_3_fish_l_f3.png",
+      "sha256": "1ab75ab6cb4732fe66e91ff2638c1ce848e33582eb016096256bbef6552dd683",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.2099737532808399,
+      "source_foot": [
+        220.0,
+        371.0
+      ],
+      "body_world_height": 8.693
+    },
+    {
+      "file": "person_4_fish_r_f0.png",
+      "sha256": "ae4b93a69b866242d4c32859c4116cc2a3ed1f171830f018835f0c7e3125c0ec",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.2379746835443038,
+      "source_foot": [
+        62.0,
+        399.0
+      ],
+      "body_world_height": 10.575
+    },
+    {
+      "file": "person_4_fish_r_f1.png",
+      "sha256": "ee4994696744a0f6e3a0eee124411c0f1de875b978871c69076068215fa1466f",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.2379746835443038,
+      "source_foot": [
+        81.0,
+        384.0
+      ],
+      "body_world_height": 10.173
+    },
+    {
+      "file": "person_4_fish_r_f2.png",
+      "sha256": "6bdf934039f928aa761546cb6bc585f016410b7a85919e22f9abe20eca8c70ee",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.2379746835443038,
+      "source_foot": [
+        104.0,
+        360.0
+      ],
+      "body_world_height": 9.531
+    },
+    {
+      "file": "person_4_fish_r_f3.png",
+      "sha256": "fc36fa91bbcdbfeb57025e3f4fe0aaa763ceea2b601264e10a2459c913467328",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.2379746835443038,
+      "source_foot": [
+        77.0,
+        383.0
+      ],
+      "body_world_height": 10.173
+    },
+    {
+      "file": "person_4_fish_l_f0.png",
+      "sha256": "06ce66886196212b3e29e4d7d580b15fe3ef7b9d5bee59df0d55394c30c0dc9d",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.2379746835443038,
+      "source_foot": [
+        167.0,
+        397.0
+      ],
+      "body_world_height": 10.521
+    },
+    {
+      "file": "person_4_fish_l_f1.png",
+      "sha256": "3ec1343733601b301aff9ea5376dccd16ec896974cd3e36c9417405cefa3be10",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.2379746835443038,
+      "source_foot": [
+        187.0,
+        381.0
+      ],
+      "body_world_height": 10.093
+    },
+    {
+      "file": "person_4_fish_l_f2.png",
+      "sha256": "7f5c106b0e632befccbe9b821df9fefe7a0d55d58ae8f280e830f8c93d6f2a95",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.2379746835443038,
+      "source_foot": [
+        179.0,
+        357.0
+      ],
+      "body_world_height": 9.451
+    },
+    {
+      "file": "person_4_fish_l_f3.png",
+      "sha256": "470a913221f07527c366c5d4a6ac46e6f9dac7436ce61df3e8bf3f35f36f045c",
+      "size": [
+        112,
+        120
+      ],
+      "anchor": [
+        56,
+        112
+      ],
+      "display_size": [
+        12.6,
+        13.5
+      ],
+      "source_factor": 0.2379746835443038,
+      "source_foot": [
+        167.0,
+        384.0
+      ],
+      "body_world_height": 10.173
+    }
+  ],
+  "visual_approval": "pending",
+  "engine_selection": "pending: fish activity and person_frames mapping by Claude",
+  "mirrored_directions": false
+}
