@@ -1,0 +1,258 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "id": "stream_wet_0",
+      "group": "water",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ],
+      "resolution_scale": 2,
+      "state": "wet",
+      "strength": 0,
+      "frames": 1,
+      "files": [
+        "stream_wet_0_c.png",
+        "stream_wet_0_n.png",
+        "stream_wet_0_ne.png",
+        "stream_wet_0_e.png",
+        "stream_wet_0_se.png",
+        "stream_wet_0_s.png",
+        "stream_wet_0_sw.png",
+        "stream_wet_0_w.png",
+        "stream_wet_0_nw.png"
+      ],
+      "parts": [
+        "c",
+        "n",
+        "ne",
+        "e",
+        "se",
+        "s",
+        "sw",
+        "w",
+        "nw"
+      ]
+    },
+    {
+      "id": "stream_wet_1",
+      "group": "water",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ],
+      "resolution_scale": 2,
+      "state": "wet",
+      "strength": 1,
+      "frames": 1,
+      "files": [
+        "stream_wet_1_c.png",
+        "stream_wet_1_n.png",
+        "stream_wet_1_ne.png",
+        "stream_wet_1_e.png",
+        "stream_wet_1_se.png",
+        "stream_wet_1_s.png",
+        "stream_wet_1_sw.png",
+        "stream_wet_1_w.png",
+        "stream_wet_1_nw.png"
+      ],
+      "parts": [
+        "c",
+        "n",
+        "ne",
+        "e",
+        "se",
+        "s",
+        "sw",
+        "w",
+        "nw"
+      ]
+    },
+    {
+      "id": "stream_wet_2",
+      "group": "water",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ],
+      "resolution_scale": 2,
+      "state": "wet",
+      "strength": 2,
+      "frames": 1,
+      "files": [
+        "stream_wet_2_c.png",
+        "stream_wet_2_n.png",
+        "stream_wet_2_ne.png",
+        "stream_wet_2_e.png",
+        "stream_wet_2_se.png",
+        "stream_wet_2_s.png",
+        "stream_wet_2_sw.png",
+        "stream_wet_2_w.png",
+        "stream_wet_2_nw.png"
+      ],
+      "parts": [
+        "c",
+        "n",
+        "ne",
+        "e",
+        "se",
+        "s",
+        "sw",
+        "w",
+        "nw"
+      ]
+    },
+    {
+      "id": "stream_dry_0",
+      "group": "water",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ],
+      "resolution_scale": 2,
+      "state": "dry",
+      "strength": 0,
+      "frames": 1,
+      "files": [
+        "stream_dry_0_c.png",
+        "stream_dry_0_n.png",
+        "stream_dry_0_ne.png",
+        "stream_dry_0_e.png",
+        "stream_dry_0_se.png",
+        "stream_dry_0_s.png",
+        "stream_dry_0_sw.png",
+        "stream_dry_0_w.png",
+        "stream_dry_0_nw.png"
+      ],
+      "parts": [
+        "c",
+        "n",
+        "ne",
+        "e",
+        "se",
+        "s",
+        "sw",
+        "w",
+        "nw"
+      ]
+    },
+    {
+      "id": "stream_dry_1",
+      "group": "water",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ],
+      "resolution_scale": 2,
+      "state": "dry",
+      "strength": 1,
+      "frames": 1,
+      "files": [
+        "stream_dry_1_c.png",
+        "stream_dry_1_n.png",
+        "stream_dry_1_ne.png",
+        "stream_dry_1_e.png",
+        "stream_dry_1_se.png",
+        "stream_dry_1_s.png",
+        "stream_dry_1_sw.png",
+        "stream_dry_1_w.png",
+        "stream_dry_1_nw.png"
+      ],
+      "parts": [
+        "c",
+        "n",
+        "ne",
+        "e",
+        "se",
+        "s",
+        "sw",
+        "w",
+        "nw"
+      ]
+    },
+    {
+      "id": "stream_dry_2",
+      "group": "water",
+      "size": [
+        128,
+        64
+      ],
+      "anchor": [
+        64,
+        32
+      ],
+      "display_size": [
+        64,
+        32
+      ],
+      "resolution_scale": 2,
+      "state": "dry",
+      "strength": 2,
+      "frames": 1,
+      "files": [
+        "stream_dry_2_c.png",
+        "stream_dry_2_n.png",
+        "stream_dry_2_ne.png",
+        "stream_dry_2_e.png",
+        "stream_dry_2_se.png",
+        "stream_dry_2_s.png",
+        "stream_dry_2_sw.png",
+        "stream_dry_2_w.png",
+        "stream_dry_2_nw.png"
+      ],
+      "parts": [
+        "c",
+        "n",
+        "ne",
+        "e",
+        "se",
+        "s",
+        "sw",
+        "w",
+        "nw"
+      ]
+    }
+  ],
+  "status": "stream_beds_style_b_draft"
+}

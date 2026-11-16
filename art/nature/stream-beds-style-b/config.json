@@ -1,0 +1,26 @@
+{
+  "base_commit": "2f0e187",
+  "source": {
+    "file": "sources/materials.png",
+    "sha256": "1911179ef9f95b7ba10ce2e06ae15d158722adb1d0c34bde99b1a3de425bbc3e"
+  },
+  "bed_radii_uv": [
+    0.035,
+    0.055,
+    0.085
+  ],
+  "water_radii_uv": [
+    0.012,
+    0.027,
+    0.05
+  ],
+  "water_rgb": [
+    65,
+    128,
+    163
+  ],
+  "water_source": {
+    "file": "../water-style-b/sources/materials.png",
+    "sha256": "bc865552fb1209c1ca233d52248f1cebfe5fc6fcd083e75de6ea1e5d1068f463"
+  }
+}

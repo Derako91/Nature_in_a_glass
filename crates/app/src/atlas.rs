@@ -1084,6 +1084,75 @@ mod tests {
         }
     }
 
+    /// Die StreamPiece-Schnittstelle braucht jedes Mittel-/Halbstück. Die
+    /// Anschlussbreite darf an gegenüberliegenden Enden nicht springen.
+    #[test]
+    fn embedded_stream_beds_complete_and_matching_endpoints() {
+        let images: BTreeMap<_, _> = embedded::IMAGES
+            .iter()
+            .filter(|(name, _, _)| name.starts_with("stream_"))
+            .map(|(name, _, bytes)| (name.to_string(), decode(bytes).expect("Bach-PNG lesbar")))
+            .collect();
+        assert_eq!(images.len(), 54);
+        let info = parse_manifests(embedded::MANIFESTS.iter().copied());
+        let alpha = |name: &str, x: usize, y: usize| images[name].2[(y * 128 + x) * 4 + 3];
+        for state in ["wet", "dry"] {
+            for strength in 0..3 {
+                for part in ["c", "n", "ne", "e", "se", "s", "sw", "w", "nw"] {
+                    let name = format!("stream_{state}_{strength}_{part}");
+                    let (w, h, px) = images.get(&name).expect("Mittel-/Halbstück vorhanden");
+                    assert_eq!((*w, *h), (128, 64));
+                    assert!(px[(32 * 128 + 64) * 4 + 3] > if part == "c" { 128 } else { 0 });
+                    assert_eq!(info.anchors[&name], Vec2::new(64.0, 32.0));
+                    assert_eq!(info.display[&name], Vec2::new(64.0, 32.0));
+                    if state == "wet" {
+                        let dry = format!("stream_dry_{strength}_{part}");
+                        assert!(
+                            px.as_chunks::<4>().0.iter().map(|p| p[3]).eq(images[&dry]
+                                .2
+                                .as_chunks::<4>()
+                                .0
+                                .iter()
+                                .map(|p| p[3]))
+                        );
+                    }
+                }
+                for (a, b) in [("n", "s"), ("e", "w"), ("ne", "sw"), ("se", "nw")] {
+                    let na = format!("stream_{state}_{strength}_{a}");
+                    let nb = format!("stream_{state}_{strength}_{b}");
+                    let samples: Vec<_> = match a {
+                        "n" => (0..128).map(|x| ((x, 0), (x, 63))).collect(),
+                        "e" => (0..64).map(|y| ((127, y), (0, y))).collect(),
+                        "ne" => (78i32..115)
+                            .map(|x| {
+                                let y = 16 + (x - 96).div_euclid(2);
+                                (
+                                    (x as usize, y as usize),
+                                    ((x - 64) as usize, (y + 32) as usize),
+                                )
+                            })
+                            .collect(),
+                        _ => (78i32..115)
+                            .map(|x| {
+                                let y = 48 + (96 - x).div_euclid(2);
+                                (
+                                    (x as usize, y as usize),
+                                    ((x - 64) as usize, (y - 32) as usize),
+                                )
+                            })
+                            .collect(),
+                    };
+                    for ((ax, ay), (bx, by)) in samples {
+                        let pa = alpha(&na, ax, ay);
+                        let pb = alpha(&nb, bx, by);
+                        assert!(pa.abs_diff(pb) <= 1, "Anschluss {na}/{nb}");
+                        assert_eq!(pa > 128, pb > 128, "Deckende Anschlussbreite");
+                    }
+                }
+            }
+        }
+    }
+
     /// Alle eingebauten Bilder: Der Atlas passt in eine Textur, die jede
     /// Grafikkarte kann, und jedes Tier und jeder Mensch erscheint bei jedem
     /// Zoom in seiner Darstellungsbreite.

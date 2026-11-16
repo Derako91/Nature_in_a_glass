@@ -1,0 +1,309 @@
+{
+  "status": "passed",
+  "png_files": 54,
+  "whole_tile_size": [
+    128,
+    64
+  ],
+  "world_size": [
+    64,
+    32
+  ],
+  "unchanged_parent_pngs": 1279,
+  "wet_dry_same_bed_width": true,
+  "exact_geometric_end_sections": true,
+  "pixel_endpoint_checks": [
+    {
+      "state": "wet",
+      "strength": 0,
+      "pair": [
+        "n",
+        "s"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 6
+    },
+    {
+      "state": "wet",
+      "strength": 0,
+      "pair": [
+        "ne",
+        "sw"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 4
+    },
+    {
+      "state": "wet",
+      "strength": 0,
+      "pair": [
+        "e",
+        "w"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 4
+    },
+    {
+      "state": "wet",
+      "strength": 0,
+      "pair": [
+        "se",
+        "nw"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 4
+    },
+    {
+      "state": "dry",
+      "strength": 0,
+      "pair": [
+        "n",
+        "s"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 6
+    },
+    {
+      "state": "dry",
+      "strength": 0,
+      "pair": [
+        "ne",
+        "sw"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 4
+    },
+    {
+      "state": "dry",
+      "strength": 0,
+      "pair": [
+        "e",
+        "w"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 4
+    },
+    {
+      "state": "dry",
+      "strength": 0,
+      "pair": [
+        "se",
+        "nw"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 4
+    },
+    {
+      "state": "wet",
+      "strength": 1,
+      "pair": [
+        "n",
+        "s"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 10
+    },
+    {
+      "state": "wet",
+      "strength": 1,
+      "pair": [
+        "ne",
+        "sw"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 8
+    },
+    {
+      "state": "wet",
+      "strength": 1,
+      "pair": [
+        "e",
+        "w"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 4
+    },
+    {
+      "state": "wet",
+      "strength": 1,
+      "pair": [
+        "se",
+        "nw"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 7
+    },
+    {
+      "state": "dry",
+      "strength": 1,
+      "pair": [
+        "n",
+        "s"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 10
+    },
+    {
+      "state": "dry",
+      "strength": 1,
+      "pair": [
+        "ne",
+        "sw"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 8
+    },
+    {
+      "state": "dry",
+      "strength": 1,
+      "pair": [
+        "e",
+        "w"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 4
+    },
+    {
+      "state": "dry",
+      "strength": 1,
+      "pair": [
+        "se",
+        "nw"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 7
+    },
+    {
+      "state": "wet",
+      "strength": 2,
+      "pair": [
+        "n",
+        "s"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 16
+    },
+    {
+      "state": "wet",
+      "strength": 2,
+      "pair": [
+        "ne",
+        "sw"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 12
+    },
+    {
+      "state": "wet",
+      "strength": 2,
+      "pair": [
+        "e",
+        "w"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 8
+    },
+    {
+      "state": "wet",
+      "strength": 2,
+      "pair": [
+        "se",
+        "nw"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 11
+    },
+    {
+      "state": "dry",
+      "strength": 2,
+      "pair": [
+        "n",
+        "s"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 16
+    },
+    {
+      "state": "dry",
+      "strength": 2,
+      "pair": [
+        "ne",
+        "sw"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 12
+    },
+    {
+      "state": "dry",
+      "strength": 2,
+      "pair": [
+        "e",
+        "w"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 8
+    },
+    {
+      "state": "dry",
+      "strength": 2,
+      "pair": [
+        "se",
+        "nw"
+      ],
+      "maximum_rgba_rounding_delta": 0,
+      "alpha_delta": 0,
+      "opaque_width_samples": 11
+    }
+  ],
+  "connected_water_junction_configurations": 768,
+  "visual_approval": "pending",
+  "verification": {
+    "rust_workspace_tests_passed": 94,
+    "existing_python_tests_passed": 15,
+    "cargo_fmt": "passed",
+    "strict_clippy": "passed",
+    "release_build": "passed",
+    "export_paths_byte_identical": [
+      "stream",
+      "water",
+      "landscape"
+    ],
+    "native_embedded_game": {
+      "seed": 2024,
+      "years": 12,
+      "days": 240,
+      "select": "19,33",
+      "zoom": [
+        4,
+        8,
+        16,
+        32
+      ],
+      "observed_clock": "Jahr 13, Tag 241, 10:00",
+      "height_step_occlusion": "documented in README"
+    }
+  }
+}
