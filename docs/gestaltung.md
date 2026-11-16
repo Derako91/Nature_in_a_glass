@@ -851,7 +851,7 @@ Stand 16.11.2026. Seit v0.8.0 legen die Menschen selbst Lagerplätze an (niemand
 | `camp_hearth` | 6 | Steinring mit Asche, kalt |
 | `camp_fire_f0` … `f3` | 6 | Steinring mit kleinem Feuer, 4 Bilder à 200 ms (Animation nur bei 1 Std/s, sonst `f0`) – Rauch gehört später zum Feuerpaket |
 | `camp_windbreak` | 12 | Windschutz aus schräg gestellten Ästen; steht nur, solange es noch keine Hütte gibt |
-| `camp_hut_0`, `camp_hut_1` | 16 | Hütte (zwei Varianten), etwa doppelt so hoch wie ein Mensch, Eingang zur Feuerstelle |
+| `camp_hut_0`, `camp_hut_1` | 20 | Hütte (zwei Varianten), proportional zur Quellform; Eingang zur Feuerstelle. Korrigiertes Weltmaß 20×23,25 bzw. 20×21,25, keine erzwungene Höhe. |
 | `camp_ruin` | 6 | verfallenes Lager: verstreute Steine, umgefallene Stangen (ersetzt Feuerstelle; Hütten werden niedrig und dunkel gezeichnet, bis es ein eigenes `camp_hut_ruin` gibt) |
 | `camp_store` | 6 | (optional) Vorräte: Körbe, Bündel neben der Feuerstelle |
 
@@ -866,7 +866,9 @@ für alle fünf Aussehen, beide Richtungen separat erzeugt, nicht gespiegelt.
 Eigene Gebäude-Metadaten funktionieren seit `8218fc2` auch im eingebetteten
 Spiel; direkt ohne `--bilder` geprüft. Feuer übernimmt vier Flammen aus dem
 bereits eingebauten neuen Feuerpaket auf einem identischen kalten Steinring.
-Die Hütten erhalten Weltmaß 16×30, Menschen 7×15, feste Fußpunkte.
+Die Hütten erhielten zunächst Weltmaß 16×30; diese Exporte waren verzerrt.
+Korrektur auf `codex/camp-hut-proportions`: proportional, Weltmaß 20×23,25
+bzw. 20×21,25, Fußpunkt unten mittig. Menschen bleiben bei 7×15.
 Kontaktbogen, Animationen, tatsächliche Aufnahmen und offene Abnahmepunkte:
 [Lager-Prüfpaket](../art/nature/camp-review/README.md).
 Bewuchs verdeckt in der Nahansicht Teile einer Hütte; bitte Claude eine

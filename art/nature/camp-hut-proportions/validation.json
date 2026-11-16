@@ -1,0 +1,67 @@
+{
+  "status": "passed",
+  "aspect_ratio_tolerance": "unter zwei Pixeln Rundungsabweichung",
+  "huts": [
+    {
+      "id": "camp_hut_0",
+      "source_size": [
+        330,
+        375
+      ],
+      "opaque_export_size": [
+        156,
+        177
+      ],
+      "source_aspect_ratio": 0.88,
+      "export_aspect_ratio": 0.8813559322033898,
+      "file_size": [
+        160,
+        186
+      ],
+      "display_size": [
+        20,
+        23.25
+      ],
+      "anchor": [
+        80,
+        182
+      ]
+    },
+    {
+      "id": "camp_hut_1",
+      "source_size": [
+        345,
+        358
+      ],
+      "opaque_export_size": [
+        156,
+        162
+      ],
+      "source_aspect_ratio": 0.9636871508379888,
+      "export_aspect_ratio": 0.9629629629629629,
+      "file_size": [
+        160,
+        170
+      ],
+      "display_size": [
+        20,
+        21.25
+      ],
+      "anchor": [
+        80,
+        166
+      ]
+    }
+  ],
+  "other_sprite_files_unchanged": 47,
+  "source_sha256": "5f379edd50ad05471ba99cb45259bbb83d748624f5abde405a174ed2bc24f6e8",
+  "game_review": "passed_zoom8_zoom32_without_extra_images",
+  "fresh_export_matches_targeted_refresh": true,
+  "repeated_export_byte_identical": true,
+  "base_commit": "7b20283",
+  "release_build": "passed",
+  "format": "passed",
+  "clippy": "passed",
+  "rust_tests_passed": 89,
+  "rust_tests_failed": 0
+}

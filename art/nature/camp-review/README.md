@@ -29,12 +29,16 @@ Paket. Der Beobachter zeichnet alte Hütten beim Verfall selbst niedrig/dunkel.
 | kalte Feuerstelle | 48×32 | 6×4 | 24/30 |
 | Feuer, alle vier Phasen | 48×56 | 6×7 | 24/52 |
 | Windschutz | 96×112 | 12×14 | 48/108 |
-| beide Hütten | 128×240 | 16×30 | 64/236 |
+| Hütte 0 | 160×186 | 20×23,25 | 80/182 |
+| Hütte 1 | 160×170 | 20×21,25 | 80/166 |
 | Ruine | 48×40 | 6×5 | 24/38 |
 | Menschen `_build` | 56×120 | 7×15 | 28/112 |
 
-Die Hütten sind auf dieselbe 120×232-Pixel-Hülle normiert, damit sie bei
-unverändertem Weltmaß ungefähr die doppelte Menschenhöhe erreichen.
+Die Hütten werden proportional aus dem Quellmotiv skaliert. Die frühere
+Normierung auf 120×232 verzerrte beide Motive und ist entfernt. Weltbreite 20,
+Leinwandhöhe aus dem echten Seitenverhältnis, Fußpunkt unten mittig.
+Vorher-/Nachher-Spielaufnahmen bei Zoom 8/32 und der reproduzierbare Quellbogen
+liegen unter [camp-hut-proportions](../camp-hut-proportions/README.md).
 Die Menschen haben je Aussehen einen gemeinsamen Skalierungsfaktor für alle
 acht Bilder; kein Aufblasen einzelner Posen. Erkennungsfarben und Haarformen
 entsprechen den fünf bestehenden Aussehen. Linke Figuren wurden separat
@@ -96,8 +100,7 @@ nicht als bereits freigegebener, vollkommen konsistenter Animationssatz.
 Die Ruine ist technisch geprüft und auf dem Kontaktbogen sichtbar, wurde aber
 nicht durch einen natürlich verlassenen Lagerplatz in einer Spielsitzung geprüft.
 
-Bei Zoom 32 verdecken einzelne bestehende Baum-/Buschbilder Teile der Hütten.
-Wunsch an Claude gemäß 17.8: prüfen, ob Bewuchs auf Lagerfeldern optisch
-zurückgenommen werden soll. In diesem Paket keine Änderung des Kerns oder
-Renderers. Der nächste Stilblock umfasst die übrigen Zustände aller fünf
+Die Zurücknahme von Bäumen und Büschen auf Lagerfeldern wurde von Claude in
+v0.8.2 übernommen. Die Proportionskorrektur verändert nur den Bildexport und
+die zugehörigen Metadaten. Der nächste Stilblock umfasst die übrigen Zustände aller fünf
 Menschen, danach Landschaft/Pflanzen, Tiere und Wasser; siehe Gestaltung 18.
