@@ -1,5 +1,11 @@
 # Änderungen
 
+## 0.9.1 – Bäche und Bachbetten
+
+**Neu** (Pull Request #21)
+- **Bäche als durchgehende Läufe:** Codex' Bachstücke ersetzen die blauen Linien – Rinnsale, Bäche und große Bäche schließen von Feld zu Feld nahtlos an, auch an Verzweigungen.
+- **Trockene Bachbetten** zeigen Kies und ausgewaschene Erde; nach Regen füllen sie sich wieder mit Wasser.
+
 ## 0.9.0 – Fischfang
 
 **Neu**
