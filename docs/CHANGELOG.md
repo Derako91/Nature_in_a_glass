@@ -1,5 +1,11 @@
 # Änderungen
 
+## 0.16.1 – Flüssig auch mit großen Dörfern
+
+**Verbessert**
+- **Das Fenster hängt nicht mehr:** Mit vielen Bewohnern kann ein Spieljahr fast eine Sekunde Rechenzeit kosten. Bisher rechnete das Spiel bei hoher Geschwindigkeit bis zu ein Jahr am Stück und das Fenster stand so lange still. Jetzt rechnet es tageweise und lässt nach höchstens 25 Millisekunden das Fenster wieder zum Zug kommen. Bei sehr vielen Menschen läuft die Zeit dann langsamer als eingestellt (bei 150 Menschen etwa ein halbes Jahr pro Sekunde), aber das Bild bleibt ruhig und reagiert.
+- **Etwas schneller:** Wegsuchen werden je Ort und Tag nur einmal gerechnet, Seen einmal am Tag aufgelistet, Sammelplätze schneller verglichen – rund 12 % weniger Rechenzeit, bei genau gleichem Verhalten der Menschen.
+
 ## 0.16.0 – Der Einbaum
 
 **Neu**

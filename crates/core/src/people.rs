@@ -556,6 +556,11 @@ fn edge_cost(world: &World, a: usize, b: usize) -> Option<f32> {
     Some(base + steep + danger)
 }
 
+/// Tag, Ausgangsfeld und Reichweite (Bits) einer Wegsuche.
+type ReachKey = (u64, u32, u32);
+/// Ein erreichtes Feld: Feld, Kosten, Vorgänger.
+type Reached = (u32, f32, u32);
+
 /// Erreichbarkeit: Kosten und Vorgänger je Feld (Dijkstra, feste Reihenfolge).
 #[derive(Debug, Clone, Default)]
 pub struct Scratch {
@@ -569,6 +574,12 @@ pub struct Scratch {
     edge_n: Vec<u8>,
     edge_stamp: Vec<u64>,
     last_reach: Option<(u64, u32, u32)>,
+    /// Wegsuchen des Tages je Ausgangspunkt und Reichweite: Viele Menschen
+    /// stehen am selben Ort (Lager) – das Ergebnis ist für alle gleich.
+    /// Je Eintrag die erreichten Felder in Reihenfolge mit Kosten und Vorgänger.
+    reach_cache: Vec<(ReachKey, Vec<Reached>)>,
+    /// Seen und Teiche des Tages (Feldindex, aufsteigend) für den Weitblick.
+    lakes_today: Vec<u32>,
     /// Tag, für den `info` gilt (je Feld; nur angeschaute Felder werden berechnet).
     stamp: Vec<u64>,
     today: u64,
@@ -598,9 +609,20 @@ impl Scratch {
             self.edge_n = vec![0; n];
             self.edge_stamp = vec![u64::MAX; n];
         }
+        if self.today != day {
+            self.reach_cache.clear();
+        }
         self.today = day;
         self.doy = doy;
         self.temp_c = weather.temp_c;
+        // Große Wasserflächen, die man von weitem sieht (aufsteigend = Zeilen,
+        // dann Spalten – dieselbe Reihenfolge wie der Blick über die Felder)
+        self.lakes_today = (0..n as u32)
+            .filter(|&i| {
+                let t = &world.tiles[i as usize];
+                !t.is_ocean() && t.surface_water > 3.0 * POND_MM
+            })
+            .collect();
     }
 
     /// Tageswerte eines Feldes, beim ersten Blick am Tag berechnet.
@@ -638,15 +660,41 @@ impl Scratch {
             self.parent = vec![u32::MAX; n];
         }
         // Gleicher Ausgangspunkt am selben Tag (Familie, Gruppe): Ergebnis bleibt.
-        if self.last_reach == Some((self.today, from, max_cost.to_bits())) {
+        let key = (self.today, from, max_cost.to_bits());
+        if self.last_reach == Some(key) {
             return;
         }
-        self.last_reach = Some((self.today, from, max_cost.to_bits()));
+        // Die bisherige Wegsuche für später aufheben
+        if let Some(last) = self.last_reach
+            && last.0 == self.today
+            && !self.reach_cache.iter().any(|c| c.0 == last)
+        {
+            let saved: Vec<Reached> = self
+                .touched
+                .iter()
+                .map(|&t| (t, self.cost[t as usize], self.parent[t as usize]))
+                .collect();
+            if self.reach_cache.len() >= 32 {
+                self.reach_cache.remove(0);
+            }
+            self.reach_cache.push((last, saved));
+        }
+        self.last_reach = Some(key);
         for &t in &self.touched {
             self.cost[t as usize] = f32::INFINITY;
             self.parent[t as usize] = u32::MAX;
         }
         self.touched.clear();
+        // Schon heute von hier aus gesucht: Ergebnis übernehmen
+        if let Some(k) = self.reach_cache.iter().position(|c| c.0 == key) {
+            let (_, saved) = &self.reach_cache[k];
+            for &(t, c, p) in saved {
+                self.cost[t as usize] = c;
+                self.parent[t as usize] = p;
+                self.touched.push(t);
+            }
+            return;
+        }
         // Kosten in Hundertstel für eine ganzzahlige, eindeutige Ordnung
         let mut heap = BinaryHeap::new();
         self.cost[from as usize] = 0.0;
@@ -1017,6 +1065,10 @@ fn day(
             p.flags.scan_tile = start;
             p.flags.scan_day = day;
         }
+        // Schwelle für neue Sammelplätze: Ist das Gedächtnis voll, kommt ein
+        // Platz nur hinein, wenn er besser ist als der schwächste gemerkte.
+        // (Abkürzung – das Ergebnis ist dasselbe wie mit `remember` allein.)
+        let mut food_floor = food_floor(p, day);
         for dy in -VISION..=VISION {
             if !scan {
                 break;
@@ -1041,7 +1093,14 @@ fn day(
                 } else if !water {
                     forget_dry(p, i as u32);
                 }
-                remember(p, i as u32, PlaceKind::Food, food, day);
+                let known = p
+                    .memory
+                    .iter()
+                    .any(|m| m.tile == i as u32 && m.kind == PlaceKind::Food);
+                if known || (food >= FOOD_WORTH && food > food_floor) {
+                    remember(p, i as u32, PlaceKind::Food, food, day);
+                    food_floor = food_floor_of(p, day);
+                }
                 if info.coast {
                     remember(p, i as u32, PlaceKind::Shore, 1.3, day);
                 }
@@ -1056,27 +1115,21 @@ fn day(
             }
         }
 
-        for dy in -VISION_LAKE..=VISION_LAKE {
+        // Seen sieht man von weiter weg (nur die Seen des Tages durchgehen)
+        for k in 0..s.lakes_today.len() {
             if !scan {
                 break;
             }
-            for dx in -VISION_LAKE..=VISION_LAKE {
-                if dx.abs().max(dy.abs()) <= VISION {
-                    continue;
-                }
-                let (x, y) = (px as i32 + dx, py as i32 + dy);
-                if x < 0 || y < 0 || x >= world.width as i32 || y >= world.height as i32 {
-                    continue;
-                }
-                let i = world.idx(x as u32, y as u32);
-                let t = &world.tiles[i];
-                if t.is_ocean() || t.surface_water <= 3.0 * POND_MM {
-                    continue;
-                }
-                // Ein Ufer merken, auf dem man stehen kann
-                if let Some(j) = world.neighbors(i).find(|&j| standable(world, j)) {
-                    remember_water(p, world, j as u32, 1.0, day);
-                }
+            let i = s.lakes_today[k] as usize;
+            let (x, y) = world.xy(i);
+            let (dx, dy) = (x as i32 - px as i32, y as i32 - py as i32);
+            let d = dx.abs().max(dy.abs());
+            if d <= VISION || d > VISION_LAKE {
+                continue;
+            }
+            // Ein Ufer merken, auf dem man stehen kann
+            if let Some(j) = world.neighbors(i).find(|&j| standable(world, j)) {
+                remember_water(p, world, j as u32, 1.0, day);
             }
         }
 
@@ -2276,10 +2329,35 @@ fn forget_dry(p: &mut Person, tile: u32) {
         .retain(|m| !(m.tile == tile && m.kind == PlaceKind::Water));
 }
 
+/// Ab dieser Ausbeute lohnt es, sich einen Sammelplatz zu merken.
+const FOOD_WORTH: f32 = 0.8;
+
+/// Wie gut ein neuer Sammelplatz sein muss, um ins volle Gedächtnis zu
+/// kommen (bei freiem Platz: jeder lohnende).
+fn food_floor_of(p: &Person, day: u64) -> f32 {
+    let foods = p
+        .memory
+        .iter()
+        .filter(|m| m.kind == PlaceKind::Food)
+        .count();
+    if foods < MEMORY / 2 {
+        return f32::NEG_INFINITY;
+    }
+    p.memory
+        .iter()
+        .filter(|m| m.kind == PlaceKind::Food)
+        .map(|m| m.value - (day - m.seen_day) as f32 * 0.01)
+        .fold(f32::INFINITY, f32::min)
+}
+
+fn food_floor(p: &Person, day: u64) -> f32 {
+    food_floor_of(p, day)
+}
+
 fn remember(p: &mut Person, tile: u32, kind: PlaceKind, value: f32, day: u64) {
     let worth = match kind {
         PlaceKind::Water | PlaceKind::Shore => value > 0.0,
-        PlaceKind::Food => value >= 0.8,
+        PlaceKind::Food => value >= FOOD_WORTH,
     };
     if let Some(k) = p
         .memory

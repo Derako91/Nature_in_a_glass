@@ -103,6 +103,8 @@ impl EventReaction {
 
 /// Höchstens so viel Simulationszeit pro Bild, damit das Fenster reagiert.
 const MAX_HOURS_PER_FRAME: f64 = 24.0 * 365.0;
+/// Höchstens so lange rechnet der Zeitgeber am Stück, dann ist die Oberfläche dran.
+const CLOCK_SLICE: Duration = Duration::from_millis(25);
 
 fn main() -> eframe::Result {
     let options = eframe::NativeOptions {
@@ -257,21 +259,25 @@ impl Clock {
         if whole < 1.0 {
             return;
         }
-        self.owed_hours -= whole;
-        if self.reaction == EventReaction::ChronicleOnly {
-            self.sim.advance_hours(whole as u64);
-            self.seen_event = self.last_event_id();
-            return;
-        }
-        // Tageweise vorrücken, damit wir genau beim Ereignis anhalten
+        // Tageweise vorrücken und nach kurzer Zeit die Oberfläche wieder
+        // dranlassen: Mit vielen Bewohnern kann ein Jahr fast eine Sekunde
+        // Rechenzeit kosten – das Fenster soll dabei nicht hängen. Was nicht
+        // geschafft wird, bleibt geschuldet (die Zeit läuft dann langsamer).
+        let started = Instant::now();
         let mut left = whole as u64;
         while left > 0 {
             let to_next_day = HOURS_PER_DAY - self.sim.time_hours % HOURS_PER_DAY;
             let step = left.min(to_next_day);
             self.sim.advance_hours(step);
             left -= step;
-            if self.check_important_events() {
+            self.owed_hours -= step as f64;
+            if self.reaction == EventReaction::ChronicleOnly {
+                self.seen_event = self.last_event_id();
+            } else if self.check_important_events() {
                 self.owed_hours = 0.0;
+                break;
+            }
+            if started.elapsed() >= CLOCK_SLICE {
                 break;
             }
         }
