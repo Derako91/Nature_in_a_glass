@@ -1,0 +1,11224 @@
+{
+  "files": [
+    {
+      "file": "deer_0_graze_r_f0.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        62,
+        23,
+        153,
+        111
+      ],
+      "sha256": "bfe0dfbefb475a45b48c30a30bba034d899f62833123e803d30e4006dca4240c",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_0_graze_r_f0@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        16,
+        4,
+        39,
+        27
+      ],
+      "sha256": "99cf139b6a59218acc638c157f23d38a0f7692bfc1b274c1a17ccc6f2f9a8995",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_0_graze_r_f1.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        72,
+        49,
+        160,
+        111
+      ],
+      "sha256": "bfb18ea3d958323ed640c42edd7ebb49cfb3750f0ef1ea9244c1637f9c1cc690",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_0_graze_r_f1@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        18,
+        11,
+        39,
+        28
+      ],
+      "sha256": "b72aeff511055449fffb851365284a901ccb2e032cd605b4f0f0da0505bc314f",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_0_walk_r_f0.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        108,
+        28,
+        199,
+        112
+      ],
+      "sha256": "a8b489445899aa96296d39bdf65905559f519b9fa10b2e885855daab5bccdec2",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_0_walk_r_f0@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        16,
+        7,
+        40,
+        28
+      ],
+      "sha256": "f5081ccfe1e2fdbc4d6bd1ebfd2b2ecc2057e24b9497ed7b0ac78963a7184f3c",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_0_walk_r_f1.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        77,
+        28,
+        161,
+        112
+      ],
+      "sha256": "6dc94357ead30aa70cb18fc03ac44570f10247aadff35eb20a8da71c5ba422b2",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_0_walk_r_f1@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        21,
+        6,
+        43,
+        28
+      ],
+      "sha256": "58aa956e3157694c23bbb663fef142f8723c8833839d18d968dfae15d5c38547",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_0_walk_r_f2.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        74,
+        28,
+        170,
+        112
+      ],
+      "sha256": "889f628a2a8ebfc880fa39390304bf5be2aebb7e09d978027615b010a2477d30",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_0_walk_r_f2@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        17,
+        5,
+        41,
+        27
+      ],
+      "sha256": "e76ff9718fb3b2a2d7e30bd47e1972678295745dfcdd3efde8ea8f7ae8f669e0",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_0_walk_r_f3.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        62,
+        28,
+        152,
+        112
+      ],
+      "sha256": "fde6874684ff81fd4cdeefd79ca06328024199160f4980317e83e18d258b3623",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_0_walk_r_f3@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        17,
+        5,
+        40,
+        28
+      ],
+      "sha256": "7ebe8598c10d14fefd45f7d03b901974f2f71de6eb599e466b8631e0416c9d9a",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_0_run_r_f0.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        101,
+        34,
+        206,
+        112
+      ],
+      "sha256": "a3daec517e27eab8b538b72b9a4a8773f1eb689fadba77604e58b658acde9bda",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_0_run_r_f0@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        2,
+        8,
+        30,
+        27
+      ],
+      "sha256": "320bd9609342b47f4abdd8a2ca1897a1c0faf1ced96b8aa4660774c60bc30571",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_0_run_r_f1.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        93,
+        36,
+        177,
+        112
+      ],
+      "sha256": "ae61773d9fff65af9e98fe95b5f12c2facebb0b6a4b28baef96723ce0dde4454",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_0_run_r_f1@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        21,
+        7,
+        43,
+        27
+      ],
+      "sha256": "183ca95daa4f630c16f52cd79caac1ce3ec4d9b02c3af90dfb40a10912022887",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_0_run_r_f2.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        52,
+        35,
+        159,
+        112
+      ],
+      "sha256": "b8dc368e263d2c32d2ca8b6f9b950ecf3c364597aeff2dfce0d73803097e99c5",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_0_run_r_f2@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        25,
+        7,
+        50,
+        28
+      ],
+      "sha256": "a98540e4e6f6fdd9b5f8d25c3be6805e1f39633f6768fb544dc32f3f1c22cd12",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_0_run_r_f3.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        93,
+        39,
+        175,
+        112
+      ],
+      "sha256": "59d14c6da870a422722c22ff0cd70a1b8ac8c8a5c950167c01aaafaa180d64fa",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_0_run_r_f3@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        20,
+        10,
+        42,
+        28
+      ],
+      "sha256": "04483404c660d4eaaa24749ba52e039a1164bb52326226be654e56a0f117a3ed",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_0_rest_r_f0.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        72,
+        44,
+        152,
+        112
+      ],
+      "sha256": "87460ef47a7c0b05ca297078c1e452609477e6a28b9c06d65ca02e1ad0196ad5",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_0_rest_r_f0@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        18,
+        12,
+        37,
+        28
+      ],
+      "sha256": "d4893945d016de00ab70847de2aa3b5fee08c7e139446b0ae691264217948b90",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_0_graze_l_f0.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        72,
+        14,
+        163,
+        112
+      ],
+      "sha256": "129e600fdec1f41b28fc708946f64dbf67eaafef3bd54dfe1cac3081b6e238d9",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_0_graze_l_f0@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        18,
+        4,
+        40,
+        29
+      ],
+      "sha256": "679fd3b40807d3e0e7fb59a48e1da344e220340d2e6af4519d32a85c9942f104",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_0_graze_l_f1.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        61,
+        42,
+        153,
+        112
+      ],
+      "sha256": "f84e188a6f3c7f016c3d2a4b58788e69d7f225145627286122bf0d8607751c26",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_0_graze_l_f1@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        16,
+        10,
+        39,
+        27
+      ],
+      "sha256": "89b99e5dcd61a33b13d9b36daa126a04c33cfb6e55f14b4f5f6cf6745ac56528",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_0_walk_l_f0.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        65,
+        22,
+        165,
+        111
+      ],
+      "sha256": "535a990ba82b0863f77bb73da410c22ff0feaaa49f7e25e9b5ce195fcdb13c1e",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_0_walk_l_f0@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        15,
+        5,
+        40,
+        28
+      ],
+      "sha256": "a71e540ba690c3ea8fc413bb1a1cf00524a8ba36e8e9dcfbf814dc7a00521704",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_0_walk_l_f1.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        39,
+        22,
+        129,
+        112
+      ],
+      "sha256": "4ef2e167c128ebe32bce08b29619f35ff4c99b69fed6383120276dd0b2191b9f",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_0_walk_l_f1@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        9,
+        5,
+        32,
+        28
+      ],
+      "sha256": "aed4fac3c1a2c2bd2f44e79035cee497b4b0d279c7bf3d61e703a45aa86a2a4e",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_0_walk_l_f2.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        50,
+        22,
+        152,
+        112
+      ],
+      "sha256": "1dc0b2cfb84e3a7506ccb4ffac632c304dd8518cfbb6bd4941fd30409bbbceb5",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_0_walk_l_f2@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        17,
+        4,
+        42,
+        28
+      ],
+      "sha256": "88e29ba0245ec4289bf6b1240db8252afe0851bbb63a8fce08b0e76bb696a4a6",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_0_walk_l_f3.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        65,
+        23,
+        168,
+        112
+      ],
+      "sha256": "0a9c5af7025b7d3db7d90c00816d9d610b54f6d1bfab90e2b6a43073e1ae8a5b",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_0_walk_l_f3@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        16,
+        5,
+        40,
+        28
+      ],
+      "sha256": "3fd54d3cd4c82bb089d22b8fca1288462249e4ae4f3eaef7e2f54f55db4f0b70",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_0_run_l_f0.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        8,
+        26,
+        124,
+        112
+      ],
+      "sha256": "9eed7b95130e8b3407b5b9407a2b75c0f2afff6d2f356683b5425f1f918f269c",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_0_run_l_f0@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        26,
+        8,
+        54,
+        28
+      ],
+      "sha256": "5824bcb42f9692c904fb240906ca24b4394cca18319ad44a0a0d35c082211985",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_0_run_l_f1.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        66,
+        27,
+        155,
+        112
+      ],
+      "sha256": "4e45e2640e7141183f5e36b280003d82c52518da4eb43c498e25e1c862bfa515",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_0_run_l_f1@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        13,
+        6,
+        35,
+        27
+      ],
+      "sha256": "7ab87536e7bb2590e2f836c30b51d4aeeb50cace0b005de2276f708eb3f7883f",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_0_run_l_f2.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        15,
+        26,
+        129,
+        112
+      ],
+      "sha256": "4e5cb4a6a793eb8e5049f392959420c54d838bdb0c25f3eab1f4bac1aa0f87ba",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_0_run_l_f2@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        24,
+        6,
+        51,
+        27
+      ],
+      "sha256": "127a358158afd2ccaaabfc58c1616ccfbe02f6cdd574b039843af1b20d4b29c0",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_0_run_l_f3.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        59,
+        38,
+        150,
+        112
+      ],
+      "sha256": "c138896514fdca16cd78dfee44d8192b374e12ef81663a5fa8bb68ce6d65b54a",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_0_run_l_f3@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        15,
+        8,
+        38,
+        27
+      ],
+      "sha256": "e01c6a74108634bd154099c2a5d2ef3ee82196034b8d9fb6d2ad12fb37f67089",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_0_rest_l_f0.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        70,
+        37,
+        155,
+        112
+      ],
+      "sha256": "db62b4ce59a1c5141c2a5dd8cec402b0887f95f7255d710302f28a304d5ba457",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_0_rest_l_f0@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        18,
+        12,
+        38,
+        29
+      ],
+      "sha256": "3d36b43aa28a31488b8c9ff08d5f9100024cc5f441b0f41fdf99353c4f95ecf2",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_1_graze_r_f0.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        64,
+        14,
+        155,
+        112
+      ],
+      "sha256": "595a1b9c1a1a8970fa175038fc7cf7ea6fe1a30e32b88370c9c500dfdcfa3eb0",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_1_graze_r_f0@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        22,
+        3,
+        45,
+        28
+      ],
+      "sha256": "ac4dcf9258ba3fcdd4340fb949cfa86dea7b164deeb5e4acb5975716baa9ae27",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_1_graze_r_f1.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        70,
+        45,
+        167,
+        111
+      ],
+      "sha256": "a68336cfe7a5d9282016d0c27c01c7d3a782ed057cb2419f76740d73fbbc569c",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_1_graze_r_f1@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        20,
+        12,
+        44,
+        29
+      ],
+      "sha256": "c803990a49624fff08752e7eeea7f8063a61e6e0c0f902c0893d7c3a1b4efbc4",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_1_walk_r_f0.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        52,
+        17,
+        153,
+        112
+      ],
+      "sha256": "10cc00fc6ae54f4e4e95a26120dcb284fb20591a87af777c43add072f619346e",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_1_walk_r_f0@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        19,
+        5,
+        44,
+        28
+      ],
+      "sha256": "929e408e8d96143506beeb7f76016a00e85b5f1d86fcd89ed604841a43edc829",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_1_walk_r_f1.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        103,
+        16,
+        194,
+        112
+      ],
+      "sha256": "d32ac288998d1c6ed6ceafec6229258e834c94cbbeb9debc6444ff4f430fb55e",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_1_walk_r_f1@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        19,
+        5,
+        43,
+        28
+      ],
+      "sha256": "7cc6dcf1b35e2dc5e0d2f4cd2b401836cd7202ea892dfa698a9b044843127cf5",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_1_walk_r_f2.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        68,
+        16,
+        164,
+        112
+      ],
+      "sha256": "70404fb08622adeadeffc3da67c12b4d410c7e1682ee180cb941dbff4eb3bb78",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_1_walk_r_f2@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        18,
+        4,
+        43,
+        28
+      ],
+      "sha256": "aa4dc0406b311b3c3f3206579411b4ec08e00d8b7334a30db95e50eff1764807",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_1_walk_r_f3.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        55,
+        16,
+        152,
+        112
+      ],
+      "sha256": "c437ea1d6737b260d6db46c0d53ef810a30141c4d0d0fd7a8575d968a7e9d29e",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_1_walk_r_f3@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        16,
+        5,
+        39,
+        28
+      ],
+      "sha256": "b5defb7d840914c12ca3e0defd0eed891792ffaa668851a4c483e127a9a289f1",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_1_run_r_f0.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        99,
+        22,
+        214,
+        112
+      ],
+      "sha256": "b876d7997923dca38e76ac5a7226f704df5d19b3209611db015ee5df1d733937",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_1_run_r_f0@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        4,
+        6,
+        31,
+        28
+      ],
+      "sha256": "c11b240ef212323b5cc2edc52900f9c23eb58e38948c168cc01e7573a2462c77",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_1_run_r_f1.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        76,
+        22,
+        170,
+        111
+      ],
+      "sha256": "317849db00c975e4e194fb006840b2924f39a0ec47a1c75624576e4847bd2351",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_1_run_r_f1@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        20,
+        6,
+        42,
+        27
+      ],
+      "sha256": "b83af6209abb60c51cd0194e0d69b8347414661e25777ebdde7c375e2941ebc4",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_1_run_r_f2.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        21,
+        20,
+        136,
+        112
+      ],
+      "sha256": "05d85c036d40bd627971dc824c8dfa15a11bff8b10bf853968980c0bf0f95b57",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_1_run_r_f2@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        22,
+        6,
+        49,
+        28
+      ],
+      "sha256": "254550633fe596358783e3ce6f786598241c1ca1043b6f53e23e2288e26b298c",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_1_run_r_f3.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        79,
+        33,
+        173,
+        112
+      ],
+      "sha256": "3935f999a128a9b5535f9d2fe39a38d8e155192f97dae15dd2a30b805d77d9c9",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_1_run_r_f3@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        20,
+        8,
+        43,
+        29
+      ],
+      "sha256": "e0864971b1733e50dd0d7722dd969438cac02d0865d3d8b40054ae18b5dc0632",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_1_rest_r_f0.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        67,
+        38,
+        156,
+        112
+      ],
+      "sha256": "b9bbc440484e26dff9f63589e233c5803f3fa1bb5fcdc08a1902a6142867466c",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_1_rest_r_f0@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        18,
+        11,
+        39,
+        27
+      ],
+      "sha256": "7f7ab54d4b5f4416f3799331654c5782c17b733502eabd097059cbac0e65881f",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_1_graze_l_f0.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        66,
+        12,
+        158,
+        112
+      ],
+      "sha256": "a1814a368e4d20c43626356ed830a0f20a866043752197fae5e0f54e4a032c29",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_1_graze_l_f0@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        12,
+        3,
+        35,
+        27
+      ],
+      "sha256": "3f47cb78b66744aa956d04c650e9b1d7bfa608fb6691aa5b103f8a5f71ff0972",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_1_graze_l_f1.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        59,
+        43,
+        153,
+        112
+      ],
+      "sha256": "4cf7b7aeeff3c352be66c3f94b0c270a84673f860b357f81107bef246631cf29",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_1_graze_l_f1@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        11,
+        10,
+        35,
+        28
+      ],
+      "sha256": "cb33be5964515d31b42f044948f2fa1e8f6766ecadfffc4aae35e05c7cd8ec8d",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_1_walk_l_f0.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        64,
+        17,
+        171,
+        112
+      ],
+      "sha256": "6e6c789c9d2a381b6ee181be0c55621019e44a2bd877086665fe3bdc3065b17f",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_1_walk_l_f0@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        11,
+        3,
+        36,
+        28
+      ],
+      "sha256": "1afbfd15adb2a4c679a3280d7f8e21c75d1ef8209bda1e3f8d64d4a60bd54bce",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_1_walk_l_f1.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        61,
+        17,
+        152,
+        112
+      ],
+      "sha256": "598ce63dee5741aa913e416c7c035833c8409a545882c3ae11567bc88c506541",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_1_walk_l_f1@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        12,
+        3,
+        35,
+        28
+      ],
+      "sha256": "ecbe75789637fd30d3c1bec996c97e47882f160809f6ba5bae44b1330782318c",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_1_walk_l_f2.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        35,
+        15,
+        135,
+        112
+      ],
+      "sha256": "23ad8cf3cce7f0e544c232c90fd3665f7e0946b55230803edc098fc3e7ef3d75",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_1_walk_l_f2@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        4,
+        4,
+        28,
+        28
+      ],
+      "sha256": "4e603860acf0a5b6efe18d6e18c027915421aca8a51987630bef01841cb8b542",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_1_walk_l_f3.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        68,
+        16,
+        162,
+        112
+      ],
+      "sha256": "c56258327a1b049128c5ad2d732e5da561ebcba9992acb81f3106ded03122f4e",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_1_walk_l_f3@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        10,
+        3,
+        34,
+        27
+      ],
+      "sha256": "a260515187bcd517b05206cb63c0584bb153d453facb10d98938b8767cad2267",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_1_run_l_f0.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        92,
+        17,
+        209,
+        112
+      ],
+      "sha256": "14bef6f8855531e1ab52f981621927ad98dc7067595374346644a5bcb43cbbc5",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_1_run_l_f0@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        24,
+        5,
+        52,
+        27
+      ],
+      "sha256": "c8f253afdb90a585e1bbbed100d53bca2c2bb1014cfbb69a51023193eb3c4a19",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_1_run_l_f1.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        54,
+        20,
+        150,
+        112
+      ],
+      "sha256": "ccd23a9b3c8ade317ddb5724a56ff0881fd5baacbe7135d1eb91db7a4a36ae0c",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_1_run_l_f1@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        14,
+        5,
+        37,
+        27
+      ],
+      "sha256": "7dc09d9490afb1f5971f264f632805f4f60f159e0f94c42c7e2fc3ee99e93673",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_1_run_l_f2.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        91,
+        19,
+        206,
+        112
+      ],
+      "sha256": "44428251ac89c99322d5ac6c48c5a7b0fab1dd9da60299eb50f06e23d5343ee5",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_1_run_l_f2@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        5,
+        5,
+        34,
+        28
+      ],
+      "sha256": "c1894d2296081cb7abc0cb197eb848799b0866fee87926aebcadf40553a963c7",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_1_run_l_f3.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        52,
+        33,
+        149,
+        112
+      ],
+      "sha256": "eb418ba49561f23fac9766dc3a7f230a424e34296ca35d36510ca0ef5343736c",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_1_run_l_f3@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        12,
+        7,
+        35,
+        29
+      ],
+      "sha256": "e76ad9aba062d30c3026454f8eeaaed4a5deb88bc3e1811ad36bd40118cf1374",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_1_rest_l_f0.png",
+      "size": [
+        224,
+        120
+      ],
+      "anchor": [
+        112.0,
+        112.0
+      ],
+      "bbox": [
+        67,
+        38,
+        157,
+        112
+      ],
+      "sha256": "69e6969b749925090e82ee7bfc49b13ef78267cb7ed55b98f1b2a682d95ea01f",
+      "transparent_crop": [
+        0,
+        72,
+        224,
+        192
+      ]
+    },
+    {
+      "file": "deer_1_rest_l_f0@fern.png",
+      "size": [
+        56,
+        30
+      ],
+      "anchor": [
+        28.0,
+        28.0
+      ],
+      "bbox": [
+        18,
+        11,
+        40,
+        28
+      ],
+      "sha256": "499ca44a305d09c9c5953ca42f5982ab63c0173224b18201f4ec5513a4803797",
+      "transparent_crop": [
+        0,
+        18,
+        56,
+        48
+      ]
+    },
+    {
+      "file": "deer_young_0_graze_r_f0.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        36,
+        8,
+        105,
+        76
+      ],
+      "sha256": "5dec0d7d43c625a55caddc162d23987b023d7353028d29bb4c1f5501f7689919",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_0_graze_r_f0@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        10,
+        5,
+        25,
+        19
+      ],
+      "sha256": "8d6bd942ff62a479a10cde1611f7ad42321dd7604f89bc2e2766c8449b3c539f",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_0_graze_r_f1.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        41,
+        25,
+        102,
+        76
+      ],
+      "sha256": "9da8188b7d91a01f405f17686d4172c697ea257bf6c58a23e9f5053af5c60ca3",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_0_graze_r_f1@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        10,
+        8,
+        25,
+        20
+      ],
+      "sha256": "c7fc3c1110a422c78013dff9000fffb6a0464ca8d72d4b699bc72797141ea69a",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_0_walk_r_f0.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        55,
+        14,
+        120,
+        77
+      ],
+      "sha256": "2f3041dd5d807e635462a4258c6b5d9e11bdadbfbc2174eb18ad83aa7e1c48d7",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_0_walk_r_f0@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        17,
+        5,
+        34,
+        18
+      ],
+      "sha256": "5678d14706a5d4478bd8709b0ccb71fc92f8af4c6ff3370da3db91a61574eb6f",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_0_walk_r_f1.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        36,
+        13,
+        102,
+        76
+      ],
+      "sha256": "45bd1156d123688575ba299592b41fb7fabc10bc1a0e9a842a271ede6b181799",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_0_walk_r_f1@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        9,
+        4,
+        25,
+        19
+      ],
+      "sha256": "d298dea698b9aaad26706e609f8f6adf43f625c48602b4ff4c8f154cbaccea40",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_0_walk_r_f2.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        39,
+        13,
+        106,
+        76
+      ],
+      "sha256": "aaff35c39c5449cc5c11eaf336c92ae45c9e5c702d97ca68867b7d0a71d77364",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_0_walk_r_f2@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        5,
+        6,
+        21,
+        20
+      ],
+      "sha256": "9c28cc6ee04470aca70806d341635fb2399db4959be03d0ebd17e60855ff287c",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_0_walk_r_f3.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        39,
+        13,
+        104,
+        76
+      ],
+      "sha256": "e4604880a976baebcf2a5f25878c16de7e5f66b3f5e18e47a9b94f1ee964f7f1",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_0_walk_r_f3@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        11,
+        5,
+        27,
+        20
+      ],
+      "sha256": "e7851b1935c074d473eecdaf1e1a994c005b3fa24d647ff98a04f442f57149ad",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_0_run_r_f0.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        9,
+        20,
+        83,
+        76
+      ],
+      "sha256": "6f8593e0abaac46cd5c40f14a71cdd6e9f5c7057a04b4eea5046db193d646abc",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_0_run_r_f0@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        16,
+        6,
+        35,
+        19
+      ],
+      "sha256": "6041468fea1de585774399eea5d7fa01bbd3bba70d4a3d2a8e61787b369a90a8",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_0_run_r_f1.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        46,
+        16,
+        109,
+        76
+      ],
+      "sha256": "308818ca2fcd075b6306728a6ac464ca08c5cca1f2054ed5e56225a90cfb6760",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_0_run_r_f1@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        13,
+        5,
+        28,
+        19
+      ],
+      "sha256": "2e5458f65db2a29f066fbd70a4d48b8294b989fbdbecb9151820d2cb0a980494",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_0_run_r_f2.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        12,
+        18,
+        85,
+        76
+      ],
+      "sha256": "a422e51c76931e5990c15363219318bc41c5a7d43cc47dc78c9e189a71fcde9a",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_0_run_r_f2@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        12,
+        5,
+        30,
+        19
+      ],
+      "sha256": "b2830e6d35807e1fef15792552df603a093bbdaa5b52211d1e95346d61efb75e",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_0_run_r_f3.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        48,
+        24,
+        114,
+        76
+      ],
+      "sha256": "3270fca2093b5689a0f692448e8344ae1df9275fa35664ce66afb1964b37fd94",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_0_run_r_f3@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        13,
+        7,
+        28,
+        20
+      ],
+      "sha256": "15ada1c031aa78825ba97a86d5df5088cb84e4c88453830e440eaa758cdcce05",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_0_rest_r_f0.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        40,
+        22,
+        104,
+        76
+      ],
+      "sha256": "40e7b4db4a5be6622f49addcac19b0a75ad5237d06d72753f5ec1cdd5059794e",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_0_rest_r_f0@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        10,
+        8,
+        25,
+        19
+      ],
+      "sha256": "5766bff24d1ba6b733ddc3a7f13fabd379bce5917f16b2e03ff59678341072e0",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_0_graze_l_f0.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        41,
+        5,
+        109,
+        77
+      ],
+      "sha256": "11b988b698c29630c37593038eb309146ea4b35bc42e983a0a58b20a14b52623",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_0_graze_l_f0@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        11,
+        5,
+        25,
+        19
+      ],
+      "sha256": "720e9bd28d2ece76b49dfae6e3931423166acaeee12b44ef96b2356a7ad24f38",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_0_graze_l_f1.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        53,
+        22,
+        119,
+        76
+      ],
+      "sha256": "8978e25f76f8978986c1a947152b55fd264e13537982be4a7f36560a2cea6feb",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_0_graze_l_f1@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        12,
+        8,
+        27,
+        20
+      ],
+      "sha256": "b553022c4dc30b116fbcaa6cdfc8e78c40d0451652852afdf15657bfff0489b2",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_0_walk_l_f0.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        36,
+        10,
+        103,
+        77
+      ],
+      "sha256": "df02ee5ea1eaebf6c676a7436dead8b654ac31fe1f4359182efd36f1b18d11bb",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_0_walk_l_f0@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        10,
+        5,
+        27,
+        18
+      ],
+      "sha256": "29751a61532962a61d497e2a48255b8ca654bd9d6a20fae0d13bc0c7f7ed0874",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_0_walk_l_f1.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        42,
+        10,
+        110,
+        76
+      ],
+      "sha256": "fef6d904a23bde4d4f1846e80237e18b5f97ea399b3913dbe8599f8bd9312756",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_0_walk_l_f1@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        11,
+        5,
+        27,
+        19
+      ],
+      "sha256": "6ae98d755c44280c41575f600004648a635af2280702b243efab022aa031a028",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_0_walk_l_f2.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        34,
+        9,
+        104,
+        76
+      ],
+      "sha256": "196a414e71a4a28ae5b691d2cb563e6293910f7854c291a28b27c4dbdab4ae4f",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_0_walk_l_f2@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        15,
+        5,
+        32,
+        19
+      ],
+      "sha256": "27f7b6c9a95ce92a14f8cf298a9bf2ba1abf4a827e71b184fe91a4f142219831",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_0_walk_l_f3.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        41,
+        9,
+        110,
+        76
+      ],
+      "sha256": "dcb60aecc8238ffd2625e1920c1d2c006660d5fc05547126ad4850b4c1b6cf44",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_0_walk_l_f3@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        11,
+        5,
+        27,
+        19
+      ],
+      "sha256": "1a247e65475a1119cd4b5d84e8865ad8a8ff59385447147ce7c020b903b06447",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_0_run_l_f0.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        61,
+        17,
+        139,
+        77
+      ],
+      "sha256": "bef1470113d3bddd396b3b9048fe66ab200dc5adf10b192ae700206e4e95ae52",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_0_run_l_f0@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        2,
+        6,
+        20,
+        20
+      ],
+      "sha256": "1844d3ae9fbfc7821051f7b1e73dd7dda8ad434d3ea67cb03f76a5fb2d7fd42f",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_0_run_l_f1.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        35,
+        14,
+        102,
+        75
+      ],
+      "sha256": "6c2d68f6033c49dbc0fbeca97cf606c30b8a4058c8c30a30dd571cf475604bbc",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_0_run_l_f1@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        10,
+        5,
+        24,
+        18
+      ],
+      "sha256": "a0e6f5dc393d5889e73ade1e9979d67a97493a6338e1c9b1983be907f567fa0b",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_0_run_l_f2.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        60,
+        15,
+        138,
+        77
+      ],
+      "sha256": "30f27070efbaeb49e34051203b0f3952a62693c24848f3f6a4b4d35eba953a9a",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_0_run_l_f2@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        16,
+        5,
+        32,
+        19
+      ],
+      "sha256": "22d5f44ff22d44aeb27620ea4d1ecf84b7f61557fda806384e891728b99e889e",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_0_run_l_f3.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        31,
+        24,
+        101,
+        77
+      ],
+      "sha256": "b0799956749cd30134f43dc17468ce77539620e65cea3deb6ee20425092c999a",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_0_run_l_f3@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        10,
+        7,
+        25,
+        19
+      ],
+      "sha256": "898424b1ae2fed2b79de04c5ecd2c5cb02c1e0f6ab510ae858e4bd3c076d8e57",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_0_rest_l_f0.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        39,
+        19,
+        106,
+        76
+      ],
+      "sha256": "3f25ef9a6b93561bba04beb6098b9d243401a610bd0f6d8cb2f33d95a1a55c4c",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_0_rest_l_f0@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        12,
+        9,
+        26,
+        20
+      ],
+      "sha256": "f67dfce5739ed2789a4dfdff640573ab83dbd3b134ccc1c6e9594b7e14a04371",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_1_graze_r_f0.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        38,
+        11,
+        106,
+        76
+      ],
+      "sha256": "7c04d3833cc9e422180ca0421f0c4134663eb7a15e4bbab8b81b87a6cab8bd4d",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_1_graze_r_f0@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        8,
+        2,
+        25,
+        19
+      ],
+      "sha256": "b49d7f289976bfd07fa3b97944f5e6470f86d3176945a39f902fb9124ebb9e55",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_1_graze_r_f1.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        36,
+        24,
+        102,
+        76
+      ],
+      "sha256": "479bdfd2fb508833762a3786bf15a49a1ed7bd8d6b3854ab29c841de99e59efb",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_1_graze_r_f1@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        10,
+        6,
+        26,
+        19
+      ],
+      "sha256": "e758e308d8fc00a33d98bbdc26ec80cf2a0b5d8954f6623b8e71fe6c91e0c2d1",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_1_walk_r_f0.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        39,
+        18,
+        107,
+        76
+      ],
+      "sha256": "f7a66817f2317cf861129c99ace14a0f66d5cec29c38ee92738cb407a79090c4",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_1_walk_r_f0@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        11,
+        3,
+        31,
+        19
+      ],
+      "sha256": "75cfd77cca17d12609824fed87e6acbb6a34b02ef925d1674762befaf4c77274",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_1_walk_r_f1.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        51,
+        20,
+        119,
+        76
+      ],
+      "sha256": "43711775b964641ceac834fe62861296971a8b3090b4f90a33a9509ec284964f",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_1_walk_r_f1@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        13,
+        3,
+        30,
+        19
+      ],
+      "sha256": "5b02595cb5b88c7bdb3309f193b7c9ba34bc2cbc29e70add98bf116a7a763ff1",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_1_walk_r_f2.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        44,
+        19,
+        114,
+        77
+      ],
+      "sha256": "ee7438dc759a72305eefb4a974e11539ef82d8371d0459b37c61c13b5db6e285",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_1_walk_r_f2@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        10,
+        3,
+        30,
+        18
+      ],
+      "sha256": "cd718ed2d56d3aeab6cee2d2ee1f6b1c911c0e16591913891ef4985e384b3bfa",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_1_walk_r_f3.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        41,
+        18,
+        110,
+        76
+      ],
+      "sha256": "d472de157729d3fa9b5e6c584fed1a2162e1c4939e1560631f7ca2eedcfe5ec5",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_1_walk_r_f3@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        8,
+        3,
+        26,
+        19
+      ],
+      "sha256": "0dbb18e91bd7dcb2b1b05cd0912ffdf65df01ed1b348601c040418923761c7f4",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_1_run_r_f0.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        6,
+        20,
+        84,
+        77
+      ],
+      "sha256": "d5c567e674af5251d65754c7a70fb381c1ca2c5aea7c23ec539565fa3d769a68",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_1_run_r_f0@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        7,
+        5,
+        28,
+        18
+      ],
+      "sha256": "ca9472de29357aeeec6b3541a6c2592bd1294e315a4680d99b8fcf4f9d4a3548",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_1_run_r_f1.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        40,
+        18,
+        109,
+        76
+      ],
+      "sha256": "c9738ee359db72a6e420cc87920a8b55588089d28dced1cce9102b667d0e84f5",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_1_run_r_f1@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        12,
+        6,
+        28,
+        20
+      ],
+      "sha256": "95fe97fa71546e89d8dab9db03a9050fc17782ed1341063a02356696be2e2822",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_1_run_r_f2.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        21,
+        21,
+        96,
+        76
+      ],
+      "sha256": "266932a7afabebbf36dbb1a6f7bc07d002c8ef253abef354a9102c6531ae5c80",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_1_run_r_f2@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        2,
+        5,
+        21,
+        19
+      ],
+      "sha256": "927e7a7178f7b2720accf9fd049c20a37fe0728c42e4619f322cb1af55a91dd7",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_1_run_r_f3.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        50,
+        26,
+        119,
+        76
+      ],
+      "sha256": "184c72253467155fa36745b5fc26a524577f3dbf798fb4a4185100ed813672e7",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_1_run_r_f3@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        11,
+        7,
+        28,
+        20
+      ],
+      "sha256": "43a478879eade464d8854341b004df6cf525fa23f9c04a6cbfc9f7c72d39ad4a",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_1_rest_r_f0.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        40,
+        28,
+        104,
+        76
+      ],
+      "sha256": "5e7f0f3689e83b37eec9250df6b5d198b475c035efe78c27c451785b0033a01b",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_1_rest_r_f0@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        10,
+        8,
+        25,
+        19
+      ],
+      "sha256": "eeebd89d2bd78e9b0f95f2b1a842653a6e3e5029351f6bd9c05ea1587ee0b76b",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_1_graze_l_f0.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        40,
+        12,
+        108,
+        77
+      ],
+      "sha256": "dfbcc6eff2e13d4a71accd37fca3c1c031593001823f02c228eedf09578fae1b",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_1_graze_l_f0@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        12,
+        5,
+        26,
+        19
+      ],
+      "sha256": "1aba373cb34c06fa131ed48eea0d71ba691449216034b8398c5c9cde046b4a93",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_1_graze_l_f1.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        42,
+        24,
+        111,
+        76
+      ],
+      "sha256": "fd6dfd9fc2e080d676e533a42c91626dec0755e155c24fa9eb68c2fadd05e69e",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_1_graze_l_f1@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        11,
+        8,
+        24,
+        19
+      ],
+      "sha256": "a5b001f4d5aef2120fd0cdbc99afaf34d0381a0e05f84e02197e030914fd7749",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_1_walk_l_f0.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        41,
+        18,
+        106,
+        76
+      ],
+      "sha256": "ee8fb0cc98343e526529d0084c1cc69f1a6faee1044af3bfd42f761e556bcc49",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_1_walk_l_f0@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        8,
+        6,
+        24,
+        19
+      ],
+      "sha256": "f4b9bbbc5261942dc8cc58d68e253207769a280433fef4d6b2b2932ce6313378",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_1_walk_l_f1.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        29,
+        19,
+        97,
+        77
+      ],
+      "sha256": "b073e432329bd6cc33e4301eede61cf5a8ef11591342c6f071d1d02277f40f4b",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_1_walk_l_f1@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        8,
+        6,
+        22,
+        19
+      ],
+      "sha256": "cd74a19d3ded5082e3c475825f216e0a7154aeccfd92084e5daac94da73be12f",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_1_walk_l_f2.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        37,
+        18,
+        106,
+        76
+      ],
+      "sha256": "d8c2227681d26406919c6afbb16e664c76baa48c128bfad7ef0e69ba38635252",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_1_walk_l_f2@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        10,
+        6,
+        25,
+        19
+      ],
+      "sha256": "a756bfe6106a3937b46d8f3bf1d286f11ca9b000e25a7fca551cb57ad1920d33",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_1_walk_l_f3.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        35,
+        18,
+        103,
+        76
+      ],
+      "sha256": "77931d51bfff7e14821ee17463044216307da5efc1b5b0b317fe99d418f91427",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_1_walk_l_f3@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        9,
+        6,
+        21,
+        19
+      ],
+      "sha256": "ab37b473ad2a7e389a60d1251e19ab92dc0169facec45b42b9c901ba774e885e",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_1_run_l_f0.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        58,
+        20,
+        137,
+        76
+      ],
+      "sha256": "4a08398d22235ddec11a20f19d900e7eb1de0d59321a01d13ae237da2471232a",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_1_run_l_f0@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        2,
+        8,
+        18,
+        19
+      ],
+      "sha256": "cdcea2c868761eec247adcbb6cc69cf7a335613381f2b04a40baf75dcafbedc5",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_1_run_l_f1.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        37,
+        20,
+        105,
+        76
+      ],
+      "sha256": "2367efbdd4bf6e2f23c569669130a15e1d20b4b0c25ab3a94b929de173bd0977",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_1_run_l_f1@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        10,
+        8,
+        23,
+        19
+      ],
+      "sha256": "a260ff18032a9f5b1669923bb6ec4edae643a8c0af32016092ccd52a58b742bd",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_1_run_l_f2.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        53,
+        20,
+        129,
+        77
+      ],
+      "sha256": "691d032e26850b223ca31dc57b31a0fe9e8ed471fdeceecf695274bbb24c08ee",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_1_run_l_f2@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        15,
+        8,
+        31,
+        20
+      ],
+      "sha256": "b558e2500a845e97039e0a4b5c366b5b625bca6dc9713ac5e90a9385bb8eb6fe",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_1_run_l_f3.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        35,
+        28,
+        104,
+        77
+      ],
+      "sha256": "ee989948668e180c5242e61c689607655ff71c333a8b3b59ddb3eb143340c5ed",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_1_run_l_f3@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        10,
+        8,
+        24,
+        19
+      ],
+      "sha256": "809244ef4ad4bdfff6dcc7d83efd63da980b7f8cd6c05878cfa51188ace7184e",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "deer_young_1_rest_l_f0.png",
+      "size": [
+        144,
+        84
+      ],
+      "anchor": [
+        72.0,
+        76.0
+      ],
+      "bbox": [
+        40,
+        28,
+        105,
+        76
+      ],
+      "sha256": "4bf4027be92d0ad34efb2f5a1e656d61a5ea898f0792204049080eb4ac7a6dd9",
+      "transparent_crop": [
+        0,
+        44,
+        144,
+        128
+      ]
+    },
+    {
+      "file": "deer_young_1_rest_l_f0@fern.png",
+      "size": [
+        36,
+        21
+      ],
+      "anchor": [
+        18.0,
+        19.0
+      ],
+      "bbox": [
+        11,
+        10,
+        24,
+        19
+      ],
+      "sha256": "cc74062d4f89493b92865be1fc723346694b373b8b61a4d44ea8a7b33f70a949",
+      "transparent_crop": [
+        0,
+        11,
+        36,
+        32
+      ]
+    },
+    {
+      "file": "wolf_0_graze_r_f0.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        44,
+        12,
+        143,
+        87
+      ],
+      "sha256": "15b155dd8eb4887a5ca49ce27b86224f57b294d93c552312d127ea8c15bc453b",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_0_graze_r_f0@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        13,
+        5,
+        35,
+        23
+      ],
+      "sha256": "5cd2f20fc9f39f6d66179297a40b58851739eea05602efdda5f10a06f320d082",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_0_graze_r_f1.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        46,
+        27,
+        141,
+        88
+      ],
+      "sha256": "d8a2eb6892636c14fe74a14c8054a7ea012b9c6e62d07318f7bb592f72710d93",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_0_graze_r_f1@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        12,
+        7,
+        34,
+        22
+      ],
+      "sha256": "413e21a13aa763f8a12ff43bab300e214466be53f7b4bd7f8b69ac49326404be",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_0_walk_r_f0.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        43,
+        28,
+        142,
+        88
+      ],
+      "sha256": "109b14cebc2be5f57c7d2d4e13cc429886910c0d276342ee9058276dc316381e",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_0_walk_r_f0@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        15,
+        6,
+        39,
+        22
+      ],
+      "sha256": "d6b14152c417e61a91e5fb843f7bdaca634efd09e78d370f706a204743f6cacf",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_0_walk_r_f1.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        40,
+        28,
+        136,
+        88
+      ],
+      "sha256": "80b352b7c77a4f5ae2aa58b9c72de94d41fce8164d032f50fbe444e858f875e6",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_0_walk_r_f1@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        8,
+        6,
+        32,
+        22
+      ],
+      "sha256": "e0382c040cf58dc96875204cc0859f382b6ad6b8a25d7d4cd065c0c27db0e53f",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_0_walk_r_f2.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        52,
+        27,
+        150,
+        87
+      ],
+      "sha256": "aa61b4a3b55d2e7a5f30a2e203ed25f3c742873abd34a5b335cdf6368f9b7a0b",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_0_walk_r_f2@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        5,
+        6,
+        29,
+        22
+      ],
+      "sha256": "4a53185aca4f0c18cdee2fc8251505bd921afbe8bc0c08fa9e90263086db694c",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_0_walk_r_f3.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        37,
+        28,
+        132,
+        88
+      ],
+      "sha256": "1f7b87b39f6f0076fadaa2d19f82347a4be1f3165011fa23e559e8f04c5a0595",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_0_walk_r_f3@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        10,
+        6,
+        33,
+        22
+      ],
+      "sha256": "639dce0f4d86e220b0191294b66fc206d28a2273d0b5d8075e7648f435f8b782",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_0_run_r_f0.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        23,
+        30,
+        126,
+        88
+      ],
+      "sha256": "5ffaedf7969b5b95feb1e668670137c1af29eeee90ee9484466ac704b3bfcf5a",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_0_run_r_f0@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        24,
+        8,
+        50,
+        22
+      ],
+      "sha256": "1000fa01e0b1a8924b3dd600ea393dc730f54d49ec97247bc29a4c4a8cf3720d",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_0_run_r_f1.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        56,
+        29,
+        151,
+        88
+      ],
+      "sha256": "d92d439cb47cb0b138d0fb0772d3dfd97e3dc99d96c35ba94c3c44d73bde4146",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_0_run_r_f1@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        15,
+        7,
+        39,
+        22
+      ],
+      "sha256": "84c28590faa6ab6ee87ce2cecf807ef40c2234a1c7ec4fcfc772b5d5b8f6d5de",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_0_run_r_f2.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        86,
+        31,
+        189,
+        88
+      ],
+      "sha256": "d18403015e469c4a82c2d69c99c5f4448d37025bac703548649add44c88636b1",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_0_run_r_f2@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        20,
+        8,
+        46,
+        23
+      ],
+      "sha256": "6cd671e6736325e8175c017d0816a254854e37c8c8c15f75c1dac2dff73c38d4",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_0_run_r_f3.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        54,
+        37,
+        151,
+        88
+      ],
+      "sha256": "03cbdd5d85909985e6305f3dc209e389f719268faf47542451651aee50df1850",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_0_run_r_f3@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        16,
+        8,
+        40,
+        22
+      ],
+      "sha256": "97017ab19bb35846b42601f19aad3d64064cbb324a7afd4a95e7014eda1a57d4",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_0_rest_r_f0.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        60,
+        42,
+        149,
+        88
+      ],
+      "sha256": "3cbfb624d2417e663ca2b453f6c63605584cc63182d998fd9696437236d910e6",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_0_rest_r_f0@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        14,
+        7,
+        38,
+        22
+      ],
+      "sha256": "e7dae10a1157351c92b5550e74584da05fbbf77dcdf28417d07a21295ee8b487",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_0_graze_l_f0.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        63,
+        9,
+        162,
+        88
+      ],
+      "sha256": "4127de5ed27dcc65f0c87057cc620aacf90fc4f834efce94f4f0b37ef55f68d3",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_0_graze_l_f0@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        17,
+        4,
+        40,
+        22
+      ],
+      "sha256": "95b58db99d34aad524e3715113cd46649db3bf4ae4cff73d66e2887eef40fd95",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_0_graze_l_f1.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        63,
+        25,
+        161,
+        88
+      ],
+      "sha256": "1ef08785478307cbfe9127e30794c573fc9892f18fad7ae674dfff3eb33d3e4d",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_0_graze_l_f1@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        17,
+        7,
+        39,
+        22
+      ],
+      "sha256": "0dbcd5b770c7c5875408bef01d652569e70bb3e1b96c282fad0e3a51bba14156",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_0_walk_l_f0.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        55,
+        26,
+        155,
+        88
+      ],
+      "sha256": "4c577b91dab8e39f16dc376e8ceee351a0ae73d192d12eb827bb365bdf161f4c",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_0_walk_l_f0@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        16,
+        5,
+        40,
+        22
+      ],
+      "sha256": "1e04726795b65fc420650b09db0dc8aa9eb9b4aa8f74700be56f9d5734de6373",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_0_walk_l_f1.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        71,
+        26,
+        170,
+        88
+      ],
+      "sha256": "85eb6bf515da3440072f605f5ea66624a478fae655a259d7ce7c4fed9655d66e",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_0_walk_l_f1@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        18,
+        6,
+        41,
+        23
+      ],
+      "sha256": "8879fdc1eeae9a87b15171a2f5078b985cc94144bb1d599a8671319ee9356f26",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_0_walk_l_f2.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        55,
+        27,
+        155,
+        88
+      ],
+      "sha256": "2172514130c50ba75101ca2157a8287adc168d55dcb709bc54478cc01d219de6",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_0_walk_l_f2@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        15,
+        6,
+        39,
+        22
+      ],
+      "sha256": "4a55ff31f5680d1b85cfa4c985e31961b7dae55f2bc301b58239ce7ac0a3f0c3",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_0_walk_l_f3.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        72,
+        26,
+        170,
+        88
+      ],
+      "sha256": "829457de8d630cb081f688c8fe8601d802ab8cd31c3a76c34fd1dea4dcb2c44a",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_0_walk_l_f3@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        12,
+        6,
+        36,
+        22
+      ],
+      "sha256": "5413f9b0e02b553ad90f502f8dbf867c1cea2ad2ac83d7a68b013d1076bb6a33",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_0_run_l_f0.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        83,
+        27,
+        188,
+        88
+      ],
+      "sha256": "27e96739639c34b79353814908fe6ddc99b4665482f067c09bcd7ccb3664750f",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_0_run_l_f0@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        2,
+        8,
+        27,
+        23
+      ],
+      "sha256": "694f7d2bdec4a96771c5637934203f5337bedc6bf167124f6a6540d12a909343",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_0_run_l_f1.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        55,
+        27,
+        153,
+        88
+      ],
+      "sha256": "c9b65625e305821826f03ac3b3ccdac5f5eedc75dbfd203f10206bcbdff331c4",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_0_run_l_f1@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        14,
+        7,
+        37,
+        23
+      ],
+      "sha256": "a862fddb5c78948a03ff5a46f23101a817f482d18511d95d39d910366ab8ec4c",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_0_run_l_f2.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        14,
+        28,
+        121,
+        88
+      ],
+      "sha256": "0055267b83a86d2d29bcd28d278ee45ecbe45171e325763e079c3875e48bf8d8",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_0_run_l_f2@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        24,
+        8,
+        49,
+        23
+      ],
+      "sha256": "954a98021084ec52e457f2bd0033352cfd3a9562d4000d5f950faaac98b8034b",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_0_run_l_f3.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        54,
+        34,
+        153,
+        88
+      ],
+      "sha256": "62aeca6347fdb6bfbd7bfa6ec4dc48e6583bfc06879bc3582769a2dbf941aeb3",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_0_run_l_f3@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        13,
+        8,
+        37,
+        21
+      ],
+      "sha256": "7685899389ea89a6a1757905fb9554e0bea9617838d6c0e8f596100114eea757",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_0_rest_l_f0.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        57,
+        40,
+        152,
+        88
+      ],
+      "sha256": "2be9077b4d4aef16047a7abfefd9b82e8d3c2bfb00041c379d67edf9af59851d",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_0_rest_l_f0@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        15,
+        7,
+        39,
+        22
+      ],
+      "sha256": "090d2d23ee537d15787ec7b8fcd565701b3839d0c0cc639211cd45e1fcc07241",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_1_graze_r_f0.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        49,
+        15,
+        148,
+        87
+      ],
+      "sha256": "d890fd51cf11acab32b5cbdc69ef8d1d3a82bf8ff651fed700a9c92f06f30d6d",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_1_graze_r_f0@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        12,
+        3,
+        36,
+        22
+      ],
+      "sha256": "b4a0c1a7ab721ea859702a7dadfbd68dda469601003200746030d4b70b2c9039",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_1_graze_r_f1.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        25,
+        23,
+        113,
+        87
+      ],
+      "sha256": "46e1c86b1c2caf84c4a38b5d269d022014b3d8fc8c7358f4497848b16860d16e",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_1_graze_r_f1@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        8,
+        6,
+        33,
+        23
+      ],
+      "sha256": "c593112a82c68c8338c6e1ceaa15ecb58cf852a7e082bd74c1a08ac4d69af419",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_1_walk_r_f0.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        49,
+        24,
+        149,
+        88
+      ],
+      "sha256": "bf0d2bcb146c20fbe5e6ec4b61079ff132ca74fb6482c595fefb886e8229ca28",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_1_walk_r_f0@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        21,
+        4,
+        48,
+        22
+      ],
+      "sha256": "8366534b28cf2ac95abdf6487fb3695fb31cfa3c9841cf169f1dc84d2984f5c2",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_1_walk_r_f1.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        53,
+        24,
+        151,
+        88
+      ],
+      "sha256": "e623911606f7cf58b2c8f054cff0f6dde94995e87628ebbb5f479644c801eaa9",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_1_walk_r_f1@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        14,
+        4,
+        40,
+        22
+      ],
+      "sha256": "cc2a73081e62a59f9e90ceff195b9bd820ca01353f7e5fa8128e0bb3af3e16d7",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_1_walk_r_f2.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        25,
+        23,
+        126,
+        88
+      ],
+      "sha256": "86cc4efe0915f29254f4bb963ded203a8fb2a83468dd32c5c95ddf1e8ce1a3ea",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_1_walk_r_f2@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        13,
+        4,
+        40,
+        22
+      ],
+      "sha256": "46f67d13780d94a522c120900e80f821adf28861ee88bf490d01899cff1dc5e1",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_1_walk_r_f3.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        56,
+        24,
+        154,
+        88
+      ],
+      "sha256": "42ac3fe3aae2c5f8dfe516ebd54024050c7718b3649d495d4cce5bf72c64f69c",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_1_walk_r_f3@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        17,
+        5,
+        44,
+        23
+      ],
+      "sha256": "69ef814b117a34fd6f49c02f6ab210c67c05840ec87f433a0d5565af95636ed9",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_1_run_r_f0.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        90,
+        30,
+        189,
+        87
+      ],
+      "sha256": "f2fe0c8675214678da5efc7565d6fcf706bf8e878500a7e272edf53882180416",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_1_run_r_f0@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        1,
+        7,
+        30,
+        22
+      ],
+      "sha256": "b4cf668d5592529274bcd2018c265e2873bb6a5d34163fb1ba821e0d88191079",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_1_run_r_f1.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        57,
+        28,
+        152,
+        87
+      ],
+      "sha256": "d1ae2d5e3b18c4e9f0c21229405f075401358aa8632e920ed8acbcb5af6356ee",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_1_run_r_f1@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        15,
+        5,
+        40,
+        22
+      ],
+      "sha256": "4fb21f811392e195b3484846279909c201c505a7a837e22c31adeb3eef6f64b6",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_1_run_r_f2.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        70,
+        26,
+        170,
+        88
+      ],
+      "sha256": "3252e18894ac6f09c70d3a3f8e2f589e1a43c3aaa1fec177d6e5e06925ff487b",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_1_run_r_f2@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        17,
+        6,
+        45,
+        22
+      ],
+      "sha256": "0af7c12ddafedbcaf56ba294d28f229715ac1b8c3a0ed201c947d7140d85c042",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_1_run_r_f3.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        63,
+        36,
+        159,
+        87
+      ],
+      "sha256": "23d5fc5caed369420dc67dd6ebce873f0b4a971abab948dba7028e087d2c34ab",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_1_run_r_f3@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        14,
+        7,
+        41,
+        22
+      ],
+      "sha256": "8c7ac5c2b5b2d287fec9df4459455da2ae7ef537e026652b1f22db77dd4de906",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_1_rest_r_f0.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        59,
+        32,
+        150,
+        87
+      ],
+      "sha256": "9a59c348046d74cac269a4c0e96c8263dcd9856e0893ec79e7e16e06fb686d00",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_1_rest_r_f0@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        12,
+        7,
+        38,
+        22
+      ],
+      "sha256": "d712c354c7291c34abbbbe29b5b7378a5b5bcdf77f7b61469fe2580786623f7b",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_1_graze_l_f0.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        59,
+        15,
+        159,
+        88
+      ],
+      "sha256": "977d60cc0fb0a0d58236cfef7c743598b2703dc7853803826f7ed42a11e32855",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_1_graze_l_f0@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        17,
+        4,
+        42,
+        23
+      ],
+      "sha256": "60499019cf6cb1f03b30d3ebd9f466883f2b92d079ab1110c8d286885217bce8",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_1_graze_l_f1.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        94,
+        19,
+        186,
+        88
+      ],
+      "sha256": "ac84061cd82e26f705635bc00dbb5ce13399d19fbef4dbfa82642c3b51b69c9f",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_1_graze_l_f1@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        16,
+        6,
+        42,
+        23
+      ],
+      "sha256": "5620837da4b34624625eed247554e1a9b024dbf425aee486508f78847ea041e7",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_1_walk_l_f0.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        54,
+        18,
+        154,
+        88
+      ],
+      "sha256": "5023d2553d39a8fd9675439100e2b5e7b6da4e5693bcffc0a1e4dca419396363",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_1_walk_l_f0@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        12,
+        5,
+        39,
+        22
+      ],
+      "sha256": "6261924b8b9cae4e8ef75c34d53b3e4b6ebe8bb420add8df58008aac17d090e2",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_1_walk_l_f1.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        59,
+        21,
+        159,
+        87
+      ],
+      "sha256": "868b53d41eb9c198b96e0f66903327b3db7ab488c4a0b6d778417c9d34b79d33",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_1_walk_l_f1@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        17,
+        5,
+        43,
+        22
+      ],
+      "sha256": "f2d6c4d8024d09f1e98e3c622609f53b50900cae468f0da4bb911e5b50f1d460",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_1_walk_l_f2.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        55,
+        21,
+        159,
+        88
+      ],
+      "sha256": "3a34648ed7dbf42824e39487d5007a937ab624c06b3a44291db782299d269212",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_1_walk_l_f2@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        12,
+        5,
+        39,
+        22
+      ],
+      "sha256": "b77a6427374ac2e69abc23abde36195a4351e7c2132a07a791b88b4ca1c4baf7",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_1_walk_l_f3.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        79,
+        21,
+        182,
+        87
+      ],
+      "sha256": "76e70714ef72d11f9e8ccbe32d38830be7d3d3433b9befac6db39657be5c8ff8",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_1_walk_l_f3@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        14,
+        5,
+        41,
+        22
+      ],
+      "sha256": "e3eeb56901554c7eadde0e9e9fa163025598375a7bfcdb399639c0a6661eb448",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_1_run_l_f0.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        50,
+        26,
+        151,
+        88
+      ],
+      "sha256": "c2ecf325d0b05bc38d5013d0a5486915846f187673940aedc476884c99129657",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_1_run_l_f0@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        22,
+        7,
+        51,
+        23
+      ],
+      "sha256": "8d209172c7187ae8f49680d733fd8c8ff2006fa27ff35b5cfad7643cf61e0f89",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_1_run_l_f1.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        19,
+        21,
+        124,
+        88
+      ],
+      "sha256": "45777f1748bb54d16b6a976dc515dfa6856a951d550fd1de32808fa180b0bb08",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_1_run_l_f1@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        13,
+        6,
+        39,
+        22
+      ],
+      "sha256": "3e630d85f00fc0563293bd07d4e15a9832a6813a798e2805fad0e161ccc7b86d",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_1_run_l_f2.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        50,
+        24,
+        150,
+        88
+      ],
+      "sha256": "fa7e23540ec0a12d96e211464123ead2756ca4741611daf179b8529b9a6791fc",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_1_run_l_f2@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        22,
+        7,
+        50,
+        23
+      ],
+      "sha256": "e5145b7d4e7828c842b73db00d40f1eea285e1803a34d6cb9263fed68b87967b",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_1_run_l_f3.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        5,
+        21,
+        112,
+        87
+      ],
+      "sha256": "57287a62f28707e8c9b70e054774e195dd26ac59c699249b5f8cd3a9c74bead1",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_1_run_l_f3@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        11,
+        8,
+        38,
+        22
+      ],
+      "sha256": "690512c83ac8e92059de9294dbd437c8c5c21a73208557df4f49a6f6f186f329",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "wolf_1_rest_l_f0.png",
+      "size": [
+        208,
+        96
+      ],
+      "anchor": [
+        104.0,
+        88.0
+      ],
+      "bbox": [
+        58,
+        30,
+        150,
+        88
+      ],
+      "sha256": "42c8585fd194a1d2c30de6288166e1665beeb8e50135cb604406533ef0c03e9b",
+      "transparent_crop": [
+        0,
+        32,
+        208,
+        128
+      ]
+    },
+    {
+      "file": "wolf_1_rest_l_f0@fern.png",
+      "size": [
+        52,
+        24
+      ],
+      "anchor": [
+        26.0,
+        22.0
+      ],
+      "bbox": [
+        14,
+        7,
+        39,
+        22
+      ],
+      "sha256": "1e6e686dd08b13de45e818a89cb4710dc3c00fe6d07b7af6f91d4e4b999e06ae",
+      "transparent_crop": [
+        0,
+        8,
+        52,
+        32
+      ]
+    },
+    {
+      "file": "fox_0_graze_r_f0.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        27,
+        15,
+        107,
+        65
+      ],
+      "sha256": "53d223129db082f0f3a11b09494e13513a618a2ad7acbf064b778a2086d34ac7",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_0_graze_r_f0@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        7,
+        3,
+        28,
+        16
+      ],
+      "sha256": "eff2d2c32707c36babda95b60dd9358dd140b79b46e0aff6e19e8b73e2af15a4",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_0_graze_r_f1.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        22,
+        21,
+        94,
+        64
+      ],
+      "sha256": "1df27f01c0c27399e10d95e8ff89edda1d71d17f7f618d48c372e2048aae2948",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_0_graze_r_f1@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        4,
+        5,
+        23,
+        16
+      ],
+      "sha256": "2c89431de02763c845673ddcb95bed8c496281e9c8454c84238f2a06c3433e7d",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_0_walk_r_f0.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        45,
+        17,
+        125,
+        65
+      ],
+      "sha256": "46c81499aabec201d66a611c841f33aaab31818a89f08e7fba9ceb2b36e0a35e",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_0_walk_r_f0@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        8,
+        5,
+        28,
+        17
+      ],
+      "sha256": "29e5c6c76b0a44889dcddabc25cbd9399ffc1ca298b10cff859d2df70a68b487",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_0_walk_r_f1.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        43,
+        17,
+        123,
+        64
+      ],
+      "sha256": "99306d1151d5c8267e247c970268ee239beb1e9e8023e610615d660f77c789bd",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_0_walk_r_f1@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        7,
+        5,
+        27,
+        17
+      ],
+      "sha256": "e677b9c678d8787b7d0bf0dd349c2bca3c9c3113853a3c19f60814fe88ab1cb8",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_0_walk_r_f2.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        50,
+        17,
+        132,
+        65
+      ],
+      "sha256": "a42b147a5238c114369821007cefa15245fc08526c19dffbace29c9417fd14a4",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_0_walk_r_f2@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        3,
+        5,
+        23,
+        17
+      ],
+      "sha256": "2a9735f649a4e4ae069c01267aacde13acb5363c70996fc88f722c805bb4d560",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_0_walk_r_f3.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        30,
+        18,
+        111,
+        64
+      ],
+      "sha256": "a0aeb615e825b7536715f0ed7af76453620f2f412dc622563648c499ba65d243",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_0_walk_r_f3@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        8,
+        5,
+        28,
+        16
+      ],
+      "sha256": "55d5cc30eaaaac367dc4d73cc9bb0e885f7bef54612f2659194b280d3804a57c",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_0_run_r_f0.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        9,
+        23,
+        89,
+        64
+      ],
+      "sha256": "9cd1fa7fb00fccfdbd163ea4ff2164e787fe16c73385ef213a051dfa13371046",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_0_run_r_f0@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        1,
+        7,
+        22,
+        17
+      ],
+      "sha256": "d845dcf008fa75940059caefdea3caeaa92fd90b08f97bae3060784ef16c7374",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_0_run_r_f1.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        40,
+        22,
+        119,
+        64
+      ],
+      "sha256": "b4f9b75b4d7ae3989274064fd2f73e7cfff7455b53db6970da8050e63c232d2d",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_0_run_r_f1@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        11,
+        6,
+        30,
+        17
+      ],
+      "sha256": "68f129431c9f35d40964c39521a46512900ef03601b55064656b86b3a5df8358",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_0_run_r_f2.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        31,
+        21,
+        112,
+        64
+      ],
+      "sha256": "32f357ba8d61d3c238c23ae4dec7f92d6957bf11f8b80472c833dbb5a93d07c8",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_0_run_r_f2@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        11,
+        6,
+        30,
+        17
+      ],
+      "sha256": "dc47cdc2452c1f75d89100acddc8f73f221ecab6db7c128402acf9cf66d8928e",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_0_run_r_f3.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        43,
+        29,
+        122,
+        65
+      ],
+      "sha256": "f7dbba8223bcc73c7897a03f653bcf27025444093d50290b149ede484c8772b2",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_0_run_r_f3@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        10,
+        6,
+        29,
+        16
+      ],
+      "sha256": "c887fbedaf2134b8522b8218621f8689cd54669ff3724fb5469edbdacd6f37c2",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_0_rest_r_f0.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        51,
+        30,
+        108,
+        64
+      ],
+      "sha256": "dc6d6edec00c648ae08e06e76f659e0ccd7b12db70f466727098a8b0a4984ce3",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_0_rest_r_f0@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        11,
+        5,
+        29,
+        16
+      ],
+      "sha256": "387b0f1fb81cf097c820c472b64f05cfaf413424fdbd9daa3c55966a5adf72b8",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_0_graze_l_f0.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        55,
+        13,
+        134,
+        64
+      ],
+      "sha256": "9538da04ebf4ba477e067cf5e3b34f759a228821c813c83ea372605e1be015cc",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_0_graze_l_f0@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        13,
+        3,
+        32,
+        16
+      ],
+      "sha256": "83de5f7b09a286161970d61ef119703f0f41e061a15486d4b33febd5ac5903ef",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_0_graze_l_f1.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        71,
+        21,
+        145,
+        64
+      ],
+      "sha256": "97e73c3f6d53d2bbda978b41d58141f376836560a8960a7ad242d3ead7d2ea4f",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_0_graze_l_f1@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        18,
+        5,
+        38,
+        17
+      ],
+      "sha256": "f3fb97114b796c5d97132cf511efdddcfe199277d5e12ad761efa2582a9eabbd",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_0_walk_l_f0.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        46,
+        19,
+        125,
+        65
+      ],
+      "sha256": "c8ca8f711f97e563704ff5da63eb77f5de9a15899e49d71577cd9ab315714ec1",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_0_walk_l_f0@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        12,
+        4,
+        32,
+        16
+      ],
+      "sha256": "634cabe18ccbc595d069ff101392d0f248fb65759e124af54d6a34832b926ad0",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_0_walk_l_f1.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        54,
+        18,
+        133,
+        65
+      ],
+      "sha256": "eb816df2ee97ec119a268ec8c2e242c157af1cb154a3ab2ddd9a558d387164e4",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_0_walk_l_f1@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        13,
+        4,
+        34,
+        16
+      ],
+      "sha256": "5022423b6c1fd2f074357554a2f82490a0950e8ee7a59285920fab5b5f67e565",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_0_walk_l_f2.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        48,
+        18,
+        128,
+        65
+      ],
+      "sha256": "4a876a5894bed577df1d48812fd5f1b09fed47be36a47d78691c697bece5a7db",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_0_walk_l_f2@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        18,
+        4,
+        39,
+        16
+      ],
+      "sha256": "ee9402433853a0bf04def558b91a4fee78bff27a4963d202af88354ee21e93b9",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_0_walk_l_f3.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        51,
+        15,
+        133,
+        64
+      ],
+      "sha256": "9acc46b3dca22e06ea3a12f9c013886ebb9346ffb352579fa9db67632c217541",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_0_walk_l_f3@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        12,
+        4,
+        32,
+        16
+      ],
+      "sha256": "b77b408819527bcf6557c4b0e1e8ba953fe259bc338e31ed53efab9e4a889f52",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_0_run_l_f0.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        67,
+        20,
+        149,
+        64
+      ],
+      "sha256": "980816b22b9972582eca298632620d69c58e1e2a7fd78ae265b3bde1e2a210cf",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_0_run_l_f0@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        18,
+        6,
+        39,
+        16
+      ],
+      "sha256": "8ed15a1fa760ac6d3e0eb678342b38f93e5dd80f8b378d76a7415e6d9dabdae3",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_0_run_l_f1.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        43,
+        26,
+        122,
+        65
+      ],
+      "sha256": "5ac40b1071071a18e448a8325c1cd425d91319dc9126b9f7e091907b6283cdd6",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_0_run_l_f1@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        12,
+        5,
+        30,
+        16
+      ],
+      "sha256": "f57dcab6be404b4fee5dff87b2a70b176f53cbb5ae00bfa132c1655867c68820",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_0_run_l_f2.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        55,
+        20,
+        137,
+        64
+      ],
+      "sha256": "44ec83ad5aa618e4c6e513e56015cbf73bda578af6798c33ffb5becbfff9e39e",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_0_run_l_f2@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        8,
+        5,
+        29,
+        16
+      ],
+      "sha256": "06333f4d2213b09da3e26ba29c48ed1551fec58726b03b479a9b587e3c7a2080",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_0_run_l_f3.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        40,
+        29,
+        120,
+        65
+      ],
+      "sha256": "c1c7a693a1383cdc34300a9506fd8adfc14bc818cb6741d70e4bf0d07ee2e280",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_0_run_l_f3@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        12,
+        6,
+        32,
+        17
+      ],
+      "sha256": "57eec96cd1d6e3407bd639b70a632921169c9f7003b2a4fdf809ab06c8d7bf9f",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_0_rest_l_f0.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        51,
+        31,
+        109,
+        65
+      ],
+      "sha256": "1bbe4e71f326b179b3740369bed0c2a11cc8cc1a06470081a6ef134e11d50c8f",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_0_rest_l_f0@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        11,
+        5,
+        29,
+        17
+      ],
+      "sha256": "d9859ecf435c217a855cbcb8e731ad37084a9188398ebfce50f0e5153eeb68c1",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_1_graze_r_f0.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        31,
+        10,
+        112,
+        65
+      ],
+      "sha256": "a29ce3548836a2b4547f9846b905dbd32885031700298a5ca9640cadb69170c8",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_1_graze_r_f0@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        7,
+        3,
+        27,
+        17
+      ],
+      "sha256": "a6e3802f37c06846002b39ce0cd2972b657049d688b9b92e3cab39a1459a5c5c",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_1_graze_r_f1.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        11,
+        15,
+        84,
+        64
+      ],
+      "sha256": "925d8ece1f01121bccdf996a46a07613963ffcd30bb2b0e32ce81922a173d2ad",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_1_graze_r_f1@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        8,
+        5,
+        28,
+        16
+      ],
+      "sha256": "867b785825347810dc768f491f882b64888825c429e8952130d0c1096d69ea89",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_1_walk_r_f0.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        35,
+        14,
+        118,
+        64
+      ],
+      "sha256": "d3cd1cc0beb233f36890e863baec03e8e051cf588ba96953e8514c2039d71b70",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_1_walk_r_f0@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        11,
+        4,
+        31,
+        16
+      ],
+      "sha256": "016539c744e8ae3fae2dda4cb1244618cabcf9ff8bfd960dc34dd01998bb7cbf",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_1_walk_r_f1.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        25,
+        15,
+        108,
+        65
+      ],
+      "sha256": "0df7d0b7fd99d2b649d9ab8ab0f431e3bd85ceee02d7a0c1420de139fc6f7d15",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_1_walk_r_f1@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        13,
+        4,
+        33,
+        16
+      ],
+      "sha256": "71ce5c95c641fd9842243c51481692522da3bc1e95dd352f0fb15ae4ea3262b1",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_1_walk_r_f2.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        10,
+        16,
+        93,
+        65
+      ],
+      "sha256": "16a5928a6af5e3f8fd008fef7426c0083efa92042a611324350f7e3ac0ce62fd",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_1_walk_r_f2@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        3,
+        4,
+        23,
+        16
+      ],
+      "sha256": "a87508d1da0420fcbd941d7fbab64bff9049e8b448d1cede674ff605c21406cc",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_1_walk_r_f3.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        24,
+        15,
+        107,
+        65
+      ],
+      "sha256": "a9cc5ec578f3997a4d5617d075d1998127ff7f6cdbd44940c38d3aebcc1c1ffb",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_1_walk_r_f3@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        6,
+        4,
+        26,
+        16
+      ],
+      "sha256": "c892333d42bebbaf6875081490a6650d2431ff5093ce59504e88ae12930830ac",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_1_run_r_f0.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        6,
+        19,
+        91,
+        64
+      ],
+      "sha256": "ed3cb6bc126e4994480f8760a2afd45a0fc4b587bc9b21cc1f6e6189b33f280f",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_1_run_r_f0@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        3,
+        5,
+        24,
+        17
+      ],
+      "sha256": "ca0bb3a9dd5bc5371bc86e3f364f4408d0228c97abe2fa44677002d1e83fb02f",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_1_run_r_f1.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        40,
+        15,
+        121,
+        63
+      ],
+      "sha256": "361d3b2597b55abf9616590a68fe22b2d8f6deb1702ba94cfe02eb575b1d415f",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_1_run_r_f1@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        8,
+        5,
+        29,
+        16
+      ],
+      "sha256": "10e647b496b4341decda1a2b450ad164809168a271a68419f810e5ad95101d36",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_1_run_r_f2.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        58,
+        16,
+        143,
+        63
+      ],
+      "sha256": "8e4c5900a8b397c9a79702da9af8a3f590d5bf75ebe24aafcf05ef5f8b701014",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_1_run_r_f2@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        9,
+        5,
+        30,
+        16
+      ],
+      "sha256": "accd7b05b0d4bb979b795938b4de2b87e247319190997301ddf8605566c8b5bf",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_1_run_r_f3.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        40,
+        24,
+        122,
+        64
+      ],
+      "sha256": "e29e3e3263e559d37d5f05be6e6c2625219c9f045df505b9bf098970f371f305",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_1_run_r_f3@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        10,
+        7,
+        30,
+        17
+      ],
+      "sha256": "7cc431f4cff1f1ccacdd800dec359a48ac19d6c6fb1fd7f7e700c1ffc5527692",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_1_rest_r_f0.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        42,
+        15,
+        117,
+        64
+      ],
+      "sha256": "01ff7da509dd85191b4177e4425a88a50dbdfd11531562808a444716da1ac048",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_1_rest_r_f0@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        11,
+        4,
+        28,
+        16
+      ],
+      "sha256": "6f0f007cf2324ce511141eb44ce8336674ee56783345a48783ce40b7b67ad7ca",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_1_graze_l_f0.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        50,
+        8,
+        130,
+        63
+      ],
+      "sha256": "689e23e707af49234637551402e1f862e12c2b1bca12224b4261c079a8dd20e2",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_1_graze_l_f0@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        14,
+        3,
+        33,
+        16
+      ],
+      "sha256": "4b8bbe606813cc021321f4202ea692afc7ea1de0caad36231b80391d217bea2b",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_1_graze_l_f1.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        72,
+        13,
+        148,
+        63
+      ],
+      "sha256": "7b277ca2e2fab17305b84ab71926c735cde34cbae854a8fa74df552dc616587b",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_1_graze_l_f1@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        12,
+        5,
+        32,
+        16
+      ],
+      "sha256": "0eba7c111b8137dab97243ae8c37f2cfa0997375d5b69c98970eb36b01270e68",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_1_walk_l_f0.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        42,
+        13,
+        125,
+        63
+      ],
+      "sha256": "f77711f9d16f38db4e14c0713f91bd71991220eeb643654188f67a61a3f30806",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_1_walk_l_f0@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        12,
+        4,
+        31,
+        16
+      ],
+      "sha256": "b9f7e53ce1076a477da51e6f1c2aff4bf9ef1563afdb6bfe76efd038be769a3f",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_1_walk_l_f1.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        47,
+        12,
+        130,
+        64
+      ],
+      "sha256": "ad81ddf726eaab401ce7025480738fdf8cc3279e55c36f42ed8f01c6c7fcc5b8",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_1_walk_l_f1@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        15,
+        4,
+        33,
+        16
+      ],
+      "sha256": "a5c72863fc310e348e1033095202f80041862bfe898d0f522bd08f2e6a098ed0",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_1_walk_l_f2.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        42,
+        13,
+        126,
+        63
+      ],
+      "sha256": "006fa7e6fc535f41c2fb998759ec1faf21d74cef9421f7cb37bf66e0227695f3",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_1_walk_l_f2@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        12,
+        5,
+        31,
+        17
+      ],
+      "sha256": "0abfded848ee0ec13dced598c19ef0b737ca7b712fa28df87ab3848095ae847e",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_1_walk_l_f3.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        55,
+        14,
+        136,
+        64
+      ],
+      "sha256": "268fe1d45126bfd386558ff2a6a234fa565c9a218aed65e7a2b824080cd193cb",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_1_walk_l_f3@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        14,
+        4,
+        33,
+        16
+      ],
+      "sha256": "c58eaf57bd4a187b8971c179346f4a250a4d42ff219bed395e052ab538d55624",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_1_run_l_f0.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        70,
+        19,
+        155,
+        64
+      ],
+      "sha256": "815af25dfee74ffaed43a8f49a022341334be23021b86790641393d91c6f1a05",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_1_run_l_f0@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        2,
+        6,
+        22,
+        17
+      ],
+      "sha256": "708427bdcb0c596d46e2c93ba1185f98123917bab8bcd08f6e945e492ff2748f",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_1_run_l_f1.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        44,
+        16,
+        125,
+        65
+      ],
+      "sha256": "e4f5af866bc0c4b36b96eed8b1e136be9f81783174fd8b9fbb9b86384cf64317",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_1_run_l_f1@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        12,
+        6,
+        31,
+        16
+      ],
+      "sha256": "3f29fa5532f45dfab457760db0d20db00de66543c87144afa2639601706ada7d",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_1_run_l_f2.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        18,
+        15,
+        104,
+        64
+      ],
+      "sha256": "64359c3ca0fab296a20404275c4b02a1509d78fc6ca6cd2cf4ebc8f7c8e2b3a6",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_1_run_l_f2@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        16,
+        6,
+        36,
+        16
+      ],
+      "sha256": "9ed264999e17bff910e17e16b28a09c05c85b4382adb87d1655dde5b25d7acc1",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_1_run_l_f3.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        40,
+        26,
+        122,
+        65
+      ],
+      "sha256": "05bda6bf7a94b8258988ad922cbf11dfd12aec8b50ce49c810310fe912e92506",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_1_run_l_f3@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        12,
+        7,
+        30,
+        15
+      ],
+      "sha256": "c553b9dcd64de1aca7db28d4cf1a5156226ab20588552c91ff398d0ab23dc395",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "fox_1_rest_l_f0.png",
+      "size": [
+        160,
+        72
+      ],
+      "anchor": [
+        80.0,
+        64.0
+      ],
+      "bbox": [
+        42,
+        14,
+        116,
+        65
+      ],
+      "sha256": "634980cd3818901bc9327e2f6b4e5fcf513e68b272c809aa3bc0543cfad15024",
+      "transparent_crop": [
+        0,
+        24,
+        160,
+        96
+      ]
+    },
+    {
+      "file": "fox_1_rest_l_f0@fern.png",
+      "size": [
+        40,
+        18
+      ],
+      "anchor": [
+        20.0,
+        16.0
+      ],
+      "bbox": [
+        13,
+        5,
+        29,
+        17
+      ],
+      "sha256": "20643dbb71ad50d9aebd35eb32f1d9d4a6453eac25d445b4a219306ab071ea08",
+      "transparent_crop": [
+        0,
+        6,
+        40,
+        24
+      ]
+    },
+    {
+      "file": "rabbit_0_graze_r_f0.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        42,
+        9,
+        85,
+        48
+      ],
+      "sha256": "be21fae5cd6e341fed206e11899514ac4e1817caa0e571c7ad0bccc53555e27d",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_0_graze_r_f0@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        9,
+        2,
+        20,
+        12
+      ],
+      "sha256": "471c9183d8649d8aeb8079858b2434bf288764c76c39732e17cde94ca12c23ea",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_0_graze_r_f1.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        31,
+        21,
+        73,
+        48
+      ],
+      "sha256": "5b6be7618b1950b85385799342786e2d7d2f1b7dd069ffaa7401bdf22e320423",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_0_graze_r_f1@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        8,
+        4,
+        19,
+        12
+      ],
+      "sha256": "92d05bd2570174db7ae1e448ebbe7b8ab7f0d167dae465771bf9bb3200b683ae",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_0_walk_r_f0.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        17,
+        11,
+        63,
+        48
+      ],
+      "sha256": "19b88f25f7791be6ea7cf8251717d71efc7cec63b46a081d80c83099cfbe0d4c",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_0_walk_r_f0@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        10,
+        3,
+        21,
+        13
+      ],
+      "sha256": "fd606265b761e5fd2c982359a9e7d0ab0a35bc6e6fbd16857dcae45fa472bbe3",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_0_walk_r_f1.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        34,
+        12,
+        78,
+        48
+      ],
+      "sha256": "e201d5156d940622bd0102366e3b2f88a62b1cdb490a91d56a7acf0593124fd0",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_0_walk_r_f1@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        10,
+        2,
+        22,
+        12
+      ],
+      "sha256": "4b9a3ec6c3c8884aca462c5bcd83e02c7f6cfa609bbf078f8220ba100ee8830c",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_0_walk_r_f2.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        39,
+        11,
+        86,
+        48
+      ],
+      "sha256": "ced93f2c3787ad1d15a5672282b9e2ca8f301a90a2c86bf1d169512a60b3c3e8",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_0_walk_r_f2@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        4,
+        2,
+        16,
+        12
+      ],
+      "sha256": "4a497737f1363764727d1d256f448215a8288c76a17abbb60888b7a45b498389",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_0_walk_r_f3.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        29,
+        11,
+        74,
+        47
+      ],
+      "sha256": "3e892f22e8373d820d7c693e5bd1753496cf9ec19b7499a0da553e4aa7aac87b",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_0_walk_r_f3@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        10,
+        2,
+        22,
+        13
+      ],
+      "sha256": "4b4c907b9285182ecfd4beedb8395db9cc0970dc81d5b1359437c4cf5c4e39fe",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_0_run_r_f0.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        52,
+        15,
+        104,
+        48
+      ],
+      "sha256": "180570520714f4df52334a9335437c6ba7dc6e0e887fdca91ec329fb25996831",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_0_run_r_f0@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        13,
+        3,
+        27,
+        12
+      ],
+      "sha256": "da4886519403e13f93d9d84dbb2d69530456b4de6f95b66c0258c8e8c3c550bb",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_0_run_r_f1.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        37,
+        14,
+        79,
+        48
+      ],
+      "sha256": "1ac504e1af9fc889e92354318b4eddfeb6da41550ad9b338a3cab799e6c571d1",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_0_run_r_f1@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        9,
+        3,
+        20,
+        12
+      ],
+      "sha256": "d40cf748db97d18eecb72de9d91e8abd09a09445527ee842b3527a186a6f4126",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_0_run_r_f2.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        9,
+        15,
+        60,
+        48
+      ],
+      "sha256": "e14783893d42c67171ff768f9874ade8d370c4bb06beb1a6e260da371010a454",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_0_run_r_f2@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        13,
+        3,
+        26,
+        12
+      ],
+      "sha256": "238ee508f468f60e471be56aeab349ed4c6eed5953eab4be7f2ba16eb5d3fd9e",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_0_run_r_f3.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        42,
+        16,
+        81,
+        48
+      ],
+      "sha256": "6f7c174d211687b95bf945f939f8efaafa55aeafb171d6a46106aacb9589a01d",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_0_run_r_f3@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        10,
+        3,
+        21,
+        12
+      ],
+      "sha256": "769ffd38ff8ebc67b5bc85901220b2feb531a3e32343d996f0d1749566ac086b",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_0_rest_r_f0.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        37,
+        17,
+        76,
+        48
+      ],
+      "sha256": "0191e6dc41d4b876b382bd5e5e214b94eb5ce441daa3e496e09b35e0ce2ff02b",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_0_rest_r_f0@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        8,
+        5,
+        19,
+        13
+      ],
+      "sha256": "77e2405241eecc9ef8a6016e9e3f97c03b216bc40347b946e60e26728aeebae9",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_0_graze_l_f0.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        42,
+        6,
+        86,
+        48
+      ],
+      "sha256": "2d922d083ee8225748907a34e7ce1f911360de8dae55d8aae77df34606156781",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_0_graze_l_f0@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        7,
+        2,
+        18,
+        12
+      ],
+      "sha256": "0564521aadf9369385a6eb6a696777020ad2160db5b1e2020f7505b8edafa003",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_0_graze_l_f1.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        52,
+        19,
+        97,
+        48
+      ],
+      "sha256": "3754bbf5dfe8d149b80cd65a41bae5fa25909e960a704c1830718e23b6bfc8ba",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_0_graze_l_f1@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        10,
+        5,
+        22,
+        12
+      ],
+      "sha256": "a1782d53ae53d5711efdfc97cb2b2592e4a273afd50a9833d98466d201091771",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_0_walk_l_f0.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        11,
+        9,
+        58,
+        48
+      ],
+      "sha256": "38b67d1d4cdd24776c7e0e5c2aab1a10eeca7db6dc67de4219e16dcc4022baa9",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_0_walk_l_f0@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        8,
+        2,
+        20,
+        13
+      ],
+      "sha256": "8423ba7e3574178e40131c1b9864bed8dd2e379eaa8478e2f4c8c9b860de0ef2",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_0_walk_l_f1.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        31,
+        10,
+        77,
+        48
+      ],
+      "sha256": "82a20e380726b0f5222f34c84da42f6e1b8db3237384675f87a04be48b76d294",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_0_walk_l_f1@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        6,
+        2,
+        18,
+        13
+      ],
+      "sha256": "7a457fc8bc7a7ad9551b55149c16b1da2f369fbf7831b13690fd8dce7386e44f",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_0_walk_l_f2.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        23,
+        9,
+        71,
+        47
+      ],
+      "sha256": "f7593df99c2797484878b549f0602feb29b26236dc3dc08a977071cedfbca655",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_0_walk_l_f2@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        8,
+        2,
+        20,
+        13
+      ],
+      "sha256": "ed2c13a2a043828e20345cb855373c49a34cef728dda1f8123b9d9b0243c9bb1",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_0_walk_l_f3.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        21,
+        9,
+        67,
+        48
+      ],
+      "sha256": "807f53aa820a9aa3115e9104a8226cd2f66a7f060776c9ae60d8562cc5e225e4",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_0_walk_l_f3@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        10,
+        2,
+        22,
+        13
+      ],
+      "sha256": "e5be38714de8cb5653aaba5e58c6336e4708bfa890354b1dc808ec64bde7ee48",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_0_run_l_f0.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        52,
+        12,
+        108,
+        47
+      ],
+      "sha256": "dc2f15255ea69194280f9f3b4591f0e7620abe27c2e0a3fa3b33b50e64f042c9",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_0_run_l_f0@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        13,
+        3,
+        27,
+        12
+      ],
+      "sha256": "0d5bbd9f6de8a8fca040d14d5bea2d25cf11ff294bd02e0be64d274edcd0a1cf",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_0_run_l_f1.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        34,
+        12,
+        76,
+        48
+      ],
+      "sha256": "de05ea0d9c63af7009613334ab360bb3c7403984f8c4d419d0cf863948d0ea6b",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_0_run_l_f1@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        8,
+        3,
+        19,
+        12
+      ],
+      "sha256": "20b8dd74df5890106f05fe9092caa0ced9f5e53023710ac24265531e9ea419f3",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_0_run_l_f2.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        48,
+        11,
+        103,
+        47
+      ],
+      "sha256": "329481edcdfa2e08f958241eccdce147dc506c1d5e583d4991640cbdbb9a1cd4",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_0_run_l_f2@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        11,
+        3,
+        24,
+        12
+      ],
+      "sha256": "42639d2538f22b5cb64c9d7308894c7ceafad847b67578505f4a1cc9637d3907",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_0_run_l_f3.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        29,
+        15,
+        70,
+        48
+      ],
+      "sha256": "313226ada08cab1cdab9150f1f6fe45e11e18e9ee99ecbcd55bcd221d30e3f5a",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_0_run_l_f3@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        8,
+        3,
+        19,
+        12
+      ],
+      "sha256": "4b64c5ff688e2073c33fa1ecbc777ece9c0a610eaf9a648a90e2d3ba45099483",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_0_rest_l_f0.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        35,
+        15,
+        77,
+        48
+      ],
+      "sha256": "78eba77e2ce78b0f7f0e8af8d579ec6309cd374de701c6cbe605b587a8363c62",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_0_rest_l_f0@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        8,
+        5,
+        19,
+        13
+      ],
+      "sha256": "7ef3a7e2f900fbe0df890f8cc70315979d89936d325eed468854f40a5a15ace1",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_1_graze_r_f0.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        30,
+        10,
+        74,
+        48
+      ],
+      "sha256": "4fe6957bf091dcb3ca56e49087b01770cd35419937b3ad9baea5ca942831d8ec",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_1_graze_r_f0@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        10,
+        1,
+        21,
+        12
+      ],
+      "sha256": "af8504da7db63f81b075cb555c6bb89c396dcba35f159fe68e49fdde617f872c",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_1_graze_r_f1.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        28,
+        19,
+        69,
+        48
+      ],
+      "sha256": "0581c75a1fe6cff66f6a01724a04d9ff8adb26c074da8f88199d70d1e5f3543e",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_1_graze_r_f1@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        10,
+        5,
+        21,
+        12
+      ],
+      "sha256": "58f10ab789424183a668a4bb0ded80d641b347dab8c026cb66f25cf82b49d8ac",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_1_walk_r_f0.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        40,
+        9,
+        86,
+        48
+      ],
+      "sha256": "c78a931af52502a7a1526082b750c715bbb1c4213bc3e5c4538db8ac8add3627",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_1_walk_r_f0@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        10,
+        2,
+        22,
+        12
+      ],
+      "sha256": "308f310bafe4014587b40e82d7c40bfa0f3e30a7797c47e42032fd6e77b56666",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_1_walk_r_f1.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        33,
+        10,
+        79,
+        48
+      ],
+      "sha256": "bb7204a2add231ef823723c0546bb9c87345152b3c759a79e54d3b3dc43f17b6",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_1_walk_r_f1@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        10,
+        3,
+        22,
+        13
+      ],
+      "sha256": "7c7ef0ead69aa121857a0842279f9c838b576aef690cbbb3bc051dfd0e08f992",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_1_walk_r_f2.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        30,
+        10,
+        76,
+        48
+      ],
+      "sha256": "e43bcddd143f873b9aa11f0c3cbb057b2a39b0bc3dbaca80a53a913b5dc4219b",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_1_walk_r_f2@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        9,
+        2,
+        21,
+        12
+      ],
+      "sha256": "9153e58a0c6f657be1603fe887e2d7ae3ca3196a2c544431dc2e6549c18ee24b",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_1_walk_r_f3.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        44,
+        9,
+        90,
+        47
+      ],
+      "sha256": "3ce9a74e1c6f53df81b9da3cb300fcae5fd62c9c99c6af46641ca51d62de62c9",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_1_walk_r_f3@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        10,
+        1,
+        22,
+        12
+      ],
+      "sha256": "3b8ec2b79a028568dc11fd8ce2e8112fea69418a0e301bf795c938e4533b24df",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_1_run_r_f0.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        53,
+        12,
+        104,
+        48
+      ],
+      "sha256": "f4b3db8518b218eb7a347309451c82904dcf9e65f40c6f984494f293afe75a80",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_1_run_r_f0@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        13,
+        2,
+        27,
+        12
+      ],
+      "sha256": "1ee9f5fa354fc2e9237d38a672daf29b6bb3cf6c2da6a532b379222ef763f6d5",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_1_run_r_f1.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        38,
+        12,
+        82,
+        48
+      ],
+      "sha256": "8f8bd761020ed6b73d21ffe31430a4c53264ba263f6edfc31bd3579f7bb2d678",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_1_run_r_f1@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        10,
+        3,
+        21,
+        12
+      ],
+      "sha256": "dc7d985ca056b63f948a97c6eddbebc891a8d859669440c759ad05eafc40c5ce",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_1_run_r_f2.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        12,
+        12,
+        65,
+        48
+      ],
+      "sha256": "ffc8278c5a4ee5556d53cf0d93f11827bafa1ad4d405197971a1664d2fd25527",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_1_run_r_f2@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        3,
+        2,
+        16,
+        11
+      ],
+      "sha256": "5e2aa426064ca7ae17c5a66c8461d61dbd9ed41b8ed149ad2a84ac4dc7da9ecd",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_1_run_r_f3.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        39,
+        17,
+        81,
+        48
+      ],
+      "sha256": "1ffffd89c1223cd6ee51579dc6478fe24bbd583d047a477edcddb01d2a0e5e49",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_1_run_r_f3@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        9,
+        3,
+        21,
+        12
+      ],
+      "sha256": "0a6e1ebf9e2e0aae7f56b7c69bfbd52e790b2aa4a0ff8baed6b787c840e9a348",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_1_rest_r_f0.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        35,
+        15,
+        78,
+        47
+      ],
+      "sha256": "dd1892d25945211c91cbd79780fc227a906ed9d6489f44efd03de490dbe7bca9",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_1_rest_r_f0@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        8,
+        4,
+        19,
+        12
+      ],
+      "sha256": "9351c07419b5f5839ab83f3d8e935769613de61953c787f3cc78d40008689fa8",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_1_graze_l_f0.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        25,
+        9,
+        69,
+        48
+      ],
+      "sha256": "8e7b3aa3b173cb5e9756f251ad641fe13255b64e755fb0bc42bac16250156822",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_1_graze_l_f0@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        9,
+        1,
+        20,
+        12
+      ],
+      "sha256": "915fd5b40c1ae4d089fa8a9b5bc2c3aee7fc9a8b8af7284958e39903c82ada01",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_1_graze_l_f1.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        43,
+        20,
+        86,
+        47
+      ],
+      "sha256": "06ac12ef2ff0eb7fdc7c40d8a8c863a2c4c0d7d4f460ecf8cb11dd233b201875",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_1_graze_l_f1@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        10,
+        5,
+        22,
+        12
+      ],
+      "sha256": "f64e4023bd6db575107c32f4517f2f59ec4a768a499d10b4f425f9f83d28bd21",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_1_walk_l_f0.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        16,
+        9,
+        62,
+        48
+      ],
+      "sha256": "3e088ad7fe8daa98e3469d4100a665158e868a8697a0947bbe8cea25f2916859",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_1_walk_l_f0@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        4,
+        2,
+        16,
+        12
+      ],
+      "sha256": "a8ce21e52376239fe56932c50f0e26f6f36d31707a2ea2081e1ce5fbeb76335d",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_1_walk_l_f1.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        35,
+        8,
+        80,
+        48
+      ],
+      "sha256": "8c658ad552a011fb9d572bd4cafecd1b8cf03fad0345815ffa048f6c3c24c6ef",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_1_walk_l_f1@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        6,
+        3,
+        18,
+        13
+      ],
+      "sha256": "501c6262a9f6c5fbae5707c96ab36396e0447aad4cedc741171c395f09c66269",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_1_walk_l_f2.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        13,
+        8,
+        59,
+        48
+      ],
+      "sha256": "5687c536bc0d8202142fbb425e8255cbd547d96c5e7412f347ea0c72a4c49290",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_1_walk_l_f2@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        6,
+        2,
+        18,
+        12
+      ],
+      "sha256": "3fed59264852894614bf5c6250e2dc3f51da0f1a9a74cb8badfb377c96c90eda",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_1_walk_l_f3.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        24,
+        9,
+        69,
+        48
+      ],
+      "sha256": "dfa2e1d4ce706dfc401aaeabf4d3bf0da0f0ae37e63990ede71828e3407f441a",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_1_walk_l_f3@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        7,
+        2,
+        19,
+        12
+      ],
+      "sha256": "45a891b08a0a6c9e4866d5785b6bfa73d955c343c8dee3d5b130470848163663",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_1_run_l_f0.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        7,
+        13,
+        59,
+        48
+      ],
+      "sha256": "d4fdd087467f86c1fc76491c1ba76fe8bb105cb635a4c0173698d1cbd3555be7",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_1_run_l_f0@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        7,
+        3,
+        19,
+        12
+      ],
+      "sha256": "5158f7022ada97a6bb8d90bdf790032a2d474a4b1942bf0c6c7341af647fa286",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_1_run_l_f1.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        30,
+        14,
+        72,
+        48
+      ],
+      "sha256": "41e2e8dbbd6fa1b565e5b799a412758ff1fae2f8609c1ce375e6d73d218ac277",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_1_run_l_f1@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        12,
+        2,
+        26,
+        12
+      ],
+      "sha256": "29580fd7091b58963d8aaf060c8f077b47829058577187ad82579557582cdc6d",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_1_run_l_f2.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        48,
+        13,
+        100,
+        48
+      ],
+      "sha256": "d8fb63881a2acb2c08eb5b004f19de2fc8c5492ff5658e1a45eaf9b97ba1cc2c",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_1_run_l_f2@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        7,
+        2,
+        18,
+        12
+      ],
+      "sha256": "14a6dd5ebdfbe9a72b32852e83f820acd849a2bea330b556a45d5c4ed93d454d",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_1_run_l_f3.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        33,
+        18,
+        74,
+        48
+      ],
+      "sha256": "82b986b1672b18d5f9013e638a25b40c33562b654827f9864131c453929a279a",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_1_run_l_f3@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        12,
+        3,
+        26,
+        13
+      ],
+      "sha256": "e1cf52912b4c2a1c51e604d7f0f24d1f766bd35df38acec008411b147931e6d9",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "rabbit_1_rest_l_f0.png",
+      "size": [
+        116,
+        56
+      ],
+      "anchor": [
+        56.0,
+        48.0
+      ],
+      "bbox": [
+        35,
+        15,
+        77,
+        48
+      ],
+      "sha256": "a36cfafda373aa81a9822967311c30a9d921397bb33979df44c2a060320bd313",
+      "transparent_crop": [
+        16,
+        24,
+        132,
+        80
+      ]
+    },
+    {
+      "file": "rabbit_1_rest_l_f0@fern.png",
+      "size": [
+        29,
+        14
+      ],
+      "anchor": [
+        14.0,
+        12.0
+      ],
+      "bbox": [
+        8,
+        4,
+        19,
+        12
+      ],
+      "sha256": "0a693bdcde8fd48cb0882a9fc235f1af71d7f87586d963c92b3f598dd778d934",
+      "transparent_crop": [
+        4,
+        6,
+        33,
+        20
+      ]
+    },
+    {
+      "file": "carcass_large_0_rest_l_f0.png",
+      "size": [
+        112,
+        48
+      ],
+      "anchor": [
+        56.0,
+        24.0
+      ],
+      "bbox": [
+        2,
+        5,
+        110,
+        44
+      ],
+      "sha256": "2c006c97b3543fcdcc5cf288a9eb608aa1519da04b5940a821cd9c85b4110c89"
+    },
+    {
+      "file": "carcass_large_0_rest_l_f0@fern.png",
+      "size": [
+        28,
+        12
+      ],
+      "anchor": [
+        14.0,
+        6.0
+      ],
+      "bbox": [
+        5,
+        2,
+        24,
+        11
+      ],
+      "sha256": "5d9022658e020de2dbfd7671044034d7fef19ddd1a33e832389c48bbd0f9797e"
+    },
+    {
+      "file": "carcass_large_0_rest_r_f0.png",
+      "size": [
+        112,
+        48
+      ],
+      "anchor": [
+        56.0,
+        24.0
+      ],
+      "bbox": [
+        2,
+        5,
+        110,
+        42
+      ],
+      "sha256": "115f84c3aa5511f8f5eaad1829d7b85cb7703fa59f711e26a6389ee911f56221"
+    },
+    {
+      "file": "carcass_large_0_rest_r_f0@fern.png",
+      "size": [
+        28,
+        12
+      ],
+      "anchor": [
+        14.0,
+        6.0
+      ],
+      "bbox": [
+        4,
+        2,
+        22,
+        11
+      ],
+      "sha256": "3341c8afa098e2ddf83fd76e73f531cd1208ad99bfadbfcdfc1632e8cda2ca06"
+    },
+    {
+      "file": "carcass_large_1_rest_l_f0.png",
+      "size": [
+        112,
+        48
+      ],
+      "anchor": [
+        56.0,
+        24.0
+      ],
+      "bbox": [
+        2,
+        5,
+        110,
+        43
+      ],
+      "sha256": "34b8fe63a7aef75ba92b84c173392a026f44e4d213cef86f56ffa02cb91661ae"
+    },
+    {
+      "file": "carcass_large_1_rest_l_f0@fern.png",
+      "size": [
+        28,
+        12
+      ],
+      "anchor": [
+        14.0,
+        6.0
+      ],
+      "bbox": [
+        2,
+        1,
+        27,
+        10
+      ],
+      "sha256": "bdd9969314d4972af2e52d6e47c1e69f7877f9090250ef6b2191989d393cf8b1"
+    },
+    {
+      "file": "carcass_large_1_rest_r_f0.png",
+      "size": [
+        112,
+        48
+      ],
+      "anchor": [
+        56.0,
+        24.0
+      ],
+      "bbox": [
+        2,
+        5,
+        110,
+        43
+      ],
+      "sha256": "068b15f1e39dfa6bf839ed082ebea0709bed9f2cbc0d64bfbc17a46cb17ac690"
+    },
+    {
+      "file": "carcass_large_1_rest_r_f0@fern.png",
+      "size": [
+        28,
+        12
+      ],
+      "anchor": [
+        14.0,
+        6.0
+      ],
+      "bbox": [
+        1,
+        1,
+        27,
+        10
+      ],
+      "sha256": "3e01f31694ce0e766ccfad570c7aab8cd3af589e1a251a847d0e7813eece3bbd"
+    },
+    {
+      "file": "carcass_small_0_rest_l_f0.png",
+      "size": [
+        56,
+        24
+      ],
+      "anchor": [
+        28.0,
+        12.0
+      ],
+      "bbox": [
+        1,
+        2,
+        55,
+        21
+      ],
+      "sha256": "6fde2a5ee891edc95ac8aa786452fdc44b04596d5a2723de7aecc51dd3617b50"
+    },
+    {
+      "file": "carcass_small_0_rest_l_f0@fern.png",
+      "size": [
+        14,
+        6
+      ],
+      "anchor": [
+        7.0,
+        3.0
+      ],
+      "bbox": [
+        1,
+        1,
+        12,
+        5
+      ],
+      "sha256": "3a957161c9d9d887f8beeb4652110dd914cb73aa95851504f1d343a31c9c1d96"
+    },
+    {
+      "file": "carcass_small_0_rest_r_f0.png",
+      "size": [
+        56,
+        24
+      ],
+      "anchor": [
+        28.0,
+        12.0
+      ],
+      "bbox": [
+        1,
+        2,
+        55,
+        21
+      ],
+      "sha256": "dbcdbfba566310978b852e39bfa49b7268369e3f1c990796ba587a5f74e51dec"
+    },
+    {
+      "file": "carcass_small_0_rest_r_f0@fern.png",
+      "size": [
+        14,
+        6
+      ],
+      "anchor": [
+        7.0,
+        3.0
+      ],
+      "bbox": [
+        1,
+        1,
+        12,
+        5
+      ],
+      "sha256": "2abe19bdf6e65149bf9862bf068432a941753e63c5c3193e4330d50361bf4a55"
+    },
+    {
+      "file": "carcass_small_1_rest_l_f0.png",
+      "size": [
+        56,
+        24
+      ],
+      "anchor": [
+        28.0,
+        12.0
+      ],
+      "bbox": [
+        2,
+        2,
+        55,
+        22
+      ],
+      "sha256": "bc5d23dfe4b53b925879990a77cd6ad704f88c535100f7c8274b554c3c05e200"
+    },
+    {
+      "file": "carcass_small_1_rest_l_f0@fern.png",
+      "size": [
+        14,
+        6
+      ],
+      "anchor": [
+        7.0,
+        3.0
+      ],
+      "bbox": [
+        2,
+        1,
+        11,
+        5
+      ],
+      "sha256": "717707b02c43a69e6c19c862b5f12d02e0a76f2dd43bb7f5337b7ad51e139f85"
+    },
+    {
+      "file": "carcass_small_1_rest_r_f0.png",
+      "size": [
+        56,
+        24
+      ],
+      "anchor": [
+        28.0,
+        12.0
+      ],
+      "bbox": [
+        1,
+        1,
+        55,
+        22
+      ],
+      "sha256": "eb670f73cf9811948e7c9fe90ac6d6f9cdfde2d01cb974b94f7d1a7849b6bdbd"
+    },
+    {
+      "file": "carcass_small_1_rest_r_f0@fern.png",
+      "size": [
+        14,
+        6
+      ],
+      "anchor": [
+        7.0,
+        3.0
+      ],
+      "bbox": [
+        2,
+        1,
+        11,
+        5
+      ],
+      "sha256": "413c442f6103e4f97856cedb219d7a0b747608c351aeb47ca40ddd340f1240e8"
+    },
+    {
+      "file": "tracks_deer_0.png",
+      "size": [
+        256,
+        128
+      ],
+      "anchor": [
+        128,
+        64
+      ],
+      "bbox": [
+        1,
+        58,
+        255,
+        78
+      ],
+      "sha256": "7235672fc40006d90b1ea591d796e17371b39584c4eeefff7c39e5d6901bab54"
+    },
+    {
+      "file": "tracks_deer_1.png",
+      "size": [
+        256,
+        128
+      ],
+      "anchor": [
+        128,
+        64
+      ],
+      "bbox": [
+        25,
+        11,
+        229,
+        91
+      ],
+      "sha256": "0a59baf573215b2462d748b872d79f623118249cc6079264b1f25fa19b09a929"
+    },
+    {
+      "file": "tracks_deer_2.png",
+      "size": [
+        256,
+        128
+      ],
+      "anchor": [
+        128,
+        64
+      ],
+      "bbox": [
+        63,
+        24,
+        193,
+        105
+      ],
+      "sha256": "f46afe9309bfadf459a7754d63f88ed1e00003d4c2ff5c86795736406f5f8f2b"
+    },
+    {
+      "file": "tracks_deer_3.png",
+      "size": [
+        256,
+        128
+      ],
+      "anchor": [
+        128,
+        64
+      ],
+      "bbox": [
+        29,
+        37,
+        214,
+        119
+      ],
+      "sha256": "b12c03bf8804fb41647ffa383fabe828280af1b72d3a5054c76e98f129c49fef"
+    },
+    {
+      "file": "tracks_wolf_0.png",
+      "size": [
+        256,
+        128
+      ],
+      "anchor": [
+        128,
+        64
+      ],
+      "bbox": [
+        3,
+        58,
+        253,
+        85
+      ],
+      "sha256": "5f2641088aaa3e649e1d7cf4defff8653ff832ce821424ee0e1219763911519a"
+    },
+    {
+      "file": "tracks_wolf_1.png",
+      "size": [
+        256,
+        128
+      ],
+      "anchor": [
+        128,
+        64
+      ],
+      "bbox": [
+        21,
+        9,
+        227,
+        98
+      ],
+      "sha256": "587f6b941811c1fa1e606f502a80f3ae59e33a545fff1ccf39cc624ca036173d"
+    },
+    {
+      "file": "tracks_wolf_2.png",
+      "size": [
+        256,
+        128
+      ],
+      "anchor": [
+        128,
+        64
+      ],
+      "bbox": [
+        37,
+        21,
+        207,
+        112
+      ],
+      "sha256": "0af2bc70638d28c370f0abd8f75966b154e5f9f8849908337a9c72f344693cc6"
+    },
+    {
+      "file": "tracks_wolf_3.png",
+      "size": [
+        256,
+        128
+      ],
+      "anchor": [
+        128,
+        64
+      ],
+      "bbox": [
+        37,
+        35,
+        222,
+        126
+      ],
+      "sha256": "e5f5013bee86c2219100475183eae492a7fab1a36e5fd0cb1e2e0406aec41ea5"
+    },
+    {
+      "file": "tracks_fox_0.png",
+      "size": [
+        256,
+        128
+      ],
+      "anchor": [
+        128,
+        64
+      ],
+      "bbox": [
+        1,
+        61,
+        253,
+        75
+      ],
+      "sha256": "ca8c0657e0919d5a73724a66d22f56d966fb559ae5308dc6237e9ad306b866fd"
+    },
+    {
+      "file": "tracks_fox_1.png",
+      "size": [
+        256,
+        128
+      ],
+      "anchor": [
+        128,
+        64
+      ],
+      "bbox": [
+        31,
+        11,
+        231,
+        89
+      ],
+      "sha256": "b9bdac8f50164ed07aea4f6a03dcb37c45e7fd10920f319a31e9abc0b61f8f8c"
+    },
+    {
+      "file": "tracks_fox_2.png",
+      "size": [
+        256,
+        128
+      ],
+      "anchor": [
+        128,
+        64
+      ],
+      "bbox": [
+        62,
+        25,
+        198,
+        103
+      ],
+      "sha256": "70486495133f04b24ec832f130b7600bd3938b5349bf2a40cf38cc20aff9a5c4"
+    },
+    {
+      "file": "tracks_fox_3.png",
+      "size": [
+        256,
+        128
+      ],
+      "anchor": [
+        128,
+        64
+      ],
+      "bbox": [
+        25,
+        39,
+        219,
+        116
+      ],
+      "sha256": "8aaf0fe7f6ef497a62e87e49e19ea3629734251bddb0cd0884e5bb190b268b41"
+    },
+    {
+      "file": "tracks_rabbit_0.png",
+      "size": [
+        256,
+        128
+      ],
+      "anchor": [
+        128,
+        64
+      ],
+      "bbox": [
+        1,
+        56,
+        255,
+        71
+      ],
+      "sha256": "7fa029504bd23a72673857738ae59e582ca7b4d3f6d7540d45e1d895b7caccae"
+    },
+    {
+      "file": "tracks_rabbit_1.png",
+      "size": [
+        256,
+        128
+      ],
+      "anchor": [
+        128,
+        64
+      ],
+      "bbox": [
+        17,
+        9,
+        220,
+        85
+      ],
+      "sha256": "0aed316aa4c9b8b149a5217e44bf8d9d1b5ba8e26e014efdc3fa5281a2f26af7"
+    },
+    {
+      "file": "tracks_rabbit_2.png",
+      "size": [
+        256,
+        128
+      ],
+      "anchor": [
+        128,
+        64
+      ],
+      "bbox": [
+        59,
+        21,
+        199,
+        99
+      ],
+      "sha256": "22602921ffe034a265788b411d187b0fba1557ce153f619bcf297311ad9b6929"
+    },
+    {
+      "file": "tracks_rabbit_3.png",
+      "size": [
+        256,
+        128
+      ],
+      "anchor": [
+        128,
+        64
+      ],
+      "bbox": [
+        33,
+        35,
+        215,
+        113
+      ],
+      "sha256": "f093c2fd76a6f4ab04fa2983e6b3f6236f6d6d7975d3a3f5c8a16ce11948edf9"
+    }
+  ],
+  "scales": {
+    "deer_0_r": {
+      "near": 0.42592592592592593,
+      "far": 0.11616161616161616
+    },
+    "deer_0_l": {
+      "near": 0.4717948717948718,
+      "far": 0.12189616252821671
+    },
+    "deer_1_r": {
+      "near": 0.4791666666666667,
+      "far": 0.12105263157894737
+    },
+    "deer_1_l": {
+      "near": 0.48677248677248675,
+      "far": 0.12365591397849462
+    },
+    "deer_young_0_r": {
+      "near": 0.3253588516746411,
+      "far": 0.07816091954022988
+    },
+    "deer_young_0_l": {
+      "near": 0.34517766497461927,
+      "far": 0.07780320366132723
+    },
+    "deer_young_1_r": {
+      "near": 0.33497536945812806,
+      "far": 0.08
+    },
+    "deer_young_1_l": {
+      "near": 0.3383084577114428,
+      "far": 0.06601941747572816
+    },
+    "wolf_0_r": {
+      "near": 0.44052863436123346,
+      "far": 0.10964912280701754
+    },
+    "wolf_0_l": {
+      "near": 0.45871559633027525,
+      "far": 0.11086474501108648
+    },
+    "wolf_1_r": {
+      "near": 0.42016806722689076,
+      "far": 0.10989010989010989
+    },
+    "wolf_1_l": {
+      "near": 0.4424778761061947,
+      "far": 0.10845986984815618
+    },
+    "fox_0_r": {
+      "near": 0.34334763948497854,
+      "far": 0.08097165991902834
+    },
+    "fox_0_l": {
+      "near": 0.3463203463203463,
+      "far": 0.08333333333333333
+    },
+    "fox_1_r": {
+      "near": 0.35555555555555557,
+      "far": 0.09216589861751152
+    },
+    "fox_1_l": {
+      "near": 0.36666666666666664,
+      "far": 0.08899297423887588
+    },
+    "rabbit_0_r": {
+      "near": 0.20754716981132076,
+      "far": 0.05555555555555555
+    },
+    "rabbit_0_l": {
+      "near": 0.22,
+      "far": 0.05555555555555555
+    },
+    "rabbit_1_r": {
+      "near": 0.22110552763819097,
+      "far": 0.05314009661835749
+    },
+    "rabbit_1_l": {
+      "near": 0.22110552763819097,
+      "far": 0.05392156862745098
+    }
+  },
+  "mirrored": false,
+  "visual_approval": "pending"
+}

@@ -1,0 +1,142 @@
+{
+  "base_commit": "7d9dcc5",
+  "sources": [
+    {
+      "id": "deer-0-far",
+      "file": "sources/deer-0-far.png",
+      "sha256": "7cd309a795397ff5681b746af04dccacb227817f27a3a67014c9115cded51fa5"
+    },
+    {
+      "id": "deer-0-near",
+      "file": "sources/deer-0-near.png",
+      "sha256": "4eb078bc3965fc6a3e97d730700b560080b4547e0a16b86a32ff04763725fac2"
+    },
+    {
+      "id": "deer-1-far",
+      "file": "sources/deer-1-far.png",
+      "sha256": "3a231550c14f3bc01330679a17810fd178a865cbf43a45d0c9ce0f7b7931a086"
+    },
+    {
+      "id": "deer-1-near",
+      "file": "sources/deer-1-near.png",
+      "sha256": "ab7dcae3e46675838a73e70acd385cc42a52b52092f1b542963c8bfa8981376a"
+    },
+    {
+      "id": "deer_young-0-far",
+      "file": "sources/deer_young-0-far.png",
+      "sha256": "626ceafaf58d3339387d398462f4e6f4a983dd11cc8d2ea32c5cdb6fe5d44e06"
+    },
+    {
+      "id": "deer_young-0-near",
+      "file": "sources/deer_young-0-near.png",
+      "sha256": "1b75ad5a1ce77c067a76b9d1e9b964fbcaa17216471b90d1ba64fbde7fa87ee1"
+    },
+    {
+      "id": "deer_young-1-far",
+      "file": "sources/deer_young-1-far.png",
+      "sha256": "ead07f1ea592d971f43150e8f9c4b4a5a7c9bfbf584c342203b84793237f3f64"
+    },
+    {
+      "id": "deer_young-1-near",
+      "file": "sources/deer_young-1-near.png",
+      "sha256": "3812353ffed48430689f6b37042eeb78577fd44cdab62e6ea72fb7b6c50a4f5e"
+    },
+    {
+      "id": "fox-0-far",
+      "file": "sources/fox-0-far.png",
+      "sha256": "8c9cc0c4dbcb7c53c1d14b8a00f7817d01538ba2c24101812d6b96f1e9614ebb"
+    },
+    {
+      "id": "fox-0-near",
+      "file": "sources/fox-0-near.png",
+      "sha256": "894506330c6e1c9ccde56a8867ceead42d26858b7776905a0820da8154c9f735"
+    },
+    {
+      "id": "fox-1-far",
+      "file": "sources/fox-1-far.png",
+      "sha256": "6a0756a91f37764650a10f5f02b014476ae4a45268f83462ac118aab41673e09"
+    },
+    {
+      "id": "fox-1-near",
+      "file": "sources/fox-1-near.png",
+      "sha256": "34635b3c2fb451730f360e2d8abf5698745eca11d7aaa5286c7d3e6507df41f1"
+    },
+    {
+      "id": "rabbit-0-far",
+      "file": "sources/rabbit-0-far.png",
+      "sha256": "fee1f16c9ad975623dd4ff8ba438ed87bcc183897b06d1ae8a9ffd47565beec3"
+    },
+    {
+      "id": "rabbit-0-near",
+      "file": "sources/rabbit-0-near.png",
+      "sha256": "291c77ccf8f1abae0909848e3744d0ccd8ae7951b070c6e0dc23a9e866ea214f"
+    },
+    {
+      "id": "rabbit-1-far",
+      "file": "sources/rabbit-1-far.png",
+      "sha256": "6df8caed5f3ea6fc4058f47253e6f1a809734a6b6ca9a36aca10929cc450ca07"
+    },
+    {
+      "id": "rabbit-1-near",
+      "file": "sources/rabbit-1-near.png",
+      "sha256": "b026c0e77b5362d59ca5b41950885eb5a751c7124880b77b20e9d6364b83f5dd"
+    },
+    {
+      "id": "remains-far",
+      "file": "sources/remains-far.png",
+      "sha256": "18648cda2b624da2293fa951f31aec0f166e5bf2d1e312c749ddb573c683c20c"
+    },
+    {
+      "id": "remains-near",
+      "file": "sources/remains-near.png",
+      "sha256": "f9af450aa5d6d3c4dc324414aeef6458dea04d53bc7b67cbbf1f2346d07c5b09"
+    },
+    {
+      "id": "tracks",
+      "file": "sources/tracks.png",
+      "sha256": "6cabe165cb624a1b33178743baba92c50b57b1c0b58e8505e7a42addb0e9c5d0"
+    },
+    {
+      "id": "wolf-0-far",
+      "file": "sources/wolf-0-far.png",
+      "sha256": "283509551624db04bcd3ff44c6f706825980252e8e00d9185a67d1cb868ea81d"
+    },
+    {
+      "id": "wolf-0-near",
+      "file": "sources/wolf-0-near.png",
+      "sha256": "7508bebf836cdc7a689221d807ed66f46257a2aa03f88771d254ac75f4f79bb2"
+    },
+    {
+      "id": "wolf-1-far",
+      "file": "sources/wolf-1-far.png",
+      "sha256": "e3a2484820705b311e4cb4ac3d916bf1970d81e0ed07acf4e5778099e50f4538"
+    },
+    {
+      "id": "wolf-1-near",
+      "file": "sources/wolf-1-near.png",
+      "sha256": "94e01e005898966d06d042c8edf550e8561e33b4574b04c4b6f92d4d7a2a59dd"
+    }
+  ],
+  "target_visible_widths": {
+    "deer_0_r": 11.5,
+    "deer_0_l": 11.5,
+    "deer_1_r": 11.5,
+    "deer_1_l": 11.5,
+    "deer_young_0_r": 8.5,
+    "deer_young_0_l": 8.5,
+    "deer_young_1_r": 8.5,
+    "deer_young_1_l": 8.5,
+    "wolf_0_r": 12.5,
+    "wolf_0_l": 12.5,
+    "wolf_1_r": 12.5,
+    "wolf_1_l": 12.5,
+    "fox_0_r": 10.0,
+    "fox_0_l": 10.0,
+    "fox_1_r": 10.0,
+    "fox_1_l": 10.0,
+    "rabbit_0_r": 5.5,
+    "rabbit_0_l": 5.5,
+    "rabbit_1_r": 5.5,
+    "rabbit_1_l": 5.5
+  }
+}

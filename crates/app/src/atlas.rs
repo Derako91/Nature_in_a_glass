@@ -947,6 +947,89 @@ mod tests {
         }
     }
 
+    /// Vollständige Tierzyklen dürfen keine alte Ersatzphase oder die falsche
+    /// Detailstufe verwenden; alle LODs bleiben am selben Weltfußpunkt.
+    #[test]
+    fn embedded_animals_style_b_complete_and_far_levels() {
+        let images = embedded::IMAGES
+            .iter()
+            .filter(|(_, group, _)| *group == "animals")
+            .map(|(name, group, bytes)| {
+                let (w, h, px) = decode(bytes).expect("Tier-PNG lesbar");
+                RawImage {
+                    name: name.to_string(),
+                    group: group.to_string(),
+                    w,
+                    h,
+                    px,
+                }
+            })
+            .collect();
+        let data = AtlasData::build(images, parse_manifests(embedded::MANIFESTS.iter().copied()));
+        for id in [
+            "deer",
+            "deer_young",
+            "wolf",
+            "fox",
+            "rabbit",
+            "carcass_large",
+            "carcass_small",
+        ] {
+            for variant in 0..2 {
+                for direction in ["l", "r"] {
+                    let states: &[(&str, u32)] = if id.starts_with("carcass") {
+                        &[("rest", 1)]
+                    } else {
+                        &[("graze", 2), ("walk", 4), ("run", 4), ("rest", 1)]
+                    };
+                    for &(state, frames) in states {
+                        for frame in 0..frames {
+                            let name = format!("{id}_{variant}_{state}_{direction}_f{frame}");
+                            let reference = if id.starts_with("carcass") {
+                                name.clone()
+                            } else {
+                                format!("{id}_{variant}_graze_{direction}_f0")
+                            };
+                            let main = data.get(&name).expect("Jede Phase vorhanden");
+                            let width = data.display_size(&reference).expect("Weltmaß vorhanden").x;
+                            for zoom in [4.0f32, 8.0, 16.0, 32.0] {
+                                let screen = zoom / 4.0;
+                                let picked = data
+                                    .pick(&name, &reference, width, screen)
+                                    .expect("Detailstufe vorhanden");
+                                assert_eq!(
+                                    data.levels(&name)[picked.level].label == "@fern",
+                                    zoom <= 8.0,
+                                    "{name}, Zoom {zoom}"
+                                );
+                                let scale = width * screen / main.size.x;
+                                assert!(
+                                    (picked.entry.anchor * picked.px - main.anchor * scale)
+                                        .length()
+                                        < 1e-4,
+                                    "Fußpunkt {name}"
+                                );
+                                assert!(
+                                    (picked.entry.size * picked.px - main.size * scale).length()
+                                        < 1e-4,
+                                    "Leinwandmaß {name}"
+                                );
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        for id in ["tracks_deer", "tracks_wolf", "tracks_fox", "tracks_rabbit"] {
+            for variant in 0..4 {
+                assert!(
+                    data.get(&format!("{id}_{variant}")).is_some(),
+                    "Spurenvariante fehlt"
+                );
+            }
+        }
+    }
+
     /// Alle eingebauten Bilder: Der Atlas passt in eine Textur, die jede
     /// Grafikkarte kann, und jedes Tier und jeder Mensch erscheint bei jedem
     /// Zoom in seiner Darstellungsbreite.

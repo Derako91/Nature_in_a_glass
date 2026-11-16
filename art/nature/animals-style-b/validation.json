@@ -1,0 +1,172 @@
+{
+  "status": "passed",
+  "png_files": 472,
+  "live_near": 220,
+  "live_far": 220,
+  "carcasses_near_and_far": 16,
+  "tracks": 16,
+  "unchanged_other_pngs": 755,
+  "all_manifest_files_present": true,
+  "all_phases_distinct": true,
+  "fixed_scale_per_species_variant_direction": true,
+  "identical_world_anchor_across_levels": true,
+  "visible_reference_widths": [
+    {
+      "file": "deer_0_graze_l_f0",
+      "target": 11.5,
+      "near": 11.375,
+      "far": 11.0
+    },
+    {
+      "file": "deer_0_graze_r_f0",
+      "target": 11.5,
+      "near": 11.375,
+      "far": 11.5
+    },
+    {
+      "file": "deer_1_graze_l_f0",
+      "target": 11.5,
+      "near": 11.5,
+      "far": 11.5
+    },
+    {
+      "file": "deer_1_graze_r_f0",
+      "target": 11.5,
+      "near": 11.375,
+      "far": 11.5
+    },
+    {
+      "file": "deer_young_0_graze_l_f0",
+      "target": 8.5,
+      "near": 8.5,
+      "far": 7.0
+    },
+    {
+      "file": "deer_young_0_graze_r_f0",
+      "target": 8.5,
+      "near": 8.625,
+      "far": 7.5
+    },
+    {
+      "file": "deer_young_1_graze_l_f0",
+      "target": 8.5,
+      "near": 8.5,
+      "far": 7.0
+    },
+    {
+      "file": "deer_young_1_graze_r_f0",
+      "target": 8.5,
+      "near": 8.5,
+      "far": 8.5
+    },
+    {
+      "file": "wolf_0_graze_l_f0",
+      "target": 12.5,
+      "near": 12.375,
+      "far": 11.5
+    },
+    {
+      "file": "wolf_0_graze_r_f0",
+      "target": 12.5,
+      "near": 12.375,
+      "far": 11.0
+    },
+    {
+      "file": "wolf_1_graze_l_f0",
+      "target": 12.5,
+      "near": 12.5,
+      "far": 12.5
+    },
+    {
+      "file": "wolf_1_graze_r_f0",
+      "target": 12.5,
+      "near": 12.375,
+      "far": 12.0
+    },
+    {
+      "file": "fox_0_graze_l_f0",
+      "target": 10.0,
+      "near": 9.875,
+      "far": 9.5
+    },
+    {
+      "file": "fox_0_graze_r_f0",
+      "target": 10.0,
+      "near": 10.0,
+      "far": 10.5
+    },
+    {
+      "file": "fox_1_graze_l_f0",
+      "target": 10.0,
+      "near": 10.0,
+      "far": 9.5
+    },
+    {
+      "file": "fox_1_graze_r_f0",
+      "target": 10.0,
+      "near": 10.125,
+      "far": 10.0
+    },
+    {
+      "file": "rabbit_0_graze_l_f0",
+      "target": 5.5,
+      "near": 5.5,
+      "far": 5.5
+    },
+    {
+      "file": "rabbit_0_graze_r_f0",
+      "target": 5.5,
+      "near": 5.375,
+      "far": 5.5
+    },
+    {
+      "file": "rabbit_1_graze_l_f0",
+      "target": 5.5,
+      "near": 5.5,
+      "far": 5.5
+    },
+    {
+      "file": "rabbit_1_graze_r_f0",
+      "target": 5.5,
+      "near": 5.5,
+      "far": 5.5
+    }
+  ],
+  "visual_approval": "pending",
+  "rare_states_game_review": "not_all_naturally_exercised",
+  "rust_tests_passed": 91,
+  "python_tests_passed": 15,
+  "format": "passed",
+  "clippy": "passed",
+  "release_build": "passed",
+  "repeated_export_byte_identical": true,
+  "embedded_animal_lod_and_phase_test": "passed_all_228_bases_zoom4_8_16_32",
+  "embedded_atlas_limit": "passed_8192px",
+  "game_review": {
+    "seed": 2024,
+    "years": 10,
+    "release": [
+      "hirsche",
+      "kaninchen",
+      "woelfe",
+      "fuechse"
+    ],
+    "release_at": [
+      47,
+      47
+    ],
+    "select": [
+      47,
+      47
+    ],
+    "speed": 0,
+    "zoom": [
+      4,
+      8,
+      32
+    ],
+    "embedded_assets": true,
+    "capture": "paused_after_first_render",
+    "live_clip_days_after_release": 1
+  }
+}

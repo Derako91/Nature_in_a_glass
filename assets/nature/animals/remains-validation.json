@@ -2,165 +2,577 @@
   {
     "file": "carcass_large_0_rest_l_f0.png",
     "size": [
-      9,
-      4
+      112,
+      48
     ],
-    "colors": 4,
-    "alpha": [
-      0,
-      77,
-      255
+    "anchor": [
+      56.0,
+      24.0
     ],
-    "srgb": true
+    "bbox": [
+      2,
+      5,
+      110,
+      44
+    ],
+    "sha256": "2c006c97b3543fcdcc5cf288a9eb608aa1519da04b5940a821cd9c85b4110c89"
+  },
+  {
+    "file": "carcass_large_0_rest_l_f0@fern.png",
+    "size": [
+      28,
+      12
+    ],
+    "anchor": [
+      14.0,
+      6.0
+    ],
+    "bbox": [
+      5,
+      2,
+      24,
+      11
+    ],
+    "sha256": "5d9022658e020de2dbfd7671044034d7fef19ddd1a33e832389c48bbd0f9797e"
   },
   {
     "file": "carcass_large_0_rest_r_f0.png",
     "size": [
-      9,
-      4
+      112,
+      48
     ],
-    "colors": 4,
-    "alpha": [
-      0,
-      77,
-      255
+    "anchor": [
+      56.0,
+      24.0
     ],
-    "srgb": true
+    "bbox": [
+      2,
+      5,
+      110,
+      42
+    ],
+    "sha256": "115f84c3aa5511f8f5eaad1829d7b85cb7703fa59f711e26a6389ee911f56221"
+  },
+  {
+    "file": "carcass_large_0_rest_r_f0@fern.png",
+    "size": [
+      28,
+      12
+    ],
+    "anchor": [
+      14.0,
+      6.0
+    ],
+    "bbox": [
+      4,
+      2,
+      22,
+      11
+    ],
+    "sha256": "3341c8afa098e2ddf83fd76e73f531cd1208ad99bfadbfcdfc1632e8cda2ca06"
   },
   {
     "file": "carcass_large_1_rest_l_f0.png",
     "size": [
-      9,
-      4
+      112,
+      48
     ],
-    "colors": 4,
-    "alpha": [
-      0,
-      77,
-      255
+    "anchor": [
+      56.0,
+      24.0
     ],
-    "srgb": true
+    "bbox": [
+      2,
+      5,
+      110,
+      43
+    ],
+    "sha256": "34b8fe63a7aef75ba92b84c173392a026f44e4d213cef86f56ffa02cb91661ae"
+  },
+  {
+    "file": "carcass_large_1_rest_l_f0@fern.png",
+    "size": [
+      28,
+      12
+    ],
+    "anchor": [
+      14.0,
+      6.0
+    ],
+    "bbox": [
+      2,
+      1,
+      27,
+      10
+    ],
+    "sha256": "bdd9969314d4972af2e52d6e47c1e69f7877f9090250ef6b2191989d393cf8b1"
   },
   {
     "file": "carcass_large_1_rest_r_f0.png",
     "size": [
-      9,
-      4
+      112,
+      48
     ],
-    "colors": 4,
-    "alpha": [
-      0,
-      77,
-      255
+    "anchor": [
+      56.0,
+      24.0
     ],
-    "srgb": true
+    "bbox": [
+      2,
+      5,
+      110,
+      43
+    ],
+    "sha256": "068b15f1e39dfa6bf839ed082ebea0709bed9f2cbc0d64bfbc17a46cb17ac690"
+  },
+  {
+    "file": "carcass_large_1_rest_r_f0@fern.png",
+    "size": [
+      28,
+      12
+    ],
+    "anchor": [
+      14.0,
+      6.0
+    ],
+    "bbox": [
+      1,
+      1,
+      27,
+      10
+    ],
+    "sha256": "3e01f31694ce0e766ccfad570c7aab8cd3af589e1a251a847d0e7813eece3bbd"
   },
   {
     "file": "carcass_small_0_rest_l_f0.png",
     "size": [
-      4,
-      2
+      56,
+      24
     ],
-    "colors": 4,
-    "alpha": [
-      0,
-      77,
-      255
+    "anchor": [
+      28.0,
+      12.0
     ],
-    "srgb": true
+    "bbox": [
+      1,
+      2,
+      55,
+      21
+    ],
+    "sha256": "6fde2a5ee891edc95ac8aa786452fdc44b04596d5a2723de7aecc51dd3617b50"
+  },
+  {
+    "file": "carcass_small_0_rest_l_f0@fern.png",
+    "size": [
+      14,
+      6
+    ],
+    "anchor": [
+      7.0,
+      3.0
+    ],
+    "bbox": [
+      1,
+      1,
+      12,
+      5
+    ],
+    "sha256": "3a957161c9d9d887f8beeb4652110dd914cb73aa95851504f1d343a31c9c1d96"
   },
   {
     "file": "carcass_small_0_rest_r_f0.png",
     "size": [
-      4,
-      2
+      56,
+      24
     ],
-    "colors": 4,
-    "alpha": [
-      0,
-      77,
-      255
+    "anchor": [
+      28.0,
+      12.0
     ],
-    "srgb": true
+    "bbox": [
+      1,
+      2,
+      55,
+      21
+    ],
+    "sha256": "dbcdbfba566310978b852e39bfa49b7268369e3f1c990796ba587a5f74e51dec"
+  },
+  {
+    "file": "carcass_small_0_rest_r_f0@fern.png",
+    "size": [
+      14,
+      6
+    ],
+    "anchor": [
+      7.0,
+      3.0
+    ],
+    "bbox": [
+      1,
+      1,
+      12,
+      5
+    ],
+    "sha256": "2abe19bdf6e65149bf9862bf068432a941753e63c5c3193e4330d50361bf4a55"
   },
   {
     "file": "carcass_small_1_rest_l_f0.png",
     "size": [
-      4,
-      2
+      56,
+      24
     ],
-    "colors": 4,
-    "alpha": [
-      0,
-      77,
-      255
+    "anchor": [
+      28.0,
+      12.0
     ],
-    "srgb": true
+    "bbox": [
+      2,
+      2,
+      55,
+      22
+    ],
+    "sha256": "bc5d23dfe4b53b925879990a77cd6ad704f88c535100f7c8274b554c3c05e200"
+  },
+  {
+    "file": "carcass_small_1_rest_l_f0@fern.png",
+    "size": [
+      14,
+      6
+    ],
+    "anchor": [
+      7.0,
+      3.0
+    ],
+    "bbox": [
+      2,
+      1,
+      11,
+      5
+    ],
+    "sha256": "717707b02c43a69e6c19c862b5f12d02e0a76f2dd43bb7f5337b7ad51e139f85"
   },
   {
     "file": "carcass_small_1_rest_r_f0.png",
     "size": [
-      4,
-      2
+      56,
+      24
     ],
-    "colors": 4,
-    "alpha": [
-      0,
-      77,
-      255
+    "anchor": [
+      28.0,
+      12.0
     ],
-    "srgb": true
+    "bbox": [
+      1,
+      1,
+      55,
+      22
+    ],
+    "sha256": "eb670f73cf9811948e7c9fe90ac6d6f9cdfde2d01cb974b94f7d1a7849b6bdbd"
   },
   {
-    "file": "tracks_deer.png",
+    "file": "carcass_small_1_rest_r_f0@fern.png",
     "size": [
-      64,
-      32
+      14,
+      6
     ],
-    "colors": 3,
-    "alpha": [
-      0,
-      255
+    "anchor": [
+      7.0,
+      3.0
     ],
-    "srgb": true
+    "bbox": [
+      2,
+      1,
+      11,
+      5
+    ],
+    "sha256": "413c442f6103e4f97856cedb219d7a0b747608c351aeb47ca40ddd340f1240e8"
   },
   {
-    "file": "tracks_wolf.png",
+    "file": "tracks_deer_0.png",
     "size": [
-      64,
-      32
+      256,
+      128
     ],
-    "colors": 2,
-    "alpha": [
-      0,
-      255
+    "anchor": [
+      128,
+      64
     ],
-    "srgb": true
+    "bbox": [
+      1,
+      58,
+      255,
+      78
+    ],
+    "sha256": "7235672fc40006d90b1ea591d796e17371b39584c4eeefff7c39e5d6901bab54"
   },
   {
-    "file": "tracks_fox.png",
+    "file": "tracks_deer_1.png",
     "size": [
-      64,
-      32
+      256,
+      128
     ],
-    "colors": 2,
-    "alpha": [
-      0,
-      255
+    "anchor": [
+      128,
+      64
     ],
-    "srgb": true
+    "bbox": [
+      25,
+      11,
+      229,
+      91
+    ],
+    "sha256": "0a59baf573215b2462d748b872d79f623118249cc6079264b1f25fa19b09a929"
   },
   {
-    "file": "tracks_rabbit.png",
+    "file": "tracks_deer_2.png",
     "size": [
-      64,
-      32
+      256,
+      128
     ],
-    "colors": 3,
-    "alpha": [
-      0,
-      255
+    "anchor": [
+      128,
+      64
     ],
-    "srgb": true
+    "bbox": [
+      63,
+      24,
+      193,
+      105
+    ],
+    "sha256": "f46afe9309bfadf459a7754d63f88ed1e00003d4c2ff5c86795736406f5f8f2b"
+  },
+  {
+    "file": "tracks_deer_3.png",
+    "size": [
+      256,
+      128
+    ],
+    "anchor": [
+      128,
+      64
+    ],
+    "bbox": [
+      29,
+      37,
+      214,
+      119
+    ],
+    "sha256": "b12c03bf8804fb41647ffa383fabe828280af1b72d3a5054c76e98f129c49fef"
+  },
+  {
+    "file": "tracks_wolf_0.png",
+    "size": [
+      256,
+      128
+    ],
+    "anchor": [
+      128,
+      64
+    ],
+    "bbox": [
+      3,
+      58,
+      253,
+      85
+    ],
+    "sha256": "5f2641088aaa3e649e1d7cf4defff8653ff832ce821424ee0e1219763911519a"
+  },
+  {
+    "file": "tracks_wolf_1.png",
+    "size": [
+      256,
+      128
+    ],
+    "anchor": [
+      128,
+      64
+    ],
+    "bbox": [
+      21,
+      9,
+      227,
+      98
+    ],
+    "sha256": "587f6b941811c1fa1e606f502a80f3ae59e33a545fff1ccf39cc624ca036173d"
+  },
+  {
+    "file": "tracks_wolf_2.png",
+    "size": [
+      256,
+      128
+    ],
+    "anchor": [
+      128,
+      64
+    ],
+    "bbox": [
+      37,
+      21,
+      207,
+      112
+    ],
+    "sha256": "0af2bc70638d28c370f0abd8f75966b154e5f9f8849908337a9c72f344693cc6"
+  },
+  {
+    "file": "tracks_wolf_3.png",
+    "size": [
+      256,
+      128
+    ],
+    "anchor": [
+      128,
+      64
+    ],
+    "bbox": [
+      37,
+      35,
+      222,
+      126
+    ],
+    "sha256": "e5f5013bee86c2219100475183eae492a7fab1a36e5fd0cb1e2e0406aec41ea5"
+  },
+  {
+    "file": "tracks_fox_0.png",
+    "size": [
+      256,
+      128
+    ],
+    "anchor": [
+      128,
+      64
+    ],
+    "bbox": [
+      1,
+      61,
+      253,
+      75
+    ],
+    "sha256": "ca8c0657e0919d5a73724a66d22f56d966fb559ae5308dc6237e9ad306b866fd"
+  },
+  {
+    "file": "tracks_fox_1.png",
+    "size": [
+      256,
+      128
+    ],
+    "anchor": [
+      128,
+      64
+    ],
+    "bbox": [
+      31,
+      11,
+      231,
+      89
+    ],
+    "sha256": "b9bdac8f50164ed07aea4f6a03dcb37c45e7fd10920f319a31e9abc0b61f8f8c"
+  },
+  {
+    "file": "tracks_fox_2.png",
+    "size": [
+      256,
+      128
+    ],
+    "anchor": [
+      128,
+      64
+    ],
+    "bbox": [
+      62,
+      25,
+      198,
+      103
+    ],
+    "sha256": "70486495133f04b24ec832f130b7600bd3938b5349bf2a40cf38cc20aff9a5c4"
+  },
+  {
+    "file": "tracks_fox_3.png",
+    "size": [
+      256,
+      128
+    ],
+    "anchor": [
+      128,
+      64
+    ],
+    "bbox": [
+      25,
+      39,
+      219,
+      116
+    ],
+    "sha256": "8aaf0fe7f6ef497a62e87e49e19ea3629734251bddb0cd0884e5bb190b268b41"
+  },
+  {
+    "file": "tracks_rabbit_0.png",
+    "size": [
+      256,
+      128
+    ],
+    "anchor": [
+      128,
+      64
+    ],
+    "bbox": [
+      1,
+      56,
+      255,
+      71
+    ],
+    "sha256": "7fa029504bd23a72673857738ae59e582ca7b4d3f6d7540d45e1d895b7caccae"
+  },
+  {
+    "file": "tracks_rabbit_1.png",
+    "size": [
+      256,
+      128
+    ],
+    "anchor": [
+      128,
+      64
+    ],
+    "bbox": [
+      17,
+      9,
+      220,
+      85
+    ],
+    "sha256": "0aed316aa4c9b8b149a5217e44bf8d9d1b5ba8e26e014efdc3fa5281a2f26af7"
+  },
+  {
+    "file": "tracks_rabbit_2.png",
+    "size": [
+      256,
+      128
+    ],
+    "anchor": [
+      128,
+      64
+    ],
+    "bbox": [
+      59,
+      21,
+      199,
+      99
+    ],
+    "sha256": "22602921ffe034a265788b411d187b0fba1557ce153f619bcf297311ad9b6929"
+  },
+  {
+    "file": "tracks_rabbit_3.png",
+    "size": [
+      256,
+      128
+    ],
+    "anchor": [
+      128,
+      64
+    ],
+    "bbox": [
+      33,
+      35,
+      215,
+      113
+    ],
+    "sha256": "f093c2fd76a6f4ab04fa2983e6b3f6236f6d6d7975d3a3f5c8a16ce11948edf9"
   }
 ]
