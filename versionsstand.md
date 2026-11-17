@@ -1,6 +1,6 @@
 # Versionsstand – Nature_in_a_glass
 
-> **Stand:** 17.11.2026 · **Version:** Basis 0.21.0 · **Branch:** `codex/observer-hud-chart-style` (Basis `53d5d51`)
+> **Stand:** 17.11.2026 · **Version:** 0.21.1 (HUD im Seekartenstil) · **Branch:** `main`
 
 ## Auf einen Blick
 

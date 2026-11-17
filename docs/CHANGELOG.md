@@ -1,5 +1,13 @@
 # Änderungen
 
+## 0.21.1 – Oberfläche im Seekartenstil
+
+**Gestaltung** (Codex, PR #28)
+- Das ganze Beobachterfenster bekommt den Stil der Inselnamen: dunkles Blaugrün, warme Schrift, Messingtöne, kursive Überschriften.
+- Zahlen stehen in festen Spalten mit gleichbreiter Schrift; nichts verrutscht, wenn sich Werte ändern.
+- Kompaktere rechte Spalte: Auch mit acht Quellen bleibt Platz für die Chronik. Bewohner-Fenster mit festen Zeilen.
+- Bedienung und Funktionen unverändert.
+
 ## 0.21.0 – Das Boot kommt
 
 **Neu**
