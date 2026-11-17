@@ -792,6 +792,18 @@ Für die HUD-Überarbeitung durch Codex – Funktionen bleiben, die Optik ist fr
 - **Statuszeile unten:** „Das Boot ist gelandet – die ersten Menschen gehen an Land.“; die Kamera springt zum Landeplatz.
 - Code: `crates/app/src/main.rs`, `top_bar` und `boat_countdown`.
 
+**Codex-HUD-Draft (17.11.2026), Basis v0.21.0:** Branch
+`codex/observer-hud-chart-style`, [Prüfpaket](../art/nature/observer-hud/README.md).
+Seekartenschrift für Überschriften, warme Schrift auf dunklem Blaugrün,
+Messingakzente, schmale Knopfränder und gleichmäßige Abstände. Leiste 66 px,
+Status 26 px, Spalte 400 px und Bootszähler 190 px bleiben fest. Datenwerte
+stehen in festen Monospace-Spalten. Bewohner-Fenster 760×400 mit reservierten
+Metadatenzeilen und vollständigen Tooltips für lange Angaben. Verlauf 80 px;
+auch acht Quellen lassen Platz für die Chronik. Bestehende Bedienung und
+Bootslogik unverändert. Native Prüfstände einschließlich Sprung/Landung,
+Ankunftshaken, Kind/Erwachsener/Verstorbene und Pausenruhe dokumentiert.
+Visuelle Abnahme offen.
+
 ## 17. Menschen (v0.6) – Vorgaben für die ersten Bewohner
 
 Stand 18.10.2026. Die Simulation der Menschen ist noch nicht gebaut (`docs/ROADMAP.md`, v0.6: zunächst fünf Menschen mit Bewegung, Nahrungssuche, Durst, Müdigkeit, Ruhe; Verletzung und Tod). Dieser Abschnitt legt fest, was gezeichnet wird, damit Codex vorarbeiten kann. Ändert sich beim Bau der Simulation etwas an der Schnittstelle, wird er im selben Schritt angepasst.
