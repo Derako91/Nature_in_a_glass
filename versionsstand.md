@@ -1,6 +1,6 @@
 # Versionsstand – Nature_in_a_glass
 
-> **Stand:** 17.11.2026 · **Version:** 0.21.1 (HUD im Seekartenstil) · **Branch:** `main`
+> **Stand:** 17.11.2026 · **Version:** 0.22.0 (Einbaum und Jäger: Schnittstelle) · **Branch:** `main`
 
 ## Auf einen Blick
 

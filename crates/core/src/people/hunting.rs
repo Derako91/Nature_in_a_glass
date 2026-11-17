@@ -33,6 +33,9 @@ pub(super) fn hunting_day(
     news: &mut Vec<PeopleNews>,
 ) {
     let n = people.list.len();
+    for p in &mut people.list {
+        p.hunting_today = false;
+    }
     let mut done = vec![false; n];
     let ready = |p: &super::Person| {
         !p.is_child()
@@ -74,6 +77,7 @@ pub(super) fn hunting_day(
             for &j in &hunters {
                 done[j] = true;
                 let p = &mut people.list[j];
+                p.hunting_today = true;
                 p.hunting = (p.hunting + 0.01 * (1.0 - p.hunting)).min(1.0);
                 p.hunger = clamp01(p.hunger + 0.005);
             }
@@ -126,6 +130,17 @@ pub(super) fn hunting_day(
                     species: Species::Deer,
                     days_left: 10,
                     meat: (meat / 2.0).min(4.0),
+                    hunted: true,
+                });
+            } else {
+                // Nichts bleibt übrig: Man sieht den erlegten Hirsch nur noch
+                // kurz liegen (ohne Fleisch, für Tiere uninteressant).
+                animals.carcasses.push(Carcass {
+                    tile: deer.tile,
+                    species: Species::Deer,
+                    days_left: 2,
+                    meat: 0.0,
+                    hunted: true,
                 });
             }
             let names: Vec<String> = hunters
@@ -160,6 +175,7 @@ pub(super) fn hunting_day(
         if animals.rabbits.get(i).copied().unwrap_or(0.0) >= RABBITS_MIN {
             done[k] = true;
             let p = &mut people.list[k];
+            p.hunting_today = true;
             let chance = 0.08 * (0.5 + p.hunting);
             p.hunting = (p.hunting + 0.005 * (1.0 - p.hunting)).min(1.0);
             if rng.chance(chance) {

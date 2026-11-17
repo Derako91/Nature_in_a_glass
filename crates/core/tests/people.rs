@@ -785,3 +785,40 @@ fn announced_boat_lands_on_time() {
             .all(|p| arch.world.island_at(p.tile as usize).map(|i| i.id) == Some(big))
     );
 }
+
+// ---------- v0.22: Darstellung von Jagd und Einbaum ----------
+
+/// Wer jagt, wird als Jäger gezeigt; erlegte Hirsche sind als solche zu
+/// erkennen; Einbaum-Fischer bekommen ein Meerfeld.
+#[test]
+fn hunters_boats_and_hunted_deer_are_shown() {
+    use nig_core::animals::Species;
+    use nig_core::appearance::{carcasses, person_sprites};
+    let mut sim = Simulation::new(2024);
+    sim.advance_years(5);
+    for species in [Species::Deer, Species::Rabbit] {
+        sim.apply(Intervention::ReleaseAnimals { species, at: None });
+    }
+    sim.advance_years(5);
+    arrive(&mut sim);
+    let (mut hunt, mut deer) = (false, false);
+    for _ in 0..40 * 365 {
+        sim.advance_days(1);
+        hunt |= person_sprites(&sim.people, &sim.world)
+            .iter()
+            .any(|p| p.activity == "hunt");
+        deer |= carcasses(&sim.animals).iter().any(|c| c.1 == "deer_hunted");
+        if hunt && deer {
+            break;
+        }
+    }
+    assert!(hunt, "niemand wird als Jäger gezeigt");
+    assert!(deer, "kein erlegter Hirsch zu sehen");
+    // Einbaum: Meerfeld neben der Küste, nur für Boot-Fischer
+    for p in person_sprites(&sim.people, &sim.world) {
+        if let Some(b) = p.boat_tile {
+            assert_eq!(p.tool, Some("boat"));
+            assert!(sim.world.tiles[b as usize].is_ocean());
+        }
+    }
+}

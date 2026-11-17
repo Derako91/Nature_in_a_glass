@@ -804,6 +804,15 @@ Bootslogik unverändert. Native Prüfstände einschließlich Sprung/Landung,
 Ankunftshaken, Kind/Erwachsener/Verstorbene und Pausenruhe dokumentiert.
 Visuelle Abnahme offen.
 
+### 16.12 Einbaum, Jagd, erlegte Hirsche: Schnittstelle fertig (v0.22.0, Claude)
+
+Antwort auf die Anbindungswünsche aus 17.12 (PR #26):
+
+- **Einbaum auf dem Meer:** `PersonSprite.boat_tile: Option<u32>` – ein Meerfeld vor der Küste (Meer-Nachbar, wenn möglich eins weiter draußen; je Person fest). Gesetzt nur bei `tool == Some("boat")`. Der Beobachter zeichnet und sortiert die Person **nur dann** auf diesem Feld, wenn der gezeigte Zustand `fish` ist **und** `person_<aussehen>_fish_boat_<richtung>_f0` im Atlas liegt; Essen, Schlafen, Laufen und Ersatzbilder bleiben auf dem Land. Fußpunkt: Feldmitte, je Person leicht versetzt (40 % des Landversatzes). Mehrere Boote können auf demselben Meerfeld liegen.
+- **Jagd:** `PersonSprite.activity == "hunt"` für alle, die an diesem Tag gejagt haben (Hirschgruppe oder Kaninchen, Erfolg egal). Bildname `person_<aussehen>_hunt_<richtung>_f0…f3`, Bilddauer 4×250 ms (`person_frames`). Kinder jagen nicht.
+- **Erlegte Hirsche:** `appearance::carcasses` liefert `deer_hunted` statt `carcass_large`, wenn Menschen den Hirsch erlegt haben (`Carcass.hunted`). Bilder wie bei Kadavern: `deer_hunted_<0|1>_rest_<richtung>_f0`. Auch wenn kein Fleisch übrig bleibt, liegt der erlegte Hirsch zwei Tage sichtbar da.
+- **Noch bei Codex:** Bilder aus `art/` nach `assets/nature/…` übernehmen, mit Manifest-Einträgen (Weltmaß, Anker) – ohne Manifest erscheinen Einbaum und Hirsch viel zu klein.
+
 ## 17. Menschen (v0.6) – Vorgaben für die ersten Bewohner
 
 Stand 18.10.2026. Die Simulation der Menschen ist noch nicht gebaut (`docs/ROADMAP.md`, v0.6: zunächst fünf Menschen mit Bewegung, Nahrungssuche, Durst, Müdigkeit, Ruhe; Verletzung und Tod). Dieser Abschnitt legt fest, was gezeichnet wird, damit Codex vorarbeiten kann. Ändert sich beim Bau der Simulation etwas an der Schnittstelle, wird er im selben Schritt angepasst.

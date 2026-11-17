@@ -279,6 +279,9 @@ pub struct Person {
     /// Gesehene andere Inseln (Bits der Insel-Nummer), seit Format 18.
     #[serde(default)]
     pub seen: u32,
+    /// War heute auf der Jagd (nur für die Darstellung, nicht gespeichert).
+    #[serde(skip)]
+    pub hunting_today: bool,
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq)]
@@ -925,6 +928,7 @@ impl People {
                 hunting: 0.0,
                 role: 0,
                 seen: 0,
+                hunting_today: false,
             };
             // Wer mit dem Boot kommt, hat schon ein wenig gejagt – etwa so viel,
             // wie er fischen kann (ohne eigenen Zufall, damit die Zufallsfolge
@@ -2263,6 +2267,7 @@ fn family_day(
             hunting: 0.0,
             role: 0,
             seen: 0,
+            hunting_today: false,
         };
         let parents = match &fname {
             Some(f) => format!("Mutter: {mname}, Vater: {f}."),

@@ -1,5 +1,15 @@
 # Änderungen
 
+## 0.22.0 – Einbaum und Jäger zum Ansehen
+
+**Neu** (Anschlüsse für Codex' Bilder, PR #26)
+- Wer mit dem Einbaum fischt, wird künftig draußen auf dem Meer gezeigt statt am Ufer.
+- Wer an einem Tag jagt, bekommt das Jagdbild mit Speer.
+- Von Menschen erlegte Hirsche sind als solche zu erkennen und liegen auch dann kurz sichtbar da, wenn alles Fleisch mitgenommen wurde.
+- Die Bilder selbst bringt Codex als Nächstes ins Spiel; bis dahin sieht man wie bisher die Fischer am Ufer.
+
+**Spielstände:** Format 20; ältere lassen sich laden.
+
 ## 0.21.1 – Oberfläche im Seekartenstil
 
 **Gestaltung** (Codex, PR #28)

@@ -543,9 +543,33 @@ fn draw_iso_gfx(
     let persons = ap::person_sprites(&sim.people, world);
     let mut people_at: Vec<Vec<usize>> = vec![Vec::new(); world.tiles.len()];
     let mut bodies_at: Vec<Vec<(u8, &'static str)>> = vec![Vec::new(); world.tiles.len()];
+    let hour = g.day_frac * 24.0;
+    // Was gerade gezeigt wird: bei 1 Std/s nach Tageszeit, sonst die Tätigkeit
+    let shown_state = |p: &ap::PersonSprite| -> (&'static str, f32) {
+        if g.hourly {
+            ap::person_state_at(p, hour)
+        } else {
+            // Zeitraffer: am Platz, ohne Laufen (17.5)
+            let st = match p.activity {
+                "walk" | "run" | "hurt" => "idle",
+                a => a,
+            };
+            (st, 1.0)
+        }
+    };
+    // Im Einbaum beim Fischen: aufs Meerfeld (Platz und Sortierung, 17.12)
+    let on_boat = |p: &ap::PersonSprite| -> Option<u32> {
+        let b = p.boat_tile?;
+        (shown_state(p).0 == "fish"
+            && atlas
+                .get(&format!("person_{}_fish_boat_{}_f0", p.look, p.dir))
+                .is_some())
+        .then_some(b)
+    };
     if people_close {
         for (k, p) in persons.iter().enumerate() {
-            people_at[p.tile as usize].push(k);
+            let at = on_boat(p).unwrap_or(p.tile);
+            people_at[at as usize].push(k);
         }
         for (tile, look, dir) in ap::person_bodies(&sim.people) {
             bodies_at[tile as usize].push((look, dir));
@@ -562,7 +586,6 @@ fn draw_iso_gfx(
     for (k, c) in camps.iter().enumerate() {
         camps_at[c.tile as usize].push(k);
     }
-    let hour = g.day_frac * 24.0;
     // Spurendichte je Feld: Hirsche, Wölfe, Füchse (Kaninchen aus dem Bestand)
     let mut pack: Vec<[u16; 3]> = Vec::new();
     if tracks {
@@ -908,18 +931,15 @@ fn draw_iso_gfx(
                         }
                     }
                     Thing::Person(p) => {
-                        let (state, t) = if g.hourly {
-                            ap::person_state_at(p, hour)
+                        let (state, t) = shown_state(p);
+                        let boat = on_boat(p).is_some();
+                        let mut foot = if boat {
+                            // Mitten auf dem Meerfeld, leicht versetzt je Person
+                            c + Vec2::new(p.pos.0 * 0.4 * hw, p.pos.1 * 0.4 * hh)
                         } else {
-                            // Zeitraffer: am Platz, ohne Laufen (17.5)
-                            let st = match p.activity {
-                                "walk" | "run" | "hurt" => "idle",
-                                a => a,
-                            };
-                            (st, 1.0)
+                            c + Vec2::new(p.pos.0 * hw, p.pos.1 * hh)
                         };
-                        let mut foot = c + Vec2::new(p.pos.0 * hw, p.pos.1 * hh);
-                        if t < 1.0 && p.prev_tile != p.tile {
+                        if !boat && t < 1.0 && p.prev_tile != p.tile {
                             let from = center_of(p.prev_tile as usize)
                                 + Vec2::new(p.pos.0 * hw, p.pos.1 * hh);
                             foot = from + (foot - from) * t;
@@ -1222,7 +1242,7 @@ fn person_frames(state: &str) -> (u32, f64) {
         "walk" => (4, 200.0),
         "run" => (4, 100.0),
         "gather" | "fish" => (4, 300.0),
-        "hurt" | "build" => (4, 250.0),
+        "hurt" | "build" | "hunt" => (4, 250.0),
         "eat" | "drink" => (2, 600.0),
         "idle" => (2, 800.0),
         _ => (1, 1000.0),

@@ -576,6 +576,7 @@ pub fn carcasses(animals: &Animals) -> Vec<(u32, &'static str)> {
         .iter()
         .map(|c| {
             let id = match c.species {
+                Species::Deer if c.hunted => "deer_hunted",
                 Species::Deer | Species::Wolf => "carcass_large",
                 _ => "carcass_small",
             };
@@ -619,6 +620,10 @@ pub struct PersonSprite {
     /// `basket` beim Sammeln und Essen, `axe` beim Holzholen – nur, wenn die
     /// Person es kann. Bild: `person_<aussehen>_<zustand>_<werkzeug>_…`.
     pub tool: Option<&'static str>,
+    /// Beim Fischen mit dem Einbaum (`tool == Some("boat")`): das Meerfeld,
+    /// auf dem das Boot gezeichnet wird (Platz und Sortierung, 17.12). Essen,
+    /// Schlafen und Ersatzbilder bleiben auf dem Land (`tile`).
+    pub boat_tile: Option<u32>,
 }
 
 /// Alle lebenden Menschen.
@@ -626,20 +631,56 @@ pub fn person_sprites(people: &People, world: &World) -> Vec<PersonSprite> {
     people
         .list
         .iter()
-        .map(|p| PersonSprite {
-            id: p.id,
-            name: p.name.clone(),
-            look: p.look,
-            activity: p.activity.id(),
-            dir: if p.facing_right { "r" } else { "l" },
-            tile: p.tile,
-            prev_tile: p.prev_tile,
-            pos: person_pos(p.id, world.seed),
-            weakness: p.weakness(),
-            child: p.is_child(),
-            tool: person_tool(p, world),
+        .map(|p| {
+            let tool = person_tool(p, world);
+            PersonSprite {
+                id: p.id,
+                name: p.name.clone(),
+                look: p.look,
+                // Wer heute jagt, wird mit dem Speer gezeigt (17.12).
+                activity: if p.hunting_today && !p.is_child() {
+                    "hunt"
+                } else {
+                    p.activity.id()
+                },
+                dir: if p.facing_right { "r" } else { "l" },
+                tile: p.tile,
+                prev_tile: p.prev_tile,
+                pos: person_pos(p.id, world.seed),
+                weakness: p.weakness(),
+                child: p.is_child(),
+                boat_tile: (tool == Some("boat"))
+                    .then(|| boat_tile(p, world))
+                    .flatten(),
+                tool,
+            }
         })
         .collect()
+}
+
+/// Meerfeld vor der Küste, auf dem der Einbaum liegt: ein Meer-Nachbar
+/// (je Person fest gewählt), wenn möglich ein Feld weiter draußen.
+fn boat_tile(p: &crate::people::Person, world: &World) -> Option<u32> {
+    let i = p.tile as usize;
+    let sea: Vec<usize> = world
+        .neighbors(i)
+        .filter(|&j| world.tiles[j].is_ocean())
+        .collect();
+    if sea.is_empty() {
+        return None;
+    }
+    let pick = sea[(hash2(p.id as i32, 31, world.seed) % sea.len() as u64) as usize];
+    // Gleiche Richtung noch ein Feld weiter, falls auch dort Meer ist
+    let (x, y) = world.xy(i);
+    let (sx, sy) = world.xy(pick);
+    let (fx, fy) = (2 * sx as i32 - x as i32, 2 * sy as i32 - y as i32);
+    if fx >= 0 && fy >= 0 && (fx as u32) < world.width && (fy as u32) < world.height {
+        let far = world.idx(fx as u32, fy as u32);
+        if world.tiles[far].is_ocean() {
+            return Some(far as u32);
+        }
+    }
+    Some(pick as u32)
 }
 
 /// Werkzeug, das zur heutigen Tätigkeit passt und das die Person kann.
@@ -929,6 +970,7 @@ mod tests {
             weakness: 0.0,
             child: false,
             tool: None,
+            boat_tile: None,
         };
         assert_eq!(person_state_at(&s, 2.0).0, "sleep");
         assert_eq!(person_state_at(&s, 23.0).0, "sleep");
