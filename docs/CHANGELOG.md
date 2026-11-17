@@ -1,5 +1,13 @@
 # Änderungen
 
+## 0.22.1 – Einbäume auf dem Meer
+
+**Gestaltung** (Codex, PR #26)
+- Fischer im Einbaum sind jetzt draußen auf dem Meer zu sehen, Jäger mit Speer, erlegte Hirsche mit eigenem Bild – in allen fünf Aussehen und beiden Blickrichtungen.
+
+**Verbessert**
+- Liegen mehrere Einbäume auf demselben Meerfeld, bekommen sie feste Plätze nebeneinander statt sich zu überdecken.
+
 ## 0.22.0 – Einbaum und Jäger zum Ansehen
 
 **Neu** (Anschlüsse für Codex' Bilder, PR #26)

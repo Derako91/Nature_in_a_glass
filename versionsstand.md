@@ -1,6 +1,6 @@
 # Versionsstand – Nature_in_a_glass
 
-> **Stand:** 17.11.2026 · **Version:** Basis 0.22.0 · **Branch:** `codex/canoe-and-hunt-style-b` (Basis `a39bb5b`, PR #26)
+> **Stand:** 17.11.2026 · **Version:** 0.22.1 (Einbäume auf dem Meer) · **Branch:** `main`
 
 ## Auf einen Blick
 

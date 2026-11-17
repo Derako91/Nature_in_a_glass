@@ -566,9 +566,29 @@ fn draw_iso_gfx(
                 .is_some())
         .then_some(b)
     };
+    // Mehrere Einbäume auf einem Meerfeld: feste Plätze nebeneinander statt
+    // übereinander (Rangfolge in der festen Reihenfolge der Menschen).
+    let mut boat_slot: Vec<(u32, usize)> = Vec::new();
     if people_close {
+        let mut boats_on: Vec<(u32, usize)> = Vec::new();
         for (k, p) in persons.iter().enumerate() {
-            let at = on_boat(p).unwrap_or(p.tile);
+            let at = match on_boat(p) {
+                Some(b) => {
+                    let n = match boats_on.iter_mut().find(|e| e.0 == b) {
+                        Some(e) => {
+                            e.1 += 1;
+                            e.1 - 1
+                        }
+                        None => {
+                            boats_on.push((b, 1));
+                            0
+                        }
+                    };
+                    boat_slot.push((p.id, n));
+                    b
+                }
+                None => p.tile,
+            };
             people_at[at as usize].push(k);
         }
         for (tile, look, dir) in ap::person_bodies(&sim.people) {
@@ -934,8 +954,23 @@ fn draw_iso_gfx(
                         let (state, t) = shown_state(p);
                         let boat = on_boat(p).is_some();
                         let mut foot = if boat {
-                            // Mitten auf dem Meerfeld, leicht versetzt je Person
-                            c + Vec2::new(p.pos.0 * 0.4 * hw, p.pos.1 * 0.4 * hh)
+                            // Feste Plätze auf dem Meerfeld: Mitte, dann vorn
+                            // rechts, hinten links, vorn links, hinten rechts …
+                            const SLOTS: [(f32, f32); 6] = [
+                                (0.0, 0.0),
+                                (0.45, 0.4),
+                                (-0.45, -0.4),
+                                (-0.45, 0.4),
+                                (0.45, -0.4),
+                                (0.0, 0.7),
+                            ];
+                            let n = boat_slot
+                                .iter()
+                                .find(|e| e.0 == p.id)
+                                .map(|e| e.1)
+                                .unwrap_or(0);
+                            let (sx, sy) = SLOTS[n % SLOTS.len()];
+                            c + Vec2::new(sx * hw, sy * hh)
                         } else {
                             c + Vec2::new(p.pos.0 * hw, p.pos.1 * hh)
                         };
