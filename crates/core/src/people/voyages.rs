@@ -237,10 +237,7 @@ pub(super) fn voyages_day(
             continue;
         };
         // Grund zum Fortgehen?
-        let camp = people
-            .camps
-            .iter()
-            .find(|c| c.id == p.camp && !c.abandoned);
+        let camp = people.camps.iter().find(|c| c.id == p.camp && !c.abandoned);
         let pressed = match camp {
             Some(c) => {
                 let members = people.list.iter().filter(|q| q.camp == c.id).count();

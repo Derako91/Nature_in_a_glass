@@ -650,7 +650,9 @@ fn boat_people_cross_to_another_island() {
     let home = w.islands.iter().max_by_key(|i| i.tiles).unwrap().id;
     let other: Vec<(i32, i32)> = (0..w.tiles.len())
         .filter(|&i| {
-            !w.tiles[i].is_ocean() && w.island_at(i).is_some_and(|x| x.id != home && x.tiles >= 40)
+            !w.tiles[i].is_ocean()
+                && w.island_at(i)
+                    .is_some_and(|x| x.id != home && x.tiles >= 40)
         })
         .map(|i| {
             let (x, y) = w.xy(i);
@@ -678,8 +680,20 @@ fn boat_people_cross_to_another_island() {
         sim.apply(Intervention::PeopleArrive { at: Some((x, y)) });
     }
     // Alle können Einbäume bauen; Frauen und Männer sind Paare.
-    let women: Vec<u32> = sim.people.list.iter().filter(|p| p.sex == Sex::Female).map(|p| p.id).collect();
-    let men: Vec<u32> = sim.people.list.iter().filter(|p| p.sex == Sex::Male).map(|p| p.id).collect();
+    let women: Vec<u32> = sim
+        .people
+        .list
+        .iter()
+        .filter(|p| p.sex == Sex::Female)
+        .map(|p| p.id)
+        .collect();
+    let men: Vec<u32> = sim
+        .people
+        .list
+        .iter()
+        .filter(|p| p.sex == Sex::Male)
+        .map(|p| p.id)
+        .collect();
     for (w, m) in women.iter().zip(&men) {
         for p in &mut sim.people.list {
             if p.id == *w {
@@ -713,11 +727,11 @@ fn boat_people_cross_to_another_island() {
     assert!(sim.people.list.iter().any(|p| p.seen != 0));
     // Wer übergesetzt ist, steht auf einer anderen Insel.
     assert!(
-        sim.people
-            .list
-            .iter()
-            .any(|p| sim.world.island_at(p.tile as usize).is_some_and(|i| i.id != home))
-            || sim.people.departed.len() > 0
+        sim.people.list.iter().any(|p| sim
+            .world
+            .island_at(p.tile as usize)
+            .is_some_and(|i| i.id != home))
+            || !sim.people.departed.is_empty()
     );
 }
 

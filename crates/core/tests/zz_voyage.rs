@@ -12,7 +12,10 @@ fn zz_voyage_probe() {
         .split(',')
         .map(|s| s.parse().unwrap())
         .collect();
-    let years: u64 = std::env::var("YEARS").ok().and_then(|y| y.parse().ok()).unwrap_or(60);
+    let years: u64 = std::env::var("YEARS")
+        .ok()
+        .and_then(|y| y.parse().ok())
+        .unwrap_or(60);
     for seed in seeds {
         let mut sim = Simulation::with_shape(seed, 160, 160, Shape::Archipelago);
         sim.advance_years(10);
@@ -34,7 +37,11 @@ fn zz_voyage_probe() {
             let pe = &sim.people;
             let mut per: Vec<(String, usize)> = Vec::new();
             for p in &pe.list {
-                let n = sim.world.island_at(p.tile as usize).map(|i| i.name.clone()).unwrap_or("?".into());
+                let n = sim
+                    .world
+                    .island_at(p.tile as usize)
+                    .map(|i| i.name.clone())
+                    .unwrap_or("?".into());
                 match per.iter_mut().find(|e| e.0 == n) {
                     Some(e) => e.1 += 1,
                     None => per.push((n, 1)),
@@ -50,7 +57,12 @@ fn zz_voyage_probe() {
                 per
             );
         }
-        for e in sim.journal.events.iter().filter(|e| e.kind == EventKind::Crossing) {
+        for e in sim
+            .journal
+            .events
+            .iter()
+            .filter(|e| e.kind == EventKind::Crossing)
+        {
             println!("  {}", e.message);
         }
     }
@@ -76,7 +88,10 @@ fn zz_island_gaps() {
             // Abstand zur nächsten anderen großen Insel
             let mut best = i32::MAX;
             for p in land.iter().filter(|l| l.0 == a.id) {
-                for q in land.iter().filter(|l| l.0 != a.id && big.iter().any(|b| b.id == l.0)) {
+                for q in land
+                    .iter()
+                    .filter(|l| l.0 != a.id && big.iter().any(|b| b.id == l.0))
+                {
                     best = best.min((p.1 - q.1).abs().max((p.2 - q.2).abs()));
                 }
             }

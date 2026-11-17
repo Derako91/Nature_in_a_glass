@@ -1,5 +1,21 @@
 # Änderungen
 
+## 0.20.0 – Überfahrten
+
+**Neu** (zweite Etappe zur ganzen Welt, ADR 0012)
+- **Land am Horizont:** Wer einen Einbaum bauen kann und am Ufer steht, sieht bei ruhigem Wetter manchmal eine andere Insel (bis etwa 30 Felder übers Meer). Die Biografie vermerkt es, das Bewohner-Fenster zeigt „Hat gesehen: …“.
+- **Überfahrt:** Wer eine andere Insel kennt, jung genug ist und einen Partner in der Nähe hat, fährt bei ruhigem Wetter mit ihm und den Kindern hinüber – oft, wenn das Lager zu voll ist, Holz fehlt oder Hunger herrscht, selten aus Neugier. Mindestens acht Menschen bleiben auf der Heimatinsel zurück. Ziel ist die gesehene Insel mit den wenigsten Menschen.
+- **Neubeginn:** Auf der neuen Insel kennt man nur das Ufer, an dem man gelandet ist: keine Wasserstelle, kein Lager. Können und Werkzeugwissen reisen mit.
+- **Gefahr:** Je weiter die Fahrt, desto eher kentert das Boot.
+- Chronik: „Zum ersten Mal betreten Menschen …“ und weitere Überfahrten (wichtiges Ereignis). Auf einer einzelnen Insel ändert sich nichts.
+
+**Behoben**
+- Neuere Rust-Versionen meldeten eine Prüfwarnung im Kern (Seen-Weitblick); umgeschrieben, gleiches Verhalten.
+
+**Spielstände** aus 0.19 lassen sich laden (Format 18).
+
+**Gestaltung:** Inselnamen in Seekartenschrift (Codex, PR #27).
+
 ## 0.19.0 – Die Inselwelt
 
 **Neu** (erste Etappe zur ganzen Welt, ADR 0012)

@@ -39,3 +39,10 @@ Stand v0.18: eine Insel (wählbar bis 128 × 128 Felder, etwa 14 km²), Menschen
 - `World::generate_shaped(seed, w, h, Shape::Archipelago)`: ein großer Inselkern (Größe 0,55–0,65) und weitere kleinere (0,2–0,38) mit Abstand, aus dem eigenen Zufallsstrom `archipel`; dieselbe Geländeformel wie die einzelne Insel, nur mit dem Abstand zum nächsten Kern.
 - Inseln = zusammenhängendes Land (8 Nachbarn, wie Menschen und Tiere gehen) mit Namen aus dem Strom `inselnamen`, gespeichert in `World.islands`; Zuordnung je Feld abgeleitet (`island_at`). Spielstand-Format 17.
 - Die Inselwelt hat 160 × 160 Felder: etwa eine halbe Sekunde Rechenzeit je Spieljahr ohne Menschen.
+
+## Nachtrag v0.20.0 – Etappe 2, erster Schritt: Überfahrten
+
+- Sicht: einmal je Welt eine Breitensuche übers Meer je großer Insel (≥ 40 Felder), bis 30 Felder; daraus Abstand und Landeplatz je Feld (`people::voyages::Sight`, nicht gespeichert).
+- Wissen persönlich: `Person.seen` (Bits der Insel-Nummer). Gesehen wird nur vom Ufer, mit Einbaum-Wissen, bei Wind < 0,4.
+- Aufbruch: Paar (Partner ≤ 3 Felder) + nahe Kinder, unter 40, gesund; Druck (Lager über Hüttenplatz, 90 Tage ohne Holz, Hunger bei leerem Vorrat) 1 %/Tag, sonst 0,2 %/Tag; mindestens 8 bleiben zurück. Kentern 0,1 % je Feld.
+- Die Überfahrt ist ein Sprung am selben Tag; das Boot selbst wird (noch) nicht dargestellt. Kein Zufall wird verbraucht, solange es nur eine große Insel gibt – Einzelinsel-Läufe bleiben gleich.
