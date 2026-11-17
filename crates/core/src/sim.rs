@@ -19,7 +19,7 @@ pub const DAYS_PER_YEAR: u64 = 365;
 pub const HOURS_PER_YEAR: u64 = HOURS_PER_DAY * DAYS_PER_YEAR;
 
 /// Version des Spielstand-Formats. Erhöhen, wenn sich die Struktur ändert.
-pub const SAVE_FORMAT_VERSION: u32 = 18;
+pub const SAVE_FORMAT_VERSION: u32 = 19;
 pub const ENGINE_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 pub const DEFAULT_SIZE: u32 = 64;
@@ -279,6 +279,13 @@ pub struct Simulation {
     pub people: People,
     #[serde(default)]
     rng_people: Rng,
+    /// Geplante Ankunft eines Boots (Spielstunde), seit Format 19. Der
+    /// Beobachter legt sie beim Start fest („Menschen kommen von selbst“).
+    #[serde(default)]
+    pub boat_at: Option<u64>,
+    /// Gerade landet das geplante Boot (für den Chroniktext).
+    #[serde(skip)]
+    boat_planned: bool,
 
     /// Wasserbilanz des letzten Tages (für Auswertung und Tests).
     #[serde(skip)]
@@ -350,6 +357,8 @@ impl Simulation {
             rng_animals: Rng::stream(seed, "tiere"),
             people: People::default(),
             rng_people: Rng::stream(seed, "menschen"),
+            boat_at: None,
+            boat_planned: false,
             last_water: HydroDay::default(),
             last_erosion: ErosionDay::default(),
             scratch_through: Vec::new(),
@@ -432,6 +441,30 @@ impl Simulation {
                 self.close_year();
             }
             self.run_day();
+            // Das angekündigte Boot kommt am Morgen des geplanten Tages.
+            if let Some(at) = self.boat_at
+                && self.time_hours >= at
+            {
+                self.boat_at = None;
+                self.boat_planned = true;
+                self.apply(Intervention::PeopleArrive { at: None });
+                self.boat_planned = false;
+            }
+        }
+    }
+
+    /// Ein Boot für in `years` Jahren ankündigen (auf den Tagesbeginn genau).
+    pub fn plan_boat(&mut self, years: u64) {
+        let at = self.time_hours + years * HOURS_PER_YEAR;
+        self.boat_at = Some(at / HOURS_PER_DAY * HOURS_PER_DAY);
+    }
+
+    /// Bis zur Ankunft des angekündigten Boots vorspulen.
+    pub fn skip_to_boat(&mut self) {
+        if let Some(at) = self.boat_at
+            && at > self.time_hours
+        {
+            self.advance_hours(at - self.time_hours);
         }
     }
 
@@ -1567,6 +1600,16 @@ impl Simulation {
                     }
                     Some(_) => return,
                     None => {
+                        // In der Inselwelt landet das Boot an der größten Insel.
+                        let biggest = (self.world.shape == crate::world::Shape::Archipelago)
+                            .then(|| {
+                                self.world
+                                    .islands
+                                    .iter()
+                                    .max_by_key(|x| (x.tiles, u32::MAX - x.id))
+                            })
+                            .flatten()
+                            .map(|x| x.id);
                         let coast: Vec<u32> = (0..self.world.tiles.len())
                             .filter(|&i| {
                                 ok(&self.world.tiles[i])
@@ -1574,6 +1617,8 @@ impl Simulation {
                                         .world
                                         .neighbors(i)
                                         .any(|j| self.world.tiles[j].is_ocean())
+                                    && (biggest.is_none()
+                                        || self.world.island_at(i).map(|x| x.id) == biggest)
                             })
                             .map(|i| i as u32)
                             .collect();
@@ -1589,10 +1634,17 @@ impl Simulation {
                 let (x, y) = self.world.xy(tile as usize);
                 (
                     Some((x, y)),
-                    format!(
-                        "Der Beobachter lässt ein Boot bei ({x}, {y}) landen: {} gehen an Land.",
-                        names.join(", ")
-                    ),
+                    if self.boat_planned {
+                        format!(
+                            "Ein Boot erreicht die Küste bei ({x}, {y}): {} gehen an Land.",
+                            names.join(", ")
+                        )
+                    } else {
+                        format!(
+                            "Der Beobachter lässt ein Boot bei ({x}, {y}) landen: {} gehen an Land.",
+                            names.join(", ")
+                        )
+                    },
                 )
             }
             Intervention::ScatterSeed { kind } => {
@@ -1660,7 +1712,7 @@ impl Simulation {
                 sim.migrate_from_v4();
             }
             4 => sim.migrate_from_v4(),
-            5..=17 => {}
+            5..=18 => {}
             other => {
                 return Err(format!(
                     "Spielstand-Format {other} wird nicht unterstützt (erwartet 1 bis {SAVE_FORMAT_VERSION})."

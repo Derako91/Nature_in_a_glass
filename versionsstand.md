@@ -1,6 +1,6 @@
 # Versionsstand – Nature_in_a_glass
 
-> **Stand:** 16.11.2026 · **Version:** 0.20.0 (Überfahrten) · **Branch:** `main`
+> **Stand:** 16.11.2026 · **Version:** 0.21.0 (Das Boot kommt) · **Branch:** `main`
 
 ## Auf einen Blick
 

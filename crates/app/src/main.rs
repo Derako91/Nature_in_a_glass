@@ -65,6 +65,11 @@ use nig_core::world::POND_MM;
 use nig_core::{EventKind, Intervention, SeedKind, Simulation, Terrain};
 use view::{Camera, Layer, ViewMode};
 
+/// Nach so vielen Jahren landet auf einer neuen Insel das angekündigte Boot.
+const BOAT_YEARS: u64 = 10;
+/// Breite des Bootszählers oben (fest, damit nichts verrutscht).
+const COUNTDOWN_W: f32 = 190.0;
+
 /// Zeitraffer-Stufen: (Bezeichnung, Simulationsstunden pro echter Sekunde)
 const SPEEDS: [(&str, f64); 6] = [
     ("1 Std/s", 1.0),
@@ -195,6 +200,10 @@ fn main() -> eframe::Result {
             app.world_size = size;
             app.atlas = atlas::Atlas::load(&cc.egui_ctx, extra_images.as_deref());
             app.graphics = app.atlas.is_some() && !no_graphics;
+            // Mit Startoptionen (Prüfläufe) kommt kein Boot von selbst.
+            if years > 0 || days > 0 || people || !release.is_empty() || after > 0 {
+                app.sim.boat_at = None;
+            }
             app.sim.advance_years(years);
             for &species in &release {
                 app.sim.apply(Intervention::ReleaseAnimals {
@@ -270,6 +279,10 @@ struct Clock {
     ui_busy: bool,
     stop_message: Option<String>,
     focus: Option<usize>,
+    /// Das angekündigte Boot ist eben gelandet.
+    landed: bool,
+    /// Zeitraffer vor „Zur Ankunft“ – bei der Landung wieder eingestellt.
+    rush: Option<usize>,
 }
 
 impl Clock {
@@ -296,7 +309,20 @@ impl Clock {
         while left > 0 {
             let to_next_day = HOURS_PER_DAY - self.sim.time_hours % HOURS_PER_DAY;
             let step = left.min(to_next_day);
+            let boat = self.sim.boat_at.is_some();
             self.sim.advance_hours(step);
+            // Das angekündigte Boot landet: nicht darüber hinwegrasen.
+            if boat && self.sim.boat_at.is_none() {
+                self.owed_hours = 0.0;
+                self.landed = true;
+                if let Some(prev) = self.rush.take() {
+                    self.speed = prev;
+                }
+                if let Some(p) = self.sim.people.list.last() {
+                    self.focus = Some(p.tile as usize);
+                }
+                break;
+            }
             left -= step;
             self.owed_hours -= step as f64;
             if self.reaction == EventReaction::ChronicleOnly {
@@ -390,11 +416,15 @@ struct App {
     pending_rain: f32,
     pending_temp: f32,
     pending_springs: Vec<f32>,
+    /// Neue Inseln bekommen ein angekündigtes Boot („Menschen kommen von selbst“).
+    auto_boat: bool,
+    /// „Zur Ankunft springen“: Zeitraffer vor dem Sprung (danach zurück).
+    rush: Option<usize>,
 }
 
 impl App {
     fn new(seed: u64, size: u32) -> Self {
-        let sim = Self::fresh(seed, size);
+        let sim = Self::fresh(seed, size, true);
         // Platzhalter, den der Zeitgeber hält, solange die Oberfläche die
         // echte Simulation hat (winzige Insel, kostet nichts).
         let placeholder = Simulation::with_size(seed, 8, 8);
@@ -408,6 +438,8 @@ impl App {
             ui_busy: true,
             stop_message: None,
             focus: None,
+            landed: false,
+            rush: None,
         }));
         spawn_clock(clock.clone());
         let mut app = Self {
@@ -434,6 +466,8 @@ impl App {
             pending_rain: 0.0,
             pending_temp: 0.0,
             pending_springs: Vec::new(),
+            auto_boat: true,
+            rush: None,
             sim,
         };
         app.sync_pending();
@@ -443,7 +477,7 @@ impl App {
 
     /// Neue Insel, Uhr auf 10 Uhr morgens gestellt (innerhalb des ersten
     /// Tages läuft dabei noch kein Tagesprozess).
-    fn fresh(seed: u64, size: u32) -> Simulation {
+    fn fresh(seed: u64, size: u32, boat: bool) -> Simulation {
         let mut sim = if size == 0 {
             Simulation::with_shape(
                 seed,
@@ -455,6 +489,9 @@ impl App {
             Simulation::with_size(seed, size, size)
         };
         sim.advance_hours(10);
+        if boat {
+            sim.plan_boat(BOAT_YEARS);
+        }
         sim
     }
 
@@ -524,6 +561,11 @@ impl App {
         if let Some(msg) = c.stop_message.take() {
             self.status = msg;
         }
+        if std::mem::take(&mut c.landed) {
+            self.speed = c.speed;
+            self.rush = None;
+            self.status = "Das Boot ist gelandet – die ersten Menschen gehen an Land.".into();
+        }
         if let Some(i) = c.focus.take() {
             self.selected = Some(i);
             self.camera.pan = view::focus_pan(&self.sim.world, i, self.mode, self.camera.zoom);
@@ -537,6 +579,7 @@ impl App {
         self.holds_sim = false;
         c.running = self.running;
         c.speed = self.speed;
+        c.rush = self.rush;
         c.reaction = self.reaction;
         c.owed_hours = self.owed_hours;
         c.seen_event = self.seen_event;
@@ -567,12 +610,12 @@ impl App {
         // Zeile 1: Zeit und Zeitraffer
         ui.horizontal(|ui| {
             ui.add_sized(
-                [150.0, 24.0],
+                [140.0, 24.0],
                 egui::Label::new(RichText::new("Nature in a Glass").strong().size(16.0)),
             );
             ui.separator();
             ui.add_sized(
-                [390.0, 24.0],
+                [340.0, 24.0],
                 egui::Label::new(RichText::new(self.time_text()).monospace().size(15.0)),
             );
             ui.separator();
@@ -586,17 +629,19 @@ impl App {
             }
             for (k, (label, _)) in SPEEDS.iter().enumerate() {
                 let b = egui::Button::selectable(self.speed == k, *label);
-                if ui.add_sized([82.0, 24.0], b).clicked() {
+                if ui.add_sized([70.0, 24.0], b).clicked() {
                     self.speed = k;
+                    self.rush = None;
                     self.running = true;
                 }
             }
             if ui
-                .add_sized([70.0, 24.0], egui::Button::new("+1 Tag"))
+                .add_sized([60.0, 24.0], egui::Button::new("+1 Tag"))
                 .clicked()
             {
                 self.sim.advance_hours(HOURS_PER_DAY);
             }
+            self.boat_countdown(ui);
         });
         // Zeile 2: Ansicht, Spielstand, neue Insel
         ui.horizontal(|ui| {
@@ -662,10 +707,17 @@ impl App {
                      (zusammen etwa 12–17 km²). Pflanzen und Tiere kommen nicht über das \
                      Meer. Größere Welten rechnen langsamer.",
                 );
+            ui.checkbox(&mut self.auto_boat, "Menschen kommen von selbst")
+                .on_hover_text(
+                    "Auf einer neuen Insel landet nach zehn Jahren von selbst ein Boot \
+                     mit fünf Menschen. Aus: Die Insel bleibt ohne Menschen, bis du \
+                     selbst eins landen lässt.",
+                );
             if ui.button("Neue Insel").clicked() {
                 match self.seed_text.trim().parse::<u64>() {
                     Ok(seed) => {
-                        self.replace_sim(Self::fresh(seed, self.world_size));
+                        self.replace_sim(Self::fresh(seed, self.world_size, self.auto_boat));
+                        self.rush = None;
                         self.camera = Camera::for_world(&self.sim.world);
                         self.status = format!(
                             "Neue Insel aus Seed {seed} ({})",
@@ -683,6 +735,41 @@ impl App {
                 self.seed_text = (t % 1_000_000).to_string();
             }
         });
+    }
+
+    /// Zähler bis zum angekündigten Boot – immer gleich breit, auch danach.
+    fn boat_countdown(&mut self, ui: &mut egui::Ui) {
+        let Some(at) = self.sim.boat_at else {
+            ui.allocate_space(egui::vec2(COUNTDOWN_W, 24.0));
+            return;
+        };
+        ui.separator();
+        let left = at.saturating_sub(self.sim.time_hours);
+        let days = left / HOURS_PER_DAY;
+        let when = if days >= 365 {
+            format!("{:>2} J. {:>2} Mon.", days / 365, days % 365 * 12 / 365)
+        } else if days >= 30 {
+            format!("{:>2} Monaten ", days / 30)
+        } else {
+            format!("{:>2} Tagen   ", days.max(1))
+        };
+        let rushing = self.rush.is_some();
+        let text = RichText::new(format!("Boot in {when} »")).monospace();
+        let b = egui::Button::new(text).selected(rushing);
+        if ui
+            .add_sized([COUNTDOWN_W, 24.0], b)
+            .on_hover_text(
+                "Ein Boot mit fünf Menschen ist unterwegs; bis dahin wächst die Insel \
+                 ohne sie. Schnellerer Zeitraffer verkürzt das Warten. \
+                 Klick: im schnellsten Zeitraffer bis zur Landung, dann wieder im alten Tempo.",
+            )
+            .clicked()
+            && !rushing
+        {
+            self.rush = Some(self.speed);
+            self.speed = SPEEDS.len() - 1;
+            self.running = true;
+        }
     }
 
     /// Statuszeile am unteren Rand – immer gleich hoch, auch wenn leer.

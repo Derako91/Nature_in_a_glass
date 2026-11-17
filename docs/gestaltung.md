@@ -783,6 +783,15 @@ Randbeschnitt sind technische Bestandspunkte, keine Änderung dieses Pakets.
 Im Gesamt-Kartenvergleich null geänderte Pixel außerhalb der Namen und
 null Pixel Bewegung in der pausierten Ansicht. Visuelle Abnahme offen.
 
+### 16.11 Oberfläche (HUD): neue Elemente seit v0.21.0 (Claude)
+
+Für die HUD-Überarbeitung durch Codex – Funktionen bleiben, die Optik ist frei:
+
+- **Obere Leiste, Zeile 1, ganz rechts:** Bootszähler als ein Knopf, feste Breite 190 px (`COUNTDOWN_W`), Text in fester Zeichenbreite: „Boot in  9 J. 11 Mon. »“, „Boot in  5 Monaten  »“, „Boot in 12 Tagen    »“. Klick = im schnellsten Zeitraffer bis zur Landung, dann zurück ins alte Tempo; währenddessen ist der Knopf ausgewählt dargestellt. Nach der Landung bleibt der Platz leer (nichts verrutscht). Dafür sind Titel (140 px), Zeitanzeige (340 px), Zeitrafferknöpfe (70 px) und „+1 Tag“ (60 px) etwas schmaler geworden.
+- **Zeile 2, vor „Neue Insel“:** Haken „Menschen kommen von selbst“ (standardmäßig an).
+- **Statuszeile unten:** „Das Boot ist gelandet – die ersten Menschen gehen an Land.“; die Kamera springt zum Landeplatz.
+- Code: `crates/app/src/main.rs`, `top_bar` und `boat_countdown`.
+
 ## 17. Menschen (v0.6) – Vorgaben für die ersten Bewohner
 
 Stand 18.10.2026. Die Simulation der Menschen ist noch nicht gebaut (`docs/ROADMAP.md`, v0.6: zunächst fünf Menschen mit Bewegung, Nahrungssuche, Durst, Müdigkeit, Ruhe; Verletzung und Tod). Dieser Abschnitt legt fest, was gezeichnet wird, damit Codex vorarbeiten kann. Ändert sich beim Bau der Simulation etwas an der Schnittstelle, wird er im selben Schritt angepasst.

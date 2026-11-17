@@ -742,3 +742,46 @@ fn no_crossings_on_a_single_island() {
     assert_eq!(sim.people.crossings, 0);
     assert!(sim.people.list.iter().all(|p| p.seen == 0));
 }
+
+// ---------- v0.21: angekündigtes Boot ----------
+
+/// Ein angekündigtes Boot landet genau zur geplanten Zeit von selbst – auch
+/// nach Speichern und Laden; in der Inselwelt an der größten Insel.
+#[test]
+fn announced_boat_lands_on_time() {
+    use nig_core::world::Shape;
+    let mut sim = Simulation::new(2024);
+    sim.plan_boat(2);
+    let at = sim.boat_at.unwrap();
+    sim.advance_years(1);
+    assert_eq!(sim.people.alive(), 0);
+    let mut sim = Simulation::from_json(&sim.to_json()).unwrap();
+    assert_eq!(sim.boat_at, Some(at));
+    sim.skip_to_boat();
+    assert_eq!(sim.time_hours, at);
+    assert_eq!(sim.people.alive(), 5);
+    assert_eq!(sim.boat_at, None);
+    assert!(
+        sim.journal
+            .events
+            .iter()
+            .any(|e| e.message.contains("Ein Boot erreicht die Küste"))
+    );
+
+    let mut arch = Simulation::with_shape(2024, 160, 160, Shape::Archipelago);
+    arch.plan_boat(0);
+    arch.advance_days(1);
+    let big = arch
+        .world
+        .islands
+        .iter()
+        .max_by_key(|i| i.tiles)
+        .unwrap()
+        .id;
+    assert!(
+        arch.people
+            .list
+            .iter()
+            .all(|p| arch.world.island_at(p.tile as usize).map(|i| i.id) == Some(big))
+    );
+}

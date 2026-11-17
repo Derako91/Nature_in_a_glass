@@ -1,5 +1,16 @@
 # Änderungen
 
+## 0.21.0 – Das Boot kommt
+
+**Neu**
+- **Angekündigtes Boot:** Eine neue Insel beginnt leer, oben rechts läuft ein Zähler „Boot in 9 J. 11 Mon.“ in Spielzeit. Nach zehn Jahren – die Insel ist dann ergrünt – landet von selbst ein Boot mit fünf Menschen. Schnellerer Zeitraffer verkürzt das Warten: bei „1 Monat/s“ etwa zwei Minuten, bei „1 Jahr/s“ zehn Sekunden.
+- **Zur Ankunft:** Ein Klick auf den Zähler spult im schnellsten Zeitraffer bis zur Landung und kehrt dann ins alte Tempo zurück; die Kamera springt zum Landeplatz.
+- **Haken „Menschen kommen von selbst“** neben „Neue Insel“ (standardmäßig an). Aus: Die Insel bleibt ohne Menschen – für lange Naturläufe.
+- In der Inselwelt landet das Boot (auch „Boot landen lassen“ ohne gewähltes Feld) an der größten Insel.
+- Startoptionen wie `--years`, `--menschen`, `--tiere` starten wie bisher ohne angekündigtes Boot.
+
+**Spielstände:** Format 19; der Zähler läuft nach dem Laden weiter. Ältere Stände lassen sich laden.
+
 ## 0.20.0 – Überfahrten
 
 **Neu** (zweite Etappe zur ganzen Welt, ADR 0012)
