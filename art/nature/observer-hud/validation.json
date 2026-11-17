@@ -1,0 +1,32 @@
+{
+  "base_commit": "53d5d51",
+  "static_toolbar_changed_pixels": 0,
+  "fixed_statistics_keys_changed_pixels": 0,
+  "paused_screen_changed_pixels": 0,
+  "resident_title_frame_changed_pixels": 0,
+  "resident_biography_separator_changed_pixels": 0,
+  "deceased_title_frame_changed_pixels": 0,
+  "deceased_biography_separator_changed_pixels": 0,
+  "restored_speed_button_changed_pixels": 0,
+  "unchanged_control_methods": [
+    "advance",
+    "check_important_events",
+    "fresh",
+    "sync_pending",
+    "replace_sim",
+    "save_path",
+    "save",
+    "load",
+    "last_event_id",
+    "take_from_clock",
+    "give_to_clock",
+    "season_name",
+    "time_text",
+    "boat_countdown",
+    "status_bar",
+    "terrain_buttons",
+    "animal_row",
+    "people_row"
+  ],
+  "visual_approval": "pending"
+}

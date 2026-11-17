@@ -1,17 +1,17 @@
 # Versionsstand – Nature_in_a_glass
 
-> **Stand:** 16.11.2026 · **Version:** 0.21.0 (Das Boot kommt) · **Branch:** `main`
+> **Stand:** 17.11.2026 · **Version:** Basis 0.21.0 · **Branch:** `codex/observer-hud-chart-style` (Basis `53d5d51`)
 
 ## Auf einen Blick
 
 | Frage | Antwort |
 | --- | --- |
-| **Zuletzt erledigt** | Inselwelt optisch bei Zoom 1/2/8 in Karte und Isometrie geprüft. Eigene eingebettete kursive Seekartenschrift für Inselnamen, warme Schriftfarbe und dunkler Rand. 24 echte native Vergleichsaufnahmen. |
-| **Getestet** | 114 Rust-/15 Python-Tests, fmt, Release-Bau und strenges Clippy des geänderten App-Pakets bestanden. Umlaute/Fontquelle geprüft. Vollständige Karte: null geänderte Pixel außerhalb der sechs Namen; Pausenbild: null Bewegung. |
-| **Problem** | Clippy-Fehler `needless_range_loop` (Rust 1.100) im Kern ist in v0.20.0 behoben. Im isometrischen Meer bei Zoom 1/2 bleibt ein schon vorher vorhandenes Punktraster sichtbar. |
-| **Offen für Codex** | Inselnamen von Claude abgenommen und übernommen (PR #27). Einbaum/Jagd (PR #26) wartet auf Claudes Schnittstellen. |
+| **Zuletzt erledigt** | HUD im Seekartenstil: Leiste, rechte Spalte, Bewohner-Fenster. Feste Wertespalten und Metadatenzeilen, lesbare Registernamen, kompakte Gruppen. v0.21-Bootszähler, Haken, Sprung und Landemeldung bleiben erhalten. |
+| **Getestet** | 117 Rust-/15 Python-Tests, fmt, workspaceweites strenges Clippy, Release-Bau und native Bedienproben. 21 Spielaufnahmen. Null Pixeländerung in statischen Leistenbereichen, Schlüsselspalten, pausierter Ansicht und den geprüften Bewohnerrahmen/Trennlinien. Echte Bootslandung samt altem Tempo und Ankunftshaken geprüft. |
+| **Problem** | Kein neuer technischer Blocker gefunden. Lange Angaben bleiben in festen Zeilen und sind vollständig per Tooltip lesbar. |
+| **Offen für Codex** | Visuelle Abnahme durch Claude; Prüfpaket `art/nature/observer-hud/README.md`. |
 | **Offen für Dennis** | – |
-| **Nächster Schritt** | Claude bindet Einbaum auf dem Meer und Jagd an (Gestaltung 17.12). Separat liegt Einbaum/Jagd als Bildentwurf in PR #26; dort fehlen noch Claudes Schnittstellen, die Bilder bleiben bis dahin in art/. |
+| **Nächster Schritt** | Claude prüft den HUD-Draft auf v0.21.0, insbesondere Inselwelt mit acht Quellen sowie Bewohnerregister/Lebenschronik. Separater Bildentwurf Einbaum/Jagd (PR #26) wartet weiter auf Claudes Schnittstellen. |
 
 ## Zusammenarbeit Claude / Codex
 
@@ -24,6 +24,7 @@
 
 | Datum | Änderung | Code-Test |
 | --- | --- | --- |
+| 17.11.2026 | Codex: HUD im Seekartenstil auf v0.21.0, Branch `codex/observer-hud-chart-style`, Basis `53d5d51`. | 117 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau, native Ankunfts-/Haken-/Bewohnerproben und Pixelprüfungen bestanden. Visuelle Abnahme offen. |
 | 16.11.2026 | Codex: Inselwelt geprüft, Seekartenschrift für Inselnamen, Branch `codex/islandworld-cartography`, Basis `66d829e` (v0.19.0). | 114 Rust-/15 Python-Tests, fmt, App-Clippy, Release-Bau; 24 native Aufnahmen, Umlaute, ruhige Pausenansicht und unveränderte Bildbereiche außerhalb der Namen. Workspace-Clippy: vorhandener Kernfehler. Visuelle Abnahme offen. |
 | 16.11.2026 | Codex: 140 Werkzeugbilder, Branch `codex/people-tools-style-b`, Basis `af87656` (v0.13.0). | 109 Rust-/15 Python-Tests, fmt, Clippy; Vollständigkeit, Maße, unveränderte Kinder/Elternbilder und wiederholter Export geprüft. Visuelle Abnahme offen. |
 | 16.11.2026 | Codex: 90 Wandwasserbilder und Nutzung alter Atlasreihen-Lücken, Branch `codex/stream-drops-style-b`, Basis `3ac3bc1`. | 103 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; 120 RGBA-Anschlüsse und unveränderter Bestand. Nasse/trockene Spielansichten im Prüfpaket; visuelle Abnahme offen. |
