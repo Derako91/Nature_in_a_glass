@@ -1,0 +1,6 @@
+boat days=10950 person=1 look=0 activity=fish land=47,84 water=45,86
+boat days=10950 person=2 look=1 activity=fish land=47,86 water=45,84
+boat days=10950 person=3 look=2 activity=fish land=47,86 water=45,84
+boat days=10950 person=4 look=3 activity=fish land=44,87 water=44,85
+boat days=10950 person=12 look=3 activity=fish land=44,87 water=42,87
+boat days=10950 person=14 look=2 activity=fish land=44,87 water=46,85

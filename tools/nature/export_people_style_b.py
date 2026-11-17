@@ -206,6 +206,9 @@ def export():
     from export_people_tools import ART as TOOLS_REVIEW, export as export_tools
     if (TOOLS_REVIEW / "sources.json").exists():
         export_tools()
+    from export_canoe_and_hunt import ART as CANOE_REVIEW, export as export_canoe
+    if (CANOE_REVIEW / "sources.json").exists():
+        export_canoe()
     print("390 neue Tätigkeits-/Kinder-/Totenbilder, 40 Holztragebilder nur gepolstert.")
 
 

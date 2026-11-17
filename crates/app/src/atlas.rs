@@ -1262,8 +1262,7 @@ mod tests {
             .iter()
             .filter(|(name, _, _)| {
                 name.starts_with("person_")
-                    && name.contains("_fish_")
-                    && !name.contains("_fish_net_")
+                    && (name.contains("_fish_l_") || name.contains("_fish_r_"))
             })
             .map(|(name, _, bytes)| (name.to_string(), decode(bytes).expect("Fischfang-PNG")))
             .collect();
@@ -1318,6 +1317,59 @@ mod tests {
                         assert!(phases.insert(px.clone()), "Doppelte Werkzeugphase {name}");
                     }
                 }
+            }
+        }
+    }
+
+    /// Weltmaße und Anker dürfen bei der Einbettung der Einbäume/Jagdbilder nicht fehlen.
+    #[test]
+    fn embedded_canoe_hunt_dimensions_and_phases() {
+        let info = parse_manifests(embedded::MANIFESTS.iter().copied());
+        let images: BTreeMap<_, _> = embedded::IMAGES
+            .iter()
+            .filter(|(n, _, _)| {
+                n.contains("_fish_boat_") || n.contains("_hunt_") || n.starts_with("deer_hunted_")
+            })
+            .map(|(n, _, b)| (n.to_string(), decode(b).expect("Einbaum/Jagd-PNG")))
+            .collect();
+        assert_eq!(images.len(), 88);
+        for look in 0..5 {
+            for dir in ["l", "r"] {
+                for (state, size, anchor, display) in [
+                    (
+                        "fish_boat",
+                        (224, 144),
+                        Vec2::new(112.0, 128.0),
+                        Vec2::new(25.2, 16.2),
+                    ),
+                    (
+                        "hunt",
+                        (144, 120),
+                        Vec2::new(72.0, 112.0),
+                        Vec2::new(16.2, 13.5),
+                    ),
+                ] {
+                    let mut phases = std::collections::BTreeSet::new();
+                    for frame in 0..4 {
+                        let name = format!("person_{look}_{state}_{dir}_f{frame}");
+                        let (w, h, px) = &images[&name];
+                        assert_eq!((*w, *h), size);
+                        assert_eq!(info.anchors[&name], anchor);
+                        assert_eq!(info.display[&name], display);
+                        assert!(phases.insert(px.clone()));
+                    }
+                }
+            }
+        }
+        for variant in 0..2 {
+            for dir in ["l", "r"] {
+                let name = format!("deer_hunted_{variant}_rest_{dir}_f0");
+                assert_eq!((images[&name].0, images[&name].1), (192, 128));
+                assert_eq!(info.anchors[&name], Vec2::new(96.0, 64.0));
+                assert_eq!(info.display[&name], Vec2::new(21.6, 14.4));
+                let far = format!("{name}@fern");
+                assert_eq!((images[&far].0, images[&far].1), (48, 32));
+                assert_eq!(info.anchors[&far], Vec2::new(24.0, 16.0));
             }
         }
     }

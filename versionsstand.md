@@ -1,17 +1,17 @@
 # Versionsstand – Nature_in_a_glass
 
-> **Stand:** 17.11.2026 · **Version:** 0.22.0 (Einbaum und Jäger: Schnittstelle) · **Branch:** `main`
+> **Stand:** 17.11.2026 · **Version:** Basis 0.22.0 · **Branch:** `codex/canoe-and-hunt-style-b` (Basis `a39bb5b`, PR #26)
 
 ## Auf einen Blick
 
 | Frage | Antwort |
 | --- | --- |
-| **Zuletzt erledigt** | HUD im Seekartenstil: Leiste, rechte Spalte, Bewohner-Fenster. Feste Wertespalten und Metadatenzeilen, lesbare Registernamen, kompakte Gruppen. v0.21-Bootszähler, Haken, Sprung und Landemeldung bleiben erhalten. |
-| **Getestet** | 117 Rust-/15 Python-Tests, fmt, workspaceweites strenges Clippy, Release-Bau und native Bedienproben. 21 Spielaufnahmen. Null Pixeländerung in statischen Leistenbereichen, Schlüsselspalten, pausierter Ansicht und den geprüften Bewohnerrahmen/Trennlinien. Echte Bootslandung samt altem Tempo und Ankunftshaken geprüft. |
-| **Problem** | Kein neuer technischer Blocker gefunden. Lange Angaben bleiben in festen Zeilen und sind vollständig per Tooltip lesbar. |
-| **Offen für Codex** | Visuelle Abnahme durch Claude; Prüfpaket `art/nature/observer-hud/README.md`. |
+| **Zuletzt erledigt** | PR #26 auf v0.22.0 aktualisiert: 88 Einbaum-/Jagd-/Hirschbilder fest in assets/nature, einschließlich Weltmaßen, Ankern und Fernstufen. Beide Voll-Exportwege erhalten das Paket. Claudes Darstellungs-/Kerncode unverändert. |
+| **Getestet** | 119 Rust-/15 Python-Tests, fmt, strenges Workspace-Clippy und Release-Bau bestanden. 88er-Matrix, Quell-/Bildhashes, alte Assets/Manifestdaten, wiederholte Menschen-/Tierexporte und 21 App-Tests nach Exportprüfung. Sechs echte eingebettete Spielansichten auf großer Insel bei Zoom 8/32: Boote, natürlicher Jagdtag und erlegter Hirsch. |
+| **Problem** | Auf gemeinsam genutzten Meerfeldern überlagern sich einzelne Boote trotz des kleinen vorgesehenen Versatzes. Im Küstenfoto dokumentiert; Platzierungsbeobachtung für Claude. |
+| **Offen für Codex** | Visuelle Abnahme durch Claude; aktuelles Prüfpaket `art/nature/canoe-and-hunt-style-b/README.md`, native Bilder in `v0.22-integration/`. |
 | **Offen für Dennis** | – |
-| **Nächster Schritt** | Claude prüft den HUD-Draft auf v0.21.0, insbesondere Inselwelt mit acht Quellen sowie Bewohnerregister/Lebenschronik. Separater Bildentwurf Einbaum/Jagd (PR #26) wartet weiter auf Claudes Schnittstellen. |
+| **Nächster Schritt** | Claude prüft den aktualisierten PR #26 im Spiel und übernimmt die eingebetteten Bilder bei visueller Freigabe. |
 
 ## Zusammenarbeit Claude / Codex
 
@@ -24,6 +24,7 @@
 
 | Datum | Änderung | Code-Test |
 | --- | --- | --- |
+| 17.11.2026 | Codex: Einbaum/Jagd (PR #26) auf v0.22.0 integriert, Basis `a39bb5b`. | 119 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau, alte Assets unverändert, reproduzierbare Voll-Exporte; echte Boote/Jagd/erlegter Hirsch bei Zoom 8/32. Überlagerungen gemeinsamer Bootsplätze dokumentiert; visuelle Abnahme offen. |
 | 17.11.2026 | Codex: HUD im Seekartenstil auf v0.21.0, Branch `codex/observer-hud-chart-style`, Basis `53d5d51`. | 117 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau, native Ankunfts-/Haken-/Bewohnerproben und Pixelprüfungen bestanden. Visuelle Abnahme offen. |
 | 16.11.2026 | Codex: Inselwelt geprüft, Seekartenschrift für Inselnamen, Branch `codex/islandworld-cartography`, Basis `66d829e` (v0.19.0). | 114 Rust-/15 Python-Tests, fmt, App-Clippy, Release-Bau; 24 native Aufnahmen, Umlaute, ruhige Pausenansicht und unveränderte Bildbereiche außerhalb der Namen. Workspace-Clippy: vorhandener Kernfehler. Visuelle Abnahme offen. |
 | 16.11.2026 | Codex: 140 Werkzeugbilder, Branch `codex/people-tools-style-b`, Basis `af87656` (v0.13.0). | 109 Rust-/15 Python-Tests, fmt, Clippy; Vollständigkeit, Maße, unveränderte Kinder/Elternbilder und wiederholter Export geprüft. Visuelle Abnahme offen. |

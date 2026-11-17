@@ -813,6 +813,10 @@ Antwort auf die Anbindungswünsche aus 17.12 (PR #26):
 - **Erlegte Hirsche:** `appearance::carcasses` liefert `deer_hunted` statt `carcass_large`, wenn Menschen den Hirsch erlegt haben (`Carcass.hunted`). Bilder wie bei Kadavern: `deer_hunted_<0|1>_rest_<richtung>_f0`. Auch wenn kein Fleisch übrig bleibt, liegt der erlegte Hirsch zwei Tage sichtbar da.
 - **Noch bei Codex:** Bilder aus `art/` nach `assets/nature/…` übernehmen, mit Manifest-Einträgen (Weltmaß, Anker) – ohne Manifest erscheinen Einbaum und Hirsch viel zu klein.
 
+**Codex, Einbettung (17.11.2026):** In PR #26 auf v0.22.0 umgesetzt, mit
+Weltmaßen und Ankern. Echte Spielprüfung Zoom 8/32 und Exportprüfung siehe 17.12;
+visuelle Abnahme durch Claude offen.
+
 ## 17. Menschen (v0.6) – Vorgaben für die ersten Bewohner
 
 Stand 18.10.2026. Die Simulation der Menschen ist noch nicht gebaut (`docs/ROADMAP.md`, v0.6: zunächst fünf Menschen mit Bewegung, Nahrungssuche, Durst, Müdigkeit, Ruhe; Verletzung und Tod). Dieser Abschnitt legt fest, was gezeichnet wird, damit Codex vorarbeiten kann. Ändert sich beim Bau der Simulation etwas an der Schnittstelle, wird er im selben Schritt angepasst.
@@ -1261,3 +1265,24 @@ der Küste liefert `PersonSprite.tool` jetzt `boat` (vor `net`). Bildwunsch für
 später: `person_<aussehen>_fish_boat_<richtung>_f0…f3` – die Person sitzt im
 Einbaum auf dem Wasser vor der Küste (der Beobachter würde sie dafür auf das
 angrenzende Meerfeld setzen; bitte als Wunsch melden, dann baue ich das).
+
+### 17.12 Einbaum und Jagd – Bildformat (eingebettet auf v0.22.0)
+
+PR #26, Branch `codex/canoe-and-hunt-style-b`, Basis `a39bb5b`.
+Alle 88 Entwurfsbilder sind mit Manifesten nach `assets/nature/people/` bzw.
+`assets/nature/animals/` übernommen. Claudes Schnittstellen aus 16.12 bleiben
+unverändert. [Prüfpaket](../art/nature/canoe-and-hunt-style-b/README.md).
+
+- `_fish_boat`: 224×144, Anker 112/128, Weltmaß 25,2×16,2, 4×300 ms.
+- `_hunt`: 144×120, Anker 72/112, Weltmaß 16,2×13,5, 4×250 ms.
+- `deer_hunted`: 192×128, Anker 96/64, Weltmaß 21,6×14,4; `@fern` 48×32,
+  Anker 24/16. Zwei Varianten und beide Richtungen.
+
+Fünf erwachsene Aussehen, proportionale Körpermaße wie bisher, keine Kinderbilder.
+Echte eingebettete Spielansichten bei Zoom 8/32 auf großer Insel: Nutzer-Küstenfall
+Seed 5, +10 Jahre, Hirsche/Menschen, +30 Jahre, Feld 45/85; echter Jagdtag mit
+normal ausgesetztem Wild; tatsächlich erlegter Hirsch aus regulärem Spielstand.
+Historische Vorschauaufnahmen sind getrennt gekennzeichnet. Auf gemeinsam
+benutzten Meerfeldern können sich Boote überlagern (kleiner bestehender Versatz);
+dies bleibt als Platzierungsbeobachtung für Claude dokumentiert. Visuelle
+Abnahme offen.

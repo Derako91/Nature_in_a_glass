@@ -1,0 +1,98 @@
+[
+  {
+    "image": "preview-coast-zoom8.png",
+    "args": [
+      "--seed",
+      "5",
+      "--groesse",
+      "gross",
+      "--years",
+      "10",
+      "--tiere",
+      "hirsche",
+      "--menschen",
+      "--danach",
+      "30",
+      "--select",
+      "47,84",
+      "--zoom",
+      "8",
+      "--bilder",
+      "/workspace/Nature_in_a_glass/art/nature/canoe-and-hunt-style-b/sprites"
+    ],
+    "preview_only": true,
+    "description": "Vorläufige Meerplatzierung; Person8/Hirsch als Bildgalerie"
+  },
+  {
+    "image": "preview-coast-zoom32.png",
+    "args": [
+      "--seed",
+      "5",
+      "--groesse",
+      "gross",
+      "--years",
+      "10",
+      "--tiere",
+      "hirsche",
+      "--menschen",
+      "--danach",
+      "30",
+      "--select",
+      "47,84",
+      "--zoom",
+      "32",
+      "--bilder",
+      "/workspace/Nature_in_a_glass/art/nature/canoe-and-hunt-style-b/sprites"
+    ],
+    "preview_only": true,
+    "description": "Vorläufige Meerplatzierung; Person8/Hirsch als Bildgalerie"
+  },
+  {
+    "image": "preview-hunt-gallery-zoom8.png",
+    "args": [
+      "--seed",
+      "5",
+      "--groesse",
+      "gross",
+      "--years",
+      "10",
+      "--tiere",
+      "hirsche",
+      "--menschen",
+      "--danach",
+      "30",
+      "--select",
+      "44,77",
+      "--zoom",
+      "8",
+      "--bilder",
+      "/workspace/Nature_in_a_glass/art/nature/canoe-and-hunt-style-b/sprites"
+    ],
+    "preview_only": true,
+    "description": "Vorläufige Meerplatzierung; Person8/Hirsch als Bildgalerie"
+  },
+  {
+    "image": "preview-hunt-gallery-zoom32.png",
+    "args": [
+      "--seed",
+      "5",
+      "--groesse",
+      "gross",
+      "--years",
+      "10",
+      "--tiere",
+      "hirsche",
+      "--menschen",
+      "--danach",
+      "30",
+      "--select",
+      "44,77",
+      "--zoom",
+      "32",
+      "--bilder",
+      "/workspace/Nature_in_a_glass/art/nature/canoe-and-hunt-style-b/sprites"
+    ],
+    "preview_only": true,
+    "description": "Vorläufige Meerplatzierung; Person8/Hirsch als Bildgalerie"
+  }
+]

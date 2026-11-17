@@ -4361,6 +4361,138 @@
           "file": "person_4_build_r_f3.png"
         }
       ]
+    },
+    {
+      "id": "person",
+      "group": "people",
+      "state": "hunt",
+      "variants": 5,
+      "frames": 4,
+      "frame_ms": 250,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "size": [
+        144,
+        120
+      ],
+      "anchor": [
+        72,
+        112
+      ],
+      "display_size": [
+        16.2,
+        13.5
+      ],
+      "files": [
+        "person_0_hunt_r_f0.png",
+        "person_0_hunt_r_f1.png",
+        "person_0_hunt_r_f2.png",
+        "person_0_hunt_r_f3.png",
+        "person_0_hunt_l_f0.png",
+        "person_0_hunt_l_f1.png",
+        "person_0_hunt_l_f2.png",
+        "person_0_hunt_l_f3.png",
+        "person_1_hunt_r_f0.png",
+        "person_1_hunt_r_f1.png",
+        "person_1_hunt_r_f2.png",
+        "person_1_hunt_r_f3.png",
+        "person_1_hunt_l_f0.png",
+        "person_1_hunt_l_f1.png",
+        "person_1_hunt_l_f2.png",
+        "person_1_hunt_l_f3.png",
+        "person_2_hunt_r_f0.png",
+        "person_2_hunt_r_f1.png",
+        "person_2_hunt_r_f2.png",
+        "person_2_hunt_r_f3.png",
+        "person_2_hunt_l_f0.png",
+        "person_2_hunt_l_f1.png",
+        "person_2_hunt_l_f2.png",
+        "person_2_hunt_l_f3.png",
+        "person_3_hunt_r_f0.png",
+        "person_3_hunt_r_f1.png",
+        "person_3_hunt_r_f2.png",
+        "person_3_hunt_r_f3.png",
+        "person_3_hunt_l_f0.png",
+        "person_3_hunt_l_f1.png",
+        "person_3_hunt_l_f2.png",
+        "person_3_hunt_l_f3.png",
+        "person_4_hunt_r_f0.png",
+        "person_4_hunt_r_f1.png",
+        "person_4_hunt_r_f2.png",
+        "person_4_hunt_r_f3.png",
+        "person_4_hunt_l_f0.png",
+        "person_4_hunt_l_f1.png",
+        "person_4_hunt_l_f2.png",
+        "person_4_hunt_l_f3.png"
+      ]
+    },
+    {
+      "id": "person",
+      "group": "people",
+      "state": "fish_boat",
+      "variants": 5,
+      "frames": 4,
+      "frame_ms": 300,
+      "directions": [
+        "l",
+        "r"
+      ],
+      "size": [
+        224,
+        144
+      ],
+      "anchor": [
+        112,
+        128
+      ],
+      "display_size": [
+        25.2,
+        16.2
+      ],
+      "files": [
+        "person_0_fish_boat_r_f0.png",
+        "person_0_fish_boat_r_f1.png",
+        "person_0_fish_boat_r_f2.png",
+        "person_0_fish_boat_r_f3.png",
+        "person_0_fish_boat_l_f0.png",
+        "person_0_fish_boat_l_f1.png",
+        "person_0_fish_boat_l_f2.png",
+        "person_0_fish_boat_l_f3.png",
+        "person_1_fish_boat_r_f0.png",
+        "person_1_fish_boat_r_f1.png",
+        "person_1_fish_boat_r_f2.png",
+        "person_1_fish_boat_r_f3.png",
+        "person_1_fish_boat_l_f0.png",
+        "person_1_fish_boat_l_f1.png",
+        "person_1_fish_boat_l_f2.png",
+        "person_1_fish_boat_l_f3.png",
+        "person_2_fish_boat_r_f0.png",
+        "person_2_fish_boat_r_f1.png",
+        "person_2_fish_boat_r_f2.png",
+        "person_2_fish_boat_r_f3.png",
+        "person_2_fish_boat_l_f0.png",
+        "person_2_fish_boat_l_f1.png",
+        "person_2_fish_boat_l_f2.png",
+        "person_2_fish_boat_l_f3.png",
+        "person_3_fish_boat_r_f0.png",
+        "person_3_fish_boat_r_f1.png",
+        "person_3_fish_boat_r_f2.png",
+        "person_3_fish_boat_r_f3.png",
+        "person_3_fish_boat_l_f0.png",
+        "person_3_fish_boat_l_f1.png",
+        "person_3_fish_boat_l_f2.png",
+        "person_3_fish_boat_l_f3.png",
+        "person_4_fish_boat_r_f0.png",
+        "person_4_fish_boat_r_f1.png",
+        "person_4_fish_boat_r_f2.png",
+        "person_4_fish_boat_r_f3.png",
+        "person_4_fish_boat_l_f0.png",
+        "person_4_fish_boat_l_f1.png",
+        "person_4_fish_boat_l_f2.png",
+        "person_4_fish_boat_l_f3.png"
+      ]
     }
   ],
   "frame_aliases": {}

@@ -1,0 +1,46 @@
+[
+  {
+    "image": "baseline-coast-zoom8.png",
+    "args": [
+      "--seed",
+      "5",
+      "--groesse",
+      "gross",
+      "--years",
+      "10",
+      "--tiere",
+      "hirsche",
+      "--menschen",
+      "--danach",
+      "30",
+      "--select",
+      "47,84",
+      "--zoom",
+      "8"
+    ],
+    "preview_only": false,
+    "description": "Unverändertes v0.18.1-Spiel"
+  },
+  {
+    "image": "baseline-coast-zoom32.png",
+    "args": [
+      "--seed",
+      "5",
+      "--groesse",
+      "gross",
+      "--years",
+      "10",
+      "--tiere",
+      "hirsche",
+      "--menschen",
+      "--danach",
+      "30",
+      "--select",
+      "47,84",
+      "--zoom",
+      "32"
+    ],
+    "preview_only": false,
+    "description": "Unverändertes v0.18.1-Spiel"
+  }
+]
