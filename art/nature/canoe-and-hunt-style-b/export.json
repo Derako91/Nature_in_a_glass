@@ -1,6 +1,7 @@
 {
   "base_commit": "3390433",
-  "embedded": false,
+  "embedded": true,
+  "integration_base": "a39bb5b",
   "files": [
     {
       "group": "people",

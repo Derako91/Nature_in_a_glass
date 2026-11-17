@@ -1,109 +1,100 @@
-# Einbaum und Jagd – Stil-B-Entwurf
+# Einbaum und Jagd – eingebettet auf v0.22.0
 
-Basis `3390433`, v0.18.1; Branch `codex/canoe-and-hunt-style-b`.
-**88 Bilder ausschließlich in `art/`, noch nicht produktiv eingebettet.**
-Der Einbaum würde mit der bisherigen Bildauswahl auf dem Land stehen;
-Meerplatzierung und echte Jagdauswahl übernimmt Claude nach Gestaltung 16.7.
+PR #26, Branch `codex/canoe-and-hunt-style-b`, Integrationsbasis `a39bb5b`.
+Alle **88 Bilder** liegen jetzt auch in `assets/nature/people/` bzw.
+`assets/nature/animals/`, mit Weltmaßen und Ankern in den jeweiligen Manifesten.
+Claudes fertige Schnittstellen wählen sie aus; die produktive Zeichnung und
+Simulation entsprechen unverändert v0.22.0. Visuelle Abnahme durch Claude offen.
 
-- 40 `person_<0…4>_fish_boat_<l|r>_f0…f3`: sitzend im langen, flachen
-  ausgehöhlten Baumstamm, kleines helles Netz, ruhiges Einholen/Auslegen.
-- 40 `person_<0…4>_hunt_<l|r>_f0…f3`: geduckt, gespannt, Speer bereit;
-  kurze Gewichtsverlagerung, keine ständig erfolgreiche Wurfbewegung.
-- Vier `deer_hunted_<0|1>_rest_<l|r>_f0` plus vier gefilterte `@fern`-Stufen:
-  erlegter Hirsch mit geschlossenen Augen und Speer, ohne Blutlache.
-
-Alle fünf erwachsenen Aussehen mit bisherigen Frisuren/Erkennungsfarben,
-Richtungen eigenständig gezeichnet, keine Kinderbilder. Zwei GIFs zeigen
-sämtliche Phasen mit den vorgeschlagenen Bilddauern; Kontaktblätter jeweils
-Phase 0 und beide Richtungen. Quellen samt SHA256 in `sources.json`.
-
-## Bildformat zur Anbindung durch Claude
-
-| Satz | Leinwand | Anker | Weltmaß | Dauer |
+| Bilder | Leinwand | Anker | Weltmaß | Dauer |
 | --- | --- | --- | --- | --- |
-| Jagd | 144×120 | 72/112 | 16,2×13,5 | 4×250 ms |
-| Einbaum | 224×144 | 112/128 | 25,2×16,2 | 4×300 ms |
-| Erlegter Hirsch | 192×128 | 96/64 | 21,6×14,4 | Standbild |
-| Hirsch `@fern` | 48×32 | 24/16 | identisches Weltmaß | Standbild |
+| 40 `person_<0…4>_fish_boat_<l|r>_f0…f3` | 224×144 | 112/128 | 25,2×16,2 | 4×300 ms |
+| 40 `person_<0…4>_hunt_<l|r>_f0…f3` | 144×120 | 72/112 | 16,2×13,5 | 4×250 ms |
+| 4 `deer_hunted_<0|1>_rest_<l|r>_f0` | 192×128 | 96/64 | 21,6×14,4 | Standbild |
+| 4 Hirsch-`@fern` | 48×32 | 24/16 | gleiches Weltmaß | Standbild |
 
-Die Leinwand ist nicht die deckende Motivbreite. Jagd hat seitlichen Platz
-für den Speer; die Erwachsenen werden dafür weder verkleinert noch gedehnt.
-Der Fußpunkt bleibt auf derselben Bodenposition. Einbaum-Anker: Wasserlinie
-unter der Rumpfmitte, nicht die Füße der sitzenden Person. Hirsch-Anker:
-Motivmitte am Boden. Das komplette Hirschmotiv einschließlich Speer ist etwa
-17 Welteinheiten breit. Manifestdateien liegen unter `sprites/people/` und
-`sprites/animals/`; die Dateien sind auf die späteren Bildordner vorbereitet.
-Fernstufen verwenden das vorhandene `levels`-Format.
+Die Körpermaße der fünf Erwachsenen und alle Originalzeichnungen aus dem
+Entwurf bleiben erhalten, ebenso beide eigenständig gezeichneten Richtungen.
+Die zusätzliche Jagd-Leinwandbreite gehört dem Speer; die Körperauflösung
+bleibt gleich. Einbaum-Anker: Wasserlinie unter dem Rumpf. Hirsch-Anker:
+Motivmitte. Keine Kinderbilder. Quellen/Hashes/Faktoren in `sources.json` und
+`export.json`, alle Phasen in `boat.gif` und `hunt.gif`.
 
-Jede Menschenquelle enthält vier gewöhnliche stehende Referenzfiguren;
-aus deren Höhe und den unveränderten Erwachsenenbildern wird ein gemeinsamer
-proportionaler Faktor pro Quelle ermittelt. Dasselbe Maß gilt für sämtliche
-Posen und beide Richtungen. Referenzfiguren werden nicht exportiert. Die
-Einbaumquellen haben zwei Spalten/sechs Zeilen, die Jagdquellen vier/drei.
-Keine individuelle Anpassung von Breite oder Höhe. `export.json` dokumentiert
-Faktoren, Quellbereiche und exportierte Dateien.
+## Echte Spielprüfung
 
-**Konkrete Schnittstellenwünsche:**
+Die **aktuellen sechs Aufnahmen** liegen in [v0.22-integration/](v0.22-integration/).
+Sie stammen vom normalen Release-Programm mit eingebetteten Bildern, ohne
+`--bilder`, vorläufige Meerplatzierung, erzwungene Tätigkeiten oder Galeriemotive.
+Alle drei Fälle wurden bei Zoom 8 und 32 angesehen:
 
-1. `PersonSprite.boat_tile: Option<u32>` (oder gleichwertige Renderposition)
-   für ein angrenzendes Meerfeld; tatsächliches Personenfeld und Simulation
-   bleiben unverändert. Erst beim tatsächlich ausgewählten `fish_boat`-Bild
-   auf das Meerfeld zeichnen und dort einsortieren. Ohne Bild oder nachts/
-   beim Essen bleibt die bisherige Landdarstellung. Persönlicher Versatz
-   muss innerhalb der Wasserraute bleiben, damit mehrere Boote sich verteilen.
-2. Echten Zustand `hunt` für Jagdhandlungen liefern und im Beobachter mit
-   `(4,250 ms)` aufnehmen. Flucht-`run` bleibt Flucht; nicht pauschal durch
-   Jagd ersetzen. Tageszeit/Ruhe und Kinderregeln wie bei den anderen Tätigkeiten.
-3. `deer_hunted` nur für tatsächlich durch Menschen erlegte Hirsche
-   auswählen. Andere Kadaver behalten ihre bestehenden Bilder. Das derzeitige
-   Kadaverformat liefert nur die Größenklasse; die Unterscheidung fehlt noch.
-
-## Prüfung auf großer Insel
-
-Unverändertes v0.18.1, 128×128 Felder:
+**Einbäume – Nutzer-Prüfstand:**
 
 ```sh
-./target/release/nature-in-a-glass --seed 5 --groesse gross --years 10 --tiere hirsche --menschen --danach 30 --select 47,84 --zoom 32
+nature-in-a-glass --seed 5 --groesse gross --years 10 --tiere hirsche --menschen --danach 30 --select 45,85 --zoom 32
 ```
 
-Außerdem Zoom 8. `baseline-coast-*.png` sind echte unveränderte Spielaufnahmen.
-Die Diagnose `fixture-probe.rs` verwendet nur öffentliche Simulationsaufrufe,
-keine direkt veränderten Bewohner; Ergebnisse in `fixture-observations.txt`.
-Am ersten Tag sind mehrere Küstenfischer mit `tool=boat` vorhanden, unter
-anderem Person 1 auf 47/84, benachbarte Meerfelder 46/84 und 46/85.
+Die Fischer liegen auf Meerfeldern, die Rümpfe und Personen erscheinen in den
+Manifestmaßen. Die Beobachtung aus dem Spiel: Auf gemeinsam genutzten
+Meerfeldern überlagern sich einzelne Boote trotz des kleinen persönlichen
+Versatzes. Das ist im Küstenbild sichtbar und bleibt ein Platzierungspunkt für
+Claude. Zeichnung und `boat_tile`-Versatz wurden hier nicht verändert.
 
-Die vier **`preview-*.png` sind ausdrücklich Entwurfsaufnahmen**, mit sichtbarem
-Hinweisbanner. Sie stammen aus einem temporären nativen Beobachter mit
-`--bilder <dieses Prüfpaket>/sprites`. Für die Vorschau werden ausschließlich
-lokale Renderkopien der natürlichen Küstenfischer auf ein benachbartes
-Meerfeld gesetzt. Person 8 auf 44/77 zeigt Jagd und einen dekorativen Hirsch
-als Bildgalerie; das behauptet keine echte Jagdhandlung oder echten Kadaver.
-Die Spielsimulation selbst wird dabei nicht geändert. Maßgeblich für die
-spätere Freigabe ist Claudes echte Anbindung, nicht diese Vorschau.
+**Jagd – tatsächlicher Jagdtag, direkte CLI:**
 
-Wiederholbare Entwurfsprüfung:
+```sh
+nature-in-a-glass --seed 5 --groesse gross --years 10 --tiere hirsche --bei 28,64 --menschen --days 9 --select 28,65 --zoom 32
+```
+
+Eine Hirschgruppe wird über den normalen Eingriff am Ankunftsfeld ausgesetzt.
+Die Bewohner beginnen selbst zu jagen. Im Bild sind Greta und Lone mit dem
+Speer sichtbar. `hunting_today` wird absichtlich nicht im Spielstand gespeichert;
+deshalb wird dieser Fall direkt abgespielt und nicht aus einer Datei geladen.
+
+**Erlegter Hirsch – regulärer Spielstand:**
+
+Der Küsten-Prüfstand bekommt nach den 30 Menschenjahren am Lager 44/77 fünf
+weitere Hirschgruppen über `Intervention::ReleaseAnimals`. Danach läuft die
+Simulation normal weiter. Am 22. zusätzlichen Tag erlegen die Bewohner einen
+Hirsch auf 44/77. Der Kadaver hat bereits null Fleisch und noch zwei Tage
+Sichtbarkeit; auch dieser Fall ist damit tatsächlich im Bild geprüft. Der regulär gespeicherte Zustand liegt komprimiert als
+`v0.22-integration/deer.json.gz` bei; `hunted` ist darin wahr. Die Aufnahme
+zeigt auch den echten Chronikeintrag über den Jagderfolg.
+
+`fixture-probe.rs` dokumentiert den Erzeuger; weder Hunger, Können, Tätigkeit
+noch Kadaverflag werden direkt gesetzt. Zum Ansehen den Spielstand neben eine
+separate Kopie des Programms nach `spielstaende/welt.json` entpacken und mit
+**Laden** öffnen. Die Aufnahmeskripte erledigen das in einem eigenen temporären
+Ordner und überschreiben keine bestehenden Spielstände.
+
+`cases.json` und `captures.json` enthalten alle Argumente und die Art des
+Prüffalls. Die gespeicherten Bilder zeigen pausierte Ansichten um 10 Uhr;
+die GIFs ergänzen die Prüfung der übrigen Phasen, sind keine Spielaufnahmen.
+Alte v0.18-Entwurfsaufnahmen bleiben historische Vergleichsbilder. Ihr Kontext
+steht in `README-v0.18.1.md`; der alte Vorschau-Bauer wurde entfernt.
+
+## Export und technische Prüfung
 
 ```sh
 python tools/nature/export_canoe_and_hunt.py
 python tools/nature/check_canoe_and_hunt.py
-python tools/nature/build_canoe_hunt_preview.py --output /tmp/nature-canoe-hunt-preview
-python tools/nature/capture_canoe_hunt_review.py /tmp/nature-canoe-hunt-preview --preview --display :100
+python tools/nature/capture_canoe_hunt_review.py target/release/nature-in-a-glass --display :102
 ```
 
-Der Vorschau-Bauer sichert die beiden Darstellungsdateien und das vorhandene
-Programm, baut die abweichende Vorschau und stellt Produktivdateien und
-Programm in `finally` wieder her. Der genaue Testunterschied ist in
-`review-preview.patch` sichtbar. Er wird nicht in Produktivcode übernommen.
-`*-captures.json` hält Startargumente und Art der jeweiligen Aufnahme fest.
+Pillow/NumPy/SciPy; für Aufnahmen Xvfb 1440×900, ImageMagick, X11/XTest und
+Tesseract. Einzelne Fälle über `--only coast`, `--only hunt`, `--only deer`.
+Der Export regeneriert proportionale Einzelbilder und ergänzt ausschließlich
+seine eigenen Manifest-Einträge. Die vollständigen Menschen- und Tierexporte
+rufen ihn ebenfalls auf, damit die neuen Bilder/Größen nicht wieder verloren
+gehen. Alle Spiel-PNGs und beide Manifeste bleiben bei erneutem Export
+bytegleich. Das ältere, nicht eingebettete `_people-testsheet.png` wird vom
+bestehenden Menschenexport neu berechnet und wurde auf den Bestand zurückgesetzt.
 
-Technisch geprüft: 88 Dateien/Matrix, echte Transparenz, getrennte Phasen,
-eigenständig gezeichnete Richtungen, Quellhashes, Anker und Kalibrierfaktoren.
-Alle 1672 Dateien unter `assets/nature/` bleiben gegenüber der Basis bytegleich.
-Erneuter Export muss sämtliche Sprite-PNGs und Manifeste bytegleich erzeugen.
+Geprüft: 88er-Matrix, Originalquellen, Dateihashes, unveränderte bisherige
+Bilddateien und Manifestdaten, Richtungen/Phasen sowie Fußpunkte/Weltmaße.
+Der neue eingebettete Assettest prüft Größen und Anker aller Zustände; der
+bestehende Atlas-Test prüft Auflösungsauswahl und beide Texturgrenzen.
 
-`cargo fmt --all`, 113 Rust-Tests, 15 Python-Tests und der Release-Bau bestehen
-auf der unveränderten Basis. **Strenges Clippy scheitert bereits im
-unveränderten Kern:** `crates/core/src/people.rs:1119`, `needless_range_loop`
-beim Durchgehen von `s.lakes_today` (Rust 1.100.0). Keine Unterdrückung und keine
-Kernänderung in diesem Bild-Draft. Claude muss den Basisfehler separat beheben.
-Visuelle Abnahme und produktive Anbindung bleiben offen.
+Bestanden: fmt, strenges workspaceweites Release-Clippy, **119 Rust-Tests**,
+zusätzlich 21 App-Tests nach der Exportprüfung, **15 Python-Tests**, Release-Bau,
+beide Voll-Exportwege, Manifest-/Bestandsprüfung und die sechs nativen Ansichten.
+Keine Versionsanhebung; Claude übernimmt nach visueller Freigabe.

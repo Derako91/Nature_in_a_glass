@@ -49,7 +49,7 @@ fn rejects_unknown_save_format() {
     let json =
         Simulation::new(1)
             .to_json()
-            .replacen("\"format_version\":16", "\"format_version\":999", 1);
+            .replacen("\"format_version\":20", "\"format_version\":999", 1);
     assert!(Simulation::from_json(&json).is_err());
 }
 
@@ -176,4 +176,37 @@ fn larger_islands_have_more_land_and_springs() {
     let b = Simulation::from_json(&large.to_json()).unwrap();
     assert_eq!((b.world.width, b.world.height), (128, 128));
     assert_eq!(b.state_hash(), large.state_hash());
+}
+
+/// Inselwelt: mehrere benannte Inseln, reproduzierbar; Namen und Grundform
+/// überstehen Speichern und Laden.
+#[test]
+fn archipelago_has_several_named_islands() {
+    use nig_core::world::Shape;
+    let a = Simulation::with_shape(2024, 160, 160, Shape::Archipelago);
+    let b = Simulation::with_shape(2024, 160, 160, Shape::Archipelago);
+    let named: Vec<_> = a.world.islands.iter().filter(|i| i.tiles >= 40).collect();
+    assert!(named.len() >= 3, "nur {} Inseln", named.len());
+    assert_eq!(a.world.islands, b.world.islands);
+    // Jedes Landfeld gehört zu einer Insel
+    for i in 0..a.world.tiles.len() {
+        if !a.world.tiles[i].is_ocean() {
+            assert!(a.world.island_at(i).is_some());
+        }
+    }
+    assert!(a.journal.events[0].message.contains("Inselwelt"));
+    let c = Simulation::from_json(&a.to_json()).unwrap();
+    assert_eq!(c.world.islands, a.world.islands);
+    assert_eq!(c.world.shape, Shape::Archipelago);
+    // Eine einzelne Insel hat genau eine große Insel
+    let single = Simulation::new(42);
+    assert_eq!(
+        single
+            .world
+            .islands
+            .iter()
+            .filter(|i| i.tiles >= 40)
+            .count(),
+        1
+    );
 }

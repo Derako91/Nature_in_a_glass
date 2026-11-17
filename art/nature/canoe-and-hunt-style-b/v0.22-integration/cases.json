@@ -1,0 +1,62 @@
+[
+  {
+    "name": "coast",
+    "args": [
+      "--seed",
+      "5",
+      "--groesse",
+      "gross",
+      "--years",
+      "10",
+      "--tiere",
+      "hirsche",
+      "--menschen",
+      "--danach",
+      "30",
+      "--select",
+      "45,85"
+    ],
+    "meaning": "Echter Küstenfischfang mit boat_tile, Nutzer-Prüfstand"
+  },
+  {
+    "name": "hunt",
+    "args": [
+      "--seed",
+      "5",
+      "--groesse",
+      "gross",
+      "--years",
+      "10",
+      "--tiere",
+      "hirsche",
+      "--bei",
+      "28,64",
+      "--menschen",
+      "--days",
+      "9",
+      "--select",
+      "28,65"
+    ],
+    "meaning": "Echter Jagdtag aus direktem CLI-Lauf; eine Hirschgruppe am Ankunftsfeld ausgesetzt"
+  },
+  {
+    "name": "deer",
+    "args": [
+      "--seed",
+      "5",
+      "--groesse",
+      "gross",
+      "--years",
+      "10",
+      "--tiere",
+      "hirsche",
+      "--menschen",
+      "--danach",
+      "30",
+      "--select",
+      "44,77"
+    ],
+    "save": "deer.json.gz",
+    "meaning": "Tatsächlich von Bewohnern erlegter Hirsch (hunted=true), kein Galeriemotiv"
+  }
+]

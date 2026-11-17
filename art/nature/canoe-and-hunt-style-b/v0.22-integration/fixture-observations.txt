@@ -1,0 +1,2 @@
+hunt extra_days=2 person=3 tile=46,79
+deer extra_days=22 tile=44,77

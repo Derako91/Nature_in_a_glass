@@ -1,5 +1,7 @@
-"""Einbaum-/Jagdentwurf proportional exportieren; noch keine produktive Einbettung."""
+"""Einbaum/Jagd proportional exportieren und mit Größenangaben einbetten (v0.22)."""
 import json
+import copy
+import shutil
 import statistics
 from pathlib import Path
 
@@ -86,7 +88,7 @@ def export():
     for (group,name),im in images.items():
         folder=OUTPUT/group;folder.mkdir(parents=True,exist_ok=True);im.save(folder/(name+'.png'))
     for record in records:record['sha256']=sha(OUTPUT/record['group']/record['file'])
-    people_manifest=dict(version=1,status='draft_interface_pending',assets=[])
+    people_manifest=dict(version=1,status='visual_review',assets=[])
     parent=json.loads((ROOT/'assets/nature/people/manifest.json').read_text())
     people_manifest['appearances']=parent['appearances']
     for kind,(state,size,anchor,display,ms) in KINDS.items():
@@ -94,16 +96,33 @@ def export():
             frame_ms=ms,directions=['l','r'],size=size,anchor=anchor,display_size=display,
             files=[r['file'] for r in records if r['kind']==kind]))
     (OUTPUT/'people/manifest.json').write_text(json.dumps(people_manifest,ensure_ascii=False,indent=2)+'\n')
-    deer_manifest=dict(version=1,status='draft_interface_pending',assets=[dict(id='deer_hunted',group='animals',
+    deer_manifest=dict(version=1,status='visual_review',assets=[dict(id='deer_hunted',group='animals',
         state='rest',variants=2,frames=1,frame_ms=None,directions=['l','r'],size=[192,128],anchor=[96,64],
         display_size=[21.6,14.4],files=[r['file'] for r in records if r['kind']=='deer' and '@fern' not in r['file']],
         levels=[dict(label='@fern',anchor=[24,16],
                   files=[r['file'] for r in records if '@fern' in r['file']])])])
     (OUTPUT/'animals/manifest.json').write_text(json.dumps(deer_manifest,ensure_ascii=False,indent=2)+'\n')
-    (ART/'export.json').write_text(json.dumps(dict(base_commit=cfg['base_commit'],embedded=False,
+    (ART/'export.json').write_text(json.dumps(dict(base_commit=cfg['base_commit'],embedded=True,integration_base='a39bb5b',
         files=records,scales=scales,visual_approval='pending'),ensure_ascii=False,indent=2)+'\n')
     proofs(images)
-    print('88 Entwurfsbilder in art/: 40 Jagd, 40 Einbaum, 4 erlegte Hirsche + 4 Fernbilder.')
+    embed()
+    print('88 Bilder mit Weltmaßen und Ankern eingebettet: 40 Jagd, 40 Einbaum, 8 Hirsch-/Fernbilder.')
+
+
+
+def embed():
+    """Nur eigene Einträge ersetzen; sämtliche bisherigen Metadaten erhalten."""
+    for group in ('people', 'animals'):
+        target = ROOT / 'assets/nature' / group
+        for path in (OUTPUT / group).glob('*.png'):
+            shutil.copy2(path, target / path.name)
+        path = target / 'manifest.json'
+        manifest = json.loads(path.read_text())
+        additions = json.loads((OUTPUT / group / 'manifest.json').read_text())['assets']
+        keys = {(e['id'], e.get('state')) for e in additions}
+        manifest['assets'] = [e for e in manifest['assets'] if (e['id'], e.get('state')) not in keys]
+        manifest['assets'].extend(copy.deepcopy(additions))
+        path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
 
 
 def proofs(images):

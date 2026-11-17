@@ -634,3 +634,191 @@ fn skilled_fishers_build_a_dugout() {
             >= 2
     );
 }
+
+// ---------- v0.20: Überfahrten ----------
+
+/// Wer einen Einbaum bauen kann, sieht von der Küste andere Inseln und fährt
+/// irgendwann mit Partner hinüber – auf einer einzelnen Insel nie.
+#[test]
+fn boat_people_cross_to_another_island() {
+    use nig_core::people::Sex;
+    use nig_core::world::Shape;
+    let mut sim = Simulation::with_shape(2024, 160, 160, Shape::Archipelago);
+    sim.advance_years(2);
+    // Küstenfeld der größten Insel, das einer anderen Insel am nächsten liegt
+    let w = &sim.world;
+    let home = w.islands.iter().max_by_key(|i| i.tiles).unwrap().id;
+    let other: Vec<(i32, i32)> = (0..w.tiles.len())
+        .filter(|&i| {
+            !w.tiles[i].is_ocean()
+                && w.island_at(i)
+                    .is_some_and(|x| x.id != home && x.tiles >= 40)
+        })
+        .map(|i| {
+            let (x, y) = w.xy(i);
+            (x as i32, y as i32)
+        })
+        .collect();
+    let coast = (0..w.tiles.len())
+        .filter(|&i| {
+            !w.tiles[i].is_ocean()
+                && w.tiles[i].surface_water <= 5.0
+                && w.island_at(i).map(|x| x.id) == Some(home)
+                && w.neighbors(i).any(|j| w.tiles[j].is_ocean())
+        })
+        .min_by_key(|&i| {
+            let (x, y) = w.xy(i);
+            other
+                .iter()
+                .map(|o| (o.0 - x as i32).abs().max((o.1 - y as i32).abs()))
+                .min()
+                .unwrap()
+        })
+        .unwrap();
+    let (x, y) = w.xy(coast);
+    for _ in 0..2 {
+        sim.apply(Intervention::PeopleArrive { at: Some((x, y)) });
+    }
+    // Alle können Einbäume bauen; Frauen und Männer sind Paare.
+    let women: Vec<u32> = sim
+        .people
+        .list
+        .iter()
+        .filter(|p| p.sex == Sex::Female)
+        .map(|p| p.id)
+        .collect();
+    let men: Vec<u32> = sim
+        .people
+        .list
+        .iter()
+        .filter(|p| p.sex == Sex::Male)
+        .map(|p| p.id)
+        .collect();
+    for (w, m) in women.iter().zip(&men) {
+        for p in &mut sim.people.list {
+            if p.id == *w {
+                p.partner = *m;
+            } else if p.id == *m {
+                p.partner = *w;
+            }
+        }
+    }
+    for p in &mut sim.people.list {
+        p.tools = 31;
+        p.fishing = 0.8;
+        p.age_days = p.age_days.min(30 * 365);
+    }
+    let mut crossed = false;
+    for _ in 0..10 {
+        sim.advance_years(1);
+        if sim.people.crossings > 0 {
+            crossed = true;
+            break;
+        }
+    }
+    assert!(crossed, "niemand ist in zehn Jahren übergesetzt");
+    let ev = sim
+        .journal
+        .events
+        .iter()
+        .find(|e| e.kind == EventKind::Crossing)
+        .expect("keine Überfahrt in der Chronik");
+    assert!(ev.message.contains("Einbaum"));
+    assert!(sim.people.list.iter().any(|p| p.seen != 0));
+    // Wer übergesetzt ist, steht auf einer anderen Insel.
+    assert!(
+        sim.people.list.iter().any(|p| sim
+            .world
+            .island_at(p.tile as usize)
+            .is_some_and(|i| i.id != home))
+            || !sim.people.departed.is_empty()
+    );
+}
+
+/// Auf einer einzelnen Insel gibt es nichts zu sehen und keine Überfahrt.
+#[test]
+fn no_crossings_on_a_single_island() {
+    let sim = settled(7, 40);
+    assert_eq!(sim.people.crossings, 0);
+    assert!(sim.people.list.iter().all(|p| p.seen == 0));
+}
+
+// ---------- v0.21: angekündigtes Boot ----------
+
+/// Ein angekündigtes Boot landet genau zur geplanten Zeit von selbst – auch
+/// nach Speichern und Laden; in der Inselwelt an der größten Insel.
+#[test]
+fn announced_boat_lands_on_time() {
+    use nig_core::world::Shape;
+    let mut sim = Simulation::new(2024);
+    sim.plan_boat(2);
+    let at = sim.boat_at.unwrap();
+    sim.advance_years(1);
+    assert_eq!(sim.people.alive(), 0);
+    let mut sim = Simulation::from_json(&sim.to_json()).unwrap();
+    assert_eq!(sim.boat_at, Some(at));
+    sim.skip_to_boat();
+    assert_eq!(sim.time_hours, at);
+    assert_eq!(sim.people.alive(), 5);
+    assert_eq!(sim.boat_at, None);
+    assert!(
+        sim.journal
+            .events
+            .iter()
+            .any(|e| e.message.contains("Ein Boot erreicht die Küste"))
+    );
+
+    let mut arch = Simulation::with_shape(2024, 160, 160, Shape::Archipelago);
+    arch.plan_boat(0);
+    arch.advance_days(1);
+    let big = arch
+        .world
+        .islands
+        .iter()
+        .max_by_key(|i| i.tiles)
+        .unwrap()
+        .id;
+    assert!(
+        arch.people
+            .list
+            .iter()
+            .all(|p| arch.world.island_at(p.tile as usize).map(|i| i.id) == Some(big))
+    );
+}
+
+// ---------- v0.22: Darstellung von Jagd und Einbaum ----------
+
+/// Wer jagt, wird als Jäger gezeigt; erlegte Hirsche sind als solche zu
+/// erkennen; Einbaum-Fischer bekommen ein Meerfeld.
+#[test]
+fn hunters_boats_and_hunted_deer_are_shown() {
+    use nig_core::animals::Species;
+    use nig_core::appearance::{carcasses, person_sprites};
+    let mut sim = Simulation::new(2024);
+    sim.advance_years(5);
+    for species in [Species::Deer, Species::Rabbit] {
+        sim.apply(Intervention::ReleaseAnimals { species, at: None });
+    }
+    sim.advance_years(5);
+    arrive(&mut sim);
+    let (mut hunt, mut deer) = (false, false);
+    for _ in 0..40 * 365 {
+        sim.advance_days(1);
+        hunt |= person_sprites(&sim.people, &sim.world)
+            .iter()
+            .any(|p| p.activity == "hunt");
+        deer |= carcasses(&sim.animals).iter().any(|c| c.1 == "deer_hunted");
+        if hunt && deer {
+            break;
+        }
+    }
+    assert!(hunt, "niemand wird als Jäger gezeigt");
+    assert!(deer, "kein erlegter Hirsch zu sehen");
+    // Einbaum: Meerfeld neben der Küste, nur für Boot-Fischer
+    for p in person_sprites(&sim.people, &sim.world) {
+        if let Some(b) = p.boat_tile {
+            assert_eq!(p.tool, Some("boat"));
+            assert!(sim.world.tiles[b as usize].is_ocean());
+        }
+    }
+}

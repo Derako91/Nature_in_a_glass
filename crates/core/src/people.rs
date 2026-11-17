@@ -39,6 +39,7 @@ mod hunting;
 mod roles;
 mod tools;
 mod villages;
+mod voyages;
 pub use camps::{Camp, CampStage};
 pub use gardens::Garden;
 pub use roles::Role;
@@ -275,6 +276,12 @@ pub struct Person {
     /// Rolle im Lager (0 = keine, sonst `Role`), seit Format 16.
     #[serde(default)]
     pub role: u8,
+    /// Gesehene andere Inseln (Bits der Insel-Nummer), seit Format 18.
+    #[serde(default)]
+    pub seen: u32,
+    /// War heute auf der Jagd (nur für die Darstellung, nicht gespeichert).
+    #[serde(skip)]
+    pub hunting_today: bool,
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq)]
@@ -413,6 +420,8 @@ pub enum NewsKind {
     ToolLost,
     /// Der erste von Menschen erlegte Hirsch.
     FirstHunt,
+    /// Menschen fahren zu einer anderen Insel (oder kentern dabei).
+    Crossing,
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq)]
@@ -470,6 +479,12 @@ pub struct People {
     /// Von Menschen erlegte Hirsche (insgesamt).
     #[serde(default)]
     pub deer_hunted: u32,
+    /// Inseln, die Menschen schon betreten haben (Bits), seit Format 18.
+    #[serde(default)]
+    pub reached: u32,
+    /// Gelungene Überfahrten zu anderen Inseln.
+    #[serde(default)]
+    pub crossings: u32,
 }
 
 const FEMALE_NAMES: [&str; 30] = [
@@ -585,6 +600,8 @@ pub struct Scratch {
     today: u64,
     doy: u32,
     temp_c: f32,
+    /// Sichtweiten übers Meer zu den anderen Inseln (für Überfahrten).
+    sight: voyages::Sight,
 }
 
 #[derive(Debug, Clone, Copy, Default)]
@@ -910,6 +927,8 @@ impl People {
                 tools: 0,
                 hunting: 0.0,
                 role: 0,
+                seen: 0,
+                hunting_today: false,
             };
             // Wer mit dem Boot kommt, hat schon ein wenig gejagt – etwa so viel,
             // wie er fischen kann (ohne eigenen Zufall, damit die Zufallsfolge
@@ -1116,11 +1135,8 @@ fn day(
         }
 
         // Seen sieht man von weiter weg (nur die Seen des Tages durchgehen)
-        for k in 0..s.lakes_today.len() {
-            if !scan {
-                break;
-            }
-            let i = s.lakes_today[k] as usize;
+        for &lake in s.lakes_today.iter().take_while(|_| scan) {
+            let i = lake as usize;
             let (x, y) = world.xy(i);
             let (dx, dy) = (x as i32 - px as i32, y as i32 - py as i32);
             let d = dx.abs().max(dy.abs());
@@ -1670,6 +1686,7 @@ fn day(
     tools::tools_day(people, world, now, rng, &mut news);
     hunting::hunting_day(people, animals, world, now, rng, &mut news);
     roles::roles_day(people, now);
+    voyages::voyages_day(people, world, weather, now, rng, &mut s.sight, &mut news);
 
     // --- Gefahren durch andere: Wölfe, Feuer ---
     for k in 0..people.list.len() {
@@ -2249,6 +2266,8 @@ fn family_day(
             tools: 0,
             hunting: 0.0,
             role: 0,
+            seen: 0,
+            hunting_today: false,
         };
         let parents = match &fname {
             Some(f) => format!("Mutter: {mname}, Vater: {f}."),

@@ -60,6 +60,8 @@ pub enum EventKind {
     ToolLost,
     // seit v0.14
     FirstHunt,
+    /// Menschen fahren zu einer anderen Insel.
+    Crossing,
 }
 
 impl EventKind {
@@ -108,6 +110,7 @@ impl EventKind {
             EventKind::ToolInvented => "Werkzeug",
             EventKind::ToolLost => "Werkzeug",
             EventKind::FirstHunt => "Jagd",
+            EventKind::Crossing => "Überfahrt",
         }
     }
 
@@ -133,6 +136,7 @@ impl EventKind {
                 | EventKind::VillageFounded
                 | EventKind::ToolInvented
                 | EventKind::FirstHunt
+                | EventKind::Crossing
         )
     }
 }

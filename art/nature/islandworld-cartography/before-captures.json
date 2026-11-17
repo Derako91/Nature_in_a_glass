@@ -1,0 +1,181 @@
+[
+  {
+    "image": "before-karte-zoom1.png",
+    "args": [
+      "--seed",
+      "2024",
+      "--groesse",
+      "inselwelt",
+      "--years",
+      "3",
+      "--zoom",
+      "1",
+      "--view",
+      "karte"
+    ]
+  },
+  {
+    "image": "before-karte-zoom2.png",
+    "args": [
+      "--seed",
+      "2024",
+      "--groesse",
+      "inselwelt",
+      "--years",
+      "3",
+      "--zoom",
+      "2",
+      "--view",
+      "karte"
+    ]
+  },
+  {
+    "image": "before-karte-zoom8.png",
+    "args": [
+      "--seed",
+      "2024",
+      "--groesse",
+      "inselwelt",
+      "--years",
+      "3",
+      "--zoom",
+      "8",
+      "--view",
+      "karte"
+    ]
+  },
+  {
+    "image": "before-iso-zoom1.png",
+    "args": [
+      "--seed",
+      "2024",
+      "--groesse",
+      "inselwelt",
+      "--years",
+      "3",
+      "--zoom",
+      "1"
+    ]
+  },
+  {
+    "image": "before-iso-zoom2.png",
+    "args": [
+      "--seed",
+      "2024",
+      "--groesse",
+      "inselwelt",
+      "--years",
+      "3",
+      "--zoom",
+      "2"
+    ]
+  },
+  {
+    "image": "before-iso-zoom8.png",
+    "args": [
+      "--seed",
+      "2024",
+      "--groesse",
+      "inselwelt",
+      "--years",
+      "3",
+      "--zoom",
+      "8"
+    ]
+  },
+  {
+    "image": "before-karte-all.png",
+    "args": [
+      "--seed",
+      "2024",
+      "--groesse",
+      "inselwelt",
+      "--years",
+      "3",
+      "--zoom",
+      "0.45",
+      "--view",
+      "karte"
+    ],
+    "paused_view_changed_pixels": 0
+  },
+  {
+    "image": "before-iso-all.png",
+    "args": [
+      "--seed",
+      "2024",
+      "--groesse",
+      "inselwelt",
+      "--years",
+      "3",
+      "--zoom",
+      "0.4"
+    ]
+  },
+  {
+    "image": "before-karte-focused-zoom2.png",
+    "args": [
+      "--seed",
+      "2024",
+      "--groesse",
+      "inselwelt",
+      "--years",
+      "3",
+      "--zoom",
+      "2",
+      "--view",
+      "karte",
+      "--select",
+      "105,76"
+    ]
+  },
+  {
+    "image": "before-karte-umlaut-zoom8.png",
+    "args": [
+      "--seed",
+      "2024",
+      "--groesse",
+      "inselwelt",
+      "--years",
+      "3",
+      "--zoom",
+      "8",
+      "--view",
+      "karte",
+      "--select",
+      "58,38"
+    ]
+  },
+  {
+    "image": "before-karte-long-name-zoom8.png",
+    "args": [
+      "--seed",
+      "2024",
+      "--groesse",
+      "inselwelt",
+      "--years",
+      "3",
+      "--zoom",
+      "8",
+      "--view",
+      "karte",
+      "--select",
+      "137,57"
+    ]
+  },
+  {
+    "image": "before-iso-coast-zoom8.png",
+    "args": [
+      "--seed",
+      "2024",
+      "--groesse",
+      "inselwelt",
+      "--years",
+      "3",
+      "--zoom",
+      "8",
+      "--select",
+      "86,58"
+    ]
+  }
+]

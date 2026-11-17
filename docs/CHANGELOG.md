@@ -1,5 +1,60 @@
 # Änderungen
 
+## 0.22.0 – Einbaum und Jäger zum Ansehen
+
+**Neu** (Anschlüsse für Codex' Bilder, PR #26)
+- Wer mit dem Einbaum fischt, wird künftig draußen auf dem Meer gezeigt statt am Ufer.
+- Wer an einem Tag jagt, bekommt das Jagdbild mit Speer.
+- Von Menschen erlegte Hirsche sind als solche zu erkennen und liegen auch dann kurz sichtbar da, wenn alles Fleisch mitgenommen wurde.
+- Die Bilder selbst bringt Codex als Nächstes ins Spiel; bis dahin sieht man wie bisher die Fischer am Ufer.
+
+**Spielstände:** Format 20; ältere lassen sich laden.
+
+## 0.21.1 – Oberfläche im Seekartenstil
+
+**Gestaltung** (Codex, PR #28)
+- Das ganze Beobachterfenster bekommt den Stil der Inselnamen: dunkles Blaugrün, warme Schrift, Messingtöne, kursive Überschriften.
+- Zahlen stehen in festen Spalten mit gleichbreiter Schrift; nichts verrutscht, wenn sich Werte ändern.
+- Kompaktere rechte Spalte: Auch mit acht Quellen bleibt Platz für die Chronik. Bewohner-Fenster mit festen Zeilen.
+- Bedienung und Funktionen unverändert.
+
+## 0.21.0 – Das Boot kommt
+
+**Neu**
+- **Angekündigtes Boot:** Eine neue Insel beginnt leer, oben rechts läuft ein Zähler „Boot in 9 J. 11 Mon.“ in Spielzeit. Nach zehn Jahren – die Insel ist dann ergrünt – landet von selbst ein Boot mit fünf Menschen. Schnellerer Zeitraffer verkürzt das Warten: bei „1 Monat/s“ etwa zwei Minuten, bei „1 Jahr/s“ zehn Sekunden.
+- **Zur Ankunft:** Ein Klick auf den Zähler spult im schnellsten Zeitraffer bis zur Landung und kehrt dann ins alte Tempo zurück; die Kamera springt zum Landeplatz.
+- **Haken „Menschen kommen von selbst“** neben „Neue Insel“ (standardmäßig an). Aus: Die Insel bleibt ohne Menschen – für lange Naturläufe.
+- In der Inselwelt landet das Boot (auch „Boot landen lassen“ ohne gewähltes Feld) an der größten Insel.
+- Startoptionen wie `--years`, `--menschen`, `--tiere` starten wie bisher ohne angekündigtes Boot.
+
+**Spielstände:** Format 19; der Zähler läuft nach dem Laden weiter. Ältere Stände lassen sich laden.
+
+## 0.20.0 – Überfahrten
+
+**Neu** (zweite Etappe zur ganzen Welt, ADR 0012)
+- **Land am Horizont:** Wer einen Einbaum bauen kann und am Ufer steht, sieht bei ruhigem Wetter manchmal eine andere Insel (bis etwa 30 Felder übers Meer). Die Biografie vermerkt es, das Bewohner-Fenster zeigt „Hat gesehen: …“.
+- **Überfahrt:** Wer eine andere Insel kennt, jung genug ist und einen Partner in der Nähe hat, fährt bei ruhigem Wetter mit ihm und den Kindern hinüber – oft, wenn das Lager zu voll ist, Holz fehlt oder Hunger herrscht, selten aus Neugier. Mindestens acht Menschen bleiben auf der Heimatinsel zurück. Ziel ist die gesehene Insel mit den wenigsten Menschen.
+- **Neubeginn:** Auf der neuen Insel kennt man nur das Ufer, an dem man gelandet ist: keine Wasserstelle, kein Lager. Können und Werkzeugwissen reisen mit.
+- **Gefahr:** Je weiter die Fahrt, desto eher kentert das Boot.
+- Chronik: „Zum ersten Mal betreten Menschen …“ und weitere Überfahrten (wichtiges Ereignis). Auf einer einzelnen Insel ändert sich nichts.
+
+**Behoben**
+- Neuere Rust-Versionen meldeten eine Prüfwarnung im Kern (Seen-Weitblick); umgeschrieben, gleiches Verhalten.
+
+**Spielstände** aus 0.19 lassen sich laden (Format 18).
+
+**Gestaltung:** Inselnamen in Seekartenschrift (Codex, PR #27).
+
+## 0.19.0 – Die Inselwelt
+
+**Neu** (erste Etappe zur ganzen Welt, ADR 0012)
+- **Inselwelt:** In der Größenauswahl neben „Neue Insel“ gibt es jetzt „Inselwelt“ – eine Welt aus fünf bis sechs Inseln verschiedener Größe (zusammen etwa 12–17 km²), jede mit eigenem Gelände, eigenen Bächen und Seen. Pflanzen und Tiere kommen nicht über das Meer.
+- **Inseln haben Namen** – „Lerchenland“, „Möweneiland“, „Sonnenwerder“ … Die Namen stehen auf der Karte und im Überblick, im Feld-Kasten beim Gelände, und die Chronik nennt beim Start alle Inseln.
+- **Eingriffe je Insel:** Wähle ein Feld auf einer Insel, dann landet das Boot oder werden die Tiere genau dort ausgesetzt.
+- Startoption `--groesse inselwelt`.
+
+**Spielstände** aus 0.18 lassen sich laden; ihre Insel bekommt beim Laden einen Namen.
+
 ## 0.18.1 – Werkzeuge in der Hand
 
 **Neu** (Pull Request #25)

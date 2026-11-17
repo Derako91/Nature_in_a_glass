@@ -1,17 +1,17 @@
 # Versionsstand – Nature_in_a_glass
 
-> **Stand:** 16.11.2026 · **Version:** Basis 0.18.1 · **Branch:** `codex/canoe-and-hunt-style-b` (Basis `3390433`)
+> **Stand:** 17.11.2026 · **Version:** Basis 0.22.0 · **Branch:** `codex/canoe-and-hunt-style-b` (Basis `a39bb5b`, PR #26)
 
 ## Auf einen Blick
 
 | Frage | Antwort |
 | --- | --- |
-| **Zuletzt erledigt** | PR #25 laut Claude in v0.18.1 übernommen. Neuer Bildentwurf: 40 Einbaum-, 40 Jagd-, vier erlegte Hirschbilder und vier Fernstufen. Ausschließlich in art/, bis die Schnittstellen angebunden sind. |
-| **Getestet** | 113 Rust-/15 Python-Tests, fmt und Release-Bau bestanden. 88 Bilddateien, Quellen, Manifest, Phasen und Kalibrierfaktoren geprüft; 1672 produktive Assetdateien unverändert. Erneuter Export: 90 Sprite-/Manifestdateien bytegleich. Große Insel, Seed 5, Zoom 8/32: zwei unveränderte Spielaufnahmen und vier gekennzeichnete native Entwurfsaufnahmen. |
-| **Problem** | Strenges Clippy scheitert bereits auf der unveränderten Basis in `crates/core/src/people.rs:1119` (`needless_range_loop`, Rust 1.100.0). Kein Kerncode geändert und keine Warnung unterdrückt. |
-| **Offen für Codex** | Visuelle Abnahme durch Claude. Zusätzlich beauftragt: Inselwelt v0.19.0 bei Zoom 1/2/8 prüfen; eigener Branch `codex/islandworld-cartography`. |
+| **Zuletzt erledigt** | PR #26 auf v0.22.0 aktualisiert: 88 Einbaum-/Jagd-/Hirschbilder fest in assets/nature, einschließlich Weltmaßen, Ankern und Fernstufen. Beide Voll-Exportwege erhalten das Paket. Claudes Darstellungs-/Kerncode unverändert. |
+| **Getestet** | 119 Rust-/15 Python-Tests, fmt, strenges Workspace-Clippy und Release-Bau bestanden. 88er-Matrix, Quell-/Bildhashes, alte Assets/Manifestdaten, wiederholte Menschen-/Tierexporte und 21 App-Tests nach Exportprüfung. Sechs echte eingebettete Spielansichten auf großer Insel bei Zoom 8/32: Boote, natürlicher Jagdtag und erlegter Hirsch. |
+| **Problem** | Auf gemeinsam genutzten Meerfeldern überlagern sich einzelne Boote trotz des kleinen vorgesehenen Versatzes. Im Küstenfoto dokumentiert; Platzierungsbeobachtung für Claude. |
+| **Offen für Codex** | Visuelle Abnahme durch Claude; aktuelles Prüfpaket `art/nature/canoe-and-hunt-style-b/README.md`, native Bilder in `v0.22-integration/`. |
 | **Offen für Dennis** | – |
-| **Nächster Schritt** | Claude bindet Meer-Renderposition, echten hunt-Zustand und deer_hunted-Auswahl nach Gestaltung 17.12 an. Erst danach Bilder produktiv einbetten und echte Zustandsprüfung wiederholen. Prüfpaket: `art/nature/canoe-and-hunt-style-b/README.md`. |
+| **Nächster Schritt** | Claude prüft den aktualisierten PR #26 im Spiel und übernimmt die eingebetteten Bilder bei visueller Freigabe. |
 
 ## Zusammenarbeit Claude / Codex
 
@@ -24,7 +24,9 @@
 
 | Datum | Änderung | Code-Test |
 | --- | --- | --- |
-| 16.11.2026 | Codex: Einbaum-/Jagdentwurf mit 88 Bildern, Branch `codex/canoe-and-hunt-style-b`, Basis `3390433`. | 113 Rust-/15 Python-Tests, fmt, Release-Bau, Maß-/Bestands-/Exportprüfung und native Entwurfsansichten auf großer Insel. Clippy-Basisfehler dokumentiert. Schnittstellen und visuelle Abnahme offen. |
+| 17.11.2026 | Codex: Einbaum/Jagd (PR #26) auf v0.22.0 integriert, Basis `a39bb5b`. | 119 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau, alte Assets unverändert, reproduzierbare Voll-Exporte; echte Boote/Jagd/erlegter Hirsch bei Zoom 8/32. Überlagerungen gemeinsamer Bootsplätze dokumentiert; visuelle Abnahme offen. |
+| 17.11.2026 | Codex: HUD im Seekartenstil auf v0.21.0, Branch `codex/observer-hud-chart-style`, Basis `53d5d51`. | 117 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau, native Ankunfts-/Haken-/Bewohnerproben und Pixelprüfungen bestanden. Visuelle Abnahme offen. |
+| 16.11.2026 | Codex: Inselwelt geprüft, Seekartenschrift für Inselnamen, Branch `codex/islandworld-cartography`, Basis `66d829e` (v0.19.0). | 114 Rust-/15 Python-Tests, fmt, App-Clippy, Release-Bau; 24 native Aufnahmen, Umlaute, ruhige Pausenansicht und unveränderte Bildbereiche außerhalb der Namen. Workspace-Clippy: vorhandener Kernfehler. Visuelle Abnahme offen. |
 | 16.11.2026 | Codex: 140 Werkzeugbilder, Branch `codex/people-tools-style-b`, Basis `af87656` (v0.13.0). | 109 Rust-/15 Python-Tests, fmt, Clippy; Vollständigkeit, Maße, unveränderte Kinder/Elternbilder und wiederholter Export geprüft. Visuelle Abnahme offen. |
 | 16.11.2026 | Codex: 90 Wandwasserbilder und Nutzung alter Atlasreihen-Lücken, Branch `codex/stream-drops-style-b`, Basis `3ac3bc1`. | 103 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; 120 RGBA-Anschlüsse und unveränderter Bestand. Nasse/trockene Spielansichten im Prüfpaket; visuelle Abnahme offen. |
 | 16.11.2026 | Codex: 20 Gartenbilder nach Gestaltung 17.9, Branch `codex/garden-style-b`, Basis `cc542e8`. | 100 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau; Alpha-/Manifest-/Bestandsprüfung und zwei wiederholbare Exportwege. Sommer-/Ernteprüfung Seed 300, Feld 25/20, Zoom 8/32 im Prüfpaket; visuelle Abnahme offen. |

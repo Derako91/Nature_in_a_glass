@@ -3,6 +3,7 @@
 #![cfg_attr(windows, windows_subsystem = "windows")]
 
 mod atlas;
+mod hud;
 mod view;
 
 use std::path::PathBuf;
@@ -65,6 +66,11 @@ use nig_core::world::POND_MM;
 use nig_core::{EventKind, Intervention, SeedKind, Simulation, Terrain};
 use view::{Camera, Layer, ViewMode};
 
+/// Nach so vielen Jahren landet auf einer neuen Insel das angekündigte Boot.
+const BOAT_YEARS: u64 = 10;
+/// Breite des Bootszählers oben (fest, damit nichts verrutscht).
+const COUNTDOWN_W: f32 = 190.0;
+
 /// Zeitraffer-Stufen: (Bezeichnung, Simulationsstunden pro echter Sekunde)
 const SPEEDS: [(&str, f64); 6] = [
     ("1 Std/s", 1.0),
@@ -103,12 +109,16 @@ impl EventReaction {
 
 /// Höchstens so viel Simulationszeit pro Bild, damit das Fenster reagiert.
 const MAX_HOURS_PER_FRAME: f64 = 24.0 * 365.0;
-/// Wählbare Inselgrößen (Kantenlänge der Karte in Feldern).
-const WORLD_SIZES: [u32; 3] = [64, 96, 128];
+/// Wählbare Welten: Kantenlänge der Karte in Feldern; 0 steht für die
+/// Inselwelt (160 Felder, mehrere Inseln).
+const WORLD_SIZES: [u32; 4] = [64, 96, 128, 0];
+/// Kartengröße der Inselwelt.
+const ARCHIPELAGO_SIZE: u32 = 160;
 
 fn size_label(n: u32) -> &'static str {
     match n {
-        0..=64 => "klein",
+        0 => "Inselwelt",
+        1..=64 => "klein",
         65..=96 => "mittel",
         _ => "groß",
     }
@@ -129,6 +139,7 @@ fn main() -> eframe::Result {
     let seed = arg("--seed").and_then(|s| s.parse().ok()).unwrap_or(42);
     // `--groesse klein|mittel|gross` (oder eine Zahl wie 96)
     let size: u32 = match arg("--groesse").as_deref() {
+        Some("inselwelt") => 0,
         Some("mittel") => 96,
         Some("gross") | Some("groß") => 128,
         Some(n) => n
@@ -185,10 +196,16 @@ fn main() -> eframe::Result {
         "Nature in a Glass",
         options,
         Box::new(move |cc| {
+            view::install_island_font(&cc.egui_ctx);
+            hud::install(&cc.egui_ctx);
             let mut app = App::new(seed, size);
             app.world_size = size;
             app.atlas = atlas::Atlas::load(&cc.egui_ctx, extra_images.as_deref());
             app.graphics = app.atlas.is_some() && !no_graphics;
+            // Mit Startoptionen (Prüfläufe) kommt kein Boot von selbst.
+            if years > 0 || days > 0 || people || !release.is_empty() || after > 0 {
+                app.sim.boat_at = None;
+            }
             app.sim.advance_years(years);
             for &species in &release {
                 app.sim.apply(Intervention::ReleaseAnimals {
@@ -264,6 +281,10 @@ struct Clock {
     ui_busy: bool,
     stop_message: Option<String>,
     focus: Option<usize>,
+    /// Das angekündigte Boot ist eben gelandet.
+    landed: bool,
+    /// Zeitraffer vor „Zur Ankunft“ – bei der Landung wieder eingestellt.
+    rush: Option<usize>,
 }
 
 impl Clock {
@@ -290,7 +311,20 @@ impl Clock {
         while left > 0 {
             let to_next_day = HOURS_PER_DAY - self.sim.time_hours % HOURS_PER_DAY;
             let step = left.min(to_next_day);
+            let boat = self.sim.boat_at.is_some();
             self.sim.advance_hours(step);
+            // Das angekündigte Boot landet: nicht darüber hinwegrasen.
+            if boat && self.sim.boat_at.is_none() {
+                self.owed_hours = 0.0;
+                self.landed = true;
+                if let Some(prev) = self.rush.take() {
+                    self.speed = prev;
+                }
+                if let Some(p) = self.sim.people.list.last() {
+                    self.focus = Some(p.tile as usize);
+                }
+                break;
+            }
             left -= step;
             self.owed_hours -= step as f64;
             if self.reaction == EventReaction::ChronicleOnly {
@@ -384,11 +418,15 @@ struct App {
     pending_rain: f32,
     pending_temp: f32,
     pending_springs: Vec<f32>,
+    /// Neue Inseln bekommen ein angekündigtes Boot („Menschen kommen von selbst“).
+    auto_boat: bool,
+    /// „Zur Ankunft springen“: Zeitraffer vor dem Sprung (danach zurück).
+    rush: Option<usize>,
 }
 
 impl App {
     fn new(seed: u64, size: u32) -> Self {
-        let sim = Self::fresh(seed, size);
+        let sim = Self::fresh(seed, size, true);
         // Platzhalter, den der Zeitgeber hält, solange die Oberfläche die
         // echte Simulation hat (winzige Insel, kostet nichts).
         let placeholder = Simulation::with_size(seed, 8, 8);
@@ -402,6 +440,8 @@ impl App {
             ui_busy: true,
             stop_message: None,
             focus: None,
+            landed: false,
+            rush: None,
         }));
         spawn_clock(clock.clone());
         let mut app = Self {
@@ -428,6 +468,8 @@ impl App {
             pending_rain: 0.0,
             pending_temp: 0.0,
             pending_springs: Vec::new(),
+            auto_boat: true,
+            rush: None,
             sim,
         };
         app.sync_pending();
@@ -437,9 +479,21 @@ impl App {
 
     /// Neue Insel, Uhr auf 10 Uhr morgens gestellt (innerhalb des ersten
     /// Tages läuft dabei noch kein Tagesprozess).
-    fn fresh(seed: u64, size: u32) -> Simulation {
-        let mut sim = Simulation::with_size(seed, size, size);
+    fn fresh(seed: u64, size: u32, boat: bool) -> Simulation {
+        let mut sim = if size == 0 {
+            Simulation::with_shape(
+                seed,
+                ARCHIPELAGO_SIZE,
+                ARCHIPELAGO_SIZE,
+                nig_core::world::Shape::Archipelago,
+            )
+        } else {
+            Simulation::with_size(seed, size, size)
+        };
         sim.advance_hours(10);
+        if boat {
+            sim.plan_boat(BOAT_YEARS);
+        }
         sim
     }
 
@@ -509,6 +563,11 @@ impl App {
         if let Some(msg) = c.stop_message.take() {
             self.status = msg;
         }
+        if std::mem::take(&mut c.landed) {
+            self.speed = c.speed;
+            self.rush = None;
+            self.status = "Das Boot ist gelandet – die ersten Menschen gehen an Land.".into();
+        }
         if let Some(i) = c.focus.take() {
             self.selected = Some(i);
             self.camera.pan = view::focus_pan(&self.sim.world, i, self.mode, self.camera.zoom);
@@ -522,6 +581,7 @@ impl App {
         self.holds_sim = false;
         c.running = self.running;
         c.speed = self.speed;
+        c.rush = self.rush;
         c.reaction = self.reaction;
         c.owed_hours = self.owed_hours;
         c.seen_event = self.seen_event;
@@ -552,12 +612,16 @@ impl App {
         // Zeile 1: Zeit und Zeitraffer
         ui.horizontal(|ui| {
             ui.add_sized(
-                [150.0, 24.0],
-                egui::Label::new(RichText::new("Nature in a Glass").strong().size(16.0)),
+                [140.0, 24.0],
+                egui::Label::new(
+                    RichText::new("Nature in a Glass")
+                        .font(hud::chart_font(18.0))
+                        .color(hud::BRASS),
+                ),
             );
             ui.separator();
             ui.add_sized(
-                [390.0, 24.0],
+                [340.0, 24.0],
                 egui::Label::new(RichText::new(self.time_text()).monospace().size(15.0)),
             );
             ui.separator();
@@ -571,17 +635,19 @@ impl App {
             }
             for (k, (label, _)) in SPEEDS.iter().enumerate() {
                 let b = egui::Button::selectable(self.speed == k, *label);
-                if ui.add_sized([82.0, 24.0], b).clicked() {
+                if ui.add_sized([70.0, 24.0], b).clicked() {
                     self.speed = k;
+                    self.rush = None;
                     self.running = true;
                 }
             }
             if ui
-                .add_sized([70.0, 24.0], egui::Button::new("+1 Tag"))
+                .add_sized([60.0, 24.0], egui::Button::new("+1 Tag"))
                 .clicked()
             {
                 self.sim.advance_hours(HOURS_PER_DAY);
             }
+            self.boat_countdown(ui);
         });
         // Zeile 2: Ansicht, Spielstand, neue Insel
         ui.horizontal(|ui| {
@@ -633,7 +699,7 @@ impl App {
             ui.label("Seed");
             ui.add(egui::TextEdit::singleline(&mut self.seed_text).desired_width(70.0));
             egui::ComboBox::from_id_salt("size")
-                .width(80.0)
+                .width(90.0)
                 .selected_text(size_label(self.world_size))
                 .show_ui(ui, |ui| {
                     for s in WORLD_SIZES {
@@ -643,13 +709,21 @@ impl App {
                 .response
                 .on_hover_text(
                     "Größe der nächsten neuen Insel: klein (etwa 4 km²), mittel (etwa 9 km²), \
-                     groß (etwa 14 km²). Größere Inseln haben mehr Quellen, Seen und Platz \
-                     für Tiere und Dörfer – und rechnen langsamer.",
+                     groß (etwa 14 km²) – oder eine Inselwelt mit mehreren Inseln \
+                     (zusammen etwa 12–17 km²). Pflanzen und Tiere kommen nicht über das \
+                     Meer. Größere Welten rechnen langsamer.",
+                );
+            ui.checkbox(&mut self.auto_boat, "Menschen kommen von selbst")
+                .on_hover_text(
+                    "Auf einer neuen Insel landet nach zehn Jahren von selbst ein Boot \
+                     mit fünf Menschen. Aus: Die Insel bleibt ohne Menschen, bis du \
+                     selbst eins landen lässt.",
                 );
             if ui.button("Neue Insel").clicked() {
                 match self.seed_text.trim().parse::<u64>() {
                     Ok(seed) => {
-                        self.replace_sim(Self::fresh(seed, self.world_size));
+                        self.replace_sim(Self::fresh(seed, self.world_size, self.auto_boat));
+                        self.rush = None;
                         self.camera = Camera::for_world(&self.sim.world);
                         self.status = format!(
                             "Neue Insel aus Seed {seed} ({})",
@@ -669,6 +743,41 @@ impl App {
         });
     }
 
+    /// Zähler bis zum angekündigten Boot – immer gleich breit, auch danach.
+    fn boat_countdown(&mut self, ui: &mut egui::Ui) {
+        let Some(at) = self.sim.boat_at else {
+            ui.allocate_space(egui::vec2(COUNTDOWN_W, 24.0));
+            return;
+        };
+        ui.separator();
+        let left = at.saturating_sub(self.sim.time_hours);
+        let days = left / HOURS_PER_DAY;
+        let when = if days >= 365 {
+            format!("{:>2} J. {:>2} Mon.", days / 365, days % 365 * 12 / 365)
+        } else if days >= 30 {
+            format!("{:>2} Monaten ", days / 30)
+        } else {
+            format!("{:>2} Tagen   ", days.max(1))
+        };
+        let rushing = self.rush.is_some();
+        let text = RichText::new(format!("Boot in {when} »")).monospace();
+        let b = egui::Button::new(text).selected(rushing);
+        if ui
+            .add_sized([COUNTDOWN_W, 24.0], b)
+            .on_hover_text(
+                "Ein Boot mit fünf Menschen ist unterwegs; bis dahin wächst die Insel \
+                 ohne sie. Schnellerer Zeitraffer verkürzt das Warten. \
+                 Klick: im schnellsten Zeitraffer bis zur Landung, dann wieder im alten Tempo.",
+            )
+            .clicked()
+            && !rushing
+        {
+            self.rush = Some(self.speed);
+            self.speed = SPEEDS.len() - 1;
+            self.running = true;
+        }
+    }
+
     /// Statuszeile am unteren Rand – immer gleich hoch, auch wenn leer.
     fn status_bar(&mut self, ui: &mut egui::Ui) {
         ui.horizontal(|ui| {
@@ -685,6 +794,8 @@ impl App {
     /// Rechte Spalte: alle Abschnitte haben eine feste Höhe, nur die
     /// Chronik darunter scrollt in ihrem eigenen Bereich.
     fn side_panel(&mut self, ui: &mut egui::Ui) {
+        ui.spacing_mut().item_spacing.y = 1.0;
+        ui.spacing_mut().interact_size.y = 18.0;
         self.island_section(ui);
         ui.separator();
         self.intervention_section(ui);
@@ -700,15 +811,17 @@ impl App {
     fn island_section(&mut self, ui: &mut egui::Ui) {
         let snap = self.sim.snapshot();
         let wx = &self.sim.weather;
-        ui.heading("Insel");
+        hud::section(ui, "Insel");
         egui::Grid::new("island")
+            .spacing([6.0, 1.0])
+            .min_row_height(hud::ROW_H)
             .num_columns(2)
             .min_col_width(170.0)
             .striped(true)
             .show(ui, |ui| {
                 let row = |ui: &mut egui::Ui, k: &str, v: String| {
-                    let r = ui.label(k);
-                    ui.add(egui::Label::new(v).truncate());
+                    let r = hud::key(ui, k);
+                    hud::value(ui, &v);
                     ui.end_row();
                     r
                 };
@@ -834,9 +947,9 @@ impl App {
                     format!("{} / {}", an.total(Species::Wolf), an.total(Species::Fox)),
                 );
                 let pe = &self.sim.people;
-                ui.label("Menschen");
+                hud::key(ui, "Menschen");
                 if pe.alive() + pe.departed.len() == 0 {
-                    ui.label("–");
+                    hud::value(ui, "–");
                 } else {
                     let kids = pe.list.iter().filter(|p| p.is_child()).count();
                     let text = if kids > 0 {
@@ -853,8 +966,9 @@ impl App {
                         )
                     };
                     if ui
-                        .link(text)
-                        .on_hover_text("Bewohner und ihre Lebensgeschichten")
+                        .add_sized([hud::VALUE_W, hud::ROW_H], egui::Label::new(RichText::new(&text).monospace().size(11.5).color(hud::BRASS)).halign(egui::Align::Min).truncate().sense(egui::Sense::click()))
+                        .on_hover_cursor(egui::CursorIcon::PointingHand)
+                        .on_hover_text(format!("{text}\nBewohner und ihre Lebensgeschichten"))
                         .clicked()
                     {
                         self.show_people = true;
@@ -949,6 +1063,12 @@ impl App {
                 }
             }
             rows[0].1 = format!("{x}, {y}");
+            // Name der Insel (auf der Inselwelt besonders wichtig)
+            if let Some(isl) = world.island_at(i)
+                && isl.tiles >= 40
+            {
+                kind.push_str(&format!(" · {}", isl.name));
+            }
             rows[1].1 = kind;
             rows[2].1 = format!("{:.0} m", t.elevation);
             if !t.is_ocean() {
@@ -1085,7 +1205,7 @@ impl App {
     }
 
     fn intervention_section(&mut self, ui: &mut egui::Ui) {
-        ui.heading("Eingriffe");
+        hud::section(ui, "Eingriffe");
         ui.label(RichText::new("Du veränderst Bedingungen, nicht das, was daraus folgt.").weak());
         let commit = |r: &egui::Response| r.drag_stopped() || (r.changed() && !r.dragged());
 
@@ -1182,7 +1302,9 @@ impl App {
                     self.sim.apply(Intervention::ScatterSeed { kind });
                 }
             }
-            ui.label(RichText::new(format!("im Boden: {:>2}", self.sim.seeds.len())).weak());
+            let text = format!("im Boden: {:>2}", self.sim.seeds.len());
+            ui.add(egui::Label::new(RichText::new(&text).weak().monospace().size(11.5)).truncate())
+                .on_hover_text(text);
         });
     }
 
@@ -1265,7 +1387,7 @@ impl App {
         };
         egui::Window::new("Bewohner")
             .open(&mut open)
-            .fixed_size([620.0, 310.0])
+            .fixed_size([760.0, 400.0])
             .default_pos([16.0, 80.0])
             .collapsible(false)
             .show(ctx, |ui| {
@@ -1275,16 +1397,16 @@ impl App {
                         ui.set_width(200.0);
                         egui::ScrollArea::vertical()
                             .id_salt("people_list")
-                            .max_height(300.0)
+                            .max_height(330.0)
                             .show(ui, |ui| {
                                 for p in &pe.list {
                                     let sel = self.bio_person == Some(p.id);
-                                    let text = RichText::new(format!(
-                                        "● {} · {}",
-                                        p.name,
-                                        age_short(p.age_days)
-                                    ))
-                                    .color(view::person_color(p.look));
+                                    let text = hud::resident_text(
+                                        &p.name,
+                                        &age_short(p.age_days),
+                                        view::person_color(p.look),
+                                        false,
+                                    );
                                     if ui.selectable_label(sel, text).clicked() {
                                         self.bio_person = Some(p.id);
                                     }
@@ -1295,12 +1417,12 @@ impl App {
                                 }
                                 for d in pe.departed.iter().rev() {
                                     let sel = self.bio_person == Some(d.person.id);
-                                    let text = RichText::new(format!(
-                                        "† {} · {}",
-                                        d.person.name,
-                                        age_short(d.person.age_days)
-                                    ))
-                                    .weak();
+                                    let text = hud::resident_text(
+                                        &d.person.name,
+                                        &age_short(d.person.age_days),
+                                        hud::MUTED,
+                                        true,
+                                    );
                                     if ui.selectable_label(sel, text).clicked() {
                                         self.bio_person = Some(d.person.id);
                                     }
@@ -1319,7 +1441,11 @@ impl App {
                             ui.label(RichText::new("Wähle links eine Person.").weak());
                             return;
                         };
-                        ui.heading(&p.name);
+                        ui.label(
+                            RichText::new(&p.name)
+                                .font(hud::chart_font(23.0))
+                                .color(hud::BRASS),
+                        );
                         let sex = match (p.sex, p.is_child()) {
                             (nig_core::people::Sex::Female, false) => "Frau",
                             (nig_core::people::Sex::Male, false) => "Mann",
@@ -1327,12 +1453,16 @@ impl App {
                             (nig_core::people::Sex::Male, true) => "Junge",
                         };
                         if let Some(d) = dead {
-                            ui.label(format!(
-                                "{sex}, {} · {} ({})",
-                                age_long(p.age_days),
-                                d.cause.label(),
-                                year_day(d.died_hours)
-                            ));
+                            hud::detail(
+                                ui,
+                                &format!(
+                                    "{sex}, {} · {} ({})",
+                                    age_long(p.age_days),
+                                    d.cause.label(),
+                                    year_day(d.died_hours)
+                                ),
+                            );
+                            ui.allocate_space(egui::vec2(ui.available_width(), 43.0));
                         } else {
                             let (x, y) = self.sim.world.xy(p.tile as usize);
                             let state = if p.pregnant_days > 0 {
@@ -1340,21 +1470,27 @@ impl App {
                             } else {
                                 p.activity.label().to_string()
                             };
-                            ui.label(format!(
-                                "{sex}, {} · {state} bei ({x}, {y})",
-                                age_long(p.age_days),
-                            ));
-                            ui.label(
-                                RichText::new(format!(
+                            hud::detail(
+                                ui,
+                                &format!(
+                                    "{sex}, {} · {state} bei ({x}, {y})",
+                                    age_long(p.age_days),
+                                ),
+                            );
+                            hud::detail(
+                                ui,
+                                &format!(
                                     "Hunger {} · Durst {} · Gesundheit {} · trägt {} Rationen",
                                     level(p.hunger),
                                     level(p.thirst),
                                     level(1.0 - p.health),
                                     de(p.pack, 1)
-                                ))
-                                .weak(),
+                                ),
                             );
-                            if ui.small_button("Zeigen").clicked() {
+                            if ui
+                                .add_sized([58.0, 22.0], egui::Button::new("Zeigen"))
+                                .clicked()
+                            {
                                 self.selected = Some(p.tile as usize);
                                 self.camera.pan = view::focus_pan(
                                     &self.sim.world,
@@ -1393,11 +1529,7 @@ impl App {
                         if !kids.is_empty() {
                             family.push(format!("Kinder: {}", kids.join(", ")));
                         }
-                        if !family.is_empty() {
-                            ui.add(
-                                egui::Label::new(RichText::new(family.join(" · ")).weak()).wrap(),
-                            );
-                        }
+                        hud::detail(ui, &family.join(" · "));
                         // Können: Fischen, Gärtnern, Werkzeuge (immer eine Zeile)
                         let mut can = vec![
                             format!("Fischen {:>3.0} %", p.fishing * 100.0),
@@ -1414,13 +1546,29 @@ impl App {
                             .map(|r| format!("{r} des Lagers · "))
                             .unwrap_or_default();
                         // Eine feste Zeile (ruhiges Fenster); vollständig beim Darüberfahren
-                        let text = format!("{role}Kann: {}", can.join(" · "));
-                        ui.add(egui::Label::new(RichText::new(&text).weak()).truncate())
-                            .on_hover_text(&text);
+                        // Gesehene andere Inseln (Überfahrten, v0.20)
+                        let seen: Vec<&str> = self
+                            .sim
+                            .world
+                            .islands
+                            .iter()
+                            .filter(|i| i.id < 32 && p.seen & (1 << i.id) != 0)
+                            .map(|i| i.name.as_str())
+                            .collect();
+                        let seen = if seen.is_empty() {
+                            String::new()
+                        } else {
+                            format!(" · Hat gesehen: {}", seen.join(", "))
+                        };
+                        let text = format!("{role}Kann: {}{seen}", can.join(" · "));
+                        ui.add(
+                            egui::Label::new(RichText::new(&text).weak().monospace()).truncate(),
+                        )
+                        .on_hover_text(&text);
                         ui.separator();
                         egui::ScrollArea::vertical()
                             .id_salt("bio")
-                            .max_height(200.0)
+                            .max_height(ui.available_height().min(200.0))
                             .stick_to_bottom(true)
                             .show(ui, |ui| {
                                 for e in &p.bio {
@@ -1456,7 +1604,7 @@ impl App {
         });
         let hist = &self.sim.history;
         let width = ui.available_width();
-        let (resp, painter) = ui.allocate_painter(egui::vec2(width, 110.0), egui::Sense::hover());
+        let (resp, painter) = ui.allocate_painter(egui::vec2(width, 80.0), egui::Sense::hover());
         let r = resp.rect.shrink2(egui::vec2(4.0, 6.0));
         painter.rect_filled(resp.rect, 4.0, ui.visuals().extreme_bg_color);
         let n = hist.len();
@@ -1561,7 +1709,9 @@ impl App {
             for (col, name) in series {
                 ui.label(RichText::new(format!("■ {name}")).color(col));
             }
-            ui.label(RichText::new(format!("· Jahr 1–{}", n)).weak());
+            let text = format!("· Jahr 1–{}", n);
+            ui.add(egui::Label::new(RichText::new(&text).weak().monospace().size(11.5)).truncate())
+                .on_hover_text(text);
         });
     }
 

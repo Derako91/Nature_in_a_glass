@@ -180,6 +180,9 @@ pub struct Carcass {
     /// Noch fressbares Fleisch für Wölfe (Energieeinheiten).
     #[serde(default)]
     pub meat: f32,
+    /// Von Menschen erlegt (nur für die Darstellung, seit Format 20).
+    #[serde(default)]
+    pub hunted: bool,
 }
 
 /// Todesfälle je Art und Ursache (laufendes Jahr).
@@ -918,6 +921,7 @@ fn step_individuals(a: &mut Animals, world: &mut World, weather: &Weather, rng: 
                             species: Species::Deer,
                             days_left: 20,
                             meat: DEER_MEAT,
+                            hunted: false,
                         });
                     }
                 }
@@ -1077,6 +1081,7 @@ fn step_individuals(a: &mut Animals, world: &mut World, weather: &Weather, rng: 
                     } else {
                         0.0
                     },
+                    hunted: false,
                 });
             }
             false

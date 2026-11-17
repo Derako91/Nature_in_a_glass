@@ -1,5 +1,6 @@
 """Entwurfs-Matrix, Maßstäbe, Quellen, Manifest und unveränderten Produktivbestand prüfen."""
 import hashlib
+import gzip
 import json
 import subprocess
 from PIL import Image, ImageOps
@@ -43,17 +44,43 @@ def check():
                 expected.add(('animals',name))
     actual={(p.parent.name,p.name) for p in OUTPUT.rglob('*.png')}
     assert actual==expected and len(actual)==88
-    for r in report['files']:assert sha(OUTPUT/r['group']/r['file'])==r['sha256']
+    for r in report['files']:
+        assert sha(OUTPUT/r['group']/r['file'])==r['sha256']
+        assert sha(ROOT/'assets/nature'/r['group']/r['file'])==r['sha256']
+    for group in ('people','animals'):
+        published=json.loads((ROOT/'assets/nature'/group/'manifest.json').read_text())
+        for entry in json.loads((OUTPUT/group/'manifest.json').read_text())['assets']:
+            assert entry in published['assets']
     for s in report['scales']:assert abs(s['factor']*s['reference_height']-s['target_height'])<1e-9
-    tree=subprocess.check_output(['git','ls-tree','-r',cfg['base_commit'],'assets/nature'],cwd=ROOT,text=True)
+    tree=subprocess.check_output(['git','ls-tree','-r','a39bb5b','assets/nature'],cwd=ROOT,text=True)
     unchanged=0
     for line in tree.splitlines():
-        meta,name=line.split('\t');data=(ROOT/name).read_bytes()
+        meta,name=line.split('\t')
+        if name in ('assets/nature/people/manifest.json','assets/nature/animals/manifest.json'):
+            parent=json.loads(subprocess.check_output(['git','show','a39bb5b:'+name],cwd=ROOT))
+            current=json.loads((ROOT/name).read_text())
+            current['assets']=[e for e in current['assets'] if not(e.get('id')=='deer_hunted' or (e.get('id')=='person' and e.get('state') in ('hunt','fish_boat')))]
+            assert current==parent,name
+            continue
+        data=(ROOT/name).read_bytes()
         blob=hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
         assert blob==meta.split()[2],name
         unchanged+=1
-    result=dict(base_commit=cfg['base_commit'],new_draft_pngs=88,
-        production_assets_unchanged=unchanged,embedded=False,source_hashes='passed',
+    integration=ART/'v0.22-integration'
+    cases=json.loads((integration/'cases.json').read_text())
+    captures=json.loads((integration/'captures.json').read_text())
+    expected_photos={c['name']+f'-zoom{z}.png' for c in cases for z in (8,32)}
+    assert {c['image'] for c in captures}==expected_photos and len(captures)==6
+    for c in captures:
+        assert c['embedded'] and not c['preview'] and '--bilder' not in c['args']
+        assert Image.open(integration/c['image']).size==(1440,900)
+        if c['image'].startswith('hunt-'):assert c['save'] is None
+    saved=json.load(gzip.open(integration/'deer.json.gz','rt'))
+    assert saved['engine_version']=='0.22.0'
+    assert any(c.get('hunted') and c['species']=='Deer' and c['meat']==0 and c['days_left']==2 for c in saved['simulation']['animals']['carcasses'])
+    assert not subprocess.check_output(['git','diff','a39bb5b','--','crates/core','crates/app/src/view.rs','crates/app/src/main.rs'],cwd=ROOT)
+    result=dict(base_commit='a39bb5b',new_embedded_pngs=88,
+        production_assets_unchanged=unchanged,native_screenshots=6,deer_save_hunted=True,embedded=True,source_hashes='passed',
         matrix_and_manifests='passed',phase_uniqueness='passed',
         standing_calibration='passed',directions_not_mirrored=True,visual_approval='pending')
     (ART/'validation.json').write_text(json.dumps(result,indent=2)+'\n')

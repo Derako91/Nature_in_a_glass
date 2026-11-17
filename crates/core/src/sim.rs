@@ -19,7 +19,7 @@ pub const DAYS_PER_YEAR: u64 = 365;
 pub const HOURS_PER_YEAR: u64 = HOURS_PER_DAY * DAYS_PER_YEAR;
 
 /// Version des Spielstand-Formats. Erhöhen, wenn sich die Struktur ändert.
-pub const SAVE_FORMAT_VERSION: u32 = 16;
+pub const SAVE_FORMAT_VERSION: u32 = 20;
 pub const ENGINE_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 pub const DEFAULT_SIZE: u32 = 64;
@@ -279,6 +279,13 @@ pub struct Simulation {
     pub people: People,
     #[serde(default)]
     rng_people: Rng,
+    /// Geplante Ankunft eines Boots (Spielstunde), seit Format 19. Der
+    /// Beobachter legt sie beim Start fest („Menschen kommen von selbst“).
+    #[serde(default)]
+    pub boat_at: Option<u64>,
+    /// Gerade landet das geplante Boot (für den Chroniktext).
+    #[serde(skip)]
+    boat_planned: bool,
 
     /// Wasserbilanz des letzten Tages (für Auswertung und Tests).
     #[serde(skip)]
@@ -313,7 +320,12 @@ impl Simulation {
     }
 
     pub fn with_size(seed: u64, width: u32, height: u32) -> Self {
-        let world = World::generate(seed, width, height);
+        Self::with_shape(seed, width, height, crate::world::Shape::Island)
+    }
+
+    /// Neue Welt mit Grundform (eine Insel oder Inselwelt).
+    pub fn with_shape(seed: u64, width: u32, height: u32, shape: crate::world::Shape) -> Self {
+        let world = World::generate_shaped(seed, width, height, shape);
         let aquifer_ref: f32 = world.springs.iter().map(|s| s.base_rate).sum::<f32>() * 300.0;
         let mut sim = Simulation {
             world,
@@ -345,6 +357,8 @@ impl Simulation {
             rng_animals: Rng::stream(seed, "tiere"),
             people: People::default(),
             rng_people: Rng::stream(seed, "menschen"),
+            boat_at: None,
+            boat_planned: false,
             last_water: HydroDay::default(),
             last_erosion: ErosionDay::default(),
             scratch_through: Vec::new(),
@@ -360,12 +374,31 @@ impl Simulation {
             0,
             EventKind::WorldCreated,
             None,
-            format!(
-                "Eine Insel entsteht: {} Landfelder, höchster Punkt {:.0} m, {} Quellen.",
-                land,
-                sim.world.max_elevation,
-                sim.world.springs.len()
-            ),
+            if sim.world.shape == crate::world::Shape::Archipelago {
+                let named: Vec<&str> = sim
+                    .world
+                    .islands
+                    .iter()
+                    .filter(|i| i.tiles >= 40)
+                    .map(|i| i.name.as_str())
+                    .collect();
+                format!(
+                    "Eine Inselwelt entsteht: {} Inseln ({}) und {} kleinere Felsen, zusammen {} Landfelder, höchster Punkt {:.0} m, {} Quellen.",
+                    named.len(),
+                    named.join(", "),
+                    sim.world.islands.len() - named.len(),
+                    land,
+                    sim.world.max_elevation,
+                    sim.world.springs.len()
+                )
+            } else {
+                format!(
+                    "Eine Insel entsteht: {} Landfelder, höchster Punkt {:.0} m, {} Quellen.",
+                    land,
+                    sim.world.max_elevation,
+                    sim.world.springs.len()
+                )
+            },
             vec![format!("Seed {}", seed)],
         );
         sim.run_day();
@@ -408,6 +441,30 @@ impl Simulation {
                 self.close_year();
             }
             self.run_day();
+            // Das angekündigte Boot kommt am Morgen des geplanten Tages.
+            if let Some(at) = self.boat_at
+                && self.time_hours >= at
+            {
+                self.boat_at = None;
+                self.boat_planned = true;
+                self.apply(Intervention::PeopleArrive { at: None });
+                self.boat_planned = false;
+            }
+        }
+    }
+
+    /// Ein Boot für in `years` Jahren ankündigen (auf den Tagesbeginn genau).
+    pub fn plan_boat(&mut self, years: u64) {
+        let at = self.time_hours + years * HOURS_PER_YEAR;
+        self.boat_at = Some(at / HOURS_PER_DAY * HOURS_PER_DAY);
+    }
+
+    /// Bis zur Ankunft des angekündigten Boots vorspulen.
+    pub fn skip_to_boat(&mut self) {
+        if let Some(at) = self.boat_at
+            && at > self.time_hours
+        {
+            self.advance_hours(at - self.time_hours);
         }
     }
 
@@ -1050,6 +1107,7 @@ impl Simulation {
                 NewsKind::ToolInvented => (EventKind::ToolInvented, "Übung"),
                 NewsKind::ToolLost => (EventKind::ToolLost, "Wissen verloren"),
                 NewsKind::FirstHunt => (EventKind::FirstHunt, "Wild in der Nähe"),
+                NewsKind::Crossing => (EventKind::Crossing, "Land in Sicht"),
                 NewsKind::CampfireSpread => {
                     // Wie ein Blitz: Der Brand wird verfolgt, bis er erlischt.
                     if !self.fire_tracker.active {
@@ -1379,6 +1437,7 @@ impl Simulation {
             feed(p.tools as u64);
             feed(p.hunting.to_bits() as u64);
             feed(p.role as u64);
+            feed(p.seen as u64);
         }
         feed(self.people.departed.len() as u64);
         for c in &self.people.camps {
@@ -1541,6 +1600,16 @@ impl Simulation {
                     }
                     Some(_) => return,
                     None => {
+                        // In der Inselwelt landet das Boot an der größten Insel.
+                        let biggest = (self.world.shape == crate::world::Shape::Archipelago)
+                            .then(|| {
+                                self.world
+                                    .islands
+                                    .iter()
+                                    .max_by_key(|x| (x.tiles, u32::MAX - x.id))
+                            })
+                            .flatten()
+                            .map(|x| x.id);
                         let coast: Vec<u32> = (0..self.world.tiles.len())
                             .filter(|&i| {
                                 ok(&self.world.tiles[i])
@@ -1548,6 +1617,8 @@ impl Simulation {
                                         .world
                                         .neighbors(i)
                                         .any(|j| self.world.tiles[j].is_ocean())
+                                    && (biggest.is_none()
+                                        || self.world.island_at(i).map(|x| x.id) == biggest)
                             })
                             .map(|i| i as u32)
                             .collect();
@@ -1563,10 +1634,17 @@ impl Simulation {
                 let (x, y) = self.world.xy(tile as usize);
                 (
                     Some((x, y)),
-                    format!(
-                        "Der Beobachter lässt ein Boot bei ({x}, {y}) landen: {} gehen an Land.",
-                        names.join(", ")
-                    ),
+                    if self.boat_planned {
+                        format!(
+                            "Ein Boot erreicht die Küste bei ({x}, {y}): {} gehen an Land.",
+                            names.join(", ")
+                        )
+                    } else {
+                        format!(
+                            "Der Beobachter lässt ein Boot bei ({x}, {y}) landen: {} gehen an Land.",
+                            names.join(", ")
+                        )
+                    },
                 )
             }
             Intervention::ScatterSeed { kind } => {
@@ -1634,7 +1712,7 @@ impl Simulation {
                 sim.migrate_from_v4();
             }
             4 => sim.migrate_from_v4(),
-            5..=15 => {}
+            5..=19 => {}
             other => {
                 return Err(format!(
                     "Spielstand-Format {other} wird nicht unterstützt (erwartet 1 bis {SAVE_FORMAT_VERSION})."
@@ -1642,6 +1720,7 @@ impl Simulation {
             }
         }
         sim.world.rebuild_drainage();
+        sim.world.find_islands();
         if file.format_version < 6 {
             sim.rng_animals = Rng::stream(sim.world.seed ^ sim.time_hours, "tiere");
         }

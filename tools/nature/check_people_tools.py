@@ -41,7 +41,7 @@ def check():
         expected |= files
     assert len(expected) == 140
     old_manifest = json.loads(subprocess.check_output(['git', 'show', f"{registry['base_commit']}:assets/nature/people/manifest.json"], cwd=ROOT))
-    without_new = dict(manifest, assets=[e for e in manifest['assets'] if e.get('state') not in STATES])
+    without_new = dict(manifest, assets=[e for e in manifest['assets'] if e.get('state') not in set(STATES) | {'hunt','fish_boat'}])
     assert without_new == old_manifest
     tree = subprocess.check_output(['git', 'ls-tree', '-r', registry['base_commit'], 'assets/nature'], cwd=ROOT, text=True)
     unchanged = 0

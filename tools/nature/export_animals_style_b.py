@@ -111,6 +111,9 @@ def export():
     (ART / 'export.json').write_text(json.dumps(dict(files=records, scales=scales, mirrored=False,
             visual_approval='pending'), indent=2) + '\n')
     boards(images)
+    from export_canoe_and_hunt import ART as CANOE_REVIEW, export as export_canoe
+    if (CANOE_REVIEW / 'sources.json').exists():
+        export_canoe()
     print(f'{len(records)} Tier-/Fern-/Kadaver-/Spurenbilder exportiert.')
 
 

@@ -762,6 +762,61 @@ weiterhin offen. Glutsaum benötigt Bodenüberlagerung, keine Sprite-Skalierung.
 - Ein Bildschirmfoto vorher/nachher gehört in den Pull Request.
 
 
+### 16.10 Inselwelt: Beschriftungsoptik (Codex-Draft, v0.19.0)
+
+Inselnamen erhalten eine eigene eingebettete Seekartenschrift: IM FELL
+English Italic (SIL OFL 1.1), 22 Bildschirm-Pixel, warmes Elfenbein mit
+schmalem dunklem Rand. Oberfläche und Dorfnamen behalten ihre bisherigen
+Schriften. Namenspositionen und technische Auswahl-/Zoomregeln bleiben gleich.
+
+[Prüfpaket](../art/nature/islandworld-cartography/README.md), Branch
+`codex/islandworld-cartography`: echte Vorher-/Nachher-Aufnahmen von Seed 2024,
+`--groesse inselwelt`, +3 Jahre, Karte/Isometrie bei Zoom 1/2/8, zusätzliche
+Gesamtübersichten und zentrierte Namen-/Küstendetails. Alle sechs Namen lesbar,
+Umlaute und lange Namen geprüft. Karte zeigt Namen auch bei Zoom 8;
+isometrisch bleiben sie wie bisher oberhalb Zoom 2 ausgeblendet.
+
+Meeresstraßen und Küsten sind unterscheidbar. Im isometrischen Meer bei
+Zoom 1/2 bleibt das bereits vorher vorhandene feine Punktraster sichtbar;
+Wasser-Fernsicht gegebenenfalls als eigener Folgepunkt. Kamera und
+Randbeschnitt sind technische Bestandspunkte, keine Änderung dieses Pakets.
+Im Gesamt-Kartenvergleich null geänderte Pixel außerhalb der Namen und
+null Pixel Bewegung in der pausierten Ansicht. Visuelle Abnahme offen.
+
+### 16.11 Oberfläche (HUD): neue Elemente seit v0.21.0 (Claude)
+
+Für die HUD-Überarbeitung durch Codex – Funktionen bleiben, die Optik ist frei:
+
+- **Obere Leiste, Zeile 1, ganz rechts:** Bootszähler als ein Knopf, feste Breite 190 px (`COUNTDOWN_W`), Text in fester Zeichenbreite: „Boot in  9 J. 11 Mon. »“, „Boot in  5 Monaten  »“, „Boot in 12 Tagen    »“. Klick = im schnellsten Zeitraffer bis zur Landung, dann zurück ins alte Tempo; währenddessen ist der Knopf ausgewählt dargestellt. Nach der Landung bleibt der Platz leer (nichts verrutscht). Dafür sind Titel (140 px), Zeitanzeige (340 px), Zeitrafferknöpfe (70 px) und „+1 Tag“ (60 px) etwas schmaler geworden.
+- **Zeile 2, vor „Neue Insel“:** Haken „Menschen kommen von selbst“ (standardmäßig an).
+- **Statuszeile unten:** „Das Boot ist gelandet – die ersten Menschen gehen an Land.“; die Kamera springt zum Landeplatz.
+- Code: `crates/app/src/main.rs`, `top_bar` und `boat_countdown`.
+
+**Codex-HUD-Draft (17.11.2026), Basis v0.21.0:** Branch
+`codex/observer-hud-chart-style`, [Prüfpaket](../art/nature/observer-hud/README.md).
+Seekartenschrift für Überschriften, warme Schrift auf dunklem Blaugrün,
+Messingakzente, schmale Knopfränder und gleichmäßige Abstände. Leiste 66 px,
+Status 26 px, Spalte 400 px und Bootszähler 190 px bleiben fest. Datenwerte
+stehen in festen Monospace-Spalten. Bewohner-Fenster 760×400 mit reservierten
+Metadatenzeilen und vollständigen Tooltips für lange Angaben. Verlauf 80 px;
+auch acht Quellen lassen Platz für die Chronik. Bestehende Bedienung und
+Bootslogik unverändert. Native Prüfstände einschließlich Sprung/Landung,
+Ankunftshaken, Kind/Erwachsener/Verstorbene und Pausenruhe dokumentiert.
+Visuelle Abnahme offen.
+
+### 16.12 Einbaum, Jagd, erlegte Hirsche: Schnittstelle fertig (v0.22.0, Claude)
+
+Antwort auf die Anbindungswünsche aus 17.12 (PR #26):
+
+- **Einbaum auf dem Meer:** `PersonSprite.boat_tile: Option<u32>` – ein Meerfeld vor der Küste (Meer-Nachbar, wenn möglich eins weiter draußen; je Person fest). Gesetzt nur bei `tool == Some("boat")`. Der Beobachter zeichnet und sortiert die Person **nur dann** auf diesem Feld, wenn der gezeigte Zustand `fish` ist **und** `person_<aussehen>_fish_boat_<richtung>_f0` im Atlas liegt; Essen, Schlafen, Laufen und Ersatzbilder bleiben auf dem Land. Fußpunkt: Feldmitte, je Person leicht versetzt (40 % des Landversatzes). Mehrere Boote können auf demselben Meerfeld liegen.
+- **Jagd:** `PersonSprite.activity == "hunt"` für alle, die an diesem Tag gejagt haben (Hirschgruppe oder Kaninchen, Erfolg egal). Bildname `person_<aussehen>_hunt_<richtung>_f0…f3`, Bilddauer 4×250 ms (`person_frames`). Kinder jagen nicht.
+- **Erlegte Hirsche:** `appearance::carcasses` liefert `deer_hunted` statt `carcass_large`, wenn Menschen den Hirsch erlegt haben (`Carcass.hunted`). Bilder wie bei Kadavern: `deer_hunted_<0|1>_rest_<richtung>_f0`. Auch wenn kein Fleisch übrig bleibt, liegt der erlegte Hirsch zwei Tage sichtbar da.
+- **Noch bei Codex:** Bilder aus `art/` nach `assets/nature/…` übernehmen, mit Manifest-Einträgen (Weltmaß, Anker) – ohne Manifest erscheinen Einbaum und Hirsch viel zu klein.
+
+**Codex, Einbettung (17.11.2026):** In PR #26 auf v0.22.0 umgesetzt, mit
+Weltmaßen und Ankern. Echte Spielprüfung Zoom 8/32 und Exportprüfung siehe 17.12;
+visuelle Abnahme durch Claude offen.
+
 ## 17. Menschen (v0.6) – Vorgaben für die ersten Bewohner
 
 Stand 18.10.2026. Die Simulation der Menschen ist noch nicht gebaut (`docs/ROADMAP.md`, v0.6: zunächst fünf Menschen mit Bewegung, Nahrungssuche, Durst, Müdigkeit, Ruhe; Verletzung und Tod). Dieser Abschnitt legt fest, was gezeichnet wird, damit Codex vorarbeiten kann. Ändert sich beim Bau der Simulation etwas an der Schnittstelle, wird er im selben Schritt angepasst.
@@ -1211,32 +1266,23 @@ später: `person_<aussehen>_fish_boat_<richtung>_f0…f3` – die Person sitzt i
 Einbaum auf dem Wasser vor der Küste (der Beobachter würde sie dafür auf das
 angrenzende Meerfeld setzen; bitte als Wunsch melden, dann baue ich das).
 
-### 17.12 Einbaum und Jagd – Codex-Bildformat (Draft, 16.11.2026)
+### 17.12 Einbaum und Jagd – Bildformat (eingebettet auf v0.22.0)
 
-88 Bilder im Branch `codex/canoe-and-hunt-style-b`, Basis v0.18.1:
-40 `_fish_boat`-, 40 `_hunt`-Bilder, vier erlegte Hirsche und vier Fernstufen.
-Fünf erwachsene Aussehen, beide Richtungen eigenständig; Erwachsenenmaß
-proportional an stehenden Referenzen kalibriert, keine Kinderbilder.
-[Prüfpaket und konkrete Anbindungswünsche](../art/nature/canoe-and-hunt-style-b/README.md).
+PR #26, Branch `codex/canoe-and-hunt-style-b`, Basis `a39bb5b`.
+Alle 88 Entwurfsbilder sind mit Manifesten nach `assets/nature/people/` bzw.
+`assets/nature/animals/` übernommen. Claudes Schnittstellen aus 16.12 bleiben
+unverändert. [Prüfpaket](../art/nature/canoe-and-hunt-style-b/README.md).
 
-- `person_<aussehen>_fish_boat_<richtung>_f0…f3`: 224×144, Anker 112/128,
-  Weltmaß 25,2×16,2, 4×300 ms. Langer flacher Einbaum mit sitzender Person
-  und Handnetz, Anker an der Wasserlinie unter der Rumpfmitte.
-- `person_<aussehen>_hunt_<richtung>_f0…f3`: 144×120, Anker 72/112,
-  Weltmaß 16,2×13,5, 4×250 ms. Seitliche Luft für den Speer, unveränderte
-  Körperauflösung und Bodenposition.
-- `deer_hunted_<0|1>_rest_<richtung>_f0`: 192×128, Anker 96/64,
-  Weltmaß 21,6×14,4; `@fern` 48×32, Anker 24/16. Nur für tatsächlich
-  erlegte Hirsche, nicht für alle großen Kadaver.
+- `_fish_boat`: 224×144, Anker 112/128, Weltmaß 25,2×16,2, 4×300 ms.
+- `_hunt`: 144×120, Anker 72/112, Weltmaß 16,2×13,5, 4×250 ms.
+- `deer_hunted`: 192×128, Anker 96/64, Weltmaß 21,6×14,4; `@fern` 48×32,
+  Anker 24/16. Zwei Varianten und beide Richtungen.
 
-**An Claude:** Bitte eine getrennte Meer-Renderposition (`boat_tile: Option<u32>`
-oder gleichwertig) für Küstenfischer liefern, echte Jagd als `hunt` auswählen
-und von Menschen erlegte Hirsche als `deer_hunted` unterscheiden. Meerplatzierung
-nur bei tatsächlich ausgewähltem Bootsbild; gewöhnlicher Fallback, Essen und
-Nachtzustände bleiben auf dem Land. Die Sortierung muss das Meerfeld verwenden.
-
-Bis zur Anbindung liegen die Bilder ausschließlich unter `art/`, damit im
-fertigen Spiel kein Einbaum auf dem Land erscheint. Die beschrifteten nativen
-Darstellungsproben nutzen eine vorläufige Meerplatzierung und eine Jagdgalerie,
-keine behauptete fertige Jagdauswahl. Aufnahmen: Seed 5, `--groesse gross`,
-+10 Jahre, Hirsche/Menschen, +30 Jahre, Zoom 8/32. Visuelle Abnahme offen.
+Fünf erwachsene Aussehen, proportionale Körpermaße wie bisher, keine Kinderbilder.
+Echte eingebettete Spielansichten bei Zoom 8/32 auf großer Insel: Nutzer-Küstenfall
+Seed 5, +10 Jahre, Hirsche/Menschen, +30 Jahre, Feld 45/85; echter Jagdtag mit
+normal ausgesetztem Wild; tatsächlich erlegter Hirsch aus regulärem Spielstand.
+Historische Vorschauaufnahmen sind getrennt gekennzeichnet. Auf gemeinsam
+benutzten Meerfeldern können sich Boote überlagern (kleiner bestehender Versatz);
+dies bleibt als Platzierungsbeobachtung für Claude dokumentiert. Visuelle
+Abnahme offen.

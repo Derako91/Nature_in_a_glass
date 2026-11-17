@@ -164,6 +164,12 @@ pub struct World {
     pub max_elevation: f32,
     pub tiles: Vec<Tile>,
     pub springs: Vec<Spring>,
+    /// Inseln der Welt (seit Format 17); bei alten Spielständen beim Laden ermittelt.
+    #[serde(default)]
+    pub islands: Vec<Island>,
+    /// Ob die Welt als Inselwelt (Archipel) erzeugt wurde.
+    #[serde(default)]
+    pub shape: Shape,
 
     // Abgeleitete Daten, werden nach dem Laden neu berechnet.
     /// Hauptfließrichtung jeder Kachel (Index des Nachbarn, der am meisten
@@ -175,6 +181,30 @@ pub struct World {
     /// [`NEIGHBORS`], damit Zufallszüge reproduzierbar bleiben.
     #[serde(skip)]
     neighbor_table: Vec<([u32; 8], u8)>,
+    /// Insel je Feld (Index in `islands`, `u16::MAX` = Meer), abgeleitet.
+    #[serde(skip)]
+    island_of: Vec<u16>,
+}
+
+/// Grundform der Welt.
+#[derive(Debug, Clone, Copy, Default, Serialize, Deserialize, PartialEq, Eq)]
+pub enum Shape {
+    /// Eine Insel in der Mitte (wie bis v0.18).
+    #[default]
+    Island,
+    /// Mehrere Inseln verschiedener Größe (ADR 0012, Etappe 1).
+    Archipelago,
+}
+
+/// Eine Insel: zusammenhängendes Land.
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+pub struct Island {
+    pub id: u32,
+    pub name: String,
+    /// Landfelder bei der Entstehung.
+    pub tiles: u32,
+    /// Feld etwa in der Mitte (für den Namen auf der Karte).
+    pub center: u32,
 }
 
 pub const NEIGHBORS: [(i32, i32); 8] = [
@@ -290,6 +320,17 @@ impl World {
 
     /// Erzeugt eine neue Insel aus einem Seed.
     pub fn generate(seed: u64, width: u32, height: u32) -> Self {
+        Self::generate_shaped(seed, width, height, Shape::Island)
+    }
+
+    /// Erzeugt eine Welt der gewünschten Grundform.
+    pub fn generate_shaped(seed: u64, width: u32, height: u32, shape: Shape) -> Self {
+        // Inselwelt: mehrere „Inselkerne“ verschiedener Größe, fest aus dem Seed
+        let blobs = if shape == Shape::Archipelago {
+            archipelago_blobs(seed)
+        } else {
+            Vec::new()
+        };
         let mut tiles = Vec::with_capacity((width * height) as usize);
         let shape_seed = seed ^ 0x51a9_d1ce;
         let soil_seed = seed ^ 0x0050_11d0;
@@ -302,8 +343,21 @@ impl World {
                 let ny = (y as f32 + 0.5) / height as f32 * 2.0 - 1.0;
                 let d = (nx * nx + ny * ny).sqrt();
                 let n = fbm(x as f32 / 14.0, y as f32 / 14.0, shape_seed, 5);
-                // Grundform: Rauschen minus Abstand zur Mitte → Insel
-                let shape = n * 1.25 - d * 1.05 + 0.05;
+                // Grundform: Rauschen minus Abstand zur Mitte → Insel; in der
+                // Inselwelt der Abstand zum nächsten Inselkern (im Verhältnis
+                // zu seiner Größe)
+                let d_core = if blobs.is_empty() {
+                    d
+                } else {
+                    blobs
+                        .iter()
+                        .map(|&(cx, cy, r)| {
+                            let (dx, dy) = (nx - cx, ny - cy);
+                            (dx * dx + dy * dy).sqrt() / r
+                        })
+                        .fold(f32::INFINITY, f32::min)
+                };
+                let shape = n * 1.25 - d_core * 1.05 + 0.05;
                 // Steiler Abfall zum Kartenrand, damit überall Meer drumherum ist
                 let edge = clamp01((d - 0.82) / 0.18);
                 let h = shape - edge * 0.6;
@@ -349,6 +403,9 @@ impl World {
             max_elevation,
             tiles,
             springs: Vec::new(),
+            islands: Vec::new(),
+            shape,
+            island_of: Vec::new(),
             downstream: Vec::new(),
             neighbor_table: Vec::new(),
         };
@@ -398,6 +455,7 @@ impl World {
         }
 
         world.rebuild_drainage();
+        world.find_islands();
         world.place_springs(seed);
         world
     }
@@ -440,6 +498,73 @@ impl World {
     /// Kachel, von der aus sie erreicht wurde – so führt von überall ein Weg
     /// zum Meer, auch aus Senken. Ab dem ersten Tag bestimmt der Wasserkreislauf
     /// die Richtungen neu aus dem Wasserspiegel (`hydro.rs`).
+    /// Inseln bestimmen (zusammenhängendes Land, 8 Nachbarn) und, falls noch
+    /// nicht geschehen, benennen. Feste Reihenfolge: nach erstem Feld.
+    pub fn find_islands(&mut self) {
+        let n = self.tiles.len();
+        let mut of = vec![u16::MAX; n];
+        let mut found: Vec<(u32, u32, u64, u64)> = Vec::new(); // (Felder, erstes, Σx, Σy)
+        for start in 0..n {
+            if self.tiles[start].is_ocean() || of[start] != u16::MAX {
+                continue;
+            }
+            let id = found.len().min(u16::MAX as usize - 1) as u16;
+            let mut stack = vec![start];
+            of[start] = id;
+            let (mut count, mut sx, mut sy) = (0u32, 0u64, 0u64);
+            while let Some(i) = stack.pop() {
+                count += 1;
+                let (x, y) = self.xy(i);
+                sx += x as u64;
+                sy += y as u64;
+                for j in self.neighbors(i) {
+                    if !self.tiles[j].is_ocean() && of[j] == u16::MAX {
+                        of[j] = id;
+                        stack.push(j);
+                    }
+                }
+            }
+            found.push((count, start as u32, sx, sy));
+        }
+        if self.islands.len() != found.len() {
+            let mut rng = Rng::stream(self.seed, "inselnamen");
+            let mut used: Vec<String> = Vec::new();
+            self.islands = found
+                .iter()
+                .enumerate()
+                .map(|(k, &(count, first, sx, sy))| {
+                    let c = self.idx((sx / count as u64) as u32, (sy / count as u64) as u32);
+                    let name = island_name(count, &mut rng, &used);
+                    used.push(name.clone());
+                    Island {
+                        id: k as u32,
+                        name,
+                        tiles: count,
+                        center: if self.tiles[c].is_ocean() {
+                            first
+                        } else {
+                            c as u32
+                        },
+                    }
+                })
+                .collect();
+        }
+        self.island_of = of;
+    }
+
+    /// Insel eines Feldes (Meer: keine). Neues Land (Schwemmland) gehört zur
+    /// Insel eines Nachbarn.
+    pub fn island_at(&self, i: usize) -> Option<&Island> {
+        let k = *self.island_of.get(i)?;
+        if k != u16::MAX {
+            return self.islands.get(k as usize);
+        }
+        self.neighbors(i)
+            .filter_map(|j| self.island_of.get(j).copied())
+            .find(|&k| k != u16::MAX)
+            .and_then(|k| self.islands.get(k as usize))
+    }
+
     pub fn rebuild_drainage(&mut self) {
         if self.neighbor_table.len() != self.tiles.len() {
             self.build_neighbor_table();
@@ -492,6 +617,73 @@ impl Ord for Entry {
     fn cmp(&self, o: &Self) -> Ordering {
         self.0.total_cmp(&o.0).then(self.1.cmp(&o.1))
     }
+}
+
+/// Inselkerne der Inselwelt: (Mitte x, Mitte y, Größe) in Kartenkoordinaten
+/// −1…1. Ein großer Kern und vier bis sechs kleinere, mit Abstand.
+fn archipelago_blobs(seed: u64) -> Vec<(f32, f32, f32)> {
+    let mut rng = Rng::stream(seed, "archipel");
+    let want = 5 + rng.below(3) as usize;
+    let mut blobs: Vec<(f32, f32, f32)> = Vec::new();
+    let mut tries = 0;
+    while blobs.len() < want && tries < 400 {
+        tries += 1;
+        let r = if blobs.is_empty() {
+            0.55 + rng.next_f32() * 0.1
+        } else {
+            0.2 + rng.next_f32() * 0.18
+        };
+        let lim = 0.85 - r * 0.6;
+        let cx = (rng.next_f32() * 2.0 - 1.0) * lim;
+        let cy = (rng.next_f32() * 2.0 - 1.0) * lim;
+        let free = blobs.iter().all(|&(bx, by, br)| {
+            let (dx, dy) = (cx - bx, cy - by);
+            (dx * dx + dy * dy).sqrt() > (r + br) * 0.55 + 0.1
+        });
+        if free {
+            blobs.push((cx, cy, r));
+        }
+    }
+    blobs
+}
+
+/// Name einer Insel – größere „-insel“ oder „-eiland“, kleine „-holm“.
+fn island_name(tiles: u32, rng: &mut Rng, used: &[String]) -> String {
+    const FIRST: [&str; 16] = [
+        "Möwen",
+        "Robben",
+        "Kiefern",
+        "Birken",
+        "Fels",
+        "Nebel",
+        "Sonnen",
+        "Wind",
+        "Stern",
+        "Muschel",
+        "Reiher",
+        "Otter",
+        "Kranich",
+        "Bernstein",
+        "Lerchen",
+        "Heide",
+    ];
+    let last: &[&str] = if tiles >= 400 {
+        &["insel", "eiland", "land"]
+    } else if tiles >= 40 {
+        &["insel", "eiland", "werder"]
+    } else {
+        &["holm", "klippe", "schäre"]
+    };
+    for _ in 0..40 {
+        let a = FIRST[rng.below(FIRST.len() as u32) as usize];
+        let b = last[rng.below(last.len() as u32) as usize];
+        let name = format!("{a}{b}");
+        // Jede Insel mit eigenem Anfang, damit die Namen gut zu unterscheiden sind
+        if !used.iter().any(|u| u.starts_with(a)) {
+            return name;
+        }
+    }
+    format!("Insel {}", used.len() + 1)
 }
 
 #[cfg(test)]
