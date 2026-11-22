@@ -16,8 +16,8 @@ Der bisherige Stand steht **unverändert** unter „Historie“. Offene Punkte v
 id: U
 titel: versionsstand.md auf DevHub-Statuskopf umstellen, PR-Prüfung einbinden
 agent: claude
-zustand: uebergabe
-naechster: dennis
+zustand: erledigt
+naechster: keiner
 haengt_ab_von: []
 branch: plan/statuskopf
 commit: c67bdcc80a3762a002d443aca983f6cab498d0e1
@@ -25,14 +25,14 @@ revier: [AGENTS.md, .gitattributes, CLAUDE.md]
 pruefstufe: behauptet
 tests: []
 frage: null
-aktualisiert: 2026-11-22T20:30Z
+aktualisiert: 2026-11-22T21:00Z
 ```
 
 - **Problem:** Projekt war in der DevHub-Übersicht nicht sichtbar (Status nur als Freitext); PRs wurden nicht geprüft.
 - **Funktioniert:** Statuskopf mit Projektblock und diesem Paket; bisheriger Inhalt unverändert als Historie; Regeln in AGENTS.md; `.gitattributes`. Keine automatische PR-Prüfung: öffentliches Repo, GitHub erlaubt keine Actions aus dem privaten Devhub (Lauf im PR schlug deshalb fehl, Workflow wieder entfernt). Geänderte Dateien: .gitattributes, AGENTS.md, CLAUDE.md, versionsstand.md. Kein Produktcode.
 - **Geprüft:** Statuskopf mit dem DevHub-Validator und die PR-Prüfung lokal gegen diesen Branch (Cloud, 22.11.2026) – gültig. Die Prüfung im PR selbst läuft per GitHub Actions.
-- **Offen:** Freigabe durch Dennis (Merge). Offene Punkte aus der Historie in Pakete übertragen (nächster Arbeits-PR oder Planungs-PR). Laufende PRs anderer Agenten brauchen beim nächsten Push ein eigenes Paket.
-- **Nächster Schritt:** Dennis prüft den PR.
+- **Offen:** Offene Punkte aus der Historie in Pakete übertragen (nächster Arbeits-PR oder Planungs-PR). Laufende PRs anderer Agenten brauchen beim nächsten Push ein eigenes Paket.
+- **Nächster Schritt:** – (abgeschlossen)
 - **Verantwortlich:** Claude → Dennis · **Branch/Commit:** siehe Block · **Tests:** keine (Dokumentation).
 
 ### Verlauf U
@@ -40,6 +40,7 @@ aktualisiert: 2026-11-22T20:30Z
 | --- | --- | --- |
 | 22.11.2026 | Umstellung auf Statuskopf (Claude), Commit `8a22ab3` | Validator + PR-Prüfung lokal: gültig |
 | 22.11.2026 | Workflow entfernt (öffentliches Repo), Commit `c67bdcc` | Validator lokal: gültig |
+| 22.11.2026 | Angenommen durch Merge PR #30 (`6c5fa82`), Dennis | – (Merge ist Annahme, kein Test) |
 
 ## Historie
 
