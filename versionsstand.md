@@ -64,6 +64,53 @@ aktualisiert: 2026-11-22T22:00Z
 - Quelle: Historie (17.11.2026), „Problem“: „Auf gemeinsam genutzten Meerfeldern überlagern sich einzelne Boote trotz des kleinen vorgesehenen Versatzes … Platzierungsbeobachtung für Claude“. Der dort genannte nächste Schritt (PR #26 prüfen) ist erledigt – PR #26 wurde am 17.11. gemergt.
 - **Revier:** wird beim Start festgelegt (erster Commit des Pakets).
 
+## Paket AE – Musik-Ebenen (Werkzeug)
+
+```yaml devhub-paket
+id: AE
+titel: "Werkzeug tools/audio: Musik-Ebenen für adaptive Musik mit dem Audio-Kern vorbereiten"
+agent: claude
+zustand: uebergabe
+naechster: dennis
+haengt_ab_von: []
+branch: claude/audio-ebenen
+commit: da377f16bdc356cf0cdda9f378b43093f37ffc8b
+revier: ["tools/audio/**", docs/ADAPTIVE_MUSIK.md]
+pruefstufe: getestet
+tests:
+  - art: automatisch
+    befehl: "python -m unittest discover -s tools/audio/tests (audiokern aus Tonstudio-2.0 PR #2, 49e4732)"
+    datum: 2026-11-22
+    umgebung: "Cloud-Arbeitsumgebung Claude (DevHub-Sitzung), Python 3.13, ffmpeg – selbst ausgeführt, nicht aus der PR-Beschreibung übernommen"
+    ergebnis: "2 Tests OK"
+    erfolgreich: true
+  - art: automatisch
+    befehl: "python -m unittest discover -s tools/audio/tests (audiokern 0.2.0 von Tonstudio-2.0 main, nach Merge PR #2)"
+    datum: 2026-11-23
+    umgebung: "Cloud-Arbeitsumgebung Claude (Sitzung des Audio-Kerns), Python 3.13, ffmpeg – selbst ausgeführt"
+    ergebnis: "2 Tests OK"
+    erfolgreich: true
+frage: null
+aktualisiert: 2026-11-23T00:40Z
+```
+
+- **Nachgetragen** am 22.11.2026 bei der Umstellung auf den Statuskopf: Der PR entstand vorher und hatte kein Paket. Code unverändert; der Standard-Branch wurde hineingemergt, damit `versionsstand.md` mit Statuskopf vorliegt. Die eine Zeile, die der PR in die alte `versionsstand.md` schrieb, steht jetzt hier.
+- **Stand:** Entwurf abgeschlossen (23.11.2026), zur Übernahme an Dennis. Das Werkzeug ist vollständig für seinen Zweck; Abspielen im Spiel ist ein eigenes, späteres Paket.
+- **Funktioniert:** `tools/audio/prepare_layers.py` macht Ebenen probengenau gleich lang, nahtlos schleifbar und auf Ziel-Lautheit; dazu `ebenen.json`. `crates/` und Savegame unverändert.
+- **Abhängigkeit:** Audio-Kern 0.2.0 aus Tonstudio-2.0 (PR #2, am 23.11.2026 gemergt).
+- **Offen:** Abspielen im Spiel, Musik-Director, Übergänge (siehe `docs/ADAPTIVE_MUSIK.md`).
+- **Nächster Schritt:** Dennis prüft und übernimmt PR #29.
+- **Verantwortlich:** Claude (Sitzung des Audio-Kerns) → Dennis.
+- **Bisheriger Status-Nachtrag dieses PRs** (stand in der alten `versionsstand.md`, wörtlich):
+  > | 22.11.2026 | Claude: Werkzeug `tools/audio/prepare_layers.py` – Musik-/Atmo-Ebenen mit dem Audio-Kern (Tonstudio 2.0) gleich lang, nahtlos, gleich laut. Branch `claude/audio-ebenen`. Spiel/Rust unverändert. | 2 Python-Tests (`tools/audio/tests`) grün, Linux, Audio-Kern 0.2.0. Rust nicht berührt, daher nicht neu gebaut. Abspielen im Spiel: nicht umgesetzt. |
+
+### Verlauf AE
+| Datum | Änderung | Test |
+| --- | --- | --- |
+| 22.11.2026 | Werkzeug als Entwurf (Claude), Commit `7480547` | laut PR: 2 Tests grün |
+| 22.11.2026 | Paket nachgetragen, `main` hineingemergt (Claude, DevHub), Commit `53bd1b6` | selbst ausgeführt: 2 Tests OK |
+| 23.11.2026 | `main` erneut hineingemergt (nach PR #31), Übergabe an Dennis (Claude), Commit `da377f1` | selbst ausgeführt: 2 Tests OK |
+
 ## Historie
 
 Inhalt von `versionsstand.md` bis 22.11.2026, **unverändert übernommen**:

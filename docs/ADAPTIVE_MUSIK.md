@@ -48,6 +48,7 @@ Die Musik folgt **tatsächlichen Zuständen und Ereignissen**; sie suggeriert ke
 ## Abgrenzung und Stand
 
 **Jetzt:** Idee dokumentiert, keine Änderung an `crates/core`, `crates/app`, `crates/cli` oder dem Savegame-Format.
+**22.11.2026:** Vorbereitungswerkzeug `tools/audio/prepare_layers.py` (Audio-Kern aus Tonstudio 2.0): Ebenen probengenau gleich lang, nahtlos schleifbar, auf Ziel-Lautheit – erfüllt die Asset-Seite der ersten Abnahme (saubere Loops, gleiche Länge). Director, Abspielen im Spiel und Übergänge weiterhin **nicht** umgesetzt; Spiel unverändert.
 **Vor einer Umsetzung:** bestehendes Audio-Backend im Rust-Client, technische Kükii-Schnittstelle, Rechte der verwendeten Musik und CPU-/Latenzbudget prüfen.
 
 Ziel: **Die Welt klingt anders, weil sie anders geworden ist – ohne ihre Selbstständigkeit zu verlieren.**
