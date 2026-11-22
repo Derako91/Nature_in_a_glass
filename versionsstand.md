@@ -1,3 +1,50 @@
+# Versionsstand – Nature in a Glass
+
+```yaml devhub-projekt
+devhub: 1
+projekt: nature-in-a-glass
+titel: Nature in a Glass
+auftrag: README.md
+freigabe: dennis
+```
+
+Der bisherige Stand steht **unverändert** unter „Historie“. Offene Punkte von dort sind noch **nicht** in Pakete übertragen – das geschieht mit dem nächsten Arbeits-PR (eigenes Paket) oder per Planungs-PR von Dennis.
+
+## Paket U – Umstellung auf Statuskopf
+
+```yaml devhub-paket
+id: U
+titel: versionsstand.md auf DevHub-Statuskopf umstellen, PR-Prüfung einbinden
+agent: claude
+zustand: uebergabe
+naechster: dennis
+haengt_ab_von: []
+branch: plan/statuskopf
+commit: c67bdcc80a3762a002d443aca983f6cab498d0e1
+revier: [AGENTS.md, .gitattributes, CLAUDE.md]
+pruefstufe: behauptet
+tests: []
+frage: null
+aktualisiert: 2026-11-22T20:30Z
+```
+
+- **Problem:** Projekt war in der DevHub-Übersicht nicht sichtbar (Status nur als Freitext); PRs wurden nicht geprüft.
+- **Funktioniert:** Statuskopf mit Projektblock und diesem Paket; bisheriger Inhalt unverändert als Historie; Regeln in AGENTS.md; `.gitattributes`. Keine automatische PR-Prüfung: öffentliches Repo, GitHub erlaubt keine Actions aus dem privaten Devhub (Lauf im PR schlug deshalb fehl, Workflow wieder entfernt). Geänderte Dateien: .gitattributes, AGENTS.md, CLAUDE.md, versionsstand.md. Kein Produktcode.
+- **Geprüft:** Statuskopf mit dem DevHub-Validator und die PR-Prüfung lokal gegen diesen Branch (Cloud, 22.11.2026) – gültig. Die Prüfung im PR selbst läuft per GitHub Actions.
+- **Offen:** Freigabe durch Dennis (Merge). Offene Punkte aus der Historie in Pakete übertragen (nächster Arbeits-PR oder Planungs-PR). Laufende PRs anderer Agenten brauchen beim nächsten Push ein eigenes Paket.
+- **Nächster Schritt:** Dennis prüft den PR.
+- **Verantwortlich:** Claude → Dennis · **Branch/Commit:** siehe Block · **Tests:** keine (Dokumentation).
+
+### Verlauf U
+| Datum | Änderung | Test |
+| --- | --- | --- |
+| 22.11.2026 | Umstellung auf Statuskopf (Claude), Commit `8a22ab3` | Validator + PR-Prüfung lokal: gültig |
+| 22.11.2026 | Workflow entfernt (öffentliches Repo), Commit `c67bdcc` | Validator lokal: gültig |
+
+## Historie
+
+Inhalt von `versionsstand.md` bis 22.11.2026, **unverändert übernommen**:
+
 # Versionsstand – Nature_in_a_glass
 
 > **Stand:** 17.11.2026 · **Version:** 0.22.1 (Einbäume auf dem Meer) · **Branch:** `main`
