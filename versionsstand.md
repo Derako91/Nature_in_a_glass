@@ -24,6 +24,7 @@
 
 | Datum | Änderung | Code-Test |
 | --- | --- | --- |
+| 22.11.2026 | Claude: Werkzeug `tools/audio/prepare_layers.py` – Musik-/Atmo-Ebenen mit dem Audio-Kern (Tonstudio 2.0) gleich lang, nahtlos, gleich laut. Branch `claude/audio-ebenen`. Spiel/Rust unverändert. | 2 Python-Tests (`tools/audio/tests`) grün, Linux, Audio-Kern 0.2.0. Rust nicht berührt, daher nicht neu gebaut. Abspielen im Spiel: nicht umgesetzt. |
 | 17.11.2026 | Codex: Einbaum/Jagd (PR #26) auf v0.22.0 integriert, Basis `a39bb5b`. | 119 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau, alte Assets unverändert, reproduzierbare Voll-Exporte; echte Boote/Jagd/erlegter Hirsch bei Zoom 8/32. Überlagerungen gemeinsamer Bootsplätze dokumentiert; visuelle Abnahme offen. |
 | 17.11.2026 | Codex: HUD im Seekartenstil auf v0.21.0, Branch `codex/observer-hud-chart-style`, Basis `53d5d51`. | 117 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau, native Ankunfts-/Haken-/Bewohnerproben und Pixelprüfungen bestanden. Visuelle Abnahme offen. |
 | 16.11.2026 | Codex: Inselwelt geprüft, Seekartenschrift für Inselnamen, Branch `codex/islandworld-cartography`, Basis `66d829e` (v0.19.0). | 114 Rust-/15 Python-Tests, fmt, App-Clippy, Release-Bau; 24 native Aufnahmen, Umlaute, ruhige Pausenansicht und unveränderte Bildbereiche außerhalb der Namen. Workspace-Clippy: vorhandener Kernfehler. Visuelle Abnahme offen. |
