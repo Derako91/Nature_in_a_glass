@@ -1,0 +1,2 @@
+# Statusdateien: feste Zeilenenden, damit parallele Agenten keine Scheinkonflikte erzeugen (DevHub-Standard §6.1)
+versionsstand.md text eol=lf
