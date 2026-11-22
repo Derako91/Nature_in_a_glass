@@ -1,3 +1,51 @@
+# Versionsstand – Nature in a Glass
+
+```yaml devhub-projekt
+devhub: 1
+projekt: nature-in-a-glass
+titel: Nature in a Glass
+auftrag: README.md
+freigabe: dennis
+```
+
+Der bisherige Stand steht **unverändert** unter „Historie“. Offene Punkte von dort sind noch **nicht** in Pakete übertragen – das geschieht mit dem nächsten Arbeits-PR (eigenes Paket) oder per Planungs-PR von Dennis.
+
+## Paket U – Umstellung auf Statuskopf
+
+```yaml devhub-paket
+id: U
+titel: versionsstand.md auf DevHub-Statuskopf umstellen, PR-Prüfung einbinden
+agent: claude
+zustand: erledigt
+naechster: keiner
+haengt_ab_von: []
+branch: plan/statuskopf
+commit: c67bdcc80a3762a002d443aca983f6cab498d0e1
+revier: [AGENTS.md, .gitattributes, CLAUDE.md]
+pruefstufe: behauptet
+tests: []
+frage: null
+aktualisiert: 2026-11-22T21:00Z
+```
+
+- **Problem:** Projekt war in der DevHub-Übersicht nicht sichtbar (Status nur als Freitext); PRs wurden nicht geprüft.
+- **Funktioniert:** Statuskopf mit Projektblock und diesem Paket; bisheriger Inhalt unverändert als Historie; Regeln in AGENTS.md; `.gitattributes`. Keine automatische PR-Prüfung: öffentliches Repo, GitHub erlaubt keine Actions aus dem privaten Devhub (Lauf im PR schlug deshalb fehl, Workflow wieder entfernt). Geänderte Dateien: .gitattributes, AGENTS.md, CLAUDE.md, versionsstand.md. Kein Produktcode.
+- **Geprüft:** Statuskopf mit dem DevHub-Validator und die PR-Prüfung lokal gegen diesen Branch (Cloud, 22.11.2026) – gültig. Die Prüfung im PR selbst läuft per GitHub Actions.
+- **Offen:** Offene Punkte aus der Historie in Pakete übertragen (nächster Arbeits-PR oder Planungs-PR). Laufende PRs anderer Agenten brauchen beim nächsten Push ein eigenes Paket.
+- **Nächster Schritt:** – (abgeschlossen)
+- **Verantwortlich:** Claude → Dennis · **Branch/Commit:** siehe Block · **Tests:** keine (Dokumentation).
+
+### Verlauf U
+| Datum | Änderung | Test |
+| --- | --- | --- |
+| 22.11.2026 | Umstellung auf Statuskopf (Claude), Commit `8a22ab3` | Validator + PR-Prüfung lokal: gültig |
+| 22.11.2026 | Workflow entfernt (öffentliches Repo), Commit `c67bdcc` | Validator lokal: gültig |
+| 22.11.2026 | Angenommen durch Merge PR #30 (`6c5fa82`), Dennis | – (Merge ist Annahme, kein Test) |
+
+## Historie
+
+Inhalt von `versionsstand.md` bis 22.11.2026, **unverändert übernommen**:
+
 # Versionsstand – Nature_in_a_glass
 
 > **Stand:** 17.11.2026 · **Version:** 0.22.1 (Einbäume auf dem Meer) · **Branch:** `main`
@@ -24,7 +72,6 @@
 
 | Datum | Änderung | Code-Test |
 | --- | --- | --- |
-| 22.11.2026 | Claude: Werkzeug `tools/audio/prepare_layers.py` – Musik-/Atmo-Ebenen mit dem Audio-Kern (Tonstudio 2.0) gleich lang, nahtlos, gleich laut. Branch `claude/audio-ebenen`. Spiel/Rust unverändert. | 2 Python-Tests (`tools/audio/tests`) grün, Linux, Audio-Kern 0.2.0. Rust nicht berührt, daher nicht neu gebaut. Abspielen im Spiel: nicht umgesetzt. |
 | 17.11.2026 | Codex: Einbaum/Jagd (PR #26) auf v0.22.0 integriert, Basis `a39bb5b`. | 119 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau, alte Assets unverändert, reproduzierbare Voll-Exporte; echte Boote/Jagd/erlegter Hirsch bei Zoom 8/32. Überlagerungen gemeinsamer Bootsplätze dokumentiert; visuelle Abnahme offen. |
 | 17.11.2026 | Codex: HUD im Seekartenstil auf v0.21.0, Branch `codex/observer-hud-chart-style`, Basis `53d5d51`. | 117 Rust-/15 Python-Tests, fmt, Clippy, Release-Bau, native Ankunfts-/Haken-/Bewohnerproben und Pixelprüfungen bestanden. Visuelle Abnahme offen. |
 | 16.11.2026 | Codex: Inselwelt geprüft, Seekartenschrift für Inselnamen, Branch `codex/islandworld-cartography`, Basis `66d829e` (v0.19.0). | 114 Rust-/15 Python-Tests, fmt, App-Clippy, Release-Bau; 24 native Aufnahmen, Umlaute, ruhige Pausenansicht und unveränderte Bildbereiche außerhalb der Namen. Workspace-Clippy: vorhandener Kernfehler. Visuelle Abnahme offen. |
