@@ -30,8 +30,9 @@
 - **Nächste Aktion:** Ein konkreter, abgegrenzter Auftrag mit Abnahmekriterium.
 
 ## Statuskopf in `versionsstand.md` (DevHub-Standard)
-Gilt seit 22.11.2026. Vollständiger Standard: `STANDARD-VERSIONSSTAND.md` im Repository `Derako91/Devhub`; jeder PR wird
-automatisch danach geprüft (`.github/workflows/devhub.yml`).
+Gilt seit 22.11.2026. Vollständiger Standard: `STANDARD-VERSIONSSTAND.md` im Repository `Derako91/Devhub`.
+**Keine automatische PR-Prüfung in diesem Repo:** Es ist öffentlich, und GitHub erlaubt öffentlichen Repos keine Actions aus
+dem privaten Devhub. Die Regeln gelten trotzdem; Verstöße zeigt die DevHub-Übersicht.
 - `versionsstand.md` ist die **einzige Statusquelle**: Projektblock (` ```yaml devhub-projekt `), je Arbeitspaket ein
   Abschnitt `## Paket <ID> – <Titel>` mit Block (` ```yaml devhub-paket `), Text (Problem / Funktioniert / Offen /
   Nächster Schritt / Verantwortlich / Branch+Commit / Tests) und eigenem Verlauf; darunter `## Historie` (unverändert).
