@@ -42,6 +42,28 @@ aktualisiert: 2026-11-22T21:00Z
 | 22.11.2026 | Workflow entfernt (öffentliches Repo), Commit `c67bdcc` | Validator lokal: gültig |
 | 22.11.2026 | Angenommen durch Merge PR #30 (`6c5fa82`), Dennis | – (Merge ist Annahme, kein Test) |
 
+## Paket P1 – Boote auf Meerfeldern
+
+```yaml devhub-paket
+id: P1
+titel: "Boote auf gemeinsam genutzten Meerfeldern nicht überlagern"
+agent: claude
+zustand: geplant
+naechster: dennis
+haengt_ab_von: []
+branch: feature/boote-versatz
+commit: null
+revier: []
+pruefstufe: keine
+tests: []
+frage: null
+aktualisiert: 2026-11-22T22:00Z
+```
+
+- **Stand:** **noch nicht begonnen**. Vorschlag aus der Historie (Claude, 22.11.2026), mit dem Merge von Dennis freigegeben.
+- Quelle: Historie (17.11.2026), „Problem“: „Auf gemeinsam genutzten Meerfeldern überlagern sich einzelne Boote trotz des kleinen vorgesehenen Versatzes … Platzierungsbeobachtung für Claude“. Der dort genannte nächste Schritt (PR #26 prüfen) ist erledigt – PR #26 wurde am 17.11. gemergt.
+- **Revier:** wird beim Start festgelegt (erster Commit des Pakets).
+
 ## Paket AE – Musik-Ebenen (Werkzeug)
 
 ```yaml devhub-paket
